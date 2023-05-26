@@ -2,21 +2,21 @@
 
 syntax = "proto3";
 
-package massa.api.v1;
+package massalabs.api.v1;
 
-import "block.proto";
-import "common.proto";
-import "endorsement.proto";
-import "execution.proto";
 import "google/api/annotations.proto";
 import "google/rpc/status.proto";
-import "operation.proto";
-import "slot.proto";
+import "massalabs/api/v1/block.proto";
+import "massalabs/api/v1/common.proto";
+import "massalabs/api/v1/endorsement.proto";
+import "massalabs/api/v1/execution.proto";
+import "massalabs/api/v1/operation.proto";
+import "massalabs/api/v1/slot.proto";
 
-option csharp_namespace = "Com.Massa.Api.V1";
+option csharp_namespace = "Com.massalabs.api.v1";
 option go_package = "github.com/massalabs/massa/api/v1;v1";
 option java_multiple_files = true;
-option java_package = "com.massa.api.v1";
+option java_package = "com.massalabs.api.v1";
 option objc_class_prefix = "GRPC";
 option php_namespace = "Com\\Massa\\Api\\V1";
 option ruby_package = "Com::Massa::Api::V1";
@@ -24,10 +24,9 @@ option swift_prefix = "GRPC";
 
 // Massa gRPC service
 service MassaService {
-
   // Get blocks by ids
   rpc GetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {
-    option (google.api.http) = { 
+    option (google.api.http) = {
       post: "/v1/get_blocks"
       body: "*"
     };
@@ -35,7 +34,7 @@ service MassaService {
 
   // Get blocks by slots
   rpc GetBlocksBySlots(GetBlocksBySlotsRequest) returns (GetBlocksBySlotsResponse) {
-    option (google.api.http) = { 
+    option (google.api.http) = {
       post: "/v1/get_blocks_by_slots"
       body: "*"
     };
@@ -43,7 +42,7 @@ service MassaService {
 
   // Get datastore entries
   rpc GetDatastoreEntries(GetDatastoreEntriesRequest) returns (GetDatastoreEntriesResponse) {
-    option (google.api.http) = { 
+    option (google.api.http) = {
       post: "/v1/get_datastore_entries"
       body: "*"
     };
@@ -51,10 +50,10 @@ service MassaService {
 
   // Get largest stakers
   rpc GetLargestStakers(GetLargestStakersRequest) returns (GetLargestStakersResponse) {
-      option (google.api.http) = { 
-        post: "/v1/get_largest_stakers"
-        body: "*"
-      };
+    option (google.api.http) = {
+      post: "/v1/get_largest_stakers"
+      body: "*"
+    };
   }
 
   // Get next block best parents
@@ -64,7 +63,7 @@ service MassaService {
 
   // Get operations
   rpc GetOperations(GetOperationsRequest) returns (GetOperationsResponse) {
-    option (google.api.http) = { 
+    option (google.api.http) = {
       post: "/v1/get_operations"
       body: "*"
     };
@@ -72,7 +71,7 @@ service MassaService {
 
   // Get smart contracts execution events
   rpc GetScExecutionEvents(GetScExecutionEventsRequest) returns (GetScExecutionEventsResponse) {
-    option (google.api.http) = { 
+    option (google.api.http) = {
       post: "/v1/get_sc_execution_events"
       body: "*"
     };

@@ -1,0 +1,41 @@
+version: v1
+managed:
+  enabled: true
+plugins:
+  - remote: buf.build/stephenh/plugins/ts-proto
+    out: gen/ts
+    opt:
+      - outputServices=...
+      - useExactTypes=...
+  - remote: buf.build/library/plugins/go
+    out: gen/go
+    opt:
+      - paths=source_relative
+  - remote: buf.build/library/plugins/go-grpc
+    out: gen/go
+    opt:
+      - paths=source_relative
+  - remote: buf.build/grpc-ecosystem/plugins/grpc-gateway
+    out: gen/go
+    opt:
+      - paths=source_relative
+  - plugin: buf.build/bufbuild/validate-java
+    out: gen/java
+  - plugin: buf.build/protocolbuffers/java
+    out: gen/java
+  - plugin: buf.build/grpc/kotlin
+    out: gen/kotlin
+  - plugin: buf.build/protocolbuffers/kotlin
+    out: gen/kotlin
+  - plugin: buf.build/grpc/php
+    out: gen/php
+  - plugin: buf.build/protocolbuffers/php
+    out: gen/php
+  - plugin: buf.build/grpc/python
+    out: gen/python
+  - plugin: buf.build/protocolbuffers/python
+    out: gen/python
+  - remote: buf.build/grpc-ecosystem/plugins/openapiv2
+    out: gen/openapiv2
+  - plugin: buf.build/community/pseudomuto-doc
+    out: gen/doc

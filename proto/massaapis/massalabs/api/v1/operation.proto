@@ -2,14 +2,14 @@
 
 syntax = "proto3";
 
-package massa.api.v1;
+package massalabs.api.v1;
 
-import "common.proto";
+import "massalabs/api/v1/common.proto";
 
-option csharp_namespace = "Com.Massa.Api.V1";
+option csharp_namespace = "Com.massalabs.api.v1";
 option go_package = "github.com/massalabs/massa/api/v1;v1";
 option java_multiple_files = true;
-option java_package = "com.massa.api.v1";
+option java_package = "com.massalabs.api.v1";
 option objc_class_prefix = "GRPC";
 option php_namespace = "Com\\Massa\\Api\\V1";
 option ruby_package = "Com::Massa::Api::V1";
@@ -101,24 +101,24 @@ message SignedOperation {
 
 // Possible statuses for an operation
 enum OperationStatus {
-  OPERATION_STATUS_UNSPECIFIED = 0;  // Default enum value
-  OPERATION_STATUS_PENDING = 1;  // The operation is still pending
-  OPERATION_STATUS_FINAL = 2;  // The operation is final
-  OPERATION_STATUS_SUCCESS = 3;  // The operation was executed successfully
-  OPERATION_STATUS_FAILURE = 4;  // The operation failed to execute
-  OPERATION_STATUS_UNKNOWN = 5;  // The status of the operation is unknown
+  OPERATION_STATUS_UNSPECIFIED = 0; // Default enum value
+  OPERATION_STATUS_PENDING = 1; // The operation is still pending
+  OPERATION_STATUS_FINAL = 2; // The operation is final
+  OPERATION_STATUS_SUCCESS = 3; // The operation was executed successfully
+  OPERATION_STATUS_FAILURE = 4; // The operation failed to execute
+  OPERATION_STATUS_UNKNOWN = 5; // The status of the operation is unknown
 }
 
 // A wrapper around an operation with its metadata
 message OperationWrapper {
-    // The unique ID of the operation.
-    string id = 1;
-    // The IDs of the blocks in which the operation appears
-    repeated string block_ids = 3;
-    // The thread in which the operation can be included
-    fixed32 thread = 5;
-    // The operation object itself
-    SignedOperation operation = 6;
-    // The execution statuses of the operation
-    repeated OperationStatus status = 7;
+  // The unique ID of the operation.
+  string id = 1;
+  // The IDs of the blocks in which the operation appears
+  repeated string block_ids = 3;
+  // The thread in which the operation can be included
+  fixed32 thread = 5;
+  // The operation object itself
+  SignedOperation operation = 6;
+  // The execution statuses of the operation
+  repeated OperationStatus status = 7;
 }

@@ -2,12 +2,12 @@
 
 syntax = "proto3";
 
-package massa.api.v1;
+package massalabs.api.v1;
 
-option csharp_namespace = "Com.Massa.Api.V1";
+option csharp_namespace = "Com.massalabs.api.v1";
 option go_package = "github.com/massalabs/massa/api/v1;v1";
 option java_multiple_files = true;
-option java_package = "com.massa.api.v1";
+option java_package = "com.massalabs.api.v1";
 option objc_class_prefix = "GRPC";
 option php_namespace = "Com\\Massa\\Api\\V1";
 option ruby_package = "Com::Massa::Api::V1";

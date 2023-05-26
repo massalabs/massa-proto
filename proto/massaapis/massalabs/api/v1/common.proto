@@ -2,34 +2,29 @@
 
 syntax = "proto3";
 
-package massa.api.v1;
+package massalabs.api.v1;
 
-import "slot.proto";
-
-option csharp_namespace = "Com.Massa.Api.V1";
+option csharp_namespace = "Com.massalabs.api.v1";
 option go_package = "github.com/massalabs/massa/api/v1;v1";
 option java_multiple_files = true;
-option java_package = "com.massa.api.v1";
+option java_package = "com.massalabs.api.v1";
 option objc_class_prefix = "GRPC";
 option php_namespace = "Com\\Massa\\Api\\V1";
 option ruby_package = "Com::Massa::Api::V1";
 option swift_prefix = "GRPC";
 
-// An endorsement, as sent in the network
-message Endorsement {
-  // Slot in which the endorsement can be included
-  Slot slot = 1;
-  // Endorsement index inside the including block
-  fixed32 index = 2;
-  // Hash of endorsed block
-  // This is the parent in thread `self.slot.thread` of the block in which the endorsement is included
-  string endorsed_block = 3;
+// BytesMapFieldEntry
+message BytesMapFieldEntry {
+  // bytes key
+  bytes key = 1;
+  // bytes key
+  bytes value = 2;
 }
 
-// Signed endorsement
-message SignedEndorsement {
-  // Endorsement
-  Endorsement content = 1;
+// Packages a type such that it can be securely sent and received in a trust-free network
+message SecureShare {
+  // Content in sharable, deserializable form. Is used in the secure verification protocols
+  bytes serialized_data = 1;
   // A cryptographically generated value using `serialized_data` and a public key.
   string signature = 2;
   // The public-key component used in the generation of the signature

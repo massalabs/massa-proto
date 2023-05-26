@@ -57,20 +57,17 @@ VSCode integration
 
 ```json
 {
-    // "rust-analyzer.rust.features": ["build-tonic"], // Enables the build-tonic feature for the Rust Analyzer extension.
-    "rust-analyzer.procMacro.enable": true,  // Enables Rust macro support for the Rust Analyzer extension.
-    "rust-analyzer.cargo.buildScripts.enable": true,  // Enables cargo build scripts for the Rust Analyzer extension.
     "protoc": {  // Specifies the configuration for the protoc plugin.
-        "path": "/path/to/protoc",  // Sets the path to the protoc binary that will be used to compile the protobuf files.
+        "path": "/opt/homebrew/bin/protoc",  // Sets the path to the protoc binary that will be used to compile the protobuf files.
         "compile_on_save": true,  // Enables automatic compilation of protobuf files when they are saved.
         "options": [  // Specifies the command line options that will be passed to protoc.
-            "{workspaceRoot}/**/*.proto",  // Specifies the path to the protobuf files that should be compiled.
-            "--proto_path=${workspaceRoot}/massa/api/v1",  // Specifies the directory to search for imported protobuf files.
-            "--proto_path=${workspaceRoot}/third-party",  // Specifies the directory to search for imported third-party protobuf files.
-            // "--java_out=${workspaceRoot}/target/",  // Generates Java code from the protobuf files.
+            "{workspaceRoot}/proto/massaapis/**/*.proto",  // Specifies the path to the protobuf files that should be compiled.
+            "--proto_path=${workspaceRoot}/proto/massaapis/",  // Specifies the directory to search for imported protobuf files.
+            "--proto_path=${workspaceRoot}/proto/third-party",  // Specifies the directory to search for imported third-party protobuf files.
+            "--java_out=${workspaceRoot}/gen/",  // Generates Java code from the protobuf files.
             // "--doc_out=${workspaceRoot}/doc/",  // Generates documentation in HTML/markdown format from the protobuf files.
             // "--doc_opt=html,api.html",  // Specifies the options for generating the HTML documentation.
-            // "--doc_opt=markdown,docs.md",  // Specifies the options for generating the markdown documentation.
+            // "--doc_opt=markdown,api.md",  // Specifies the options for generating the markdown documentation.
             // "--descriptor_set_out=${workspaceRoot}/src/api.bin"  // Generates a binary descriptor set for the protobuf files which is used for server reflection.
         ]
     }
@@ -87,9 +84,9 @@ Protoc examples
 Generate html documentation:
 ```bash
 protoc \
-  ./massa/**/*.proto \
-  --proto_path=./massa/api/v1 \
-  --proto_path=./third-party \
+  ./proto/massaapis/massalabs/**/*.proto \
+  --proto_path=./proto/massaapis/ \
+  --proto_path=./proto/third-party \
   --doc_out=./doc/ \
   --doc_opt=html,api.html
 ```
@@ -97,9 +94,9 @@ protoc \
 Generate markdown documentation:
 ```bash
 protoc \
-  ./massa/**/*.proto \
-  --proto_path=./massa/api/v1 \
-  --proto_path=./third-party \
+  ./proto/massaapis/**/*.proto \
+  --proto_path=./proto/massaapis/ \
+  --proto_path=./proto/third-party \
   --doc_out=./doc/ \
   --doc_opt=markdown,api.md
 ```
@@ -107,8 +104,8 @@ protoc \
 Test code generation:
 ```bash
 protoc \
-  ./**/*.proto \
-  --proto_path=./massa/api/v1 \
-  --proto_path=./third-party \
-  --java_out=./generated/
+  ./proto/massaapis/**/*.proto \
+  --proto_path=./proto/massaapis/ \
+  --proto_path=./proto/third-party \
+  --java_out=./gen/
 ```
