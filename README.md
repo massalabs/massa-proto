@@ -42,6 +42,7 @@ VSCode settings
         "options": [  // Specifies the command line options that will be passed to protoc.
             "{workspaceRoot}/proto/**/*.proto",  // Specifies the path to the protobuf files that should be compiled.
             "--proto_path=${workspaceRoot}/proto/",  // Specifies the directory to search for imported protobuf files.
+            "--proto_path=${workspaceRoot}/proto/commons",  // Specifies the directory to search for imported common protobuf files.
             "--proto_path=${workspaceRoot}/proto/third_party",  // Specifies the directory to search for imported third_party protobuf files.
             "--java_out=${workspaceRoot}/gen/",  // Generates Java code from the protobuf files.
             // "--doc_out=${workspaceRoot}/doc/",  // Generates documentation in HTML/markdown format from the protobuf files.
@@ -51,7 +52,6 @@ VSCode settings
         ]
     }
 }
-
 ```
 
 3- Add the snippet above to `.vscode/settings.json`.

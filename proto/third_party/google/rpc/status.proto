@@ -43,7 +43,7 @@ message Status {
   // by the client.
   string message = 2;
 
-  // A list of messages that carry the error details.  There is a common set of
+  // A list of messages that carry the error details.  There is a commons set of
   // message types for APIs to use.
   repeated google.protobuf.Any details = 3;
 }

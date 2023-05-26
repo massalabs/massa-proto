@@ -9,6 +9,7 @@ generate_docs() {
   echo "Generating ${doc_type} ${doc_name} documentation..."
   protoc $(find "${proto_dir}" -name '*.proto') \
     --proto_path="${proto_dir}" \
+    --proto_path=./proto/commons \
     --proto_path=./proto/third_party \
     --doc_out=./doc/ \
     --doc_opt="${doc_type},${doc_name}"

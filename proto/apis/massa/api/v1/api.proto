@@ -6,12 +6,12 @@ package massa.api.v1;
 
 import "google/api/annotations.proto";
 import "google/rpc/status.proto";
-import "massa/api/v1/block.proto";
-import "massa/api/v1/common.proto";
-import "massa/api/v1/endorsement.proto";
-import "massa/api/v1/execution.proto";
-import "massa/api/v1/operation.proto";
-import "massa/api/v1/slot.proto";
+import "massa/model/v1/block.proto";
+import "massa/model/v1/commons.proto";
+import "massa/model/v1/endorsement.proto";
+import "massa/model/v1/execution.proto";
+import "massa/model/v1/operation.proto";
+import "massa/model/v1/slot.proto";
 
 option csharp_namespace = "Com.Massa.Api.v1";
 option go_package = "github.com/massalabs/massa/api/v1;v1";
@@ -159,13 +159,13 @@ message GetBlocksResponse {
   // Context
   BlocksContext context = 2;
   // Blocks wrappers
-  repeated BlockWrapper blocks = 3;
+  repeated massa.model.v1.BlockWrapper blocks = 3;
 }
 
 // Blocks context
 message BlocksContext {
   // Slot
-  Slot slot = 1;
+  massa.model.v1.Slot slot = 1;
 }
 
 // GetBlocksBySlotsRequest holds request for GetBlocksBySlots
@@ -173,7 +173,7 @@ message GetBlocksBySlotsRequest {
   // Request id
   string id = 1;
   // Slots
-  repeated Slot slots = 2;
+  repeated massa.model.v1.Slot slots = 2;
 }
 
 // GetBlocksBySlotsResponse holds response from GetBlocksBySlots
@@ -181,7 +181,7 @@ message GetBlocksBySlotsResponse {
   // Request id
   string id = 1;
   // Blocks
-  repeated Block blocks = 2;
+  repeated massa.model.v1.Block blocks = 2;
 }
 
 // GetDatastoreEntriesRequest holds request from GetDatastoreEntries
@@ -260,7 +260,7 @@ message GetLargestStakersResponse {
 // LargestStakers context
 message LargestStakersContext {
   // Slot
-  Slot slot = 1;
+  massa.model.v1.Slot slot = 1;
 }
 
 // LargestStakerEntry
@@ -320,13 +320,13 @@ message GetOperationsResponse {
   // Context
   OperationsContext context = 2;
   //Operations wrappers
-  repeated OperationWrapper operations = 3;
+  repeated massa.model.v1.OperationWrapper operations = 3;
 }
 
 // Operations context
 message OperationsContext {
   // Slot
-  Slot slot = 1;
+  massa.model.v1.Slot slot = 1;
 }
 
 // GetScExecutionEventsRequest holds request for GetScExecutionEvents
@@ -346,9 +346,9 @@ message GetScExecutionEventsQuery {
 // GetScExecutionEvents Filter
 message GetScExecutionEventsFilter {
   // Start slot
-  optional Slot start_slot = 1;
+  optional massa.model.v1.Slot start_slot = 1;
   // End slot
-  optional Slot end_slot = 2;
+  optional massa.model.v1.Slot end_slot = 2;
   // Caller address
   optional string caller_address = 3;
   // Emitter address
@@ -356,7 +356,7 @@ message GetScExecutionEventsFilter {
   // Original operation id
   optional string original_operation_id = 5;
   // Status
-  repeated ScExecutionEventStatus status = 6;
+  repeated massa.model.v1.ScExecutionEventStatus status = 6;
 }
 
 // GetScExecutionEventsResponse holds response from GetScExecutionEvents
@@ -366,13 +366,13 @@ message GetScExecutionEventsResponse {
   // Context
   GetScExecutionEventsContext context = 2;
   //ScExecutionEvents
-  repeated ScExecutionEvent events = 3;
+  repeated massa.model.v1.ScExecutionEvent events = 3;
 }
 
 // ScExecutionEvents context
 message GetScExecutionEventsContext {
   // Slot
-  Slot slot = 1;
+  massa.model.v1.Slot slot = 1;
 }
 
 // GetSelectorDrawsRequest holds request from GetSelectorDraws
@@ -408,9 +408,9 @@ message SelectorDraws {
   // Address
   string address = 1;
   // Next block draws
-  repeated Slot next_block_draws = 2;
+  repeated massa.model.v1.Slot next_block_draws = 2;
   // Next endorsements draws
-  repeated IndexedSlot next_endorsement_draws = 3;
+  repeated massa.model.v1.IndexedSlot next_endorsement_draws = 3;
 }
 
 // GetTransactionsThroughputRequest holds request for GetTransactionsThroughput
@@ -452,7 +452,7 @@ message NewBlocksResponse {
   // Request id
   string id = 1;
   // Signed block
-  SignedBlock block = 2;
+  massa.model.v1.SignedBlock block = 2;
 }
 
 // NewBlocksHeadersRequest holds request for NewBlocksHeaders
@@ -466,7 +466,7 @@ message NewBlocksHeadersResponse {
   // Request id
   string id = 1;
   // Signed block header
-  SignedBlockHeader block_header = 2;
+  massa.model.v1.SignedBlockHeader block_header = 2;
 }
 
 // NewEndorsementsRequest holds request for NewEndorsements
@@ -480,7 +480,7 @@ message NewEndorsementsResponse {
   // Request id
   string id = 1;
   // Signed endorsement
-  SignedEndorsement endorsement = 2;
+  massa.model.v1.SignedEndorsement endorsement = 2;
 }
 
 // NewFilledBlocksRequest holds request for NewFilledBlocks
@@ -494,7 +494,7 @@ message NewFilledBlocksResponse {
   // Request id
   string id = 1;
   // Block with operations content
-  FilledBlock filled_block = 2;
+  massa.model.v1.FilledBlock filled_block = 2;
 }
 
 // NewOperationsRequest holds request for NewOperations
@@ -532,7 +532,7 @@ message NewOperationsResponse {
   // Request id
   string id = 1;
   // Signed operation
-  SignedOperation operation = 2;
+  massa.model.v1.SignedOperation operation = 2;
 }
 
 // NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs
@@ -552,7 +552,7 @@ message NewSlotExecutionOutputsQuery {
 // NewSlotExecutionOutputs Filter
 message NewSlotExecutionOutputsFilter {
   // Execution output status enum
-  repeated ExecutionOutputStatus status = 1;
+  repeated massa.model.v1.ExecutionOutputStatus status = 1;
 }
 
 // NewSlotExecutionOutputsResponse holds response from NewSlotExecutionOutputs
@@ -560,7 +560,7 @@ message NewSlotExecutionOutputsResponse {
   // Request id
   string id = 1;
   // Slot execution output
-  SlotExecutionOutput output = 2;
+  massa.model.v1.SlotExecutionOutput output = 2;
 }
 
 // SendBlocksRequest holds parameters to SendBlocks
@@ -568,7 +568,7 @@ message SendBlocksRequest {
   // Request id
   string id = 1;
   // Secure shared block
-  SecureShare block = 2;
+  massa.model.v1.SecureShare block = 2;
 }
 
 // SendBlocksResponse holds response from SendBlocks
@@ -595,7 +595,7 @@ message SendEndorsementsRequest {
   // Request id
   string id = 1;
   // Secure shared endorsements
-  repeated SecureShare endorsements = 2;
+  repeated massa.model.v1.SecureShare endorsements = 2;
 }
 
 // SendEndorsementsResponse holds response from SendEndorsements
@@ -622,7 +622,7 @@ message SendOperationsRequest {
   // Request id
   string id = 1;
   // Secured shared operations
-  repeated SecureShare operations = 2;
+  repeated massa.model.v1.SecureShare operations = 2;
 }
 
 // SendOperationsResponse holds response from SendOperations
