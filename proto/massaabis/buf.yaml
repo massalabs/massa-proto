@@ -1,8 +1,0 @@
-version: v1
-name: buf.build/massalabs/massaapis
-breaking:
-  use:
-    - FILE
-lint:
-  use:
-    - DEFAULT

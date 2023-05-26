@@ -1,5 +1,6 @@
+# Copyright (c) 2023 MASSA LABS <info@massa.net>
+
 version: v1
-name: buf.build/massalabs/massaapis
 breaking:
   use:
     - FILE

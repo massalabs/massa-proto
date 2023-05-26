@@ -1,5 +1,5 @@
 version: v1
 directories:
-    # - proto/massaabis
-    - proto/massaapis
-    - proto/third-party
+    - proto/abis
+    - proto/apis
+    - proto/third_party
