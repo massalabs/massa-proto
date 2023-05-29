@@ -28,6 +28,8 @@ For Windows users run:
 ./build.bat
 ```
 
+If you encounter issues with the `format` command on Windows, please refer to [this issue](https://github.com/bufbuild/buf/issues/1251) on the buf GitHub repository for potential solutions and workarounds.
+
 Postman integration
 -------------------
 You can easily import APIs collections from [Massa's Postman workspace](https://www.postman.com/massalabs) and start testing and exploring the provided functionalities by Massa API's.
