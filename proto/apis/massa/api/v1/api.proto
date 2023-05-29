@@ -8,6 +8,7 @@ import "google/api/annotations.proto";
 import "google/rpc/status.proto";
 import "massa/model/v1/block.proto";
 import "massa/model/v1/commons.proto";
+import "massa/model/v1/draw.proto";
 import "massa/model/v1/endorsement.proto";
 import "massa/model/v1/execution.proto";
 import "massa/model/v1/operation.proto";
@@ -345,15 +346,15 @@ message GetScExecutionEventsQuery {
 
 // GetScExecutionEvents Filter
 message GetScExecutionEventsFilter {
-  // Start slot
+  // Start slot (Optional)
   optional massa.model.v1.Slot start_slot = 1;
-  // End slot
+  // End slot (Optional)
   optional massa.model.v1.Slot end_slot = 2;
   // Caller address
   optional string caller_address = 3;
-  // Emitter address
+  // Emitter address (Optional)
   optional string emitter_address = 4;
-  // Original operation id
+  // Original operation id (Optional)
   optional string original_operation_id = 5;
   // Status
   repeated massa.model.v1.ScExecutionEventStatus status = 6;
@@ -400,17 +401,7 @@ message GetSelectorDrawsResponse {
   // Request id
   string id = 1;
   // Selector draws
-  repeated SelectorDraws selector_draws = 2;
-}
-
-// Selector draws
-message SelectorDraws {
-  // Address
-  string address = 1;
-  // Next block draws
-  repeated massa.model.v1.Slot next_block_draws = 2;
-  // Next endorsements draws
-  repeated massa.model.v1.IndexedSlot next_endorsement_draws = 3;
+  repeated massa.model.v1.SelectorDraws selector_draws = 2;
 }
 
 // GetTransactionsThroughputRequest holds request for GetTransactionsThroughput

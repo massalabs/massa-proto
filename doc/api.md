@@ -60,7 +60,6 @@
     - [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse)
     - [OperationResult](#massa-api-v1-OperationResult)
     - [OperationsContext](#massa-api-v1-OperationsContext)
-    - [SelectorDraws](#massa-api-v1-SelectorDraws)
     - [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter)
     - [SelectorDrawsQuery](#massa-api-v1-SelectorDrawsQuery)
     - [SendBlocksRequest](#massa-api-v1-SendBlocksRequest)
@@ -472,11 +471,11 @@ GetScExecutionEvents Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| start_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) | optional | Start slot |
-| end_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) | optional | End slot |
+| start_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) | optional | Start slot (Optional) |
+| end_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) | optional | End slot (Optional) |
 | caller_address | [string](#string) | optional | Caller address |
-| emitter_address | [string](#string) | optional | Emitter address |
-| original_operation_id | [string](#string) | optional | Original operation id |
+| emitter_address | [string](#string) | optional | Emitter address (Optional) |
+| original_operation_id | [string](#string) | optional | Original operation id (Optional) |
 | status | [massa.model.v1.ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) | repeated | Status |
 
 
@@ -557,7 +556,7 @@ GetSelectorDrawsResponse holds response from GetSelectorDraws
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Request id |
-| selector_draws | [SelectorDraws](#massa-api-v1-SelectorDraws) | repeated | Selector draws |
+| selector_draws | [massa.model.v1.SelectorDraws](#massa-model-v1-SelectorDraws) | repeated | Selector draws |
 
 
 
@@ -962,23 +961,6 @@ Operations context
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Slot |
-
-
-
-
-
-
-<a name="massa-api-v1-SelectorDraws"></a>
-
-### SelectorDraws
-Selector draws
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address |
-| next_block_draws | [massa.model.v1.Slot](#massa-model-v1-Slot) | repeated | Next block draws |
-| next_endorsement_draws | [massa.model.v1.IndexedSlot](#massa-model-v1-IndexedSlot) | repeated | Next endorsements draws |
 
 
 

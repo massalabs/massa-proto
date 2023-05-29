@@ -403,10 +403,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.SelectorDraws"><span class="badge">M</span>SelectorDraws</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.SelectorDrawsFilter"><span class="badge">M</span>SelectorDrawsFilter</a>
                 </li>
               
@@ -1181,14 +1177,14 @@
                   <td>start_slot</td>
                   <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
                   <td>optional</td>
-                  <td><p>Start slot </p></td>
+                  <td><p>Start slot (Optional) </p></td>
                 </tr>
               
                 <tr>
                   <td>end_slot</td>
                   <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
                   <td>optional</td>
-                  <td><p>End slot </p></td>
+                  <td><p>End slot (Optional) </p></td>
                 </tr>
               
                 <tr>
@@ -1202,14 +1198,14 @@
                   <td>emitter_address</td>
                   <td><a href="#string">string</a></td>
                   <td>optional</td>
-                  <td><p>Emitter address </p></td>
+                  <td><p>Emitter address (Optional) </p></td>
                 </tr>
               
                 <tr>
                   <td>original_operation_id</td>
                   <td><a href="#string">string</a></td>
                   <td>optional</td>
-                  <td><p>Original operation id </p></td>
+                  <td><p>Original operation id (Optional) </p></td>
                 </tr>
               
                 <tr>
@@ -1369,7 +1365,7 @@
               
                 <tr>
                   <td>selector_draws</td>
-                  <td><a href="#massa.api.v1.SelectorDraws">SelectorDraws</a></td>
+                  <td><a href="#massa.model.v1.SelectorDraws">massa.model.v1.SelectorDraws</a></td>
                   <td>repeated</td>
                   <td><p>Selector draws </p></td>
                 </tr>
@@ -2094,44 +2090,6 @@
                   <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
                   <td></td>
                   <td><p>Slot </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.SelectorDraws">SelectorDraws</h3>
-        <p>Selector draws</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>address</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Address </p></td>
-                </tr>
-              
-                <tr>
-                  <td>next_block_draws</td>
-                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
-                  <td>repeated</td>
-                  <td><p>Next block draws </p></td>
-                </tr>
-              
-                <tr>
-                  <td>next_endorsement_draws</td>
-                  <td><a href="#massa.model.v1.IndexedSlot">massa.model.v1.IndexedSlot</a></td>
-                  <td>repeated</td>
-                  <td><p>Next endorsements draws </p></td>
                 </tr>
               
             </tbody>
