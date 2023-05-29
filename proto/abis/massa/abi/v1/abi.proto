@@ -13,48 +13,45 @@ option php_namespace = "Com\\Massa\\Abi\\V1";
 option ruby_package = "Com::Massa::Abi::V1";
 option swift_prefix = "MABI";
 
-// NativeAddress is the address of a smart contract
-message NativeAddress {
-  // Address is the address of the smart contract
-  fixed32 category = 1;
-  // Version is the version of the smart contract
-  fixed32 version = 2;
-  // Content is the content of the smart contract
-  bytes content = 3;
+
+// Address
+message Address {
+  // Address is a string representation of the address
+  string address = 1;
 }
 
-// NativeAmount is represented as a fraction so precision can be adjusted in
-// the future.
-message NativeAmount {
-  // Numerator is the numerator of the fraction
-  fixed64 numerator = 1;
-  // Denominator is the denominator of the fraction
-  fixed64 denominator = 2;
+// Amount
+message Amount {
+  // Amount is a 64-bit unsigned integer
+  fixed64 amount = 1;
 }
 
 // Empty
-message Empty {}
+message Empty {
+}
 
+// CreateSC
 message CreateSCRequest {
   // Bytecode is the compiled code of the smart contract
   bytes bytecode = 1;
 }
 
+//  CreateSCResponse
 message CreateSCResponse {
-  // Sc_address is the address of the smart contract
-  NativeAddress sc_address = 1;
+  // Address is a string representation of the address
+  Address address = 1;
 }
 
 // CallSC
 message CallRequest {
-  // Target_sc_address is the address of the smart contract to call
-  NativeAddress target_sc_address = 1;
+  // Address is the address of the smart contract
+  Address address = 1;
   // Function is the name of the function to call
-  string target_function_name = 2;
-  // Argument to the function serialized in a byte array.
-  bytes function_arg = 3;
+  string function = 2;
+  // Arg is the argument to the function
+  bytes arg = 3;
   // call_coins is the amount of coins to pay for the call
-  NativeAmount call_coins = 4;
+  Amount call_coins = 4;
 }
 
 // CallResponse
@@ -65,12 +62,12 @@ message CallResponse {
 
 // LocalCall
 message LocalCallRequest {
-  // Target_sc_address is the address of the smart contract to call
-  NativeAddress target_sc_address = 1;
+  // Address is the address of the smart contract
+  Address address = 1;
   // Function is the name of the function to call
-  string target_function_name = 2;
-  // Argument to the function serialized in a byte array.
-  bytes function_arg = 3;
+  string function = 2;
+  // Arg is the argument to the function
+  bytes arg = 3;
 }
 
 // LocalCallResponse
@@ -87,37 +84,22 @@ message GenerateEventRequest {
 
 // TransferCoins
 message TransferCoinsRequest {
-  // Target_address is the address to transfer coins to
-  NativeAddress target_address = 1;
-  // Amount_to_transfer is the amount of coins to transfer
-  NativeAmount amount_to_transfer = 2;
+  // To_address is the address to transfer coins to
+  Address to_address = 1;
+  // Amount is the amount of coins to transfer
+  Amount raw_amount = 2;
 }
 
 // FunctionExists
 message FunctionExistsRequest {
-  // Target_sc_address is the address of the smart contract to check
-  NativeAddress target_sc_address = 1;
+  // Address is the address of the smart contract
+  Address address = 1;
   // Function is the name of the function to call
-  string function_name = 2;
+  string function = 2;
 }
 
 // FunctionExistsResponse
 message FunctionExistsResponse {
   // Exists is true if the function exists
   bool exists = 1;
-}
-
-// LogRequest
-message LogRequest {
-  string message = 1;
-}
-
-// TestRequest
-message TestRequest {
-  bytes message_in = 1;
-}
-
-// TestResponse
-message TestResponse {
-  bytes message_out = 1;
 }
