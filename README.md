@@ -23,6 +23,11 @@ You can lint, format and update the generated documentation from protobuf files 
 ./build.sh
 ```
 
+For Windows users run:
+```powershell
+./build.bat
+```
+
 Postman integration
 -------------------
 You can easily import APIs collections from [Massa's Postman workspace](https://www.postman.com/massalabs) and start testing and exploring the provided functionalities by Massa API's.
@@ -32,7 +37,7 @@ VSCode settings
 
 1- Install [vscode-proto3](https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3) extension.
 
-2- The following settings contain a `protoc` configuration block:
+2- The following settings contain a `protoc` configuration block with Java generation output:
 
 ```json
 {
@@ -45,10 +50,6 @@ VSCode settings
             "--proto_path=${workspaceRoot}/proto/commons",  // Specifies the directory to search for imported common protobuf files.
             "--proto_path=${workspaceRoot}/proto/third_party",  // Specifies the directory to search for imported third_party protobuf files.
             "--java_out=${workspaceRoot}/gen/",  // Generates Java code from the protobuf files.
-            // "--doc_out=${workspaceRoot}/doc/",  // Generates documentation in HTML/markdown format from the protobuf files.
-            // "--doc_opt=html,api.html",  // Specifies the options for generating the HTML documentation.
-            // "--doc_opt=markdown,api.md",  // Specifies the options for generating the markdown documentation.
-            // "--descriptor_set_out=${workspaceRoot}/src/api.bin"  // Generates a binary descriptor set for the protobuf files which is used for server reflection.
         ]
     }
 }
