@@ -21,16 +21,22 @@ echo "Linting and formatting proto files..."
 buf lint && buf format -w
 echo "Proto files linted and formatted successfully."
 
+# Generate ABI documentation
+echo "Generating ABI documentation..."
+generate_docs "./proto/abis" "html" "abi.html"
+generate_docs "./proto/abis" "markdown" "abi.md"
+echo "ABI documentation generated successfully."
+
 # Generate API documentation
 echo "Generating API documentation..."
 generate_docs "./proto/apis" "html" "api.html"
 generate_docs "./proto/apis" "markdown" "api.md"
 echo "API documentation generated successfully."
 
-# Generate ABI documentation
-echo "Generating ABI documentation..."
-generate_docs "./proto/abis" "html" "abi.html"
-generate_docs "./proto/abis" "markdown" "abi.md"
-echo "ABI documentation generated successfully."
+# Generate COMMONS documentation
+echo "Generating COMMONS documentation..."
+generate_docs "./proto/commons" "html" "commons.html"
+generate_docs "./proto/commons" "markdown" "commons.md"
+echo "COMMONS documentation generated successfully."
 
 echo "Massa proto build finished!"

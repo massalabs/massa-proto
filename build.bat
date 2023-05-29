@@ -9,17 +9,23 @@ echo Linting and formatting proto files...
 buf lint && buf format -w
 echo Proto files linted and formatted successfully.
 
+REM Generate ABI documentation
+echo Generating ABI documentation...
+call :generate_docs "proto/abis" "html" "abi.html"
+call :generate_docs "proto/abis" "markdown" "abi.md"
+echo ABI documentation generated successfully.
+
 REM Generate API documentation
 echo Generating API documentation...
 call :generate_docs "proto/apis" "html" "api.html"
 call :generate_docs "proto/apis" "markdown" "api.md"
 echo API documentation generated successfully.
 
-REM Generate ABI documentation
-echo Generating ABI documentation...
-call :generate_docs "proto/abis" "html" "abi.html"
-call :generate_docs "proto/abis" "markdown" "abi.md"
-echo ABI documentation generated successfully.
+REM Generate COMMONS documentation
+echo Generating COMMONS documentation...
+call :generate_docs "proto/commons" "html" "commons.html"
+call :generate_docs "proto/commons" "markdown" "commons.md"
+echo COMMONS documentation generated successfully.
 
 echo Massa proto build finished!
 
