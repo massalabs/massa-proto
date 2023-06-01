@@ -190,6 +190,37 @@
         
           
           <li>
+            <a href="#massa%2fmodel%2fv1%2fversioning.proto">massa/model/v1/versioning.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#massa.model.v1.MipComponentEntry"><span class="badge">M</span>MipComponentEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.MipInfo"><span class="badge">M</span>MipInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.MipStatusEntry"><span class="badge">M</span>MipStatusEntry</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#massa.model.v1.ComponentStateId"><span class="badge">E</span>ComponentStateId</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.MipComponent"><span class="badge">E</span>MipComponent</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#massa%2fmodel%2fv1%2foperation.proto">massa/model/v1/operation.proto</a>
             <ul>
               
@@ -517,6 +548,223 @@
         
       
 
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="massa/model/v1/versioning.proto">massa/model/v1/versioning.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="massa.model.v1.MipComponentEntry">MipComponentEntry</h3>
+        <p>MipComponentEntry</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>kind</td>
+                  <td><a href="#massa.model.v1.MipComponent">MipComponent</a></td>
+                  <td></td>
+                  <td><p>Kind </p></td>
+                </tr>
+              
+                <tr>
+                  <td>version</td>
+                  <td><a href="#fixed32">fixed32</a></td>
+                  <td></td>
+                  <td><p>Version </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.MipInfo">MipInfo</h3>
+        <p>MIP info (name & versions & time range for a MIP)</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MIP name or descriptive name </p></td>
+                </tr>
+              
+                <tr>
+                  <td>version</td>
+                  <td><a href="#fixed32">fixed32</a></td>
+                  <td></td>
+                  <td><p>Network (or global) version (to be included in block header) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>start</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>A timestamp at which the version gains its meaning (e.g. announced in block header) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>timeout</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>A timestamp at the which the deployment is considered failed </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activation_delay</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Once deployment has been locked, wait for this duration before deployment is considered active </p></td>
+                </tr>
+              
+                <tr>
+                  <td>components</td>
+                  <td><a href="#massa.model.v1.MipComponentEntry">MipComponentEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>Components concerned by this versioning (e.g. a new Block version), and the associated component_version </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.MipStatusEntry">MipStatusEntry</h3>
+        <p>Entry for GetMipStatusResponse</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mip_info</td>
+                  <td><a href="#massa.model.v1.MipInfo">MipInfo</a></td>
+                  <td></td>
+                  <td><p>Mip info </p></td>
+                </tr>
+              
+                <tr>
+                  <td>state_id</td>
+                  <td><a href="#massa.model.v1.ComponentStateId">ComponentStateId</a></td>
+                  <td></td>
+                  <td><p>State id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="massa.model.v1.ComponentStateId">ComponentStateId</h3>
+        <p>State machine for a Versioning component that tracks the deployment state</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>COMPONENT_STATE_ID_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p>Default enum value</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPONENT_STATE_ID_ERROR</td>
+                <td>1</td>
+                <td><p>Error state</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPONENT_STATE_ID_DEFINED</td>
+                <td>2</td>
+                <td><p>Initial state</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPONENT_STATE_ID_STARTED</td>
+                <td>3</td>
+                <td><p>Past start, can only go to LockedIn after the threshold is above a given value</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPONENT_STATE_ID_LOCKEDIN</td>
+                <td>4</td>
+                <td><p>Locked but wait for some time before going to active (to let users the time to upgrade)</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPONENT_STATE_ID_ACTIVE</td>
+                <td>5</td>
+                <td><p>After LockedIn, deployment is considered successful (after activation delay)</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPONENT_STATE_ID_FAILED</td>
+                <td>6</td>
+                <td><p>Past the timeout, if LockedIn is not reach</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="massa.model.v1.MipComponent">MipComponent</h3>
+        <p>Versioning component enum</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>MIP_COMPONENT_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p>Default enum value</p></td>
+              </tr>
+            
+              <tr>
+                <td>MIP_COMPONENT_ADDRESS</td>
+                <td>1</td>
+                <td><p>Address component</p></td>
+              </tr>
+            
+              <tr>
+                <td>MIP_COMPONENT_KEYPAIR</td>
+                <td>2</td>
+                <td><p>Keypair component</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
 
       

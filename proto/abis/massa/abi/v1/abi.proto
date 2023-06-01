@@ -13,7 +13,6 @@ option php_namespace = "Com\\Massa\\Abi\\V1";
 option ruby_package = "Com::Massa::Abi::V1";
 option swift_prefix = "MABI";
 
-
 // Address
 message Address {
   // Address is a string representation of the address
@@ -27,8 +26,7 @@ message Amount {
 }
 
 // Empty
-message Empty {
-}
+message Empty {}
 
 // CreateSC
 message CreateSCRequest {
@@ -36,7 +34,7 @@ message CreateSCRequest {
   bytes bytecode = 1;
 }
 
-//  CreateSCResponse
+// CreateSCResponse
 message CreateSCResponse {
   // Address is a string representation of the address
   Address address = 1;
