@@ -179,6 +179,14 @@
             <ul>
               
                 <li>
+                  <a href="#massa.abi.v1.Address"><span class="badge">M</span>Address</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.Amount"><span class="badge">M</span>Amount</a>
+                </li>
+              
+                <li>
                   <a href="#massa.abi.v1.CallRequest"><span class="badge">M</span>CallRequest</a>
                 </li>
               
@@ -219,26 +227,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.abi.v1.LogRequest"><span class="badge">M</span>LogRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.NativeAddress"><span class="badge">M</span>NativeAddress</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.NativeAmount"><span class="badge">M</span>NativeAmount</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.TestRequest"><span class="badge">M</span>TestRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.TestResponse"><span class="badge">M</span>TestResponse</a>
-                </li>
-              
-                <li>
                   <a href="#massa.abi.v1.TransferCoinsRequest"><span class="badge">M</span>TransferCoinsRequest</a>
                 </li>
               
@@ -260,6 +248,54 @@
       <p></p>
 
       
+        <h3 id="massa.abi.v1.Address">Address</h3>
+        <p>Address</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Address is a string representation of the address </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.Amount">Amount</h3>
+        <p>Amount</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>amount</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Amount is a 64-bit unsigned integer </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.abi.v1.CallRequest">CallRequest</h3>
         <p>CallSC</p>
 
@@ -271,29 +307,29 @@
             <tbody>
               
                 <tr>
-                  <td>target_sc_address</td>
-                  <td><a href="#massa.abi.v1.NativeAddress">NativeAddress</a></td>
+                  <td>address</td>
+                  <td><a href="#massa.abi.v1.Address">Address</a></td>
                   <td></td>
-                  <td><p>Target_sc_address is the address of the smart contract to call </p></td>
+                  <td><p>Address is the address of the smart contract </p></td>
                 </tr>
               
                 <tr>
-                  <td>target_function_name</td>
+                  <td>function</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Function is the name of the function to call </p></td>
                 </tr>
               
                 <tr>
-                  <td>function_arg</td>
+                  <td>arg</td>
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
-                  <td><p>Argument to the function serialized in a byte array. </p></td>
+                  <td><p>Arg is the argument to the function </p></td>
                 </tr>
               
                 <tr>
                   <td>call_coins</td>
-                  <td><a href="#massa.abi.v1.NativeAmount">NativeAmount</a></td>
+                  <td><a href="#massa.abi.v1.Amount">Amount</a></td>
                   <td></td>
                   <td><p>call_coins is the amount of coins to pay for the call </p></td>
                 </tr>
@@ -330,7 +366,7 @@
         
       
         <h3 id="massa.abi.v1.CreateSCRequest">CreateSCRequest</h3>
-        <p></p>
+        <p>CreateSC</p>
 
         
           <table class="field-table">
@@ -354,7 +390,7 @@
         
       
         <h3 id="massa.abi.v1.CreateSCResponse">CreateSCResponse</h3>
-        <p></p>
+        <p>CreateSCResponse</p>
 
         
           <table class="field-table">
@@ -364,10 +400,10 @@
             <tbody>
               
                 <tr>
-                  <td>sc_address</td>
-                  <td><a href="#massa.abi.v1.NativeAddress">NativeAddress</a></td>
+                  <td>address</td>
+                  <td><a href="#massa.abi.v1.Address">Address</a></td>
                   <td></td>
-                  <td><p>Sc_address is the address of the smart contract </p></td>
+                  <td><p>Address is a string representation of the address </p></td>
                 </tr>
               
             </tbody>
@@ -395,14 +431,14 @@
             <tbody>
               
                 <tr>
-                  <td>target_sc_address</td>
-                  <td><a href="#massa.abi.v1.NativeAddress">NativeAddress</a></td>
+                  <td>address</td>
+                  <td><a href="#massa.abi.v1.Address">Address</a></td>
                   <td></td>
-                  <td><p>Target_sc_address is the address of the smart contract to check </p></td>
+                  <td><p>Address is the address of the smart contract </p></td>
                 </tr>
               
                 <tr>
-                  <td>function_name</td>
+                  <td>function</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Function is the name of the function to call </p></td>
@@ -474,24 +510,24 @@
             <tbody>
               
                 <tr>
-                  <td>target_sc_address</td>
-                  <td><a href="#massa.abi.v1.NativeAddress">NativeAddress</a></td>
+                  <td>address</td>
+                  <td><a href="#massa.abi.v1.Address">Address</a></td>
                   <td></td>
-                  <td><p>Target_sc_address is the address of the smart contract to call </p></td>
+                  <td><p>Address is the address of the smart contract </p></td>
                 </tr>
               
                 <tr>
-                  <td>target_function_name</td>
+                  <td>function</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Function is the name of the function to call </p></td>
                 </tr>
               
                 <tr>
-                  <td>function_arg</td>
+                  <td>arg</td>
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
-                  <td><p>Argument to the function serialized in a byte array. </p></td>
+                  <td><p>Arg is the argument to the function </p></td>
                 </tr>
               
             </tbody>
@@ -525,147 +561,6 @@
 
         
       
-        <h3 id="massa.abi.v1.LogRequest">LogRequest</h3>
-        <p>LogRequest</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>message</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.NativeAddress">NativeAddress</h3>
-        <p>NativeAddress is the address of a smart contract</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>category</td>
-                  <td><a href="#fixed32">fixed32</a></td>
-                  <td></td>
-                  <td><p>Address is the address of the smart contract </p></td>
-                </tr>
-              
-                <tr>
-                  <td>version</td>
-                  <td><a href="#fixed32">fixed32</a></td>
-                  <td></td>
-                  <td><p>Version is the version of the smart contract </p></td>
-                </tr>
-              
-                <tr>
-                  <td>content</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Content is the content of the smart contract </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.NativeAmount">NativeAmount</h3>
-        <p>NativeAmount is represented as a fraction so precision can be adjusted in</p><p>the future.</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>numerator</td>
-                  <td><a href="#fixed64">fixed64</a></td>
-                  <td></td>
-                  <td><p>Numerator is the numerator of the fraction </p></td>
-                </tr>
-              
-                <tr>
-                  <td>denominator</td>
-                  <td><a href="#fixed64">fixed64</a></td>
-                  <td></td>
-                  <td><p>Denominator is the denominator of the fraction </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.TestRequest">TestRequest</h3>
-        <p>TestRequest</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>message_in</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.TestResponse">TestResponse</h3>
-        <p>TestResponse</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>message_out</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.abi.v1.TransferCoinsRequest">TransferCoinsRequest</h3>
         <p>TransferCoins</p>
 
@@ -677,17 +572,17 @@
             <tbody>
               
                 <tr>
-                  <td>target_address</td>
-                  <td><a href="#massa.abi.v1.NativeAddress">NativeAddress</a></td>
+                  <td>to_address</td>
+                  <td><a href="#massa.abi.v1.Address">Address</a></td>
                   <td></td>
-                  <td><p>Target_address is the address to transfer coins to </p></td>
+                  <td><p>To_address is the address to transfer coins to </p></td>
                 </tr>
               
                 <tr>
-                  <td>amount_to_transfer</td>
-                  <td><a href="#massa.abi.v1.NativeAmount">NativeAmount</a></td>
+                  <td>raw_amount</td>
+                  <td><a href="#massa.abi.v1.Amount">Amount</a></td>
                   <td></td>
-                  <td><p>Amount_to_transfer is the amount of coins to transfer </p></td>
+                  <td><p>Amount is the amount of coins to transfer </p></td>
                 </tr>
               
             </tbody>

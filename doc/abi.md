@@ -4,6 +4,8 @@
 ## Table of Contents
 
 - [massa/abi/v1/abi.proto](#massa_abi_v1_abi-proto)
+    - [Address](#massa-abi-v1-Address)
+    - [Amount](#massa-abi-v1-Amount)
     - [CallRequest](#massa-abi-v1-CallRequest)
     - [CallResponse](#massa-abi-v1-CallResponse)
     - [CreateSCRequest](#massa-abi-v1-CreateSCRequest)
@@ -14,11 +16,6 @@
     - [GenerateEventRequest](#massa-abi-v1-GenerateEventRequest)
     - [LocalCallRequest](#massa-abi-v1-LocalCallRequest)
     - [LocalCallResponse](#massa-abi-v1-LocalCallResponse)
-    - [LogRequest](#massa-abi-v1-LogRequest)
-    - [NativeAddress](#massa-abi-v1-NativeAddress)
-    - [NativeAmount](#massa-abi-v1-NativeAmount)
-    - [TestRequest](#massa-abi-v1-TestRequest)
-    - [TestResponse](#massa-abi-v1-TestResponse)
     - [TransferCoinsRequest](#massa-abi-v1-TransferCoinsRequest)
   
 - [Scalar Value Types](#scalar-value-types)
@@ -32,6 +29,36 @@
 
 
 
+<a name="massa-abi-v1-Address"></a>
+
+### Address
+Address
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  | Address is a string representation of the address |
+
+
+
+
+
+
+<a name="massa-abi-v1-Amount"></a>
+
+### Amount
+Amount
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| amount | [fixed64](#fixed64) |  | Amount is a 64-bit unsigned integer |
+
+
+
+
+
+
 <a name="massa-abi-v1-CallRequest"></a>
 
 ### CallRequest
@@ -40,10 +67,10 @@ CallSC
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_sc_address | [NativeAddress](#massa-abi-v1-NativeAddress) |  | Target_sc_address is the address of the smart contract to call |
-| target_function_name | [string](#string) |  | Function is the name of the function to call |
-| function_arg | [bytes](#bytes) |  | Argument to the function serialized in a byte array. |
-| call_coins | [NativeAmount](#massa-abi-v1-NativeAmount) |  | call_coins is the amount of coins to pay for the call |
+| address | [Address](#massa-abi-v1-Address) |  | Address is the address of the smart contract |
+| function | [string](#string) |  | Function is the name of the function to call |
+| arg | [bytes](#bytes) |  | Arg is the argument to the function |
+| call_coins | [Amount](#massa-abi-v1-Amount) |  | call_coins is the amount of coins to pay for the call |
 
 
 
@@ -68,7 +95,7 @@ CallResponse
 <a name="massa-abi-v1-CreateSCRequest"></a>
 
 ### CreateSCRequest
-
+CreateSC
 
 
 | Field | Type | Label | Description |
@@ -83,12 +110,12 @@ CallResponse
 <a name="massa-abi-v1-CreateSCResponse"></a>
 
 ### CreateSCResponse
-
+CreateSCResponse
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| sc_address | [NativeAddress](#massa-abi-v1-NativeAddress) |  | Sc_address is the address of the smart contract |
+| address | [Address](#massa-abi-v1-Address) |  | Address is a string representation of the address |
 
 
 
@@ -113,8 +140,8 @@ FunctionExists
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_sc_address | [NativeAddress](#massa-abi-v1-NativeAddress) |  | Target_sc_address is the address of the smart contract to check |
-| function_name | [string](#string) |  | Function is the name of the function to call |
+| address | [Address](#massa-abi-v1-Address) |  | Address is the address of the smart contract |
+| function | [string](#string) |  | Function is the name of the function to call |
 
 
 
@@ -159,9 +186,9 @@ LocalCall
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_sc_address | [NativeAddress](#massa-abi-v1-NativeAddress) |  | Target_sc_address is the address of the smart contract to call |
-| target_function_name | [string](#string) |  | Function is the name of the function to call |
-| function_arg | [bytes](#bytes) |  | Argument to the function serialized in a byte array. |
+| address | [Address](#massa-abi-v1-Address) |  | Address is the address of the smart contract |
+| function | [string](#string) |  | Function is the name of the function to call |
+| arg | [bytes](#bytes) |  | Arg is the argument to the function |
 
 
 
@@ -183,85 +210,6 @@ LocalCallResponse
 
 
 
-<a name="massa-abi-v1-LogRequest"></a>
-
-### LogRequest
-LogRequest
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| message | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeAddress"></a>
-
-### NativeAddress
-NativeAddress is the address of a smart contract
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| category | [fixed32](#fixed32) |  | Address is the address of the smart contract |
-| version | [fixed32](#fixed32) |  | Version is the version of the smart contract |
-| content | [bytes](#bytes) |  | Content is the content of the smart contract |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeAmount"></a>
-
-### NativeAmount
-NativeAmount is represented as a fraction so precision can be adjusted in
-the future.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| numerator | [fixed64](#fixed64) |  | Numerator is the numerator of the fraction |
-| denominator | [fixed64](#fixed64) |  | Denominator is the denominator of the fraction |
-
-
-
-
-
-
-<a name="massa-abi-v1-TestRequest"></a>
-
-### TestRequest
-TestRequest
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| message_in | [bytes](#bytes) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-TestResponse"></a>
-
-### TestResponse
-TestResponse
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| message_out | [bytes](#bytes) |  |  |
-
-
-
-
-
-
 <a name="massa-abi-v1-TransferCoinsRequest"></a>
 
 ### TransferCoinsRequest
@@ -270,8 +218,8 @@ TransferCoins
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_address | [NativeAddress](#massa-abi-v1-NativeAddress) |  | Target_address is the address to transfer coins to |
-| amount_to_transfer | [NativeAmount](#massa-abi-v1-NativeAmount) |  | Amount_to_transfer is the amount of coins to transfer |
+| to_address | [Address](#massa-abi-v1-Address) |  | To_address is the address to transfer coins to |
+| raw_amount | [Amount](#massa-abi-v1-Amount) |  | Amount is the amount of coins to transfer |
 
 
 

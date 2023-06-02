@@ -6,6 +6,14 @@
 - [massa/model/v1/draw.proto](#massa_model_v1_draw-proto)
     - [SelectorDraws](#massa-model-v1-SelectorDraws)
   
+- [massa/model/v1/versioning.proto](#massa_model_v1_versioning-proto)
+    - [MipComponentEntry](#massa-model-v1-MipComponentEntry)
+    - [MipInfo](#massa-model-v1-MipInfo)
+    - [MipStatusEntry](#massa-model-v1-MipStatusEntry)
+  
+    - [ComponentStateId](#massa-model-v1-ComponentStateId)
+    - [MipComponent](#massa-model-v1-MipComponent)
+  
 - [massa/model/v1/operation.proto](#massa_model_v1_operation-proto)
     - [CallSC](#massa-model-v1-CallSC)
     - [ExecuteSC](#massa-model-v1-ExecuteSC)
@@ -102,6 +110,104 @@ Selector draws
 
 
  
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="massa_model_v1_versioning-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/versioning.proto
+
+
+
+<a name="massa-model-v1-MipComponentEntry"></a>
+
+### MipComponentEntry
+MipComponentEntry
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| kind | [MipComponent](#massa-model-v1-MipComponent) |  | Kind |
+| version | [fixed32](#fixed32) |  | Version |
+
+
+
+
+
+
+<a name="massa-model-v1-MipInfo"></a>
+
+### MipInfo
+MIP info (name &amp; versions &amp; time range for a MIP)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  | MIP name or descriptive name |
+| version | [fixed32](#fixed32) |  | Network (or global) version (to be included in block header) |
+| start | [fixed64](#fixed64) |  | A timestamp at which the version gains its meaning (e.g. announced in block header) |
+| timeout | [fixed64](#fixed64) |  | A timestamp at the which the deployment is considered failed |
+| activation_delay | [fixed64](#fixed64) |  | Once deployment has been locked, wait for this duration before deployment is considered active |
+| components | [MipComponentEntry](#massa-model-v1-MipComponentEntry) | repeated | Components concerned by this versioning (e.g. a new Block version), and the associated component_version |
+
+
+
+
+
+
+<a name="massa-model-v1-MipStatusEntry"></a>
+
+### MipStatusEntry
+Entry for GetMipStatusResponse
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| mip_info | [MipInfo](#massa-model-v1-MipInfo) |  | Mip info |
+| state_id | [ComponentStateId](#massa-model-v1-ComponentStateId) |  | State id |
+
+
+
+
+
+ 
+
+
+<a name="massa-model-v1-ComponentStateId"></a>
+
+### ComponentStateId
+State machine for a Versioning component that tracks the deployment state
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| COMPONENT_STATE_ID_UNSPECIFIED | 0 | Default enum value |
+| COMPONENT_STATE_ID_ERROR | 1 | Error state |
+| COMPONENT_STATE_ID_DEFINED | 2 | Initial state |
+| COMPONENT_STATE_ID_STARTED | 3 | Past start, can only go to LockedIn after the threshold is above a given value |
+| COMPONENT_STATE_ID_LOCKEDIN | 4 | Locked but wait for some time before going to active (to let users the time to upgrade) |
+| COMPONENT_STATE_ID_ACTIVE | 5 | After LockedIn, deployment is considered successful (after activation delay) |
+| COMPONENT_STATE_ID_FAILED | 6 | Past the timeout, if LockedIn is not reach |
+
+
+
+<a name="massa-model-v1-MipComponent"></a>
+
+### MipComponent
+Versioning component enum
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| MIP_COMPONENT_UNSPECIFIED | 0 | Default enum value |
+| MIP_COMPONENT_ADDRESS | 1 | Address component |
+| MIP_COMPONENT_KEYPAIR | 2 | Keypair component |
+
 
  
 
