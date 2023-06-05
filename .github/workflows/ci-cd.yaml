@@ -37,7 +37,7 @@ jobs:
       - name: Trigger proto bindings remote build
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CI_PROTO_GENERATION }}
           repository: massalabs/massa-proto-bindings
           event-type: remote-build
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
