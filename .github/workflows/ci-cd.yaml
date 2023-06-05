@@ -32,12 +32,15 @@ jobs:
   trigger-remote-build:
     needs: check
     if: ${{ github.ref == 'refs/heads/main' }}
+    strategy:
+      matrix:
+        repo: ['massalabs/massa-proto-as', 'massalabs/massa-proto-go', 'massalabs/massa-proto-rs']
     runs-on: ubuntu-latest
     steps:
       - name: Trigger proto bindings remote build
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.CI_PROTO_GENERATION }}
-          repository: massalabs/massa-proto-bindings
+          repository: ${{ matrix.repo }}
           event-type: remote-build
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
