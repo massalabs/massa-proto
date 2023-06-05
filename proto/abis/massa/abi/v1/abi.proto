@@ -4,6 +4,12 @@ syntax = "proto3";
 
 package massa.abi.v1;
 
+import "massa/model/v1/address.proto";
+import "massa/model/v1/amount.proto";
+import "massa/model/v1/hash.proto";
+import "massa/model/v1/pubkey.proto";
+import "massa/model/v1/signature.proto";
+
 option csharp_namespace = "Com.Massa.Abi.V1";
 option go_package = "github.com/massalabs/massa/abi/v1;v1";
 option java_multiple_files = true;
@@ -13,65 +19,51 @@ option php_namespace = "Com\\Massa\\Abi\\V1";
 option ruby_package = "Com::Massa::Abi::V1";
 option swift_prefix = "MABI";
 
-// Address
-message Address {
-  // Address is a string representation of the address
-  string address = 1;
-}
-
-// Amount
-message Amount {
-  // Amount is a 64-bit unsigned integer
-  fixed64 amount = 1;
+// Error message used in abi Response
+message Error {
+  string message = 1;
 }
 
 // Empty
 message Empty {}
 
-// CreateSC
 message CreateSCRequest {
   // Bytecode is the compiled code of the smart contract
   bytes bytecode = 1;
 }
 
-// CreateSCResponse
 message CreateSCResponse {
-  // Address is a string representation of the address
-  Address address = 1;
+  massa.model.v1.NativeAddress sc_address = 1;
 }
 
 // CallSC
 message CallRequest {
-  // Address is the address of the smart contract
-  Address address = 1;
-  // Function is the name of the function to call
-  string function = 2;
-  // Arg is the argument to the function
-  bytes arg = 3;
+  massa.model.v1.NativeAddress target_sc_address = 1;
+  string target_function_name = 2;
+  // Argument to the function serialized in a byte array.
+  bytes function_arg = 3;
   // call_coins is the amount of coins to pay for the call
-  Amount call_coins = 4;
+  massa.model.v1.NativeAmount call_coins = 4;
 }
 
 // CallResponse
 message CallResponse {
   // Return_data is the return value of the function
-  bytes return_data = 1;
+  bytes data = 1;
 }
 
 // LocalCall
 message LocalCallRequest {
-  // Address is the address of the smart contract
-  Address address = 1;
-  // Function is the name of the function to call
-  string function = 2;
-  // Arg is the argument to the function
-  bytes arg = 3;
+  massa.model.v1.NativeAddress target_sc_address = 1;
+  string target_function_name = 2;
+  // Argument to the function serialized in a byte array.
+  bytes function_arg = 3;
 }
 
 // LocalCallResponse
 message LocalCallResponse {
   // Return_data is the return value of the function
-  bytes return_data = 1;
+  bytes data = 1;
 }
 
 // GenerateEventRequest
@@ -82,22 +74,347 @@ message GenerateEventRequest {
 
 // TransferCoins
 message TransferCoinsRequest {
-  // To_address is the address to transfer coins to
-  Address to_address = 1;
-  // Amount is the amount of coins to transfer
-  Amount raw_amount = 2;
+  massa.model.v1.NativeAddress target_address = 1;
+  massa.model.v1.NativeAmount amount_to_transfer = 2;
 }
 
 // FunctionExists
 message FunctionExistsRequest {
-  // Address is the address of the smart contract
-  Address address = 1;
+  massa.model.v1.NativeAddress target_sc_address = 1;
   // Function is the name of the function to call
-  string function = 2;
+  string function_name = 2;
 }
 
 // FunctionExistsResponse
 message FunctionExistsResponse {
   // Exists is true if the function exists
   bool exists = 1;
+}
+
+// To string
+message NativeAddressToStringRequest {
+  massa.model.v1.NativeAddress to_convert = 1;
+}
+
+message NativeAddressToStringResponse {
+  message NativeAddressToStringResult {
+    string converted_address = 1;
+  }
+  oneof resp {
+    NativeAddressToStringResult res = 1;
+    Error error = 2;
+  }
+}
+
+message NativePubKeyToStringRequest {
+  massa.model.v1.NativePubKey to_convert = 1;
+}
+message NativePubKeyToStringResponse {
+  message NativePubKeyToStringResult {
+    string converted_pubkey = 1;
+  }
+  oneof resp {
+    NativePubKeyToStringResult res = 1;
+    Error error = 2;
+  }
+}
+
+message NativeSigToStringRequest {
+  massa.model.v1.NativeSig to_convert = 1;
+}
+
+message NativeSigToStringResponse {
+  message NativeSigToStringResult {
+    string converted_sig = 1;
+  }
+  oneof resp {
+    NativeSigToStringResult res = 1;
+    Error error = 2;
+  }
+}
+
+message NativeHashToStringRequest {
+  massa.model.v1.NativeHash to_convert = 1;
+}
+
+message NativeHashToStringResponse {
+  message NativeHashToStringResult {
+    string converted_hash = 1;
+  }
+  oneof resp {
+    NativeHashToStringResult res = 1;
+    Error error = 2;
+  }
+}
+
+// native_amount_to_string
+message NativeAmountToStringRequest {
+  massa.model.v1.NativeAmount to_convert = 1;
+}
+
+message NativeAmountToStringResponse {
+  message NativeAmountToStringResult {
+    string converted_amount = 1;
+  }
+  oneof resp {
+    NativeAmountToStringResult res = 1;
+    Error error = 2;
+  }
+}
+
+message NativeAddressFromStringRequest {
+  string to_convert = 1;
+}
+
+message NativeAddressFromStringResponse {
+  message NativeAddressFromStringResult {
+    massa.model.v1.NativeAddress converted_address = 1;
+  }
+  oneof resp {
+    NativeAddressFromStringResult res = 1;
+    Error error = 2;
+  }
+}
+
+message NativePubKeyFromStringRequest {
+  string to_convert = 1;
+}
+
+message NativePubKeyFromStringResponse {
+  message NativePubKeyFromStringResult {
+    massa.model.v1.NativePubKey converted_pubkey = 1;
+  }
+  oneof resp {
+    NativePubKeyFromStringResult res = 1;
+    Error error = 2;
+  }
+}
+
+message NativeSigFromStringRequest {
+  string to_convert = 1;
+}
+
+message NativeSigFromStringResponse {
+  message NativeSigFromStringResult {
+    massa.model.v1.NativeSig converted_sig = 1;
+  }
+  oneof resp {
+    NativeSigFromStringResult res = 1;
+    Error error = 2;
+  }
+}
+
+message NativeHashFromStringRequest {
+  string to_convert = 1;
+}
+
+message NativeHashFromStringResponse {
+  message NativeHashFromStringResult {
+    massa.model.v1.NativeHash converted_hash = 1;
+  }
+  oneof resp {
+    NativeHashFromStringResult res = 1;
+    Error error = 2;
+  }
+}
+
+// native_amount_from_string
+message NativeAmountFromStringRequest {
+  string to_convert = 1;
+}
+
+message NativeAmountFromStringResponse {
+  message NativeAmountFromStringResult {
+    massa.model.v1.NativeAmount converted_amount = 1;
+  }
+  oneof resp {
+    NativeAmountFromStringResult res = 1;
+    Error error = 2;
+  }
+}
+
+message CheckNativeAddressRequest {
+  massa.model.v1.NativeAddress to_check = 1;
+}
+
+message CheckNativeAddressResponse {
+  message CheckNativeAddressResult {
+    bool is_valid = 1;
+  }
+  oneof resp {
+    CheckNativeAddressResult res = 1;
+    Error error = 2;
+  }
+}
+
+message CheckNativePubKeyRequest {
+  massa.model.v1.NativePubKey to_check = 1;
+}
+
+message CheckNativePubKeyResponse {
+  message CheckNativePubKeyResult {
+    bool is_valid = 1;
+  }
+  oneof resp {
+    CheckNativePubKeyResult res = 1;
+    Error error = 2;
+  }
+}
+
+message CheckNativeSigRequest {
+  massa.model.v1.NativeSig to_check = 1;
+}
+
+message CheckNativeSigResponse {
+  message CheckNativeSigResult {
+    bool is_valid = 1;
+  }
+  oneof resp {
+    CheckNativeSigResult res = 1;
+    Error error = 2;
+  }
+}
+
+message CheckNativeHashRequest {
+  massa.model.v1.NativeHash to_check = 1;
+}
+
+message CheckNativeHashResponse {
+  message CheckNativeHashResult {
+    bool is_valid = 1;
+  }
+  oneof resp {
+    CheckNativeHashResult res = 1;
+    Error error = 2;
+  }
+}
+
+// check_native_amount
+message CheckNativeAmountRequest {
+  massa.model.v1.NativeAmount to_check = 1;
+}
+
+message CheckNativeAmountResponse {
+  message CheckNativeAmountResult {
+    bool is_valid = 1;
+  }
+  oneof resp {
+    CheckNativeAmountResult res = 1;
+    Error error = 2;
+  }
+}
+
+// Addition
+message AddNativeAmountsRequest {
+  massa.model.v1.NativeAmount amount1 = 1;
+  massa.model.v1.NativeAmount amount2 = 2;
+}
+
+message AddNativeAmountsResponse {
+  message AddNativeAmountsResult {
+    massa.model.v1.NativeAmount sum = 1;
+  }
+  oneof resp {
+    AddNativeAmountsResult res = 1;
+    Error error = 2;
+  }
+}
+
+// Substraction
+// if minued >= substrahend then
+//     difference = minued - substrahend
+//     return difference
+message SubNativeAmountsRequest {
+  massa.model.v1.NativeAmount minuend = 1;
+  massa.model.v1.NativeAmount subtrahend = 2;
+}
+
+message SubNativeAmountsResponse {
+  message SubNativeAmountsResult {
+    massa.model.v1.NativeAmount difference = 1;
+  }
+  oneof resp {
+    SubNativeAmountsResult res = 1;
+    Error error = 2;
+  }
+}
+
+// Multiplication
+// try to compute product = amount * coefficient
+message MulNativeAmountRequest {
+  massa.model.v1.NativeAmount amount = 1;
+  fixed64 coefficient = 2;
+}
+
+message MulNativeAmountResponse {
+  message MulNativeAmountResult {
+    massa.model.v1.NativeAmount product = 1;
+  }
+  oneof resp {
+    MulNativeAmountResult res = 1;
+    Error error = 2;
+  }
+}
+
+// Division
+// try to compute quotient = dividend / divisor
+// if divisor == 0 then error
+message ScalarDivRemNativeAmountRequest {
+  massa.model.v1.NativeAmount dividend = 1;
+  fixed64 divisor = 2;
+}
+message ScalarDivRemNativeAmountResponse {
+  message ScalarDivRemNativeAmountResult {
+    massa.model.v1.NativeAmount quotient = 1;
+    massa.model.v1.NativeAmount remainder = 2;
+  }
+  oneof resp {
+    ScalarDivRemNativeAmountResult res = 1;
+    Error error = 2;
+  }
+}
+
+message DivRemNativeAmountRequest {
+  massa.model.v1.NativeAmount dividend = 1;
+  massa.model.v1.NativeAmount divisor = 2;
+}
+
+message DivRemNativeAmountResponse {
+  message DivRemNativeAmountResult {
+    fixed64 quotient = 1;
+    massa.model.v1.NativeAmount remainder = 2;
+  }
+  oneof resp {
+    DivRemNativeAmountResult res = 1;
+    Error error = 2;
+  }
+}
+
+// massa.model.v1.NativeAmount from and to byte array
+message NativeAmountToBytesRequest {
+  massa.model.v1.NativeAmount amount = 1;
+}
+
+message NativeAmountToBytesResponse {
+  message NativeAmountToBytesResult {
+    bytes amount = 1;
+  }
+  oneof resp {
+    NativeAmountToBytesResult res = 1;
+    Error error = 2;
+  }
+}
+
+message NativeAmountFromBytesRequest {
+  bytes amount = 1;
+}
+
+message NativeAmountFromBytesResponse {
+  message NativeAmountFromBytesResult {
+    massa.model.v1.NativeAmount amount = 1;
+  }
+  oneof resp {
+    NativeAmountFromBytesResult res = 1;
+    Error error = 2;
+  }
 }
