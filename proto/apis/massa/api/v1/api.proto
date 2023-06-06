@@ -13,6 +13,7 @@ import "massa/model/v1/endorsement.proto";
 import "massa/model/v1/execution.proto";
 import "massa/model/v1/operation.proto";
 import "massa/model/v1/slot.proto";
+import "massa/model/v1/versioning.proto";
 
 option csharp_namespace = "Com.Massa.Api.v1";
 option go_package = "github.com/massalabs/massa/api/v1;v1";
@@ -55,6 +56,11 @@ service MassaService {
       post: "/v1/get_largest_stakers"
       body: "*"
     };
+  }
+
+  // Get Mip status
+  rpc GetMipStatus(GetMipStatusRequest) returns (GetMipStatusResponse) {
+    option (google.api.http) = {get: "/v1/get_mip_status"};
   }
 
   // Get next block best parents
@@ -270,6 +276,20 @@ message LargestStakerEntry {
   string address = 1;
   // Rolls
   fixed64 rolls = 2;
+}
+
+// GetMipStatusRequest holds request for GetMipStatus
+message GetMipStatusRequest {
+  // Request id
+  string id = 1;
+}
+
+// GetMipStatusResponse holds response from GetMipStatus
+message GetMipStatusResponse {
+  // Request id
+  string id = 1;
+  // MipInfo - status id entries
+  repeated massa.model.v1.MipStatusEntry entries = 2;
 }
 
 // GetNextBlockBestParentsRequest holds request for GetNextBlockBestParents

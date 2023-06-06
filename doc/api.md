@@ -21,6 +21,8 @@
     - [GetDatastoreEntriesResponse](#massa-api-v1-GetDatastoreEntriesResponse)
     - [GetLargestStakersRequest](#massa-api-v1-GetLargestStakersRequest)
     - [GetLargestStakersResponse](#massa-api-v1-GetLargestStakersResponse)
+    - [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest)
+    - [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse)
     - [GetNextBlockBestParentsRequest](#massa-api-v1-GetNextBlockBestParentsRequest)
     - [GetNextBlockBestParentsResponse](#massa-api-v1-GetNextBlockBestParentsResponse)
     - [GetOperationsFilter](#massa-api-v1-GetOperationsFilter)
@@ -348,6 +350,37 @@ GetLargestStakersResponse holds response from GetLargestStakers
 | id | [string](#string) |  | Request id |
 | context | [LargestStakersContext](#massa-api-v1-LargestStakersContext) |  | Context |
 | stakers | [LargestStakerEntry](#massa-api-v1-LargestStakerEntry) | repeated | Largest stakers |
+
+
+
+
+
+
+<a name="massa-api-v1-GetMipStatusRequest"></a>
+
+### GetMipStatusRequest
+GetMipStatusRequest holds request for GetMipStatus
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
+
+
+
+
+
+
+<a name="massa-api-v1-GetMipStatusResponse"></a>
+
+### GetMipStatusResponse
+GetMipStatusResponse holds response from GetMipStatus
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
+| entries | [massa.model.v1.MipStatusEntry](#massa-model-v1-MipStatusEntry) | repeated | MipInfo - status id entries |
 
 
 
@@ -1161,6 +1194,7 @@ Massa gRPC service
 | GetBlocksBySlots | [GetBlocksBySlotsRequest](#massa-api-v1-GetBlocksBySlotsRequest) | [GetBlocksBySlotsResponse](#massa-api-v1-GetBlocksBySlotsResponse) | Get blocks by slots |
 | GetDatastoreEntries | [GetDatastoreEntriesRequest](#massa-api-v1-GetDatastoreEntriesRequest) | [GetDatastoreEntriesResponse](#massa-api-v1-GetDatastoreEntriesResponse) | Get datastore entries |
 | GetLargestStakers | [GetLargestStakersRequest](#massa-api-v1-GetLargestStakersRequest) | [GetLargestStakersResponse](#massa-api-v1-GetLargestStakersResponse) | Get largest stakers |
+| GetMipStatus | [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest) | [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse) | Get Mip status |
 | GetNextBlockBestParents | [GetNextBlockBestParentsRequest](#massa-api-v1-GetNextBlockBestParentsRequest) | [GetNextBlockBestParentsResponse](#massa-api-v1-GetNextBlockBestParentsResponse) | Get next block best parents |
 | GetOperations | [GetOperationsRequest](#massa-api-v1-GetOperationsRequest) | [GetOperationsResponse](#massa-api-v1-GetOperationsResponse) | Get operations |
 | GetScExecutionEvents | [GetScExecutionEventsRequest](#massa-api-v1-GetScExecutionEventsRequest) | [GetScExecutionEventsResponse](#massa-api-v1-GetScExecutionEventsResponse) | Get smart contracts execution events |

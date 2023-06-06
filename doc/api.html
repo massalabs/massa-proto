@@ -247,6 +247,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.GetMipStatusRequest"><span class="badge">M</span>GetMipStatusRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetMipStatusResponse"><span class="badge">M</span>GetMipStatusResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.GetNextBlockBestParentsRequest"><span class="badge">M</span>GetNextBlockBestParentsRequest</a>
                 </li>
               
@@ -958,6 +966,61 @@
                   <td><a href="#massa.api.v1.LargestStakerEntry">LargestStakerEntry</a></td>
                   <td>repeated</td>
                   <td><p>Largest stakers </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetMipStatusRequest">GetMipStatusRequest</h3>
+        <p>GetMipStatusRequest holds request for GetMipStatus</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetMipStatusResponse">GetMipStatusResponse</h3>
+        <p>GetMipStatusResponse holds response from GetMipStatus</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>entries</td>
+                  <td><a href="#massa.model.v1.MipStatusEntry">massa.model.v1.MipStatusEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>MipInfo - status id entries </p></td>
                 </tr>
               
             </tbody>
@@ -2506,6 +2569,13 @@
               </tr>
             
               <tr>
+                <td>GetMipStatus</td>
+                <td><a href="#massa.api.v1.GetMipStatusRequest">GetMipStatusRequest</a></td>
+                <td><a href="#massa.api.v1.GetMipStatusResponse">GetMipStatusResponse</a></td>
+                <td><p>Get Mip status</p></td>
+              </tr>
+            
+              <tr>
                 <td>GetNextBlockBestParents</td>
                 <td><a href="#massa.api.v1.GetNextBlockBestParentsRequest">GetNextBlockBestParentsRequest</a></td>
                 <td><a href="#massa.api.v1.GetNextBlockBestParentsResponse">GetNextBlockBestParentsResponse</a></td>
@@ -2672,6 +2742,16 @@
                 <td>POST</td>
                 <td>/v1/get_largest_stakers</td>
                 <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetMipStatus</td>
+                <td>GET</td>
+                <td>/v1/get_mip_status</td>
+                <td></td>
               </tr>
               
             
