@@ -303,6 +303,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.AsyncMessageUpdate"><span class="badge">M</span>AsyncMessageUpdate</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.AsyncPoolChangeEntry"><span class="badge">M</span>AsyncPoolChangeEntry</a>
                 </li>
               
@@ -367,11 +371,35 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.SetOrKeepAsyncMessageTrigger"><span class="badge">M</span>SetOrKeepAsyncMessageTrigger</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.SetOrKeepBalance"><span class="badge">M</span>SetOrKeepBalance</a>
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.SetOrKeepBool"><span class="badge">M</span>SetOrKeepBool</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.SetOrKeepBytecode"><span class="badge">M</span>SetOrKeepBytecode</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.SetOrKeepBytes"><span class="badge">M</span>SetOrKeepBytes</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.SetOrKeepFixed64"><span class="badge">M</span>SetOrKeepFixed64</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.SetOrKeepSlot"><span class="badge">M</span>SetOrKeepSlot</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.SetOrKeepString"><span class="badge">M</span>SetOrKeepString</a>
                 </li>
               
                 <li>
@@ -1457,6 +1485,126 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
+        <h3 id="massa.model.v1.AsyncMessageUpdate">AsyncMessageUpdate</h3>
+        <p>Asynchronous smart contract message</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>emission_slot</td>
+                  <td><a href="#massa.model.v1.SetOrKeepSlot">SetOrKeepSlot</a></td>
+                  <td></td>
+                  <td><p>Change the slot at which the message was emitted </p></td>
+                </tr>
+              
+                <tr>
+                  <td>emission_index</td>
+                  <td><a href="#massa.model.v1.SetOrKeepFixed64">SetOrKeepFixed64</a></td>
+                  <td></td>
+                  <td><p>Change the index of the emitted message within the `emission_slot`.
+This is used for disambiguate the emission of multiple messages at the same slot. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sender</td>
+                  <td><a href="#massa.model.v1.SetOrKeepString">SetOrKeepString</a></td>
+                  <td></td>
+                  <td><p>Change the address that sent the message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>destination</td>
+                  <td><a href="#massa.model.v1.SetOrKeepString">SetOrKeepString</a></td>
+                  <td></td>
+                  <td><p>Change the address towards which the message is being sent </p></td>
+                </tr>
+              
+                <tr>
+                  <td>handler</td>
+                  <td><a href="#massa.model.v1.SetOrKeepString">SetOrKeepString</a></td>
+                  <td></td>
+                  <td><p>Change the handler function name within the destination address&#39; bytecode </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_gas</td>
+                  <td><a href="#massa.model.v1.SetOrKeepFixed64">SetOrKeepFixed64</a></td>
+                  <td></td>
+                  <td><p>Change the maximum gas to use when processing the message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fee</td>
+                  <td><a href="#massa.model.v1.SetOrKeepFixed64">SetOrKeepFixed64</a></td>
+                  <td></td>
+                  <td><p>Change the fee paid by the sender when the message is processed. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coins</td>
+                  <td><a href="#massa.model.v1.SetOrKeepFixed64">SetOrKeepFixed64</a></td>
+                  <td></td>
+                  <td><p>Change the coins sent from the sender to the target address of the message.
+Those coins are spent by the sender address when the message is sent,
+and credited to the destination address when receiving the message.
+In case of failure or discard, those coins are reimbursed to the sender. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>validity_start</td>
+                  <td><a href="#massa.model.v1.SetOrKeepSlot">SetOrKeepSlot</a></td>
+                  <td></td>
+                  <td><p>Change the slot at which the message starts being valid (bound included in the validity range) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>validity_end</td>
+                  <td><a href="#massa.model.v1.SetOrKeepSlot">SetOrKeepSlot</a></td>
+                  <td></td>
+                  <td><p>Change the slot at which the message stops being valid (bound not included in the validity range) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#massa.model.v1.SetOrKeepBytes">SetOrKeepBytes</a></td>
+                  <td></td>
+                  <td><p>Change the raw payload data of the message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>trigger</td>
+                  <td><a href="#massa.model.v1.SetOrKeepAsyncMessageTrigger">SetOrKeepAsyncMessageTrigger</a></td>
+                  <td></td>
+                  <td><p>Change the trigger that define whenever a message can be executed </p></td>
+                </tr>
+              
+                <tr>
+                  <td>can_be_executed</td>
+                  <td><a href="#massa.model.v1.SetOrKeepBool">SetOrKeepBool</a></td>
+                  <td></td>
+                  <td><p>Change the boolean that determine if the message can be executed. For messages without filter this boolean is always true.
+For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hash</td>
+                  <td><a href="#massa.model.v1.SetOrKeepString">SetOrKeepString</a></td>
+                  <td></td>
+                  <td><p>Change the hash of the message </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.AsyncPoolChangeEntry">AsyncPoolChangeEntry</h3>
         <p>AsyncPoolChange Entry</p>
 
@@ -1506,10 +1654,17 @@ For messages with filter, this boolean is true if the filter has been matched be
                 </tr>
               
                 <tr>
-                  <td>async_message</td>
+                  <td>created_message</td>
                   <td><a href="#massa.model.v1.AsyncMessage">AsyncMessage</a></td>
                   <td></td>
-                  <td><p>AsyncPool message </p></td>
+                  <td><p>Created ledger entry </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated_message</td>
+                  <td><a href="#massa.model.v1.AsyncMessageUpdate">AsyncMessageUpdate</a></td>
+                  <td></td>
+                  <td><p>Update ledger entry </p></td>
                 </tr>
               
             </tbody>
@@ -2009,6 +2164,37 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
+        <h3 id="massa.model.v1.SetOrKeepAsyncMessageTrigger">SetOrKeepAsyncMessageTrigger</h3>
+        <p>Set or Keep AsyncMessageTrigger</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
+                  <td></td>
+                  <td><p>The type of the change </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#massa.model.v1.AsyncMessageTrigger">AsyncMessageTrigger</a></td>
+                  <td>optional</td>
+                  <td><p>The value of that entry (optional) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.SetOrKeepBalance">SetOrKeepBalance</h3>
         <p>Set or Keep Balance</p>
 
@@ -2040,6 +2226,37 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
+        <h3 id="massa.model.v1.SetOrKeepBool">SetOrKeepBool</h3>
+        <p>Set or Keep Bool</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
+                  <td></td>
+                  <td><p>The type of the change </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td>optional</td>
+                  <td><p>The value of that entry (optional) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.SetOrKeepBytecode">SetOrKeepBytecode</h3>
         <p>Set or Keep Bytecode</p>
 
@@ -2062,6 +2279,130 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td><a href="#bytes">bytes</a></td>
                   <td>optional</td>
                   <td><p>Executable bytecode (optional) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.SetOrKeepBytes">SetOrKeepBytes</h3>
+        <p>Set or Keep Bytes</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
+                  <td></td>
+                  <td><p>The type of the change </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td>optional</td>
+                  <td><p>The value of that entry (optional) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.SetOrKeepFixed64">SetOrKeepFixed64</h3>
+        <p>Set or Keep Fixed64</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
+                  <td></td>
+                  <td><p>The type of the change </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td>optional</td>
+                  <td><p>The value of that entry (optional) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.SetOrKeepSlot">SetOrKeepSlot</h3>
+        <p>Set or Keep Slot</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
+                  <td></td>
+                  <td><p>The type of the change </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td>optional</td>
+                  <td><p>The value of that entry (optional) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.SetOrKeepString">SetOrKeepString</h3>
+        <p>Set or Keep String</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
+                  <td></td>
+                  <td><p>The type of the change </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td>optional</td>
+                  <td><p>The value of that entry (optional) </p></td>
                 </tr>
               
             </tbody>
@@ -2164,13 +2505,13 @@ For messages with filter, this boolean is true if the filter has been matched be
               </tr>
             
               <tr>
-                <td>ASYNC_POOL_CHANGE_TYPE_ADD</td>
+                <td>ASYNC_POOL_CHANGE_TYPE_SET</td>
                 <td>1</td>
                 <td><p>Add type</p></td>
               </tr>
             
               <tr>
-                <td>ASYNC_POOL_CHANGE_TYPE_ACTIVATE</td>
+                <td>ASYNC_POOL_CHANGE_TYPE_UPDATE</td>
                 <td>2</td>
                 <td><p>Activate only type</p></td>
               </tr>

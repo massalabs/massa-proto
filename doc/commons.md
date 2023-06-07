@@ -34,6 +34,7 @@
 - [massa/model/v1/execution.proto](#massa_model_v1_execution-proto)
     - [AsyncMessage](#massa-model-v1-AsyncMessage)
     - [AsyncMessageTrigger](#massa-model-v1-AsyncMessageTrigger)
+    - [AsyncMessageUpdate](#massa-model-v1-AsyncMessageUpdate)
     - [AsyncPoolChangeEntry](#massa-model-v1-AsyncPoolChangeEntry)
     - [AsyncPoolChangeValue](#massa-model-v1-AsyncPoolChangeValue)
     - [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader)
@@ -50,8 +51,14 @@
     - [ScExecutionEvent](#massa-model-v1-ScExecutionEvent)
     - [ScExecutionEventContext](#massa-model-v1-ScExecutionEventContext)
     - [SetOrDeleteDatastoreEntry](#massa-model-v1-SetOrDeleteDatastoreEntry)
+    - [SetOrKeepAsyncMessageTrigger](#massa-model-v1-SetOrKeepAsyncMessageTrigger)
     - [SetOrKeepBalance](#massa-model-v1-SetOrKeepBalance)
+    - [SetOrKeepBool](#massa-model-v1-SetOrKeepBool)
     - [SetOrKeepBytecode](#massa-model-v1-SetOrKeepBytecode)
+    - [SetOrKeepBytes](#massa-model-v1-SetOrKeepBytes)
+    - [SetOrKeepFixed64](#massa-model-v1-SetOrKeepFixed64)
+    - [SetOrKeepSlot](#massa-model-v1-SetOrKeepSlot)
+    - [SetOrKeepString](#massa-model-v1-SetOrKeepString)
     - [SlotExecutionOutput](#massa-model-v1-SlotExecutionOutput)
     - [StateChanges](#massa-model-v1-StateChanges)
   
@@ -508,6 +515,34 @@ Structure defining a trigger for an asynchronous message
 
 
 
+<a name="massa-model-v1-AsyncMessageUpdate"></a>
+
+### AsyncMessageUpdate
+Asynchronous smart contract message
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| emission_slot | [SetOrKeepSlot](#massa-model-v1-SetOrKeepSlot) |  | Change the slot at which the message was emitted |
+| emission_index | [SetOrKeepFixed64](#massa-model-v1-SetOrKeepFixed64) |  | Change the index of the emitted message within the `emission_slot`. This is used for disambiguate the emission of multiple messages at the same slot. |
+| sender | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Change the address that sent the message |
+| destination | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Change the address towards which the message is being sent |
+| handler | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Change the handler function name within the destination address&#39; bytecode |
+| max_gas | [SetOrKeepFixed64](#massa-model-v1-SetOrKeepFixed64) |  | Change the maximum gas to use when processing the message |
+| fee | [SetOrKeepFixed64](#massa-model-v1-SetOrKeepFixed64) |  | Change the fee paid by the sender when the message is processed. |
+| coins | [SetOrKeepFixed64](#massa-model-v1-SetOrKeepFixed64) |  | Change the coins sent from the sender to the target address of the message. Those coins are spent by the sender address when the message is sent, and credited to the destination address when receiving the message. In case of failure or discard, those coins are reimbursed to the sender. |
+| validity_start | [SetOrKeepSlot](#massa-model-v1-SetOrKeepSlot) |  | Change the slot at which the message starts being valid (bound included in the validity range) |
+| validity_end | [SetOrKeepSlot](#massa-model-v1-SetOrKeepSlot) |  | Change the slot at which the message stops being valid (bound not included in the validity range) |
+| data | [SetOrKeepBytes](#massa-model-v1-SetOrKeepBytes) |  | Change the raw payload data of the message |
+| trigger | [SetOrKeepAsyncMessageTrigger](#massa-model-v1-SetOrKeepAsyncMessageTrigger) |  | Change the trigger that define whenever a message can be executed |
+| can_be_executed | [SetOrKeepBool](#massa-model-v1-SetOrKeepBool) |  | Change the boolean that determine if the message can be executed. For messages without filter this boolean is always true. For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. |
+| hash | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Change the hash of the message |
+
+
+
+
+
+
 <a name="massa-model-v1-AsyncPoolChangeEntry"></a>
 
 ### AsyncPoolChangeEntry
@@ -533,7 +568,8 @@ AsyncPoolChangeValue
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | type | [AsyncPoolChangeType](#massa-model-v1-AsyncPoolChangeType) |  | The type of the change |
-| async_message | [AsyncMessage](#massa-model-v1-AsyncMessage) |  | AsyncPool message |
+| created_message | [AsyncMessage](#massa-model-v1-AsyncMessage) |  | Created ledger entry |
+| updated_message | [AsyncMessageUpdate](#massa-model-v1-AsyncMessageUpdate) |  | Update ledger entry |
 
 
 
@@ -772,6 +808,22 @@ Set or Delete DatastoreEntry
 
 
 
+<a name="massa-model-v1-SetOrKeepAsyncMessageTrigger"></a>
+
+### SetOrKeepAsyncMessageTrigger
+Set or Keep AsyncMessageTrigger
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
+| value | [AsyncMessageTrigger](#massa-model-v1-AsyncMessageTrigger) | optional | The value of that entry (optional) |
+
+
+
+
+
+
 <a name="massa-model-v1-SetOrKeepBalance"></a>
 
 ### SetOrKeepBalance
@@ -788,6 +840,22 @@ Set or Keep Balance
 
 
 
+<a name="massa-model-v1-SetOrKeepBool"></a>
+
+### SetOrKeepBool
+Set or Keep Bool
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
+| value | [bool](#bool) | optional | The value of that entry (optional) |
+
+
+
+
+
+
 <a name="massa-model-v1-SetOrKeepBytecode"></a>
 
 ### SetOrKeepBytecode
@@ -798,6 +866,70 @@ Set or Keep Bytecode
 | ----- | ---- | ----- | ----------- |
 | type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
 | bytecode | [bytes](#bytes) | optional | Executable bytecode (optional) |
+
+
+
+
+
+
+<a name="massa-model-v1-SetOrKeepBytes"></a>
+
+### SetOrKeepBytes
+Set or Keep Bytes
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
+| value | [bytes](#bytes) | optional | The value of that entry (optional) |
+
+
+
+
+
+
+<a name="massa-model-v1-SetOrKeepFixed64"></a>
+
+### SetOrKeepFixed64
+Set or Keep Fixed64
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
+| value | [fixed64](#fixed64) | optional | The value of that entry (optional) |
+
+
+
+
+
+
+<a name="massa-model-v1-SetOrKeepSlot"></a>
+
+### SetOrKeepSlot
+Set or Keep Slot
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
+| value | [Slot](#massa-model-v1-Slot) | optional | The value of that entry (optional) |
+
+
+
+
+
+
+<a name="massa-model-v1-SetOrKeepString"></a>
+
+### SetOrKeepString
+Set or Keep String
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
+| value | [string](#string) | optional | The value of that entry (optional) |
 
 
 
@@ -848,8 +980,8 @@ AsyncPoolChangeType type enum
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | ASYNC_POOL_CHANGE_TYPE_UNSPECIFIED | 0 | Default enum value |
-| ASYNC_POOL_CHANGE_TYPE_ADD | 1 | Add type |
-| ASYNC_POOL_CHANGE_TYPE_ACTIVATE | 2 | Activate only type |
+| ASYNC_POOL_CHANGE_TYPE_SET | 1 | Add type |
+| ASYNC_POOL_CHANGE_TYPE_UPDATE | 2 | Activate only type |
 | ASYNC_POOL_CHANGE_TYPE_DELETE | 3 | Delete only type |
 
 
