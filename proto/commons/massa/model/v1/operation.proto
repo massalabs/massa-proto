@@ -27,16 +27,18 @@ message Operation {
 
 // Type specific operation content
 message OperationType {
-  // Transfer coins from sender to recipient
-  Transaction transaction = 1;
-  // The sender buys `roll_count` rolls. Roll price is defined in configuration
-  RollBuy roll_buy = 2;
-  // The sender sells `roll_count` rolls. Roll price is defined in configuration
-  RollSell roll_sell = 3;
-  // Execute a smart contract
-  ExecuteSC execut_sc = 4;
-  // Calls an exported function from a stored smart contract
-  CallSC call_sc = 5;
+  oneof type {
+    // Transfer coins from sender to recipient
+    Transaction transaction = 1;
+    // The sender buys `roll_count` rolls. Roll price is defined in configuration
+    RollBuy roll_buy = 2;
+    // The sender sells `roll_count` rolls. Roll price is defined in configuration
+    RollSell roll_sell = 3;
+    // Execute a smart contract
+    ExecuteSC execut_sc = 4;
+    // Calls an exported function from a stored smart contract
+    CallSC call_sc = 5;
+  }
 }
 
 // Transfer coins from sender to recipient

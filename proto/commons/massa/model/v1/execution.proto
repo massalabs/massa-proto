@@ -142,7 +142,7 @@ message AsyncPoolChangeValue {
 // AsyncPoolChangeType type enum
 enum AsyncPoolChangeType {
   ASYNC_POOL_CHANGE_TYPE_UNSPECIFIED = 0; // Default enum value
-  ASYNC_POOL_CHANGE_TYPE_SET = 1; // Add type
+  ASYNC_POOL_CHANGE_TYPE_SET = 1; // Set type
   ASYNC_POOL_CHANGE_TYPE_UPDATE = 2; // Activate only type
   ASYNC_POOL_CHANGE_TYPE_DELETE = 3; // Delete only type
 }
