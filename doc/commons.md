@@ -366,6 +366,7 @@ Signed operation
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
+| serialized_size | [fixed64](#fixed64) |  | The size of the serialized operation |
 
 
 
@@ -980,7 +981,7 @@ AsyncPoolChangeType type enum
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | ASYNC_POOL_CHANGE_TYPE_UNSPECIFIED | 0 | Default enum value |
-| ASYNC_POOL_CHANGE_TYPE_SET | 1 | Add type |
+| ASYNC_POOL_CHANGE_TYPE_SET | 1 | Set type |
 | ASYNC_POOL_CHANGE_TYPE_UPDATE | 2 | Activate only type |
 | ASYNC_POOL_CHANGE_TYPE_DELETE | 3 | Delete only type |
 
@@ -1224,6 +1225,7 @@ Signed block
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
+| serialized_size | [fixed64](#fixed64) |  | The size of the serialized block |
 
 
 
@@ -1243,6 +1245,7 @@ Signed block header
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
+| serialized_size | [fixed64](#fixed64) |  | The size of the serialized block header |
 
 
 
@@ -1310,6 +1313,7 @@ Signed endorsement
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
+| serialized_size | [fixed64](#fixed64) |  | The size of the serialized endorsement |
 
 
 
