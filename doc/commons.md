@@ -27,7 +27,8 @@
 - [massa/model/v1/address.proto](#massa_model_v1_address-proto)
     - [NativeAddress](#massa-model-v1-NativeAddress)
   
-    - [AddressCategory](#massa-model-v1-AddressCategory)
+- [massa/model/v1/amount.proto](#massa_model_v1_amount-proto)
+    - [NativeAmount](#massa-model-v1-NativeAmount)
   
 - [massa/model/v1/execution.proto](#massa_model_v1_execution-proto)
     - [AsyncMessage](#massa-model-v1-AsyncMessage)
@@ -72,25 +73,10 @@
     - [IndexedSlot](#massa-model-v1-IndexedSlot)
     - [Slot](#massa-model-v1-Slot)
   
-- [massa/model/v1/time.proto](#massa_model_v1_time-proto)
-    - [NativeTime](#massa-model-v1-NativeTime)
+- [massa/model/v1/address.proto](#massa_model_v1_address-proto)
+    - [NativeAddress](#massa-model-v1-NativeAddress)
   
-- [massa/model/v1/draw.proto](#massa_model_v1_draw-proto)
-    - [SelectorDraws](#massa-model-v1-SelectorDraws)
-  
-- [massa/model/v1/signature.proto](#massa_model_v1_signature-proto)
-    - [NativePubKey](#massa-model-v1-NativePubKey)
-    - [NativeSig](#massa-model-v1-NativeSig)
-  
-- [massa/model/v1/endorsement.proto](#massa_model_v1_endorsement-proto)
-    - [Endorsement](#massa-model-v1-Endorsement)
-    - [SignedEndorsement](#massa-model-v1-SignedEndorsement)
-  
-- [massa/model/v1/amount.proto](#massa_model_v1_amount-proto)
-    - [NativeAmount](#massa-model-v1-NativeAmount)
-  
-- [massa/model/v1/hash.proto](#massa_model_v1_hash-proto)
-    - [NativeHash](#massa-model-v1-NativeHash)
+    - [AddressCategory](#massa-model-v1-AddressCategory)
   
 - [massa/model/v1/block.proto](#massa_model_v1_block-proto)
     - [Block](#massa-model-v1-Block)
@@ -106,6 +92,9 @@
 - [massa/model/v1/commons.proto](#massa_model_v1_commons-proto)
     - [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry)
     - [SecureShare](#massa-model-v1-SecureShare)
+  
+- [massa/model/v1/time.proto](#massa_model_v1_time-proto)
+    - [NativeTime](#massa-model-v1-NativeTime)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -436,6 +425,40 @@ Address category discriminant
 | ADDRESS_CATEGORY_USER_ADDRESS | 1 | User address |
 | ADDRESS_CATEGORY_SC_ADDRESS | 2 | Smart contract address |
 
+
+ 
+
+ 
+
+ 
+
+
+
+
+<a name="massa_model_v1_amount-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/amount.proto
+
+
+
+<a name="massa-model-v1-NativeAmount"></a>
+
+### NativeAmount
+NativeAmount is represented as a fraction so precision can be adjusted in
+the future. value = mantissa / (10^scale)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| mantissa | [fixed64](#fixed64) |  | Mantissa |
+| scale | [fixed32](#fixed32) |  | Scale |
+
+
+
+
+
+ 
 
  
 
@@ -1102,55 +1125,24 @@ A point in time where a block is expected
 
 
 
-<a name="massa_model_v1_time-proto"></a>
+<a name="massa_model_v1_address-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## massa/model/v1/time.proto
+## massa/model/v1/address.proto
 
 
 
-<a name="massa-model-v1-NativeTime"></a>
+<a name="massa-model-v1-NativeAddress"></a>
 
-### NativeTime
-NativeTime represents a native duration or unix timestamp
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| milliseconds | [fixed64](#fixed64) |  | Milliseconds |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_draw-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/draw.proto
-
-
-
-<a name="massa-model-v1-SelectorDraws"></a>
-
-### SelectorDraws
-Selector draws
+### NativeAddress
+Massa NativeAddress
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address |
-| next_block_draws | [Slot](#massa-model-v1-Slot) | repeated | Next block draws |
-| next_endorsement_draws | [IndexedSlot](#massa-model-v1-IndexedSlot) | repeated | Next endorsements draws |
+| category | [AddressCategory](#massa-model-v1-AddressCategory) |  | Address category |
+| version | [fixed64](#fixed64) |  | Address version |
+| content | [bytes](#bytes) |  | Address content |
 
 
 
@@ -1158,170 +1150,18 @@ Selector draws
 
  
 
- 
 
- 
+<a name="massa-model-v1-AddressCategory"></a>
 
- 
+### AddressCategory
+Address category discriminant
 
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| ADDRESS_CATEGORY_UNSPECIFIED | 0 | Unspecified address category |
+| ADDRESS_CATEGORY_USER_ADDRESS | 1 | User address |
+| ADDRESS_CATEGORY_SC_ADDRESS | 2 | Smart contract address |
 
-
-<a name="massa_model_v1_signature-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/signature.proto
-
-
-
-<a name="massa-model-v1-NativePubKey"></a>
-
-### NativePubKey
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  |  |
-| content | [bytes](#bytes) |  |  |
-
-
-
-
-
-
-<a name="massa-model-v1-NativeSig"></a>
-
-### NativeSig
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  |  |
-| content | [bytes](#bytes) |  |  |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_endorsement-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/endorsement.proto
-
-
-
-<a name="massa-model-v1-Endorsement"></a>
-
-### Endorsement
-An endorsement, as sent in the network
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slot | [Slot](#massa-model-v1-Slot) |  | Slot in which the endorsement can be included |
-| index | [fixed32](#fixed32) |  | Endorsement index inside the including block |
-| endorsed_block | [string](#string) |  | Hash of endorsed block This is the parent in thread `self.slot.thread` of the block in which the endorsement is included |
-
-
-
-
-
-
-<a name="massa-model-v1-SignedEndorsement"></a>
-
-### SignedEndorsement
-Signed endorsement
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| content | [Endorsement](#massa-model-v1-Endorsement) |  | Endorsement |
-| signature | [string](#string) |  | A cryptographically generated value using `serialized_data` and a public key. |
-| content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
-| content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
-| id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_amount-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/amount.proto
-
-
-
-<a name="massa-model-v1-NativeAmount"></a>
-
-### NativeAmount
-NativeAmount is represented as a fraction so precision can be adjusted in
-the future. value = mantissa / (10^scale)
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| mantissa | [fixed64](#fixed64) |  | Mantissa |
-| scale | [fixed32](#fixed32) |  | Scale |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_hash-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/hash.proto
-
-
-
-<a name="massa-model-v1-NativeHash"></a>
-
-### NativeHash
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  |  |
-| content | [bytes](#bytes) |  |  |
-
-
-
-
-
- 
 
  
 
@@ -1522,6 +1362,37 @@ Packages a type such that it can be securely sent and received in a trust-free n
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
 | serialized_size | [fixed64](#fixed64) |  | The size of the serialized endorsement |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="massa_model_v1_time-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/time.proto
+
+
+
+<a name="massa-model-v1-NativeTime"></a>
+
+### NativeTime
+NativeTime represents a native duration or unix timestamp
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| milliseconds | [fixed64](#fixed64) |  | Milliseconds |
 
 
 

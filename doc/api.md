@@ -3,6 +3,12 @@
 
 ## Table of Contents
 
+- [massa/api/v1/private.proto](#massa_api_v1_private-proto)
+    - [ShutdownNodeRequest](#massa-api-v1-ShutdownNodeRequest)
+    - [ShutdownNodeResponse](#massa-api-v1-ShutdownNodeResponse)
+  
+    - [MassaPrivateService](#massa-api-v1-MassaPrivateService)
+  
 - [massa/api/v1/api.proto](#massa_api_v1_api-proto)
     - [BlockParent](#massa-api-v1-BlockParent)
     - [BlockResult](#massa-api-v1-BlockResult)
@@ -78,6 +84,52 @@
     - [MassaService](#massa-api-v1-MassaService)
   
 - [Scalar Value Types](#scalar-value-types)
+
+
+
+<a name="massa_api_v1_private-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/api/v1/private.proto
+
+
+
+<a name="massa-api-v1-ShutdownNodeRequest"></a>
+
+### ShutdownNodeRequest
+ShutdownNodeRequest holds the request for node shutdown
+
+
+
+
+
+
+<a name="massa-api-v1-ShutdownNodeResponse"></a>
+
+### ShutdownNodeResponse
+ShutdownNodeResponse holds the response from node shutdown
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="massa-api-v1-MassaPrivateService"></a>
+
+### MassaPrivateService
+Massa private gRPC service
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| ShutdownNode | [ShutdownNodeRequest](#massa-api-v1-ShutdownNodeRequest) | [ShutdownNodeResponse](#massa-api-v1-ShutdownNodeResponse) | Shut down the node |
+
+ 
 
 
 
