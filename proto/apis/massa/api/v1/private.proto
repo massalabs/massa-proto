@@ -17,17 +17,31 @@ option swift_prefix = "MAPI";
 
 // Massa private gRPC service
 service MassaPrivateService {
-  // Shut down the node
-  rpc ShutdownNode(ShutdownNodeRequest) returns (ShutdownNodeResponse) {
+  // Add staking secret keys to wallet
+  rpc AddStakingSecretKeys(AddStakingSecretKeysRequest) returns (AddStakingSecretKeysResponse) {
     option (google.api.http) = {
-      post: "/v1/shutdown_node"
+      post: "/v1/add_staking_secret_keys"
       body: "*"
     };
   }
+
+  // Shutdown the node
+  rpc ShutdownNode(ShutdownNodeRequest) returns (ShutdownNodeResponse) {
+    option (google.api.http) = {get: "/v1/shutdown_node"};
+  }
 }
 
-// ShutdownNodeRequest holds the request for node shutdown
+// AddStakingSecretKeysRequest holds the request for AddStakingSecretKeys
+message AddStakingSecretKeysRequest {
+  // Secret keys to add to wallet
+  repeated string secret_keys = 1;
+}
+
+// AddStakingSecretKeysResponse holds the response from AddStakingSecretKeys
+message AddStakingSecretKeysResponse {}
+
+// ShutdownNodeRequest holds the request for ShutdownNode
 message ShutdownNodeRequest {}
 
-// ShutdownNodeResponse holds the response from node shutdown
+// ShutdownNodeResponse holds the response from ShutdownNode
 message ShutdownNodeResponse {}

@@ -4,6 +4,8 @@
 ## Table of Contents
 
 - [massa/api/v1/private.proto](#massa_api_v1_private-proto)
+    - [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest)
+    - [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse)
     - [ShutdownNodeRequest](#massa-api-v1-ShutdownNodeRequest)
     - [ShutdownNodeResponse](#massa-api-v1-ShutdownNodeResponse)
   
@@ -94,10 +96,35 @@
 
 
 
+<a name="massa-api-v1-AddStakingSecretKeysRequest"></a>
+
+### AddStakingSecretKeysRequest
+AddStakingSecretKeysRequest holds the request for AddStakingSecretKeys
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| secret_keys | [string](#string) | repeated | Secret keys to add to wallet |
+
+
+
+
+
+
+<a name="massa-api-v1-AddStakingSecretKeysResponse"></a>
+
+### AddStakingSecretKeysResponse
+AddStakingSecretKeysResponse holds the response from AddStakingSecretKeys
+
+
+
+
+
+
 <a name="massa-api-v1-ShutdownNodeRequest"></a>
 
 ### ShutdownNodeRequest
-ShutdownNodeRequest holds the request for node shutdown
+ShutdownNodeRequest holds the request for ShutdownNode
 
 
 
@@ -107,7 +134,7 @@ ShutdownNodeRequest holds the request for node shutdown
 <a name="massa-api-v1-ShutdownNodeResponse"></a>
 
 ### ShutdownNodeResponse
-ShutdownNodeResponse holds the response from node shutdown
+ShutdownNodeResponse holds the response from ShutdownNode
 
 
 
@@ -127,7 +154,8 @@ Massa private gRPC service
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| ShutdownNode | [ShutdownNodeRequest](#massa-api-v1-ShutdownNodeRequest) | [ShutdownNodeResponse](#massa-api-v1-ShutdownNodeResponse) | Shut down the node |
+| AddStakingSecretKeys | [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest) | [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse) | Add staking secret keys to wallet |
+| ShutdownNode | [ShutdownNodeRequest](#massa-api-v1-ShutdownNodeRequest) | [ShutdownNodeResponse](#massa-api-v1-ShutdownNodeResponse) | Shutdown the node |
 
  
 
