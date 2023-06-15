@@ -70,11 +70,10 @@
     - [IndexedSlot](#massa-model-v1-IndexedSlot)
     - [Slot](#massa-model-v1-Slot)
   
-- [massa/model/v1/time.proto](#massa_model_v1_time-proto)
-    - [NativeTime](#massa-model-v1-NativeTime)
+- [massa/model/v1/address.proto](#massa_model_v1_address-proto)
+    - [NativeAddress](#massa-model-v1-NativeAddress)
   
-- [massa/model/v1/draw.proto](#massa_model_v1_draw-proto)
-    - [SelectorDraws](#massa-model-v1-SelectorDraws)
+    - [AddressCategory](#massa-model-v1-AddressCategory)
   
 - [massa/model/v1/endorsement.proto](#massa_model_v1_endorsement-proto)
     - [Endorsement](#massa-model-v1-Endorsement)
@@ -412,6 +411,40 @@ Address category discriminant
 | ADDRESS_CATEGORY_USER_ADDRESS | 1 | User address |
 | ADDRESS_CATEGORY_SC_ADDRESS | 2 | Smart contract address |
 
+
+ 
+
+ 
+
+ 
+
+
+
+
+<a name="massa_model_v1_amount-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/amount.proto
+
+
+
+<a name="massa-model-v1-NativeAmount"></a>
+
+### NativeAmount
+NativeAmount is represented as a fraction so precision can be adjusted in
+the future. value = mantissa / (10^scale)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| mantissa | [fixed64](#fixed64) |  | Mantissa |
+| scale | [fixed32](#fixed32) |  | Scale |
+
+
+
+
+
+ 
 
  
 
@@ -1078,25 +1111,42 @@ A point in time where a block is expected
 
 
 
-<a name="massa_model_v1_time-proto"></a>
+<a name="massa_model_v1_address-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## massa/model/v1/time.proto
+## massa/model/v1/address.proto
 
 
 
-<a name="massa-model-v1-NativeTime"></a>
+<a name="massa-model-v1-NativeAddress"></a>
 
-### NativeTime
-NativeTime represents a native duration or unix timestamp
+### NativeAddress
+Massa NativeAddress
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| milliseconds | [fixed64](#fixed64) |  | Milliseconds |
+| category | [AddressCategory](#massa-model-v1-AddressCategory) |  | Address category |
+| version | [fixed64](#fixed64) |  | Address version |
+| content | [bytes](#bytes) |  | Address content |
 
 
 
+
+
+ 
+
+
+<a name="massa-model-v1-AddressCategory"></a>
+
+### AddressCategory
+Address category discriminant
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| ADDRESS_CATEGORY_UNSPECIFIED | 0 | Unspecified address category |
+| ADDRESS_CATEGORY_USER_ADDRESS | 1 | User address |
+| ADDRESS_CATEGORY_SC_ADDRESS | 2 | Smart contract address |
 
 
  
@@ -1105,40 +1155,6 @@ NativeTime represents a native duration or unix timestamp
 
  
 
- 
-
-
-
-<a name="massa_model_v1_draw-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/draw.proto
-
-
-
-<a name="massa-model-v1-SelectorDraws"></a>
-
-### SelectorDraws
-Selector draws
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address |
-| next_block_draws | [Slot](#massa-model-v1-Slot) | repeated | Next block draws |
-| next_endorsement_draws | [IndexedSlot](#massa-model-v1-IndexedSlot) | repeated | Next endorsements draws |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
 
 
 
@@ -1438,6 +1454,37 @@ Comparison result
 | COMPARISON_RESULT_EQUAL | 2 | left and right are equal |
 | COMPARISON_RESULT_GREATER | 3 | left is greater |
 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="massa_model_v1_time-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/time.proto
+
+
+
+<a name="massa-model-v1-NativeTime"></a>
+
+### NativeTime
+NativeTime represents a native duration or unix timestamp
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| milliseconds | [fixed64](#fixed64) |  | Milliseconds |
+
+
+
+
+
+ 
 
  
 

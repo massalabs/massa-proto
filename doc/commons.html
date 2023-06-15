@@ -272,6 +272,21 @@
         
           
           <li>
+            <a href="#massa%2fmodel%2fv1%2famount.proto">massa/model/v1/amount.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#massa.model.v1.NativeAmount"><span class="badge">M</span>NativeAmount</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#massa%2fmodel%2fv1%2fexecution.proto">massa/model/v1/execution.proto</a>
             <ul>
               
@@ -446,28 +461,17 @@
         
           
           <li>
-            <a href="#massa%2fmodel%2fv1%2ftime.proto">massa/model/v1/time.proto</a>
+            <a href="#massa%2fmodel%2fv1%2faddress.proto">massa/model/v1/address.proto</a>
             <ul>
               
                 <li>
-                  <a href="#massa.model.v1.NativeTime"><span class="badge">M</span>NativeTime</a>
+                  <a href="#massa.model.v1.NativeAddress"><span class="badge">M</span>NativeAddress</a>
                 </li>
               
-              
-              
-              
-            </ul>
-          </li>
-        
-          
-          <li>
-            <a href="#massa%2fmodel%2fv1%2fdraw.proto">massa/model/v1/draw.proto</a>
-            <ul>
               
                 <li>
-                  <a href="#massa.model.v1.SelectorDraws"><span class="badge">M</span>SelectorDraws</a>
+                  <a href="#massa.model.v1.AddressCategory"><span class="badge">E</span>AddressCategory</a>
                 </li>
-              
               
               
               
@@ -568,6 +572,21 @@
                 <li>
                   <a href="#massa.model.v1.ComparisonResult"><span class="badge">E</span>ComparisonResult</a>
                 </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#massa%2fmodel%2fv1%2ftime.proto">massa/model/v1/time.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#massa.model.v1.NativeTime"><span class="badge">M</span>NativeTime</a>
+                </li>
+              
               
               
               
@@ -1271,6 +1290,51 @@
             
           </tbody>
         </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="massa/model/v1/amount.proto">massa/model/v1/amount.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="massa.model.v1.NativeAmount">NativeAmount</h3>
+        <p>NativeAmount is represented as a fraction so precision can be adjusted in</p><p>the future. value = mantissa / (10^scale)</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mantissa</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Mantissa </p></td>
+                </tr>
+              
+                <tr>
+                  <td>scale</td>
+                  <td><a href="#fixed32">fixed32</a></td>
+                  <td></td>
+                  <td><p>Scale </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
       
 
       
@@ -2744,13 +2808,13 @@ For messages with filter, this boolean is true if the filter has been matched be
     
       
       <div class="file-heading">
-        <h2 id="massa/model/v1/time.proto">massa/model/v1/time.proto</h2><a href="#title">Top</a>
+        <h2 id="massa/model/v1/address.proto">massa/model/v1/address.proto</h2><a href="#title">Top</a>
       </div>
       <p></p>
 
       
-        <h3 id="massa.model.v1.NativeTime">NativeTime</h3>
-        <p>NativeTime represents a native duration or unix timestamp</p>
+        <h3 id="massa.model.v1.NativeAddress">NativeAddress</h3>
+        <p>Massa NativeAddress</p>
 
         
           <table class="field-table">
@@ -2760,42 +2824,11 @@ For messages with filter, this boolean is true if the filter has been matched be
             <tbody>
               
                 <tr>
-                  <td>milliseconds</td>
-                  <td><a href="#fixed64">fixed64</a></td>
+                  <td>category</td>
+                  <td><a href="#massa.model.v1.AddressCategory">AddressCategory</a></td>
                   <td></td>
-                  <td><p>Milliseconds </p></td>
+                  <td><p>Address category </p></td>
                 </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-
-      
-
-      
-
-      
-    
-      
-      <div class="file-heading">
-        <h2 id="massa/model/v1/draw.proto">massa/model/v1/draw.proto</h2><a href="#title">Top</a>
-      </div>
-      <p></p>
-
-      
-        <h3 id="massa.model.v1.SelectorDraws">SelectorDraws</h3>
-        <p>Selector draws</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
               
                 <tr>
                   <td>address</td>
@@ -3464,6 +3497,44 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
             
           </tbody>
         </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="massa/model/v1/time.proto">massa/model/v1/time.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="massa.model.v1.NativeTime">NativeTime</h3>
+        <p>NativeTime represents a native duration or unix timestamp</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>milliseconds</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Milliseconds </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
       
 
       
