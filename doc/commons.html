@@ -1138,6 +1138,13 @@
                   <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
                 </tr>
               
+                <tr>
+                  <td>serialized_size</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>The size of the serialized operation </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -2507,7 +2514,7 @@ For messages with filter, this boolean is true if the filter has been matched be
               <tr>
                 <td>ASYNC_POOL_CHANGE_TYPE_SET</td>
                 <td>1</td>
-                <td><p>Add type</p></td>
+                <td><p>Set type</p></td>
               </tr>
             
               <tr>
@@ -3020,6 +3027,13 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
                 </tr>
               
+                <tr>
+                  <td>serialized_size</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>The size of the serialized block </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -3070,6 +3084,13 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
+                </tr>
+              
+                <tr>
+                  <td>serialized_size</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>The size of the serialized block header </p></td>
                 </tr>
               
             </tbody>
@@ -3216,6 +3237,13 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
+                </tr>
+              
+                <tr>
+                  <td>serialized_size</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>The size of the serialized endorsement </p></td>
                 </tr>
               
             </tbody>
