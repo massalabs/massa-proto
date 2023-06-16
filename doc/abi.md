@@ -4,31 +4,25 @@
 ## Table of Contents
 
 - [massa/abi/v1/abi.proto](#massa_abi_v1_abi-proto)
+    - [AbiResponse](#massa-abi-v1-AbiResponse)
     - [AddNativeAmountsRequest](#massa-abi-v1-AddNativeAmountsRequest)
-    - [AddNativeAmountsResponse](#massa-abi-v1-AddNativeAmountsResponse)
-    - [AddNativeAmountsResponse.AddNativeAmountsResult](#massa-abi-v1-AddNativeAmountsResponse-AddNativeAmountsResult)
+    - [AddNativeAmountsResult](#massa-abi-v1-AddNativeAmountsResult)
     - [CallRequest](#massa-abi-v1-CallRequest)
     - [CallResponse](#massa-abi-v1-CallResponse)
     - [CheckNativeAddressRequest](#massa-abi-v1-CheckNativeAddressRequest)
-    - [CheckNativeAddressResponse](#massa-abi-v1-CheckNativeAddressResponse)
-    - [CheckNativeAddressResponse.CheckNativeAddressResult](#massa-abi-v1-CheckNativeAddressResponse-CheckNativeAddressResult)
+    - [CheckNativeAddressResult](#massa-abi-v1-CheckNativeAddressResult)
     - [CheckNativeAmountRequest](#massa-abi-v1-CheckNativeAmountRequest)
-    - [CheckNativeAmountResponse](#massa-abi-v1-CheckNativeAmountResponse)
-    - [CheckNativeAmountResponse.CheckNativeAmountResult](#massa-abi-v1-CheckNativeAmountResponse-CheckNativeAmountResult)
+    - [CheckNativeAmountResult](#massa-abi-v1-CheckNativeAmountResult)
     - [CheckNativeHashRequest](#massa-abi-v1-CheckNativeHashRequest)
-    - [CheckNativeHashResponse](#massa-abi-v1-CheckNativeHashResponse)
-    - [CheckNativeHashResponse.CheckNativeHashResult](#massa-abi-v1-CheckNativeHashResponse-CheckNativeHashResult)
+    - [CheckNativeHashResult](#massa-abi-v1-CheckNativeHashResult)
     - [CheckNativePubKeyRequest](#massa-abi-v1-CheckNativePubKeyRequest)
-    - [CheckNativePubKeyResponse](#massa-abi-v1-CheckNativePubKeyResponse)
-    - [CheckNativePubKeyResponse.CheckNativePubKeyResult](#massa-abi-v1-CheckNativePubKeyResponse-CheckNativePubKeyResult)
+    - [CheckNativePubKeyResult](#massa-abi-v1-CheckNativePubKeyResult)
     - [CheckNativeSigRequest](#massa-abi-v1-CheckNativeSigRequest)
-    - [CheckNativeSigResponse](#massa-abi-v1-CheckNativeSigResponse)
-    - [CheckNativeSigResponse.CheckNativeSigResult](#massa-abi-v1-CheckNativeSigResponse-CheckNativeSigResult)
+    - [CheckNativeSigResult](#massa-abi-v1-CheckNativeSigResult)
     - [CreateSCRequest](#massa-abi-v1-CreateSCRequest)
     - [CreateSCResponse](#massa-abi-v1-CreateSCResponse)
     - [DivRemNativeAmountRequest](#massa-abi-v1-DivRemNativeAmountRequest)
-    - [DivRemNativeAmountResponse](#massa-abi-v1-DivRemNativeAmountResponse)
-    - [DivRemNativeAmountResponse.DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResponse-DivRemNativeAmountResult)
+    - [DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResult)
     - [Empty](#massa-abi-v1-Empty)
     - [Error](#massa-abi-v1-Error)
     - [FunctionExistsRequest](#massa-abi-v1-FunctionExistsRequest)
@@ -38,50 +32,36 @@
     - [LocalCallResponse](#massa-abi-v1-LocalCallResponse)
     - [LogRequest](#massa-abi-v1-LogRequest)
     - [MulNativeAmountRequest](#massa-abi-v1-MulNativeAmountRequest)
-    - [MulNativeAmountResponse](#massa-abi-v1-MulNativeAmountResponse)
-    - [MulNativeAmountResponse.MulNativeAmountResult](#massa-abi-v1-MulNativeAmountResponse-MulNativeAmountResult)
+    - [MulNativeAmountResult](#massa-abi-v1-MulNativeAmountResult)
     - [NativeAddressFromStringRequest](#massa-abi-v1-NativeAddressFromStringRequest)
-    - [NativeAddressFromStringResponse](#massa-abi-v1-NativeAddressFromStringResponse)
-    - [NativeAddressFromStringResponse.NativeAddressFromStringResult](#massa-abi-v1-NativeAddressFromStringResponse-NativeAddressFromStringResult)
+    - [NativeAddressFromStringResult](#massa-abi-v1-NativeAddressFromStringResult)
     - [NativeAddressToStringRequest](#massa-abi-v1-NativeAddressToStringRequest)
-    - [NativeAddressToStringResponse](#massa-abi-v1-NativeAddressToStringResponse)
-    - [NativeAddressToStringResponse.NativeAddressToStringResult](#massa-abi-v1-NativeAddressToStringResponse-NativeAddressToStringResult)
+    - [NativeAddressToStringResult](#massa-abi-v1-NativeAddressToStringResult)
     - [NativeAmountFromBytesRequest](#massa-abi-v1-NativeAmountFromBytesRequest)
-    - [NativeAmountFromBytesResponse](#massa-abi-v1-NativeAmountFromBytesResponse)
-    - [NativeAmountFromBytesResponse.NativeAmountFromBytesResult](#massa-abi-v1-NativeAmountFromBytesResponse-NativeAmountFromBytesResult)
+    - [NativeAmountFromBytesResult](#massa-abi-v1-NativeAmountFromBytesResult)
     - [NativeAmountFromStringRequest](#massa-abi-v1-NativeAmountFromStringRequest)
-    - [NativeAmountFromStringResponse](#massa-abi-v1-NativeAmountFromStringResponse)
-    - [NativeAmountFromStringResponse.NativeAmountFromStringResult](#massa-abi-v1-NativeAmountFromStringResponse-NativeAmountFromStringResult)
+    - [NativeAmountFromStringResult](#massa-abi-v1-NativeAmountFromStringResult)
     - [NativeAmountToBytesRequest](#massa-abi-v1-NativeAmountToBytesRequest)
-    - [NativeAmountToBytesResponse](#massa-abi-v1-NativeAmountToBytesResponse)
-    - [NativeAmountToBytesResponse.NativeAmountToBytesResult](#massa-abi-v1-NativeAmountToBytesResponse-NativeAmountToBytesResult)
+    - [NativeAmountToBytesResult](#massa-abi-v1-NativeAmountToBytesResult)
     - [NativeAmountToStringRequest](#massa-abi-v1-NativeAmountToStringRequest)
-    - [NativeAmountToStringResponse](#massa-abi-v1-NativeAmountToStringResponse)
-    - [NativeAmountToStringResponse.NativeAmountToStringResult](#massa-abi-v1-NativeAmountToStringResponse-NativeAmountToStringResult)
+    - [NativeAmountToStringResult](#massa-abi-v1-NativeAmountToStringResult)
     - [NativeHashFromStringRequest](#massa-abi-v1-NativeHashFromStringRequest)
-    - [NativeHashFromStringResponse](#massa-abi-v1-NativeHashFromStringResponse)
-    - [NativeHashFromStringResponse.NativeHashFromStringResult](#massa-abi-v1-NativeHashFromStringResponse-NativeHashFromStringResult)
+    - [NativeHashFromStringResult](#massa-abi-v1-NativeHashFromStringResult)
     - [NativeHashToStringRequest](#massa-abi-v1-NativeHashToStringRequest)
-    - [NativeHashToStringResponse](#massa-abi-v1-NativeHashToStringResponse)
-    - [NativeHashToStringResponse.NativeHashToStringResult](#massa-abi-v1-NativeHashToStringResponse-NativeHashToStringResult)
+    - [NativeHashToStringResult](#massa-abi-v1-NativeHashToStringResult)
     - [NativePubKeyFromStringRequest](#massa-abi-v1-NativePubKeyFromStringRequest)
-    - [NativePubKeyFromStringResponse](#massa-abi-v1-NativePubKeyFromStringResponse)
-    - [NativePubKeyFromStringResponse.NativePubKeyFromStringResult](#massa-abi-v1-NativePubKeyFromStringResponse-NativePubKeyFromStringResult)
+    - [NativePubKeyFromStringResult](#massa-abi-v1-NativePubKeyFromStringResult)
     - [NativePubKeyToStringRequest](#massa-abi-v1-NativePubKeyToStringRequest)
-    - [NativePubKeyToStringResponse](#massa-abi-v1-NativePubKeyToStringResponse)
-    - [NativePubKeyToStringResponse.NativePubKeyToStringResult](#massa-abi-v1-NativePubKeyToStringResponse-NativePubKeyToStringResult)
+    - [NativePubKeyToStringResult](#massa-abi-v1-NativePubKeyToStringResult)
     - [NativeSigFromStringRequest](#massa-abi-v1-NativeSigFromStringRequest)
-    - [NativeSigFromStringResponse](#massa-abi-v1-NativeSigFromStringResponse)
-    - [NativeSigFromStringResponse.NativeSigFromStringResult](#massa-abi-v1-NativeSigFromStringResponse-NativeSigFromStringResult)
+    - [NativeSigFromStringResult](#massa-abi-v1-NativeSigFromStringResult)
     - [NativeSigToStringRequest](#massa-abi-v1-NativeSigToStringRequest)
-    - [NativeSigToStringResponse](#massa-abi-v1-NativeSigToStringResponse)
-    - [NativeSigToStringResponse.NativeSigToStringResult](#massa-abi-v1-NativeSigToStringResponse-NativeSigToStringResult)
+    - [NativeSigToStringResult](#massa-abi-v1-NativeSigToStringResult)
+    - [RespResult](#massa-abi-v1-RespResult)
     - [ScalarDivRemNativeAmountRequest](#massa-abi-v1-ScalarDivRemNativeAmountRequest)
-    - [ScalarDivRemNativeAmountResponse](#massa-abi-v1-ScalarDivRemNativeAmountResponse)
-    - [ScalarDivRemNativeAmountResponse.ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResponse-ScalarDivRemNativeAmountResult)
+    - [ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResult)
     - [SubNativeAmountsRequest](#massa-abi-v1-SubNativeAmountsRequest)
-    - [SubNativeAmountsResponse](#massa-abi-v1-SubNativeAmountsResponse)
-    - [SubNativeAmountsResponse.SubNativeAmountsResult](#massa-abi-v1-SubNativeAmountsResponse-SubNativeAmountsResult)
+    - [SubNativeAmountsResult](#massa-abi-v1-SubNativeAmountsResult)
     - [TransferCoinsRequest](#massa-abi-v1-TransferCoinsRequest)
   
 - [Scalar Value Types](#scalar-value-types)
@@ -92,6 +72,22 @@
 <p align="right"><a href="#top">Top</a></p>
 
 ## massa/abi/v1/abi.proto
+
+
+
+<a name="massa-abi-v1-AbiResponse"></a>
+
+### AbiResponse
+Generic message that encapsulate response from ABI calls.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| res | [RespResult](#massa-abi-v1-RespResult) |  |  |
+| error | [Error](#massa-abi-v1-Error) |  |  |
+
+
+
 
 
 
@@ -111,25 +107,9 @@ Addition
 
 
 
-<a name="massa-abi-v1-AddNativeAmountsResponse"></a>
+<a name="massa-abi-v1-AddNativeAmountsResult"></a>
 
-### AddNativeAmountsResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [AddNativeAmountsResponse.AddNativeAmountsResult](#massa-abi-v1-AddNativeAmountsResponse-AddNativeAmountsResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-AddNativeAmountsResponse-AddNativeAmountsResult"></a>
-
-### AddNativeAmountsResponse.AddNativeAmountsResult
+### AddNativeAmountsResult
 
 
 
@@ -190,25 +170,9 @@ CallResponse
 
 
 
-<a name="massa-abi-v1-CheckNativeAddressResponse"></a>
+<a name="massa-abi-v1-CheckNativeAddressResult"></a>
 
-### CheckNativeAddressResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [CheckNativeAddressResponse.CheckNativeAddressResult](#massa-abi-v1-CheckNativeAddressResponse-CheckNativeAddressResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-CheckNativeAddressResponse-CheckNativeAddressResult"></a>
-
-### CheckNativeAddressResponse.CheckNativeAddressResult
+### CheckNativeAddressResult
 
 
 
@@ -236,25 +200,9 @@ check_native_amount
 
 
 
-<a name="massa-abi-v1-CheckNativeAmountResponse"></a>
+<a name="massa-abi-v1-CheckNativeAmountResult"></a>
 
-### CheckNativeAmountResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [CheckNativeAmountResponse.CheckNativeAmountResult](#massa-abi-v1-CheckNativeAmountResponse-CheckNativeAmountResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-CheckNativeAmountResponse-CheckNativeAmountResult"></a>
-
-### CheckNativeAmountResponse.CheckNativeAmountResult
+### CheckNativeAmountResult
 
 
 
@@ -282,25 +230,9 @@ check_native_amount
 
 
 
-<a name="massa-abi-v1-CheckNativeHashResponse"></a>
+<a name="massa-abi-v1-CheckNativeHashResult"></a>
 
-### CheckNativeHashResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [CheckNativeHashResponse.CheckNativeHashResult](#massa-abi-v1-CheckNativeHashResponse-CheckNativeHashResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-CheckNativeHashResponse-CheckNativeHashResult"></a>
-
-### CheckNativeHashResponse.CheckNativeHashResult
+### CheckNativeHashResult
 
 
 
@@ -328,25 +260,9 @@ check_native_amount
 
 
 
-<a name="massa-abi-v1-CheckNativePubKeyResponse"></a>
+<a name="massa-abi-v1-CheckNativePubKeyResult"></a>
 
-### CheckNativePubKeyResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [CheckNativePubKeyResponse.CheckNativePubKeyResult](#massa-abi-v1-CheckNativePubKeyResponse-CheckNativePubKeyResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-CheckNativePubKeyResponse-CheckNativePubKeyResult"></a>
-
-### CheckNativePubKeyResponse.CheckNativePubKeyResult
+### CheckNativePubKeyResult
 
 
 
@@ -374,25 +290,9 @@ check_native_amount
 
 
 
-<a name="massa-abi-v1-CheckNativeSigResponse"></a>
+<a name="massa-abi-v1-CheckNativeSigResult"></a>
 
-### CheckNativeSigResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [CheckNativeSigResponse.CheckNativeSigResult](#massa-abi-v1-CheckNativeSigResponse-CheckNativeSigResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-CheckNativeSigResponse-CheckNativeSigResult"></a>
-
-### CheckNativeSigResponse.CheckNativeSigResult
+### CheckNativeSigResult
 
 
 
@@ -451,25 +351,9 @@ check_native_amount
 
 
 
-<a name="massa-abi-v1-DivRemNativeAmountResponse"></a>
+<a name="massa-abi-v1-DivRemNativeAmountResult"></a>
 
-### DivRemNativeAmountResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [DivRemNativeAmountResponse.DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResponse-DivRemNativeAmountResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-DivRemNativeAmountResponse-DivRemNativeAmountResult"></a>
-
-### DivRemNativeAmountResponse.DivRemNativeAmountResult
+### DivRemNativeAmountResult
 
 
 
@@ -618,25 +502,9 @@ try to compute product = amount * coefficient
 
 
 
-<a name="massa-abi-v1-MulNativeAmountResponse"></a>
+<a name="massa-abi-v1-MulNativeAmountResult"></a>
 
-### MulNativeAmountResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [MulNativeAmountResponse.MulNativeAmountResult](#massa-abi-v1-MulNativeAmountResponse-MulNativeAmountResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-MulNativeAmountResponse-MulNativeAmountResult"></a>
-
-### MulNativeAmountResponse.MulNativeAmountResult
+### MulNativeAmountResult
 
 
 
@@ -664,25 +532,9 @@ try to compute product = amount * coefficient
 
 
 
-<a name="massa-abi-v1-NativeAddressFromStringResponse"></a>
+<a name="massa-abi-v1-NativeAddressFromStringResult"></a>
 
-### NativeAddressFromStringResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [NativeAddressFromStringResponse.NativeAddressFromStringResult](#massa-abi-v1-NativeAddressFromStringResponse-NativeAddressFromStringResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeAddressFromStringResponse-NativeAddressFromStringResult"></a>
-
-### NativeAddressFromStringResponse.NativeAddressFromStringResult
+### NativeAddressFromStringResult
 
 
 
@@ -710,25 +562,9 @@ To string
 
 
 
-<a name="massa-abi-v1-NativeAddressToStringResponse"></a>
+<a name="massa-abi-v1-NativeAddressToStringResult"></a>
 
-### NativeAddressToStringResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [NativeAddressToStringResponse.NativeAddressToStringResult](#massa-abi-v1-NativeAddressToStringResponse-NativeAddressToStringResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeAddressToStringResponse-NativeAddressToStringResult"></a>
-
-### NativeAddressToStringResponse.NativeAddressToStringResult
+### NativeAddressToStringResult
 
 
 
@@ -756,25 +592,9 @@ To string
 
 
 
-<a name="massa-abi-v1-NativeAmountFromBytesResponse"></a>
+<a name="massa-abi-v1-NativeAmountFromBytesResult"></a>
 
-### NativeAmountFromBytesResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [NativeAmountFromBytesResponse.NativeAmountFromBytesResult](#massa-abi-v1-NativeAmountFromBytesResponse-NativeAmountFromBytesResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeAmountFromBytesResponse-NativeAmountFromBytesResult"></a>
-
-### NativeAmountFromBytesResponse.NativeAmountFromBytesResult
+### NativeAmountFromBytesResult
 
 
 
@@ -802,25 +622,9 @@ native_amount_from_string
 
 
 
-<a name="massa-abi-v1-NativeAmountFromStringResponse"></a>
+<a name="massa-abi-v1-NativeAmountFromStringResult"></a>
 
-### NativeAmountFromStringResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [NativeAmountFromStringResponse.NativeAmountFromStringResult](#massa-abi-v1-NativeAmountFromStringResponse-NativeAmountFromStringResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeAmountFromStringResponse-NativeAmountFromStringResult"></a>
-
-### NativeAmountFromStringResponse.NativeAmountFromStringResult
+### NativeAmountFromStringResult
 
 
 
@@ -848,25 +652,9 @@ massa.model.v1.NativeAmount from and to byte array
 
 
 
-<a name="massa-abi-v1-NativeAmountToBytesResponse"></a>
+<a name="massa-abi-v1-NativeAmountToBytesResult"></a>
 
-### NativeAmountToBytesResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [NativeAmountToBytesResponse.NativeAmountToBytesResult](#massa-abi-v1-NativeAmountToBytesResponse-NativeAmountToBytesResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeAmountToBytesResponse-NativeAmountToBytesResult"></a>
-
-### NativeAmountToBytesResponse.NativeAmountToBytesResult
+### NativeAmountToBytesResult
 
 
 
@@ -894,25 +682,9 @@ native_amount_to_string
 
 
 
-<a name="massa-abi-v1-NativeAmountToStringResponse"></a>
+<a name="massa-abi-v1-NativeAmountToStringResult"></a>
 
-### NativeAmountToStringResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [NativeAmountToStringResponse.NativeAmountToStringResult](#massa-abi-v1-NativeAmountToStringResponse-NativeAmountToStringResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeAmountToStringResponse-NativeAmountToStringResult"></a>
-
-### NativeAmountToStringResponse.NativeAmountToStringResult
+### NativeAmountToStringResult
 
 
 
@@ -940,25 +712,9 @@ native_amount_to_string
 
 
 
-<a name="massa-abi-v1-NativeHashFromStringResponse"></a>
+<a name="massa-abi-v1-NativeHashFromStringResult"></a>
 
-### NativeHashFromStringResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [NativeHashFromStringResponse.NativeHashFromStringResult](#massa-abi-v1-NativeHashFromStringResponse-NativeHashFromStringResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeHashFromStringResponse-NativeHashFromStringResult"></a>
-
-### NativeHashFromStringResponse.NativeHashFromStringResult
+### NativeHashFromStringResult
 
 
 
@@ -986,25 +742,9 @@ native_amount_to_string
 
 
 
-<a name="massa-abi-v1-NativeHashToStringResponse"></a>
+<a name="massa-abi-v1-NativeHashToStringResult"></a>
 
-### NativeHashToStringResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [NativeHashToStringResponse.NativeHashToStringResult](#massa-abi-v1-NativeHashToStringResponse-NativeHashToStringResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeHashToStringResponse-NativeHashToStringResult"></a>
-
-### NativeHashToStringResponse.NativeHashToStringResult
+### NativeHashToStringResult
 
 
 
@@ -1032,25 +772,9 @@ native_amount_to_string
 
 
 
-<a name="massa-abi-v1-NativePubKeyFromStringResponse"></a>
+<a name="massa-abi-v1-NativePubKeyFromStringResult"></a>
 
-### NativePubKeyFromStringResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [NativePubKeyFromStringResponse.NativePubKeyFromStringResult](#massa-abi-v1-NativePubKeyFromStringResponse-NativePubKeyFromStringResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativePubKeyFromStringResponse-NativePubKeyFromStringResult"></a>
-
-### NativePubKeyFromStringResponse.NativePubKeyFromStringResult
+### NativePubKeyFromStringResult
 
 
 
@@ -1078,25 +802,9 @@ native_amount_to_string
 
 
 
-<a name="massa-abi-v1-NativePubKeyToStringResponse"></a>
+<a name="massa-abi-v1-NativePubKeyToStringResult"></a>
 
-### NativePubKeyToStringResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [NativePubKeyToStringResponse.NativePubKeyToStringResult](#massa-abi-v1-NativePubKeyToStringResponse-NativePubKeyToStringResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativePubKeyToStringResponse-NativePubKeyToStringResult"></a>
-
-### NativePubKeyToStringResponse.NativePubKeyToStringResult
+### NativePubKeyToStringResult
 
 
 
@@ -1124,25 +832,9 @@ native_amount_to_string
 
 
 
-<a name="massa-abi-v1-NativeSigFromStringResponse"></a>
+<a name="massa-abi-v1-NativeSigFromStringResult"></a>
 
-### NativeSigFromStringResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [NativeSigFromStringResponse.NativeSigFromStringResult](#massa-abi-v1-NativeSigFromStringResponse-NativeSigFromStringResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeSigFromStringResponse-NativeSigFromStringResult"></a>
-
-### NativeSigFromStringResponse.NativeSigFromStringResult
+### NativeSigFromStringResult
 
 
 
@@ -1170,31 +862,52 @@ native_amount_to_string
 
 
 
-<a name="massa-abi-v1-NativeSigToStringResponse"></a>
+<a name="massa-abi-v1-NativeSigToStringResult"></a>
 
-### NativeSigToStringResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [NativeSigToStringResponse.NativeSigToStringResult](#massa-abi-v1-NativeSigToStringResponse-NativeSigToStringResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeSigToStringResponse-NativeSigToStringResult"></a>
-
-### NativeSigToStringResponse.NativeSigToStringResult
+### NativeSigToStringResult
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | converted_sig | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="massa-abi-v1-RespResult"></a>
+
+### RespResult
+Call RespResult becaule Result will conflict with the Result type in Rust
+data MUST have the same name as they type in Rust they are converted to type
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| native_address_to_string_result | [NativeAddressToStringResult](#massa-abi-v1-NativeAddressToStringResult) |  |  |
+| native_pub_key_to_string_result | [NativePubKeyToStringResult](#massa-abi-v1-NativePubKeyToStringResult) |  |  |
+| native_sig_to_string_result | [NativeSigToStringResult](#massa-abi-v1-NativeSigToStringResult) |  |  |
+| native_hash_to_string_result | [NativeHashToStringResult](#massa-abi-v1-NativeHashToStringResult) |  |  |
+| native_amount_to_string_result | [NativeAmountToStringResult](#massa-abi-v1-NativeAmountToStringResult) |  |  |
+| native_address_from_string_result | [NativeAddressFromStringResult](#massa-abi-v1-NativeAddressFromStringResult) |  |  |
+| native_pub_key_from_string_result | [NativePubKeyFromStringResult](#massa-abi-v1-NativePubKeyFromStringResult) |  |  |
+| native_sig_from_string_result | [NativeSigFromStringResult](#massa-abi-v1-NativeSigFromStringResult) |  |  |
+| native_hash_from_string_result | [NativeHashFromStringResult](#massa-abi-v1-NativeHashFromStringResult) |  |  |
+| native_amount_from_string_result | [NativeAmountFromStringResult](#massa-abi-v1-NativeAmountFromStringResult) |  |  |
+| check_native_address_result | [CheckNativeAddressResult](#massa-abi-v1-CheckNativeAddressResult) |  |  |
+| check_native_pub_key_result | [CheckNativePubKeyResult](#massa-abi-v1-CheckNativePubKeyResult) |  |  |
+| check_native_sig_result | [CheckNativeSigResult](#massa-abi-v1-CheckNativeSigResult) |  |  |
+| check_native_hash_result | [CheckNativeHashResult](#massa-abi-v1-CheckNativeHashResult) |  |  |
+| check_native_amount_result | [CheckNativeAmountResult](#massa-abi-v1-CheckNativeAmountResult) |  |  |
+| add_native_amounts_result | [AddNativeAmountsResult](#massa-abi-v1-AddNativeAmountsResult) |  |  |
+| sub_native_amounts_result | [SubNativeAmountsResult](#massa-abi-v1-SubNativeAmountsResult) |  |  |
+| mul_native_amount_result | [MulNativeAmountResult](#massa-abi-v1-MulNativeAmountResult) |  |  |
+| scalar_div_rem_native_amount_result | [ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResult) |  |  |
+| div_rem_native_amount_result | [DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResult) |  |  |
+| native_amount_to_bytes_result | [NativeAmountToBytesResult](#massa-abi-v1-NativeAmountToBytesResult) |  |  |
+| native_amount_from_bytes_result | [NativeAmountFromBytesResult](#massa-abi-v1-NativeAmountFromBytesResult) |  |  |
 
 
 
@@ -1219,25 +932,9 @@ if divisor == 0 then error
 
 
 
-<a name="massa-abi-v1-ScalarDivRemNativeAmountResponse"></a>
+<a name="massa-abi-v1-ScalarDivRemNativeAmountResult"></a>
 
-### ScalarDivRemNativeAmountResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [ScalarDivRemNativeAmountResponse.ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResponse-ScalarDivRemNativeAmountResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-ScalarDivRemNativeAmountResponse-ScalarDivRemNativeAmountResult"></a>
-
-### ScalarDivRemNativeAmountResponse.ScalarDivRemNativeAmountResult
+### ScalarDivRemNativeAmountResult
 
 
 
@@ -1270,25 +967,9 @@ if minued &gt;= substrahend then
 
 
 
-<a name="massa-abi-v1-SubNativeAmountsResponse"></a>
+<a name="massa-abi-v1-SubNativeAmountsResult"></a>
 
-### SubNativeAmountsResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| res | [SubNativeAmountsResponse.SubNativeAmountsResult](#massa-abi-v1-SubNativeAmountsResponse-SubNativeAmountsResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-SubNativeAmountsResponse-SubNativeAmountsResult"></a>
-
-### SubNativeAmountsResponse.SubNativeAmountsResult
+### SubNativeAmountsResult
 
 
 

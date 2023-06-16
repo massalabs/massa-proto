@@ -91,60 +91,73 @@ message FunctionExistsResponse {
   bool exists = 1;
 }
 
+// Call RespResult becaule Result will conflict with the Result type in Rust
+// data MUST have the same name as they type in Rust they are converted to type
+message RespResult {
+  oneof res {
+    NativeAddressToStringResult native_address_to_string_result = 1;
+    NativePubKeyToStringResult native_pub_key_to_string_result = 2;
+    NativeSigToStringResult native_sig_to_string_result = 3;
+    NativeHashToStringResult native_hash_to_string_result = 4;
+    NativeAmountToStringResult native_amount_to_string_result = 5;
+    NativeAddressFromStringResult native_address_from_string_result = 6;
+    NativePubKeyFromStringResult native_pub_key_from_string_result = 7;
+    NativeSigFromStringResult native_sig_from_string_result = 8;
+    NativeHashFromStringResult native_hash_from_string_result = 9;
+    NativeAmountFromStringResult native_amount_from_string_result = 10;
+    CheckNativeAddressResult check_native_address_result = 11;
+    CheckNativePubKeyResult check_native_pub_key_result = 12;
+    CheckNativeSigResult check_native_sig_result = 13;
+    CheckNativeHashResult check_native_hash_result = 14;
+    CheckNativeAmountResult check_native_amount_result = 15;
+    AddNativeAmountsResult add_native_amounts_result = 16;
+    SubNativeAmountsResult sub_native_amounts_result = 17;
+    MulNativeAmountResult mul_native_amount_result = 18;
+    ScalarDivRemNativeAmountResult scalar_div_rem_native_amount_result = 19;
+    DivRemNativeAmountResult div_rem_native_amount_result = 20;
+    NativeAmountToBytesResult native_amount_to_bytes_result = 21;
+    NativeAmountFromBytesResult native_amount_from_bytes_result = 22;
+  }
+}
+
+// Generic message that encapsulate response from ABI calls.
+message AbiResponse {
+  oneof resp {
+    RespResult res = 1;
+    Error error = 2;
+  }
+}
+
 // To string
 message NativeAddressToStringRequest {
   massa.model.v1.NativeAddress to_convert = 1;
 }
 
-message NativeAddressToStringResponse {
-  message NativeAddressToStringResult {
-    string converted_address = 1;
-  }
-  oneof resp {
-    NativeAddressToStringResult res = 1;
-    Error error = 2;
-  }
+message NativeAddressToStringResult {
+  string converted_address = 1;
 }
 
 message NativePubKeyToStringRequest {
   massa.model.v1.NativePubKey to_convert = 1;
 }
-message NativePubKeyToStringResponse {
-  message NativePubKeyToStringResult {
-    string converted_pubkey = 1;
-  }
-  oneof resp {
-    NativePubKeyToStringResult res = 1;
-    Error error = 2;
-  }
+message NativePubKeyToStringResult {
+  string converted_pubkey = 1;
 }
 
 message NativeSigToStringRequest {
   massa.model.v1.NativeSig to_convert = 1;
 }
 
-message NativeSigToStringResponse {
-  message NativeSigToStringResult {
-    string converted_sig = 1;
-  }
-  oneof resp {
-    NativeSigToStringResult res = 1;
-    Error error = 2;
-  }
+message NativeSigToStringResult {
+  string converted_sig = 1;
 }
 
 message NativeHashToStringRequest {
   massa.model.v1.NativeHash to_convert = 1;
 }
 
-message NativeHashToStringResponse {
-  message NativeHashToStringResult {
-    string converted_hash = 1;
-  }
-  oneof resp {
-    NativeHashToStringResult res = 1;
-    Error error = 2;
-  }
+message NativeHashToStringResult {
+  string converted_hash = 1;
 }
 
 // native_amount_to_string
@@ -152,70 +165,40 @@ message NativeAmountToStringRequest {
   massa.model.v1.NativeAmount to_convert = 1;
 }
 
-message NativeAmountToStringResponse {
-  message NativeAmountToStringResult {
-    string converted_amount = 1;
-  }
-  oneof resp {
-    NativeAmountToStringResult res = 1;
-    Error error = 2;
-  }
+message NativeAmountToStringResult {
+  string converted_amount = 1;
 }
 
 message NativeAddressFromStringRequest {
   string to_convert = 1;
 }
 
-message NativeAddressFromStringResponse {
-  message NativeAddressFromStringResult {
-    massa.model.v1.NativeAddress converted_address = 1;
-  }
-  oneof resp {
-    NativeAddressFromStringResult res = 1;
-    Error error = 2;
-  }
+message NativeAddressFromStringResult {
+  massa.model.v1.NativeAddress converted_address = 1;
 }
 
 message NativePubKeyFromStringRequest {
   string to_convert = 1;
 }
 
-message NativePubKeyFromStringResponse {
-  message NativePubKeyFromStringResult {
-    massa.model.v1.NativePubKey converted_pubkey = 1;
-  }
-  oneof resp {
-    NativePubKeyFromStringResult res = 1;
-    Error error = 2;
-  }
+message NativePubKeyFromStringResult {
+  massa.model.v1.NativePubKey converted_pubkey = 1;
 }
 
 message NativeSigFromStringRequest {
   string to_convert = 1;
 }
 
-message NativeSigFromStringResponse {
-  message NativeSigFromStringResult {
-    massa.model.v1.NativeSig converted_sig = 1;
-  }
-  oneof resp {
-    NativeSigFromStringResult res = 1;
-    Error error = 2;
-  }
+message NativeSigFromStringResult {
+  massa.model.v1.NativeSig converted_sig = 1;
 }
 
 message NativeHashFromStringRequest {
   string to_convert = 1;
 }
 
-message NativeHashFromStringResponse {
-  message NativeHashFromStringResult {
-    massa.model.v1.NativeHash converted_hash = 1;
-  }
-  oneof resp {
-    NativeHashFromStringResult res = 1;
-    Error error = 2;
-  }
+message NativeHashFromStringResult {
+  massa.model.v1.NativeHash converted_hash = 1;
 }
 
 // native_amount_from_string
@@ -223,70 +206,40 @@ message NativeAmountFromStringRequest {
   string to_convert = 1;
 }
 
-message NativeAmountFromStringResponse {
-  message NativeAmountFromStringResult {
-    massa.model.v1.NativeAmount converted_amount = 1;
-  }
-  oneof resp {
-    NativeAmountFromStringResult res = 1;
-    Error error = 2;
-  }
+message NativeAmountFromStringResult {
+  massa.model.v1.NativeAmount converted_amount = 1;
 }
 
 message CheckNativeAddressRequest {
   massa.model.v1.NativeAddress to_check = 1;
 }
 
-message CheckNativeAddressResponse {
-  message CheckNativeAddressResult {
-    bool is_valid = 1;
-  }
-  oneof resp {
-    CheckNativeAddressResult res = 1;
-    Error error = 2;
-  }
+message CheckNativeAddressResult {
+  bool is_valid = 1;
 }
 
 message CheckNativePubKeyRequest {
   massa.model.v1.NativePubKey to_check = 1;
 }
 
-message CheckNativePubKeyResponse {
-  message CheckNativePubKeyResult {
-    bool is_valid = 1;
-  }
-  oneof resp {
-    CheckNativePubKeyResult res = 1;
-    Error error = 2;
-  }
+message CheckNativePubKeyResult {
+  bool is_valid = 1;
 }
 
 message CheckNativeSigRequest {
   massa.model.v1.NativeSig to_check = 1;
 }
 
-message CheckNativeSigResponse {
-  message CheckNativeSigResult {
-    bool is_valid = 1;
-  }
-  oneof resp {
-    CheckNativeSigResult res = 1;
-    Error error = 2;
-  }
+message CheckNativeSigResult {
+  bool is_valid = 1;
 }
 
 message CheckNativeHashRequest {
   massa.model.v1.NativeHash to_check = 1;
 }
 
-message CheckNativeHashResponse {
-  message CheckNativeHashResult {
-    bool is_valid = 1;
-  }
-  oneof resp {
-    CheckNativeHashResult res = 1;
-    Error error = 2;
-  }
+message CheckNativeHashResult {
+  bool is_valid = 1;
 }
 
 // check_native_amount
@@ -294,14 +247,8 @@ message CheckNativeAmountRequest {
   massa.model.v1.NativeAmount to_check = 1;
 }
 
-message CheckNativeAmountResponse {
-  message CheckNativeAmountResult {
-    bool is_valid = 1;
-  }
-  oneof resp {
-    CheckNativeAmountResult res = 1;
-    Error error = 2;
-  }
+message CheckNativeAmountResult {
+  bool is_valid = 1;
 }
 
 // Addition
@@ -310,14 +257,8 @@ message AddNativeAmountsRequest {
   massa.model.v1.NativeAmount amount2 = 2;
 }
 
-message AddNativeAmountsResponse {
-  message AddNativeAmountsResult {
-    massa.model.v1.NativeAmount sum = 1;
-  }
-  oneof resp {
-    AddNativeAmountsResult res = 1;
-    Error error = 2;
-  }
+message AddNativeAmountsResult {
+  massa.model.v1.NativeAmount sum = 1;
 }
 
 // Substraction
@@ -329,14 +270,8 @@ message SubNativeAmountsRequest {
   massa.model.v1.NativeAmount subtrahend = 2;
 }
 
-message SubNativeAmountsResponse {
-  message SubNativeAmountsResult {
-    massa.model.v1.NativeAmount difference = 1;
-  }
-  oneof resp {
-    SubNativeAmountsResult res = 1;
-    Error error = 2;
-  }
+message SubNativeAmountsResult {
+  massa.model.v1.NativeAmount difference = 1;
 }
 
 // Multiplication
@@ -346,14 +281,8 @@ message MulNativeAmountRequest {
   fixed64 coefficient = 2;
 }
 
-message MulNativeAmountResponse {
-  message MulNativeAmountResult {
-    massa.model.v1.NativeAmount product = 1;
-  }
-  oneof resp {
-    MulNativeAmountResult res = 1;
-    Error error = 2;
-  }
+message MulNativeAmountResult {
+  massa.model.v1.NativeAmount product = 1;
 }
 
 // Division
@@ -363,15 +292,9 @@ message ScalarDivRemNativeAmountRequest {
   massa.model.v1.NativeAmount dividend = 1;
   fixed64 divisor = 2;
 }
-message ScalarDivRemNativeAmountResponse {
-  message ScalarDivRemNativeAmountResult {
-    massa.model.v1.NativeAmount quotient = 1;
-    massa.model.v1.NativeAmount remainder = 2;
-  }
-  oneof resp {
-    ScalarDivRemNativeAmountResult res = 1;
-    Error error = 2;
-  }
+message ScalarDivRemNativeAmountResult {
+  massa.model.v1.NativeAmount quotient = 1;
+  massa.model.v1.NativeAmount remainder = 2;
 }
 
 message DivRemNativeAmountRequest {
@@ -379,15 +302,9 @@ message DivRemNativeAmountRequest {
   massa.model.v1.NativeAmount divisor = 2;
 }
 
-message DivRemNativeAmountResponse {
-  message DivRemNativeAmountResult {
-    fixed64 quotient = 1;
-    massa.model.v1.NativeAmount remainder = 2;
-  }
-  oneof resp {
-    DivRemNativeAmountResult res = 1;
-    Error error = 2;
-  }
+message DivRemNativeAmountResult {
+  fixed64 quotient = 1;
+  massa.model.v1.NativeAmount remainder = 2;
 }
 
 // massa.model.v1.NativeAmount from and to byte array
@@ -395,26 +312,14 @@ message NativeAmountToBytesRequest {
   massa.model.v1.NativeAmount amount = 1;
 }
 
-message NativeAmountToBytesResponse {
-  message NativeAmountToBytesResult {
-    bytes amount = 1;
-  }
-  oneof resp {
-    NativeAmountToBytesResult res = 1;
-    Error error = 2;
-  }
+message NativeAmountToBytesResult {
+  bytes amount = 1;
 }
 
 message NativeAmountFromBytesRequest {
   bytes amount = 1;
 }
 
-message NativeAmountFromBytesResponse {
-  message NativeAmountFromBytesResult {
-    massa.model.v1.NativeAmount amount = 1;
-  }
-  oneof resp {
-    NativeAmountFromBytesResult res = 1;
-    Error error = 2;
-  }
+message NativeAmountFromBytesResult {
+  massa.model.v1.NativeAmount amount = 1;
 }
