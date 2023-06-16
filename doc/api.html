@@ -762,6 +762,13 @@
             <tbody>
               
                 <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+                <tr>
                   <td>ips</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
@@ -824,6 +831,13 @@
             <tbody>
               
                 <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+                <tr>
                   <td>ips</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
@@ -870,6 +884,13 @@
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
               
                 <tr>
                   <td>ips</td>
@@ -1065,6 +1086,13 @@
             <tbody>
               
                 <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+                <tr>
                   <td>public_key</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
@@ -1103,14 +1131,14 @@
                 <td>AddToBootstrapBlacklist</td>
                 <td><a href="#massa.api.v1.AddToBootstrapBlacklistRequest">AddToBootstrapBlacklistRequest</a></td>
                 <td><a href="#massa.api.v1.AddToBootstrapBlacklistResponse">AddToBootstrapBlacklistResponse</a></td>
-                <td><p>Add IP addresses to node bootstrap whitelist.</p></td>
+                <td><p>Add IP addresses to node bootstrap blacklist</p></td>
               </tr>
             
               <tr>
                 <td>AddToBootstrapWhitelist</td>
                 <td><a href="#massa.api.v1.AddToBootstrapWhitelistRequest">AddToBootstrapWhitelistRequest</a></td>
                 <td><a href="#massa.api.v1.AddToBootstrapWhitelistResponse">AddToBootstrapWhitelistResponse</a></td>
-                <td><p>Add IP addresses to node bootstrap whitelist.</p></td>
+                <td><p>Add IP addresses to node bootstrap whitelist</p></td>
               </tr>
             
               <tr>
@@ -1146,7 +1174,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td>GetBootstrapWhitelistAllowAll</td>
                 <td><a href="#massa.api.v1.GetBootstrapWhitelistAllowAllRequest">GetBootstrapWhitelistAllowAllRequest</a></td>
                 <td><a href="#massa.api.v1.GetBootstrapWhitelistAllowAllResponse">GetBootstrapWhitelistAllowAllResponse</a></td>
-                <td><p>Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file.</p></td>
+                <td><p>Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file</p></td>
               </tr>
             
               <tr>

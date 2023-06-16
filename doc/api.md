@@ -243,6 +243,7 @@ GetBootstrapBlacklistResponse holds the response from GetBootstrapBlacklist
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
 | ips | [string](#string) | repeated | Bootstrap blacklisted IP addresses |
 
 
@@ -293,6 +294,7 @@ GetBootstrapWhitelistResponse holds the response from GetBootstrapWhitelist
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
 | ips | [string](#string) | repeated | Bootstrap whitelisted IP addresses |
 
 
@@ -323,6 +325,7 @@ GetPeersWhitelistResponse holds the response from GetPeersWhitelist
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
 | ips | [string](#string) | repeated | Whitelisted IP addresses |
 
 
@@ -474,6 +477,7 @@ SignMessagesResponse holds the response from SignMessages
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
 | public_key | [string](#string) |  | Public key that signed the message |
 | signatures | [string](#string) | repeated | Signatures |
 
@@ -495,13 +499,13 @@ Massa private gRPC service
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| AddToBootstrapBlacklist | [AddToBootstrapBlacklistRequest](#massa-api-v1-AddToBootstrapBlacklistRequest) | [AddToBootstrapBlacklistResponse](#massa-api-v1-AddToBootstrapBlacklistResponse) | Add IP addresses to node bootstrap whitelist. |
-| AddToBootstrapWhitelist | [AddToBootstrapWhitelistRequest](#massa-api-v1-AddToBootstrapWhitelistRequest) | [AddToBootstrapWhitelistResponse](#massa-api-v1-AddToBootstrapWhitelistResponse) | Add IP addresses to node bootstrap whitelist. |
+| AddToBootstrapBlacklist | [AddToBootstrapBlacklistRequest](#massa-api-v1-AddToBootstrapBlacklistRequest) | [AddToBootstrapBlacklistResponse](#massa-api-v1-AddToBootstrapBlacklistResponse) | Add IP addresses to node bootstrap blacklist |
+| AddToBootstrapWhitelist | [AddToBootstrapWhitelistRequest](#massa-api-v1-AddToBootstrapWhitelistRequest) | [AddToBootstrapWhitelistResponse](#massa-api-v1-AddToBootstrapWhitelistResponse) | Add IP addresses to node bootstrap whitelist |
 | AddToPeersWhitelist | [AddToPeersWhitelistRequest](#massa-api-v1-AddToPeersWhitelistRequest) | [AddToPeersWhitelistResponse](#massa-api-v1-AddToPeersWhitelistResponse) | Add IP addresses to node peers whitelist. No confirmation to expect. Note: If the ip was unknown it adds it to the known peers, otherwise it updates the peer type |
 | AddStakingSecretKeys | [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest) | [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse) | Add staking secret keys to wallet |
 | GetBootstrapBlacklist | [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest) | [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse) | Get node bootstrap blacklist IP addresses |
 | GetBootstrapWhitelist | [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest) | [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse) | Get node bootstrap whitelist IP addresses |
-| GetBootstrapWhitelistAllowAll | [GetBootstrapWhitelistAllowAllRequest](#massa-api-v1-GetBootstrapWhitelistAllowAllRequest) | [GetBootstrapWhitelistAllowAllResponse](#massa-api-v1-GetBootstrapWhitelistAllowAllResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file. |
+| GetBootstrapWhitelistAllowAll | [GetBootstrapWhitelistAllowAllRequest](#massa-api-v1-GetBootstrapWhitelistAllowAllRequest) | [GetBootstrapWhitelistAllowAllResponse](#massa-api-v1-GetBootstrapWhitelistAllowAllResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file |
 | GetPeersWhitelist | [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest) | [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse) | Get node peers whitelist IP addresses |
 | RemoveFromBootstrapBlacklist | [RemoveFromBootstrapBlacklistRequest](#massa-api-v1-RemoveFromBootstrapBlacklistRequest) | [RemoveFromBootstrapBlacklistResponse](#massa-api-v1-RemoveFromBootstrapBlacklistResponse) | Remove from bootstrap blacklist given IP addresses |
 | RemoveFromBootstrapWhitelist | [RemoveFromBootstrapWhitelistRequest](#massa-api-v1-RemoveFromBootstrapWhitelistRequest) | [RemoveFromBootstrapWhitelistResponse](#massa-api-v1-RemoveFromBootstrapWhitelistResponse) | Remove from bootstrap whitelist given IP addresses |

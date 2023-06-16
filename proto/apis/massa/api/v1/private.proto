@@ -17,7 +17,7 @@ option swift_prefix = "MAPI";
 
 // Massa private gRPC service
 service MassaPrivateService {
-  // Add IP addresses to node bootstrap whitelist.
+  // Add IP addresses to node bootstrap blacklist
   rpc AddToBootstrapBlacklist(AddToBootstrapBlacklistRequest) returns (AddToBootstrapBlacklistResponse) {
     option (google.api.http) = {
       post: "/v1/add_to_boostrap_blacklist"
@@ -25,7 +25,7 @@ service MassaPrivateService {
     };
   }
 
-  // Add IP addresses to node bootstrap whitelist.
+  // Add IP addresses to node bootstrap whitelist
   rpc AddToBootstrapWhitelist(AddToBootstrapWhitelistRequest) returns (AddToBootstrapWhitelistResponse) {
     option (google.api.http) = {
       post: "/v1/add_to_boostrap_whitelist"
@@ -66,7 +66,7 @@ service MassaPrivateService {
     };
   }
 
-  // Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file.
+  // Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file
   rpc GetBootstrapWhitelistAllowAll(GetBootstrapWhitelistAllowAllRequest) returns (GetBootstrapWhitelistAllowAllResponse) {
     option (google.api.http) = {
       post: "/v1/get_bootstrap_whitelist_allow_all"
@@ -175,8 +175,10 @@ message GetBootstrapBlacklistRequest {
 
 // GetBootstrapBlacklistResponse holds the response from GetBootstrapBlacklist
 message GetBootstrapBlacklistResponse {
+  // Request id
+  string id = 1;
   // Bootstrap blacklisted IP addresses
-  repeated string ips = 1;
+  repeated string ips = 2;
 }
 
 // GetBootstrapWhitelistRequest holds the request for GetBootstrapWhitelist
@@ -187,8 +189,10 @@ message GetBootstrapWhitelistRequest {
 
 // GetBootstrapWhitelistResponse holds the response from GetBootstrapWhitelist
 message GetBootstrapWhitelistResponse {
+  // Request id
+  string id = 1;
   // Bootstrap whitelisted IP addresses
-  repeated string ips = 1;
+  repeated string ips = 2;
 }
 
 // GetBootstrapWhitelistAllowAllRequest holds the request for GetBootstrapWhitelistAllowAll
@@ -205,8 +209,10 @@ message GetPeersWhitelistRequest {
 
 // GetPeersWhitelistResponse holds the response from GetPeersWhitelist
 message GetPeersWhitelistResponse {
+  // Request id
+  string id = 1;
   // Whitelisted IP addresses
-  repeated string ips = 1;
+  repeated string ips = 2;
 }
 
 // RemoveFromBootstrapBlacklistRequest holds the request for RemoveFromBootstrapBlacklist
@@ -255,10 +261,12 @@ message SignMessagesRequest {
 
 // SignMessagesResponse holds the response from SignMessages
 message SignMessagesResponse {
+  // Request id
+  string id = 1;
   // Public key that signed the message
-  string public_key = 1;
+  string public_key = 2;
   // Signatures
-  repeated string signatures = 2;
+  repeated string signatures = 3;
 }
 
 // ShutdownNodeRequest holds the request for ShutdownNode
