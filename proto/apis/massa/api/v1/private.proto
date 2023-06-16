@@ -25,6 +25,14 @@ service MassaPrivateService {
     };
   }
 
+  // Get node bootstrap blacklist IP addresses
+  rpc GetBootstrapBlacklist(GetBootstrapBlacklistRequest) returns (GetBootstrapBlacklistResponse) {
+    option (google.api.http) = {
+      post: "/v1/get_bootstrap_blacklist"
+      body: "*"
+    };
+  }
+
   // Get node bootstrap whitelist IP addresses
   rpc GetBootstrapWhitelist(GetBootstrapWhitelistRequest) returns (GetBootstrapWhitelistResponse) {
     option (google.api.http) = {
@@ -71,6 +79,18 @@ message AddStakingSecretKeysRequest {
 
 // AddStakingSecretKeysResponse holds the response from AddStakingSecretKeys
 message AddStakingSecretKeysResponse {}
+
+// GetBootstrapBlacklistRequest holds the request for GetBootstrapBlacklist
+message GetBootstrapBlacklistRequest {
+  // Request id
+  string id = 1;
+}
+
+// GetBootstrapBlacklistResponse holds the response from GetBootstrapBlacklist
+message GetBootstrapBlacklistResponse {
+  // Bootstrap blacklisted IP addresses
+  repeated string ips = 1;
+}
 
 // GetBootstrapWhitelistRequest holds the request for GetBootstrapWhitelist
 message GetBootstrapWhitelistRequest {
