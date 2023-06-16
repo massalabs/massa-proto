@@ -25,6 +25,14 @@ service MassaPrivateService {
     };
   }
 
+  // Get node peers whitelist IP addresses
+  rpc GetPeersWhitelist(GetPeersWhitelistRequest) returns (GetPeersWhitelistResponse) {
+    option (google.api.http) = {
+      post: "/v1/get_peers_whitelist"
+      body: "*"
+    };
+  }
+
   // Remove addresses from staking
   rpc RemoveStakingAddresses(RemoveStakingAddressesRequest) returns (RemoveStakingAddressesResponse) {
     option (google.api.http) = {
@@ -55,6 +63,18 @@ message AddStakingSecretKeysRequest {
 
 // AddStakingSecretKeysResponse holds the response from AddStakingSecretKeys
 message AddStakingSecretKeysResponse {}
+
+// GetPeersWhitelistRequest holds the request for GetPeersWhitelist
+message GetPeersWhitelistRequest {
+  // Request id
+  string id = 1;
+}
+
+// GetPeersWhitelistResponse holds the response from GetPeersWhitelist
+message GetPeersWhitelistResponse {
+  // Whitelisted IP addresses
+  repeated string ips = 1;
+}
 
 // RemoveStakingAddressesRequest holds the request for RemoveStakingAddresses
 message RemoveStakingAddressesRequest {
