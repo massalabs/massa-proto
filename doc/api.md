@@ -6,6 +6,8 @@
 - [massa/api/v1/private.proto](#massa_api_v1_private-proto)
     - [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest)
     - [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse)
+    - [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest)
+    - [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse)
     - [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest)
     - [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse)
     - [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest)
@@ -123,6 +125,36 @@ AddStakingSecretKeysRequest holds the request for AddStakingSecretKeys
 
 ### AddStakingSecretKeysResponse
 AddStakingSecretKeysResponse holds the response from AddStakingSecretKeys
+
+
+
+
+
+
+<a name="massa-api-v1-GetBootstrapBlacklistRequest"></a>
+
+### GetBootstrapBlacklistRequest
+GetBootstrapBlacklistRequest holds the request for GetBootstrapBlacklist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
+
+
+
+
+
+
+<a name="massa-api-v1-GetBootstrapBlacklistResponse"></a>
+
+### GetBootstrapBlacklistResponse
+GetBootstrapBlacklistResponse holds the response from GetBootstrapBlacklist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | Bootstrap blacklisted IP addresses |
 
 
 
@@ -280,6 +312,7 @@ Massa private gRPC service
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | AddStakingSecretKeys | [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest) | [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse) | Add staking secret keys to wallet |
+| GetBootstrapBlacklist | [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest) | [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse) | Get node bootstrap blacklist IP addresses |
 | GetBootstrapWhitelist | [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest) | [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse) | Get node bootstrap whitelist IP addresses |
 | GetPeersWhitelist | [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest) | [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse) | Get node peers whitelist IP addresses |
 | RemoveStakingAddresses | [RemoveStakingAddressesRequest](#massa-api-v1-RemoveStakingAddressesRequest) | [RemoveStakingAddressesResponse](#massa-api-v1-RemoveStakingAddressesResponse) | Remove addresses from staking |
