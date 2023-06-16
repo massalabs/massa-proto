@@ -6,6 +6,8 @@
 - [massa/api/v1/private.proto](#massa_api_v1_private-proto)
     - [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest)
     - [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse)
+    - [AddToPeersWhitelistRequest](#massa-api-v1-AddToPeersWhitelistRequest)
+    - [AddToPeersWhitelistResponse](#massa-api-v1-AddToPeersWhitelistResponse)
     - [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest)
     - [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse)
     - [GetBootstrapWhitelistAllowAllRequest](#massa-api-v1-GetBootstrapWhitelistAllowAllRequest)
@@ -133,6 +135,31 @@ AddStakingSecretKeysRequest holds the request for AddStakingSecretKeys
 
 ### AddStakingSecretKeysResponse
 AddStakingSecretKeysResponse holds the response from AddStakingSecretKeys
+
+
+
+
+
+
+<a name="massa-api-v1-AddToPeersWhitelistRequest"></a>
+
+### AddToPeersWhitelistRequest
+AddToPeersWhitelistRequest holds the request for AddToPeersWhitelist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | IP addresses to add to peers whitelist |
+
+
+
+
+
+
+<a name="massa-api-v1-AddToPeersWhitelistResponse"></a>
+
+### AddToPeersWhitelistResponse
+AddToPeersWhitelistResponse holds the response from AddToPeersWhitelist
 
 
 
@@ -414,6 +441,7 @@ Massa private gRPC service
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
+| AddToPeersWhitelist | [AddToPeersWhitelistRequest](#massa-api-v1-AddToPeersWhitelistRequest) | [AddToPeersWhitelistResponse](#massa-api-v1-AddToPeersWhitelistResponse) | Add IP address(es) to node peers whitelist. No confirmation to expect. Note: If the ip was unknown it adds it to the known peers, otherwise it updates the peer type |
 | AddStakingSecretKeys | [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest) | [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse) | Add staking secret keys to wallet |
 | GetBootstrapBlacklist | [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest) | [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse) | Get node bootstrap blacklist IP addresses |
 | GetBootstrapWhitelist | [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest) | [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse) | Get node bootstrap whitelist IP addresses |
