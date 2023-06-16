@@ -25,6 +25,14 @@ service MassaPrivateService {
     };
   }
 
+  // Remove addresses from staking
+  rpc RemoveStakingAddresses(RemoveStakingAddressesRequest) returns (RemoveStakingAddressesResponse) {
+    option (google.api.http) = {
+      post: "/v1/remove_staking_addresses"
+      body: "*"
+    };
+  }
+
   // Sign messages with node's key
   rpc SignMessages(SignMessagesRequest) returns (SignMessagesResponse) {
     option (google.api.http) = {
@@ -47,6 +55,15 @@ message AddStakingSecretKeysRequest {
 
 // AddStakingSecretKeysResponse holds the response from AddStakingSecretKeys
 message AddStakingSecretKeysResponse {}
+
+// RemoveStakingAddressesRequest holds the request for RemoveStakingAddresses
+message RemoveStakingAddressesRequest {
+  // Addresses to remove from staking
+  repeated string addresses = 1;
+}
+
+// RemoveStakingAddressesResponse holds the response from RemoveStakingAddresses
+message RemoveStakingAddressesResponse {}
 
 // SignMessagesRequest holds the request for SignMessages
 message SignMessagesRequest {

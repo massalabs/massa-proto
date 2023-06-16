@@ -187,6 +187,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.RemoveStakingAddressesRequest"><span class="badge">M</span>RemoveStakingAddressesRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.RemoveStakingAddressesResponse"><span class="badge">M</span>RemoveStakingAddressesResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.ShutdownNodeRequest"><span class="badge">M</span>ShutdownNodeRequest</a>
                 </li>
               
@@ -546,6 +554,37 @@
 
         
       
+        <h3 id="massa.api.v1.RemoveStakingAddressesRequest">RemoveStakingAddressesRequest</h3>
+        <p>RemoveStakingAddressesRequest holds the request for RemoveStakingAddresses</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>addresses</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Addresses to remove from staking </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.RemoveStakingAddressesResponse">RemoveStakingAddressesResponse</h3>
+        <p>RemoveStakingAddressesResponse holds the response from RemoveStakingAddresses</p>
+
+        
+
+        
+      
         <h3 id="massa.api.v1.ShutdownNodeRequest">ShutdownNodeRequest</h3>
         <p>ShutdownNodeRequest holds the request for ShutdownNode</p>
 
@@ -644,6 +683,13 @@
               </tr>
             
               <tr>
+                <td>RemoveStakingAddresses</td>
+                <td><a href="#massa.api.v1.RemoveStakingAddressesRequest">RemoveStakingAddressesRequest</a></td>
+                <td><a href="#massa.api.v1.RemoveStakingAddressesResponse">RemoveStakingAddressesResponse</a></td>
+                <td><p>Remove addresses from staking</p></td>
+              </tr>
+            
+              <tr>
                 <td>SignMessages</td>
                 <td><a href="#massa.api.v1.SignMessagesRequest">SignMessagesRequest</a></td>
                 <td><a href="#massa.api.v1.SignMessagesResponse">SignMessagesResponse</a></td>
@@ -681,6 +727,16 @@
                 <td>AddStakingSecretKeys</td>
                 <td>POST</td>
                 <td>/v1/add_staking_secret_keys</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>RemoveStakingAddresses</td>
+                <td>POST</td>
+                <td>/v1/remove_staking_addresses</td>
                 <td>*</td>
               </tr>
               
