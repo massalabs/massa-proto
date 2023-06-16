@@ -57,6 +57,14 @@ service MassaPrivateService {
     };
   }
 
+  // Remove from peers whitelist given IP addresses
+  rpc RemoveFromPeersWhitelist(RemoveFromPeersWhitelistRequest) returns (RemoveFromPeersWhitelistResponse) {
+    option (google.api.http) = {
+      post: "/v1/remove_from_peers_whitelist"
+      body: "*"
+    };
+  }
+
   // Remove addresses from staking
   rpc RemoveStakingAddresses(RemoveStakingAddressesRequest) returns (RemoveStakingAddressesResponse) {
     option (google.api.http) = {
@@ -75,7 +83,10 @@ service MassaPrivateService {
 
   // Shutdown the node
   rpc ShutdownNode(ShutdownNodeRequest) returns (ShutdownNodeResponse) {
-    option (google.api.http) = {get: "/v1/shutdown_node"};
+    option (google.api.http) = {
+      post: "/v1/shutdown_node"
+      body: "*"
+    };
   }
 }
 
@@ -129,6 +140,15 @@ message GetPeersWhitelistResponse {
   // Whitelisted IP addresses
   repeated string ips = 1;
 }
+
+// RemoveFromPeersWhitelistRequest holds the request for RemoveFromPeersWhitelist
+message RemoveFromPeersWhitelistRequest {
+  // IP addresses to remove from peers whitelist
+  repeated string ips = 1;
+}
+
+// RemoveFromPeersWhitelistResponse holds the response from RemoveFromPeersWhitelist
+message RemoveFromPeersWhitelistResponse {}
 
 // RemoveStakingAddressesRequest holds the request for RemoveStakingAddresses
 message RemoveStakingAddressesRequest {

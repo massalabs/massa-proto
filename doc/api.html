@@ -219,6 +219,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.RemoveFromPeersWhitelistRequest"><span class="badge">M</span>RemoveFromPeersWhitelistRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.RemoveFromPeersWhitelistResponse"><span class="badge">M</span>RemoveFromPeersWhitelistResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.RemoveStakingAddressesRequest"><span class="badge">M</span>RemoveStakingAddressesRequest</a>
                 </li>
               
@@ -744,6 +752,37 @@
 
         
       
+        <h3 id="massa.api.v1.RemoveFromPeersWhitelistRequest">RemoveFromPeersWhitelistRequest</h3>
+        <p>RemoveFromPeersWhitelistRequest holds the request for RemoveFromPeersWhitelist</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ips</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>IP addresses to remove from peers whitelist </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.RemoveFromPeersWhitelistResponse">RemoveFromPeersWhitelistResponse</h3>
+        <p>RemoveFromPeersWhitelistResponse holds the response from RemoveFromPeersWhitelist</p>
+
+        
+
+        
+      
         <h3 id="massa.api.v1.RemoveStakingAddressesRequest">RemoveStakingAddressesRequest</h3>
         <p>RemoveStakingAddressesRequest holds the request for RemoveStakingAddresses</p>
 
@@ -901,6 +940,13 @@
               </tr>
             
               <tr>
+                <td>RemoveFromPeersWhitelist</td>
+                <td><a href="#massa.api.v1.RemoveFromPeersWhitelistRequest">RemoveFromPeersWhitelistRequest</a></td>
+                <td><a href="#massa.api.v1.RemoveFromPeersWhitelistResponse">RemoveFromPeersWhitelistResponse</a></td>
+                <td><p>Remove from peers whitelist given IP addresses</p></td>
+              </tr>
+            
+              <tr>
                 <td>RemoveStakingAddresses</td>
                 <td><a href="#massa.api.v1.RemoveStakingAddressesRequest">RemoveStakingAddressesRequest</a></td>
                 <td><a href="#massa.api.v1.RemoveStakingAddressesResponse">RemoveStakingAddressesResponse</a></td>
@@ -992,6 +1038,16 @@
               
               
               <tr>
+                <td>RemoveFromPeersWhitelist</td>
+                <td>POST</td>
+                <td>/v1/remove_from_peers_whitelist</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
                 <td>RemoveStakingAddresses</td>
                 <td>POST</td>
                 <td>/v1/remove_staking_addresses</td>
@@ -1013,9 +1069,9 @@
               
               <tr>
                 <td>ShutdownNode</td>
-                <td>GET</td>
+                <td>POST</td>
                 <td>/v1/shutdown_node</td>
-                <td></td>
+                <td>*</td>
               </tr>
               
             
