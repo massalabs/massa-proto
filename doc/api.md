@@ -6,6 +6,8 @@
 - [massa/api/v1/private.proto](#massa_api_v1_private-proto)
     - [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest)
     - [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse)
+    - [RemoveStakingAddressesRequest](#massa-api-v1-RemoveStakingAddressesRequest)
+    - [RemoveStakingAddressesResponse](#massa-api-v1-RemoveStakingAddressesResponse)
     - [ShutdownNodeRequest](#massa-api-v1-ShutdownNodeRequest)
     - [ShutdownNodeResponse](#massa-api-v1-ShutdownNodeResponse)
     - [SignMessagesRequest](#massa-api-v1-SignMessagesRequest)
@@ -123,6 +125,31 @@ AddStakingSecretKeysResponse holds the response from AddStakingSecretKeys
 
 
 
+<a name="massa-api-v1-RemoveStakingAddressesRequest"></a>
+
+### RemoveStakingAddressesRequest
+RemoveStakingAddressesRequest holds the request for RemoveStakingAddresses
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| addresses | [string](#string) | repeated | Addresses to remove from staking |
+
+
+
+
+
+
+<a name="massa-api-v1-RemoveStakingAddressesResponse"></a>
+
+### RemoveStakingAddressesResponse
+RemoveStakingAddressesResponse holds the response from RemoveStakingAddresses
+
+
+
+
+
+
 <a name="massa-api-v1-ShutdownNodeRequest"></a>
 
 ### ShutdownNodeRequest
@@ -189,6 +216,7 @@ Massa private gRPC service
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | AddStakingSecretKeys | [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest) | [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse) | Add staking secret keys to wallet |
+| RemoveStakingAddresses | [RemoveStakingAddressesRequest](#massa-api-v1-RemoveStakingAddressesRequest) | [RemoveStakingAddressesResponse](#massa-api-v1-RemoveStakingAddressesResponse) | Remove addresses from staking |
 | SignMessages | [SignMessagesRequest](#massa-api-v1-SignMessagesRequest) | [SignMessagesResponse](#massa-api-v1-SignMessagesResponse) | Sign messages with node&#39;s key |
 | ShutdownNode | [ShutdownNodeRequest](#massa-api-v1-ShutdownNodeRequest) | [ShutdownNodeResponse](#massa-api-v1-ShutdownNodeResponse) | Shutdown the node |
 
