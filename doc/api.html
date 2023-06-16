@@ -187,6 +187,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.AddToBootstrapWhitelistRequest"><span class="badge">M</span>AddToBootstrapWhitelistRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.AddToBootstrapWhitelistResponse"><span class="badge">M</span>AddToBootstrapWhitelistResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.AddToPeersWhitelistRequest"><span class="badge">M</span>AddToPeersWhitelistRequest</a>
                 </li>
               
@@ -618,6 +626,37 @@
 
         
       
+        <h3 id="massa.api.v1.AddToBootstrapWhitelistRequest">AddToBootstrapWhitelistRequest</h3>
+        <p>AddToBootstrapWhitelistRequest holds the request for AddToBootstrapWhitelist</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ips</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>IP addresses to add to peers whitelist </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.AddToBootstrapWhitelistResponse">AddToBootstrapWhitelistResponse</h3>
+        <p>AddToBootstrapWhitelistResponse holds the response from AddToBootstrapWhitelist</p>
+
+        
+
+        
+      
         <h3 id="massa.api.v1.AddToPeersWhitelistRequest">AddToPeersWhitelistRequest</h3>
         <p>AddToPeersWhitelistRequest holds the request for AddToPeersWhitelist</p>
 
@@ -1022,10 +1061,17 @@
           <tbody>
             
               <tr>
+                <td>AddToBootstrapWhitelist</td>
+                <td><a href="#massa.api.v1.AddToBootstrapWhitelistRequest">AddToBootstrapWhitelistRequest</a></td>
+                <td><a href="#massa.api.v1.AddToBootstrapWhitelistResponse">AddToBootstrapWhitelistResponse</a></td>
+                <td><p>Add IP addresses to node bootstrap whitelist.</p></td>
+              </tr>
+            
+              <tr>
                 <td>AddToPeersWhitelist</td>
                 <td><a href="#massa.api.v1.AddToPeersWhitelistRequest">AddToPeersWhitelistRequest</a></td>
                 <td><a href="#massa.api.v1.AddToPeersWhitelistResponse">AddToPeersWhitelistResponse</a></td>
-                <td><p>Add IP address(es) to node peers whitelist. No confirmation to expect.
+                <td><p>Add IP addresses to node peers whitelist. No confirmation to expect.
 Note: If the ip was unknown it adds it to the known peers, otherwise it updates the peer type</p></td>
               </tr>
             
@@ -1123,6 +1169,16 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             </thead>
             <tbody>
+            
+              
+              
+              <tr>
+                <td>AddToBootstrapWhitelist</td>
+                <td>POST</td>
+                <td>/v1/add_to_boostrap_whitelist</td>
+                <td>*</td>
+              </tr>
+              
             
               
               

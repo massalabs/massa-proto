@@ -17,7 +17,15 @@ option swift_prefix = "MAPI";
 
 // Massa private gRPC service
 service MassaPrivateService {
-  // Add IP address(es) to node peers whitelist. No confirmation to expect.
+  // Add IP addresses to node bootstrap whitelist.
+  rpc AddToBootstrapWhitelist(AddToBootstrapWhitelistRequest) returns (AddToBootstrapWhitelistResponse) {
+    option (google.api.http) = {
+      post: "/v1/add_to_boostrap_whitelist"
+      body: "*"
+    };
+  }
+
+  // Add IP addresses to node peers whitelist. No confirmation to expect.
   // Note: If the ip was unknown it adds it to the known peers, otherwise it updates the peer type
   rpc AddToPeersWhitelist(AddToPeersWhitelistRequest) returns (AddToPeersWhitelistResponse) {
     option (google.api.http) = {
@@ -114,6 +122,15 @@ service MassaPrivateService {
     };
   }
 }
+
+// AddToBootstrapWhitelistRequest holds the request for AddToBootstrapWhitelist
+message AddToBootstrapWhitelistRequest {
+  // IP addresses to add to peers whitelist
+  repeated string ips = 1;
+}
+
+// AddToBootstrapWhitelistResponse holds the response from AddToBootstrapWhitelist
+message AddToBootstrapWhitelistResponse {}
 
 // AddToPeersWhitelistRequest holds the request for AddToPeersWhitelist
 message AddToPeersWhitelistRequest {
