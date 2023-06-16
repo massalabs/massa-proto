@@ -219,6 +219,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.RemoveFromBootstrapWhitelistRequest"><span class="badge">M</span>RemoveFromBootstrapWhitelistRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.RemoveFromBootstrapWhitelistResponse"><span class="badge">M</span>RemoveFromBootstrapWhitelistResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.RemoveFromPeersWhitelistRequest"><span class="badge">M</span>RemoveFromPeersWhitelistRequest</a>
                 </li>
               
@@ -752,6 +760,37 @@
 
         
       
+        <h3 id="massa.api.v1.RemoveFromBootstrapWhitelistRequest">RemoveFromBootstrapWhitelistRequest</h3>
+        <p>RemoveFromBootstrapWhitelistRequest holds the request for RemoveFromBootstrapWhitelist</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ips</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>IP addresses to remove from peers whitelist </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.RemoveFromBootstrapWhitelistResponse">RemoveFromBootstrapWhitelistResponse</h3>
+        <p>RemoveFromBootstrapWhitelistResponse holds the response from RemoveFromBootstrapWhitelist</p>
+
+        
+
+        
+      
         <h3 id="massa.api.v1.RemoveFromPeersWhitelistRequest">RemoveFromPeersWhitelistRequest</h3>
         <p>RemoveFromPeersWhitelistRequest holds the request for RemoveFromPeersWhitelist</p>
 
@@ -940,6 +979,13 @@
               </tr>
             
               <tr>
+                <td>RemoveFromBootstrapWhitelist</td>
+                <td><a href="#massa.api.v1.RemoveFromBootstrapWhitelistRequest">RemoveFromBootstrapWhitelistRequest</a></td>
+                <td><a href="#massa.api.v1.RemoveFromBootstrapWhitelistResponse">RemoveFromBootstrapWhitelistResponse</a></td>
+                <td><p>Remove from bootstrap whitelist given IP addresses</p></td>
+              </tr>
+            
+              <tr>
                 <td>RemoveFromPeersWhitelist</td>
                 <td><a href="#massa.api.v1.RemoveFromPeersWhitelistRequest">RemoveFromPeersWhitelistRequest</a></td>
                 <td><a href="#massa.api.v1.RemoveFromPeersWhitelistResponse">RemoveFromPeersWhitelistResponse</a></td>
@@ -1031,6 +1077,16 @@
                 <td>GetPeersWhitelist</td>
                 <td>POST</td>
                 <td>/v1/get_peers_whitelist</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>RemoveFromBootstrapWhitelist</td>
+                <td>POST</td>
+                <td>/v1/remove_from_bootstrap_whitelist</td>
                 <td>*</td>
               </tr>
               
