@@ -17,6 +17,15 @@ option swift_prefix = "MAPI";
 
 // Massa private gRPC service
 service MassaPrivateService {
+  // Add IP address(es) to node peers whitelist. No confirmation to expect.
+  // Note: If the ip was unknown it adds it to the known peers, otherwise it updates the peer type
+  rpc AddToPeersWhitelist(AddToPeersWhitelistRequest) returns (AddToPeersWhitelistResponse) {
+    option (google.api.http) = {
+      post: "/v1/add_to_peers_whitelist"
+      body: "*"
+    };
+  }
+
   // Add staking secret keys to wallet
   rpc AddStakingSecretKeys(AddStakingSecretKeysRequest) returns (AddStakingSecretKeysResponse) {
     option (google.api.http) = {
@@ -105,6 +114,15 @@ service MassaPrivateService {
     };
   }
 }
+
+// AddToPeersWhitelistRequest holds the request for AddToPeersWhitelist
+message AddToPeersWhitelistRequest {
+  // IP addresses to add to peers whitelist
+  repeated string ips = 1;
+}
+
+// AddToPeersWhitelistResponse holds the response from AddToPeersWhitelist
+message AddToPeersWhitelistResponse {}
 
 // AddStakingSecretKeysRequest holds the request for AddStakingSecretKeys
 message AddStakingSecretKeysRequest {
