@@ -187,6 +187,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.GetBootstrapWhitelistRequest"><span class="badge">M</span>GetBootstrapWhitelistRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetBootstrapWhitelistResponse"><span class="badge">M</span>GetBootstrapWhitelistResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.GetPeersWhitelistRequest"><span class="badge">M</span>GetPeersWhitelistRequest</a>
                 </li>
               
@@ -562,6 +570,54 @@
 
         
       
+        <h3 id="massa.api.v1.GetBootstrapWhitelistRequest">GetBootstrapWhitelistRequest</h3>
+        <p>GetBootstrapWhitelistRequest holds the request for GetBootstrapWhitelist</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetBootstrapWhitelistResponse">GetBootstrapWhitelistResponse</h3>
+        <p>GetBootstrapWhitelistResponse holds the response from GetBootstrapWhitelist</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ips</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Bootstrap whitelisted IP addresses </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.GetPeersWhitelistRequest">GetPeersWhitelistRequest</h3>
         <p>GetPeersWhitelistRequest holds the request for GetPeersWhitelist</p>
 
@@ -739,6 +795,13 @@
               </tr>
             
               <tr>
+                <td>GetBootstrapWhitelist</td>
+                <td><a href="#massa.api.v1.GetBootstrapWhitelistRequest">GetBootstrapWhitelistRequest</a></td>
+                <td><a href="#massa.api.v1.GetBootstrapWhitelistResponse">GetBootstrapWhitelistResponse</a></td>
+                <td><p>Get node bootstrap whitelist IP addresses</p></td>
+              </tr>
+            
+              <tr>
                 <td>GetPeersWhitelist</td>
                 <td><a href="#massa.api.v1.GetPeersWhitelistRequest">GetPeersWhitelistRequest</a></td>
                 <td><a href="#massa.api.v1.GetPeersWhitelistResponse">GetPeersWhitelistResponse</a></td>
@@ -790,6 +853,16 @@
                 <td>AddStakingSecretKeys</td>
                 <td>POST</td>
                 <td>/v1/add_staking_secret_keys</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetBootstrapWhitelist</td>
+                <td>POST</td>
+                <td>/v1/get_bootstrap_whitelist</td>
                 <td>*</td>
               </tr>
               
