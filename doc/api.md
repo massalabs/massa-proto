@@ -8,6 +8,8 @@
     - [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse)
     - [ShutdownNodeRequest](#massa-api-v1-ShutdownNodeRequest)
     - [ShutdownNodeResponse](#massa-api-v1-ShutdownNodeResponse)
+    - [SignMessagesRequest](#massa-api-v1-SignMessagesRequest)
+    - [SignMessagesResponse](#massa-api-v1-SignMessagesResponse)
   
     - [MassaPrivateService](#massa-api-v1-MassaPrivateService)
   
@@ -140,6 +142,38 @@ ShutdownNodeResponse holds the response from ShutdownNode
 
 
 
+
+<a name="massa-api-v1-SignMessagesRequest"></a>
+
+### SignMessagesRequest
+SignMessagesRequest holds the request for SignMessages
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
+| messages | [bytes](#bytes) | repeated | Messages to sign in bytes |
+
+
+
+
+
+
+<a name="massa-api-v1-SignMessagesResponse"></a>
+
+### SignMessagesResponse
+SignMessagesResponse holds the response from SignMessages
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| public_key | [string](#string) |  | Public key that signed the message |
+| signatures | [string](#string) | repeated | Signatures |
+
+
+
+
+
  
 
  
@@ -155,6 +189,7 @@ Massa private gRPC service
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | AddStakingSecretKeys | [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest) | [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse) | Add staking secret keys to wallet |
+| SignMessages | [SignMessagesRequest](#massa-api-v1-SignMessagesRequest) | [SignMessagesResponse](#massa-api-v1-SignMessagesResponse) | Sign messages with node&#39;s key |
 | ShutdownNode | [ShutdownNodeRequest](#massa-api-v1-ShutdownNodeRequest) | [ShutdownNodeResponse](#massa-api-v1-ShutdownNodeResponse) | Shutdown the node |
 
  
