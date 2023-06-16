@@ -14,6 +14,8 @@
     - [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse)
     - [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest)
     - [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse)
+    - [RemoveFromBootstrapBlacklistRequest](#massa-api-v1-RemoveFromBootstrapBlacklistRequest)
+    - [RemoveFromBootstrapBlacklistResponse](#massa-api-v1-RemoveFromBootstrapBlacklistResponse)
     - [RemoveFromBootstrapWhitelistRequest](#massa-api-v1-RemoveFromBootstrapWhitelistRequest)
     - [RemoveFromBootstrapWhitelistResponse](#massa-api-v1-RemoveFromBootstrapWhitelistResponse)
     - [RemoveFromPeersWhitelistRequest](#massa-api-v1-RemoveFromPeersWhitelistRequest)
@@ -247,6 +249,31 @@ GetPeersWhitelistResponse holds the response from GetPeersWhitelist
 
 
 
+<a name="massa-api-v1-RemoveFromBootstrapBlacklistRequest"></a>
+
+### RemoveFromBootstrapBlacklistRequest
+RemoveFromBootstrapBlacklistRequest holds the request for RemoveFromBootstrapBlacklist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | IP addresses to remove from bootstrap blacklist |
+
+
+
+
+
+
+<a name="massa-api-v1-RemoveFromBootstrapBlacklistResponse"></a>
+
+### RemoveFromBootstrapBlacklistResponse
+RemoveFromBootstrapBlacklistResponse holds the response from RemoveFromBootstrapBlacklist
+
+
+
+
+
+
 <a name="massa-api-v1-RemoveFromBootstrapWhitelistRequest"></a>
 
 ### RemoveFromBootstrapWhitelistRequest
@@ -255,7 +282,7 @@ RemoveFromBootstrapWhitelistRequest holds the request for RemoveFromBootstrapWhi
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| ips | [string](#string) | repeated | IP addresses to remove from peers whitelist |
+| ips | [string](#string) | repeated | IP addresses to remove from bootstrap whitelist |
 
 
 
@@ -392,6 +419,7 @@ Massa private gRPC service
 | GetBootstrapWhitelist | [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest) | [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse) | Get node bootstrap whitelist IP addresses |
 | GetBootstrapWhitelistAllowAll | [GetBootstrapWhitelistAllowAllRequest](#massa-api-v1-GetBootstrapWhitelistAllowAllRequest) | [GetBootstrapWhitelistAllowAllResponse](#massa-api-v1-GetBootstrapWhitelistAllowAllResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file. |
 | GetPeersWhitelist | [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest) | [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse) | Get node peers whitelist IP addresses |
+| RemoveFromBootstrapBlacklist | [RemoveFromBootstrapBlacklistRequest](#massa-api-v1-RemoveFromBootstrapBlacklistRequest) | [RemoveFromBootstrapBlacklistResponse](#massa-api-v1-RemoveFromBootstrapBlacklistResponse) | Remove from bootstrap blacklist given IP addresses |
 | RemoveFromBootstrapWhitelist | [RemoveFromBootstrapWhitelistRequest](#massa-api-v1-RemoveFromBootstrapWhitelistRequest) | [RemoveFromBootstrapWhitelistResponse](#massa-api-v1-RemoveFromBootstrapWhitelistResponse) | Remove from bootstrap whitelist given IP addresses |
 | RemoveFromPeersWhitelist | [RemoveFromPeersWhitelistRequest](#massa-api-v1-RemoveFromPeersWhitelistRequest) | [RemoveFromPeersWhitelistResponse](#massa-api-v1-RemoveFromPeersWhitelistResponse) | Remove from peers whitelist given IP addresses |
 | RemoveStakingAddresses | [RemoveStakingAddressesRequest](#massa-api-v1-RemoveStakingAddressesRequest) | [RemoveStakingAddressesResponse](#massa-api-v1-RemoveStakingAddressesResponse) | Remove addresses from staking |

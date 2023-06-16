@@ -57,6 +57,14 @@ service MassaPrivateService {
     };
   }
 
+  // Remove from bootstrap blacklist given IP addresses
+  rpc RemoveFromBootstrapBlacklist(RemoveFromBootstrapBlacklistRequest) returns (RemoveFromBootstrapBlacklistResponse) {
+    option (google.api.http) = {
+      post: "/v1/remove_from_bootstrap_blacklist"
+      body: "*"
+    };
+  }
+
   // Remove from bootstrap whitelist given IP addresses
   rpc RemoveFromBootstrapWhitelist(RemoveFromBootstrapWhitelistRequest) returns (RemoveFromBootstrapWhitelistResponse) {
     option (google.api.http) = {
@@ -149,9 +157,18 @@ message GetPeersWhitelistResponse {
   repeated string ips = 1;
 }
 
+// RemoveFromBootstrapBlacklistRequest holds the request for RemoveFromBootstrapBlacklist
+message RemoveFromBootstrapBlacklistRequest {
+  // IP addresses to remove from bootstrap blacklist
+  repeated string ips = 1;
+}
+
+// RemoveFromBootstrapBlacklistResponse holds the response from RemoveFromBootstrapBlacklist
+message RemoveFromBootstrapBlacklistResponse {}
+
 // RemoveFromBootstrapWhitelistRequest holds the request for RemoveFromBootstrapWhitelist
 message RemoveFromBootstrapWhitelistRequest {
-  // IP addresses to remove from peers whitelist
+  // IP addresses to remove from bootstrap whitelist
   repeated string ips = 1;
 }
 
