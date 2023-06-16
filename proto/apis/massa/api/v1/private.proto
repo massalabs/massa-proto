@@ -25,6 +25,14 @@ service MassaPrivateService {
     };
   }
 
+  // Sign messages with node's key
+  rpc SignMessages(SignMessagesRequest) returns (SignMessagesResponse) {
+    option (google.api.http) = {
+      post: "/v1/sign_messages"
+      body: "*"
+    };
+  }
+
   // Shutdown the node
   rpc ShutdownNode(ShutdownNodeRequest) returns (ShutdownNodeResponse) {
     option (google.api.http) = {get: "/v1/shutdown_node"};
@@ -39,6 +47,22 @@ message AddStakingSecretKeysRequest {
 
 // AddStakingSecretKeysResponse holds the response from AddStakingSecretKeys
 message AddStakingSecretKeysResponse {}
+
+// SignMessagesRequest holds the request for SignMessages
+message SignMessagesRequest {
+  // Request id
+  string id = 1;
+  // Messages to sign in bytes
+  repeated bytes messages = 2;
+}
+
+// SignMessagesResponse holds the response from SignMessages
+message SignMessagesResponse {
+  // Public key that signed the message
+  string public_key = 1;
+  // Signatures
+  repeated string signatures = 2;
+}
 
 // ShutdownNodeRequest holds the request for ShutdownNode
 message ShutdownNodeRequest {}

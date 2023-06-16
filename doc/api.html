@@ -194,6 +194,14 @@
                   <a href="#massa.api.v1.ShutdownNodeResponse"><span class="badge">M</span>ShutdownNodeResponse</a>
                 </li>
               
+                <li>
+                  <a href="#massa.api.v1.SignMessagesRequest"><span class="badge">M</span>SignMessagesRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SignMessagesResponse"><span class="badge">M</span>SignMessagesResponse</a>
+                </li>
+              
               
               
               
@@ -552,6 +560,68 @@
 
         
       
+        <h3 id="massa.api.v1.SignMessagesRequest">SignMessagesRequest</h3>
+        <p>SignMessagesRequest holds the request for SignMessages</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>messages</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td>repeated</td>
+                  <td><p>Messages to sign in bytes </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.SignMessagesResponse">SignMessagesResponse</h3>
+        <p>SignMessagesResponse holds the response from SignMessages</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>public_key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Public key that signed the message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>signatures</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Signatures </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
 
       
 
@@ -571,6 +641,13 @@
                 <td><a href="#massa.api.v1.AddStakingSecretKeysRequest">AddStakingSecretKeysRequest</a></td>
                 <td><a href="#massa.api.v1.AddStakingSecretKeysResponse">AddStakingSecretKeysResponse</a></td>
                 <td><p>Add staking secret keys to wallet</p></td>
+              </tr>
+            
+              <tr>
+                <td>SignMessages</td>
+                <td><a href="#massa.api.v1.SignMessagesRequest">SignMessagesRequest</a></td>
+                <td><a href="#massa.api.v1.SignMessagesResponse">SignMessagesResponse</a></td>
+                <td><p>Sign messages with node&#39;s key</p></td>
               </tr>
             
               <tr>
@@ -604,6 +681,16 @@
                 <td>AddStakingSecretKeys</td>
                 <td>POST</td>
                 <td>/v1/add_staking_secret_keys</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>SignMessages</td>
+                <td>POST</td>
+                <td>/v1/sign_messages</td>
                 <td>*</td>
               </tr>
               
