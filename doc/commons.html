@@ -2912,7 +2912,7 @@ For messages with filter, this boolean is true if the filter has been matched be
 
       
         <h3 id="massa.model.v1.NativePubKey">NativePubKey</h3>
-        <p></p>
+        <p>Native Public Key</p>
 
         
           <table class="field-table">
@@ -2925,14 +2925,14 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td>version</td>
                   <td><a href="#fixed64">fixed64</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Version of the public key </p></td>
                 </tr>
               
                 <tr>
                   <td>content</td>
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Content of the public key </p></td>
                 </tr>
               
             </tbody>
@@ -2943,7 +2943,7 @@ For messages with filter, this boolean is true if the filter has been matched be
         
       
         <h3 id="massa.model.v1.NativeSig">NativeSig</h3>
-        <p></p>
+        <p>Native Signature</p>
 
         
           <table class="field-table">
@@ -2956,14 +2956,14 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td>version</td>
                   <td><a href="#fixed64">fixed64</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Version of the signature </p></td>
                 </tr>
               
                 <tr>
                   <td>content</td>
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Content of the signature </p></td>
                 </tr>
               
             </tbody>
@@ -3071,6 +3071,13 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                   <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
                 </tr>
               
+                <tr>
+                  <td>serialized_size</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>The size of the serialized endorsement </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -3138,7 +3145,7 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
 
       
         <h3 id="massa.model.v1.NativeHash">NativeHash</h3>
-        <p></p>
+        <p>NativeHash.</p>
 
         
           <table class="field-table">
@@ -3151,14 +3158,14 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                   <td>version</td>
                   <td><a href="#fixed64">fixed64</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Version of the hash. </p></td>
                 </tr>
               
                 <tr>
                   <td>content</td>
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Content of the hash. </p></td>
                 </tr>
               
             </tbody>
@@ -3605,13 +3612,6 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
-                </tr>
-              
-                <tr>
-                  <td>serialized_size</td>
-                  <td><a href="#fixed64">fixed64</a></td>
-                  <td></td>
-                  <td><p>The size of the serialized endorsement </p></td>
                 </tr>
               
             </tbody>

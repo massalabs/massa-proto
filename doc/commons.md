@@ -1176,13 +1176,13 @@ Selector draws
 <a name="massa-model-v1-NativePubKey"></a>
 
 ### NativePubKey
-
+Native Public Key
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  |  |
-| content | [bytes](#bytes) |  |  |
+| version | [fixed64](#fixed64) |  | Version of the public key |
+| content | [bytes](#bytes) |  | Content of the public key |
 
 
 
@@ -1192,13 +1192,13 @@ Selector draws
 <a name="massa-model-v1-NativeSig"></a>
 
 ### NativeSig
-
+Native Signature
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  |  |
-| content | [bytes](#bytes) |  |  |
+| version | [fixed64](#fixed64) |  | Version of the signature |
+| content | [bytes](#bytes) |  | Content of the signature |
 
 
 
@@ -1251,6 +1251,7 @@ Signed endorsement
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
+| serialized_size | [fixed64](#fixed64) |  | The size of the serialized endorsement |
 
 
 
@@ -1309,13 +1310,13 @@ the future. value = mantissa / (10^scale)
 <a name="massa-model-v1-NativeHash"></a>
 
 ### NativeHash
-
+NativeHash.
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  |  |
-| content | [bytes](#bytes) |  |  |
+| version | [fixed64](#fixed64) |  | Version of the hash. |
+| content | [bytes](#bytes) |  | Content of the hash. |
 
 
 
@@ -1521,7 +1522,6 @@ Packages a type such that it can be securely sent and received in a trust-free n
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
-| serialized_size | [fixed64](#fixed64) |  | The size of the serialized endorsement |
 
 
 

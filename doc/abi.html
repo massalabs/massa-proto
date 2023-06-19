@@ -255,10 +255,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.abi.v1.Empty"><span class="badge">M</span>Empty</a>
-                </li>
-              
-                <li>
                   <a href="#massa.abi.v1.Error"><span class="badge">M</span>Error</a>
                 </li>
               
@@ -280,10 +276,6 @@
               
                 <li>
                   <a href="#massa.abi.v1.LocalCallResponse"><span class="badge">M</span>LocalCallResponse</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.LogRequest"><span class="badge">M</span>LogRequest</a>
                 </li>
               
                 <li>
@@ -311,27 +303,11 @@
                 </li>
               
                 <li>
-                  <a href="#massa.abi.v1.NativeAmountFromBytesRequest"><span class="badge">M</span>NativeAmountFromBytesRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.NativeAmountFromBytesResult"><span class="badge">M</span>NativeAmountFromBytesResult</a>
-                </li>
-              
-                <li>
                   <a href="#massa.abi.v1.NativeAmountFromStringRequest"><span class="badge">M</span>NativeAmountFromStringRequest</a>
                 </li>
               
                 <li>
                   <a href="#massa.abi.v1.NativeAmountFromStringResult"><span class="badge">M</span>NativeAmountFromStringResult</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.NativeAmountToBytesRequest"><span class="badge">M</span>NativeAmountToBytesRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.NativeAmountToBytesResult"><span class="badge">M</span>NativeAmountToBytesResult</a>
                 </li>
               
                 <li>
@@ -446,14 +422,14 @@
                   <td>res</td>
                   <td><a href="#massa.abi.v1.RespResult">RespResult</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>variant for success </p></td>
                 </tr>
               
                 <tr>
                   <td>error</td>
                   <td><a href="#massa.abi.v1.Error">Error</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>variant for error </p></td>
                 </tr>
               
             </tbody>
@@ -464,7 +440,7 @@
         
       
         <h3 id="massa.abi.v1.AddNativeAmountsRequest">AddNativeAmountsRequest</h3>
-        <p>Addition</p>
+        <p>Amount addition request</p>
 
         
           <table class="field-table">
@@ -477,14 +453,14 @@
                   <td>amount1</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>First amount to add </p></td>
                 </tr>
               
                 <tr>
                   <td>amount2</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Second amount to add </p></td>
                 </tr>
               
             </tbody>
@@ -495,7 +471,7 @@
         
       
         <h3 id="massa.abi.v1.AddNativeAmountsResult">AddNativeAmountsResult</h3>
-        <p></p>
+        <p>Amount addition result</p>
 
         
           <table class="field-table">
@@ -508,7 +484,7 @@
                   <td>sum</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Sum of amounts </p></td>
                 </tr>
               
             </tbody>
@@ -532,14 +508,14 @@
                   <td>target_sc_address</td>
                   <td><a href="#massa.model.v1.NativeAddress">massa.model.v1.NativeAddress</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Address of the smart contract to call </p></td>
                 </tr>
               
                 <tr>
                   <td>target_function_name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Function to call in the targeted smart contract </p></td>
                 </tr>
               
                 <tr>
@@ -588,7 +564,7 @@
         
       
         <h3 id="massa.abi.v1.CheckNativeAddressRequest">CheckNativeAddressRequest</h3>
-        <p></p>
+        <p>Check address request</p>
 
         
           <table class="field-table">
@@ -601,7 +577,7 @@
                   <td>to_check</td>
                   <td><a href="#massa.model.v1.NativeAddress">massa.model.v1.NativeAddress</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Address to check </p></td>
                 </tr>
               
             </tbody>
@@ -612,7 +588,7 @@
         
       
         <h3 id="massa.abi.v1.CheckNativeAddressResult">CheckNativeAddressResult</h3>
-        <p></p>
+        <p>Check address result</p>
 
         
           <table class="field-table">
@@ -625,7 +601,7 @@
                   <td>is_valid</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Is address valid </p></td>
                 </tr>
               
             </tbody>
@@ -636,7 +612,7 @@
         
       
         <h3 id="massa.abi.v1.CheckNativeAmountRequest">CheckNativeAmountRequest</h3>
-        <p>check_native_amount</p>
+        <p>Check Amount request</p>
 
         
           <table class="field-table">
@@ -649,7 +625,7 @@
                   <td>to_check</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Amount to check </p></td>
                 </tr>
               
             </tbody>
@@ -660,7 +636,7 @@
         
       
         <h3 id="massa.abi.v1.CheckNativeAmountResult">CheckNativeAmountResult</h3>
-        <p></p>
+        <p>Check Amount result</p>
 
         
           <table class="field-table">
@@ -673,7 +649,7 @@
                   <td>is_valid</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Is Amount valid </p></td>
                 </tr>
               
             </tbody>
@@ -684,7 +660,7 @@
         
       
         <h3 id="massa.abi.v1.CheckNativeHashRequest">CheckNativeHashRequest</h3>
-        <p></p>
+        <p>Check Hash request</p>
 
         
           <table class="field-table">
@@ -697,7 +673,7 @@
                   <td>to_check</td>
                   <td><a href="#massa.model.v1.NativeHash">massa.model.v1.NativeHash</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Hash to check </p></td>
                 </tr>
               
             </tbody>
@@ -708,7 +684,7 @@
         
       
         <h3 id="massa.abi.v1.CheckNativeHashResult">CheckNativeHashResult</h3>
-        <p></p>
+        <p>Check Hash result</p>
 
         
           <table class="field-table">
@@ -721,7 +697,7 @@
                   <td>is_valid</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Is Hash valid </p></td>
                 </tr>
               
             </tbody>
@@ -732,7 +708,7 @@
         
       
         <h3 id="massa.abi.v1.CheckNativePubKeyRequest">CheckNativePubKeyRequest</h3>
-        <p></p>
+        <p>Check PubKey request</p>
 
         
           <table class="field-table">
@@ -745,7 +721,7 @@
                   <td>to_check</td>
                   <td><a href="#massa.model.v1.NativePubKey">massa.model.v1.NativePubKey</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>PubKey to check </p></td>
                 </tr>
               
             </tbody>
@@ -756,7 +732,7 @@
         
       
         <h3 id="massa.abi.v1.CheckNativePubKeyResult">CheckNativePubKeyResult</h3>
-        <p></p>
+        <p>Check PubKey result</p>
 
         
           <table class="field-table">
@@ -769,7 +745,7 @@
                   <td>is_valid</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Is PubKey valid </p></td>
                 </tr>
               
             </tbody>
@@ -780,7 +756,7 @@
         
       
         <h3 id="massa.abi.v1.CheckNativeSigRequest">CheckNativeSigRequest</h3>
-        <p></p>
+        <p>Check Sig request</p>
 
         
           <table class="field-table">
@@ -793,7 +769,7 @@
                   <td>to_check</td>
                   <td><a href="#massa.model.v1.NativeSig">massa.model.v1.NativeSig</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Sig to check </p></td>
                 </tr>
               
             </tbody>
@@ -804,7 +780,7 @@
         
       
         <h3 id="massa.abi.v1.CheckNativeSigResult">CheckNativeSigResult</h3>
-        <p></p>
+        <p>Check Sig result</p>
 
         
           <table class="field-table">
@@ -817,7 +793,7 @@
                   <td>is_valid</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Is Sig valid </p></td>
                 </tr>
               
             </tbody>
@@ -865,7 +841,7 @@
                   <td>sc_address</td>
                   <td><a href="#massa.model.v1.NativeAddress">massa.model.v1.NativeAddress</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Address of the just created smart contract </p></td>
                 </tr>
               
             </tbody>
@@ -876,7 +852,7 @@
         
       
         <h3 id="massa.abi.v1.DivRemNativeAmountRequest">DivRemNativeAmountRequest</h3>
-        <p></p>
+        <p>Amount division request</p>
 
         
           <table class="field-table">
@@ -889,14 +865,14 @@
                   <td>dividend</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Amount to divide </p></td>
                 </tr>
               
                 <tr>
                   <td>divisor</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Divisor to divide by </p></td>
                 </tr>
               
             </tbody>
@@ -907,7 +883,7 @@
         
       
         <h3 id="massa.abi.v1.DivRemNativeAmountResult">DivRemNativeAmountResult</h3>
-        <p></p>
+        <p>Amount division result</p>
 
         
           <table class="field-table">
@@ -920,27 +896,20 @@
                   <td>quotient</td>
                   <td><a href="#fixed64">fixed64</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Quotient of amount and divisor </p></td>
                 </tr>
               
                 <tr>
                   <td>remainder</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Remainder of amount and divisor </p></td>
                 </tr>
               
             </tbody>
           </table>
 
           
-
-        
-      
-        <h3 id="massa.abi.v1.Empty">Empty</h3>
-        <p>Empty</p>
-
-        
 
         
       
@@ -958,7 +927,7 @@
                   <td>message</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>a string representing the error </p></td>
                 </tr>
               
             </tbody>
@@ -982,14 +951,14 @@
                   <td>target_sc_address</td>
                   <td><a href="#massa.model.v1.NativeAddress">massa.model.v1.NativeAddress</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Address of the smart contract to call </p></td>
                 </tr>
               
                 <tr>
                   <td>function_name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>Function is the name of the function to call </p></td>
+                  <td><p>The name of the function to check the existance of </p></td>
                 </tr>
               
             </tbody>
@@ -1061,14 +1030,14 @@
                   <td>target_sc_address</td>
                   <td><a href="#massa.model.v1.NativeAddress">massa.model.v1.NativeAddress</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Address of the smart contract to call </p></td>
                 </tr>
               
                 <tr>
                   <td>target_function_name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Function to call in the targeted smart contract </p></td>
                 </tr>
               
                 <tr>
@@ -1109,32 +1078,8 @@
 
         
       
-        <h3 id="massa.abi.v1.LogRequest">LogRequest</h3>
-        <p>log</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>message</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.abi.v1.MulNativeAmountRequest">MulNativeAmountRequest</h3>
-        <p>Multiplication</p><p>try to compute product = amount * coefficient</p>
+        <p>Amount multiplication request</p><p>Try to compute product = amount * coefficient (fail if overflow)</p>
 
         
           <table class="field-table">
@@ -1147,14 +1092,14 @@
                   <td>amount</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Amount to multiply </p></td>
                 </tr>
               
                 <tr>
                   <td>coefficient</td>
                   <td><a href="#fixed64">fixed64</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Coefficient to multiply by </p></td>
                 </tr>
               
             </tbody>
@@ -1165,7 +1110,7 @@
         
       
         <h3 id="massa.abi.v1.MulNativeAmountResult">MulNativeAmountResult</h3>
-        <p></p>
+        <p>Amount multiplication result</p>
 
         
           <table class="field-table">
@@ -1178,7 +1123,7 @@
                   <td>product</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Product of amount and coefficient </p></td>
                 </tr>
               
             </tbody>
@@ -1189,7 +1134,7 @@
         
       
         <h3 id="massa.abi.v1.NativeAddressFromStringRequest">NativeAddressFromStringRequest</h3>
-        <p></p>
+        <p>Address from string request</p>
 
         
           <table class="field-table">
@@ -1202,7 +1147,7 @@
                   <td>to_convert</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>String to convert to address </p></td>
                 </tr>
               
             </tbody>
@@ -1213,7 +1158,7 @@
         
       
         <h3 id="massa.abi.v1.NativeAddressFromStringResult">NativeAddressFromStringResult</h3>
-        <p></p>
+        <p>Address from string result</p>
 
         
           <table class="field-table">
@@ -1226,7 +1171,7 @@
                   <td>converted_address</td>
                   <td><a href="#massa.model.v1.NativeAddress">massa.model.v1.NativeAddress</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Converted address </p></td>
                 </tr>
               
             </tbody>
@@ -1237,7 +1182,7 @@
         
       
         <h3 id="massa.abi.v1.NativeAddressToStringRequest">NativeAddressToStringRequest</h3>
-        <p>To string</p>
+        <p>Address to string request</p>
 
         
           <table class="field-table">
@@ -1250,7 +1195,7 @@
                   <td>to_convert</td>
                   <td><a href="#massa.model.v1.NativeAddress">massa.model.v1.NativeAddress</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Address to convert to string </p></td>
                 </tr>
               
             </tbody>
@@ -1261,7 +1206,7 @@
         
       
         <h3 id="massa.abi.v1.NativeAddressToStringResult">NativeAddressToStringResult</h3>
-        <p></p>
+        <p>Address to string result</p>
 
         
           <table class="field-table">
@@ -1274,55 +1219,7 @@
                   <td>converted_address</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.NativeAmountFromBytesRequest">NativeAmountFromBytesRequest</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>amount</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.NativeAmountFromBytesResult">NativeAmountFromBytesResult</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>amount</td>
-                  <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
-                  <td></td>
-                  <td><p> </p></td>
+                  <td><p>Converted address </p></td>
                 </tr>
               
             </tbody>
@@ -1333,7 +1230,7 @@
         
       
         <h3 id="massa.abi.v1.NativeAmountFromStringRequest">NativeAmountFromStringRequest</h3>
-        <p>native_amount_from_string</p>
+        <p>Amount from string request</p>
 
         
           <table class="field-table">
@@ -1346,7 +1243,7 @@
                   <td>to_convert</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>String to convert to Amount </p></td>
                 </tr>
               
             </tbody>
@@ -1357,7 +1254,7 @@
         
       
         <h3 id="massa.abi.v1.NativeAmountFromStringResult">NativeAmountFromStringResult</h3>
-        <p></p>
+        <p>Amount from string result</p>
 
         
           <table class="field-table">
@@ -1370,55 +1267,7 @@
                   <td>converted_amount</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.NativeAmountToBytesRequest">NativeAmountToBytesRequest</h3>
-        <p>massa.model.v1.NativeAmount from and to byte array</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>amount</td>
-                  <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.NativeAmountToBytesResult">NativeAmountToBytesResult</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>amount</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p> </p></td>
+                  <td><p>Converted Amount </p></td>
                 </tr>
               
             </tbody>
@@ -1429,7 +1278,7 @@
         
       
         <h3 id="massa.abi.v1.NativeAmountToStringRequest">NativeAmountToStringRequest</h3>
-        <p>native_amount_to_string</p>
+        <p>Amount to string request</p>
 
         
           <table class="field-table">
@@ -1442,7 +1291,7 @@
                   <td>to_convert</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Amount to convert to string </p></td>
                 </tr>
               
             </tbody>
@@ -1453,7 +1302,7 @@
         
       
         <h3 id="massa.abi.v1.NativeAmountToStringResult">NativeAmountToStringResult</h3>
-        <p></p>
+        <p>Amount to string result</p>
 
         
           <table class="field-table">
@@ -1466,7 +1315,7 @@
                   <td>converted_amount</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Converted Amount </p></td>
                 </tr>
               
             </tbody>
@@ -1477,7 +1326,7 @@
         
       
         <h3 id="massa.abi.v1.NativeHashFromStringRequest">NativeHashFromStringRequest</h3>
-        <p></p>
+        <p>Hash from string request</p>
 
         
           <table class="field-table">
@@ -1490,7 +1339,7 @@
                   <td>to_convert</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>String to convert to Hash </p></td>
                 </tr>
               
             </tbody>
@@ -1501,7 +1350,7 @@
         
       
         <h3 id="massa.abi.v1.NativeHashFromStringResult">NativeHashFromStringResult</h3>
-        <p></p>
+        <p>Hash from string result</p>
 
         
           <table class="field-table">
@@ -1514,7 +1363,7 @@
                   <td>converted_hash</td>
                   <td><a href="#massa.model.v1.NativeHash">massa.model.v1.NativeHash</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Converted Hash </p></td>
                 </tr>
               
             </tbody>
@@ -1525,7 +1374,7 @@
         
       
         <h3 id="massa.abi.v1.NativeHashToStringRequest">NativeHashToStringRequest</h3>
-        <p></p>
+        <p>Hash to string request</p>
 
         
           <table class="field-table">
@@ -1538,7 +1387,7 @@
                   <td>to_convert</td>
                   <td><a href="#massa.model.v1.NativeHash">massa.model.v1.NativeHash</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Hash to convert to string </p></td>
                 </tr>
               
             </tbody>
@@ -1549,7 +1398,7 @@
         
       
         <h3 id="massa.abi.v1.NativeHashToStringResult">NativeHashToStringResult</h3>
-        <p></p>
+        <p>Hash to string result</p>
 
         
           <table class="field-table">
@@ -1562,7 +1411,7 @@
                   <td>converted_hash</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Converted Hash </p></td>
                 </tr>
               
             </tbody>
@@ -1573,7 +1422,7 @@
         
       
         <h3 id="massa.abi.v1.NativePubKeyFromStringRequest">NativePubKeyFromStringRequest</h3>
-        <p></p>
+        <p>PubKey from string request</p>
 
         
           <table class="field-table">
@@ -1586,7 +1435,7 @@
                   <td>to_convert</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>String to convert to PubKey </p></td>
                 </tr>
               
             </tbody>
@@ -1597,7 +1446,7 @@
         
       
         <h3 id="massa.abi.v1.NativePubKeyFromStringResult">NativePubKeyFromStringResult</h3>
-        <p></p>
+        <p>PubKey from string result</p>
 
         
           <table class="field-table">
@@ -1610,7 +1459,7 @@
                   <td>converted_pubkey</td>
                   <td><a href="#massa.model.v1.NativePubKey">massa.model.v1.NativePubKey</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Converted PubKey </p></td>
                 </tr>
               
             </tbody>
@@ -1621,7 +1470,7 @@
         
       
         <h3 id="massa.abi.v1.NativePubKeyToStringRequest">NativePubKeyToStringRequest</h3>
-        <p></p>
+        <p>PubKey to string request</p>
 
         
           <table class="field-table">
@@ -1634,7 +1483,7 @@
                   <td>to_convert</td>
                   <td><a href="#massa.model.v1.NativePubKey">massa.model.v1.NativePubKey</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>PubKey to convert to string </p></td>
                 </tr>
               
             </tbody>
@@ -1658,7 +1507,7 @@
                   <td>converted_pubkey</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Converted PubKey </p></td>
                 </tr>
               
             </tbody>
@@ -1669,7 +1518,7 @@
         
       
         <h3 id="massa.abi.v1.NativeSigFromStringRequest">NativeSigFromStringRequest</h3>
-        <p></p>
+        <p>Sig from string request</p>
 
         
           <table class="field-table">
@@ -1682,7 +1531,7 @@
                   <td>to_convert</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>String to convert to Sig </p></td>
                 </tr>
               
             </tbody>
@@ -1693,7 +1542,7 @@
         
       
         <h3 id="massa.abi.v1.NativeSigFromStringResult">NativeSigFromStringResult</h3>
-        <p></p>
+        <p>Sig from string result</p>
 
         
           <table class="field-table">
@@ -1706,7 +1555,7 @@
                   <td>converted_sig</td>
                   <td><a href="#massa.model.v1.NativeSig">massa.model.v1.NativeSig</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Converted Sig </p></td>
                 </tr>
               
             </tbody>
@@ -1717,7 +1566,7 @@
         
       
         <h3 id="massa.abi.v1.NativeSigToStringRequest">NativeSigToStringRequest</h3>
-        <p></p>
+        <p>Sig to string request</p>
 
         
           <table class="field-table">
@@ -1730,7 +1579,7 @@
                   <td>to_convert</td>
                   <td><a href="#massa.model.v1.NativeSig">massa.model.v1.NativeSig</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Sig to convert to string </p></td>
                 </tr>
               
             </tbody>
@@ -1741,7 +1590,7 @@
         
       
         <h3 id="massa.abi.v1.NativeSigToStringResult">NativeSigToStringResult</h3>
-        <p></p>
+        <p>Sig to string result</p>
 
         
           <table class="field-table">
@@ -1754,7 +1603,7 @@
                   <td>converted_sig</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Converted Sig </p></td>
                 </tr>
               
             </tbody>
@@ -1765,7 +1614,7 @@
         
       
         <h3 id="massa.abi.v1.RespResult">RespResult</h3>
-        <p>Call RespResult becaule Result will conflict with the Result type in Rust</p><p>data MUST have the same name as they type in Rust they are converted to type</p>
+        <p>Message returned in case of success of an ABI call.</p><p>See the documentation of the specific result for the meaning of the fields.</p><p>Call RespResult because Result will conflict with the Result type in Rust</p><p>data MUST have the same name as they type in Rust they are converted to type</p>
 
         
           <table class="field-table">
@@ -1914,20 +1763,6 @@
                   <td><p> </p></td>
                 </tr>
               
-                <tr>
-                  <td>native_amount_to_bytes_result</td>
-                  <td><a href="#massa.abi.v1.NativeAmountToBytesResult">NativeAmountToBytesResult</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>native_amount_from_bytes_result</td>
-                  <td><a href="#massa.abi.v1.NativeAmountFromBytesResult">NativeAmountFromBytesResult</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
             </tbody>
           </table>
 
@@ -1936,7 +1771,7 @@
         
       
         <h3 id="massa.abi.v1.ScalarDivRemNativeAmountRequest">ScalarDivRemNativeAmountRequest</h3>
-        <p>Division</p><p>try to compute quotient = dividend / divisor</p><p>if divisor == 0 then error</p>
+        <p>Amount division by scalar request</p><p>Try to compute quotient = dividend / divisor</p><p>Fails if divisor == 0</p><p>Fails if underflow</p>
 
         
           <table class="field-table">
@@ -1949,14 +1784,14 @@
                   <td>dividend</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Amount to divide </p></td>
                 </tr>
               
                 <tr>
                   <td>divisor</td>
                   <td><a href="#fixed64">fixed64</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Divisor to divide by </p></td>
                 </tr>
               
             </tbody>
@@ -1967,7 +1802,7 @@
         
       
         <h3 id="massa.abi.v1.ScalarDivRemNativeAmountResult">ScalarDivRemNativeAmountResult</h3>
-        <p></p>
+        <p>Amount division by scalar result</p>
 
         
           <table class="field-table">
@@ -1980,14 +1815,14 @@
                   <td>quotient</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Quotient of amount and divisor </p></td>
                 </tr>
               
                 <tr>
                   <td>remainder</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Remainder of amount and divisor </p></td>
                 </tr>
               
             </tbody>
@@ -1998,7 +1833,7 @@
         
       
         <h3 id="massa.abi.v1.SubNativeAmountsRequest">SubNativeAmountsRequest</h3>
-        <p>Substraction</p><p>if minued >= substrahend then</p><p>difference = minued - substrahend</p><p>return difference</p>
+        <p>Amount subtraction request</p><p>try to compute difference = left - right</p><p>fails if right > left</p>
 
         
           <table class="field-table">
@@ -2008,17 +1843,17 @@
             <tbody>
               
                 <tr>
-                  <td>minuend</td>
+                  <td>left</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>First amount to subtract from </p></td>
                 </tr>
               
                 <tr>
-                  <td>subtrahend</td>
+                  <td>right</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Second amount to subtract </p></td>
                 </tr>
               
             </tbody>
@@ -2029,7 +1864,7 @@
         
       
         <h3 id="massa.abi.v1.SubNativeAmountsResult">SubNativeAmountsResult</h3>
-        <p></p>
+        <p>Amount subtraction result</p>
 
         
           <table class="field-table">
@@ -2042,7 +1877,7 @@
                   <td>difference</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Difference of amounts (left - right) </p></td>
                 </tr>
               
             </tbody>
@@ -2066,14 +1901,14 @@
                   <td>target_address</td>
                   <td><a href="#massa.model.v1.NativeAddress">massa.model.v1.NativeAddress</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>The address of the recipient </p></td>
                 </tr>
               
                 <tr>
                   <td>amount_to_transfer</td>
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>The amount of coins to transfer </p></td>
                 </tr>
               
             </tbody>

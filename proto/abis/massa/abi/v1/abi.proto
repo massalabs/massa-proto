@@ -7,7 +7,6 @@ package massa.abi.v1;
 import "massa/model/v1/address.proto";
 import "massa/model/v1/amount.proto";
 import "massa/model/v1/hash.proto";
-import "massa/model/v1/pubkey.proto";
 import "massa/model/v1/signature.proto";
 
 option csharp_namespace = "Com.Massa.Abi.V1";
@@ -21,11 +20,9 @@ option swift_prefix = "MABI";
 
 // Error message used in abi Response
 message Error {
+  // a string representing the error
   string message = 1;
 }
-
-// Empty
-message Empty {}
 
 message CreateSCRequest {
   // Bytecode is the compiled code of the smart contract
@@ -33,12 +30,15 @@ message CreateSCRequest {
 }
 
 message CreateSCResponse {
+  // Address of the just created smart contract
   massa.model.v1.NativeAddress sc_address = 1;
 }
 
 // CallSC
 message CallRequest {
+  // Address of the smart contract to call
   massa.model.v1.NativeAddress target_sc_address = 1;
+  // Function to call in the targeted smart contract
   string target_function_name = 2;
   // Argument to the function serialized in a byte array.
   bytes function_arg = 3;
@@ -54,7 +54,9 @@ message CallResponse {
 
 // LocalCall
 message LocalCallRequest {
+  // Address of the smart contract to call
   massa.model.v1.NativeAddress target_sc_address = 1;
+  // Function to call in the targeted smart contract
   string target_function_name = 2;
   // Argument to the function serialized in a byte array.
   bytes function_arg = 3;
@@ -74,14 +76,17 @@ message GenerateEventRequest {
 
 // TransferCoins
 message TransferCoinsRequest {
+  // The address of the recipient
   massa.model.v1.NativeAddress target_address = 1;
+  // The amount of coins to transfer
   massa.model.v1.NativeAmount amount_to_transfer = 2;
 }
 
 // FunctionExists
 message FunctionExistsRequest {
+  // Address of the smart contract to call
   massa.model.v1.NativeAddress target_sc_address = 1;
-  // Function is the name of the function to call
+  // The name of the function to check the existance of
   string function_name = 2;
 }
 
@@ -91,7 +96,9 @@ message FunctionExistsResponse {
   bool exists = 1;
 }
 
-// Call RespResult becaule Result will conflict with the Result type in Rust
+// Message returned in case of success of an ABI call.
+// See the documentation of the specific result for the meaning of the fields.
+// Call RespResult because Result will conflict with the Result type in Rust
 // data MUST have the same name as they type in Rust they are converted to type
 message RespResult {
   oneof res {
@@ -115,211 +122,273 @@ message RespResult {
     MulNativeAmountResult mul_native_amount_result = 18;
     ScalarDivRemNativeAmountResult scalar_div_rem_native_amount_result = 19;
     DivRemNativeAmountResult div_rem_native_amount_result = 20;
-    NativeAmountToBytesResult native_amount_to_bytes_result = 21;
-    NativeAmountFromBytesResult native_amount_from_bytes_result = 22;
   }
 }
 
 // Generic message that encapsulate response from ABI calls.
 message AbiResponse {
   oneof resp {
+    // variant for success
     RespResult res = 1;
+    // variant for error
     Error error = 2;
   }
 }
 
-// To string
+// Address to string request
 message NativeAddressToStringRequest {
+  // Address to convert to string
   massa.model.v1.NativeAddress to_convert = 1;
 }
 
+// Address to string result
 message NativeAddressToStringResult {
+  // Converted address
   string converted_address = 1;
 }
 
+// PubKey to string request
 message NativePubKeyToStringRequest {
+  // PubKey to convert to string
   massa.model.v1.NativePubKey to_convert = 1;
 }
 message NativePubKeyToStringResult {
+  // Converted PubKey
   string converted_pubkey = 1;
 }
 
+// Sig to string request
 message NativeSigToStringRequest {
+  // Sig to convert to string
   massa.model.v1.NativeSig to_convert = 1;
 }
 
+// Sig to string result
 message NativeSigToStringResult {
+  // Converted Sig
   string converted_sig = 1;
 }
 
+// Hash to string request
 message NativeHashToStringRequest {
+  // Hash to convert to string
   massa.model.v1.NativeHash to_convert = 1;
 }
 
+// Hash to string result
 message NativeHashToStringResult {
+  // Converted Hash
   string converted_hash = 1;
 }
 
-// native_amount_to_string
+// Amount to string request
 message NativeAmountToStringRequest {
+  // Amount to convert to string
   massa.model.v1.NativeAmount to_convert = 1;
 }
 
+// Amount to string result
 message NativeAmountToStringResult {
+  // Converted Amount
   string converted_amount = 1;
 }
 
+// Address from string request
 message NativeAddressFromStringRequest {
+  // String to convert to address
   string to_convert = 1;
 }
 
+// Address from string result
 message NativeAddressFromStringResult {
+  // Converted address
   massa.model.v1.NativeAddress converted_address = 1;
 }
 
+// PubKey from string request
 message NativePubKeyFromStringRequest {
+  // String to convert to PubKey
   string to_convert = 1;
 }
 
+// PubKey from string result
 message NativePubKeyFromStringResult {
+  // Converted PubKey
   massa.model.v1.NativePubKey converted_pubkey = 1;
 }
 
+// Sig from string request
 message NativeSigFromStringRequest {
+  // String to convert to Sig
   string to_convert = 1;
 }
 
+// Sig from string result
 message NativeSigFromStringResult {
+  // Converted Sig
   massa.model.v1.NativeSig converted_sig = 1;
 }
 
+// Hash from string request
 message NativeHashFromStringRequest {
+  // String to convert to Hash
   string to_convert = 1;
 }
 
+// Hash from string result
 message NativeHashFromStringResult {
+  // Converted Hash
   massa.model.v1.NativeHash converted_hash = 1;
 }
 
-// native_amount_from_string
+// Amount from string request
 message NativeAmountFromStringRequest {
+  // String to convert to Amount
   string to_convert = 1;
 }
 
+// Amount from string result
 message NativeAmountFromStringResult {
+  // Converted Amount
   massa.model.v1.NativeAmount converted_amount = 1;
 }
 
+// Check address request
 message CheckNativeAddressRequest {
+  // Address to check
   massa.model.v1.NativeAddress to_check = 1;
 }
 
+// Check address result
 message CheckNativeAddressResult {
+  // Is address valid
   bool is_valid = 1;
 }
 
+// Check PubKey request
 message CheckNativePubKeyRequest {
+  // PubKey to check
   massa.model.v1.NativePubKey to_check = 1;
 }
 
+// Check PubKey result
 message CheckNativePubKeyResult {
+  // Is PubKey valid
   bool is_valid = 1;
 }
 
+// Check Sig request
 message CheckNativeSigRequest {
+  // Sig to check
   massa.model.v1.NativeSig to_check = 1;
 }
 
+// Check Sig result
 message CheckNativeSigResult {
+  // Is Sig valid
   bool is_valid = 1;
 }
 
+// Check Hash request
 message CheckNativeHashRequest {
+  // Hash to check
   massa.model.v1.NativeHash to_check = 1;
 }
 
+// Check Hash result
 message CheckNativeHashResult {
+  // Is Hash valid
   bool is_valid = 1;
 }
 
-// check_native_amount
+// Check Amount request
 message CheckNativeAmountRequest {
+  // Amount to check
   massa.model.v1.NativeAmount to_check = 1;
 }
 
+// Check Amount result
 message CheckNativeAmountResult {
+  // Is Amount valid
   bool is_valid = 1;
 }
 
-// Addition
+// Amount addition request
 message AddNativeAmountsRequest {
+  // First amount to add
   massa.model.v1.NativeAmount amount1 = 1;
+  // Second amount to add
   massa.model.v1.NativeAmount amount2 = 2;
 }
 
+// Amount addition result
 message AddNativeAmountsResult {
+  // Sum of amounts
   massa.model.v1.NativeAmount sum = 1;
 }
 
-// Substraction
-// if minued >= substrahend then
-//     difference = minued - substrahend
-//     return difference
+// Amount subtraction request
+// try to compute difference = left - right
+// fails if right > left
 message SubNativeAmountsRequest {
-  massa.model.v1.NativeAmount minuend = 1;
-  massa.model.v1.NativeAmount subtrahend = 2;
+  // First amount to subtract from
+  massa.model.v1.NativeAmount left = 1;
+  // Second amount to subtract
+  massa.model.v1.NativeAmount right = 2;
 }
 
+// Amount subtraction result
 message SubNativeAmountsResult {
+  // Difference of amounts (left - right)
   massa.model.v1.NativeAmount difference = 1;
 }
 
-// Multiplication
-// try to compute product = amount * coefficient
+// Amount multiplication request
+// Try to compute product = amount * coefficient (fail if overflow)
 message MulNativeAmountRequest {
+  // Amount to multiply
   massa.model.v1.NativeAmount amount = 1;
+  // Coefficient to multiply by
   fixed64 coefficient = 2;
 }
 
+// Amount multiplication result
 message MulNativeAmountResult {
+  // Product of amount and coefficient
   massa.model.v1.NativeAmount product = 1;
 }
 
-// Division
-// try to compute quotient = dividend / divisor
-// if divisor == 0 then error
+// Amount division by scalar request
+// Try to compute quotient = dividend / divisor
+// Fails if divisor == 0
+// Fails if underflow
 message ScalarDivRemNativeAmountRequest {
+  // Amount to divide
   massa.model.v1.NativeAmount dividend = 1;
+  // Divisor to divide by
   fixed64 divisor = 2;
 }
+
+// Amount division by scalar result
 message ScalarDivRemNativeAmountResult {
+  // Quotient of amount and divisor
   massa.model.v1.NativeAmount quotient = 1;
+  // Remainder of amount and divisor
   massa.model.v1.NativeAmount remainder = 2;
 }
 
+// Amount division request
 message DivRemNativeAmountRequest {
+  // Amount to divide
   massa.model.v1.NativeAmount dividend = 1;
+  // Divisor to divide by
   massa.model.v1.NativeAmount divisor = 2;
 }
 
+// Amount division result
 message DivRemNativeAmountResult {
+  // Quotient of amount and divisor
   fixed64 quotient = 1;
+  // Remainder of amount and divisor
   massa.model.v1.NativeAmount remainder = 2;
-}
-
-// massa.model.v1.NativeAmount from and to byte array
-message NativeAmountToBytesRequest {
-  massa.model.v1.NativeAmount amount = 1;
-}
-
-message NativeAmountToBytesResult {
-  bytes amount = 1;
-}
-
-message NativeAmountFromBytesRequest {
-  bytes amount = 1;
-}
-
-message NativeAmountFromBytesResult {
-  massa.model.v1.NativeAmount amount = 1;
 }

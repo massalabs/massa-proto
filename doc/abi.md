@@ -23,26 +23,20 @@
     - [CreateSCResponse](#massa-abi-v1-CreateSCResponse)
     - [DivRemNativeAmountRequest](#massa-abi-v1-DivRemNativeAmountRequest)
     - [DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResult)
-    - [Empty](#massa-abi-v1-Empty)
     - [Error](#massa-abi-v1-Error)
     - [FunctionExistsRequest](#massa-abi-v1-FunctionExistsRequest)
     - [FunctionExistsResponse](#massa-abi-v1-FunctionExistsResponse)
     - [GenerateEventRequest](#massa-abi-v1-GenerateEventRequest)
     - [LocalCallRequest](#massa-abi-v1-LocalCallRequest)
     - [LocalCallResponse](#massa-abi-v1-LocalCallResponse)
-    - [LogRequest](#massa-abi-v1-LogRequest)
     - [MulNativeAmountRequest](#massa-abi-v1-MulNativeAmountRequest)
     - [MulNativeAmountResult](#massa-abi-v1-MulNativeAmountResult)
     - [NativeAddressFromStringRequest](#massa-abi-v1-NativeAddressFromStringRequest)
     - [NativeAddressFromStringResult](#massa-abi-v1-NativeAddressFromStringResult)
     - [NativeAddressToStringRequest](#massa-abi-v1-NativeAddressToStringRequest)
     - [NativeAddressToStringResult](#massa-abi-v1-NativeAddressToStringResult)
-    - [NativeAmountFromBytesRequest](#massa-abi-v1-NativeAmountFromBytesRequest)
-    - [NativeAmountFromBytesResult](#massa-abi-v1-NativeAmountFromBytesResult)
     - [NativeAmountFromStringRequest](#massa-abi-v1-NativeAmountFromStringRequest)
     - [NativeAmountFromStringResult](#massa-abi-v1-NativeAmountFromStringResult)
-    - [NativeAmountToBytesRequest](#massa-abi-v1-NativeAmountToBytesRequest)
-    - [NativeAmountToBytesResult](#massa-abi-v1-NativeAmountToBytesResult)
     - [NativeAmountToStringRequest](#massa-abi-v1-NativeAmountToStringRequest)
     - [NativeAmountToStringResult](#massa-abi-v1-NativeAmountToStringResult)
     - [NativeHashFromStringRequest](#massa-abi-v1-NativeHashFromStringRequest)
@@ -83,8 +77,8 @@ Generic message that encapsulate response from ABI calls.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| res | [RespResult](#massa-abi-v1-RespResult) |  |  |
-| error | [Error](#massa-abi-v1-Error) |  |  |
+| res | [RespResult](#massa-abi-v1-RespResult) |  | variant for success |
+| error | [Error](#massa-abi-v1-Error) |  | variant for error |
 
 
 
@@ -94,13 +88,13 @@ Generic message that encapsulate response from ABI calls.
 <a name="massa-abi-v1-AddNativeAmountsRequest"></a>
 
 ### AddNativeAmountsRequest
-Addition
+Amount addition request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| amount1 | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
-| amount2 | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| amount1 | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | First amount to add |
+| amount2 | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Second amount to add |
 
 
 
@@ -110,12 +104,12 @@ Addition
 <a name="massa-abi-v1-AddNativeAmountsResult"></a>
 
 ### AddNativeAmountsResult
-
+Amount addition result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| sum | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| sum | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Sum of amounts |
 
 
 
@@ -130,8 +124,8 @@ CallSC
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_sc_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  |  |
-| target_function_name | [string](#string) |  |  |
+| target_sc_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | Address of the smart contract to call |
+| target_function_name | [string](#string) |  | Function to call in the targeted smart contract |
 | function_arg | [bytes](#bytes) |  | Argument to the function serialized in a byte array. |
 | call_coins | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | call_coins is the amount of coins to pay for the call |
 
@@ -158,12 +152,12 @@ CallResponse
 <a name="massa-abi-v1-CheckNativeAddressRequest"></a>
 
 ### CheckNativeAddressRequest
-
+Check address request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_check | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  |  |
+| to_check | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | Address to check |
 
 
 
@@ -173,12 +167,12 @@ CallResponse
 <a name="massa-abi-v1-CheckNativeAddressResult"></a>
 
 ### CheckNativeAddressResult
-
+Check address result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| is_valid | [bool](#bool) |  |  |
+| is_valid | [bool](#bool) |  | Is address valid |
 
 
 
@@ -188,12 +182,12 @@ CallResponse
 <a name="massa-abi-v1-CheckNativeAmountRequest"></a>
 
 ### CheckNativeAmountRequest
-check_native_amount
+Check Amount request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_check | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| to_check | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to check |
 
 
 
@@ -203,12 +197,12 @@ check_native_amount
 <a name="massa-abi-v1-CheckNativeAmountResult"></a>
 
 ### CheckNativeAmountResult
-
+Check Amount result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| is_valid | [bool](#bool) |  |  |
+| is_valid | [bool](#bool) |  | Is Amount valid |
 
 
 
@@ -218,12 +212,12 @@ check_native_amount
 <a name="massa-abi-v1-CheckNativeHashRequest"></a>
 
 ### CheckNativeHashRequest
-
+Check Hash request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_check | [massa.model.v1.NativeHash](#massa-model-v1-NativeHash) |  |  |
+| to_check | [massa.model.v1.NativeHash](#massa-model-v1-NativeHash) |  | Hash to check |
 
 
 
@@ -233,12 +227,12 @@ check_native_amount
 <a name="massa-abi-v1-CheckNativeHashResult"></a>
 
 ### CheckNativeHashResult
-
+Check Hash result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| is_valid | [bool](#bool) |  |  |
+| is_valid | [bool](#bool) |  | Is Hash valid |
 
 
 
@@ -248,12 +242,12 @@ check_native_amount
 <a name="massa-abi-v1-CheckNativePubKeyRequest"></a>
 
 ### CheckNativePubKeyRequest
-
+Check PubKey request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_check | [massa.model.v1.NativePubKey](#massa-model-v1-NativePubKey) |  |  |
+| to_check | [massa.model.v1.NativePubKey](#massa-model-v1-NativePubKey) |  | PubKey to check |
 
 
 
@@ -263,12 +257,12 @@ check_native_amount
 <a name="massa-abi-v1-CheckNativePubKeyResult"></a>
 
 ### CheckNativePubKeyResult
-
+Check PubKey result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| is_valid | [bool](#bool) |  |  |
+| is_valid | [bool](#bool) |  | Is PubKey valid |
 
 
 
@@ -278,12 +272,12 @@ check_native_amount
 <a name="massa-abi-v1-CheckNativeSigRequest"></a>
 
 ### CheckNativeSigRequest
-
+Check Sig request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_check | [massa.model.v1.NativeSig](#massa-model-v1-NativeSig) |  |  |
+| to_check | [massa.model.v1.NativeSig](#massa-model-v1-NativeSig) |  | Sig to check |
 
 
 
@@ -293,12 +287,12 @@ check_native_amount
 <a name="massa-abi-v1-CheckNativeSigResult"></a>
 
 ### CheckNativeSigResult
-
+Check Sig result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| is_valid | [bool](#bool) |  |  |
+| is_valid | [bool](#bool) |  | Is Sig valid |
 
 
 
@@ -328,7 +322,7 @@ check_native_amount
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| sc_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  |  |
+| sc_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | Address of the just created smart contract |
 
 
 
@@ -338,13 +332,13 @@ check_native_amount
 <a name="massa-abi-v1-DivRemNativeAmountRequest"></a>
 
 ### DivRemNativeAmountRequest
-
+Amount division request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| dividend | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
-| divisor | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| dividend | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to divide |
+| divisor | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Divisor to divide by |
 
 
 
@@ -354,23 +348,13 @@ check_native_amount
 <a name="massa-abi-v1-DivRemNativeAmountResult"></a>
 
 ### DivRemNativeAmountResult
-
+Amount division result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| quotient | [fixed64](#fixed64) |  |  |
-| remainder | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-Empty"></a>
-
-### Empty
-Empty
+| quotient | [fixed64](#fixed64) |  | Quotient of amount and divisor |
+| remainder | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Remainder of amount and divisor |
 
 
 
@@ -385,7 +369,7 @@ Error message used in abi Response
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| message | [string](#string) |  |  |
+| message | [string](#string) |  | a string representing the error |
 
 
 
@@ -400,8 +384,8 @@ FunctionExists
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_sc_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  |  |
-| function_name | [string](#string) |  | Function is the name of the function to call |
+| target_sc_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | Address of the smart contract to call |
+| function_name | [string](#string) |  | The name of the function to check the existance of |
 
 
 
@@ -446,8 +430,8 @@ LocalCall
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_sc_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  |  |
-| target_function_name | [string](#string) |  |  |
+| target_sc_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | Address of the smart contract to call |
+| target_function_name | [string](#string) |  | Function to call in the targeted smart contract |
 | function_arg | [bytes](#bytes) |  | Argument to the function serialized in a byte array. |
 
 
@@ -470,32 +454,17 @@ LocalCallResponse
 
 
 
-<a name="massa-abi-v1-LogRequest"></a>
-
-### LogRequest
-log
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| message | [string](#string) |  |  |
-
-
-
-
-
-
 <a name="massa-abi-v1-MulNativeAmountRequest"></a>
 
 ### MulNativeAmountRequest
-Multiplication
-try to compute product = amount * coefficient
+Amount multiplication request
+Try to compute product = amount * coefficient (fail if overflow)
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
-| coefficient | [fixed64](#fixed64) |  |  |
+| amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to multiply |
+| coefficient | [fixed64](#fixed64) |  | Coefficient to multiply by |
 
 
 
@@ -505,12 +474,12 @@ try to compute product = amount * coefficient
 <a name="massa-abi-v1-MulNativeAmountResult"></a>
 
 ### MulNativeAmountResult
-
+Amount multiplication result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| product | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| product | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Product of amount and coefficient |
 
 
 
@@ -520,12 +489,12 @@ try to compute product = amount * coefficient
 <a name="massa-abi-v1-NativeAddressFromStringRequest"></a>
 
 ### NativeAddressFromStringRequest
-
+Address from string request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_convert | [string](#string) |  |  |
+| to_convert | [string](#string) |  | String to convert to address |
 
 
 
@@ -535,12 +504,12 @@ try to compute product = amount * coefficient
 <a name="massa-abi-v1-NativeAddressFromStringResult"></a>
 
 ### NativeAddressFromStringResult
-
+Address from string result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| converted_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  |  |
+| converted_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | Converted address |
 
 
 
@@ -550,12 +519,12 @@ try to compute product = amount * coefficient
 <a name="massa-abi-v1-NativeAddressToStringRequest"></a>
 
 ### NativeAddressToStringRequest
-To string
+Address to string request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_convert | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  |  |
+| to_convert | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | Address to convert to string |
 
 
 
@@ -565,42 +534,12 @@ To string
 <a name="massa-abi-v1-NativeAddressToStringResult"></a>
 
 ### NativeAddressToStringResult
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| converted_address | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeAmountFromBytesRequest"></a>
-
-### NativeAmountFromBytesRequest
-
+Address to string result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| amount | [bytes](#bytes) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeAmountFromBytesResult"></a>
-
-### NativeAmountFromBytesResult
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| converted_address | [string](#string) |  | Converted address |
 
 
 
@@ -610,12 +549,12 @@ To string
 <a name="massa-abi-v1-NativeAmountFromStringRequest"></a>
 
 ### NativeAmountFromStringRequest
-native_amount_from_string
+Amount from string request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_convert | [string](#string) |  |  |
+| to_convert | [string](#string) |  | String to convert to Amount |
 
 
 
@@ -625,42 +564,12 @@ native_amount_from_string
 <a name="massa-abi-v1-NativeAmountFromStringResult"></a>
 
 ### NativeAmountFromStringResult
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| converted_amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeAmountToBytesRequest"></a>
-
-### NativeAmountToBytesRequest
-massa.model.v1.NativeAmount from and to byte array
+Amount from string result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-NativeAmountToBytesResult"></a>
-
-### NativeAmountToBytesResult
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| amount | [bytes](#bytes) |  |  |
+| converted_amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Converted Amount |
 
 
 
@@ -670,12 +579,12 @@ massa.model.v1.NativeAmount from and to byte array
 <a name="massa-abi-v1-NativeAmountToStringRequest"></a>
 
 ### NativeAmountToStringRequest
-native_amount_to_string
+Amount to string request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_convert | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| to_convert | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to convert to string |
 
 
 
@@ -685,12 +594,12 @@ native_amount_to_string
 <a name="massa-abi-v1-NativeAmountToStringResult"></a>
 
 ### NativeAmountToStringResult
-
+Amount to string result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| converted_amount | [string](#string) |  |  |
+| converted_amount | [string](#string) |  | Converted Amount |
 
 
 
@@ -700,12 +609,12 @@ native_amount_to_string
 <a name="massa-abi-v1-NativeHashFromStringRequest"></a>
 
 ### NativeHashFromStringRequest
-
+Hash from string request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_convert | [string](#string) |  |  |
+| to_convert | [string](#string) |  | String to convert to Hash |
 
 
 
@@ -715,12 +624,12 @@ native_amount_to_string
 <a name="massa-abi-v1-NativeHashFromStringResult"></a>
 
 ### NativeHashFromStringResult
-
+Hash from string result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| converted_hash | [massa.model.v1.NativeHash](#massa-model-v1-NativeHash) |  |  |
+| converted_hash | [massa.model.v1.NativeHash](#massa-model-v1-NativeHash) |  | Converted Hash |
 
 
 
@@ -730,12 +639,12 @@ native_amount_to_string
 <a name="massa-abi-v1-NativeHashToStringRequest"></a>
 
 ### NativeHashToStringRequest
-
+Hash to string request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_convert | [massa.model.v1.NativeHash](#massa-model-v1-NativeHash) |  |  |
+| to_convert | [massa.model.v1.NativeHash](#massa-model-v1-NativeHash) |  | Hash to convert to string |
 
 
 
@@ -745,12 +654,12 @@ native_amount_to_string
 <a name="massa-abi-v1-NativeHashToStringResult"></a>
 
 ### NativeHashToStringResult
-
+Hash to string result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| converted_hash | [string](#string) |  |  |
+| converted_hash | [string](#string) |  | Converted Hash |
 
 
 
@@ -760,12 +669,12 @@ native_amount_to_string
 <a name="massa-abi-v1-NativePubKeyFromStringRequest"></a>
 
 ### NativePubKeyFromStringRequest
-
+PubKey from string request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_convert | [string](#string) |  |  |
+| to_convert | [string](#string) |  | String to convert to PubKey |
 
 
 
@@ -775,12 +684,12 @@ native_amount_to_string
 <a name="massa-abi-v1-NativePubKeyFromStringResult"></a>
 
 ### NativePubKeyFromStringResult
-
+PubKey from string result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| converted_pubkey | [massa.model.v1.NativePubKey](#massa-model-v1-NativePubKey) |  |  |
+| converted_pubkey | [massa.model.v1.NativePubKey](#massa-model-v1-NativePubKey) |  | Converted PubKey |
 
 
 
@@ -790,12 +699,12 @@ native_amount_to_string
 <a name="massa-abi-v1-NativePubKeyToStringRequest"></a>
 
 ### NativePubKeyToStringRequest
-
+PubKey to string request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_convert | [massa.model.v1.NativePubKey](#massa-model-v1-NativePubKey) |  |  |
+| to_convert | [massa.model.v1.NativePubKey](#massa-model-v1-NativePubKey) |  | PubKey to convert to string |
 
 
 
@@ -810,7 +719,7 @@ native_amount_to_string
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| converted_pubkey | [string](#string) |  |  |
+| converted_pubkey | [string](#string) |  | Converted PubKey |
 
 
 
@@ -820,12 +729,12 @@ native_amount_to_string
 <a name="massa-abi-v1-NativeSigFromStringRequest"></a>
 
 ### NativeSigFromStringRequest
-
+Sig from string request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_convert | [string](#string) |  |  |
+| to_convert | [string](#string) |  | String to convert to Sig |
 
 
 
@@ -835,12 +744,12 @@ native_amount_to_string
 <a name="massa-abi-v1-NativeSigFromStringResult"></a>
 
 ### NativeSigFromStringResult
-
+Sig from string result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| converted_sig | [massa.model.v1.NativeSig](#massa-model-v1-NativeSig) |  |  |
+| converted_sig | [massa.model.v1.NativeSig](#massa-model-v1-NativeSig) |  | Converted Sig |
 
 
 
@@ -850,12 +759,12 @@ native_amount_to_string
 <a name="massa-abi-v1-NativeSigToStringRequest"></a>
 
 ### NativeSigToStringRequest
-
+Sig to string request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| to_convert | [massa.model.v1.NativeSig](#massa-model-v1-NativeSig) |  |  |
+| to_convert | [massa.model.v1.NativeSig](#massa-model-v1-NativeSig) |  | Sig to convert to string |
 
 
 
@@ -865,12 +774,12 @@ native_amount_to_string
 <a name="massa-abi-v1-NativeSigToStringResult"></a>
 
 ### NativeSigToStringResult
-
+Sig to string result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| converted_sig | [string](#string) |  |  |
+| converted_sig | [string](#string) |  | Converted Sig |
 
 
 
@@ -880,7 +789,9 @@ native_amount_to_string
 <a name="massa-abi-v1-RespResult"></a>
 
 ### RespResult
-Call RespResult becaule Result will conflict with the Result type in Rust
+Message returned in case of success of an ABI call.
+See the documentation of the specific result for the meaning of the fields.
+Call RespResult because Result will conflict with the Result type in Rust
 data MUST have the same name as they type in Rust they are converted to type
 
 
@@ -906,8 +817,6 @@ data MUST have the same name as they type in Rust they are converted to type
 | mul_native_amount_result | [MulNativeAmountResult](#massa-abi-v1-MulNativeAmountResult) |  |  |
 | scalar_div_rem_native_amount_result | [ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResult) |  |  |
 | div_rem_native_amount_result | [DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResult) |  |  |
-| native_amount_to_bytes_result | [NativeAmountToBytesResult](#massa-abi-v1-NativeAmountToBytesResult) |  |  |
-| native_amount_from_bytes_result | [NativeAmountFromBytesResult](#massa-abi-v1-NativeAmountFromBytesResult) |  |  |
 
 
 
@@ -917,15 +826,16 @@ data MUST have the same name as they type in Rust they are converted to type
 <a name="massa-abi-v1-ScalarDivRemNativeAmountRequest"></a>
 
 ### ScalarDivRemNativeAmountRequest
-Division
-try to compute quotient = dividend / divisor
-if divisor == 0 then error
+Amount division by scalar request
+Try to compute quotient = dividend / divisor
+Fails if divisor == 0
+Fails if underflow
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| dividend | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
-| divisor | [fixed64](#fixed64) |  |  |
+| dividend | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to divide |
+| divisor | [fixed64](#fixed64) |  | Divisor to divide by |
 
 
 
@@ -935,13 +845,13 @@ if divisor == 0 then error
 <a name="massa-abi-v1-ScalarDivRemNativeAmountResult"></a>
 
 ### ScalarDivRemNativeAmountResult
-
+Amount division by scalar result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| quotient | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
-| remainder | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| quotient | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Quotient of amount and divisor |
+| remainder | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Remainder of amount and divisor |
 
 
 
@@ -951,16 +861,15 @@ if divisor == 0 then error
 <a name="massa-abi-v1-SubNativeAmountsRequest"></a>
 
 ### SubNativeAmountsRequest
-Substraction
-if minued &gt;= substrahend then
-    difference = minued - substrahend
-    return difference
+Amount subtraction request
+try to compute difference = left - right
+fails if right &gt; left
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| minuend | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
-| subtrahend | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| left | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | First amount to subtract from |
+| right | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Second amount to subtract |
 
 
 
@@ -970,12 +879,12 @@ if minued &gt;= substrahend then
 <a name="massa-abi-v1-SubNativeAmountsResult"></a>
 
 ### SubNativeAmountsResult
-
+Amount subtraction result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| difference | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| difference | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Difference of amounts (left - right) |
 
 
 
@@ -990,8 +899,8 @@ TransferCoins
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  |  |
-| amount_to_transfer | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| target_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | The address of the recipient |
+| amount_to_transfer | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | The amount of coins to transfer |
 
 
 
