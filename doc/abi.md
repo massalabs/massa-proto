@@ -19,6 +19,22 @@
     - [CheckNativePubKeyResult](#massa-abi-v1-CheckNativePubKeyResult)
     - [CheckNativeSigRequest](#massa-abi-v1-CheckNativeSigRequest)
     - [CheckNativeSigResult](#massa-abi-v1-CheckNativeSigResult)
+    - [CheckedAddNativeTimeRequest](#massa-abi-v1-CheckedAddNativeTimeRequest)
+    - [CheckedAddNativeTimeResult](#massa-abi-v1-CheckedAddNativeTimeResult)
+    - [CheckedDivRemNativeTimeRequest](#massa-abi-v1-CheckedDivRemNativeTimeRequest)
+    - [CheckedDivRemNativeTimeResult](#massa-abi-v1-CheckedDivRemNativeTimeResult)
+    - [CheckedMulNativeTimeRequest](#massa-abi-v1-CheckedMulNativeTimeRequest)
+    - [CheckedMulNativeTimeResult](#massa-abi-v1-CheckedMulNativeTimeResult)
+    - [CheckedScalarDivRemNativeTimeRequest](#massa-abi-v1-CheckedScalarDivRemNativeTimeRequest)
+    - [CheckedScalarDivRemNativeTimeResult](#massa-abi-v1-CheckedScalarDivRemNativeTimeResult)
+    - [CheckedSubNativeTimeRequest](#massa-abi-v1-CheckedSubNativeTimeRequest)
+    - [CheckedSubNativeTimeResult](#massa-abi-v1-CheckedSubNativeTimeResult)
+    - [CompareNativeTimeRequest](#massa-abi-v1-CompareNativeTimeRequest)
+    - [CompareNativeTimeResult](#massa-abi-v1-CompareNativeTimeResult)
+    - [ComparisonResult](#massa-abi-v1-ComparisonResult)
+    - [ComparisonResult.Equal](#massa-abi-v1-ComparisonResult-Equal)
+    - [ComparisonResult.LeftGreater](#massa-abi-v1-ComparisonResult-LeftGreater)
+    - [ComparisonResult.LeftLower](#massa-abi-v1-ComparisonResult-LeftLower)
     - [CreateSCRequest](#massa-abi-v1-CreateSCRequest)
     - [CreateSCResponse](#massa-abi-v1-CreateSCResponse)
     - [DivRemNativeAmountRequest](#massa-abi-v1-DivRemNativeAmountRequest)
@@ -293,6 +309,241 @@ Check Sig result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | is_valid | [bool](#bool) |  | Is Sig valid |
+
+
+
+
+
+
+<a name="massa-abi-v1-CheckedAddNativeTimeRequest"></a>
+
+### CheckedAddNativeTimeRequest
+Time addition checked request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| left | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | First time to add |
+| right | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Second time to add |
+
+
+
+
+
+
+<a name="massa-abi-v1-CheckedAddNativeTimeResult"></a>
+
+### CheckedAddNativeTimeResult
+Time addition checked result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sum | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Sum of times |
+
+
+
+
+
+
+<a name="massa-abi-v1-CheckedDivRemNativeTimeRequest"></a>
+
+### CheckedDivRemNativeTimeRequest
+Time division checked request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| dividend | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Time to divide |
+| divisor | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Divisor to divide by |
+
+
+
+
+
+
+<a name="massa-abi-v1-CheckedDivRemNativeTimeResult"></a>
+
+### CheckedDivRemNativeTimeResult
+Time division checked result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| quotient | [fixed64](#fixed64) |  | Quotient of time and divisor |
+| remainder | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Remainder of time and divisor |
+
+
+
+
+
+
+<a name="massa-abi-v1-CheckedMulNativeTimeRequest"></a>
+
+### CheckedMulNativeTimeRequest
+Time scalar mult checked request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| time | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Time to multiply |
+| coefficient | [fixed64](#fixed64) |  | Coefficient to multiply by |
+
+
+
+
+
+
+<a name="massa-abi-v1-CheckedMulNativeTimeResult"></a>
+
+### CheckedMulNativeTimeResult
+Time scalar mult checked result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| product | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Product of time and coefficient |
+
+
+
+
+
+
+<a name="massa-abi-v1-CheckedScalarDivRemNativeTimeRequest"></a>
+
+### CheckedScalarDivRemNativeTimeRequest
+Time scalar divrem checked request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| dividend | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Time to divide |
+| divisor | [fixed64](#fixed64) |  | Divisor to divide by |
+
+
+
+
+
+
+<a name="massa-abi-v1-CheckedScalarDivRemNativeTimeResult"></a>
+
+### CheckedScalarDivRemNativeTimeResult
+Time scalar divrem checked result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| quotient | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Quotient of time and divisor |
+| remainder | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Remainder of time and divisor |
+
+
+
+
+
+
+<a name="massa-abi-v1-CheckedSubNativeTimeRequest"></a>
+
+### CheckedSubNativeTimeRequest
+Time subtraction checked request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| left | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | First time to subtract from |
+| right | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Second time to subtract |
+
+
+
+
+
+
+<a name="massa-abi-v1-CheckedSubNativeTimeResult"></a>
+
+### CheckedSubNativeTimeResult
+Time subtraction checked result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| difference | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Difference of times (left - right) |
+
+
+
+
+
+
+<a name="massa-abi-v1-CompareNativeTimeRequest"></a>
+
+### CompareNativeTimeRequest
+Time comparison request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| left | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | First time to compare |
+| right | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Second time to compare |
+
+
+
+
+
+
+<a name="massa-abi-v1-CompareNativeTimeResult"></a>
+
+### CompareNativeTimeResult
+Time comparison result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| result | [ComparisonResult](#massa-abi-v1-ComparisonResult) |  | Comparison result |
+
+
+
+
+
+
+<a name="massa-abi-v1-ComparisonResult"></a>
+
+### ComparisonResult
+Comparison result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| left_lower | [ComparisonResult.LeftLower](#massa-abi-v1-ComparisonResult-LeftLower) |  |  |
+| equal | [ComparisonResult.Equal](#massa-abi-v1-ComparisonResult-Equal) |  |  |
+| left_greater | [ComparisonResult.LeftGreater](#massa-abi-v1-ComparisonResult-LeftGreater) |  |  |
+
+
+
+
+
+
+<a name="massa-abi-v1-ComparisonResult-Equal"></a>
+
+### ComparisonResult.Equal
+Left is equal to right
+
+
+
+
+
+
+<a name="massa-abi-v1-ComparisonResult-LeftGreater"></a>
+
+### ComparisonResult.LeftGreater
+Left is greater
+
+
+
+
+
+
+<a name="massa-abi-v1-ComparisonResult-LeftLower"></a>
+
+### ComparisonResult.LeftLower
+Left is lower
 
 
 
@@ -817,6 +1068,12 @@ data MUST have the same name as they type in Rust they are converted to type
 | mul_native_amount_result | [MulNativeAmountResult](#massa-abi-v1-MulNativeAmountResult) |  |  |
 | scalar_div_rem_native_amount_result | [ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResult) |  |  |
 | div_rem_native_amount_result | [DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResult) |  |  |
+| checked_add_native_time_result | [CheckedAddNativeTimeResult](#massa-abi-v1-CheckedAddNativeTimeResult) |  |  |
+| checked_sub_native_time_result | [CheckedSubNativeTimeResult](#massa-abi-v1-CheckedSubNativeTimeResult) |  |  |
+| checked_mul_native_time_result | [CheckedMulNativeTimeResult](#massa-abi-v1-CheckedMulNativeTimeResult) |  |  |
+| checked_scalar_div_rem_native_time_result | [CheckedScalarDivRemNativeTimeResult](#massa-abi-v1-CheckedScalarDivRemNativeTimeResult) |  |  |
+| checked_div_rem_native_time_result | [CheckedDivRemNativeTimeResult](#massa-abi-v1-CheckedDivRemNativeTimeResult) |  |  |
+| compare_native_time_result | [CompareNativeTimeResult](#massa-abi-v1-CompareNativeTimeResult) |  |  |
 
 
 

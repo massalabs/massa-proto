@@ -239,6 +239,70 @@
                 </li>
               
                 <li>
+                  <a href="#massa.abi.v1.CheckedAddNativeTimeRequest"><span class="badge">M</span>CheckedAddNativeTimeRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.CheckedAddNativeTimeResult"><span class="badge">M</span>CheckedAddNativeTimeResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.CheckedDivRemNativeTimeRequest"><span class="badge">M</span>CheckedDivRemNativeTimeRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.CheckedDivRemNativeTimeResult"><span class="badge">M</span>CheckedDivRemNativeTimeResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.CheckedMulNativeTimeRequest"><span class="badge">M</span>CheckedMulNativeTimeRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.CheckedMulNativeTimeResult"><span class="badge">M</span>CheckedMulNativeTimeResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.CheckedScalarDivRemNativeTimeRequest"><span class="badge">M</span>CheckedScalarDivRemNativeTimeRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.CheckedScalarDivRemNativeTimeResult"><span class="badge">M</span>CheckedScalarDivRemNativeTimeResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.CheckedSubNativeTimeRequest"><span class="badge">M</span>CheckedSubNativeTimeRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.CheckedSubNativeTimeResult"><span class="badge">M</span>CheckedSubNativeTimeResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.CompareNativeTimeRequest"><span class="badge">M</span>CompareNativeTimeRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.CompareNativeTimeResult"><span class="badge">M</span>CompareNativeTimeResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.ComparisonResult"><span class="badge">M</span>ComparisonResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.ComparisonResult.Equal"><span class="badge">M</span>ComparisonResult.Equal</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.ComparisonResult.LeftGreater"><span class="badge">M</span>ComparisonResult.LeftGreater</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.ComparisonResult.LeftLower"><span class="badge">M</span>ComparisonResult.LeftLower</a>
+                </li>
+              
+                <li>
                   <a href="#massa.abi.v1.CreateSCRequest"><span class="badge">M</span>CreateSCRequest</a>
                 </li>
               
@@ -800,6 +864,409 @@
           </table>
 
           
+
+        
+      
+        <h3 id="massa.abi.v1.CheckedAddNativeTimeRequest">CheckedAddNativeTimeRequest</h3>
+        <p>Time addition checked request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>left</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>First time to add </p></td>
+                </tr>
+              
+                <tr>
+                  <td>right</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Second time to add </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.CheckedAddNativeTimeResult">CheckedAddNativeTimeResult</h3>
+        <p>Time addition checked result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>sum</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Sum of times </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.CheckedDivRemNativeTimeRequest">CheckedDivRemNativeTimeRequest</h3>
+        <p>Time division checked request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>dividend</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Time to divide </p></td>
+                </tr>
+              
+                <tr>
+                  <td>divisor</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Divisor to divide by </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.CheckedDivRemNativeTimeResult">CheckedDivRemNativeTimeResult</h3>
+        <p>Time division checked result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>quotient</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Quotient of time and divisor </p></td>
+                </tr>
+              
+                <tr>
+                  <td>remainder</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Remainder of time and divisor </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.CheckedMulNativeTimeRequest">CheckedMulNativeTimeRequest</h3>
+        <p>Time scalar mult checked request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>time</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Time to multiply </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coefficient</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Coefficient to multiply by </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.CheckedMulNativeTimeResult">CheckedMulNativeTimeResult</h3>
+        <p>Time scalar mult checked result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>product</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Product of time and coefficient </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.CheckedScalarDivRemNativeTimeRequest">CheckedScalarDivRemNativeTimeRequest</h3>
+        <p>Time scalar divrem checked request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>dividend</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Time to divide </p></td>
+                </tr>
+              
+                <tr>
+                  <td>divisor</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Divisor to divide by </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.CheckedScalarDivRemNativeTimeResult">CheckedScalarDivRemNativeTimeResult</h3>
+        <p>Time scalar divrem checked result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>quotient</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Quotient of time and divisor </p></td>
+                </tr>
+              
+                <tr>
+                  <td>remainder</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Remainder of time and divisor </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.CheckedSubNativeTimeRequest">CheckedSubNativeTimeRequest</h3>
+        <p>Time subtraction checked request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>left</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>First time to subtract from </p></td>
+                </tr>
+              
+                <tr>
+                  <td>right</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Second time to subtract </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.CheckedSubNativeTimeResult">CheckedSubNativeTimeResult</h3>
+        <p>Time subtraction checked result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>difference</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Difference of times (left - right) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.CompareNativeTimeRequest">CompareNativeTimeRequest</h3>
+        <p>Time comparison request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>left</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>First time to compare </p></td>
+                </tr>
+              
+                <tr>
+                  <td>right</td>
+                  <td><a href="#massa.model.v1.NativeTime">massa.model.v1.NativeTime</a></td>
+                  <td></td>
+                  <td><p>Second time to compare </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.CompareNativeTimeResult">CompareNativeTimeResult</h3>
+        <p>Time comparison result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>result</td>
+                  <td><a href="#massa.abi.v1.ComparisonResult">ComparisonResult</a></td>
+                  <td></td>
+                  <td><p>Comparison result </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.ComparisonResult">ComparisonResult</h3>
+        <p>Comparison result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>left_lower</td>
+                  <td><a href="#massa.abi.v1.ComparisonResult.LeftLower">ComparisonResult.LeftLower</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>equal</td>
+                  <td><a href="#massa.abi.v1.ComparisonResult.Equal">ComparisonResult.Equal</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>left_greater</td>
+                  <td><a href="#massa.abi.v1.ComparisonResult.LeftGreater">ComparisonResult.LeftGreater</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.ComparisonResult.Equal">ComparisonResult.Equal</h3>
+        <p>Left is equal to right</p>
+
+        
+
+        
+      
+        <h3 id="massa.abi.v1.ComparisonResult.LeftGreater">ComparisonResult.LeftGreater</h3>
+        <p>Left is greater</p>
+
+        
+
+        
+      
+        <h3 id="massa.abi.v1.ComparisonResult.LeftLower">ComparisonResult.LeftLower</h3>
+        <p>Left is lower</p>
+
+        
 
         
       
@@ -1759,6 +2226,48 @@
                 <tr>
                   <td>div_rem_native_amount_result</td>
                   <td><a href="#massa.abi.v1.DivRemNativeAmountResult">DivRemNativeAmountResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>checked_add_native_time_result</td>
+                  <td><a href="#massa.abi.v1.CheckedAddNativeTimeResult">CheckedAddNativeTimeResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>checked_sub_native_time_result</td>
+                  <td><a href="#massa.abi.v1.CheckedSubNativeTimeResult">CheckedSubNativeTimeResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>checked_mul_native_time_result</td>
+                  <td><a href="#massa.abi.v1.CheckedMulNativeTimeResult">CheckedMulNativeTimeResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>checked_scalar_div_rem_native_time_result</td>
+                  <td><a href="#massa.abi.v1.CheckedScalarDivRemNativeTimeResult">CheckedScalarDivRemNativeTimeResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>checked_div_rem_native_time_result</td>
+                  <td><a href="#massa.abi.v1.CheckedDivRemNativeTimeResult">CheckedDivRemNativeTimeResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>compare_native_time_result</td>
+                  <td><a href="#massa.abi.v1.CompareNativeTimeResult">CompareNativeTimeResult</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
