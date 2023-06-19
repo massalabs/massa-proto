@@ -31,6 +31,8 @@
     - [CheckedSubNativeTimeResult](#massa-abi-v1-CheckedSubNativeTimeResult)
     - [CompareNativeAddressRequest](#massa-abi-v1-CompareNativeAddressRequest)
     - [CompareNativeAddressResult](#massa-abi-v1-CompareNativeAddressResult)
+    - [CompareNativeAmountRequest](#massa-abi-v1-CompareNativeAmountRequest)
+    - [CompareNativeAmountResult](#massa-abi-v1-CompareNativeAmountResult)
     - [CompareNativePubKeyRequest](#massa-abi-v1-CompareNativePubKeyRequest)
     - [CompareNativePubKeyResult](#massa-abi-v1-CompareNativePubKeyResult)
     - [CompareNativeSigRequest](#massa-abi-v1-CompareNativeSigRequest)
@@ -49,6 +51,8 @@
     - [FunctionExistsRequest](#massa-abi-v1-FunctionExistsRequest)
     - [FunctionExistsResponse](#massa-abi-v1-FunctionExistsResponse)
     - [GenerateEventRequest](#massa-abi-v1-GenerateEventRequest)
+    - [Keccak256Request](#massa-abi-v1-Keccak256Request)
+    - [Keccak256Result](#massa-abi-v1-Keccak256Result)
     - [LocalCallRequest](#massa-abi-v1-LocalCallRequest)
     - [LocalCallResponse](#massa-abi-v1-LocalCallResponse)
     - [MulNativeAmountRequest](#massa-abi-v1-MulNativeAmountRequest)
@@ -511,6 +515,37 @@ Compare NativeAddress result
 
 
 
+<a name="massa-abi-v1-CompareNativeAmountRequest"></a>
+
+### CompareNativeAmountRequest
+Compare NativeAmount request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| left | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | First amount to compare |
+| right | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Second amount to compare |
+
+
+
+
+
+
+<a name="massa-abi-v1-CompareNativeAmountResult"></a>
+
+### CompareNativeAmountResult
+Compare NativeAmount result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| result | [ComparisonResult](#massa-abi-v1-ComparisonResult) |  | Comparison result |
+
+
+
+
+
+
 <a name="massa-abi-v1-CompareNativePubKeyRequest"></a>
 
 ### CompareNativePubKeyRequest
@@ -768,6 +803,36 @@ GenerateEventRequest
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | event | [string](#string) |  | Event |
+
+
+
+
+
+
+<a name="massa-abi-v1-Keccak256Request"></a>
+
+### Keccak256Request
+keccak256 hash request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| data | [bytes](#bytes) |  | Data to hash |
+
+
+
+
+
+
+<a name="massa-abi-v1-Keccak256Result"></a>
+
+### Keccak256Result
+keccak256 hash result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| hash | [bytes](#bytes) |  | Hash of data |
 
 
 
@@ -1179,6 +1244,8 @@ data MUST have the same name as they type in Rust they are converted to type
 | compare_native_pub_key_result | [CompareNativePubKeyResult](#massa-abi-v1-CompareNativePubKeyResult) |  |  |
 | compare_native_sig_result | [CompareNativeSigResult](#massa-abi-v1-CompareNativeSigResult) |  |  |
 | verify_native_sig_result | [VerifyNativeSigResult](#massa-abi-v1-VerifyNativeSigResult) |  |  |
+| compare_native_amount_result | [CompareNativeAmountResult](#massa-abi-v1-CompareNativeAmountResult) |  |  |
+| keccak256_result | [Keccak256Result](#massa-abi-v1-Keccak256Result) |  |  |
 
 
 

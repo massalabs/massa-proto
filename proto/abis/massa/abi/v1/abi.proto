@@ -133,6 +133,8 @@ message RespResult {
     CompareNativePubKeyResult compare_native_pub_key_result = 28;
     CompareNativeSigResult compare_native_sig_result = 29;
     VerifyNativeSigResult verify_native_sig_result = 30;
+    CompareNativeAmountResult compare_native_amount_result = 31;
+    Keccak256Result keccak256_result = 32;
   }
 }
 
@@ -564,4 +566,30 @@ message VerifyNativeSigRequest {
 message VerifyNativeSigResult {
   // Verification result
   bool is_verified = 1;
+}
+
+// Compare NativeAmount request
+message CompareNativeAmountRequest {
+  // First amount to compare
+  massa.model.v1.NativeAmount left = 1;
+  // Second amount to compare
+  massa.model.v1.NativeAmount right = 2;
+}
+
+// Compare NativeAmount result
+message CompareNativeAmountResult {
+  // Comparison result
+  ComparisonResult result = 1;
+}
+
+// keccak256 hash request
+message Keccak256Request {
+  // Data to hash
+  bytes data = 1;
+}
+
+// keccak256 hash result
+message Keccak256Result {
+  // Hash of data
+  bytes hash = 1;
 }

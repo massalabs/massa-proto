@@ -287,6 +287,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.abi.v1.CompareNativeAmountRequest"><span class="badge">M</span>CompareNativeAmountRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.CompareNativeAmountResult"><span class="badge">M</span>CompareNativeAmountResult</a>
+                </li>
+              
+                <li>
                   <a href="#massa.abi.v1.CompareNativePubKeyRequest"><span class="badge">M</span>CompareNativePubKeyRequest</a>
                 </li>
               
@@ -356,6 +364,14 @@
               
                 <li>
                   <a href="#massa.abi.v1.GenerateEventRequest"><span class="badge">M</span>GenerateEventRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.Keccak256Request"><span class="badge">M</span>Keccak256Request</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.Keccak256Result"><span class="badge">M</span>Keccak256Result</a>
                 </li>
               
                 <li>
@@ -1243,6 +1259,61 @@
 
         
       
+        <h3 id="massa.abi.v1.CompareNativeAmountRequest">CompareNativeAmountRequest</h3>
+        <p>Compare NativeAmount request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>left</td>
+                  <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
+                  <td></td>
+                  <td><p>First amount to compare </p></td>
+                </tr>
+              
+                <tr>
+                  <td>right</td>
+                  <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
+                  <td></td>
+                  <td><p>Second amount to compare </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.CompareNativeAmountResult">CompareNativeAmountResult</h3>
+        <p>Compare NativeAmount result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>result</td>
+                  <td><a href="#massa.abi.v1.ComparisonResult">ComparisonResult</a></td>
+                  <td></td>
+                  <td><p>Comparison result </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.abi.v1.CompareNativePubKeyRequest">CompareNativePubKeyRequest</h3>
         <p>Compare NativePubKey request</p>
 
@@ -1671,6 +1742,54 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Event </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.Keccak256Request">Keccak256Request</h3>
+        <p>keccak256 hash request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Data to hash </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.Keccak256Result">Keccak256Result</h3>
+        <p>keccak256 hash result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>hash</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Hash of data </p></td>
                 </tr>
               
             </tbody>
@@ -2493,6 +2612,20 @@
                 <tr>
                   <td>verify_native_sig_result</td>
                   <td><a href="#massa.abi.v1.VerifyNativeSigResult">VerifyNativeSigResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>compare_native_amount_result</td>
+                  <td><a href="#massa.abi.v1.CompareNativeAmountResult">CompareNativeAmountResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>keccak256_result</td>
+                  <td><a href="#massa.abi.v1.Keccak256Result">Keccak256Result</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
