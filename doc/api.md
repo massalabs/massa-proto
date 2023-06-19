@@ -18,6 +18,8 @@
     - [GetBootstrapWhitelistAllowAllResponse](#massa-api-v1-GetBootstrapWhitelistAllowAllResponse)
     - [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest)
     - [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse)
+    - [GetNodeStatusRequest](#massa-api-v1-GetNodeStatusRequest)
+    - [GetNodeStatusResponse](#massa-api-v1-GetNodeStatusResponse)
     - [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest)
     - [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse)
     - [RemoveFromBootstrapBlacklistRequest](#massa-api-v1-RemoveFromBootstrapBlacklistRequest)
@@ -302,6 +304,37 @@ GetBootstrapWhitelistResponse holds the response from GetBootstrapWhitelist
 
 
 
+<a name="massa-api-v1-GetNodeStatusRequest"></a>
+
+### GetNodeStatusRequest
+GetNodeStatusRequest holds the request for GetNodeStatus
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
+
+
+
+
+
+
+<a name="massa-api-v1-GetNodeStatusResponse"></a>
+
+### GetNodeStatusResponse
+GetNodeStatusResponse holds the response from GetNodeStatus
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
+| status | [string](#string) |  | TODO to be implemented Node status |
+
+
+
+
+
+
 <a name="massa-api-v1-GetPeersWhitelistRequest"></a>
 
 ### GetPeersWhitelistRequest
@@ -506,6 +539,7 @@ Massa private gRPC service
 | GetBootstrapBlacklist | [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest) | [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse) | Get node bootstrap blacklist IP addresses |
 | GetBootstrapWhitelist | [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest) | [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse) | Get node bootstrap whitelist IP addresses |
 | GetBootstrapWhitelistAllowAll | [GetBootstrapWhitelistAllowAllRequest](#massa-api-v1-GetBootstrapWhitelistAllowAllRequest) | [GetBootstrapWhitelistAllowAllResponse](#massa-api-v1-GetBootstrapWhitelistAllowAllResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file |
+| GetNodeStatus | [GetNodeStatusRequest](#massa-api-v1-GetNodeStatusRequest) | [GetNodeStatusResponse](#massa-api-v1-GetNodeStatusResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file |
 | GetPeersWhitelist | [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest) | [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse) | Get node peers whitelist IP addresses |
 | RemoveFromBootstrapBlacklist | [RemoveFromBootstrapBlacklistRequest](#massa-api-v1-RemoveFromBootstrapBlacklistRequest) | [RemoveFromBootstrapBlacklistResponse](#massa-api-v1-RemoveFromBootstrapBlacklistResponse) | Remove from bootstrap blacklist given IP addresses |
 | RemoveFromBootstrapWhitelist | [RemoveFromBootstrapWhitelistRequest](#massa-api-v1-RemoveFromBootstrapWhitelistRequest) | [RemoveFromBootstrapWhitelistResponse](#massa-api-v1-RemoveFromBootstrapWhitelistResponse) | Remove from bootstrap whitelist given IP addresses |

@@ -235,6 +235,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.GetNodeStatusRequest"><span class="badge">M</span>GetNodeStatusRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetNodeStatusResponse"><span class="badge">M</span>GetNodeStatusResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.GetPeersWhitelistRequest"><span class="badge">M</span>GetPeersWhitelistRequest</a>
                 </li>
               
@@ -851,6 +859,62 @@
 
         
       
+        <h3 id="massa.api.v1.GetNodeStatusRequest">GetNodeStatusRequest</h3>
+        <p>GetNodeStatusRequest holds the request for GetNodeStatus</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetNodeStatusResponse">GetNodeStatusResponse</h3>
+        <p>GetNodeStatusResponse holds the response from GetNodeStatus</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>TODO to be implemented
+Node status </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.GetPeersWhitelistRequest">GetPeersWhitelistRequest</h3>
         <p>GetPeersWhitelistRequest holds the request for GetPeersWhitelist</p>
 
@@ -1178,6 +1242,13 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             
               <tr>
+                <td>GetNodeStatus</td>
+                <td><a href="#massa.api.v1.GetNodeStatusRequest">GetNodeStatusRequest</a></td>
+                <td><a href="#massa.api.v1.GetNodeStatusResponse">GetNodeStatusResponse</a></td>
+                <td><p>Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file</p></td>
+              </tr>
+            
+              <tr>
                 <td>GetPeersWhitelist</td>
                 <td><a href="#massa.api.v1.GetPeersWhitelistRequest">GetPeersWhitelistRequest</a></td>
                 <td><a href="#massa.api.v1.GetPeersWhitelistResponse">GetPeersWhitelistResponse</a></td>
@@ -1310,6 +1381,16 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td>GetBootstrapWhitelistAllowAll</td>
                 <td>POST</td>
                 <td>/v1/get_bootstrap_whitelist_allow_all</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetNodeStatus</td>
+                <td>POST</td>
+                <td>/v1/get_node_status</td>
                 <td>*</td>
               </tr>
               
