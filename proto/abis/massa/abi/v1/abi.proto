@@ -135,6 +135,9 @@ message RespResult {
     VerifyNativeSigResult verify_native_sig_result = 30;
     CompareNativeAmountResult compare_native_amount_result = 31;
     Keccak256Result keccak256_result = 32;
+    VerifyEvmSigResult verify_evm_sig_result = 33;
+    VerifyBlsSingleSigResult verify_bls_single_sig_result = 34;
+    VerifyBlsMultiSigResult verify_bls_multi_sig_result = 35;
   }
 }
 
@@ -582,14 +585,62 @@ message CompareNativeAmountResult {
   ComparisonResult result = 1;
 }
 
-// keccak256 hash request
+// Keccak256 hash request
 message Keccak256Request {
   // Data to hash
   bytes data = 1;
 }
 
-// keccak256 hash result
+// Keccak256 hash result
 message Keccak256Result {
   // Hash of data
   bytes hash = 1;
+}
+
+// EVM signature verification request
+message VerifyEvmSigRequest {
+  // Message to verify
+  bytes message = 1;
+  // Signature to verify
+  bytes sig = 2;
+  // Public key to verify with
+  bytes pub_key = 3;
+}
+
+// EVM signature verification result
+message VerifyEvmSigResult {
+  // Verification result
+  bool is_verified = 1;
+}
+
+// BLS signature single verification request
+message VerifyBlsSingleSigRequest {
+  // Message to verify
+  bytes message = 1;
+  // Signature to verify
+  bytes sig = 2;
+  // Public key to verify with
+  bytes pub_key = 3;
+}
+
+// BLS signature single verification result
+message VerifyBlsSingleSigResult {
+  // Verification result
+  bool is_verified = 1;
+}
+
+// BLS signature multiple verification request
+message VerifyBlsMultiSigRequest {
+  // Message to verify
+  bytes message = 1;
+  // Signature to verify
+  bytes sig = 2;
+  // Public keys to verify with
+  repeated bytes pub_keys = 3;
+}
+
+// BLS signature multiple verification result
+message VerifyBlsMultiSigResult {
+  // Verification result
+  bool is_verified = 1;
 }

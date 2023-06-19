@@ -495,6 +495,30 @@
                 </li>
               
                 <li>
+                  <a href="#massa.abi.v1.VerifyBlsMultiSigRequest"><span class="badge">M</span>VerifyBlsMultiSigRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.VerifyBlsMultiSigResult"><span class="badge">M</span>VerifyBlsMultiSigResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.VerifyBlsSingleSigRequest"><span class="badge">M</span>VerifyBlsSingleSigRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.VerifyBlsSingleSigResult"><span class="badge">M</span>VerifyBlsSingleSigResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.VerifyEvmSigRequest"><span class="badge">M</span>VerifyEvmSigRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.VerifyEvmSigResult"><span class="badge">M</span>VerifyEvmSigResult</a>
+                </li>
+              
+                <li>
                   <a href="#massa.abi.v1.VerifyNativeSigRequest"><span class="badge">M</span>VerifyNativeSigRequest</a>
                 </li>
               
@@ -1752,7 +1776,7 @@
         
       
         <h3 id="massa.abi.v1.Keccak256Request">Keccak256Request</h3>
-        <p>keccak256 hash request</p>
+        <p>Keccak256 hash request</p>
 
         
           <table class="field-table">
@@ -1776,7 +1800,7 @@
         
       
         <h3 id="massa.abi.v1.Keccak256Result">Keccak256Result</h3>
-        <p>keccak256 hash result</p>
+        <p>Keccak256 hash result</p>
 
         
           <table class="field-table">
@@ -2630,6 +2654,27 @@
                   <td><p> </p></td>
                 </tr>
               
+                <tr>
+                  <td>verify_evm_sig_result</td>
+                  <td><a href="#massa.abi.v1.VerifyEvmSigResult">VerifyEvmSigResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>verify_bls_single_sig_result</td>
+                  <td><a href="#massa.abi.v1.VerifyBlsSingleSigResult">VerifyBlsSingleSigResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>verify_bls_multi_sig_result</td>
+                  <td><a href="#massa.abi.v1.VerifyBlsMultiSigResult">VerifyBlsMultiSigResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -2776,6 +2821,192 @@
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
                   <td><p>The amount of coins to transfer </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.VerifyBlsMultiSigRequest">VerifyBlsMultiSigRequest</h3>
+        <p>BLS signature multiple verification request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Message to verify </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sig</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Signature to verify </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pub_keys</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td>repeated</td>
+                  <td><p>Public keys to verify with </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.VerifyBlsMultiSigResult">VerifyBlsMultiSigResult</h3>
+        <p>BLS signature multiple verification result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>is_verified</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Verification result </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.VerifyBlsSingleSigRequest">VerifyBlsSingleSigRequest</h3>
+        <p>BLS signature single verification request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Message to verify </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sig</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Signature to verify </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pub_key</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Public key to verify with </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.VerifyBlsSingleSigResult">VerifyBlsSingleSigResult</h3>
+        <p>BLS signature single verification result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>is_verified</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Verification result </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.VerifyEvmSigRequest">VerifyEvmSigRequest</h3>
+        <p>EVM signature verification request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Message to verify </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sig</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Signature to verify </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pub_key</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Public key to verify with </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.VerifyEvmSigResult">VerifyEvmSigResult</h3>
+        <p>EVM signature verification result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>is_verified</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Verification result </p></td>
                 </tr>
               
             </tbody>

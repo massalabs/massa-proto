@@ -83,6 +83,12 @@
     - [SubNativeAmountsRequest](#massa-abi-v1-SubNativeAmountsRequest)
     - [SubNativeAmountsResult](#massa-abi-v1-SubNativeAmountsResult)
     - [TransferCoinsRequest](#massa-abi-v1-TransferCoinsRequest)
+    - [VerifyBlsMultiSigRequest](#massa-abi-v1-VerifyBlsMultiSigRequest)
+    - [VerifyBlsMultiSigResult](#massa-abi-v1-VerifyBlsMultiSigResult)
+    - [VerifyBlsSingleSigRequest](#massa-abi-v1-VerifyBlsSingleSigRequest)
+    - [VerifyBlsSingleSigResult](#massa-abi-v1-VerifyBlsSingleSigResult)
+    - [VerifyEvmSigRequest](#massa-abi-v1-VerifyEvmSigRequest)
+    - [VerifyEvmSigResult](#massa-abi-v1-VerifyEvmSigResult)
     - [VerifyNativeSigRequest](#massa-abi-v1-VerifyNativeSigRequest)
     - [VerifyNativeSigResult](#massa-abi-v1-VerifyNativeSigResult)
   
@@ -812,7 +818,7 @@ GenerateEventRequest
 <a name="massa-abi-v1-Keccak256Request"></a>
 
 ### Keccak256Request
-keccak256 hash request
+Keccak256 hash request
 
 
 | Field | Type | Label | Description |
@@ -827,7 +833,7 @@ keccak256 hash request
 <a name="massa-abi-v1-Keccak256Result"></a>
 
 ### Keccak256Result
-keccak256 hash result
+Keccak256 hash result
 
 
 | Field | Type | Label | Description |
@@ -1246,6 +1252,9 @@ data MUST have the same name as they type in Rust they are converted to type
 | verify_native_sig_result | [VerifyNativeSigResult](#massa-abi-v1-VerifyNativeSigResult) |  |  |
 | compare_native_amount_result | [CompareNativeAmountResult](#massa-abi-v1-CompareNativeAmountResult) |  |  |
 | keccak256_result | [Keccak256Result](#massa-abi-v1-Keccak256Result) |  |  |
+| verify_evm_sig_result | [VerifyEvmSigResult](#massa-abi-v1-VerifyEvmSigResult) |  |  |
+| verify_bls_single_sig_result | [VerifyBlsSingleSigResult](#massa-abi-v1-VerifyBlsSingleSigResult) |  |  |
+| verify_bls_multi_sig_result | [VerifyBlsMultiSigResult](#massa-abi-v1-VerifyBlsMultiSigResult) |  |  |
 
 
 
@@ -1330,6 +1339,102 @@ TransferCoins
 | ----- | ---- | ----- | ----------- |
 | target_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | The address of the recipient |
 | amount_to_transfer | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | The amount of coins to transfer |
+
+
+
+
+
+
+<a name="massa-abi-v1-VerifyBlsMultiSigRequest"></a>
+
+### VerifyBlsMultiSigRequest
+BLS signature multiple verification request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [bytes](#bytes) |  | Message to verify |
+| sig | [bytes](#bytes) |  | Signature to verify |
+| pub_keys | [bytes](#bytes) | repeated | Public keys to verify with |
+
+
+
+
+
+
+<a name="massa-abi-v1-VerifyBlsMultiSigResult"></a>
+
+### VerifyBlsMultiSigResult
+BLS signature multiple verification result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| is_verified | [bool](#bool) |  | Verification result |
+
+
+
+
+
+
+<a name="massa-abi-v1-VerifyBlsSingleSigRequest"></a>
+
+### VerifyBlsSingleSigRequest
+BLS signature single verification request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [bytes](#bytes) |  | Message to verify |
+| sig | [bytes](#bytes) |  | Signature to verify |
+| pub_key | [bytes](#bytes) |  | Public key to verify with |
+
+
+
+
+
+
+<a name="massa-abi-v1-VerifyBlsSingleSigResult"></a>
+
+### VerifyBlsSingleSigResult
+BLS signature single verification result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| is_verified | [bool](#bool) |  | Verification result |
+
+
+
+
+
+
+<a name="massa-abi-v1-VerifyEvmSigRequest"></a>
+
+### VerifyEvmSigRequest
+EVM signature verification request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [bytes](#bytes) |  | Message to verify |
+| sig | [bytes](#bytes) |  | Signature to verify |
+| pub_key | [bytes](#bytes) |  | Public key to verify with |
+
+
+
+
+
+
+<a name="massa-abi-v1-VerifyEvmSigResult"></a>
+
+### VerifyEvmSigResult
+EVM signature verification result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| is_verified | [bool](#bool) |  | Verification result |
 
 
 
