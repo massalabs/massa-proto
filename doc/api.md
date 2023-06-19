@@ -568,7 +568,7 @@ Block parent tuple
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | block_id | [string](#string) |  | Block id |
-| period | [fixed64](#fixed64) |  | Period |
+| period | [uint64](#uint64) |  | Period |
 
 
 
@@ -1091,7 +1091,7 @@ GetTransactionsThroughputResponse holds response from GetTransactionsThroughput
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Request id |
-| throughput | [fixed32](#fixed32) |  | Transactions throughput |
+| throughput | [uint32](#uint32) |  | Transactions throughput |
 
 
 
@@ -1138,7 +1138,7 @@ LargestStakerEntry
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  | Address |
-| rolls | [fixed64](#fixed64) |  | Rolls |
+| rolls | [uint64](#uint64) |  | Rolls |
 
 
 
@@ -1169,8 +1169,8 @@ LargestStakers Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| min_rolls | [fixed64](#fixed64) | optional | Minimum rolls (Optional) |
-| max_rolls | [fixed64](#fixed64) | optional | Maximum rolls (Optional) |
+| min_rolls | [uint64](#uint64) | optional | Minimum rolls (Optional) |
+| max_rolls | [uint64](#uint64) | optional | Maximum rolls (Optional) |
 
 
 
@@ -1185,8 +1185,8 @@ LargestStakers Query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| offset | [fixed64](#fixed64) |  | Starting offset for the list of stakers. Defaults to 1 |
-| limit | [fixed64](#fixed64) |  | Limits the number of stakers to return. Defaults to 50 |
+| offset | [uint64](#uint64) |  | Starting offset for the list of stakers. Defaults to 1 |
+| limit | [uint64](#uint64) |  | Limits the number of stakers to return. Defaults to 50 |
 | filter | [LargestStakersFilter](#massa-api-v1-LargestStakersFilter) |  | Filter |
 
 
@@ -1610,7 +1610,7 @@ TransactionsThroughputRequest holds request for TransactionsThroughput
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Request id |
-| interval | [fixed64](#fixed64) | optional | Timer interval in seconds (Optional). Defaults to 10s |
+| interval | [uint64](#uint64) | optional | Timer interval in seconds (Optional). Defaults to 10s |
 
 
 
@@ -1626,7 +1626,7 @@ TransactionsThroughputResponse holds response from TransactionsThroughput
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Request id |
-| throughput | [fixed32](#fixed32) |  | Transactions throughput |
+| throughput | [uint32](#uint32) |  | Transactions throughput |
 
 
 

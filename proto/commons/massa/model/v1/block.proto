@@ -66,7 +66,7 @@ message SignedBlock {
   // A secure hash of the data. See also [massa_hash::Hash]
   string id = 5;
   // The size of the serialized block
-  fixed64 serialized_size = 6;
+  uint64 serialized_size = 6;
 }
 
 // Signed block header
@@ -82,7 +82,7 @@ message SignedBlockHeader {
   // A secure hash of the data. See also [massa_hash::Hash]
   string id = 5;
   // The size of the serialized block header
-  fixed64 serialized_size = 6;
+  uint64 serialized_size = 6;
 }
 
 // Possible statuses for a block

@@ -20,7 +20,7 @@ message Endorsement {
   // Slot in which the endorsement can be included
   Slot slot = 1;
   // Endorsement index inside the including block
-  fixed32 index = 2;
+  uint32 index = 2;
   // Hash of endorsed block
   // This is the parent in thread `self.slot.thread` of the block in which the endorsement is included
   string endorsed_block = 3;
@@ -39,5 +39,5 @@ message SignedEndorsement {
   // A secure hash of the data. See also [massa_hash::Hash]
   string id = 5;
   // The size of the serialized endorsement
-  fixed64 serialized_size = 6;
+  uint64 serialized_size = 6;
 }

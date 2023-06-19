@@ -239,9 +239,9 @@ message GetLargestStakersRequest {
 // LargestStakers Query
 message LargestStakersQuery {
   // Starting offset for the list of stakers. Defaults to 1
-  fixed64 offset = 1;
+  uint64 offset = 1;
   // Limits the number of stakers to return. Defaults to 50
-  fixed64 limit = 2;
+  uint64 limit = 2;
   // Filter
   LargestStakersFilter filter = 3;
 }
@@ -249,9 +249,9 @@ message LargestStakersQuery {
 // LargestStakers Filter
 message LargestStakersFilter {
   // Minimum rolls (Optional)
-  optional fixed64 min_rolls = 1;
+  optional uint64 min_rolls = 1;
   // Maximum rolls (Optional)
-  optional fixed64 max_rolls = 2;
+  optional uint64 max_rolls = 2;
 }
 
 // GetLargestStakersResponse holds response from GetLargestStakers
@@ -277,7 +277,7 @@ message LargestStakerEntry {
   // Address
   string address = 1;
   // Rolls
-  fixed64 rolls = 2;
+  uint64 rolls = 2;
 }
 
 // GetMipStatusRequest holds request for GetMipStatus
@@ -313,7 +313,7 @@ message BlockParent {
   // Block id
   string block_id = 1;
   // Period
-  fixed64 period = 2;
+  uint64 period = 2;
 }
 
 // GetOperationsRequest holds request for GetOperations
@@ -437,7 +437,7 @@ message GetTransactionsThroughputResponse {
   // Request id
   string id = 1;
   // Transactions throughput
-  fixed32 throughput = 2;
+  uint32 throughput = 2;
 }
 
 // GetVersionRequest holds request from GetVersion
@@ -662,7 +662,7 @@ message TransactionsThroughputRequest {
   // Request id
   string id = 1;
   // Timer interval in seconds (Optional). Defaults to 10s
-  optional fixed64 interval = 2;
+  optional uint64 interval = 2;
 }
 
 // TransactionsThroughputResponse holds response from TransactionsThroughput
@@ -670,5 +670,5 @@ message TransactionsThroughputResponse {
   // Request id
   string id = 1;
   // Transactions throughput
-  fixed32 throughput = 2;
+  uint32 throughput = 2;
 }
