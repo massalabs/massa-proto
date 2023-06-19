@@ -29,6 +29,12 @@
     - [CheckedScalarDivRemNativeTimeResult](#massa-abi-v1-CheckedScalarDivRemNativeTimeResult)
     - [CheckedSubNativeTimeRequest](#massa-abi-v1-CheckedSubNativeTimeRequest)
     - [CheckedSubNativeTimeResult](#massa-abi-v1-CheckedSubNativeTimeResult)
+    - [CompareNativeAddressRequest](#massa-abi-v1-CompareNativeAddressRequest)
+    - [CompareNativeAddressResult](#massa-abi-v1-CompareNativeAddressResult)
+    - [CompareNativePubKeyRequest](#massa-abi-v1-CompareNativePubKeyRequest)
+    - [CompareNativePubKeyResult](#massa-abi-v1-CompareNativePubKeyResult)
+    - [CompareNativeSigRequest](#massa-abi-v1-CompareNativeSigRequest)
+    - [CompareNativeSigResult](#massa-abi-v1-CompareNativeSigResult)
     - [CompareNativeTimeRequest](#massa-abi-v1-CompareNativeTimeRequest)
     - [CompareNativeTimeResult](#massa-abi-v1-CompareNativeTimeResult)
     - [ComparisonResult](#massa-abi-v1-ComparisonResult)
@@ -466,6 +472,99 @@ Time subtraction checked result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | difference | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Difference of times (left - right) |
+
+
+
+
+
+
+<a name="massa-abi-v1-CompareNativeAddressRequest"></a>
+
+### CompareNativeAddressRequest
+Compare NativeAddress request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| left | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | First address to compare |
+| right | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | Second address to compare |
+
+
+
+
+
+
+<a name="massa-abi-v1-CompareNativeAddressResult"></a>
+
+### CompareNativeAddressResult
+Compare NativeAddress result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| result | [ComparisonResult](#massa-abi-v1-ComparisonResult) |  | Comparison result |
+
+
+
+
+
+
+<a name="massa-abi-v1-CompareNativePubKeyRequest"></a>
+
+### CompareNativePubKeyRequest
+Compare NativePubKey request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| left | [massa.model.v1.NativePubKey](#massa-model-v1-NativePubKey) |  | First public key to compare |
+| right | [massa.model.v1.NativePubKey](#massa-model-v1-NativePubKey) |  | Second public key to compare |
+
+
+
+
+
+
+<a name="massa-abi-v1-CompareNativePubKeyResult"></a>
+
+### CompareNativePubKeyResult
+Compare NativePubKey result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| result | [ComparisonResult](#massa-abi-v1-ComparisonResult) |  | Comparison result |
+
+
+
+
+
+
+<a name="massa-abi-v1-CompareNativeSigRequest"></a>
+
+### CompareNativeSigRequest
+Compare NativeSig request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| left | [massa.model.v1.NativeSig](#massa-model-v1-NativeSig) |  | First signature to compare |
+| right | [massa.model.v1.NativeSig](#massa-model-v1-NativeSig) |  | Second signature to compare |
+
+
+
+
+
+
+<a name="massa-abi-v1-CompareNativeSigResult"></a>
+
+### CompareNativeSigResult
+Compare NativeSig result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| result | [ComparisonResult](#massa-abi-v1-ComparisonResult) |  | Comparison result |
 
 
 
@@ -1074,6 +1173,9 @@ data MUST have the same name as they type in Rust they are converted to type
 | checked_scalar_div_rem_native_time_result | [CheckedScalarDivRemNativeTimeResult](#massa-abi-v1-CheckedScalarDivRemNativeTimeResult) |  |  |
 | checked_div_rem_native_time_result | [CheckedDivRemNativeTimeResult](#massa-abi-v1-CheckedDivRemNativeTimeResult) |  |  |
 | compare_native_time_result | [CompareNativeTimeResult](#massa-abi-v1-CompareNativeTimeResult) |  |  |
+| compare_native_address_result | [CompareNativeAddressResult](#massa-abi-v1-CompareNativeAddressResult) |  |  |
+| compare_native_pub_key_result | [CompareNativeAddressResult](#massa-abi-v1-CompareNativeAddressResult) |  |  |
+| compare_native_sig_result | [CompareNativeSigResult](#massa-abi-v1-CompareNativeSigResult) |  |  |
 
 
 

@@ -129,6 +129,9 @@ message RespResult {
     CheckedScalarDivRemNativeTimeResult checked_scalar_div_rem_native_time_result = 24;
     CheckedDivRemNativeTimeResult checked_div_rem_native_time_result = 25;
     CompareNativeTimeResult compare_native_time_result = 26;
+    CompareNativeAddressResult compare_native_address_result = 27;
+    CompareNativePubKeyResult compare_native_pub_key_result = 28;
+    CompareNativeSigResult compare_native_sig_result = 29;
   }
 }
 
@@ -500,6 +503,48 @@ message CompareNativeTimeRequest {
 
 // Time comparison result
 message CompareNativeTimeResult {
+  // Comparison result
+  ComparisonResult result = 1;
+}
+
+// Compare NativeAddress request
+message CompareNativeAddressRequest {
+  // First address to compare
+  massa.model.v1.NativeAddress left = 1;
+  // Second address to compare
+  massa.model.v1.NativeAddress right = 2;
+}
+
+// Compare NativeAddress result
+message CompareNativeAddressResult {
+  // Comparison result
+  ComparisonResult result = 1;
+}
+
+// Compare NativePubKey request
+message CompareNativePubKeyRequest {
+  // First public key to compare
+  massa.model.v1.NativePubKey left = 1;
+  // Second public key to compare
+  massa.model.v1.NativePubKey right = 2;
+}
+
+// Compare NativePubKey result
+message CompareNativePubKeyResult {
+  // Comparison result
+  ComparisonResult result = 1;
+}
+
+// Compare NativeSig request
+message CompareNativeSigRequest {
+  // First signature to compare
+  massa.model.v1.NativeSig left = 1;
+  // Second signature to compare
+  massa.model.v1.NativeSig right = 2;
+}
+
+// Compare NativeSig result
+message CompareNativeSigResult {
   // Comparison result
   ComparisonResult result = 1;
 }
