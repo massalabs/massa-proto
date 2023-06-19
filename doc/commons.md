@@ -11,6 +11,19 @@
     - [ComponentStateId](#massa-model-v1-ComponentStateId)
     - [MipComponent](#massa-model-v1-MipComponent)
   
+- [massa/model/v1/stats.proto](#massa_model_v1_stats-proto)
+    - [ConsensusStats](#massa-model-v1-ConsensusStats)
+    - [ExecutionStats](#massa-model-v1-ExecutionStats)
+    - [NetworkStats](#massa-model-v1-NetworkStats)
+    - [PoolStats](#massa-model-v1-PoolStats)
+  
+- [massa/model/v1/node.proto](#massa_model_v1_node-proto)
+    - [CompactConfig](#massa-model-v1-CompactConfig)
+    - [ConnectedNode](#massa-model-v1-ConnectedNode)
+    - [NodeStatus](#massa-model-v1-NodeStatus)
+  
+    - [ConnectionType](#massa-model-v1-ConnectionType)
+  
 - [massa/model/v1/operation.proto](#massa_model_v1_operation-proto)
     - [CallSC](#massa-model-v1-CallSC)
     - [ExecuteSC](#massa-model-v1-ExecuteSC)
@@ -191,6 +204,194 @@ Versioning component enum
 | MIP_COMPONENT_UNSPECIFIED | 0 | Default enum value |
 | MIP_COMPONENT_ADDRESS | 1 | Address component |
 | MIP_COMPONENT_KEYPAIR | 2 | Keypair component |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="massa_model_v1_stats-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/stats.proto
+
+
+
+<a name="massa-model-v1-ConsensusStats"></a>
+
+### ConsensusStats
+Consensus stats
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| start_timespan | [fixed64](#fixed64) |  | start of the time span for stats |
+| end_timespan | [fixed64](#fixed64) |  | end of the time span for stats |
+| final_block_count | [fixed64](#fixed64) |  | number of final blocks |
+| stale_block_count | [fixed64](#fixed64) |  | number of stale blocks in memory |
+| clique_count | [fixed64](#fixed64) |  | number of actives cliques |
+
+
+
+
+
+
+<a name="massa-model-v1-ExecutionStats"></a>
+
+### ExecutionStats
+Execution stats
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| time_window_start | [fixed64](#fixed64) |  | time window start |
+| time_window_end | [fixed64](#fixed64) |  | time window end |
+| final_block_count | [fixed64](#fixed64) |  | number of final blocks in the time window |
+| final_executed_operations_count | [fixed64](#fixed64) |  | number of final executed operations in the time window |
+| active_cursor | [Slot](#massa-model-v1-Slot) |  | active execution cursor slot |
+
+
+
+
+
+
+<a name="massa-model-v1-NetworkStats"></a>
+
+### NetworkStats
+Network stats
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| in_connection_count | [fixed64](#fixed64) |  | in connections count |
+| out_connection_count | [fixed64](#fixed64) |  | out connections count |
+| known_peer_count | [fixed64](#fixed64) |  | total known peers count |
+| banned_peer_count | [fixed64](#fixed64) |  | banned node count |
+| active_node_count | [fixed64](#fixed64) |  | active node count |
+
+
+
+
+
+
+<a name="massa-model-v1-PoolStats"></a>
+
+### PoolStats
+Pool stats
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| endorsements_count | [fixed64](#fixed64) |  | Endorsements |
+| operations_count | [fixed64](#fixed64) |  | Operations |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="massa_model_v1_node-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/node.proto
+
+
+
+<a name="massa-model-v1-CompactConfig"></a>
+
+### CompactConfig
+Compact configuration
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| genesis_timestamp | [fixed64](#fixed64) |  | Time in milliseconds when the blockclique started. |
+| end_timestamp | [fixed64](#fixed64) |  | TESTNET: time when the blockclique is ended. |
+| thread_count | [fixed32](#fixed32) |  | Number of threads |
+| t0 | [fixed64](#fixed64) |  | Time between the periods in the same thread. |
+| delta_f0 | [fixed64](#fixed64) |  | Threshold for fitness. |
+| operation_validity_periods | [fixed64](#fixed64) |  | Maximum operation validity period count |
+| periods_per_cycle | [fixed64](#fixed64) |  | cycle duration in periods |
+| block_reward | [fixed64](#fixed64) |  | Reward amount for a block creation |
+| roll_price | [fixed64](#fixed64) |  | Price of a roll on the network |
+| max_block_size | [fixed32](#fixed32) |  | Max total size of a block |
+
+
+
+
+
+
+<a name="massa-model-v1-ConnectedNode"></a>
+
+### ConnectedNode
+Connected node
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| node_id | [string](#string) |  | Node id |
+| node_ip | [string](#string) |  | Node ip |
+| connection_type | [ConnectionType](#massa-model-v1-ConnectionType) |  | Connection type |
+
+
+
+
+
+
+<a name="massa-model-v1-NodeStatus"></a>
+
+### NodeStatus
+Node status
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| node_id | [string](#string) |  | Our node id |
+| node_ip | [string](#string) |  | Optional node ip |
+| version | [string](#string) |  | Node version |
+| current_time | [fixed64](#fixed64) |  | Now |
+| current_cycle | [fixed64](#fixed64) |  | Current cycle |
+| current_cycle_time | [fixed64](#fixed64) |  | Current cycle starting timestamp |
+| next_cycle_time | [fixed64](#fixed64) |  | Next cycle starting timestamp |
+| connected_nodes | [ConnectedNode](#massa-model-v1-ConnectedNode) | repeated | Connected nodes |
+| last_slot | [Slot](#massa-model-v1-Slot) |  | Latest slot, none if now is before genesis timestamp |
+| next_slot | [Slot](#massa-model-v1-Slot) |  | Next slot |
+| consensus_stats | [ConsensusStats](#massa-model-v1-ConsensusStats) |  | Consensus stats |
+| pool_stats | [PoolStats](#massa-model-v1-PoolStats) |  | Pool stats (operation count and endorsement count) |
+| network_stats | [NetworkStats](#massa-model-v1-NetworkStats) |  | Network stats |
+| execution_stats | [ExecutionStats](#massa-model-v1-ExecutionStats) |  | Execution stats |
+| config | [CompactConfig](#massa-model-v1-CompactConfig) |  | Compact configuration |
+
+
+
+
+
+ 
+
+
+<a name="massa-model-v1-ConnectionType"></a>
+
+### ConnectionType
+ConnectionType enum
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| CONNECTION_TYPE_UNSPECIFIED | 0 | Default enum value |
+| CONNECTION_TYPE_INCOMING | 1 | Incoming connection |
+| CONNECTION_TYPE_OUTGOING | 2 | Outgoing connection |
 
 
  

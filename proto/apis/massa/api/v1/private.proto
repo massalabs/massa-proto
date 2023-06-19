@@ -74,6 +74,14 @@ service MassaPrivateService {
     };
   }
 
+  // Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file
+  rpc GetNodeStatus(GetNodeStatusRequest) returns (GetNodeStatusResponse) {
+    option (google.api.http) = {
+      post: "/v1/get_node_status"
+      body: "*"
+    };
+  }
+
   // Get node peers whitelist IP addresses
   rpc GetPeersWhitelist(GetPeersWhitelistRequest) returns (GetPeersWhitelistResponse) {
     option (google.api.http) = {
@@ -200,6 +208,21 @@ message GetBootstrapWhitelistAllowAllRequest {}
 
 // GetBootstrapWhitelistAllowAllResponse holds the response from GetBootstrapWhitelistAllowAll
 message GetBootstrapWhitelistAllowAllResponse {}
+
+// GetNodeStatusRequest holds the request for GetNodeStatus
+message GetNodeStatusRequest {
+  // Request id
+  string id = 1;
+}
+
+// GetNodeStatusResponse holds the response from GetNodeStatus
+message GetNodeStatusResponse {
+  // Request id
+  string id = 1;
+  //TODO to be implemented
+  // Node status
+  string status = 2;
+}
 
 // GetPeersWhitelistRequest holds the request for GetPeersWhitelist
 message GetPeersWhitelistRequest {

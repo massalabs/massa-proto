@@ -206,6 +206,60 @@
         
           
           <li>
+            <a href="#massa%2fmodel%2fv1%2fstats.proto">massa/model/v1/stats.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#massa.model.v1.ConsensusStats"><span class="badge">M</span>ConsensusStats</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.ExecutionStats"><span class="badge">M</span>ExecutionStats</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.NetworkStats"><span class="badge">M</span>NetworkStats</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.PoolStats"><span class="badge">M</span>PoolStats</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#massa%2fmodel%2fv1%2fnode.proto">massa/model/v1/node.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#massa.model.v1.CompactConfig"><span class="badge">M</span>CompactConfig</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.ConnectedNode"><span class="badge">M</span>ConnectedNode</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.NodeStatus"><span class="badge">M</span>NodeStatus</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#massa.model.v1.ConnectionType"><span class="badge">E</span>ConnectionType</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#massa%2fmodel%2fv1%2foperation.proto">massa/model/v1/operation.proto</a>
             <ul>
               
@@ -805,6 +859,497 @@
                 <td>MIP_COMPONENT_KEYPAIR</td>
                 <td>2</td>
                 <td><p>Keypair component</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="massa/model/v1/stats.proto">massa/model/v1/stats.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="massa.model.v1.ConsensusStats">ConsensusStats</h3>
+        <p>Consensus stats</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>start_timespan</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>start of the time span for stats </p></td>
+                </tr>
+              
+                <tr>
+                  <td>end_timespan</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>end of the time span for stats </p></td>
+                </tr>
+              
+                <tr>
+                  <td>final_block_count</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>number of final blocks </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stale_block_count</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>number of stale blocks in memory </p></td>
+                </tr>
+              
+                <tr>
+                  <td>clique_count</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>number of actives cliques </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.ExecutionStats">ExecutionStats</h3>
+        <p>Execution stats</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>time_window_start</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>time window start </p></td>
+                </tr>
+              
+                <tr>
+                  <td>time_window_end</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>time window end </p></td>
+                </tr>
+              
+                <tr>
+                  <td>final_block_count</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>number of final blocks in the time window </p></td>
+                </tr>
+              
+                <tr>
+                  <td>final_executed_operations_count</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>number of final executed operations in the time window </p></td>
+                </tr>
+              
+                <tr>
+                  <td>active_cursor</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>active execution cursor slot </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.NetworkStats">NetworkStats</h3>
+        <p>Network stats</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>in_connection_count</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>in connections count </p></td>
+                </tr>
+              
+                <tr>
+                  <td>out_connection_count</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>out connections count </p></td>
+                </tr>
+              
+                <tr>
+                  <td>known_peer_count</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>total known peers count </p></td>
+                </tr>
+              
+                <tr>
+                  <td>banned_peer_count</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>banned node count </p></td>
+                </tr>
+              
+                <tr>
+                  <td>active_node_count</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>active node count </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.PoolStats">PoolStats</h3>
+        <p>Pool stats</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>endorsements_count</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Endorsements </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operations_count</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Operations </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="massa/model/v1/node.proto">massa/model/v1/node.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="massa.model.v1.CompactConfig">CompactConfig</h3>
+        <p>Compact configuration</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>genesis_timestamp</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Time in milliseconds when the blockclique started. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>end_timestamp</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>TESTNET: time when the blockclique is ended. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>thread_count</td>
+                  <td><a href="#fixed32">fixed32</a></td>
+                  <td></td>
+                  <td><p>Number of threads </p></td>
+                </tr>
+              
+                <tr>
+                  <td>t0</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Time between the periods in the same thread. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>delta_f0</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Threshold for fitness. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_validity_periods</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Maximum operation validity period count </p></td>
+                </tr>
+              
+                <tr>
+                  <td>periods_per_cycle</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>cycle duration in periods </p></td>
+                </tr>
+              
+                <tr>
+                  <td>block_reward</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Reward amount for a block creation </p></td>
+                </tr>
+              
+                <tr>
+                  <td>roll_price</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Price of a roll on the network </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_block_size</td>
+                  <td><a href="#fixed32">fixed32</a></td>
+                  <td></td>
+                  <td><p>Max total size of a block </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.ConnectedNode">ConnectedNode</h3>
+        <p>Connected node</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>node_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Node id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>node_ip</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Node ip </p></td>
+                </tr>
+              
+                <tr>
+                  <td>connection_type</td>
+                  <td><a href="#massa.model.v1.ConnectionType">ConnectionType</a></td>
+                  <td></td>
+                  <td><p>Connection type </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.NodeStatus">NodeStatus</h3>
+        <p>Node status</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>node_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Our node id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>node_ip</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Optional node ip </p></td>
+                </tr>
+              
+                <tr>
+                  <td>version</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Node version </p></td>
+                </tr>
+              
+                <tr>
+                  <td>current_time</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Now </p></td>
+                </tr>
+              
+                <tr>
+                  <td>current_cycle</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Current cycle </p></td>
+                </tr>
+              
+                <tr>
+                  <td>current_cycle_time</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Current cycle starting timestamp </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_cycle_time</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>Next cycle starting timestamp </p></td>
+                </tr>
+              
+                <tr>
+                  <td>connected_nodes</td>
+                  <td><a href="#massa.model.v1.ConnectedNode">ConnectedNode</a></td>
+                  <td>repeated</td>
+                  <td><p>Connected nodes </p></td>
+                </tr>
+              
+                <tr>
+                  <td>last_slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Latest slot, none if now is before genesis timestamp </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Next slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>consensus_stats</td>
+                  <td><a href="#massa.model.v1.ConsensusStats">ConsensusStats</a></td>
+                  <td></td>
+                  <td><p>Consensus stats </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pool_stats</td>
+                  <td><a href="#massa.model.v1.PoolStats">PoolStats</a></td>
+                  <td></td>
+                  <td><p>Pool stats (operation count and endorsement count) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>network_stats</td>
+                  <td><a href="#massa.model.v1.NetworkStats">NetworkStats</a></td>
+                  <td></td>
+                  <td><p>Network stats </p></td>
+                </tr>
+              
+                <tr>
+                  <td>execution_stats</td>
+                  <td><a href="#massa.model.v1.ExecutionStats">ExecutionStats</a></td>
+                  <td></td>
+                  <td><p>Execution stats </p></td>
+                </tr>
+              
+                <tr>
+                  <td>config</td>
+                  <td><a href="#massa.model.v1.CompactConfig">CompactConfig</a></td>
+                  <td></td>
+                  <td><p>Compact configuration </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="massa.model.v1.ConnectionType">ConnectionType</h3>
+        <p>ConnectionType enum</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CONNECTION_TYPE_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p>Default enum value</p></td>
+              </tr>
+            
+              <tr>
+                <td>CONNECTION_TYPE_INCOMING</td>
+                <td>1</td>
+                <td><p>Incoming connection</p></td>
+              </tr>
+            
+              <tr>
+                <td>CONNECTION_TYPE_OUTGOING</td>
+                <td>2</td>
+                <td><p>Outgoing connection</p></td>
               </tr>
             
           </tbody>

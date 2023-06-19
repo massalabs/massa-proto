@@ -1,0 +1,66 @@
+// Copyright (c) 2023 MASSA LABS <info@massa.net>
+
+syntax = "proto3";
+
+package massa.model.v1;
+
+import "massa/model/v1/slot.proto";
+
+option csharp_namespace = "Com.Massa.Model.v1";
+option go_package = "github.com/massalabs/massa/model/v1;v1";
+option java_multiple_files = true;
+option java_package = "com.massa.model.v1";
+option objc_class_prefix = "MMODEL";
+option php_namespace = "Com\\Massa\\Model\\V1";
+option ruby_package = "Com::Massa::Model::V1";
+option swift_prefix = "MMODEL";
+
+// Consensus stats
+message ConsensusStats {
+  // start of the time span for stats
+  fixed64 start_timespan = 1;
+  // end of the time span for stats
+  fixed64 end_timespan = 2;
+  // number of final blocks
+  fixed64 final_block_count = 3;
+  // number of stale blocks in memory
+  fixed64 stale_block_count = 4;
+  //  number of actives cliques
+  fixed64 clique_count = 5;
+}
+
+// Pool stats
+message PoolStats {
+  // Endorsements
+  fixed64 endorsements_count = 1;
+  // Operations
+  fixed64 operations_count = 2;
+}
+
+// Network stats
+message NetworkStats {
+  // in connections count
+  fixed64 in_connection_count = 1;
+  // out connections count
+  fixed64 out_connection_count = 2;
+  // total known peers count
+  fixed64 known_peer_count = 3;
+  // banned node count
+  fixed64 banned_peer_count = 4;
+  // active node count
+  fixed64 active_node_count = 5;
+}
+
+// Execution stats
+message ExecutionStats {
+  // time window start
+  fixed64 time_window_start = 1;
+  // time window end
+  fixed64 time_window_end = 2;
+  // number of final blocks in the time window
+  fixed64 final_block_count = 3;
+  // number of final executed operations in the time window
+  fixed64 final_executed_operations_count = 4;
+  // active execution cursor slot
+  massa.model.v1.Slot active_cursor = 5;
+}
