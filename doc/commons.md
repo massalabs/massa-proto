@@ -129,7 +129,7 @@ MipComponentEntry
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | kind | [MipComponent](#massa-model-v1-MipComponent) |  | Kind |
-| version | [fixed32](#fixed32) |  | Version |
+| version | [uint32](#uint32) |  | Version |
 
 
 
@@ -145,10 +145,10 @@ MIP info (name &amp; versions &amp; time range for a MIP)
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | name | [string](#string) |  | MIP name or descriptive name |
-| version | [fixed32](#fixed32) |  | Network (or global) version (to be included in block header) |
-| start | [fixed64](#fixed64) |  | A timestamp at which the version gains its meaning (e.g. announced in block header) |
-| timeout | [fixed64](#fixed64) |  | A timestamp at the which the deployment is considered failed |
-| activation_delay | [fixed64](#fixed64) |  | Once deployment has been locked, wait for this duration before deployment is considered active |
+| version | [uint32](#uint32) |  | Network (or global) version (to be included in block header) |
+| start | [uint64](#uint64) |  | A timestamp at which the version gains its meaning (e.g. announced in block header) |
+| timeout | [uint64](#uint64) |  | A timestamp at the which the deployment is considered failed |
+| activation_delay | [uint64](#uint64) |  | Once deployment has been locked, wait for this duration before deployment is considered active |
 | components | [MipComponentEntry](#massa-model-v1-MipComponentEntry) | repeated | Components concerned by this versioning (e.g. a new Block version), and the associated component_version |
 
 
@@ -226,11 +226,11 @@ Consensus stats
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| start_timespan | [fixed64](#fixed64) |  | start of the time span for stats |
-| end_timespan | [fixed64](#fixed64) |  | end of the time span for stats |
-| final_block_count | [fixed64](#fixed64) |  | number of final blocks |
-| stale_block_count | [fixed64](#fixed64) |  | number of stale blocks in memory |
-| clique_count | [fixed64](#fixed64) |  | number of actives cliques |
+| start_timespan | [uint64](#uint64) |  | start of the time span for stats |
+| end_timespan | [uint64](#uint64) |  | end of the time span for stats |
+| final_block_count | [uint64](#uint64) |  | number of final blocks |
+| stale_block_count | [uint64](#uint64) |  | number of stale blocks in memory |
+| clique_count | [uint64](#uint64) |  | number of actives cliques |
 
 
 
@@ -245,10 +245,10 @@ Execution stats
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| time_window_start | [fixed64](#fixed64) |  | time window start |
-| time_window_end | [fixed64](#fixed64) |  | time window end |
-| final_block_count | [fixed64](#fixed64) |  | number of final blocks in the time window |
-| final_executed_operations_count | [fixed64](#fixed64) |  | number of final executed operations in the time window |
+| time_window_start | [uint64](#uint64) |  | time window start |
+| time_window_end | [uint64](#uint64) |  | time window end |
+| final_block_count | [uint64](#uint64) |  | number of final blocks in the time window |
+| final_executed_operations_count | [uint64](#uint64) |  | number of final executed operations in the time window |
 | active_cursor | [Slot](#massa-model-v1-Slot) |  | active execution cursor slot |
 
 
@@ -264,11 +264,11 @@ Network stats
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| in_connection_count | [fixed64](#fixed64) |  | in connections count |
-| out_connection_count | [fixed64](#fixed64) |  | out connections count |
-| known_peer_count | [fixed64](#fixed64) |  | total known peers count |
-| banned_peer_count | [fixed64](#fixed64) |  | banned node count |
-| active_node_count | [fixed64](#fixed64) |  | active node count |
+| in_connection_count | [uint64](#uint64) |  | in connections count |
+| out_connection_count | [uint64](#uint64) |  | out connections count |
+| known_peer_count | [uint64](#uint64) |  | total known peers count |
+| banned_peer_count | [uint64](#uint64) |  | banned node count |
+| active_node_count | [uint64](#uint64) |  | active node count |
 
 
 
@@ -283,8 +283,8 @@ Pool stats
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| endorsements_count | [fixed64](#fixed64) |  | Endorsements |
-| operations_count | [fixed64](#fixed64) |  | Operations |
+| endorsements_count | [uint64](#uint64) |  | Endorsements |
+| operations_count | [uint64](#uint64) |  | Operations |
 
 
 
@@ -315,16 +315,16 @@ Compact configuration
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| genesis_timestamp | [fixed64](#fixed64) |  | Time in milliseconds when the blockclique started. |
-| end_timestamp | [fixed64](#fixed64) |  | TESTNET: time when the blockclique is ended. |
-| thread_count | [fixed32](#fixed32) |  | Number of threads |
-| t0 | [fixed64](#fixed64) |  | Time between the periods in the same thread. |
-| delta_f0 | [fixed64](#fixed64) |  | Threshold for fitness. |
-| operation_validity_periods | [fixed64](#fixed64) |  | Maximum operation validity period count |
-| periods_per_cycle | [fixed64](#fixed64) |  | cycle duration in periods |
-| block_reward | [fixed64](#fixed64) |  | Reward amount for a block creation |
-| roll_price | [fixed64](#fixed64) |  | Price of a roll on the network |
-| max_block_size | [fixed32](#fixed32) |  | Max total size of a block |
+| genesis_timestamp | [uint64](#uint64) |  | Time in milliseconds when the blockclique started. |
+| end_timestamp | [uint64](#uint64) |  | TESTNET: time when the blockclique is ended. |
+| thread_count | [uint32](#uint32) |  | Number of threads |
+| t0 | [uint64](#uint64) |  | Time between the periods in the same thread. |
+| delta_f0 | [uint64](#uint64) |  | Threshold for fitness. |
+| operation_validity_periods | [uint64](#uint64) |  | Maximum operation validity period count |
+| periods_per_cycle | [uint64](#uint64) |  | cycle duration in periods |
+| block_reward | [uint64](#uint64) |  | Reward amount for a block creation |
+| roll_price | [uint64](#uint64) |  | Price of a roll on the network |
+| max_block_size | [uint32](#uint32) |  | Max total size of a block |
 
 
 
@@ -359,10 +359,10 @@ Node status
 | node_id | [string](#string) |  | Our node id |
 | node_ip | [string](#string) |  | Optional node ip |
 | version | [string](#string) |  | Node version |
-| current_time | [fixed64](#fixed64) |  | Now |
-| current_cycle | [fixed64](#fixed64) |  | Current cycle |
-| current_cycle_time | [fixed64](#fixed64) |  | Current cycle starting timestamp |
-| next_cycle_time | [fixed64](#fixed64) |  | Next cycle starting timestamp |
+| current_time | [uint64](#uint64) |  | Now |
+| current_cycle | [uint64](#uint64) |  | Current cycle |
+| current_cycle_time | [uint64](#uint64) |  | Current cycle starting timestamp |
+| next_cycle_time | [uint64](#uint64) |  | Next cycle starting timestamp |
 | connected_nodes | [ConnectedNode](#massa-model-v1-ConnectedNode) | repeated | Connected nodes |
 | last_slot | [Slot](#massa-model-v1-Slot) |  | Latest slot, none if now is before genesis timestamp |
 | next_slot | [Slot](#massa-model-v1-Slot) |  | Next slot |
@@ -417,8 +417,8 @@ Calls an exported function from a stored smart contract
 | target_addr | [string](#string) |  | Target smart contract address |
 | target_func | [string](#string) |  | Target function name. No function is called if empty |
 | param | [bytes](#bytes) |  | Parameter to pass to the target function |
-| max_gas | [fixed64](#fixed64) |  | The maximum amount of gas that the execution of the contract is allowed to cost |
-| coins | [fixed64](#fixed64) |  | Extra coins that are spent from the caller&#39;s balance and transferred to the target |
+| max_gas | [uint64](#uint64) |  | The maximum amount of gas that the execution of the contract is allowed to cost |
+| coins | [uint64](#uint64) |  | Extra coins that are spent from the caller&#39;s balance and transferred to the target |
 
 
 
@@ -434,8 +434,8 @@ Execute a smart contract
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | data | [bytes](#bytes) |  | Smart contract bytecode. |
-| max_coins | [fixed64](#fixed64) |  | The maximum of coins that could be spent by the operation sender |
-| max_gas | [fixed64](#fixed64) |  | The maximum amount of gas that the execution of the contract is allowed to cost |
+| max_coins | [uint64](#uint64) |  | The maximum of coins that could be spent by the operation sender |
+| max_gas | [uint64](#uint64) |  | The maximum amount of gas that the execution of the contract is allowed to cost |
 | datastore | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) | repeated | A key-value store associating a hash to arbitrary bytes |
 
 
@@ -451,8 +451,8 @@ The operation as sent in the network
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| fee | [fixed64](#fixed64) |  | The fee they have decided for this operation |
-| expire_period | [fixed64](#fixed64) |  | After `expire_period` slot the operation won&#39;t be included in a block |
+| fee | [uint64](#uint64) |  | The fee they have decided for this operation |
+| expire_period | [uint64](#uint64) |  | After `expire_period` slot the operation won&#39;t be included in a block |
 | op | [OperationType](#massa-model-v1-OperationType) |  | The type specific operation part |
 
 
@@ -489,7 +489,7 @@ A wrapper around an operation with its metadata
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | The unique ID of the operation. |
 | block_ids | [string](#string) | repeated | The IDs of the blocks in which the operation appears |
-| thread | [fixed32](#fixed32) |  | The thread in which the operation can be included |
+| thread | [uint32](#uint32) |  | The thread in which the operation can be included |
 | operation | [SignedOperation](#massa-model-v1-SignedOperation) |  | The operation object itself |
 | status | [OperationStatus](#massa-model-v1-OperationStatus) | repeated | The execution statuses of the operation |
 
@@ -506,7 +506,7 @@ The sender buys `roll_count` rolls. Roll price is defined in configuration
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| roll_count | [fixed64](#fixed64) |  | Roll count |
+| roll_count | [uint64](#uint64) |  | Roll count |
 
 
 
@@ -521,7 +521,7 @@ The sender sells `roll_count` rolls. Roll price is defined in configuration
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| roll_count | [fixed64](#fixed64) |  | Roll count |
+| roll_count | [uint64](#uint64) |  | Roll count |
 
 
 
@@ -541,7 +541,7 @@ Signed operation
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
-| serialized_size | [fixed64](#fixed64) |  | The size of the serialized operation |
+| serialized_size | [uint64](#uint64) |  | The size of the serialized operation |
 
 
 
@@ -557,7 +557,7 @@ Transfer coins from sender to recipient
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | recipient_address | [string](#string) |  | Recipient address |
-| amount | [fixed64](#fixed64) |  | Amount |
+| amount | [uint64](#uint64) |  | Amount |
 
 
 
@@ -652,8 +652,8 @@ the future. value = mantissa / (10^scale)
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mantissa | [fixed64](#fixed64) |  | Mantissa |
-| scale | [fixed32](#fixed32) |  | Scale |
+| mantissa | [uint64](#uint64) |  | Mantissa |
+| scale | [uint32](#uint32) |  | Scale |
 
 
 
@@ -685,13 +685,13 @@ Asynchronous smart contract message
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | emission_slot | [Slot](#massa-model-v1-Slot) |  | Slot at which the message was emitted |
-| emission_index | [fixed64](#fixed64) |  | Index of the emitted message within the `emission_slot`. This is used for disambiguate the emission of multiple messages at the same slot. |
+| emission_index | [uint64](#uint64) |  | Index of the emitted message within the `emission_slot`. This is used for disambiguate the emission of multiple messages at the same slot. |
 | sender | [string](#string) |  | The address that sent the message |
 | destination | [string](#string) |  | The address towards which the message is being sent |
 | handler | [string](#string) |  | the handler function name within the destination address&#39; bytecode |
-| max_gas | [fixed64](#fixed64) |  | Maximum gas to use when processing the message |
-| fee | [fixed64](#fixed64) |  | Fee paid by the sender when the message is processed. |
-| coins | [fixed64](#fixed64) |  | Coins sent from the sender to the target address of the message. Those coins are spent by the sender address when the message is sent, and credited to the destination address when receiving the message. In case of failure or discard, those coins are reimbursed to the sender. |
+| max_gas | [uint64](#uint64) |  | Maximum gas to use when processing the message |
+| fee | [uint64](#uint64) |  | Fee paid by the sender when the message is processed. |
+| coins | [uint64](#uint64) |  | Coins sent from the sender to the target address of the message. Those coins are spent by the sender address when the message is sent, and credited to the destination address when receiving the message. In case of failure or discard, those coins are reimbursed to the sender. |
 | validity_start | [Slot](#massa-model-v1-Slot) |  | Slot at which the message starts being valid (bound included in the validity range) |
 | validity_end | [Slot](#massa-model-v1-Slot) |  | Slot at which the message stops being valid (bound not included in the validity range) |
 | data | [bytes](#bytes) |  | Raw payload data of the message |
@@ -805,7 +805,7 @@ Variant for Endorsement denunciation index
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | slot | [Slot](#massa-model-v1-Slot) |  | Denounciation slot |
-| index | [fixed32](#fixed32) |  | Denounciation index |
+| index | [uint32](#uint32) |  | Denounciation index |
 
 
 
@@ -934,7 +934,7 @@ An entry associated to an address in the `FinalLedger`
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| balance | [fixed64](#fixed64) |  | The balance of that entry |
+| balance | [uint64](#uint64) |  | The balance of that entry |
 | bytecode | [bytes](#bytes) |  | Executable bytecode |
 | entries | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) | repeated | A key-value store associating a hash to arbitrary bytes |
 
@@ -987,7 +987,7 @@ ScExecutionEvent context
 | id | [string](#string) |  | base58 encoded slot(period &#43; thread) &#43; index_in_slot |
 | origin_slot | [Slot](#massa-model-v1-Slot) |  | When was it generated |
 | block_id | [string](#string) | optional | Block id if there was a block at that slot (optional) |
-| index_in_slot | [fixed64](#fixed64) |  | Index of the event in the slot |
+| index_in_slot | [uint64](#uint64) |  | Index of the event in the slot |
 | call_stack | [string](#string) | repeated | Call stack addresses. most recent at the end |
 | origin_operation_id | [string](#string) | optional | Origin operation id (optional) |
 | status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) | repeated | Status |
@@ -1038,7 +1038,7 @@ Set or Keep Balance
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| balance | [fixed64](#fixed64) | optional | The balance of that entry (optional) |
+| balance | [uint64](#uint64) | optional | The balance of that entry (optional) |
 
 
 
@@ -1102,7 +1102,7 @@ Set or Keep Fixed64
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| value | [fixed64](#fixed64) | optional | The value of that entry (optional) |
+| value | [uint64](#uint64) | optional | The value of that entry (optional) |
 
 
 
@@ -1294,7 +1294,7 @@ When an address is drawn to create an endorsement it is selected for a specific 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | slot | [Slot](#massa-model-v1-Slot) |  | Slot |
-| index | [fixed64](#fixed64) |  | Endorsement index in the slot |
+| index | [uint64](#uint64) |  | Endorsement index in the slot |
 
 
 
@@ -1309,8 +1309,8 @@ A point in time where a block is expected
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| period | [fixed64](#fixed64) |  | Period |
-| thread | [fixed32](#fixed32) |  | Thread |
+| period | [uint64](#uint64) |  | Period |
+| thread | [uint32](#uint32) |  | Thread |
 
 
 
@@ -1342,7 +1342,7 @@ Massa NativeAddress
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | category | [AddressCategory](#massa-model-v1-AddressCategory) |  | Address category |
-| version | [fixed64](#fixed64) |  | Address version |
+| version | [uint64](#uint64) |  | Address version |
 | content | [bytes](#bytes) |  | Address content |
 
 
@@ -1475,7 +1475,7 @@ Signed block
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
-| serialized_size | [fixed64](#fixed64) |  | The size of the serialized block |
+| serialized_size | [uint64](#uint64) |  | The size of the serialized block |
 
 
 
@@ -1495,7 +1495,7 @@ Signed block header
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
-| serialized_size | [fixed64](#fixed64) |  | The size of the serialized block header |
+| serialized_size | [uint64](#uint64) |  | The size of the serialized block header |
 
 
 
@@ -1541,8 +1541,9 @@ BytesMapFieldEntry
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| key | [bytes](#bytes) |  | bytes key |
-| value | [bytes](#bytes) |  | bytes key |
+| slot | [Slot](#massa-model-v1-Slot) |  | Slot in which the endorsement can be included |
+| index | [uint32](#uint32) |  | Endorsement index inside the including block |
+| endorsed_block | [string](#string) |  | Hash of endorsed block This is the parent in thread `self.slot.thread` of the block in which the endorsement is included |
 
 
 
@@ -1562,7 +1563,7 @@ Packages a type such that it can be securely sent and received in a trust-free n
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
-| serialized_size | [fixed64](#fixed64) |  | The size of the serialized endorsement |
+| serialized_size | [uint64](#uint64) |  | The size of the serialized endorsement |
 
 
 
@@ -1593,7 +1594,7 @@ NativeTime represents a native duration or unix timestamp
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| milliseconds | [fixed64](#fixed64) |  | Milliseconds |
+| milliseconds | [uint64](#uint64) |  | Milliseconds |
 
 
 

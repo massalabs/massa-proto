@@ -52,7 +52,7 @@ Amount
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| amount | [fixed64](#fixed64) |  | Amount is a 64-bit unsigned integer |
+| amount | [uint64](#uint64) |  | Amount is a 64-bit unsigned integer |
 
 
 

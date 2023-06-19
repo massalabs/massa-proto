@@ -18,13 +18,13 @@ message IndexedSlot {
   // Slot
   Slot slot = 1;
   // Endorsement index in the slot
-  fixed64 index = 2;
+  uint64 index = 2;
 }
 
 // A point in time where a block is expected
 message Slot {
   // Period
-  fixed64 period = 1;
+  uint64 period = 1;
   // Thread
-  fixed32 thread = 2;
+  uint32 thread = 2;
 }
