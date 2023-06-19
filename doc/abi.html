@@ -478,6 +478,14 @@
                   <a href="#massa.abi.v1.TransferCoinsRequest"><span class="badge">M</span>TransferCoinsRequest</a>
                 </li>
               
+                <li>
+                  <a href="#massa.abi.v1.VerifyNativeSigRequest"><span class="badge">M</span>VerifyNativeSigRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.VerifyNativeSigResult"><span class="badge">M</span>VerifyNativeSigResult</a>
+                </li>
+              
               
               
               
@@ -989,7 +997,7 @@
               
                 <tr>
                   <td>quotient</td>
-                  <td><a href="#fixed64">fixed64</a></td>
+                  <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>Quotient of time and divisor </p></td>
                 </tr>
@@ -1027,7 +1035,7 @@
               
                 <tr>
                   <td>coefficient</td>
-                  <td><a href="#fixed64">fixed64</a></td>
+                  <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>Coefficient to multiply by </p></td>
                 </tr>
@@ -1082,7 +1090,7 @@
               
                 <tr>
                   <td>divisor</td>
-                  <td><a href="#fixed64">fixed64</a></td>
+                  <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>Divisor to divide by </p></td>
                 </tr>
@@ -1550,7 +1558,7 @@
               
                 <tr>
                   <td>quotient</td>
-                  <td><a href="#fixed64">fixed64</a></td>
+                  <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>Quotient of amount and divisor </p></td>
                 </tr>
@@ -1753,7 +1761,7 @@
               
                 <tr>
                   <td>coefficient</td>
-                  <td><a href="#fixed64">fixed64</a></td>
+                  <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>Coefficient to multiply by </p></td>
                 </tr>
@@ -2470,7 +2478,7 @@
               
                 <tr>
                   <td>compare_native_pub_key_result</td>
-                  <td><a href="#massa.abi.v1.CompareNativeAddressResult">CompareNativeAddressResult</a></td>
+                  <td><a href="#massa.abi.v1.CompareNativePubKeyResult">CompareNativePubKeyResult</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -2478,6 +2486,13 @@
                 <tr>
                   <td>compare_native_sig_result</td>
                   <td><a href="#massa.abi.v1.CompareNativeSigResult">CompareNativeSigResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>verify_native_sig_result</td>
+                  <td><a href="#massa.abi.v1.VerifyNativeSigResult">VerifyNativeSigResult</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -2508,7 +2523,7 @@
               
                 <tr>
                   <td>divisor</td>
-                  <td><a href="#fixed64">fixed64</a></td>
+                  <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p>Divisor to divide by </p></td>
                 </tr>
@@ -2628,6 +2643,68 @@
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
                   <td><p>The amount of coins to transfer </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.VerifyNativeSigRequest">VerifyNativeSigRequest</h3>
+        <p>Verify NativeSig request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Message to verify </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sig</td>
+                  <td><a href="#massa.model.v1.NativeSig">massa.model.v1.NativeSig</a></td>
+                  <td></td>
+                  <td><p>Signature to verify </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pub_key</td>
+                  <td><a href="#massa.model.v1.NativePubKey">massa.model.v1.NativePubKey</a></td>
+                  <td></td>
+                  <td><p>Public key to verify with </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.VerifyNativeSigResult">VerifyNativeSigResult</h3>
+        <p>Verify NativeSig result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>is_verified</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Verification result </p></td>
                 </tr>
               
             </tbody>

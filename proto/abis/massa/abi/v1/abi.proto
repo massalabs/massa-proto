@@ -132,6 +132,7 @@ message RespResult {
     CompareNativeAddressResult compare_native_address_result = 27;
     CompareNativePubKeyResult compare_native_pub_key_result = 28;
     CompareNativeSigResult compare_native_sig_result = 29;
+    VerifyNativeSigResult verify_native_sig_result = 30;
   }
 }
 
@@ -359,7 +360,7 @@ message MulNativeAmountRequest {
   // Amount to multiply
   massa.model.v1.NativeAmount amount = 1;
   // Coefficient to multiply by
-  fixed64 coefficient = 2;
+  int64 coefficient = 2;
 }
 
 // Amount multiplication result
@@ -376,7 +377,7 @@ message ScalarDivRemNativeAmountRequest {
   // Amount to divide
   massa.model.v1.NativeAmount dividend = 1;
   // Divisor to divide by
-  fixed64 divisor = 2;
+  int64 divisor = 2;
 }
 
 // Amount division by scalar result
@@ -398,7 +399,7 @@ message DivRemNativeAmountRequest {
 // Amount division result
 message DivRemNativeAmountResult {
   // Quotient of amount and divisor
-  fixed64 quotient = 1;
+  int64 quotient = 1;
   // Remainder of amount and divisor
   massa.model.v1.NativeAmount remainder = 2;
 }
@@ -452,7 +453,7 @@ message CheckedMulNativeTimeRequest {
   // Time to multiply
   massa.model.v1.NativeTime time = 1;
   // Coefficient to multiply by
-  fixed64 coefficient = 2;
+  int64 coefficient = 2;
 }
 
 // Time scalar mult checked result
@@ -466,7 +467,7 @@ message CheckedScalarDivRemNativeTimeRequest {
   // Time to divide
   massa.model.v1.NativeTime dividend = 1;
   // Divisor to divide by
-  fixed64 divisor = 2;
+  int64 divisor = 2;
 }
 
 // Time scalar divrem checked result
@@ -488,7 +489,7 @@ message CheckedDivRemNativeTimeRequest {
 // Time division checked result
 message CheckedDivRemNativeTimeResult {
   // Quotient of time and divisor
-  fixed64 quotient = 1;
+  int64 quotient = 1;
   // Remainder of time and divisor
   massa.model.v1.NativeTime remainder = 2;
 }
@@ -547,4 +548,20 @@ message CompareNativeSigRequest {
 message CompareNativeSigResult {
   // Comparison result
   ComparisonResult result = 1;
+}
+
+// Verify NativeSig request
+message VerifyNativeSigRequest {
+  // Message to verify
+  bytes message = 1;
+  // Signature to verify
+  massa.model.v1.NativeSig sig = 2;
+  // Public key to verify with
+  massa.model.v1.NativePubKey pub_key = 3;
+}
+
+// Verify NativeSig result
+message VerifyNativeSigResult {
+  // Verification result
+  bool is_verified = 1;
 }

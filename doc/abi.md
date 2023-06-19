@@ -79,6 +79,8 @@
     - [SubNativeAmountsRequest](#massa-abi-v1-SubNativeAmountsRequest)
     - [SubNativeAmountsResult](#massa-abi-v1-SubNativeAmountsResult)
     - [TransferCoinsRequest](#massa-abi-v1-TransferCoinsRequest)
+    - [VerifyNativeSigRequest](#massa-abi-v1-VerifyNativeSigRequest)
+    - [VerifyNativeSigResult](#massa-abi-v1-VerifyNativeSigResult)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -376,7 +378,7 @@ Time division checked result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| quotient | [fixed64](#fixed64) |  | Quotient of time and divisor |
+| quotient | [int64](#int64) |  | Quotient of time and divisor |
 | remainder | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Remainder of time and divisor |
 
 
@@ -393,7 +395,7 @@ Time scalar mult checked request
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | time | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Time to multiply |
-| coefficient | [fixed64](#fixed64) |  | Coefficient to multiply by |
+| coefficient | [int64](#int64) |  | Coefficient to multiply by |
 
 
 
@@ -424,7 +426,7 @@ Time scalar divrem checked request
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | dividend | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Time to divide |
-| divisor | [fixed64](#fixed64) |  | Divisor to divide by |
+| divisor | [int64](#int64) |  | Divisor to divide by |
 
 
 
@@ -703,7 +705,7 @@ Amount division result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| quotient | [fixed64](#fixed64) |  | Quotient of amount and divisor |
+| quotient | [int64](#int64) |  | Quotient of amount and divisor |
 | remainder | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Remainder of amount and divisor |
 
 
@@ -814,7 +816,7 @@ Try to compute product = amount * coefficient (fail if overflow)
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to multiply |
-| coefficient | [fixed64](#fixed64) |  | Coefficient to multiply by |
+| coefficient | [int64](#int64) |  | Coefficient to multiply by |
 
 
 
@@ -1174,8 +1176,9 @@ data MUST have the same name as they type in Rust they are converted to type
 | checked_div_rem_native_time_result | [CheckedDivRemNativeTimeResult](#massa-abi-v1-CheckedDivRemNativeTimeResult) |  |  |
 | compare_native_time_result | [CompareNativeTimeResult](#massa-abi-v1-CompareNativeTimeResult) |  |  |
 | compare_native_address_result | [CompareNativeAddressResult](#massa-abi-v1-CompareNativeAddressResult) |  |  |
-| compare_native_pub_key_result | [CompareNativeAddressResult](#massa-abi-v1-CompareNativeAddressResult) |  |  |
+| compare_native_pub_key_result | [CompareNativePubKeyResult](#massa-abi-v1-CompareNativePubKeyResult) |  |  |
 | compare_native_sig_result | [CompareNativeSigResult](#massa-abi-v1-CompareNativeSigResult) |  |  |
+| verify_native_sig_result | [VerifyNativeSigResult](#massa-abi-v1-VerifyNativeSigResult) |  |  |
 
 
 
@@ -1194,7 +1197,7 @@ Fails if underflow
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | dividend | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to divide |
-| divisor | [fixed64](#fixed64) |  | Divisor to divide by |
+| divisor | [int64](#int64) |  | Divisor to divide by |
 
 
 
@@ -1260,6 +1263,38 @@ TransferCoins
 | ----- | ---- | ----- | ----------- |
 | target_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | The address of the recipient |
 | amount_to_transfer | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | The amount of coins to transfer |
+
+
+
+
+
+
+<a name="massa-abi-v1-VerifyNativeSigRequest"></a>
+
+### VerifyNativeSigRequest
+Verify NativeSig request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [bytes](#bytes) |  | Message to verify |
+| sig | [massa.model.v1.NativeSig](#massa-model-v1-NativeSig) |  | Signature to verify |
+| pub_key | [massa.model.v1.NativePubKey](#massa-model-v1-NativePubKey) |  | Public key to verify with |
+
+
+
+
+
+
+<a name="massa-abi-v1-VerifyNativeSigResult"></a>
+
+### VerifyNativeSigResult
+Verify NativeSig result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| is_verified | [bool](#bool) |  | Verification result |
 
 
 
