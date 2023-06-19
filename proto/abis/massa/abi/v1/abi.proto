@@ -63,25 +63,33 @@ message LocalCallRequest {
   bytes function_arg = 3;
 }
 
-// LocalCallResponse
+// LocalCall response
 message LocalCallResponse {
   // Return_data is the return value of the function
   bytes data = 1;
 }
 
-// GenerateEventRequest
+// Generate event request
 message GenerateEventRequest {
   // Event
   string event = 1;
 }
 
-// TransferCoins
+// Generate event resulst
+message GenerateEventResult{
+
+}
+
+// Transfer coins request
 message TransferCoinsRequest {
   // The address of the recipient
   massa.model.v1.NativeAddress target_address = 1;
   // The amount of coins to transfer
   massa.model.v1.NativeAmount amount_to_transfer = 2;
 }
+
+// Transfer coins result
+message TransferCoinsResult {}
 
 // FunctionExists
 message FunctionExistsRequest {
@@ -138,6 +146,8 @@ message RespResult {
     VerifyEvmSigResult verify_evm_sig_result = 33;
     VerifyBlsSingleSigResult verify_bls_single_sig_result = 34;
     VerifyBlsMultiSigResult verify_bls_multi_sig_result = 35;
+    TransferCoinsResult transfer_coins_result = 36;
+    GenerateEventResult generate_event_result = 37;
   }
 }
 

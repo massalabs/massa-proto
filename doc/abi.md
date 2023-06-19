@@ -83,6 +83,7 @@
     - [SubNativeAmountsRequest](#massa-abi-v1-SubNativeAmountsRequest)
     - [SubNativeAmountsResult](#massa-abi-v1-SubNativeAmountsResult)
     - [TransferCoinsRequest](#massa-abi-v1-TransferCoinsRequest)
+    - [TransferCoinsResult](#massa-abi-v1-TransferCoinsResult)
     - [VerifyBlsMultiSigRequest](#massa-abi-v1-VerifyBlsMultiSigRequest)
     - [VerifyBlsMultiSigResult](#massa-abi-v1-VerifyBlsMultiSigResult)
     - [VerifyBlsSingleSigRequest](#massa-abi-v1-VerifyBlsSingleSigRequest)
@@ -1255,6 +1256,7 @@ data MUST have the same name as they type in Rust they are converted to type
 | verify_evm_sig_result | [VerifyEvmSigResult](#massa-abi-v1-VerifyEvmSigResult) |  |  |
 | verify_bls_single_sig_result | [VerifyBlsSingleSigResult](#massa-abi-v1-VerifyBlsSingleSigResult) |  |  |
 | verify_bls_multi_sig_result | [VerifyBlsMultiSigResult](#massa-abi-v1-VerifyBlsMultiSigResult) |  |  |
+| transfer_coins_result | [TransferCoinsResult](#massa-abi-v1-TransferCoinsResult) |  |  |
 
 
 
@@ -1332,13 +1334,23 @@ Amount subtraction result
 <a name="massa-abi-v1-TransferCoinsRequest"></a>
 
 ### TransferCoinsRequest
-TransferCoins
+Transfer coins request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | target_address | [massa.model.v1.NativeAddress](#massa-model-v1-NativeAddress) |  | The address of the recipient |
 | amount_to_transfer | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | The amount of coins to transfer |
+
+
+
+
+
+
+<a name="massa-abi-v1-TransferCoinsResult"></a>
+
+### TransferCoinsResult
+Transfer coins result
 
 
 
