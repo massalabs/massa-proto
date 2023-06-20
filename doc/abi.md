@@ -43,13 +43,13 @@
     - [ComparisonResult.Equal](#massa-abi-v1-ComparisonResult-Equal)
     - [ComparisonResult.LeftGreater](#massa-abi-v1-ComparisonResult-LeftGreater)
     - [ComparisonResult.LeftLower](#massa-abi-v1-ComparisonResult-LeftLower)
-    - [CreateSCRequest](#massa-abi-v1-CreateSCRequest)
-    - [CreateSCResult](#massa-abi-v1-CreateSCResult)
+    - [CreateScRequest](#massa-abi-v1-CreateScRequest)
+    - [CreateScResult](#massa-abi-v1-CreateScResult)
     - [DivRemNativeAmountRequest](#massa-abi-v1-DivRemNativeAmountRequest)
     - [DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResult)
     - [Error](#massa-abi-v1-Error)
     - [FunctionExistsRequest](#massa-abi-v1-FunctionExistsRequest)
-    - [FunctionExistsResponse](#massa-abi-v1-FunctionExistsResponse)
+    - [FunctionExistsResult](#massa-abi-v1-FunctionExistsResult)
     - [GenerateEventRequest](#massa-abi-v1-GenerateEventRequest)
     - [GenerateEventResult](#massa-abi-v1-GenerateEventResult)
     - [Keccak256Request](#massa-abi-v1-Keccak256Request)
@@ -155,7 +155,7 @@ Amount addition result
 <a name="massa-abi-v1-CallRequest"></a>
 
 ### CallRequest
-CallSC
+Call SC request
 
 
 | Field | Type | Label | Description |
@@ -173,7 +173,7 @@ CallSC
 <a name="massa-abi-v1-CallResponse"></a>
 
 ### CallResponse
-CallResponse
+Call SC response
 
 
 | Field | Type | Label | Description |
@@ -694,9 +694,9 @@ Left is lower
 
 
 
-<a name="massa-abi-v1-CreateSCRequest"></a>
+<a name="massa-abi-v1-CreateScRequest"></a>
 
-### CreateSCRequest
+### CreateScRequest
 Create SC request
 
 
@@ -709,9 +709,9 @@ Create SC request
 
 
 
-<a name="massa-abi-v1-CreateSCResult"></a>
+<a name="massa-abi-v1-CreateScResult"></a>
 
-### CreateSCResult
+### CreateScResult
 Create SC result
 
 
@@ -774,7 +774,7 @@ Error message used in abi Response
 <a name="massa-abi-v1-FunctionExistsRequest"></a>
 
 ### FunctionExistsRequest
-FunctionExists
+Function exists request
 
 
 | Field | Type | Label | Description |
@@ -787,10 +787,10 @@ FunctionExists
 
 
 
-<a name="massa-abi-v1-FunctionExistsResponse"></a>
+<a name="massa-abi-v1-FunctionExistsResult"></a>
 
-### FunctionExistsResponse
-FunctionExistsResponse
+### FunctionExistsResult
+Function exists result
 
 
 | Field | Type | Label | Description |
@@ -1269,6 +1269,8 @@ data MUST have the same name as they type in Rust they are converted to type
 | verify_bls_multi_sig_result | [VerifyBlsMultiSigResult](#massa-abi-v1-VerifyBlsMultiSigResult) |  |  |
 | transfer_coins_result | [TransferCoinsResult](#massa-abi-v1-TransferCoinsResult) |  |  |
 | generate_event_result | [GenerateEventResult](#massa-abi-v1-GenerateEventResult) |  |  |
+| create_sc_result | [CreateScResult](#massa-abi-v1-CreateScResult) |  |  |
+| function_exists_result | [FunctionExistsResult](#massa-abi-v1-FunctionExistsResult) |  |  |
 
 
 

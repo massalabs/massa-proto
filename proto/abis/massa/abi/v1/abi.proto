@@ -26,18 +26,18 @@ message Error {
 }
 
 // Create SC request
-message CreateSCRequest {
+message CreateScRequest {
   // Bytecode is the compiled code of the smart contract
   bytes bytecode = 1;
 }
 
 // Create SC result
-message CreateSCResult {
+message CreateScResult {
   // Address of the just created smart contract
   massa.model.v1.NativeAddress sc_address = 1;
 }
 
-// CallSC
+// Call SC request
 message CallRequest {
   // Address of the smart contract to call
   massa.model.v1.NativeAddress target_sc_address = 1;
@@ -49,7 +49,7 @@ message CallRequest {
   massa.model.v1.NativeAmount call_coins = 4;
 }
 
-// CallResponse
+// Call SC response
 message CallResponse {
   // Return_data is the return value of the function
   bytes data = 1;
@@ -91,7 +91,7 @@ message TransferCoinsRequest {
 // Transfer coins result
 message TransferCoinsResult {}
 
-// FunctionExists
+// Function exists request
 message FunctionExistsRequest {
   // Address of the smart contract to call
   massa.model.v1.NativeAddress target_sc_address = 1;
@@ -99,8 +99,8 @@ message FunctionExistsRequest {
   string function_name = 2;
 }
 
-// FunctionExistsResponse
-message FunctionExistsResponse {
+// Function exists result
+message FunctionExistsResult {
   // Exists is true if the function exists
   bool exists = 1;
 }
@@ -148,6 +148,8 @@ message RespResult {
     VerifyBlsMultiSigResult verify_bls_multi_sig_result = 35;
     TransferCoinsResult transfer_coins_result = 36;
     GenerateEventResult generate_event_result = 37;
+    CreateScResult create_sc_result = 38;
+    FunctionExistsResult function_exists_result = 39;
   }
 }
 
