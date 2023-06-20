@@ -25,12 +25,14 @@ message Error {
   string message = 1;
 }
 
+// Create SC request
 message CreateSCRequest {
   // Bytecode is the compiled code of the smart contract
   bytes bytecode = 1;
 }
 
-message CreateSCResponse {
+// Create SC result
+message CreateSCResult {
   // Address of the just created smart contract
   massa.model.v1.NativeAddress sc_address = 1;
 }

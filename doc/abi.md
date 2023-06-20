@@ -44,7 +44,7 @@
     - [ComparisonResult.LeftGreater](#massa-abi-v1-ComparisonResult-LeftGreater)
     - [ComparisonResult.LeftLower](#massa-abi-v1-ComparisonResult-LeftLower)
     - [CreateSCRequest](#massa-abi-v1-CreateSCRequest)
-    - [CreateSCResponse](#massa-abi-v1-CreateSCResponse)
+    - [CreateSCResult](#massa-abi-v1-CreateSCResult)
     - [DivRemNativeAmountRequest](#massa-abi-v1-DivRemNativeAmountRequest)
     - [DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResult)
     - [Error](#massa-abi-v1-Error)
@@ -697,7 +697,7 @@ Left is lower
 <a name="massa-abi-v1-CreateSCRequest"></a>
 
 ### CreateSCRequest
-
+Create SC request
 
 
 | Field | Type | Label | Description |
@@ -709,10 +709,10 @@ Left is lower
 
 
 
-<a name="massa-abi-v1-CreateSCResponse"></a>
+<a name="massa-abi-v1-CreateSCResult"></a>
 
-### CreateSCResponse
-
+### CreateSCResult
+Create SC result
 
 
 | Field | Type | Label | Description |
