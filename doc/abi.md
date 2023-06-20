@@ -51,6 +51,7 @@
     - [FunctionExistsRequest](#massa-abi-v1-FunctionExistsRequest)
     - [FunctionExistsResponse](#massa-abi-v1-FunctionExistsResponse)
     - [GenerateEventRequest](#massa-abi-v1-GenerateEventRequest)
+    - [GenerateEventResult](#massa-abi-v1-GenerateEventResult)
     - [Keccak256Request](#massa-abi-v1-Keccak256Request)
     - [Keccak256Result](#massa-abi-v1-Keccak256Result)
     - [LocalCallRequest](#massa-abi-v1-LocalCallRequest)
@@ -804,12 +805,22 @@ FunctionExistsResponse
 <a name="massa-abi-v1-GenerateEventRequest"></a>
 
 ### GenerateEventRequest
-GenerateEventRequest
+Generate event request
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | event | [string](#string) |  | Event |
+
+
+
+
+
+
+<a name="massa-abi-v1-GenerateEventResult"></a>
+
+### GenerateEventResult
+Generate event resulst
 
 
 
@@ -866,7 +877,7 @@ LocalCall
 <a name="massa-abi-v1-LocalCallResponse"></a>
 
 ### LocalCallResponse
-LocalCallResponse
+LocalCall response
 
 
 | Field | Type | Label | Description |
@@ -1257,6 +1268,7 @@ data MUST have the same name as they type in Rust they are converted to type
 | verify_bls_single_sig_result | [VerifyBlsSingleSigResult](#massa-abi-v1-VerifyBlsSingleSigResult) |  |  |
 | verify_bls_multi_sig_result | [VerifyBlsMultiSigResult](#massa-abi-v1-VerifyBlsMultiSigResult) |  |  |
 | transfer_coins_result | [TransferCoinsResult](#massa-abi-v1-TransferCoinsResult) |  |  |
+| generate_event_result | [GenerateEventResult](#massa-abi-v1-GenerateEventResult) |  |  |
 
 
 
@@ -1365,8 +1377,8 @@ BLS signature multiple verification request
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| message | [bytes](#bytes) |  | Message to verify |
 | sig | [bytes](#bytes) |  | Signature to verify |
+| message | [bytes](#bytes) |  | Message to verify |
 | pub_keys | [bytes](#bytes) | repeated | Public keys to verify with |
 
 
@@ -1397,8 +1409,8 @@ BLS signature single verification request
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| message | [bytes](#bytes) |  | Message to verify |
 | sig | [bytes](#bytes) |  | Signature to verify |
+| message | [bytes](#bytes) |  | Message to verify |
 | pub_key | [bytes](#bytes) |  | Public key to verify with |
 
 
@@ -1429,8 +1441,8 @@ EVM signature verification request
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| message | [bytes](#bytes) |  | Message to verify |
 | sig | [bytes](#bytes) |  | Signature to verify |
+| message | [bytes](#bytes) |  | Message to verify |
 | pub_key | [bytes](#bytes) |  | Public key to verify with |
 
 
@@ -1461,8 +1473,8 @@ Verify NativeSig request
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| message | [bytes](#bytes) |  | Message to verify |
 | sig | [massa.model.v1.NativeSig](#massa-model-v1-NativeSig) |  | Signature to verify |
+| message | [bytes](#bytes) |  | Message to verify |
 | pub_key | [massa.model.v1.NativePubKey](#massa-model-v1-NativePubKey) |  | Public key to verify with |
 
 

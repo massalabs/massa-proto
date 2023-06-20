@@ -76,9 +76,7 @@ message GenerateEventRequest {
 }
 
 // Generate event resulst
-message GenerateEventResult{
-
-}
+message GenerateEventResult {}
 
 // Transfer coins request
 message TransferCoinsRequest {
@@ -567,10 +565,10 @@ message CompareNativeSigResult {
 
 // Verify NativeSig request
 message VerifyNativeSigRequest {
-  // Message to verify
-  bytes message = 1;
   // Signature to verify
-  massa.model.v1.NativeSig sig = 2;
+  massa.model.v1.NativeSig sig = 1;
+  // Message to verify
+  bytes message = 2;
   // Public key to verify with
   massa.model.v1.NativePubKey pub_key = 3;
 }
@@ -609,10 +607,10 @@ message Keccak256Result {
 
 // EVM signature verification request
 message VerifyEvmSigRequest {
-  // Message to verify
-  bytes message = 1;
   // Signature to verify
-  bytes sig = 2;
+  bytes sig = 1;
+  // Message to verify
+  bytes message = 2;
   // Public key to verify with
   bytes pub_key = 3;
 }
@@ -625,10 +623,10 @@ message VerifyEvmSigResult {
 
 // BLS signature single verification request
 message VerifyBlsSingleSigRequest {
-  // Message to verify
-  bytes message = 1;
   // Signature to verify
-  bytes sig = 2;
+  bytes sig = 1;
+  // Message to verify
+  bytes message = 2;
   // Public key to verify with
   bytes pub_key = 3;
 }
@@ -641,10 +639,10 @@ message VerifyBlsSingleSigResult {
 
 // BLS signature multiple verification request
 message VerifyBlsMultiSigRequest {
-  // Message to verify
-  bytes message = 1;
   // Signature to verify
-  bytes sig = 2;
+  bytes sig = 1;
+  // Message to verify
+  bytes message = 2;
   // Public keys to verify with
   repeated bytes pub_keys = 3;
 }
