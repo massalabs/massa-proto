@@ -24,8 +24,8 @@ option php_namespace = "Com\\Massa\\Api\\V1";
 option ruby_package = "Com::Massa::Api::V1";
 option swift_prefix = "MAPI";
 
-// Massa gRPC service
-service MassaService {
+// Massa public gRPC service
+service PublicService {
   // Get blocks by ids
   rpc GetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {
     option (google.api.http) = {

@@ -283,11 +283,11 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.ShutdownNodeRequest"><span class="badge">M</span>ShutdownNodeRequest</a>
+                  <a href="#massa.api.v1.ShutdownGracefullyRequest"><span class="badge">M</span>ShutdownGracefullyRequest</a>
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.ShutdownNodeResponse"><span class="badge">M</span>ShutdownNodeResponse</a>
+                  <a href="#massa.api.v1.ShutdownGracefullyResponse"><span class="badge">M</span>ShutdownGracefullyResponse</a>
                 </li>
               
                 <li>
@@ -302,7 +302,7 @@
               
               
                 <li>
-                  <a href="#massa.api.v1.MassaPrivateService"><span class="badge">S</span>MassaPrivateService</a>
+                  <a href="#massa.api.v1.PrivateService"><span class="badge">S</span>PrivateService</a>
                 </li>
               
             </ul>
@@ -310,7 +310,7 @@
         
           
           <li>
-            <a href="#massa%2fapi%2fv1%2fapi.proto">massa/api/v1/api.proto</a>
+            <a href="#massa%2fapi%2fv1%2fpublic.proto">massa/api/v1/public.proto</a>
             <ul>
               
                 <li>
@@ -593,7 +593,7 @@
               
               
                 <li>
-                  <a href="#massa.api.v1.MassaService"><span class="badge">S</span>MassaService</a>
+                  <a href="#massa.api.v1.PublicService"><span class="badge">S</span>PublicService</a>
                 </li>
               
             </ul>
@@ -1094,15 +1094,15 @@ Node status </p></td>
 
         
       
-        <h3 id="massa.api.v1.ShutdownNodeRequest">ShutdownNodeRequest</h3>
-        <p>ShutdownNodeRequest holds the request for ShutdownNode</p>
+        <h3 id="massa.api.v1.ShutdownGracefullyRequest">ShutdownGracefullyRequest</h3>
+        <p>ShutdownGracefullyRequest holds the request for ShutdownGracefully</p>
 
         
 
         
       
-        <h3 id="massa.api.v1.ShutdownNodeResponse">ShutdownNodeResponse</h3>
-        <p>ShutdownNodeResponse holds the response from ShutdownNode</p>
+        <h3 id="massa.api.v1.ShutdownGracefullyResponse">ShutdownGracefullyResponse</h3>
+        <p>ShutdownGracefullyResponse holds the response from ShutdownGracefully</p>
 
         
 
@@ -1183,7 +1183,7 @@ Node status </p></td>
       
 
       
-        <h3 id="massa.api.v1.MassaPrivateService">MassaPrivateService</h3>
+        <h3 id="massa.api.v1.PrivateService">PrivateService</h3>
         <p>Massa private gRPC service</p>
         <table class="enum-table">
           <thead>
@@ -1291,10 +1291,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             
               <tr>
-                <td>ShutdownNode</td>
-                <td><a href="#massa.api.v1.ShutdownNodeRequest">ShutdownNodeRequest</a></td>
-                <td><a href="#massa.api.v1.ShutdownNodeResponse">ShutdownNodeResponse</a></td>
-                <td><p>Shutdown the node</p></td>
+                <td>ShutdownGracefully</td>
+                <td><a href="#massa.api.v1.ShutdownGracefullyRequest">ShutdownGracefullyRequest</a></td>
+                <td><a href="#massa.api.v1.ShutdownGracefullyResponse">ShutdownGracefullyResponse</a></td>
+                <td><p>Shutdown the node gracefully</p></td>
               </tr>
             
           </tbody>
@@ -1458,9 +1458,9 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
               
               <tr>
-                <td>ShutdownNode</td>
+                <td>ShutdownGracefully</td>
                 <td>POST</td>
-                <td>/v1/shutdown_node</td>
+                <td>/v1/shutdown_gracefully</td>
                 <td>*</td>
               </tr>
               
@@ -1472,7 +1472,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
     
       
       <div class="file-heading">
-        <h2 id="massa/api/v1/api.proto">massa/api/v1/api.proto</h2><a href="#title">Top</a>
+        <h2 id="massa/api/v1/public.proto">massa/api/v1/public.proto</h2><a href="#title">Top</a>
       </div>
       <p></p>
 
@@ -3533,8 +3533,8 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
       
 
       
-        <h3 id="massa.api.v1.MassaService">MassaService</h3>
-        <p>Massa gRPC service</p>
+        <h3 id="massa.api.v1.PublicService">PublicService</h3>
+        <p>Massa public gRPC service</p>
         <table class="enum-table">
           <thead>
             <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
