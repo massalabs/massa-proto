@@ -30,14 +30,14 @@
     - [RemoveFromPeersWhitelistResponse](#massa-api-v1-RemoveFromPeersWhitelistResponse)
     - [RemoveStakingAddressesRequest](#massa-api-v1-RemoveStakingAddressesRequest)
     - [RemoveStakingAddressesResponse](#massa-api-v1-RemoveStakingAddressesResponse)
-    - [ShutdownNodeRequest](#massa-api-v1-ShutdownNodeRequest)
-    - [ShutdownNodeResponse](#massa-api-v1-ShutdownNodeResponse)
+    - [ShutdownGracefullyRequest](#massa-api-v1-ShutdownGracefullyRequest)
+    - [ShutdownGracefullyResponse](#massa-api-v1-ShutdownGracefullyResponse)
     - [SignMessagesRequest](#massa-api-v1-SignMessagesRequest)
     - [SignMessagesResponse](#massa-api-v1-SignMessagesResponse)
   
-    - [MassaPrivateService](#massa-api-v1-MassaPrivateService)
+    - [PrivateService](#massa-api-v1-PrivateService)
   
-- [massa/api/v1/api.proto](#massa_api_v1_api-proto)
+- [massa/api/v1/public.proto](#massa_api_v1_public-proto)
     - [BlockParent](#massa-api-v1-BlockParent)
     - [BlockResult](#massa-api-v1-BlockResult)
     - [BlocksContext](#massa-api-v1-BlocksContext)
@@ -109,7 +109,7 @@
   
     - [OpType](#massa-api-v1-OpType)
   
-    - [MassaService](#massa-api-v1-MassaService)
+    - [PublicService](#massa-api-v1-PublicService)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -466,20 +466,20 @@ RemoveStakingAddressesResponse holds the response from RemoveStakingAddresses
 
 
 
-<a name="massa-api-v1-ShutdownNodeRequest"></a>
+<a name="massa-api-v1-ShutdownGracefullyRequest"></a>
 
-### ShutdownNodeRequest
-ShutdownNodeRequest holds the request for ShutdownNode
-
-
+### ShutdownGracefullyRequest
+ShutdownGracefullyRequest holds the request for ShutdownGracefully
 
 
 
 
-<a name="massa-api-v1-ShutdownNodeResponse"></a>
 
-### ShutdownNodeResponse
-ShutdownNodeResponse holds the response from ShutdownNode
+
+<a name="massa-api-v1-ShutdownGracefullyResponse"></a>
+
+### ShutdownGracefullyResponse
+ShutdownGracefullyResponse holds the response from ShutdownGracefully
 
 
 
@@ -525,9 +525,9 @@ SignMessagesResponse holds the response from SignMessages
  
 
 
-<a name="massa-api-v1-MassaPrivateService"></a>
+<a name="massa-api-v1-PrivateService"></a>
 
-### MassaPrivateService
+### PrivateService
 Massa private gRPC service
 
 | Method Name | Request Type | Response Type | Description |
@@ -546,16 +546,16 @@ Massa private gRPC service
 | RemoveFromPeersWhitelist | [RemoveFromPeersWhitelistRequest](#massa-api-v1-RemoveFromPeersWhitelistRequest) | [RemoveFromPeersWhitelistResponse](#massa-api-v1-RemoveFromPeersWhitelistResponse) | Remove from peers whitelist given IP addresses |
 | RemoveStakingAddresses | [RemoveStakingAddressesRequest](#massa-api-v1-RemoveStakingAddressesRequest) | [RemoveStakingAddressesResponse](#massa-api-v1-RemoveStakingAddressesResponse) | Remove addresses from staking |
 | SignMessages | [SignMessagesRequest](#massa-api-v1-SignMessagesRequest) | [SignMessagesResponse](#massa-api-v1-SignMessagesResponse) | Sign messages with node&#39;s key |
-| ShutdownNode | [ShutdownNodeRequest](#massa-api-v1-ShutdownNodeRequest) | [ShutdownNodeResponse](#massa-api-v1-ShutdownNodeResponse) | Shutdown the node |
+| ShutdownGracefully | [ShutdownGracefullyRequest](#massa-api-v1-ShutdownGracefullyRequest) | [ShutdownGracefullyResponse](#massa-api-v1-ShutdownGracefullyResponse) | Shutdown the node gracefully |
 
  
 
 
 
-<a name="massa_api_v1_api-proto"></a>
+<a name="massa_api_v1_public-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## massa/api/v1/api.proto
+## massa/api/v1/public.proto
 
 
 
@@ -1655,10 +1655,10 @@ Operation type enum
  
 
 
-<a name="massa-api-v1-MassaService"></a>
+<a name="massa-api-v1-PublicService"></a>
 
-### MassaService
-Massa gRPC service
+### PublicService
+Massa public gRPC service
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|

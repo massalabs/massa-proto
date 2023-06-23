@@ -16,7 +16,7 @@ option ruby_package = "Com::Massa::Api::V1";
 option swift_prefix = "MAPI";
 
 // Massa private gRPC service
-service MassaPrivateService {
+service PrivateService {
   // Add IP addresses to node bootstrap blacklist
   rpc AddToBootstrapBlacklist(AddToBootstrapBlacklistRequest) returns (AddToBootstrapBlacklistResponse) {
     option (google.api.http) = {
@@ -67,9 +67,9 @@ service MassaPrivateService {
   }
 
   // Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file
-  rpc GetBootstrapWhitelistAllowAll(GetBootstrapWhitelistAllowAllRequest) returns (GetBootstrapWhitelistAllowAllResponse) {
+  rpc AllowEveryoneToBootstrap(AllowEveryoneToBootstrapRequest) returns (AllowEveryoneToBootstrapResponse) {
     option (google.api.http) = {
-      post: "/v1/get_bootstrap_whitelist_allow_all"
+      post: "/v1/allow_everyone_to_bootstrap"
       body: "*"
     };
   }
@@ -203,11 +203,11 @@ message GetBootstrapWhitelistResponse {
   repeated string ips = 2;
 }
 
-// GetBootstrapWhitelistAllowAllRequest holds the request for GetBootstrapWhitelistAllowAll
-message GetBootstrapWhitelistAllowAllRequest {}
+// AllowEveryoneToBootstrapRequest holds the request for AllowEveryoneToBootstrap
+message AllowEveryoneToBootstrapRequest {}
 
-// GetBootstrapWhitelistAllowAllResponse holds the response from GetBootstrapWhitelistAllowAll
-message GetBootstrapWhitelistAllowAllResponse {}
+// AllowEveryoneToBootstrapResponse holds the response from AllowEveryoneToBootstrap
+message AllowEveryoneToBootstrapResponse {}
 
 // GetNodeStatusRequest holds the request for GetNodeStatus
 message GetNodeStatusRequest {
