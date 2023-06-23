@@ -11,6 +11,7 @@ import "massa/model/v1/commons.proto";
 import "massa/model/v1/draw.proto";
 import "massa/model/v1/endorsement.proto";
 import "massa/model/v1/execution.proto";
+import "massa/model/v1/node.proto";
 import "massa/model/v1/operation.proto";
 import "massa/model/v1/slot.proto";
 import "massa/model/v1/versioning.proto";
@@ -88,6 +89,14 @@ service PublicService {
   rpc GetSelectorDraws(GetSelectorDrawsRequest) returns (GetSelectorDrawsResponse) {
     option (google.api.http) = {
       post: "/v1/get_selector_draws"
+      body: "*"
+    };
+  }
+
+  // Get status
+  rpc GetStatus(GetStatusRequest) returns (GetStatusResponse) {
+    option (google.api.http) = {
+      post: "/v1/get_status"
       body: "*"
     };
   }
@@ -396,6 +405,20 @@ message GetScExecutionEventsResponse {
 message GetScExecutionEventsContext {
   // Slot
   massa.model.v1.Slot slot = 1;
+}
+
+// GetStatusRequest holds request from GetStatus
+message GetStatusRequest {
+  // Request id
+  string id = 1;
+}
+
+// GetStatusResponse holds request from GetStatus
+message GetStatusResponse {
+  // Request id
+  string id = 1;
+  // Status
+  massa.model.v1.PublicStatus status = 2;
 }
 
 // GetSelectorDrawsRequest holds request from GetSelectorDraws

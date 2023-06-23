@@ -24,6 +24,7 @@
     - [CompactConfig](#massa-model-v1-CompactConfig)
     - [ConnectedNode](#massa-model-v1-ConnectedNode)
     - [NodeStatus](#massa-model-v1-NodeStatus)
+    - [PublicStatus](#massa-model-v1-PublicStatus)
   
     - [ConnectionType](#massa-model-v1-ConnectionType)
   
@@ -414,6 +415,28 @@ Node status
 | network_stats | [NetworkStats](#massa-model-v1-NetworkStats) |  | Network stats |
 | execution_stats | [ExecutionStats](#massa-model-v1-ExecutionStats) |  | Execution stats |
 | config | [CompactConfig](#massa-model-v1-CompactConfig) |  | Compact configuration |
+
+
+
+
+
+
+<a name="massa-model-v1-PublicStatus"></a>
+
+### PublicStatus
+Public status
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| node_id | [string](#string) |  | Our node id |
+| version | [string](#string) |  | Node version |
+| current_time | [uint64](#uint64) |  | Now |
+| current_cycle | [uint64](#uint64) |  | Current cycle |
+| current_cycle_time | [uint64](#uint64) |  | Current cycle starting timestamp |
+| next_cycle_time | [uint64](#uint64) |  | Next cycle starting timestamp |
+| last_slot | [Slot](#massa-model-v1-Slot) |  | Latest slot, none if now is before genesis timestamp |
+| next_slot | [Slot](#massa-model-v1-Slot) |  | Next slot |
 
 
 
