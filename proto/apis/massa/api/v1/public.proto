@@ -103,12 +103,26 @@ service PublicService {
 
   // Get transactions throughput
   rpc GetTransactionsThroughput(GetTransactionsThroughputRequest) returns (GetTransactionsThroughputResponse) {
-    option (google.api.http) = {get: "/v1/transactions_throughput"};
+    option (google.api.http) = {
+      post: "/v1/transactions_throughput"
+      body: "*"
+    };
   }
 
   // Get node version
   rpc GetVersion(GetVersionRequest) returns (GetVersionResponse) {
-    option (google.api.http) = {get: "/v1/version"};
+    option (google.api.http) = {
+      post: "/v1/get_version"
+      body: "*"
+    };
+  }
+
+  // Query state
+  rpc QueryState(QueryStateRequest) returns (QueryStateResponse) {
+    option (google.api.http) = {
+      post: "/v1/query_state"
+      body: "*"
+    };
   }
 
   // ███████╗████████╗██████╗ ███████╗ █████╗ ███╗   ███╗
@@ -473,6 +487,19 @@ message GetVersionResponse {
   string id = 1;
   // Version
   string version = 2;
+}
+
+//TODO to be implemented
+// QueryStateRequest holds request from QueryState
+message QueryStateRequest {
+  // Request id
+  string id = 1;
+}
+
+// QueryStateResponse holds response from QueryState
+message QueryStateResponse {
+  // Request id
+  string id = 1;
 }
 
 // NewBlocksRequest holds request for NewBlocks
