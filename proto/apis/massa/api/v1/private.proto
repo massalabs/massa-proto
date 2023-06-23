@@ -130,10 +130,10 @@ service MassaPrivateService {
     };
   }
 
-  // Shutdown the node
-  rpc ShutdownNode(ShutdownNodeRequest) returns (ShutdownNodeResponse) {
+  // Shutdown the node gracefully
+  rpc ShutdownGracefully(ShutdownGracefullyRequest) returns (ShutdownGracefullyResponse) {
     option (google.api.http) = {
-      post: "/v1/shutdown_node"
+      post: "/v1/shutdown_gracefully"
       body: "*"
     };
   }
@@ -292,8 +292,8 @@ message SignMessagesResponse {
   repeated string signatures = 3;
 }
 
-// ShutdownNodeRequest holds the request for ShutdownNode
-message ShutdownNodeRequest {}
+// ShutdownGracefullyRequest holds the request for ShutdownGracefully
+message ShutdownGracefullyRequest {}
 
-// ShutdownNodeResponse holds the response from ShutdownNode
-message ShutdownNodeResponse {}
+// ShutdownGracefullyResponse holds the response from ShutdownGracefully
+message ShutdownGracefullyResponse {}
