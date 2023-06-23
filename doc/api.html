@@ -211,19 +211,19 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.AllowEveryoneToBootstrapRequest"><span class="badge">M</span>AllowEveryoneToBootstrapRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.AllowEveryoneToBootstrapResponse"><span class="badge">M</span>AllowEveryoneToBootstrapResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.GetBootstrapBlacklistRequest"><span class="badge">M</span>GetBootstrapBlacklistRequest</a>
                 </li>
               
                 <li>
                   <a href="#massa.api.v1.GetBootstrapBlacklistResponse"><span class="badge">M</span>GetBootstrapBlacklistResponse</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.GetBootstrapWhitelistAllowAllRequest"><span class="badge">M</span>GetBootstrapWhitelistAllowAllRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.GetBootstrapWhitelistAllowAllResponse"><span class="badge">M</span>GetBootstrapWhitelistAllowAllResponse</a>
                 </li>
               
                 <li>
@@ -439,6 +439,14 @@
               
                 <li>
                   <a href="#massa.api.v1.GetSelectorDrawsResponse"><span class="badge">M</span>GetSelectorDrawsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetStatusRequest"><span class="badge">M</span>GetStatusRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetStatusResponse"><span class="badge">M</span>GetStatusResponse</a>
                 </li>
               
                 <li>
@@ -735,6 +743,20 @@
 
         
       
+        <h3 id="massa.api.v1.AllowEveryoneToBootstrapRequest">AllowEveryoneToBootstrapRequest</h3>
+        <p>AllowEveryoneToBootstrapRequest holds the request for AllowEveryoneToBootstrap</p>
+
+        
+
+        
+      
+        <h3 id="massa.api.v1.AllowEveryoneToBootstrapResponse">AllowEveryoneToBootstrapResponse</h3>
+        <p>AllowEveryoneToBootstrapResponse holds the response from AllowEveryoneToBootstrap</p>
+
+        
+
+        
+      
         <h3 id="massa.api.v1.GetBootstrapBlacklistRequest">GetBootstrapBlacklistRequest</h3>
         <p>GetBootstrapBlacklistRequest holds the request for GetBootstrapBlacklist</p>
 
@@ -787,20 +809,6 @@
           </table>
 
           
-
-        
-      
-        <h3 id="massa.api.v1.GetBootstrapWhitelistAllowAllRequest">GetBootstrapWhitelistAllowAllRequest</h3>
-        <p>GetBootstrapWhitelistAllowAllRequest holds the request for GetBootstrapWhitelistAllowAll</p>
-
-        
-
-        
-      
-        <h3 id="massa.api.v1.GetBootstrapWhitelistAllowAllResponse">GetBootstrapWhitelistAllowAllResponse</h3>
-        <p>GetBootstrapWhitelistAllowAllResponse holds the response from GetBootstrapWhitelistAllowAll</p>
-
-        
 
         
       
@@ -902,10 +910,9 @@
               
                 <tr>
                   <td>status</td>
-                  <td><a href="#string">string</a></td>
+                  <td><a href="#massa.model.v1.NodeStatus">massa.model.v1.NodeStatus</a></td>
                   <td></td>
-                  <td><p>TODO to be implemented
-Node status </p></td>
+                  <td><p>Node status </p></td>
                 </tr>
               
             </tbody>
@@ -1235,9 +1242,9 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             
               <tr>
-                <td>GetBootstrapWhitelistAllowAll</td>
-                <td><a href="#massa.api.v1.GetBootstrapWhitelistAllowAllRequest">GetBootstrapWhitelistAllowAllRequest</a></td>
-                <td><a href="#massa.api.v1.GetBootstrapWhitelistAllowAllResponse">GetBootstrapWhitelistAllowAllResponse</a></td>
+                <td>AllowEveryoneToBootstrap</td>
+                <td><a href="#massa.api.v1.AllowEveryoneToBootstrapRequest">AllowEveryoneToBootstrapRequest</a></td>
+                <td><a href="#massa.api.v1.AllowEveryoneToBootstrapResponse">AllowEveryoneToBootstrapResponse</a></td>
                 <td><p>Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file</p></td>
               </tr>
             
@@ -1245,7 +1252,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td>GetNodeStatus</td>
                 <td><a href="#massa.api.v1.GetNodeStatusRequest">GetNodeStatusRequest</a></td>
                 <td><a href="#massa.api.v1.GetNodeStatusResponse">GetNodeStatusResponse</a></td>
-                <td><p>Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file</p></td>
+                <td><p>Get node status</p></td>
               </tr>
             
               <tr>
@@ -1378,9 +1385,9 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
               
               <tr>
-                <td>GetBootstrapWhitelistAllowAll</td>
+                <td>AllowEveryoneToBootstrap</td>
                 <td>POST</td>
-                <td>/v1/get_bootstrap_whitelist_allow_all</td>
+                <td>/v1/allow_everyone_to_bootstrap</td>
                 <td>*</td>
               </tr>
               
@@ -2432,6 +2439,61 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#massa.model.v1.SelectorDraws">massa.model.v1.SelectorDraws</a></td>
                   <td>repeated</td>
                   <td><p>Selector draws </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetStatusRequest">GetStatusRequest</h3>
+        <p>GetStatusRequest holds request from GetStatus</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetStatusResponse">GetStatusResponse</h3>
+        <p>GetStatusResponse holds request from GetStatus</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#massa.model.v1.PublicStatus">massa.model.v1.PublicStatus</a></td>
+                  <td></td>
+                  <td><p>Status </p></td>
                 </tr>
               
             </tbody>
@@ -3605,6 +3667,13 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             
               <tr>
+                <td>GetStatus</td>
+                <td><a href="#massa.api.v1.GetStatusRequest">GetStatusRequest</a></td>
+                <td><a href="#massa.api.v1.GetStatusResponse">GetStatusResponse</a></td>
+                <td><p>Get status</p></td>
+              </tr>
+            
+              <tr>
                 <td>GetTransactionsThroughput</td>
                 <td><a href="#massa.api.v1.GetTransactionsThroughputRequest">GetTransactionsThroughputRequest</a></td>
                 <td><a href="#massa.api.v1.GetTransactionsThroughputResponse">GetTransactionsThroughputResponse</a></td>
@@ -3792,6 +3861,16 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td>GetSelectorDraws</td>
                 <td>POST</td>
                 <td>/v1/get_selector_draws</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetStatus</td>
+                <td>POST</td>
+                <td>/v1/get_status</td>
                 <td>*</td>
               </tr>
               

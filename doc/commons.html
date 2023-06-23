@@ -263,6 +263,10 @@
                   <a href="#massa.model.v1.NodeStatus"><span class="badge">M</span>NodeStatus</a>
                 </li>
               
+                <li>
+                  <a href="#massa.model.v1.PublicStatus"><span class="badge">M</span>PublicStatus</a>
+                </li>
+              
               
                 <li>
                   <a href="#massa.model.v1.ConnectionType"><span class="badge">E</span>ConnectionType</a>
@@ -1382,6 +1386,79 @@
                   <td><a href="#massa.model.v1.CompactConfig">CompactConfig</a></td>
                   <td></td>
                   <td><p>Compact configuration </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.PublicStatus">PublicStatus</h3>
+        <p>Public status</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>node_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Our node id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>version</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Node version </p></td>
+                </tr>
+              
+                <tr>
+                  <td>current_time</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Now </p></td>
+                </tr>
+              
+                <tr>
+                  <td>current_cycle</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Current cycle </p></td>
+                </tr>
+              
+                <tr>
+                  <td>current_cycle_time</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Current cycle starting timestamp </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_cycle_time</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Next cycle starting timestamp </p></td>
+                </tr>
+              
+                <tr>
+                  <td>last_slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Latest slot, none if now is before genesis timestamp </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Next slot </p></td>
                 </tr>
               
             </tbody>

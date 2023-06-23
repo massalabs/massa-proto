@@ -12,10 +12,10 @@
     - [AddToBootstrapWhitelistResponse](#massa-api-v1-AddToBootstrapWhitelistResponse)
     - [AddToPeersWhitelistRequest](#massa-api-v1-AddToPeersWhitelistRequest)
     - [AddToPeersWhitelistResponse](#massa-api-v1-AddToPeersWhitelistResponse)
+    - [AllowEveryoneToBootstrapRequest](#massa-api-v1-AllowEveryoneToBootstrapRequest)
+    - [AllowEveryoneToBootstrapResponse](#massa-api-v1-AllowEveryoneToBootstrapResponse)
     - [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest)
     - [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse)
-    - [GetBootstrapWhitelistAllowAllRequest](#massa-api-v1-GetBootstrapWhitelistAllowAllRequest)
-    - [GetBootstrapWhitelistAllowAllResponse](#massa-api-v1-GetBootstrapWhitelistAllowAllResponse)
     - [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest)
     - [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse)
     - [GetNodeStatusRequest](#massa-api-v1-GetNodeStatusRequest)
@@ -70,6 +70,8 @@
     - [GetScExecutionEventsResponse](#massa-api-v1-GetScExecutionEventsResponse)
     - [GetSelectorDrawsRequest](#massa-api-v1-GetSelectorDrawsRequest)
     - [GetSelectorDrawsResponse](#massa-api-v1-GetSelectorDrawsResponse)
+    - [GetStatusRequest](#massa-api-v1-GetStatusRequest)
+    - [GetStatusResponse](#massa-api-v1-GetStatusResponse)
     - [GetTransactionsThroughputRequest](#massa-api-v1-GetTransactionsThroughputRequest)
     - [GetTransactionsThroughputResponse](#massa-api-v1-GetTransactionsThroughputResponse)
     - [GetVersionRequest](#massa-api-v1-GetVersionRequest)
@@ -222,6 +224,26 @@ AddToPeersWhitelistResponse holds the response from AddToPeersWhitelist
 
 
 
+<a name="massa-api-v1-AllowEveryoneToBootstrapRequest"></a>
+
+### AllowEveryoneToBootstrapRequest
+AllowEveryoneToBootstrapRequest holds the request for AllowEveryoneToBootstrap
+
+
+
+
+
+
+<a name="massa-api-v1-AllowEveryoneToBootstrapResponse"></a>
+
+### AllowEveryoneToBootstrapResponse
+AllowEveryoneToBootstrapResponse holds the response from AllowEveryoneToBootstrap
+
+
+
+
+
+
 <a name="massa-api-v1-GetBootstrapBlacklistRequest"></a>
 
 ### GetBootstrapBlacklistRequest
@@ -247,26 +269,6 @@ GetBootstrapBlacklistResponse holds the response from GetBootstrapBlacklist
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Request id |
 | ips | [string](#string) | repeated | Bootstrap blacklisted IP addresses |
-
-
-
-
-
-
-<a name="massa-api-v1-GetBootstrapWhitelistAllowAllRequest"></a>
-
-### GetBootstrapWhitelistAllowAllRequest
-GetBootstrapWhitelistAllowAllRequest holds the request for GetBootstrapWhitelistAllowAll
-
-
-
-
-
-
-<a name="massa-api-v1-GetBootstrapWhitelistAllowAllResponse"></a>
-
-### GetBootstrapWhitelistAllowAllResponse
-GetBootstrapWhitelistAllowAllResponse holds the response from GetBootstrapWhitelistAllowAll
 
 
 
@@ -328,7 +330,7 @@ GetNodeStatusResponse holds the response from GetNodeStatus
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Request id |
-| status | [string](#string) |  | TODO to be implemented Node status |
+| status | [massa.model.v1.NodeStatus](#massa-model-v1-NodeStatus) |  | Node status |
 
 
 
@@ -538,8 +540,8 @@ Massa private gRPC service
 | AddStakingSecretKeys | [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest) | [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse) | Add staking secret keys to wallet |
 | GetBootstrapBlacklist | [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest) | [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse) | Get node bootstrap blacklist IP addresses |
 | GetBootstrapWhitelist | [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest) | [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse) | Get node bootstrap whitelist IP addresses |
-| GetBootstrapWhitelistAllowAll | [GetBootstrapWhitelistAllowAllRequest](#massa-api-v1-GetBootstrapWhitelistAllowAllRequest) | [GetBootstrapWhitelistAllowAllResponse](#massa-api-v1-GetBootstrapWhitelistAllowAllResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file |
-| GetNodeStatus | [GetNodeStatusRequest](#massa-api-v1-GetNodeStatusRequest) | [GetNodeStatusResponse](#massa-api-v1-GetNodeStatusResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file |
+| AllowEveryoneToBootstrap | [AllowEveryoneToBootstrapRequest](#massa-api-v1-AllowEveryoneToBootstrapRequest) | [AllowEveryoneToBootstrapResponse](#massa-api-v1-AllowEveryoneToBootstrapResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file |
+| GetNodeStatus | [GetNodeStatusRequest](#massa-api-v1-GetNodeStatusRequest) | [GetNodeStatusResponse](#massa-api-v1-GetNodeStatusResponse) | Get node status |
 | GetPeersWhitelist | [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest) | [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse) | Get node peers whitelist IP addresses |
 | RemoveFromBootstrapBlacklist | [RemoveFromBootstrapBlacklistRequest](#massa-api-v1-RemoveFromBootstrapBlacklistRequest) | [RemoveFromBootstrapBlacklistResponse](#massa-api-v1-RemoveFromBootstrapBlacklistResponse) | Remove from bootstrap blacklist given IP addresses |
 | RemoveFromBootstrapWhitelist | [RemoveFromBootstrapWhitelistRequest](#massa-api-v1-RemoveFromBootstrapWhitelistRequest) | [RemoveFromBootstrapWhitelistResponse](#massa-api-v1-RemoveFromBootstrapWhitelistResponse) | Remove from bootstrap whitelist given IP addresses |
@@ -1061,6 +1063,37 @@ GetSelectorDrawsResponse holds response from GetSelectorDraws
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Request id |
 | selector_draws | [massa.model.v1.SelectorDraws](#massa-model-v1-SelectorDraws) | repeated | Selector draws |
+
+
+
+
+
+
+<a name="massa-api-v1-GetStatusRequest"></a>
+
+### GetStatusRequest
+GetStatusRequest holds request from GetStatus
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
+
+
+
+
+
+
+<a name="massa-api-v1-GetStatusResponse"></a>
+
+### GetStatusResponse
+GetStatusResponse holds request from GetStatus
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
+| status | [massa.model.v1.PublicStatus](#massa-model-v1-PublicStatus) |  | Status |
 
 
 
@@ -1670,6 +1703,7 @@ Massa public gRPC service
 | GetOperations | [GetOperationsRequest](#massa-api-v1-GetOperationsRequest) | [GetOperationsResponse](#massa-api-v1-GetOperationsResponse) | Get operations |
 | GetScExecutionEvents | [GetScExecutionEventsRequest](#massa-api-v1-GetScExecutionEventsRequest) | [GetScExecutionEventsResponse](#massa-api-v1-GetScExecutionEventsResponse) | Get smart contracts execution events |
 | GetSelectorDraws | [GetSelectorDrawsRequest](#massa-api-v1-GetSelectorDrawsRequest) | [GetSelectorDrawsResponse](#massa-api-v1-GetSelectorDrawsResponse) | Get selector draws |
+| GetStatus | [GetStatusRequest](#massa-api-v1-GetStatusRequest) | [GetStatusResponse](#massa-api-v1-GetStatusResponse) | Get status |
 | GetTransactionsThroughput | [GetTransactionsThroughputRequest](#massa-api-v1-GetTransactionsThroughputRequest) | [GetTransactionsThroughputResponse](#massa-api-v1-GetTransactionsThroughputResponse) | Get transactions throughput |
 | GetVersion | [GetVersionRequest](#massa-api-v1-GetVersionRequest) | [GetVersionResponse](#massa-api-v1-GetVersionResponse) | Get node version |
 | NewBlocks | [NewBlocksRequest](#massa-api-v1-NewBlocksRequest) stream | [NewBlocksResponse](#massa-api-v1-NewBlocksResponse) stream | New received and produced blocks |
