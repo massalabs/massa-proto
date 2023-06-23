@@ -15,21 +15,21 @@ option php_namespace = "Com\\Massa\\Model\\V1";
 option ruby_package = "Com::Massa::Model::V1";
 option swift_prefix = "MMODEL";
 
-// Consensus stats
+// Consensus statistics
 message ConsensusStats {
-  // start of the time span for stats
+  // Start of the time span for stats
   uint64 start_timespan = 1;
-  // end of the time span for stats
+  // End of the time span for stats
   uint64 end_timespan = 2;
-  // number of final blocks
+  // Number of final blocks
   uint64 final_block_count = 3;
-  // number of stale blocks in memory
+  // Number of stale blocks in memory
   uint64 stale_block_count = 4;
-  //  number of actives cliques
+  // Number of actives cliques
   uint64 clique_count = 5;
 }
 
-// Pool stats
+// Pool statistics
 message PoolStats {
   // Endorsements
   uint64 endorsements_count = 1;
@@ -37,30 +37,32 @@ message PoolStats {
   uint64 operations_count = 2;
 }
 
-// Network stats
+// Network statistics
 message NetworkStats {
-  // in connections count
+  // In connections count
   uint64 in_connection_count = 1;
-  // out connections count
+  // Out connections count
   uint64 out_connection_count = 2;
-  // total known peers count
+  // Total known peers count
   uint64 known_peer_count = 3;
-  // banned node count
+  // Banned node count
   uint64 banned_peer_count = 4;
-  // active node count
+  // Active node count
   uint64 active_node_count = 5;
 }
 
-// Execution stats
+// Execution statistics
 message ExecutionStats {
-  // time window start
+  // Time window start
   uint64 time_window_start = 1;
-  // time window end
+  // Time window end
   uint64 time_window_end = 2;
-  // number of final blocks in the time window
+  // Number of final blocks in the time window
   uint64 final_block_count = 3;
-  // number of final executed operations in the time window
+  // Number of final executed operations in the time window
   uint64 final_executed_operations_count = 4;
-  // active execution cursor slot
+  // Active execution cursor slot
   massa.model.v1.Slot active_cursor = 5;
+  // Final execution cursor slot
+  massa.model.v1.Slot final_cursor = 6;
 }
