@@ -53,8 +53,6 @@
     - [GetBlocksResponse](#massa-api-v1-GetBlocksResponse)
     - [GetDatastoreEntriesRequest](#massa-api-v1-GetDatastoreEntriesRequest)
     - [GetDatastoreEntriesResponse](#massa-api-v1-GetDatastoreEntriesResponse)
-    - [GetLargestStakersRequest](#massa-api-v1-GetLargestStakersRequest)
-    - [GetLargestStakersResponse](#massa-api-v1-GetLargestStakersResponse)
     - [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest)
     - [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse)
     - [GetNextBlockBestParentsRequest](#massa-api-v1-GetNextBlockBestParentsRequest)
@@ -70,6 +68,8 @@
     - [GetScExecutionEventsResponse](#massa-api-v1-GetScExecutionEventsResponse)
     - [GetSelectorDrawsRequest](#massa-api-v1-GetSelectorDrawsRequest)
     - [GetSelectorDrawsResponse](#massa-api-v1-GetSelectorDrawsResponse)
+    - [GetStakersRequest](#massa-api-v1-GetStakersRequest)
+    - [GetStakersResponse](#massa-api-v1-GetStakersResponse)
     - [GetStatusRequest](#massa-api-v1-GetStatusRequest)
     - [GetStatusResponse](#massa-api-v1-GetStatusResponse)
     - [GetTransactionsThroughputRequest](#massa-api-v1-GetTransactionsThroughputRequest)
@@ -98,6 +98,8 @@
     - [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse)
     - [OperationResult](#massa-api-v1-OperationResult)
     - [OperationsContext](#massa-api-v1-OperationsContext)
+    - [QueryStateRequest](#massa-api-v1-QueryStateRequest)
+    - [QueryStateResponse](#massa-api-v1-QueryStateResponse)
     - [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter)
     - [SelectorDrawsQuery](#massa-api-v1-SelectorDrawsQuery)
     - [SendBlocksRequest](#massa-api-v1-SendBlocksRequest)
@@ -796,39 +798,6 @@ GetDatastoreEntriesResponse holds response from GetDatastoreEntries
 
 
 
-<a name="massa-api-v1-GetLargestStakersRequest"></a>
-
-### GetLargestStakersRequest
-GetLargestStakersRequest holds request from GetLargestStakers
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Request id |
-| query | [LargestStakersQuery](#massa-api-v1-LargestStakersQuery) |  | Query |
-
-
-
-
-
-
-<a name="massa-api-v1-GetLargestStakersResponse"></a>
-
-### GetLargestStakersResponse
-GetLargestStakersResponse holds response from GetLargestStakers
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Request id |
-| context | [LargestStakersContext](#massa-api-v1-LargestStakersContext) |  | Context |
-| stakers | [LargestStakerEntry](#massa-api-v1-LargestStakerEntry) | repeated | Largest stakers |
-
-
-
-
-
-
 <a name="massa-api-v1-GetMipStatusRequest"></a>
 
 ### GetMipStatusRequest
@@ -1063,6 +1032,39 @@ GetSelectorDrawsResponse holds response from GetSelectorDraws
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Request id |
 | selector_draws | [massa.model.v1.SelectorDraws](#massa-model-v1-SelectorDraws) | repeated | Selector draws |
+
+
+
+
+
+
+<a name="massa-api-v1-GetStakersRequest"></a>
+
+### GetStakersRequest
+GetStakersRequest holds request from GetStakers
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
+| query | [LargestStakersQuery](#massa-api-v1-LargestStakersQuery) |  | Query |
+
+
+
+
+
+
+<a name="massa-api-v1-GetStakersResponse"></a>
+
+### GetStakersResponse
+GetStakersResponse holds response from GetStakers
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
+| context | [LargestStakersContext](#massa-api-v1-LargestStakersContext) |  | Context |
+| stakers | [LargestStakerEntry](#massa-api-v1-LargestStakerEntry) | repeated | Largest stakers |
 
 
 
@@ -1504,6 +1506,37 @@ Operations context
 
 
 
+<a name="massa-api-v1-QueryStateRequest"></a>
+
+### QueryStateRequest
+TODO to be implemented
+QueryStateRequest holds request from QueryState
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
+
+
+
+
+
+
+<a name="massa-api-v1-QueryStateResponse"></a>
+
+### QueryStateResponse
+QueryStateResponse holds response from QueryState
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Request id |
+
+
+
+
+
+
 <a name="massa-api-v1-SelectorDrawsFilter"></a>
 
 ### SelectorDrawsFilter
@@ -1697,7 +1730,7 @@ Massa public gRPC service
 | GetBlocks | [GetBlocksRequest](#massa-api-v1-GetBlocksRequest) | [GetBlocksResponse](#massa-api-v1-GetBlocksResponse) | Get blocks by ids |
 | GetBlocksBySlots | [GetBlocksBySlotsRequest](#massa-api-v1-GetBlocksBySlotsRequest) | [GetBlocksBySlotsResponse](#massa-api-v1-GetBlocksBySlotsResponse) | Get blocks by slots |
 | GetDatastoreEntries | [GetDatastoreEntriesRequest](#massa-api-v1-GetDatastoreEntriesRequest) | [GetDatastoreEntriesResponse](#massa-api-v1-GetDatastoreEntriesResponse) | Get datastore entries |
-| GetLargestStakers | [GetLargestStakersRequest](#massa-api-v1-GetLargestStakersRequest) | [GetLargestStakersResponse](#massa-api-v1-GetLargestStakersResponse) | Get largest stakers |
+| GetStakers | [GetStakersRequest](#massa-api-v1-GetStakersRequest) | [GetStakersResponse](#massa-api-v1-GetStakersResponse) | Get stakers |
 | GetMipStatus | [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest) | [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse) | Get Mip status |
 | GetNextBlockBestParents | [GetNextBlockBestParentsRequest](#massa-api-v1-GetNextBlockBestParentsRequest) | [GetNextBlockBestParentsResponse](#massa-api-v1-GetNextBlockBestParentsResponse) | Get next block best parents |
 | GetOperations | [GetOperationsRequest](#massa-api-v1-GetOperationsRequest) | [GetOperationsResponse](#massa-api-v1-GetOperationsResponse) | Get operations |
@@ -1706,6 +1739,7 @@ Massa public gRPC service
 | GetStatus | [GetStatusRequest](#massa-api-v1-GetStatusRequest) | [GetStatusResponse](#massa-api-v1-GetStatusResponse) | Get status |
 | GetTransactionsThroughput | [GetTransactionsThroughputRequest](#massa-api-v1-GetTransactionsThroughputRequest) | [GetTransactionsThroughputResponse](#massa-api-v1-GetTransactionsThroughputResponse) | Get transactions throughput |
 | GetVersion | [GetVersionRequest](#massa-api-v1-GetVersionRequest) | [GetVersionResponse](#massa-api-v1-GetVersionResponse) | Get node version |
+| QueryState | [QueryStateRequest](#massa-api-v1-QueryStateRequest) | [QueryStateResponse](#massa-api-v1-QueryStateResponse) | Query state |
 | NewBlocks | [NewBlocksRequest](#massa-api-v1-NewBlocksRequest) stream | [NewBlocksResponse](#massa-api-v1-NewBlocksResponse) stream | New received and produced blocks |
 | NewBlocksHeaders | [NewBlocksHeadersRequest](#massa-api-v1-NewBlocksHeadersRequest) stream | [NewBlocksHeadersResponse](#massa-api-v1-NewBlocksHeadersResponse) stream | New received and produced blocks headers |
 | NewEndorsements | [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest) stream | [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse) stream | New received and produced endorsements |

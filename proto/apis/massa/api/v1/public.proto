@@ -51,22 +51,28 @@ service PublicService {
     };
   }
 
-  // Get largest stakers
-  rpc GetLargestStakers(GetLargestStakersRequest) returns (GetLargestStakersResponse) {
+  // Get stakers
+  rpc GetStakers(GetStakersRequest) returns (GetStakersResponse) {
     option (google.api.http) = {
-      post: "/v1/get_largest_stakers"
+      post: "/v1/get_stakers"
       body: "*"
     };
   }
 
   // Get Mip status
   rpc GetMipStatus(GetMipStatusRequest) returns (GetMipStatusResponse) {
-    option (google.api.http) = {get: "/v1/get_mip_status"};
+    option (google.api.http) = {
+      post: "/v1/get_mip_status"
+      body: "*"
+    };
   }
 
   // Get next block best parents
   rpc GetNextBlockBestParents(GetNextBlockBestParentsRequest) returns (GetNextBlockBestParentsResponse) {
-    option (google.api.http) = {get: "/v1/get_next_block_best_parents"};
+    option (google.api.http) = {
+      post: "/v1/get_next_block_best_parents"
+      body: "*"
+    };
   }
 
   // Get operations
@@ -251,8 +257,8 @@ message DatastoreEntry {
   bytes candidate_value = 2;
 }
 
-// GetLargestStakersRequest holds request from GetLargestStakers
-message GetLargestStakersRequest {
+// GetStakersRequest holds request from GetStakers
+message GetStakersRequest {
   // Request id
   string id = 1;
   // Query
@@ -277,8 +283,8 @@ message LargestStakersFilter {
   optional uint64 max_rolls = 2;
 }
 
-// GetLargestStakersResponse holds response from GetLargestStakers
-message GetLargestStakersResponse {
+// GetStakersResponse holds response from GetStakers
+message GetStakersResponse {
   // Request id
   string id = 1;
   // Context

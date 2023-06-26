@@ -374,14 +374,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.GetLargestStakersRequest"><span class="badge">M</span>GetLargestStakersRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.GetLargestStakersResponse"><span class="badge">M</span>GetLargestStakersResponse</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.GetMipStatusRequest"><span class="badge">M</span>GetMipStatusRequest</a>
                 </li>
               
@@ -439,6 +431,14 @@
               
                 <li>
                   <a href="#massa.api.v1.GetSelectorDrawsResponse"><span class="badge">M</span>GetSelectorDrawsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetStakersRequest"><span class="badge">M</span>GetStakersRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetStakersResponse"><span class="badge">M</span>GetStakersResponse</a>
                 </li>
               
                 <li>
@@ -551,6 +551,14 @@
               
                 <li>
                   <a href="#massa.api.v1.OperationsContext"><span class="badge">M</span>OperationsContext</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.QueryStateRequest"><span class="badge">M</span>QueryStateRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.QueryStateResponse"><span class="badge">M</span>QueryStateResponse</a>
                 </li>
               
                 <li>
@@ -1914,75 +1922,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.GetLargestStakersRequest">GetLargestStakersRequest</h3>
-        <p>GetLargestStakersRequest holds request from GetLargestStakers</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
-                  <td>query</td>
-                  <td><a href="#massa.api.v1.LargestStakersQuery">LargestStakersQuery</a></td>
-                  <td></td>
-                  <td><p>Query </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.GetLargestStakersResponse">GetLargestStakersResponse</h3>
-        <p>GetLargestStakersResponse holds response from GetLargestStakers</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
-                  <td>context</td>
-                  <td><a href="#massa.api.v1.LargestStakersContext">LargestStakersContext</a></td>
-                  <td></td>
-                  <td><p>Context </p></td>
-                </tr>
-              
-                <tr>
-                  <td>stakers</td>
-                  <td><a href="#massa.api.v1.LargestStakerEntry">LargestStakerEntry</a></td>
-                  <td>repeated</td>
-                  <td><p>Largest stakers </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.api.v1.GetMipStatusRequest">GetMipStatusRequest</h3>
         <p>GetMipStatusRequest holds request for GetMipStatus</p>
 
@@ -2439,6 +2378,75 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#massa.model.v1.SelectorDraws">massa.model.v1.SelectorDraws</a></td>
                   <td>repeated</td>
                   <td><p>Selector draws </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetStakersRequest">GetStakersRequest</h3>
+        <p>GetStakersRequest holds request from GetStakers</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>query</td>
+                  <td><a href="#massa.api.v1.LargestStakersQuery">LargestStakersQuery</a></td>
+                  <td></td>
+                  <td><p>Query </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetStakersResponse">GetStakersResponse</h3>
+        <p>GetStakersResponse holds response from GetStakers</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>context</td>
+                  <td><a href="#massa.api.v1.LargestStakersContext">LargestStakersContext</a></td>
+                  <td></td>
+                  <td><p>Context </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stakers</td>
+                  <td><a href="#massa.api.v1.LargestStakerEntry">LargestStakerEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>Largest stakers </p></td>
                 </tr>
               
             </tbody>
@@ -3225,6 +3233,54 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
+        <h3 id="massa.api.v1.QueryStateRequest">QueryStateRequest</h3>
+        <p>TODO to be implemented</p><p>QueryStateRequest holds request from QueryState</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.QueryStateResponse">QueryStateResponse</h3>
+        <p>QueryStateResponse holds response from QueryState</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Request id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.SelectorDrawsFilter">SelectorDrawsFilter</h3>
         <p>SelectorDraws Filter</p>
 
@@ -3625,10 +3681,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             
               <tr>
-                <td>GetLargestStakers</td>
-                <td><a href="#massa.api.v1.GetLargestStakersRequest">GetLargestStakersRequest</a></td>
-                <td><a href="#massa.api.v1.GetLargestStakersResponse">GetLargestStakersResponse</a></td>
-                <td><p>Get largest stakers</p></td>
+                <td>GetStakers</td>
+                <td><a href="#massa.api.v1.GetStakersRequest">GetStakersRequest</a></td>
+                <td><a href="#massa.api.v1.GetStakersResponse">GetStakersResponse</a></td>
+                <td><p>Get stakers</p></td>
               </tr>
             
               <tr>
@@ -3685,6 +3741,13 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td><a href="#massa.api.v1.GetVersionRequest">GetVersionRequest</a></td>
                 <td><a href="#massa.api.v1.GetVersionResponse">GetVersionResponse</a></td>
                 <td><p>Get node version</p></td>
+              </tr>
+            
+              <tr>
+                <td>QueryState</td>
+                <td><a href="#massa.api.v1.QueryStateRequest">QueryStateRequest</a></td>
+                <td><a href="#massa.api.v1.QueryStateResponse">QueryStateResponse</a></td>
+                <td><p>Query state</p></td>
               </tr>
             
               <tr>
@@ -3808,9 +3871,9 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
               
               <tr>
-                <td>GetLargestStakers</td>
+                <td>GetStakers</td>
                 <td>POST</td>
-                <td>/v1/get_largest_stakers</td>
+                <td>/v1/get_stakers</td>
                 <td>*</td>
               </tr>
               
@@ -3819,9 +3882,9 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
               <tr>
                 <td>GetMipStatus</td>
-                <td>GET</td>
+                <td>POST</td>
                 <td>/v1/get_mip_status</td>
-                <td></td>
+                <td>*</td>
               </tr>
               
             
@@ -3829,9 +3892,9 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
               <tr>
                 <td>GetNextBlockBestParents</td>
-                <td>GET</td>
+                <td>POST</td>
                 <td>/v1/get_next_block_best_parents</td>
-                <td></td>
+                <td>*</td>
               </tr>
               
             
@@ -3879,9 +3942,9 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
               <tr>
                 <td>GetTransactionsThroughput</td>
-                <td>GET</td>
+                <td>POST</td>
                 <td>/v1/transactions_throughput</td>
-                <td></td>
+                <td>*</td>
               </tr>
               
             
@@ -3889,9 +3952,19 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
               <tr>
                 <td>GetVersion</td>
-                <td>GET</td>
-                <td>/v1/version</td>
-                <td></td>
+                <td>POST</td>
+                <td>/v1/get_version</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>QueryState</td>
+                <td>POST</td>
+                <td>/v1/query_state</td>
+                <td>*</td>
               </tr>
               
             
