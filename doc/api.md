@@ -45,6 +45,7 @@
     - [DatastoreEntry](#massa-api-v1-DatastoreEntry)
     - [DatastoreEntryFilter](#massa-api-v1-DatastoreEntryFilter)
     - [EndorsementResult](#massa-api-v1-EndorsementResult)
+    - [ExecutionQueryResponse](#massa-api-v1-ExecutionQueryResponse)
     - [GetBlocksBySlotsRequest](#massa-api-v1-GetBlocksBySlotsRequest)
     - [GetBlocksBySlotsResponse](#massa-api-v1-GetBlocksBySlotsResponse)
     - [GetBlocksFilter](#massa-api-v1-GetBlocksFilter)
@@ -664,6 +665,22 @@ Holds Endorsement response
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | endorsements_ids | [string](#string) | repeated | Endorsements ids |
+
+
+
+
+
+
+<a name="massa-api-v1-ExecutionQueryResponse"></a>
+
+### ExecutionQueryResponse
+Execution state query response
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| result | [massa.model.v1.ExecutionQueryResponseItem](#massa-model-v1-ExecutionQueryResponseItem) |  | Execution query response item |
+| error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
 
 
 
@@ -1512,7 +1529,7 @@ Response to atomically execute a batch of execution state queries
 | ----- | ---- | ----- | ----------- |
 | final_cursor | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Final cursor position |
 | candidate_cursor | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Candidate cursor position |
-| responses | [massa.model.v1.ExecutionQueryResponse](#massa-model-v1-ExecutionQueryResponse) | repeated | List of execution query response items |
+| responses | [ExecutionQueryResponse](#massa-api-v1-ExecutionQueryResponse) | repeated | List of execution query response items |
 
 
 

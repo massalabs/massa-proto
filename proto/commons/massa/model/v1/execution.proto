@@ -4,7 +4,6 @@ syntax = "proto3";
 
 package massa.model.v1;
 
-import "google/rpc/status.proto";
 import "massa/model/v1/commons.proto";
 import "massa/model/v1/slot.proto";
 
@@ -433,17 +432,6 @@ message ExecutionQueryRequestItem {
     CycleInfos cycle_infos = 19;
     // Gets filtered events
     Events events = 20;
-  }
-}
-
-// Execution state query response
-message ExecutionQueryResponse {
-  // Result or error
-  oneof response {
-    // Execution query response item
-    ExecutionQueryResponseItem result = 2;
-    // gRPC error(status)
-    google.rpc.Status error = 3;
   }
 }
 
