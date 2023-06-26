@@ -265,16 +265,16 @@ Versioning component enum
 <a name="massa-model-v1-ConsensusStats"></a>
 
 ### ConsensusStats
-Consensus stats
+Consensus statistics
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| start_timespan | [uint64](#uint64) |  | start of the time span for stats |
-| end_timespan | [uint64](#uint64) |  | end of the time span for stats |
-| final_block_count | [uint64](#uint64) |  | number of final blocks |
-| stale_block_count | [uint64](#uint64) |  | number of stale blocks in memory |
-| clique_count | [uint64](#uint64) |  | number of actives cliques |
+| start_timespan | [uint64](#uint64) |  | Start of the time span for stats |
+| end_timespan | [uint64](#uint64) |  | End of the time span for stats |
+| final_block_count | [uint64](#uint64) |  | Number of final blocks |
+| stale_block_count | [uint64](#uint64) |  | Number of stale blocks in memory |
+| clique_count | [uint64](#uint64) |  | Number of actives cliques |
 
 
 
@@ -284,16 +284,17 @@ Consensus stats
 <a name="massa-model-v1-ExecutionStats"></a>
 
 ### ExecutionStats
-Execution stats
+Execution statistics
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| time_window_start | [uint64](#uint64) |  | time window start |
-| time_window_end | [uint64](#uint64) |  | time window end |
-| final_block_count | [uint64](#uint64) |  | number of final blocks in the time window |
-| final_executed_operations_count | [uint64](#uint64) |  | number of final executed operations in the time window |
-| active_cursor | [Slot](#massa-model-v1-Slot) |  | active execution cursor slot |
+| time_window_start | [uint64](#uint64) |  | Time window start |
+| time_window_end | [uint64](#uint64) |  | Time window end |
+| final_block_count | [uint64](#uint64) |  | Number of final blocks in the time window |
+| final_executed_operations_count | [uint64](#uint64) |  | Number of final executed operations in the time window |
+| active_cursor | [Slot](#massa-model-v1-Slot) |  | Active execution cursor slot |
+| final_cursor | [Slot](#massa-model-v1-Slot) |  | Final execution cursor slot |
 
 
 
@@ -303,16 +304,16 @@ Execution stats
 <a name="massa-model-v1-NetworkStats"></a>
 
 ### NetworkStats
-Network stats
+Network statistics
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| in_connection_count | [uint64](#uint64) |  | in connections count |
-| out_connection_count | [uint64](#uint64) |  | out connections count |
-| known_peer_count | [uint64](#uint64) |  | total known peers count |
-| banned_peer_count | [uint64](#uint64) |  | banned node count |
-| active_node_count | [uint64](#uint64) |  | active node count |
+| in_connection_count | [uint64](#uint64) |  | In connections count |
+| out_connection_count | [uint64](#uint64) |  | Out connections count |
+| known_peer_count | [uint64](#uint64) |  | Total known peers count |
+| banned_peer_count | [uint64](#uint64) |  | Banned node count |
+| active_node_count | [uint64](#uint64) |  | Active node count |
 
 
 
@@ -322,7 +323,7 @@ Network stats
 <a name="massa-model-v1-PoolStats"></a>
 
 ### PoolStats
-Pool stats
+Pool statistics
 
 
 | Field | Type | Label | Description |

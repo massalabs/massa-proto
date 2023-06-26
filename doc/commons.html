@@ -972,7 +972,7 @@
 
       
         <h3 id="massa.model.v1.ConsensusStats">ConsensusStats</h3>
-        <p>Consensus stats</p>
+        <p>Consensus statistics</p>
 
         
           <table class="field-table">
@@ -985,35 +985,35 @@
                   <td>start_timespan</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>start of the time span for stats </p></td>
+                  <td><p>Start of the time span for stats </p></td>
                 </tr>
               
                 <tr>
                   <td>end_timespan</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>end of the time span for stats </p></td>
+                  <td><p>End of the time span for stats </p></td>
                 </tr>
               
                 <tr>
                   <td>final_block_count</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>number of final blocks </p></td>
+                  <td><p>Number of final blocks </p></td>
                 </tr>
               
                 <tr>
                   <td>stale_block_count</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>number of stale blocks in memory </p></td>
+                  <td><p>Number of stale blocks in memory </p></td>
                 </tr>
               
                 <tr>
                   <td>clique_count</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>number of actives cliques </p></td>
+                  <td><p>Number of actives cliques </p></td>
                 </tr>
               
             </tbody>
@@ -1024,7 +1024,7 @@
         
       
         <h3 id="massa.model.v1.ExecutionStats">ExecutionStats</h3>
-        <p>Execution stats</p>
+        <p>Execution statistics</p>
 
         
           <table class="field-table">
@@ -1037,35 +1037,42 @@
                   <td>time_window_start</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>time window start </p></td>
+                  <td><p>Time window start </p></td>
                 </tr>
               
                 <tr>
                   <td>time_window_end</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>time window end </p></td>
+                  <td><p>Time window end </p></td>
                 </tr>
               
                 <tr>
                   <td>final_block_count</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>number of final blocks in the time window </p></td>
+                  <td><p>Number of final blocks in the time window </p></td>
                 </tr>
               
                 <tr>
                   <td>final_executed_operations_count</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>number of final executed operations in the time window </p></td>
+                  <td><p>Number of final executed operations in the time window </p></td>
                 </tr>
               
                 <tr>
                   <td>active_cursor</td>
                   <td><a href="#massa.model.v1.Slot">Slot</a></td>
                   <td></td>
-                  <td><p>active execution cursor slot </p></td>
+                  <td><p>Active execution cursor slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>final_cursor</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Final execution cursor slot </p></td>
                 </tr>
               
             </tbody>
@@ -1076,7 +1083,7 @@
         
       
         <h3 id="massa.model.v1.NetworkStats">NetworkStats</h3>
-        <p>Network stats</p>
+        <p>Network statistics</p>
 
         
           <table class="field-table">
@@ -1089,35 +1096,35 @@
                   <td>in_connection_count</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>in connections count </p></td>
+                  <td><p>In connections count </p></td>
                 </tr>
               
                 <tr>
                   <td>out_connection_count</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>out connections count </p></td>
+                  <td><p>Out connections count </p></td>
                 </tr>
               
                 <tr>
                   <td>known_peer_count</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>total known peers count </p></td>
+                  <td><p>Total known peers count </p></td>
                 </tr>
               
                 <tr>
                   <td>banned_peer_count</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>banned node count </p></td>
+                  <td><p>Banned node count </p></td>
                 </tr>
               
                 <tr>
                   <td>active_node_count</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>active node count </p></td>
+                  <td><p>Active node count </p></td>
                 </tr>
               
             </tbody>
@@ -1128,7 +1135,7 @@
         
       
         <h3 id="massa.model.v1.PoolStats">PoolStats</h3>
-        <p>Pool stats</p>
+        <p>Pool statistics</p>
 
         
           <table class="field-table">
