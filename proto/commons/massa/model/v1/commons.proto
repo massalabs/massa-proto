@@ -21,6 +21,12 @@ message BytesMapFieldEntry {
   bytes value = 2;
 }
 
+// Array of bytes wrapper
+message ArrayOfBytesWrapper {
+  // Repeated bytes
+  repeated bytes items = 1;
+}
+
 // Packages a type such that it can be securely sent and received in a trust-free network
 message SecureShare {
   // Content in sharable, deserializable form. Is used in the secure verification protocols

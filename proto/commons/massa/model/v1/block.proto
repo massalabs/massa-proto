@@ -65,7 +65,7 @@ message SignedBlock {
   string content_creator_address = 4;
   // A secure hash of the data. See also [massa_hash::Hash]
   string id = 5;
-  // The size of the serialized block
+  // The size of the serialized block in bytes
   uint64 serialized_size = 6;
 }
 
@@ -81,7 +81,7 @@ message SignedBlockHeader {
   string content_creator_address = 4;
   // A secure hash of the data. See also [massa_hash::Hash]
   string id = 5;
-  // The size of the serialized block header
+  // The size of the serialized block header in bytes
   uint64 serialized_size = 6;
 }
 

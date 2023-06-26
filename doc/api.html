@@ -410,10 +410,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.GetScExecutionEventsFilter"><span class="badge">M</span>GetScExecutionEventsFilter</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.GetScExecutionEventsQuery"><span class="badge">M</span>GetScExecutionEventsQuery</a>
                 </li>
               
@@ -2173,65 +2169,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.GetScExecutionEventsFilter">GetScExecutionEventsFilter</h3>
-        <p>GetScExecutionEvents Filter</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>start_slot</td>
-                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
-                  <td>optional</td>
-                  <td><p>Start slot (Optional) </p></td>
-                </tr>
-              
-                <tr>
-                  <td>end_slot</td>
-                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
-                  <td>optional</td>
-                  <td><p>End slot (Optional) </p></td>
-                </tr>
-              
-                <tr>
-                  <td>caller_address</td>
-                  <td><a href="#string">string</a></td>
-                  <td>optional</td>
-                  <td><p>Caller address </p></td>
-                </tr>
-              
-                <tr>
-                  <td>emitter_address</td>
-                  <td><a href="#string">string</a></td>
-                  <td>optional</td>
-                  <td><p>Emitter address (Optional) </p></td>
-                </tr>
-              
-                <tr>
-                  <td>original_operation_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td>optional</td>
-                  <td><p>Original operation id (Optional) </p></td>
-                </tr>
-              
-                <tr>
-                  <td>status</td>
-                  <td><a href="#massa.model.v1.ScExecutionEventStatus">massa.model.v1.ScExecutionEventStatus</a></td>
-                  <td>repeated</td>
-                  <td><p>Status </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.api.v1.GetScExecutionEventsQuery">GetScExecutionEventsQuery</h3>
         <p>GetScExecutionEvents Query</p>
 
@@ -2244,7 +2181,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>filter</td>
-                  <td><a href="#massa.api.v1.GetScExecutionEventsFilter">GetScExecutionEventsFilter</a></td>
+                  <td><a href="#massa.model.v1.ScExecutionEventsFilter">massa.model.v1.ScExecutionEventsFilter</a></td>
                   <td></td>
                   <td><p>Filter </p></td>
                 </tr>
@@ -3234,7 +3171,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         
       
         <h3 id="massa.api.v1.QueryStateRequest">QueryStateRequest</h3>
-        <p>TODO to be implemented</p><p>QueryStateRequest holds request from QueryState</p>
+        <p>Request to atomically execute a batch of execution state queries</p>
 
         
           <table class="field-table">
@@ -3250,6 +3187,13 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><p>Request id </p></td>
                 </tr>
               
+                <tr>
+                  <td>requests</td>
+                  <td><a href="#massa.model.v1.ExecutionQueryRequestItem">massa.model.v1.ExecutionQueryRequestItem</a></td>
+                  <td>repeated</td>
+                  <td><p>List of execution query request items </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -3258,7 +3202,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         
       
         <h3 id="massa.api.v1.QueryStateResponse">QueryStateResponse</h3>
-        <p>QueryStateResponse holds response from QueryState</p>
+        <p>Response to atomically execute a batch of execution state queries</p>
 
         
           <table class="field-table">
@@ -3268,10 +3212,24 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>id</td>
-                  <td><a href="#string">string</a></td>
+                  <td>final_cursor</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
                   <td></td>
-                  <td><p>Request id </p></td>
+                  <td><p>Final cursor position </p></td>
+                </tr>
+              
+                <tr>
+                  <td>candidate_cursor</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>Candidate cursor position </p></td>
+                </tr>
+              
+                <tr>
+                  <td>responses</td>
+                  <td><a href="#massa.model.v1.ExecutionQueryResponse">massa.model.v1.ExecutionQueryResponse</a></td>
+                  <td>repeated</td>
+                  <td><p>List of execution query response items </p></td>
                 </tr>
               
             </tbody>
