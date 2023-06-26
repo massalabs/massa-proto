@@ -83,18 +83,7 @@ message GenerateEventResult {}
 
 // Transfer coins request
 message TransferCoinsRequest {
-  // The address of the recipient
-  massa.model.v1.NativeAddress target_address = 1;
-  // The amount of coins to transfer
-  massa.model.v1.NativeAmount amount_to_transfer = 2;
-}
-
-// Transfer coins result
-message TransferCoinsResult {}
-
-// Transfer coins for request
-message TransferCoinsForRequest {
-  // The address of the sender
+  // The address of the sender, if none, use current address
   massa.model.v1.NativeAddress sender_address = 1;
   // The address of the recipient
   massa.model.v1.NativeAddress target_address = 2;
@@ -102,8 +91,8 @@ message TransferCoinsForRequest {
   massa.model.v1.NativeAmount amount_to_transfer = 3;
 }
 
-// Transfer coins for result
-message TransferCoinsForResult {}
+// Transfer coin result
+message TransferCoinsResult {}
 
 // Function exists request
 message FunctionExistsRequest {
@@ -169,20 +158,13 @@ message RespResult {
     GenerateEventResult generate_event_result = 37;
     CreateScResult create_sc_result = 38;
     FunctionExistsResult function_exists_result = 39;
-    TransferCoinsForResult transfer_coins_for_result = 40;
     NativeHashResult native_hash_result = 41;
     GetKeysResult get_keys_result = 42;
-    GetKeysForResult get_keys_for_result = 43;
     SetDataResult set_data_result = 44;
     AppendDataResult append_data_result = 45;
     GetDataResult get_data_result = 46;
     HasDataResult has_data_result = 47;
     DeleteDataResult delete_data_result = 48;
-    SetDataForResult set_data_for_result = 49;
-    AppendDataForResult append_data_for_result = 50;
-    GetDataForResult get_data_for_result = 51;
-    DeleteDataForResult delete_data_for_result = 52;
-    HasDataForResult has_data_for_result = 53;
     GetOwnedAddressesResult get_owned_addresses_result = 54;
     GetCallStackResult get_call_stack_result = 55;
     NativeAddressFromNativePubKeyResult native_address_from_native_pub_key_result = 56;
@@ -190,9 +172,7 @@ message RespResult {
     GetNativeTimeResult get_native_time_result = 58;
     GetCurrentSlotResult get_current_slot_result = 59;
     SetBytecodeRequest set_bytecode_request_result = 60;
-    SetBytecodeForRequest set_bytecode_for_request_result = 61;
     GetBytecodeResult get_bytecode_result = 62;
-    GetBytecodeForResult get_bytecode_for_result = 63;
     CallerHasWriteAccessResult caller_has_write_access_result = 64;
     SeedResult seed_result = 65;
     DateNowResult date_now_result = 66;
@@ -206,7 +186,6 @@ message RespResult {
     PrintResult print_result = 74;
     GetRemainingGasResult get_remaining_gas_result = 75;
     GetBalanceResult get_balance_result = 76;
-    GetBalanceForResult get_balance_for_result = 77;
     GetCallCoinsResult get_call_coins_result = 78;
   }
 }
@@ -729,8 +708,10 @@ message NativeHashResult {
 
 // Get keys request
 message GetKeysRequest {
+  // NativeAddress to get keys for
+  massa.model.v1.NativeAddress address = 1;
   // keys prefix
-  bytes prefix = 1;
+  bytes prefix = 2;
 }
 
 // Get keys result
@@ -739,26 +720,14 @@ message GetKeysResult {
   repeated bytes keys = 1;
 }
 
-// Get keys for request
-message GetKeysForRequest {
-  // NativeAddress to get keys for
-  massa.model.v1.NativeAddress address = 1;
-  // keys prefix
-  bytes prefix = 2;
-}
-
-// Get keys for result
-message GetKeysForResult {
-  // keys
-  repeated bytes keys = 1;
-}
-
 // Set data request
 message SetDataRequest {
+  // NativeAddress to set data for, if none, use current address
+  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 1;
+  bytes key = 2;
   // value
-  bytes value = 2;
+  bytes value = 3;
 }
 
 // Set data result
@@ -766,10 +735,12 @@ message SetDataResult {}
 
 // Append data request
 message AppendDataRequest {
+  // NativeAddress to append data for, if none, use current address
+  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 1;
+  bytes key = 2;
   // value
-  bytes value = 2;
+  bytes value = 3;
 }
 
 // Append data result
@@ -777,8 +748,10 @@ message AppendDataResult {}
 
 // Get data request
 message GetDataRequest {
+  // NativeAddress to get data for, if none, use current address
+  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 1;
+  bytes key = 2;
 }
 
 // Get data result
@@ -787,88 +760,27 @@ message GetDataResult {
   bytes value = 1;
 }
 
-// Has data request
-message HasDataRequest {
-  // key
-  bytes key = 1;
-}
-
-// Has data result
-message HasDataResult {
-  // has data
-  bool has_data = 1;
-}
-
 // Delete data request
 message DeleteDataRequest {
+  // NativeAddress to delete data for, if none, use current address
+  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 1;
+  bytes key = 2;
 }
 
 // Delete data result
 message DeleteDataResult {}
 
-// Set data for request
-message SetDataForRequest {
-  // NativeAddress to set data for
-  massa.model.v1.NativeAddress address = 1;
-  // key
-  bytes key = 2;
-  // value
-  bytes value = 3;
-}
-
-// Set data for result
-message SetDataForResult {}
-
-// Append data for request
-message AppendDataForRequest {
-  // NativeAddress to append data for
-  massa.model.v1.NativeAddress address = 1;
-  // key
-  bytes key = 2;
-  // value
-  bytes value = 3;
-}
-
-// Append data for result
-message AppendDataForResult {}
-
-// Get data for request
-message GetDataForRequest {
-  // NativeAddress to get data for
+// Has data request
+message HasDataRequest {
+  // NativeAddress to check data for, if none, use current address
   massa.model.v1.NativeAddress address = 1;
   // key
   bytes key = 2;
 }
 
-// Get data for result
-message GetDataForResult {
-  // value
-  bytes value = 1;
-}
-
-// Delete data for request
-message DeleteDataForRequest {
-  // NativeAddress to delete data for
-  massa.model.v1.NativeAddress address = 1;
-  // key
-  bytes key = 2;
-}
-
-// Delete data for result
-message DeleteDataForResult {}
-
-// Has data for request
-message HasDataForRequest {
-  // NativeAddress to check data for
-  massa.model.v1.NativeAddress address = 1;
-  // key
-  bytes key = 2;
-}
-
-// Has data for result
-message HasDataForResult {
+// Has data result
+message HasDataResult {
   // has data
   bool has_data = 1;
 }
@@ -891,27 +803,27 @@ message GetCallStackResult {
   repeated string calls = 1;
 }
 
-// Native address form native public key request
+// Native address from native public key request
 message NativeAddressFromNativePubKeyRequest {
   // Native public key
   massa.model.v1.NativePubKey pub_key = 1;
 }
 
-// Native address form native public key result
+// Native address from native public key result
 message NativeAddressFromNativePubKeyResult {
   // Native address
   massa.model.v1.NativeAddress address = 1;
 }
 
 // Unsafe random request
-message UnsafeRandomRequest {}
-
-// Unsafe random result
-message UnsafeRandomResult {
-  // Random
-  int64 random = 1;
+message UnsafeRandomRequest {
+  i32 memory_addr = 1;
+  i32 num_bytes = 2;
 }
 
+// Unsafe random result
+message UnsafeRandomResult {}
+  
 // Get native time request
 message GetNativeTimeRequest {}
 
@@ -936,19 +848,19 @@ message SetBytecodeRequest {
   bytes bytecode = 2;
 }
 
-// Set bytecode  result
+// Set bytecode result
 message SetBytecodeResult {}
 
-// Set bytecode for request
-message SetBytecodeForRequest {
-  // NativeAddress to set bytecode for
+// Set bytecode request
+message SetBytecodeRequest {
+  // NativeAddress to set bytecode for, if none, use current address
   massa.model.v1.NativeAddress address = 1;
   // Bytecode
   bytes bytecode = 2;
 }
 
-// Set bytecode for result
-message SetBytecodeForResult {}
+// Set bytecode result
+message SetBytecodeResult {}
 
 // Get bytecode request
 message GetBytecodeRequest {}
@@ -959,14 +871,14 @@ message GetBytecodeResult {
   bytes bytecode = 1;
 }
 
-// Get bytecode for request
-message GetBytecodeForRequest {
-  // NativeAddress to get bytecode for
+// Get bytecode request
+message GetBytecodeequest {
+  // NativeAddress to get bytecode for, if none, use current address
   massa.model.v1.NativeAddress address = 1;
 }
 
-// Get bytecode for result
-message GetBytecodeForResult {
+// Get bytecode result
+message GetBytecodeResult {
   // Bytecode
   bytes bytecode = 1;
 }
@@ -1112,14 +1024,14 @@ message GetBalanceResult {
   massa.model.v1.NativeAmount balance = 1;
 }
 
-// Get balance for request
-message GetBalanceForRequest {
-  // NativeAddress to get balance for
+// Get balance request
+message GetBalanceRequest {
+  // NativeAddress to get balance for, if none, use current address
   massa.model.v1.NativeAddress address = 1;
 }
 
 // Get balance result
-message GetBalanceForResult {
+message GetBalanceResult {
   // balance
   massa.model.v1.NativeAmount balance = 1;
 }
