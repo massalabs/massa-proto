@@ -176,15 +176,14 @@ message RespResult {
     CallerHasWriteAccessResult caller_has_write_access_result = 55;
     SeedResult seed_result = 56;
     DateNowResult date_now_result = 57;
-    ConsolePutResult console_put_result = 58;
-    ProcessExitResult process_exit_result = 59;
-    HashSha256Result hash_sha256_result = 60;
-    GetOpDataResult get_op_data_result = 61;
-    HasOpKeyResult has_op_key_result = 62;
-    GetOpKeysResult get_op_keys_result = 63;
-    GetRemainingGasResult get_remaining_gas_result = 64;
-    GetBalanceResult get_balance_result = 65;
-    GetCallCoinsResult get_call_coins_result = 66;
+    ProcessExitResult process_exit_result = 58;
+    HashSha256Result hash_sha256_result = 59;
+    GetOpDataResult get_op_data_result = 60;
+    HasOpKeyResult has_op_key_result = 61;
+    GetOpKeysResult get_op_keys_result = 62;
+    GetRemainingGasResult get_remaining_gas_result = 63;
+    GetBalanceResult get_balance_result = 64;
+    GetCallCoinsResult get_call_coins_result = 65;
   }
 }
 
@@ -815,8 +814,8 @@ message NativeAddressFromNativePubKeyResult {
 
 // Unsafe random request
 message UnsafeRandomRequest {
-  i32 memory_addr = 1;
-  i32 num_bytes = 2;
+  int32 memory_addr = 1;
+  int32 num_bytes = 2;
 }
 
 // Unsafe random result
@@ -842,15 +841,6 @@ message GetCurrentSlotResult {
 
 // Set bytecode request
 message SetBytecodeRequest {
-  // Bytecode
-  bytes bytecode = 2;
-}
-
-// Set bytecode result
-message SetBytecodeResult {}
-
-// Set bytecode request
-message SetBytecodeRequest {
   // NativeAddress to set bytecode for, if none, use current address
   massa.model.v1.NativeAddress address = 1;
   // Bytecode
@@ -862,12 +852,6 @@ message SetBytecodeResult {}
 
 // Get bytecode request
 message GetBytecodeRequest {}
-
-// Get bytecode result
-message GetBytecodeResult {
-  // Bytecode
-  bytes bytecode = 1;
-}
 
 // Get bytecode request
 message GetBytecodeequest {
@@ -972,15 +956,6 @@ message GetRemainingGasRequest {}
 message GetRemainingGasResult {
   // remaining gas
   int64 remaining_gas = 1;
-}
-
-// Get balance request
-message GetBalanceRequest {}
-
-// Get balance result
-message GetBalanceResult {
-  // balance
-  massa.model.v1.NativeAmount balance = 1;
 }
 
 // Get balance request
