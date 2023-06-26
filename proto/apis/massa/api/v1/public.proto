@@ -494,7 +494,18 @@ message QueryStateResponse {
   // Candidate cursor position
   massa.model.v1.Slot candidate_cursor = 2;
   // List of execution query response items
-  repeated massa.model.v1.ExecutionQueryResponse responses = 3;
+  repeated ExecutionQueryResponse responses = 3;
+}
+
+// Execution state query response
+message ExecutionQueryResponse {
+  // Result or error
+  oneof response {
+    // Execution query response item
+    massa.model.v1.ExecutionQueryResponseItem result = 2;
+    // gRPC error(status)
+    google.rpc.Status error = 3;
+  }
 }
 
 // NewBlocksRequest holds request for NewBlocks

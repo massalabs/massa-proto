@@ -84,7 +84,6 @@
     - [ExecutionOutput](#massa-model-v1-ExecutionOutput)
     - [ExecutionQueryCycleInfos](#massa-model-v1-ExecutionQueryCycleInfos)
     - [ExecutionQueryRequestItem](#massa-model-v1-ExecutionQueryRequestItem)
-    - [ExecutionQueryResponse](#massa-model-v1-ExecutionQueryResponse)
     - [ExecutionQueryResponseItem](#massa-model-v1-ExecutionQueryResponseItem)
     - [ExecutionQueryStakerInfo](#massa-model-v1-ExecutionQueryStakerInfo)
     - [ExecutionQueryStakerInfoEntry](#massa-model-v1-ExecutionQueryStakerInfoEntry)
@@ -1349,22 +1348,6 @@ Query state query item
 | address_deferred_credits_final | [AddressDeferredCreditsFinal](#massa-model-v1-AddressDeferredCreditsFinal) |  | Gets the deferred credits (final) of an address |
 | cycle_infos | [CycleInfos](#massa-model-v1-CycleInfos) |  | Gets all information for a given cycle |
 | events | [Events](#massa-model-v1-Events) |  | Gets filtered events |
-
-
-
-
-
-
-<a name="massa-model-v1-ExecutionQueryResponse"></a>
-
-### ExecutionQueryResponse
-Execution state query response
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| result | [ExecutionQueryResponseItem](#massa-model-v1-ExecutionQueryResponseItem) |  | Execution query response item |
-| error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
 
 
 
