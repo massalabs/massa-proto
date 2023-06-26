@@ -62,7 +62,6 @@
     - [GetOperationsRequest](#massa-api-v1-GetOperationsRequest)
     - [GetOperationsResponse](#massa-api-v1-GetOperationsResponse)
     - [GetScExecutionEventsContext](#massa-api-v1-GetScExecutionEventsContext)
-    - [GetScExecutionEventsFilter](#massa-api-v1-GetScExecutionEventsFilter)
     - [GetScExecutionEventsQuery](#massa-api-v1-GetScExecutionEventsQuery)
     - [GetScExecutionEventsRequest](#massa-api-v1-GetScExecutionEventsRequest)
     - [GetScExecutionEventsResponse](#massa-api-v1-GetScExecutionEventsResponse)
@@ -938,26 +937,6 @@ ScExecutionEvents context
 
 
 
-<a name="massa-api-v1-GetScExecutionEventsFilter"></a>
-
-### GetScExecutionEventsFilter
-GetScExecutionEvents Filter
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| start_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) | optional | Start slot (Optional) |
-| end_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) | optional | End slot (Optional) |
-| caller_address | [string](#string) | optional | Caller address |
-| emitter_address | [string](#string) | optional | Emitter address (Optional) |
-| original_operation_id | [string](#string) | optional | Original operation id (Optional) |
-| status | [massa.model.v1.ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) | repeated | Status |
-
-
-
-
-
-
 <a name="massa-api-v1-GetScExecutionEventsQuery"></a>
 
 ### GetScExecutionEventsQuery
@@ -966,7 +945,7 @@ GetScExecutionEvents Query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [GetScExecutionEventsFilter](#massa-api-v1-GetScExecutionEventsFilter) |  | Filter |
+| filter | [massa.model.v1.ScExecutionEventsFilter](#massa-model-v1-ScExecutionEventsFilter) |  | Filter |
 
 
 
@@ -1510,13 +1489,13 @@ Operations context
 <a name="massa-api-v1-QueryStateRequest"></a>
 
 ### QueryStateRequest
-TODO to be implemented
-QueryStateRequest holds request from QueryState
+Request to atomically execute a batch of execution state queries
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Request id |
+| requests | [massa.model.v1.ExecutionQueryRequestItem](#massa-model-v1-ExecutionQueryRequestItem) | repeated | List of execution query request items |
 
 
 
@@ -1526,12 +1505,14 @@ QueryStateRequest holds request from QueryState
 <a name="massa-api-v1-QueryStateResponse"></a>
 
 ### QueryStateResponse
-QueryStateResponse holds response from QueryState
+Response to atomically execute a batch of execution state queries
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Request id |
+| final_cursor | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Final cursor position |
+| candidate_cursor | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Candidate cursor position |
+| responses | [massa.model.v1.ExecutionQueryResponse](#massa-model-v1-ExecutionQueryResponse) | repeated | List of execution query response items |
 
 
 

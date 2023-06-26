@@ -4,6 +4,7 @@ syntax = "proto3";
 
 package massa.model.v1;
 
+import "google/rpc/status.proto";
 import "massa/model/v1/commons.proto";
 import "massa/model/v1/slot.proto";
 
@@ -97,7 +98,7 @@ message StateChanges {
 
 // ExecutedOpsChangeEntry
 message ExecutedOpsChangeEntry {
-  // OperationId
+  // string
   string operation_id = 1;
   // ExecutedOpsChangeValue
   ExecutedOpsChangeValue value = 2;
@@ -322,7 +323,7 @@ message LedgerEntryUpdate {
   SetOrKeepBalance balance = 1;
   // Change the executable bytecode
   SetOrKeepBytecode bytecode = 2;
-  /// Change datastore entries
+  // Change datastore entries
   repeated SetOrDeleteDatastoreEntry datastore = 3;
 }
 
@@ -387,4 +388,287 @@ message DenunciationEndorsement {
   massa.model.v1.Slot slot = 1;
   // Denounciation index
   uint32 index = 2;
+}
+
+// Query state query item
+message ExecutionQueryRequestItem {
+  oneof request_item {
+    // Checks if address exists (candidate)
+    AddressExistsCandidate address_exists_candidate = 1;
+    // Checks if address exists (final)
+    AddressExistsFinal address_exists_final = 2;
+    // Gets the balance (candidate) of an address
+    AddressBalanceCandidate address_balance_candidate = 3;
+    // Gets the balance (final) of an address
+    AddressBalanceFinal address_balance_final = 4;
+    // Gets the bytecode (candidate) of an address
+    AddressBytecodeCandidate address_bytecode_candidate = 5;
+    // Gets the bytecode (final) of an address
+    AddressBytecodeFinal address_bytecode_final = 6;
+    // Gets the datastore keys (candidate) of an address
+    AddressDatastoreKeysCandidate address_datastore_keys_candidate = 7;
+    // Gets the datastore keys (final) of an address
+    AddressDatastoreKeysFinal address_datastore_keys_final = 8;
+    // Gets a datastore value (candidate) for an address
+    AddressDatastoreValueCandidate address_datastore_value_candidate = 9;
+    // Gets a datastore value (final) for an address
+    AddressDatastoreValueFinal address_datastore_value_final = 10;
+    // Gets the execution status (candidate) for an operation
+    OpExecutionStatusCandidate op_execution_status_candidate = 11;
+    // Gets the execution status (final) for an operation
+    OpExecutionStatusFinal op_execution_status_final = 12;
+    // Gets the execution status (candidate) for a denunciation
+    DenunciationExecutionStatusCandidate denunciation_execution_status_candidate = 13;
+    // Gets the execution status (final) for a denunciation
+    DenunciationExecutionStatusFinal denunciation_execution_status_final = 14;
+    // Gets the roll count (candidate) of an address
+    AddressRollsCandidate address_rolls_candidate = 15;
+    // Gets the roll count (final) of an address
+    AddressRollsFinal address_rolls_final = 16;
+    // Gets the deferred credits (candidate) of an address
+    AddressDeferredCreditsCandidate address_deferred_credits_candidate = 17;
+    // Gets the deferred credits (final) of an address
+    AddressDeferredCreditsFinal address_deferred_credits_final = 18;
+    // Gets all information for a given cycle
+    CycleInfos cycle_infos = 19;
+    // Gets filtered events
+    Events events = 20;
+  }
+}
+
+// Execution state query response
+message ExecutionQueryResponse {
+  // Result or error
+  oneof response {
+    // Execution query response item
+    ExecutionQueryResponseItem result = 2;
+    // gRPC error(status)
+    google.rpc.Status error = 3;
+  }
+}
+
+// Execution state query response item
+message ExecutionQueryResponseItem {
+  oneof response_item {
+    // Boolean value
+    bool boolean = 1;
+    // Roll counts value
+    uint64 roll_count = 2;
+    // Amount value
+    uint64 amount = 3;
+    // Bytes value
+    bytes bytes = 4;
+    // Vector of bytes value
+    ArrayOfBytesWrapper vec_bytes = 5;
+    // Deferred credits value
+    uint64 deferred_credits = 6;
+    // Execution status value
+    ExecutionQueryExecutionStatus execution_status = 7;
+    // Cycle infos value
+    ExecutionQueryCycleInfos cycle_infos = 8;
+    // Events
+    SCOutputEventsWrapper events = 9;
+  }
+}
+
+// Execution status of an operation or denunciation
+enum ExecutionQueryExecutionStatus {
+  EXECUTION_QUERY_EXECUTION_STATUS_UNSPECIFIED = 0; // Default enum value
+  EXECUTION_QUERY_EXECUTION_STATUS_ALREADY_EXECUTED_WITH_SUCCESS = 1; // The operation or denunciation was executed recently with success
+  EXECUTION_QUERY_EXECUTION_STATUS_ALREADY_EXECUTED_WITH_FAILURE = 2; // The operation or denunciation was executed recently with failure
+  EXECUTION_QUERY_EXECUTION_STATUS_EXECUTABLE_OR_EXPIRED = 3; // The operation or denunciation was not executed recently but can still be executed unless expired
+}
+
+// Cycle information for execution query
+message ExecutionQueryCycleInfos {
+  // Cycle number
+  uint64 cycle = 1;
+  // Whether the cycle is final
+  bool is_final = 2;
+  // Infos for each PoS-participating address among the ones that were asked
+  repeated ExecutionQueryStakerInfoEntry staker_infos = 3;
+}
+
+// ExecutionQueryStakerInfo entry
+message ExecutionQueryStakerInfoEntry {
+  // Address of the staker
+  string address = 1;
+  // Staker info
+  ExecutionQueryStakerInfo info = 2;
+}
+
+// Staker information for execution query
+message ExecutionQueryStakerInfo {
+  // Active roll count
+  uint64 active_rolls = 1;
+  // Production stats
+  repeated ExecutionQueryStakerInfoProductionStatsEntry production_stats = 2;
+}
+
+// ExecutionQueryStakerInfoProductionStats entry
+message ExecutionQueryStakerInfoProductionStatsEntry {
+  // Address of the staker
+  string address = 1;
+  // Production failure
+  ExecutionQueryStakerInfoProductionStats stats = 2;
+}
+
+// Production statistics for staker info in execution query
+message ExecutionQueryStakerInfoProductionStats {
+  // Production successes
+  uint64 block_success_count = 1;
+  // Production failures
+  uint64 block_failure_count = 2;
+}
+
+// Request to check if address exists (candidate)
+message AddressExistsCandidate {
+  // Address to check
+  string address = 1;
+}
+
+// Request to check if address exists (final)
+message AddressExistsFinal {
+  // Address to check
+  string address = 1;
+}
+
+// Request to get the balance (candidate) of an address
+message AddressBalanceCandidate {
+  // Address to query
+  string address = 1;
+}
+
+// Request to get the balance (final) of an address
+message AddressBalanceFinal {
+  // Address to query
+  string address = 1;
+}
+
+// Request to get the bytecode (candidate) of an address
+message AddressBytecodeCandidate {
+  // Address to query
+  string address = 1;
+}
+
+// Request to get the bytecode (final) of an address
+message AddressBytecodeFinal {
+  // Address to query
+  string address = 1;
+}
+
+// Request to get the datastore keys (candidate) of an address
+message AddressDatastoreKeysCandidate {
+  // Address to query
+  string address = 1;
+  // Prefix for the keys
+  bytes prefix = 2;
+}
+
+// Request to get the datastore keys (final) of an address
+message AddressDatastoreKeysFinal {
+  // Address to query
+  string address = 1;
+  // Prefix for the keys
+  bytes prefix = 2;
+}
+
+// Request to get a datastore value (candidate) for an address
+message AddressDatastoreValueCandidate {
+  // Address to query
+  string address = 1;
+  // Key for the value
+  bytes key = 2;
+}
+
+// Request to get a datastore value (final) for an address
+message AddressDatastoreValueFinal {
+  // Address to query
+  string address = 1;
+  // Key for the value
+  bytes key = 2;
+}
+
+// Request to get the execution status (candidate) for an operation
+message OpExecutionStatusCandidate {
+  // Operation ID to query
+  string operation_id = 1;
+}
+
+// Request to get the execution status (final) for an operation
+message OpExecutionStatusFinal {
+  // Operation ID to query
+  string operation_id = 1;
+}
+
+// Request to get the execution status (candidate) for a denunciation
+message DenunciationExecutionStatusCandidate {
+  // Denunciation index to query
+  DenunciationIndex denunciation_index = 1;
+}
+
+// Request to get the execution status (final) for a denunciation
+message DenunciationExecutionStatusFinal {
+  // Denunciation index to query
+  DenunciationIndex denunciation_index = 1;
+}
+
+// Request to get the roll count (candidate) of an address
+message AddressRollsCandidate {
+  // Address to query
+  string address = 1;
+}
+
+// Request to get the roll count (final) of an address
+message AddressRollsFinal {
+  // Address to query
+  string address = 1;
+}
+
+// Request to get the deferred credits (candidate) of an address
+message AddressDeferredCreditsCandidate {
+  // Address to query
+  string address = 1;
+}
+
+// Request to get the deferred credits (final) of an address
+message AddressDeferredCreditsFinal {
+  // Address to query
+  string address = 1;
+}
+
+// Request to get all information for a given cycle
+message CycleInfos {
+  // Cycle to query
+  uint64 cycle = 1;
+  // Addresses to restrict the query (if None, info for all addresses will be returned)
+  repeated string restrict_to_addresses = 2;
+}
+
+// Request to get filtered events
+message Events {
+  // Event filter to apply
+  ScExecutionEventsFilter filter = 1;
+}
+
+// ScExecutionEvents Filter
+message ScExecutionEventsFilter {
+  // Start slot (Optional)
+  optional massa.model.v1.Slot start_slot = 1;
+  // End slot (Optional)
+  optional massa.model.v1.Slot end_slot = 2;
+  // Caller address
+  optional string caller_address = 3;
+  // Emitter address (Optional)
+  optional string emitter_address = 4;
+  // Original operation id (Optional)
+  optional string original_operation_id = 5;
+  // Status
+  repeated ScExecutionEventStatus status = 6;
+}
+
+// SCOutputEvents wrapper
+message SCOutputEventsWrapper {
+  // Events
+  repeated ScExecutionEvent event = 1;
 }
