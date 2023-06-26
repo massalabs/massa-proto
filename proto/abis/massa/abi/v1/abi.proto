@@ -7,6 +7,7 @@ package massa.abi.v1;
 import "massa/model/v1/address.proto";
 import "massa/model/v1/amount.proto";
 import "massa/model/v1/hash.proto";
+import "massa/model/v1/slot.proto";
 import "massa/model/v1/signature.proto";
 import "massa/model/v1/time.proto";
 
@@ -187,27 +188,26 @@ message RespResult {
     NativeAddressFromNativePubKeyResult native_address_from_native_pub_key_result = 56;
     UnsafeRandomResult unsafe_random_request_result = 57;
     GetNativeTimeResult get_native_time_result = 58;
-    GetCurrentPeriodResult get_current_period_result = 59;
-    GetCurrentThreadResult get_current_thread_result = 60;
-    SetBytecodeRequest set_bytecode_request_result = 61;
-    SetBytecodeForRequest set_bytecode_for_request_result = 62;
-    GetBytecodeResult get_bytecode_result = 63;
-    GetBytecodeForResult get_bytecode_for_result = 64;
-    CallerHasWriteAccessResult caller_has_write_access_result = 65;
-    SeedResult seed_result = 66;
-    DateNowResult date_now_result = 67;
-    ConsolePutResult console_put_result = 68;
-    TraceResult trace_result = 69;
-    ProcessExitResult process_exit_result = 70;
-    HashSha256Result hash_sha256_result = 71;
-    GetOpDataResult get_op_data_result = 72;
-    HasOpKeyResult has_op_key_result = 73;
-    GetOpKeysResult get_op_keys_result = 74;
-    PrintResult print_result = 75;
-    GetRemainingGasResult get_remaining_gas_result = 76;
-    GetBalanceResult get_balance_result = 77;
-    GetBalanceForResult get_balance_for_result = 78;
-    GetCallCoinsResult get_call_coins_result = 79;
+    GetCurrentSlotResult get_current_slot_result = 59;
+    SetBytecodeRequest set_bytecode_request_result = 60;
+    SetBytecodeForRequest set_bytecode_for_request_result = 61;
+    GetBytecodeResult get_bytecode_result = 62;
+    GetBytecodeForResult get_bytecode_for_result = 63;
+    CallerHasWriteAccessResult caller_has_write_access_result = 64;
+    SeedResult seed_result = 65;
+    DateNowResult date_now_result = 66;
+    ConsolePutResult console_put_result = 67;
+    TraceResult trace_result = 68;
+    ProcessExitResult process_exit_result = 69;
+    HashSha256Result hash_sha256_result = 70;
+    GetOpDataResult get_op_data_result = 71;
+    HasOpKeyResult has_op_key_result = 72;
+    GetOpKeysResult get_op_keys_result = 73;
+    PrintResult print_result = 74;
+    GetRemainingGasResult get_remaining_gas_result = 75;
+    GetBalanceResult get_balance_result = 76;
+    GetBalanceForResult get_balance_for_result = 77;
+    GetCallCoinsResult get_call_coins_result = 78;
   }
 }
 
@@ -921,22 +921,13 @@ message GetNativeTimeResult {
   massa.model.v1.NativeTime time = 1;
 }
 
-// Get current period request
-message GetCurrentPeriodRequest {}
+// Get current slot request
+message GetCurrentSlotRequest {}
 
-// Get current period result
-message GetCurrentPeriodResult {
-  // Current period
-  int64 period = 1;
-}
-
-// Get current thread request
-message GetCurrentThreadRequest {}
-
-// Get current thread result
-message GetCurrentThreadResult {
-  // Current thread
-  int32 thread = 1;
+// Get current slot result
+message GetCurrentSlotResult {
+  // Current slot
+  massa.model.v1.Slot slot = 1;
 }
 
 // Set bytecode request
