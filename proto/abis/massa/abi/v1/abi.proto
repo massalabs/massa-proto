@@ -7,6 +7,7 @@ package massa.abi.v1;
 import "massa/model/v1/address.proto";
 import "massa/model/v1/amount.proto";
 import "massa/model/v1/hash.proto";
+import "massa/model/v1/slot.proto";
 import "massa/model/v1/signature.proto";
 import "massa/model/v1/time.proto";
 
@@ -82,18 +83,7 @@ message GenerateEventResult {}
 
 // Transfer coins request
 message TransferCoinsRequest {
-  // The address of the recipient
-  massa.model.v1.NativeAddress target_address = 1;
-  // The amount of coins to transfer
-  massa.model.v1.NativeAmount amount_to_transfer = 2;
-}
-
-// Transfer coins result
-message TransferCoinsResult {}
-
-// Transfer coins for request
-message TransferCoinsForRequest {
-  // The address of the sender
+  // The address of the sender, if none, use current address
   massa.model.v1.NativeAddress sender_address = 1;
   // The address of the recipient
   massa.model.v1.NativeAddress target_address = 2;
@@ -101,8 +91,8 @@ message TransferCoinsForRequest {
   massa.model.v1.NativeAmount amount_to_transfer = 3;
 }
 
-// Transfer coins for result
-message TransferCoinsForResult {}
+// Transfer coin result
+message TransferCoinsResult {}
 
 // Function exists request
 message FunctionExistsRequest {
@@ -168,46 +158,32 @@ message RespResult {
     GenerateEventResult generate_event_result = 37;
     CreateScResult create_sc_result = 38;
     FunctionExistsResult function_exists_result = 39;
-    TransferCoinsForResult transfer_coins_for_result = 40;
-    NativeHashResult native_hash_result = 41;
-    GetKeysResult get_keys_result = 42;
-    GetKeysForResult get_keys_for_result = 43;
-    SetDataResult set_data_result = 44;
-    AppendDataResult append_data_result = 45;
-    GetDataResult get_data_result = 46;
-    HasDataResult has_data_result = 47;
-    DeleteDataResult delete_data_result = 48;
-    SetDataForResult set_data_for_result = 49;
-    AppendDataForResult append_data_for_result = 50;
-    GetDataForResult get_data_for_result = 51;
-    DeleteDataForResult delete_data_for_result = 52;
-    HasDataForResult has_data_for_result = 53;
-    GetOwnedAddressesResult get_owned_addresses_result = 54;
-    GetCallStackResult get_call_stack_result = 55;
-    NativeAddressFromNativePubKeyResult native_address_from_native_pub_key_result = 56;
-    UnsafeRandomResult unsafe_random_request_result = 57;
-    GetNativeTimeResult get_native_time_result = 58;
-    GetCurrentPeriodResult get_current_period_result = 59;
-    GetCurrentThreadResult get_current_thread_result = 60;
-    SetBytecodeRequest set_bytecode_request_result = 61;
-    SetBytecodeForRequest set_bytecode_for_request_result = 62;
-    GetBytecodeResult get_bytecode_result = 63;
-    GetBytecodeForResult get_bytecode_for_result = 64;
-    CallerHasWriteAccessResult caller_has_write_access_result = 65;
-    SeedResult seed_result = 66;
-    DateNowResult date_now_result = 67;
-    ConsolePutResult console_put_result = 68;
-    TraceResult trace_result = 69;
-    ProcessExitResult process_exit_result = 70;
-    HashSha256Result hash_sha256_result = 71;
-    GetOpDataResult get_op_data_result = 72;
-    HasOpKeyResult has_op_key_result = 73;
-    GetOpKeysResult get_op_keys_result = 74;
-    PrintResult print_result = 75;
-    GetRemainingGasResult get_remaining_gas_result = 76;
-    GetBalanceResult get_balance_result = 77;
-    GetBalanceForResult get_balance_for_result = 78;
-    GetCallCoinsResult get_call_coins_result = 79;
+    NativeHashResult native_hash_result = 40;
+    GetKeysResult get_keys_result = 41;
+    SetDataResult set_data_result = 42;
+    AppendDataResult append_data_result = 43;
+    GetDataResult get_data_result = 44;
+    HasDataResult has_data_result = 45;
+    DeleteDataResult delete_data_result = 46;
+    GetOwnedAddressesResult get_owned_addresses_result = 47;
+    GetCallStackResult get_call_stack_result = 48;
+    NativeAddressFromNativePubKeyResult native_address_from_native_pub_key_result = 49;
+    UnsafeRandomResult unsafe_random_request_result = 50;
+    GetNativeTimeResult get_native_time_result = 51;
+    GetCurrentSlotResult get_current_slot_result = 52;
+    SetBytecodeRequest set_bytecode_request_result = 53;
+    GetBytecodeResult get_bytecode_result = 54;
+    CallerHasWriteAccessResult caller_has_write_access_result = 55;
+    SeedResult seed_result = 56;
+    DateNowResult date_now_result = 57;
+    ProcessExitResult process_exit_result = 58;
+    HashSha256Result hash_sha256_result = 59;
+    GetOpDataResult get_op_data_result = 60;
+    HasOpKeyResult has_op_key_result = 61;
+    GetOpKeysResult get_op_keys_result = 62;
+    GetRemainingGasResult get_remaining_gas_result = 63;
+    GetBalanceResult get_balance_result = 64;
+    GetCallCoinsResult get_call_coins_result = 65;
   }
 }
 
@@ -729,8 +705,10 @@ message NativeHashResult {
 
 // Get keys request
 message GetKeysRequest {
+  // NativeAddress to get keys for
+  massa.model.v1.NativeAddress address = 1;
   // keys prefix
-  bytes prefix = 1;
+  bytes prefix = 2;
 }
 
 // Get keys result
@@ -739,26 +717,14 @@ message GetKeysResult {
   repeated bytes keys = 1;
 }
 
-// Get keys for request
-message GetKeysForRequest {
-  // NativeAddress to get keys for
-  massa.model.v1.NativeAddress address = 1;
-  // keys prefix
-  bytes prefix = 2;
-}
-
-// Get keys for result
-message GetKeysForResult {
-  // keys
-  repeated bytes keys = 1;
-}
-
 // Set data request
 message SetDataRequest {
+  // NativeAddress to set data for, if none, use current address
+  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 1;
+  bytes key = 2;
   // value
-  bytes value = 2;
+  bytes value = 3;
 }
 
 // Set data result
@@ -766,10 +732,12 @@ message SetDataResult {}
 
 // Append data request
 message AppendDataRequest {
+  // NativeAddress to append data for, if none, use current address
+  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 1;
+  bytes key = 2;
   // value
-  bytes value = 2;
+  bytes value = 3;
 }
 
 // Append data result
@@ -777,8 +745,10 @@ message AppendDataResult {}
 
 // Get data request
 message GetDataRequest {
+  // NativeAddress to get data for, if none, use current address
+  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 1;
+  bytes key = 2;
 }
 
 // Get data result
@@ -787,88 +757,27 @@ message GetDataResult {
   bytes value = 1;
 }
 
-// Has data request
-message HasDataRequest {
-  // key
-  bytes key = 1;
-}
-
-// Has data result
-message HasDataResult {
-  // has data
-  bool has_data = 1;
-}
-
 // Delete data request
 message DeleteDataRequest {
+  // NativeAddress to delete data for, if none, use current address
+  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 1;
+  bytes key = 2;
 }
 
 // Delete data result
 message DeleteDataResult {}
 
-// Set data for request
-message SetDataForRequest {
-  // NativeAddress to set data for
-  massa.model.v1.NativeAddress address = 1;
-  // key
-  bytes key = 2;
-  // value
-  bytes value = 3;
-}
-
-// Set data for result
-message SetDataForResult {}
-
-// Append data for request
-message AppendDataForRequest {
-  // NativeAddress to append data for
-  massa.model.v1.NativeAddress address = 1;
-  // key
-  bytes key = 2;
-  // value
-  bytes value = 3;
-}
-
-// Append data for result
-message AppendDataForResult {}
-
-// Get data for request
-message GetDataForRequest {
-  // NativeAddress to get data for
+// Has data request
+message HasDataRequest {
+  // NativeAddress to check data for, if none, use current address
   massa.model.v1.NativeAddress address = 1;
   // key
   bytes key = 2;
 }
 
-// Get data for result
-message GetDataForResult {
-  // value
-  bytes value = 1;
-}
-
-// Delete data for request
-message DeleteDataForRequest {
-  // NativeAddress to delete data for
-  massa.model.v1.NativeAddress address = 1;
-  // key
-  bytes key = 2;
-}
-
-// Delete data for result
-message DeleteDataForResult {}
-
-// Has data for request
-message HasDataForRequest {
-  // NativeAddress to check data for
-  massa.model.v1.NativeAddress address = 1;
-  // key
-  bytes key = 2;
-}
-
-// Has data for result
-message HasDataForResult {
+// Has data result
+message HasDataResult {
   // has data
   bool has_data = 1;
 }
@@ -891,27 +800,27 @@ message GetCallStackResult {
   repeated string calls = 1;
 }
 
-// Native address form native public key request
+// Native address from native public key request
 message NativeAddressFromNativePubKeyRequest {
   // Native public key
   massa.model.v1.NativePubKey pub_key = 1;
 }
 
-// Native address form native public key result
+// Native address from native public key result
 message NativeAddressFromNativePubKeyResult {
   // Native address
   massa.model.v1.NativeAddress address = 1;
 }
 
 // Unsafe random request
-message UnsafeRandomRequest {}
-
-// Unsafe random result
-message UnsafeRandomResult {
-  // Random
-  int64 random = 1;
+message UnsafeRandomRequest {
+  int32 memory_addr = 1;
+  int32 num_bytes = 2;
 }
 
+// Unsafe random result
+message UnsafeRandomResult {}
+  
 // Get native time request
 message GetNativeTimeRequest {}
 
@@ -921,61 +830,37 @@ message GetNativeTimeResult {
   massa.model.v1.NativeTime time = 1;
 }
 
-// Get current period request
-message GetCurrentPeriodRequest {}
+// Get current slot request
+message GetCurrentSlotRequest {}
 
-// Get current period result
-message GetCurrentPeriodResult {
-  // Current period
-  int64 period = 1;
-}
-
-// Get current thread request
-message GetCurrentThreadRequest {}
-
-// Get current thread result
-message GetCurrentThreadResult {
-  // Current thread
-  int32 thread = 1;
+// Get current slot result
+message GetCurrentSlotResult {
+  // Current slot
+  massa.model.v1.Slot slot = 1;
 }
 
 // Set bytecode request
 message SetBytecodeRequest {
-  // Bytecode
-  bytes bytecode = 2;
-}
-
-// Set bytecode  result
-message SetBytecodeResult {}
-
-// Set bytecode for request
-message SetBytecodeForRequest {
-  // NativeAddress to set bytecode for
+  // NativeAddress to set bytecode for, if none, use current address
   massa.model.v1.NativeAddress address = 1;
   // Bytecode
   bytes bytecode = 2;
 }
 
-// Set bytecode for result
-message SetBytecodeForResult {}
+// Set bytecode result
+message SetBytecodeResult {}
 
 // Get bytecode request
 message GetBytecodeRequest {}
 
-// Get bytecode result
-message GetBytecodeResult {
-  // Bytecode
-  bytes bytecode = 1;
-}
-
-// Get bytecode for request
-message GetBytecodeForRequest {
-  // NativeAddress to get bytecode for
+// Get bytecode request
+message GetBytecodeequest {
+  // NativeAddress to get bytecode for, if none, use current address
   massa.model.v1.NativeAddress address = 1;
 }
 
-// Get bytecode for result
-message GetBytecodeForResult {
+// Get bytecode result
+message GetBytecodeResult {
   // Bytecode
   bytes bytecode = 1;
 }
@@ -1008,36 +893,6 @@ message DateNowResult {
   // date now
   double date_now = 1;
 }
-
-// AS builtin `Console.log` function
-// AS builtin `Console.info` function
-// AS builtin `Console.warn` function
-// AS builtin `Console.error` function
-// AS builtin `Console.debug` function
-// Console put request
-message ConsolePutRequest {
-  // message
-  string message = 1;
-}
-
-// Console put result
-message ConsolePutResult {}
-
-// AS builtin `trace` function
-// trace request
-message TraceRequest {
-  // message
-  string message = 1;
-  int32 n = 2;
-  double a0 = 3;
-  double a1 = 4;
-  double a2 = 5;
-  double a3 = 6;
-  double a4 = 7;
-}
-
-// trace result
-message TraceResult {}
 
 // AS builtin `process.exit()` function
 // Process exit request
@@ -1094,15 +949,6 @@ message GetOpKeysResult {
   repeated bytes keys = 1;
 }
 
-// Print request
-message PrintRequest {
-  // message
-  string message = 1;
-}
-
-// Print result
-message PrintResult {}
-
 // Get remaining gas request
 message GetRemainingGasRequest {}
 
@@ -1113,22 +959,13 @@ message GetRemainingGasResult {
 }
 
 // Get balance request
-message GetBalanceRequest {}
-
-// Get balance result
-message GetBalanceResult {
-  // balance
-  massa.model.v1.NativeAmount balance = 1;
-}
-
-// Get balance for request
-message GetBalanceForRequest {
-  // NativeAddress to get balance for
+message GetBalanceRequest {
+  // NativeAddress to get balance for, if none, use current address
   massa.model.v1.NativeAddress address = 1;
 }
 
 // Get balance result
-message GetBalanceForResult {
+message GetBalanceResult {
   // balance
   massa.model.v1.NativeAmount balance = 1;
 }
