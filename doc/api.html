@@ -442,18 +442,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.LargestStakerEntry"><span class="badge">M</span>LargestStakerEntry</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.LargestStakersFilter"><span class="badge">M</span>LargestStakersFilter</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.LargestStakersQuery"><span class="badge">M</span>LargestStakersQuery</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.NewBlocksHeadersRequest"><span class="badge">M</span>NewBlocksHeadersRequest</a>
                 </li>
               
@@ -559,6 +547,18 @@
               
                 <li>
                   <a href="#massa.api.v1.SendOperationsResponse"><span class="badge">M</span>SendOperationsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.StakerEntry"><span class="badge">M</span>StakerEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.StakersFilter"><span class="badge">M</span>StakersFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.StakersQuery"><span class="badge">M</span>StakersQuery</a>
                 </li>
               
                 <li>
@@ -1987,7 +1987,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>query</td>
-                  <td><a href="#massa.api.v1.LargestStakersQuery">LargestStakersQuery</a></td>
+                  <td><a href="#massa.api.v1.StakersQuery">StakersQuery</a></td>
                   <td></td>
                   <td><p>Query </p></td>
                 </tr>
@@ -2011,9 +2011,9 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>stakers</td>
-                  <td><a href="#massa.api.v1.LargestStakerEntry">LargestStakerEntry</a></td>
+                  <td><a href="#massa.api.v1.StakerEntry">StakerEntry</a></td>
                   <td>repeated</td>
-                  <td><p>Largest stakers </p></td>
+                  <td><p>Stakers </p></td>
                 </tr>
               
             </tbody>
@@ -2076,106 +2076,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#uint32">uint32</a></td>
                   <td></td>
                   <td><p>Transactions throughput </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.LargestStakerEntry">LargestStakerEntry</h3>
-        <p>LargestStakerEntry</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>address</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Address </p></td>
-                </tr>
-              
-                <tr>
-                  <td>rolls</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td></td>
-                  <td><p>Rolls </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.LargestStakersFilter">LargestStakersFilter</h3>
-        <p>LargestStakers Filter</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>min_rolls</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
-                  <td></td>
-                  <td><p>Minimum rolls (Optional) </p></td>
-                </tr>
-              
-                <tr>
-                  <td>max_rolls</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
-                  <td></td>
-                  <td><p>Maximum rolls (Optional) </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.LargestStakersQuery">LargestStakersQuery</h3>
-        <p>LargestStakers Query</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>offset</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td></td>
-                  <td><p>Starting offset for the list of stakers. Defaults to 1 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>limit</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td></td>
-                  <td><p>Limits the number of stakers to return. Defaults to 50 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>filter</td>
-                  <td><a href="#massa.api.v1.LargestStakersFilter">LargestStakersFilter</a></td>
-                  <td></td>
-                  <td><p>Filter </p></td>
                 </tr>
               
             </tbody>
@@ -2622,7 +2522,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>filter</td>
+                  <td>filters</td>
                   <td><a href="#massa.api.v1.SelectorDrawsFilter">SelectorDrawsFilter</a></td>
                   <td>repeated</td>
                   <td><p>Filter </p></td>
@@ -2800,6 +2700,92 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
+        <h3 id="massa.api.v1.StakerEntry">StakerEntry</h3>
+        <p>StakerEntry</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>rolls</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Rolls </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.StakersFilter">StakersFilter</h3>
+        <p>Stakers Filter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>min_rolls</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td></td>
+                  <td><p>Minimum rolls (Optional) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_rolls</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td></td>
+                  <td><p>Maximum rolls (Optional) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.StakersQuery">StakersQuery</h3>
+        <p>Stakers Query</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.StakersFilter">StakersFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.TransactionsThroughputRequest">TransactionsThroughputRequest</h3>
         <p>TransactionsThroughputRequest holds request for TransactionsThroughput</p>
 
@@ -2924,13 +2910,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             
               <tr>
-                <td>GetStakers</td>
-                <td><a href="#massa.api.v1.GetStakersRequest">GetStakersRequest</a></td>
-                <td><a href="#massa.api.v1.GetStakersResponse">GetStakersResponse</a></td>
-                <td><p>Get stakers</p></td>
-              </tr>
-            
-              <tr>
                 <td>GetMipStatus</td>
                 <td><a href="#massa.api.v1.GetMipStatusRequest">GetMipStatusRequest</a></td>
                 <td><a href="#massa.api.v1.GetMipStatusResponse">GetMipStatusResponse</a></td>
@@ -2963,6 +2942,13 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td><a href="#massa.api.v1.GetSelectorDrawsRequest">GetSelectorDrawsRequest</a></td>
                 <td><a href="#massa.api.v1.GetSelectorDrawsResponse">GetSelectorDrawsResponse</a></td>
                 <td><p>Get selector draws</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetStakers</td>
+                <td><a href="#massa.api.v1.GetStakersRequest">GetStakersRequest</a></td>
+                <td><a href="#massa.api.v1.GetStakersResponse">GetStakersResponse</a></td>
+                <td><p>Get stakers</p></td>
               </tr>
             
               <tr>
@@ -3090,16 +3076,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
               
               <tr>
-                <td>GetStakers</td>
-                <td>POST</td>
-                <td>/v1/get_stakers</td>
-                <td>*</td>
-              </tr>
-              
-            
-              
-              
-              <tr>
                 <td>GetMipStatus</td>
                 <td>POST</td>
                 <td>/v1/get_mip_status</td>
@@ -3143,6 +3119,16 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td>GetSelectorDraws</td>
                 <td>POST</td>
                 <td>/v1/get_selector_draws</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetStakers</td>
+                <td>POST</td>
+                <td>/v1/get_stakers</td>
                 <td>*</td>
               </tr>
               
