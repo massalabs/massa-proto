@@ -108,14 +108,6 @@ service PublicService {
     };
   }
 
-  // Get node version
-  rpc GetVersion(GetVersionRequest) returns (GetVersionResponse) {
-    option (google.api.http) = {
-      post: "/v1/get_version"
-      body: "*"
-    };
-  }
-
   // Query state
   rpc QueryState(QueryStateRequest) returns (QueryStateResponse) {
     option (google.api.http) = {
@@ -167,7 +159,7 @@ message GetBlocksRequest {
 // GetBlocks Query
 message GetBlocksQuery {
   // Filter
-  repeated GetBlocksFilter filter = 1;
+  repeated GetBlocksFilter filters = 1;
 }
 
 // GetBlocks Filter
@@ -366,15 +358,6 @@ message GetTransactionsThroughputRequest {}
 message GetTransactionsThroughputResponse {
   // Transactions throughput
   uint32 throughput = 1;
-}
-
-// GetVersionRequest holds request from GetVersion
-message GetVersionRequest {}
-
-// GetVersionResponse holds response from GetVersion
-message GetVersionResponse {
-  // Version
-  string version = 1;
 }
 
 // Request to atomically execute a batch of execution state queries
