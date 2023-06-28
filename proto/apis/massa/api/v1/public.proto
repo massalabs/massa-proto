@@ -45,14 +45,6 @@ service PublicService {
     };
   }
 
-  // Get stakers
-  rpc GetStakers(GetStakersRequest) returns (GetStakersResponse) {
-    option (google.api.http) = {
-      post: "/v1/get_stakers"
-      body: "*"
-    };
-  }
-
   // Get Mip status
   rpc GetMipStatus(GetMipStatusRequest) returns (GetMipStatusResponse) {
     option (google.api.http) = {
@@ -89,6 +81,14 @@ service PublicService {
   rpc GetSelectorDraws(GetSelectorDrawsRequest) returns (GetSelectorDrawsResponse) {
     option (google.api.http) = {
       post: "/v1/get_selector_draws"
+      body: "*"
+    };
+  }
+
+  // Get stakers
+  rpc GetStakers(GetStakersRequest) returns (GetStakersResponse) {
+    option (google.api.http) = {
+      post: "/v1/get_stakers"
       body: "*"
     };
   }
@@ -213,44 +213,6 @@ message DatastoreEntry {
   bytes candidate_value = 2;
 }
 
-// GetStakersRequest holds request from GetStakers
-message GetStakersRequest {
-  // Query
-  LargestStakersQuery query = 1;
-}
-
-// LargestStakers Query
-message LargestStakersQuery {
-  // Starting offset for the list of stakers. Defaults to 1
-  uint64 offset = 1;
-  // Limits the number of stakers to return. Defaults to 50
-  uint64 limit = 2;
-  // Filter
-  LargestStakersFilter filter = 3;
-}
-
-// LargestStakers Filter
-message LargestStakersFilter {
-  // Minimum rolls (Optional)
-  google.protobuf.UInt64Value min_rolls = 1;
-  // Maximum rolls (Optional)
-  google.protobuf.UInt64Value max_rolls = 2;
-}
-
-// GetStakersResponse holds response from GetStakers
-message GetStakersResponse {
-  // Largest stakers
-  repeated LargestStakerEntry stakers = 1;
-}
-
-// LargestStakerEntry
-message LargestStakerEntry {
-  // Address
-  string address = 1;
-  // Rolls
-  uint64 rolls = 2;
-}
-
 // GetMipStatusRequest holds request for GetMipStatus
 message GetMipStatusRequest {}
 
@@ -337,7 +299,7 @@ message GetSelectorDrawsRequest {
 // SelectorDraws Query
 message SelectorDrawsQuery {
   // Filter
-  repeated SelectorDrawsFilter filter = 1;
+  repeated SelectorDrawsFilter filters = 1;
 }
 
 // SelectorDraws Filter
@@ -351,6 +313,40 @@ message SelectorDrawsFilter {
 message GetSelectorDrawsResponse {
   // Selector draws
   repeated massa.model.v1.SlotDraw draws = 1;
+}
+
+// GetStakersRequest holds request from GetStakers
+message GetStakersRequest {
+  // Query
+  StakersQuery query = 1;
+}
+
+// Stakers Query
+message StakersQuery {
+  // Filters
+  repeated StakersFilter filters = 1;
+}
+
+// Stakers Filter
+message StakersFilter {
+  // Minimum rolls (Optional)
+  google.protobuf.UInt64Value min_rolls = 1;
+  // Maximum rolls (Optional)
+  google.protobuf.UInt64Value max_rolls = 2;
+}
+
+// GetStakersResponse holds response from GetStakers
+message GetStakersResponse {
+  // Stakers
+  repeated StakerEntry stakers = 1;
+}
+
+// StakerEntry
+message StakerEntry {
+  // Address
+  string address = 1;
+  // Rolls
+  uint64 rolls = 2;
 }
 
 // GetTransactionsThroughputRequest holds request for GetTransactionsThroughput

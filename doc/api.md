@@ -70,9 +70,6 @@
     - [GetStatusResponse](#massa-api-v1-GetStatusResponse)
     - [GetTransactionsThroughputRequest](#massa-api-v1-GetTransactionsThroughputRequest)
     - [GetTransactionsThroughputResponse](#massa-api-v1-GetTransactionsThroughputResponse)
-    - [LargestStakerEntry](#massa-api-v1-LargestStakerEntry)
-    - [LargestStakersFilter](#massa-api-v1-LargestStakersFilter)
-    - [LargestStakersQuery](#massa-api-v1-LargestStakersQuery)
     - [NewBlocksHeadersRequest](#massa-api-v1-NewBlocksHeadersRequest)
     - [NewBlocksHeadersResponse](#massa-api-v1-NewBlocksHeadersResponse)
     - [NewBlocksRequest](#massa-api-v1-NewBlocksRequest)
@@ -100,6 +97,9 @@
     - [SendEndorsementsResponse](#massa-api-v1-SendEndorsementsResponse)
     - [SendOperationsRequest](#massa-api-v1-SendOperationsRequest)
     - [SendOperationsResponse](#massa-api-v1-SendOperationsResponse)
+    - [StakerEntry](#massa-api-v1-StakerEntry)
+    - [StakersFilter](#massa-api-v1-StakersFilter)
+    - [StakersQuery](#massa-api-v1-StakersQuery)
     - [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest)
     - [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse)
   
@@ -922,7 +922,7 @@ GetStakersRequest holds request from GetStakers
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| query | [LargestStakersQuery](#massa-api-v1-LargestStakersQuery) |  | Query |
+| query | [StakersQuery](#massa-api-v1-StakersQuery) |  | Query |
 
 
 
@@ -937,7 +937,7 @@ GetStakersResponse holds response from GetStakers
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| stakers | [LargestStakerEntry](#massa-api-v1-LargestStakerEntry) | repeated | Largest stakers |
+| stakers | [StakerEntry](#massa-api-v1-StakerEntry) | repeated | Stakers |
 
 
 
@@ -1349,7 +1349,7 @@ SelectorDraws Query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter) | repeated | Filter |
+| filters | [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter) | repeated | Filter |
 
 
 
@@ -1449,6 +1449,53 @@ SendOperationsResponse holds response from SendOperations
 
 
 
+<a name="massa-api-v1-StakerEntry"></a>
+
+### StakerEntry
+StakerEntry
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  | Address |
+| rolls | [uint64](#uint64) |  | Rolls |
+
+
+
+
+
+
+<a name="massa-api-v1-StakersFilter"></a>
+
+### StakersFilter
+Stakers Filter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| min_rolls | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Minimum rolls (Optional) |
+| max_rolls | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Maximum rolls (Optional) |
+
+
+
+
+
+
+<a name="massa-api-v1-StakersQuery"></a>
+
+### StakersQuery
+Stakers Query
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [StakersFilter](#massa-api-v1-StakersFilter) | repeated | Filters |
+
+
+
+
+
+
 <a name="massa-api-v1-TransactionsThroughputRequest"></a>
 
 ### TransactionsThroughputRequest
@@ -1510,12 +1557,12 @@ Massa public gRPC service
 | ----------- | ------------ | ------------- | ------------|
 | GetBlocks | [GetBlocksRequest](#massa-api-v1-GetBlocksRequest) | [GetBlocksResponse](#massa-api-v1-GetBlocksResponse) | Get blocks by ids |
 | GetDatastoreEntries | [GetDatastoreEntriesRequest](#massa-api-v1-GetDatastoreEntriesRequest) | [GetDatastoreEntriesResponse](#massa-api-v1-GetDatastoreEntriesResponse) | Get datastore entries |
-| GetStakers | [GetStakersRequest](#massa-api-v1-GetStakersRequest) | [GetStakersResponse](#massa-api-v1-GetStakersResponse) | Get stakers |
 | GetMipStatus | [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest) | [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse) | Get Mip status |
 | GetNextBlockBestParents | [GetNextBlockBestParentsRequest](#massa-api-v1-GetNextBlockBestParentsRequest) | [GetNextBlockBestParentsResponse](#massa-api-v1-GetNextBlockBestParentsResponse) | Get next block best parents |
 | GetOperations | [GetOperationsRequest](#massa-api-v1-GetOperationsRequest) | [GetOperationsResponse](#massa-api-v1-GetOperationsResponse) | Get operations |
 | GetScExecutionEvents | [GetScExecutionEventsRequest](#massa-api-v1-GetScExecutionEventsRequest) | [GetScExecutionEventsResponse](#massa-api-v1-GetScExecutionEventsResponse) | Get smart contracts execution events |
 | GetSelectorDraws | [GetSelectorDrawsRequest](#massa-api-v1-GetSelectorDrawsRequest) | [GetSelectorDrawsResponse](#massa-api-v1-GetSelectorDrawsResponse) | Get selector draws |
+| GetStakers | [GetStakersRequest](#massa-api-v1-GetStakersRequest) | [GetStakersResponse](#massa-api-v1-GetStakersResponse) | Get stakers |
 | GetStatus | [GetStatusRequest](#massa-api-v1-GetStatusRequest) | [GetStatusResponse](#massa-api-v1-GetStatusResponse) | Get status |
 | GetTransactionsThroughput | [GetTransactionsThroughputRequest](#massa-api-v1-GetTransactionsThroughputRequest) | [GetTransactionsThroughputResponse](#massa-api-v1-GetTransactionsThroughputResponse) | Get transactions throughput |
 | QueryState | [QueryStateRequest](#massa-api-v1-QueryStateRequest) | [QueryStateResponse](#massa-api-v1-QueryStateResponse) | Query state |
