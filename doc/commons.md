@@ -106,9 +106,9 @@
     - [SetOrKeepBool](#massa-model-v1-SetOrKeepBool)
     - [SetOrKeepBytecode](#massa-model-v1-SetOrKeepBytecode)
     - [SetOrKeepBytes](#massa-model-v1-SetOrKeepBytes)
-    - [SetOrKeepFixed64](#massa-model-v1-SetOrKeepFixed64)
     - [SetOrKeepSlot](#massa-model-v1-SetOrKeepSlot)
     - [SetOrKeepString](#massa-model-v1-SetOrKeepString)
+    - [SetOrKeepUint64](#massa-model-v1-SetOrKeepUint64)
     - [SlotExecutionOutput](#massa-model-v1-SlotExecutionOutput)
     - [StateChanges](#massa-model-v1-StateChanges)
   
@@ -135,7 +135,7 @@
     - [BlockHeader](#massa-model-v1-BlockHeader)
     - [BlockWrapper](#massa-model-v1-BlockWrapper)
     - [FilledBlock](#massa-model-v1-FilledBlock)
-    - [FilledOperationTuple](#massa-model-v1-FilledOperationTuple)
+    - [FilledOperationEntry](#massa-model-v1-FilledOperationEntry)
     - [SignedBlock](#massa-model-v1-SignedBlock)
     - [SignedBlockHeader](#massa-model-v1-SignedBlockHeader)
   
@@ -639,7 +639,7 @@ Signed operation
 | signature | [string](#string) |  | A cryptographically generated value using `serialized_data` and a public key. |
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
-| id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
+| secure_hash | [string](#string) |  | A secure hash of the non-malleable contents of a deterministic binary representation of the block header |
 | serialized_size | [uint64](#uint64) |  | The size of the serialized operation in bytes |
 
 
@@ -770,7 +770,7 @@ Packages a type such that it can be securely sent and received in a trust-free n
 | signature | [string](#string) |  | A cryptographically generated value using `serialized_data` and a public key. |
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
-| id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
+| secure_hash | [string](#string) |  | A secure hash of the non-malleable contents of a deterministic binary representation of the block header |
 
 
 
@@ -1061,7 +1061,6 @@ Asynchronous smart contract message
 | data | [bytes](#bytes) |  | Raw payload data of the message |
 | trigger | [AsyncMessageTrigger](#massa-model-v1-AsyncMessageTrigger) |  | Trigger that define whenever a message can be executed |
 | can_be_executed | [bool](#bool) |  | Boolean that determine if the message can be executed. For messages without filter this boolean is always true. For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. |
-| hash | [string](#string) |  | Hash of the message |
 
 
 
@@ -1093,19 +1092,18 @@ Asynchronous smart contract message
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | emission_slot | [SetOrKeepSlot](#massa-model-v1-SetOrKeepSlot) |  | Change the slot at which the message was emitted |
-| emission_index | [SetOrKeepFixed64](#massa-model-v1-SetOrKeepFixed64) |  | Change the index of the emitted message within the `emission_slot`. This is used for disambiguate the emission of multiple messages at the same slot. |
+| emission_index | [SetOrKeepUint64](#massa-model-v1-SetOrKeepUint64) |  | Change the index of the emitted message within the `emission_slot`. This is used for disambiguate the emission of multiple messages at the same slot. |
 | sender | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Change the address that sent the message |
 | destination | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Change the address towards which the message is being sent |
 | handler | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Change the handler function name within the destination address&#39; bytecode |
-| max_gas | [SetOrKeepFixed64](#massa-model-v1-SetOrKeepFixed64) |  | Change the maximum gas to use when processing the message |
-| fee | [SetOrKeepFixed64](#massa-model-v1-SetOrKeepFixed64) |  | Change the fee paid by the sender when the message is processed. |
-| coins | [SetOrKeepFixed64](#massa-model-v1-SetOrKeepFixed64) |  | Change the coins sent from the sender to the target address of the message. Those coins are spent by the sender address when the message is sent, and credited to the destination address when receiving the message. In case of failure or discard, those coins are reimbursed to the sender. |
+| max_gas | [SetOrKeepUint64](#massa-model-v1-SetOrKeepUint64) |  | Change the maximum gas to use when processing the message |
+| fee | [SetOrKeepUint64](#massa-model-v1-SetOrKeepUint64) |  | Change the fee paid by the sender when the message is processed. |
+| coins | [SetOrKeepUint64](#massa-model-v1-SetOrKeepUint64) |  | Change the coins sent from the sender to the target address of the message. Those coins are spent by the sender address when the message is sent, and credited to the destination address when receiving the message. In case of failure or discard, those coins are reimbursed to the sender. |
 | validity_start | [SetOrKeepSlot](#massa-model-v1-SetOrKeepSlot) |  | Change the slot at which the message starts being valid (bound included in the validity range) |
 | validity_end | [SetOrKeepSlot](#massa-model-v1-SetOrKeepSlot) |  | Change the slot at which the message stops being valid (bound not included in the validity range) |
 | data | [SetOrKeepBytes](#massa-model-v1-SetOrKeepBytes) |  | Change the raw payload data of the message |
 | trigger | [SetOrKeepAsyncMessageTrigger](#massa-model-v1-SetOrKeepAsyncMessageTrigger) |  | Change the trigger that define whenever a message can be executed |
 | can_be_executed | [SetOrKeepBool](#massa-model-v1-SetOrKeepBool) |  | Change the boolean that determine if the message can be executed. For messages without filter this boolean is always true. For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. |
-| hash | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Change the hash of the message |
 
 
 
@@ -1277,7 +1275,7 @@ ExecutedOpsChangeValue
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| status | [OperationExecutionStatus](#massa-model-v1-OperationExecutionStatus) | repeated | The status of the execution of the operation |
+| status | [OperationExecutionStatus](#massa-model-v1-OperationExecutionStatus) |  | The status of the execution of the operation |
 | slot | [Slot](#massa-model-v1-Slot) |  | Slot until which the operation remains valid (included) |
 
 
@@ -1514,7 +1512,7 @@ Represents an update to one or more fields of a `LedgerEntry`
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| balance | [SetOrKeepBalance](#massa-model-v1-SetOrKeepBalance) |  | Change the balance |
+| balance | [SetOrKeepBalance](#massa-model-v1-SetOrKeepBalance) |  | TODO improve with heavy usage of oneof Change the balance |
 | bytecode | [SetOrKeepBytecode](#massa-model-v1-SetOrKeepBytecode) |  | Change the executable bytecode |
 | datastore | [SetOrDeleteDatastoreEntry](#massa-model-v1-SetOrDeleteDatastoreEntry) | repeated | Change datastore entries |
 
@@ -1577,7 +1575,7 @@ ScExecutionEvent
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | context | [ScExecutionEventContext](#massa-model-v1-ScExecutionEventContext) |  | Sc execution context |
-| data | [string](#string) |  | json data string |
+| data | [bytes](#bytes) |  | Generated data of the event |
 
 
 
@@ -1592,13 +1590,12 @@ ScExecutionEvent context
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | base58 encoded slot(period &#43; thread) &#43; index_in_slot |
 | origin_slot | [Slot](#massa-model-v1-Slot) |  | When was it generated |
 | block_id | [string](#string) | optional | Block id if there was a block at that slot (optional) |
 | index_in_slot | [uint64](#uint64) |  | Index of the event in the slot |
 | call_stack | [string](#string) | repeated | Call stack addresses. most recent at the end |
 | origin_operation_id | [string](#string) | optional | Origin operation id (optional) |
-| status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) | repeated | Status |
+| status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) |  | Status |
 
 
 
@@ -1634,7 +1631,7 @@ Set or Delete DatastoreEntry
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | type | [SetOrDeleteType](#massa-model-v1-SetOrDeleteType) |  | The type of the change |
-| datastore_entry | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) | optional | The balance of that entry (optioal) |
+| datastore_entry | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) | optional | The datastore entry (optional) |
 
 
 
@@ -1721,22 +1718,6 @@ Set or Keep Bytes
 
 
 
-<a name="massa-model-v1-SetOrKeepFixed64"></a>
-
-### SetOrKeepFixed64
-Set or Keep Fixed64
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| value | [uint64](#uint64) | optional | The value of that entry (optional) |
-
-
-
-
-
-
 <a name="massa-model-v1-SetOrKeepSlot"></a>
 
 ### SetOrKeepSlot
@@ -1769,6 +1750,22 @@ Set or Keep String
 
 
 
+<a name="massa-model-v1-SetOrKeepUint64"></a>
+
+### SetOrKeepUint64
+Set or Keep Uint64
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
+| value | [uint64](#uint64) | optional | The value of that entry (optional) |
+
+
+
+
+
+
 <a name="massa-model-v1-SlotExecutionOutput"></a>
 
 ### SlotExecutionOutput
@@ -1777,7 +1774,7 @@ SlotExecutionOutput
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| status | [ExecutionOutputStatus](#massa-model-v1-ExecutionOutputStatus) | repeated | Status |
+| status | [ExecutionOutputStatus](#massa-model-v1-ExecutionOutputStatus) |  | Status |
 | execution_output | [ExecutionOutput](#massa-model-v1-ExecutionOutput) |  | Executed slot output |
 
 
@@ -2047,7 +2044,7 @@ Block header
 | ----- | ---- | ----- | ----------- |
 | slot | [Slot](#massa-model-v1-Slot) |  | Slot |
 | parents | [string](#string) | repeated | parents |
-| operation_merkle_root | [string](#string) |  | All operations hash |
+| operations_hash | [string](#string) |  | All operations hash |
 | endorsements | [SignedEndorsement](#massa-model-v1-SignedEndorsement) | repeated | Signed endorsements |
 
 
@@ -2063,7 +2060,7 @@ A wrapper around a block with its metadata
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | The unique ID of the block. |
+| block_id | [string](#string) |  | The unique ID of the block. |
 | block | [Block](#massa-model-v1-Block) |  | The block object itself |
 | status | [BlockStatus](#massa-model-v1-BlockStatus) | repeated | The execution statuses of the block |
 
@@ -2081,16 +2078,16 @@ Filled block
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | header | [SignedBlockHeader](#massa-model-v1-SignedBlockHeader) |  | Signed header |
-| operations | [FilledOperationTuple](#massa-model-v1-FilledOperationTuple) | repeated | Operations |
+| operations | [FilledOperationEntry](#massa-model-v1-FilledOperationEntry) | repeated | Operations |
 
 
 
 
 
 
-<a name="massa-model-v1-FilledOperationTuple"></a>
+<a name="massa-model-v1-FilledOperationEntry"></a>
 
-### FilledOperationTuple
+### FilledOperationEntry
 Filled Operation Tuple
 
 
@@ -2116,7 +2113,7 @@ Signed block
 | signature | [string](#string) |  | A cryptographically generated value using `serialized_data` and a public key. |
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
-| id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
+| secure_hash | [string](#string) |  | A secure hash of the non-malleable contents of a deterministic binary representation of the block header |
 | serialized_size | [uint64](#uint64) |  | The size of the serialized block in bytes |
 
 
@@ -2136,7 +2133,7 @@ Signed block header
 | signature | [string](#string) |  | A cryptographically generated value using `serialized_data` and a public key. |
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
-| id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
+| secure_hash | [string](#string) |  | A secure hash of the non-malleable contents of a deterministic binary representation of the block header |
 | serialized_size | [uint64](#uint64) |  | The size of the serialized block header in bytes |
 
 
@@ -2204,7 +2201,7 @@ Signed endorsement
 | signature | [string](#string) |  | A cryptographically generated value using `serialized_data` and a public key. |
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
-| id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
+| secure_hash | [string](#string) |  | A secure hash of the non-malleable contents of a deterministic binary representation of the block header |
 | serialized_size | [uint64](#uint64) |  | The size of the serialized endorsement in bytes |
 
 

@@ -599,15 +599,15 @@
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.SetOrKeepFixed64"><span class="badge">M</span>SetOrKeepFixed64</a>
-                </li>
-              
-                <li>
                   <a href="#massa.model.v1.SetOrKeepSlot"><span class="badge">M</span>SetOrKeepSlot</a>
                 </li>
               
                 <li>
                   <a href="#massa.model.v1.SetOrKeepString"><span class="badge">M</span>SetOrKeepString</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.SetOrKeepUint64"><span class="badge">M</span>SetOrKeepUint64</a>
                 </li>
               
                 <li>
@@ -716,7 +716,7 @@
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.FilledOperationTuple"><span class="badge">M</span>FilledOperationTuple</a>
+                  <a href="#massa.model.v1.FilledOperationEntry"><span class="badge">M</span>FilledOperationEntry</a>
                 </li>
               
                 <li>
@@ -1968,10 +1968,10 @@
                 </tr>
               
                 <tr>
-                  <td>id</td>
+                  <td>secure_hash</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
+                  <td><p>A secure hash of the non-malleable contents of a deterministic binary representation of the block header </p></td>
                 </tr>
               
                 <tr>
@@ -2219,10 +2219,10 @@
                 </tr>
               
                 <tr>
-                  <td>id</td>
+                  <td>secure_hash</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
+                  <td><p>A secure hash of the non-malleable contents of a deterministic binary representation of the block header </p></td>
                 </tr>
               
             </tbody>
@@ -2761,13 +2761,6 @@ In case of failure or discard, those coins are reimbursed to the sender. </p></t
 For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. </p></td>
                 </tr>
               
-                <tr>
-                  <td>hash</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Hash of the message </p></td>
-                </tr>
-              
             </tbody>
           </table>
 
@@ -2825,7 +2818,7 @@ For messages with filter, this boolean is true if the filter has been matched be
               
                 <tr>
                   <td>emission_index</td>
-                  <td><a href="#massa.model.v1.SetOrKeepFixed64">SetOrKeepFixed64</a></td>
+                  <td><a href="#massa.model.v1.SetOrKeepUint64">SetOrKeepUint64</a></td>
                   <td></td>
                   <td><p>Change the index of the emitted message within the `emission_slot`.
 This is used for disambiguate the emission of multiple messages at the same slot. </p></td>
@@ -2854,21 +2847,21 @@ This is used for disambiguate the emission of multiple messages at the same slot
               
                 <tr>
                   <td>max_gas</td>
-                  <td><a href="#massa.model.v1.SetOrKeepFixed64">SetOrKeepFixed64</a></td>
+                  <td><a href="#massa.model.v1.SetOrKeepUint64">SetOrKeepUint64</a></td>
                   <td></td>
                   <td><p>Change the maximum gas to use when processing the message </p></td>
                 </tr>
               
                 <tr>
                   <td>fee</td>
-                  <td><a href="#massa.model.v1.SetOrKeepFixed64">SetOrKeepFixed64</a></td>
+                  <td><a href="#massa.model.v1.SetOrKeepUint64">SetOrKeepUint64</a></td>
                   <td></td>
                   <td><p>Change the fee paid by the sender when the message is processed. </p></td>
                 </tr>
               
                 <tr>
                   <td>coins</td>
-                  <td><a href="#massa.model.v1.SetOrKeepFixed64">SetOrKeepFixed64</a></td>
+                  <td><a href="#massa.model.v1.SetOrKeepUint64">SetOrKeepUint64</a></td>
                   <td></td>
                   <td><p>Change the coins sent from the sender to the target address of the message.
 Those coins are spent by the sender address when the message is sent,
@@ -2910,13 +2903,6 @@ In case of failure or discard, those coins are reimbursed to the sender. </p></t
                   <td></td>
                   <td><p>Change the boolean that determine if the message can be executed. For messages without filter this boolean is always true.
 For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. </p></td>
-                </tr>
-              
-                <tr>
-                  <td>hash</td>
-                  <td><a href="#massa.model.v1.SetOrKeepString">SetOrKeepString</a></td>
-                  <td></td>
-                  <td><p>Change the hash of the message </p></td>
                 </tr>
               
             </tbody>
@@ -3228,7 +3214,7 @@ For messages with filter, this boolean is true if the filter has been matched be
                 <tr>
                   <td>status</td>
                   <td><a href="#massa.model.v1.OperationExecutionStatus">OperationExecutionStatus</a></td>
-                  <td>repeated</td>
+                  <td></td>
                   <td><p>The status of the execution of the operation </p></td>
                 </tr>
               
@@ -3835,7 +3821,8 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td>balance</td>
                   <td><a href="#massa.model.v1.SetOrKeepBalance">SetOrKeepBalance</a></td>
                   <td></td>
-                  <td><p>Change the balance </p></td>
+                  <td><p>TODO improve with heavy usage of oneof
+Change the balance </p></td>
                 </tr>
               
                 <tr>
@@ -3950,9 +3937,9 @@ For messages with filter, this boolean is true if the filter has been matched be
               
                 <tr>
                   <td>data</td>
-                  <td><a href="#string">string</a></td>
+                  <td><a href="#bytes">bytes</a></td>
                   <td></td>
-                  <td><p>json data string </p></td>
+                  <td><p>Generated data of the event </p></td>
                 </tr>
               
             </tbody>
@@ -3971,13 +3958,6 @@ For messages with filter, this boolean is true if the filter has been matched be
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>base58 encoded slot(period &#43; thread) &#43; index_in_slot </p></td>
-                </tr>
               
                 <tr>
                   <td>origin_slot</td>
@@ -4017,7 +3997,7 @@ For messages with filter, this boolean is true if the filter has been matched be
                 <tr>
                   <td>status</td>
                   <td><a href="#massa.model.v1.ScExecutionEventStatus">ScExecutionEventStatus</a></td>
-                  <td>repeated</td>
+                  <td></td>
                   <td><p>Status </p></td>
                 </tr>
               
@@ -4108,7 +4088,7 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td>datastore_entry</td>
                   <td><a href="#massa.model.v1.BytesMapFieldEntry">BytesMapFieldEntry</a></td>
                   <td>optional</td>
-                  <td><p>The balance of that entry (optioal) </p></td>
+                  <td><p>The datastore entry (optional) </p></td>
                 </tr>
               
             </tbody>
@@ -4273,37 +4253,6 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
-        <h3 id="massa.model.v1.SetOrKeepFixed64">SetOrKeepFixed64</h3>
-        <p>Set or Keep Fixed64</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>type</td>
-                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
-                  <td></td>
-                  <td><p>The type of the change </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td>optional</td>
-                  <td><p>The value of that entry (optional) </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.model.v1.SetOrKeepSlot">SetOrKeepSlot</h3>
         <p>Set or Keep Slot</p>
 
@@ -4366,6 +4315,37 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
+        <h3 id="massa.model.v1.SetOrKeepUint64">SetOrKeepUint64</h3>
+        <p>Set or Keep Uint64</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
+                  <td></td>
+                  <td><p>The type of the change </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td>optional</td>
+                  <td><p>The value of that entry (optional) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.SlotExecutionOutput">SlotExecutionOutput</h3>
         <p>SlotExecutionOutput</p>
 
@@ -4379,7 +4359,7 @@ For messages with filter, this boolean is true if the filter has been matched be
                 <tr>
                   <td>status</td>
                   <td><a href="#massa.model.v1.ExecutionOutputStatus">ExecutionOutputStatus</a></td>
-                  <td>repeated</td>
+                  <td></td>
                   <td><p>Status </p></td>
                 </tr>
               
@@ -4925,7 +4905,7 @@ For messages with filter, this boolean is true if the filter has been matched be
                 </tr>
               
                 <tr>
-                  <td>operation_merkle_root</td>
+                  <td>operations_hash</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>All operations hash </p></td>
@@ -4956,7 +4936,7 @@ For messages with filter, this boolean is true if the filter has been matched be
             <tbody>
               
                 <tr>
-                  <td>id</td>
+                  <td>block_id</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>The unique ID of the block. </p></td>
@@ -5002,7 +4982,7 @@ For messages with filter, this boolean is true if the filter has been matched be
               
                 <tr>
                   <td>operations</td>
-                  <td><a href="#massa.model.v1.FilledOperationTuple">FilledOperationTuple</a></td>
+                  <td><a href="#massa.model.v1.FilledOperationEntry">FilledOperationEntry</a></td>
                   <td>repeated</td>
                   <td><p>Operations </p></td>
                 </tr>
@@ -5014,7 +4994,7 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
-        <h3 id="massa.model.v1.FilledOperationTuple">FilledOperationTuple</h3>
+        <h3 id="massa.model.v1.FilledOperationEntry">FilledOperationEntry</h3>
         <p>Filled Operation Tuple</p>
 
         
@@ -5084,10 +5064,10 @@ For messages with filter, this boolean is true if the filter has been matched be
                 </tr>
               
                 <tr>
-                  <td>id</td>
+                  <td>secure_hash</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
+                  <td><p>A secure hash of the non-malleable contents of a deterministic binary representation of the block header </p></td>
                 </tr>
               
                 <tr>
@@ -5143,10 +5123,10 @@ For messages with filter, this boolean is true if the filter has been matched be
                 </tr>
               
                 <tr>
-                  <td>id</td>
+                  <td>secure_hash</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
+                  <td><p>A secure hash of the non-malleable contents of a deterministic binary representation of the block header </p></td>
                 </tr>
               
                 <tr>
@@ -5296,10 +5276,10 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                 </tr>
               
                 <tr>
-                  <td>id</td>
+                  <td>secure_hash</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
+                  <td><p>A secure hash of the non-malleable contents of a deterministic binary representation of the block header </p></td>
                 </tr>
               
                 <tr>
