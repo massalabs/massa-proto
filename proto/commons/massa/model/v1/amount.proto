@@ -4,6 +4,8 @@ syntax = "proto3";
 
 package massa.model.v1;
 
+import "google/protobuf/wrappers.proto";
+
 option csharp_namespace = "Com.Massa.Model.v1";
 option go_package = "github.com/massalabs/massa/model/v1;v1";
 option java_multiple_files = true;
@@ -17,7 +19,7 @@ option swift_prefix = "MMODEL";
 // the future. value = mantissa / (10^scale)
 message NativeAmount {
   // Mantissa
-  fixed64 mantissa = 1;
+  google.protobuf.UInt64Value mandatory_mantissa = 1;
   // Scale
-  fixed32 scale = 2;
+  google.protobuf.UInt32Value mandatory_scale = 2;
 }
