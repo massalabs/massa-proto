@@ -38,16 +38,14 @@
     - [PrivateService](#massa-api-v1-PrivateService)
   
 - [massa/api/v1/public.proto](#massa_api_v1_public-proto)
+    - [BlockIds](#massa-api-v1-BlockIds)
     - [BlockParent](#massa-api-v1-BlockParent)
     - [BlockResult](#massa-api-v1-BlockResult)
-    - [BlocksContext](#massa-api-v1-BlocksContext)
     - [DatastoreEntriesQuery](#massa-api-v1-DatastoreEntriesQuery)
     - [DatastoreEntry](#massa-api-v1-DatastoreEntry)
     - [DatastoreEntryFilter](#massa-api-v1-DatastoreEntryFilter)
     - [EndorsementResult](#massa-api-v1-EndorsementResult)
     - [ExecutionQueryResponse](#massa-api-v1-ExecutionQueryResponse)
-    - [GetBlocksBySlotsRequest](#massa-api-v1-GetBlocksBySlotsRequest)
-    - [GetBlocksBySlotsResponse](#massa-api-v1-GetBlocksBySlotsResponse)
     - [GetBlocksFilter](#massa-api-v1-GetBlocksFilter)
     - [GetBlocksQuery](#massa-api-v1-GetBlocksQuery)
     - [GetBlocksRequest](#massa-api-v1-GetBlocksRequest)
@@ -62,7 +60,6 @@
     - [GetOperationsQuery](#massa-api-v1-GetOperationsQuery)
     - [GetOperationsRequest](#massa-api-v1-GetOperationsRequest)
     - [GetOperationsResponse](#massa-api-v1-GetOperationsResponse)
-    - [GetScExecutionEventsContext](#massa-api-v1-GetScExecutionEventsContext)
     - [GetScExecutionEventsQuery](#massa-api-v1-GetScExecutionEventsQuery)
     - [GetScExecutionEventsRequest](#massa-api-v1-GetScExecutionEventsRequest)
     - [GetScExecutionEventsResponse](#massa-api-v1-GetScExecutionEventsResponse)
@@ -77,7 +74,6 @@
     - [GetVersionRequest](#massa-api-v1-GetVersionRequest)
     - [GetVersionResponse](#massa-api-v1-GetVersionResponse)
     - [LargestStakerEntry](#massa-api-v1-LargestStakerEntry)
-    - [LargestStakersContext](#massa-api-v1-LargestStakersContext)
     - [LargestStakersFilter](#massa-api-v1-LargestStakersFilter)
     - [LargestStakersQuery](#massa-api-v1-LargestStakersQuery)
     - [NewBlocksHeadersRequest](#massa-api-v1-NewBlocksHeadersRequest)
@@ -97,7 +93,6 @@
     - [NewSlotExecutionOutputsRequest](#massa-api-v1-NewSlotExecutionOutputsRequest)
     - [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse)
     - [OperationResult](#massa-api-v1-OperationResult)
-    - [OperationsContext](#massa-api-v1-OperationsContext)
     - [QueryStateRequest](#massa-api-v1-QueryStateRequest)
     - [QueryStateResponse](#massa-api-v1-QueryStateResponse)
     - [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter)
@@ -108,6 +103,7 @@
     - [SendEndorsementsResponse](#massa-api-v1-SendEndorsementsResponse)
     - [SendOperationsRequest](#massa-api-v1-SendOperationsRequest)
     - [SendOperationsResponse](#massa-api-v1-SendOperationsResponse)
+    - [Slots](#massa-api-v1-Slots)
     - [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest)
     - [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse)
   
@@ -252,11 +248,6 @@ AllowEveryoneToBootstrapResponse holds the response from AllowEveryoneToBootstra
 GetBootstrapBlacklistRequest holds the request for GetBootstrapBlacklist
 
 
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
-
-
 
 
 
@@ -269,7 +260,6 @@ GetBootstrapBlacklistResponse holds the response from GetBootstrapBlacklist
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | ips | [string](#string) | repeated | Bootstrap blacklisted IP addresses |
 
 
@@ -281,11 +271,6 @@ GetBootstrapBlacklistResponse holds the response from GetBootstrapBlacklist
 
 ### GetBootstrapWhitelistRequest
 GetBootstrapWhitelistRequest holds the request for GetBootstrapWhitelist
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 
 
 
@@ -300,7 +285,6 @@ GetBootstrapWhitelistResponse holds the response from GetBootstrapWhitelist
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | ips | [string](#string) | repeated | Bootstrap whitelisted IP addresses |
 
 
@@ -312,11 +296,6 @@ GetBootstrapWhitelistResponse holds the response from GetBootstrapWhitelist
 
 ### GetNodeStatusRequest
 GetNodeStatusRequest holds the request for GetNodeStatus
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 
 
 
@@ -331,7 +310,6 @@ GetNodeStatusResponse holds the response from GetNodeStatus
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | status | [massa.model.v1.NodeStatus](#massa-model-v1-NodeStatus) |  | Node status |
 
 
@@ -343,11 +321,6 @@ GetNodeStatusResponse holds the response from GetNodeStatus
 
 ### GetPeersWhitelistRequest
 GetPeersWhitelistRequest holds the request for GetPeersWhitelist
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 
 
 
@@ -362,7 +335,6 @@ GetPeersWhitelistResponse holds the response from GetPeersWhitelist
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | ips | [string](#string) | repeated | Whitelisted IP addresses |
 
 
@@ -498,7 +470,6 @@ SignMessagesRequest holds the request for SignMessages
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | messages | [bytes](#bytes) | repeated | Messages to sign in bytes |
 
 
@@ -514,7 +485,6 @@ SignMessagesResponse holds the response from SignMessages
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | public_key | [string](#string) |  | Public key that signed the message |
 | signatures | [string](#string) | repeated | Signatures |
 
@@ -563,6 +533,21 @@ Massa private gRPC service
 
 
 
+<a name="massa-api-v1-BlockIds"></a>
+
+### BlockIds
+BlockIds holds block ids
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_ids | [string](#string) | repeated | Block ids |
+
+
+
+
+
+
 <a name="massa-api-v1-BlockParent"></a>
 
 ### BlockParent
@@ -588,21 +573,6 @@ Holds Block response
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | block_block_id | [string](#string) |  | Block id |
-
-
-
-
-
-
-<a name="massa-api-v1-BlocksContext"></a>
-
-### BlocksContext
-Blocks context
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Slot |
 
 
 
@@ -687,38 +657,6 @@ Execution state query response
 
 
 
-<a name="massa-api-v1-GetBlocksBySlotsRequest"></a>
-
-### GetBlocksBySlotsRequest
-GetBlocksBySlotsRequest holds request for GetBlocksBySlots
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
-| slots | [massa.model.v1.Slot](#massa-model-v1-Slot) | repeated | Slots |
-
-
-
-
-
-
-<a name="massa-api-v1-GetBlocksBySlotsResponse"></a>
-
-### GetBlocksBySlotsResponse
-GetBlocksBySlotsResponse holds response from GetBlocksBySlots
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
-| blocks | [massa.model.v1.Block](#massa-model-v1-Block) | repeated | Blocks |
-
-
-
-
-
-
 <a name="massa-api-v1-GetBlocksFilter"></a>
 
 ### GetBlocksFilter
@@ -727,7 +665,8 @@ GetBlocks Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_id | [string](#string) |  | Block id |
+| block_ids | [BlockIds](#massa-api-v1-BlockIds) |  | Block ids |
+| slots | [Slots](#massa-api-v1-Slots) |  | Slots |
 
 
 
@@ -742,7 +681,7 @@ GetBlocks Query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [GetBlocksFilter](#massa-api-v1-GetBlocksFilter) |  | Filter |
+| filter | [GetBlocksFilter](#massa-api-v1-GetBlocksFilter) | repeated | Filter |
 
 
 
@@ -757,7 +696,6 @@ GetBlocksRequest holds request for GetBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | queries | [GetBlocksQuery](#massa-api-v1-GetBlocksQuery) | repeated | Queries |
 
 
@@ -773,8 +711,6 @@ GetBlocksResponse holds response from GetBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
-| context | [BlocksContext](#massa-api-v1-BlocksContext) |  | Context |
 | blocks | [massa.model.v1.BlockWrapper](#massa-model-v1-BlockWrapper) | repeated | Blocks wrappers |
 
 
@@ -790,7 +726,6 @@ GetDatastoreEntriesRequest holds request from GetDatastoreEntries
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | queries | [DatastoreEntriesQuery](#massa-api-v1-DatastoreEntriesQuery) | repeated | Queries |
 
 
@@ -806,7 +741,6 @@ GetDatastoreEntriesResponse holds response from GetDatastoreEntries
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | entries | [DatastoreEntry](#massa-api-v1-DatastoreEntry) | repeated | Datastore entries |
 
 
@@ -818,11 +752,6 @@ GetDatastoreEntriesResponse holds response from GetDatastoreEntries
 
 ### GetMipStatusRequest
 GetMipStatusRequest holds request for GetMipStatus
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 
 
 
@@ -837,7 +766,6 @@ GetMipStatusResponse holds response from GetMipStatus
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | entries | [massa.model.v1.MipStatusEntry](#massa-model-v1-MipStatusEntry) | repeated | MipInfo - status id entries |
 
 
@@ -849,11 +777,6 @@ GetMipStatusResponse holds response from GetMipStatus
 
 ### GetNextBlockBestParentsRequest
 GetNextBlockBestParentsRequest holds request for GetNextBlockBestParents
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 
 
 
@@ -868,7 +791,6 @@ GetNextBlockBestParentsResponse holds response from GetNextBlockBestParents
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | parents | [BlockParent](#massa-api-v1-BlockParent) | repeated | Best parents |
 
 
@@ -914,7 +836,6 @@ GetOperationsRequest holds request for GetOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | queries | [GetOperationsQuery](#massa-api-v1-GetOperationsQuery) | repeated | Queries |
 
 
@@ -930,24 +851,7 @@ GetOperationsResponse holds response from GetOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
-| context | [OperationsContext](#massa-api-v1-OperationsContext) |  | Context |
 | operations | [massa.model.v1.OperationWrapper](#massa-model-v1-OperationWrapper) | repeated | Operations wrappers |
-
-
-
-
-
-
-<a name="massa-api-v1-GetScExecutionEventsContext"></a>
-
-### GetScExecutionEventsContext
-ScExecutionEvents context
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Slot |
 
 
 
@@ -977,7 +881,6 @@ GetScExecutionEventsRequest holds request for GetScExecutionEvents
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | query | [GetScExecutionEventsQuery](#massa-api-v1-GetScExecutionEventsQuery) |  | Query |
 
 
@@ -993,8 +896,6 @@ GetScExecutionEventsResponse holds response from GetScExecutionEvents
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
-| context | [GetScExecutionEventsContext](#massa-api-v1-GetScExecutionEventsContext) |  | Context |
 | events | [massa.model.v1.ScExecutionEvent](#massa-model-v1-ScExecutionEvent) | repeated | ScExecutionEvents |
 
 
@@ -1010,7 +911,6 @@ GetSelectorDrawsRequest holds request from GetSelectorDraws
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | queries | [SelectorDrawsQuery](#massa-api-v1-SelectorDrawsQuery) | repeated | Queries |
 
 
@@ -1026,7 +926,6 @@ GetSelectorDrawsResponse holds response from GetSelectorDraws
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | selector_draws | [massa.model.v1.SelectorDraws](#massa-model-v1-SelectorDraws) | repeated | Selector draws |
 
 
@@ -1042,7 +941,6 @@ GetStakersRequest holds request from GetStakers
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | query | [LargestStakersQuery](#massa-api-v1-LargestStakersQuery) |  | Query |
 
 
@@ -1058,8 +956,6 @@ GetStakersResponse holds response from GetStakers
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
-| context | [LargestStakersContext](#massa-api-v1-LargestStakersContext) |  | Context |
 | stakers | [LargestStakerEntry](#massa-api-v1-LargestStakerEntry) | repeated | Largest stakers |
 
 
@@ -1071,11 +967,6 @@ GetStakersResponse holds response from GetStakers
 
 ### GetStatusRequest
 GetStatusRequest holds request from GetStatus
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 
 
 
@@ -1090,7 +981,6 @@ GetStatusResponse holds request from GetStatus
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | status | [massa.model.v1.PublicStatus](#massa-model-v1-PublicStatus) |  | Status |
 
 
@@ -1102,11 +992,6 @@ GetStatusResponse holds request from GetStatus
 
 ### GetTransactionsThroughputRequest
 GetTransactionsThroughputRequest holds request for GetTransactionsThroughput
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 
 
 
@@ -1121,7 +1006,6 @@ GetTransactionsThroughputResponse holds response from GetTransactionsThroughput
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | throughput | [uint32](#uint32) |  | Transactions throughput |
 
 
@@ -1133,11 +1017,6 @@ GetTransactionsThroughputResponse holds response from GetTransactionsThroughput
 
 ### GetVersionRequest
 GetVersionRequest holds request from GetVersion
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 
 
 
@@ -1152,7 +1031,6 @@ GetVersionResponse holds response from GetVersion
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | version | [string](#string) |  | Version |
 
 
@@ -1170,21 +1048,6 @@ LargestStakerEntry
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  | Address |
 | rolls | [uint64](#uint64) |  | Rolls |
-
-
-
-
-
-
-<a name="massa-api-v1-LargestStakersContext"></a>
-
-### LargestStakersContext
-LargestStakers context
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Slot |
 
 
 
@@ -1230,11 +1093,6 @@ LargestStakers Query
 NewBlocksHeadersRequest holds request for NewBlocksHeaders
 
 
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
-
-
 
 
 
@@ -1247,7 +1105,6 @@ NewBlocksHeadersResponse holds response from NewBlocksHeaders
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | block_header | [massa.model.v1.SignedBlockHeader](#massa-model-v1-SignedBlockHeader) |  | Signed block header |
 
 
@@ -1259,11 +1116,6 @@ NewBlocksHeadersResponse holds response from NewBlocksHeaders
 
 ### NewBlocksRequest
 NewBlocksRequest holds request for NewBlocks
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 
 
 
@@ -1278,7 +1130,6 @@ NewBlocksResponse holds response from NewBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | block | [massa.model.v1.SignedBlock](#massa-model-v1-SignedBlock) |  | Signed block |
 
 
@@ -1290,11 +1141,6 @@ NewBlocksResponse holds response from NewBlocks
 
 ### NewEndorsementsRequest
 NewEndorsementsRequest holds request for NewEndorsements
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 
 
 
@@ -1309,7 +1155,6 @@ NewEndorsementsResponse holds response from NewEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | endorsement | [massa.model.v1.SignedEndorsement](#massa-model-v1-SignedEndorsement) |  | Signed endorsement |
 
 
@@ -1321,11 +1166,6 @@ NewEndorsementsResponse holds response from NewEndorsements
 
 ### NewFilledBlocksRequest
 NewFilledBlocksRequest holds request for NewFilledBlocks
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 
 
 
@@ -1340,7 +1180,6 @@ NewFilledBlocksResponse holds response from NewFilledBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | filled_block | [massa.model.v1.FilledBlock](#massa-model-v1-FilledBlock) |  | Block with operations content |
 
 
@@ -1386,7 +1225,6 @@ NewOperationsRequest holds request for NewOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | query | [NewOperationsQuery](#massa-api-v1-NewOperationsQuery) |  | Query |
 
 
@@ -1402,7 +1240,6 @@ NewOperationsResponse holds response from NewOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | operation | [massa.model.v1.SignedOperation](#massa-model-v1-SignedOperation) |  | Signed operation |
 
 
@@ -1448,7 +1285,6 @@ NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | query | [NewSlotExecutionOutputsQuery](#massa-api-v1-NewSlotExecutionOutputsQuery) |  | Query |
 
 
@@ -1464,7 +1300,6 @@ NewSlotExecutionOutputsResponse holds response from NewSlotExecutionOutputs
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | output | [massa.model.v1.SlotExecutionOutput](#massa-model-v1-SlotExecutionOutput) |  | Slot execution output |
 
 
@@ -1487,21 +1322,6 @@ Holds Operation response
 
 
 
-<a name="massa-api-v1-OperationsContext"></a>
-
-### OperationsContext
-Operations context
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Slot |
-
-
-
-
-
-
 <a name="massa-api-v1-QueryStateRequest"></a>
 
 ### QueryStateRequest
@@ -1510,7 +1330,6 @@ Request to atomically execute a batch of execution state queries
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | requests | [massa.model.v1.ExecutionQueryRequestItem](#massa-model-v1-ExecutionQueryRequestItem) | repeated | List of execution query request items |
 
 
@@ -1573,7 +1392,6 @@ SendBlocksRequest holds parameters to SendBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | block | [massa.model.v1.SecureShare](#massa-model-v1-SecureShare) |  | Secure shared block |
 
 
@@ -1589,7 +1407,6 @@ SendBlocksResponse holds response from SendBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | result | [BlockResult](#massa-api-v1-BlockResult) |  | Block result |
 | error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
 
@@ -1606,7 +1423,6 @@ SendEndorsementsRequest holds parameters to SendEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | endorsements | [massa.model.v1.SecureShare](#massa-model-v1-SecureShare) | repeated | Secure shared endorsements |
 
 
@@ -1622,7 +1438,6 @@ SendEndorsementsResponse holds response from SendEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | result | [EndorsementResult](#massa-api-v1-EndorsementResult) |  | Endorsement result |
 | error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
 
@@ -1639,7 +1454,6 @@ SendOperationsRequest holds parameters to SendOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | operations | [massa.model.v1.SecureShare](#massa-model-v1-SecureShare) | repeated | Secured shared operations |
 
 
@@ -1655,9 +1469,23 @@ SendOperationsResponse holds response from SendOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | result | [OperationResult](#massa-api-v1-OperationResult) |  | Operation result |
 | error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
+
+
+
+
+
+
+<a name="massa-api-v1-Slots"></a>
+
+### Slots
+Slots holds slots
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slots | [massa.model.v1.Slot](#massa-model-v1-Slot) | repeated | Slots |
 
 
 
@@ -1672,7 +1500,6 @@ TransactionsThroughputRequest holds request for TransactionsThroughput
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | interval | [uint64](#uint64) | optional | Timer interval in seconds (Optional). Defaults to 10s |
 
 
@@ -1688,7 +1515,6 @@ TransactionsThroughputResponse holds response from TransactionsThroughput
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_id | [string](#string) |  | Request id |
 | throughput | [uint32](#uint32) |  | Transactions throughput per second |
 
 

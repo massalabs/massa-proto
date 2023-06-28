@@ -314,15 +314,15 @@
             <ul>
               
                 <li>
+                  <a href="#massa.api.v1.BlockIds"><span class="badge">M</span>BlockIds</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.BlockParent"><span class="badge">M</span>BlockParent</a>
                 </li>
               
                 <li>
                   <a href="#massa.api.v1.BlockResult"><span class="badge">M</span>BlockResult</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.BlocksContext"><span class="badge">M</span>BlocksContext</a>
                 </li>
               
                 <li>
@@ -343,14 +343,6 @@
               
                 <li>
                   <a href="#massa.api.v1.ExecutionQueryResponse"><span class="badge">M</span>ExecutionQueryResponse</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.GetBlocksBySlotsRequest"><span class="badge">M</span>GetBlocksBySlotsRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.GetBlocksBySlotsResponse"><span class="badge">M</span>GetBlocksBySlotsResponse</a>
                 </li>
               
                 <li>
@@ -410,10 +402,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.GetScExecutionEventsContext"><span class="badge">M</span>GetScExecutionEventsContext</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.GetScExecutionEventsQuery"><span class="badge">M</span>GetScExecutionEventsQuery</a>
                 </li>
               
@@ -467,10 +455,6 @@
               
                 <li>
                   <a href="#massa.api.v1.LargestStakerEntry"><span class="badge">M</span>LargestStakerEntry</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.LargestStakersContext"><span class="badge">M</span>LargestStakersContext</a>
                 </li>
               
                 <li>
@@ -550,10 +534,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.OperationsContext"><span class="badge">M</span>OperationsContext</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.QueryStateRequest"><span class="badge">M</span>QueryStateRequest</a>
                 </li>
               
@@ -591,6 +571,10 @@
               
                 <li>
                   <a href="#massa.api.v1.SendOperationsResponse"><span class="badge">M</span>SendOperationsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.Slots"><span class="badge">M</span>Slots</a>
                 </li>
               
                 <li>
@@ -769,23 +753,6 @@
         <p>GetBootstrapBlacklistRequest holds the request for GetBootstrapBlacklist</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -798,13 +765,6 @@
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>ips</td>
@@ -824,23 +784,6 @@
         <p>GetBootstrapWhitelistRequest holds the request for GetBootstrapWhitelist</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -853,13 +796,6 @@
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>ips</td>
@@ -879,23 +815,6 @@
         <p>GetNodeStatusRequest holds the request for GetNodeStatus</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -908,13 +827,6 @@
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>status</td>
@@ -934,23 +846,6 @@
         <p>GetPeersWhitelistRequest holds the request for GetPeersWhitelist</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -963,13 +858,6 @@
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>ips</td>
@@ -1134,13 +1022,6 @@
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
                   <td>messages</td>
                   <td><a href="#bytes">bytes</a></td>
                   <td>repeated</td>
@@ -1163,13 +1044,6 @@
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>public_key</td>
@@ -1492,6 +1366,30 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
       <p></p>
 
       
+        <h3 id="massa.api.v1.BlockIds">BlockIds</h3>
+        <p>BlockIds holds block ids</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Block ids </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.BlockParent">BlockParent</h3>
         <p>Block parent tuple</p>
 
@@ -1538,30 +1436,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Block id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.BlocksContext">BlocksContext</h3>
-        <p>Blocks context</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>slot</td>
-                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
-                  <td></td>
-                  <td><p>Slot </p></td>
                 </tr>
               
             </tbody>
@@ -1712,68 +1586,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.GetBlocksBySlotsRequest">GetBlocksBySlotsRequest</h3>
-        <p>GetBlocksBySlotsRequest holds request for GetBlocksBySlots</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
-                  <td>slots</td>
-                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
-                  <td>repeated</td>
-                  <td><p>Slots </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.GetBlocksBySlotsResponse">GetBlocksBySlotsResponse</h3>
-        <p>GetBlocksBySlotsResponse holds response from GetBlocksBySlots</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
-                  <td>blocks</td>
-                  <td><a href="#massa.model.v1.Block">massa.model.v1.Block</a></td>
-                  <td>repeated</td>
-                  <td><p>Blocks </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.api.v1.GetBlocksFilter">GetBlocksFilter</h3>
         <p>GetBlocks Filter</p>
 
@@ -1785,10 +1597,17 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>block_id</td>
-                  <td><a href="#string">string</a></td>
+                  <td>block_ids</td>
+                  <td><a href="#massa.api.v1.BlockIds">BlockIds</a></td>
                   <td></td>
-                  <td><p>Block id </p></td>
+                  <td><p>Block ids </p></td>
+                </tr>
+              
+                <tr>
+                  <td>slots</td>
+                  <td><a href="#massa.api.v1.Slots">Slots</a></td>
+                  <td></td>
+                  <td><p>Slots </p></td>
                 </tr>
               
             </tbody>
@@ -1811,7 +1630,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <tr>
                   <td>filter</td>
                   <td><a href="#massa.api.v1.GetBlocksFilter">GetBlocksFilter</a></td>
-                  <td></td>
+                  <td>repeated</td>
                   <td><p>Filter </p></td>
                 </tr>
               
@@ -1831,13 +1650,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>queries</td>
@@ -1864,20 +1676,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
-                  <td>context</td>
-                  <td><a href="#massa.api.v1.BlocksContext">BlocksContext</a></td>
-                  <td></td>
-                  <td><p>Context </p></td>
-                </tr>
-              
-                <tr>
                   <td>blocks</td>
                   <td><a href="#massa.model.v1.BlockWrapper">massa.model.v1.BlockWrapper</a></td>
                   <td>repeated</td>
@@ -1900,13 +1698,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>queries</td>
@@ -1933,13 +1724,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
                   <td>entries</td>
                   <td><a href="#massa.api.v1.DatastoreEntry">DatastoreEntry</a></td>
                   <td>repeated</td>
@@ -1957,23 +1741,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         <p>GetMipStatusRequest holds request for GetMipStatus</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -1986,13 +1753,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>entries</td>
@@ -2012,23 +1772,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         <p>GetNextBlockBestParentsRequest holds request for GetNextBlockBestParents</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -2041,13 +1784,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>parents</td>
@@ -2122,13 +1858,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
                   <td>queries</td>
                   <td><a href="#massa.api.v1.GetOperationsQuery">GetOperationsQuery</a></td>
                   <td>repeated</td>
@@ -2153,48 +1882,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
-                  <td>context</td>
-                  <td><a href="#massa.api.v1.OperationsContext">OperationsContext</a></td>
-                  <td></td>
-                  <td><p>Context </p></td>
-                </tr>
-              
-                <tr>
                   <td>operations</td>
                   <td><a href="#massa.model.v1.OperationWrapper">massa.model.v1.OperationWrapper</a></td>
                   <td>repeated</td>
                   <td><p>Operations wrappers </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.GetScExecutionEventsContext">GetScExecutionEventsContext</h3>
-        <p>ScExecutionEvents context</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>slot</td>
-                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
-                  <td></td>
-                  <td><p>Slot </p></td>
                 </tr>
               
             </tbody>
@@ -2239,13 +1930,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
                   <td>query</td>
                   <td><a href="#massa.api.v1.GetScExecutionEventsQuery">GetScExecutionEventsQuery</a></td>
                   <td></td>
@@ -2268,20 +1952,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
-                  <td>context</td>
-                  <td><a href="#massa.api.v1.GetScExecutionEventsContext">GetScExecutionEventsContext</a></td>
-                  <td></td>
-                  <td><p>Context </p></td>
-                </tr>
               
                 <tr>
                   <td>events</td>
@@ -2308,13 +1978,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
                   <td>queries</td>
                   <td><a href="#massa.api.v1.SelectorDrawsQuery">SelectorDrawsQuery</a></td>
                   <td>repeated</td>
@@ -2337,13 +2000,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>selector_draws</td>
@@ -2370,13 +2026,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
                   <td>query</td>
                   <td><a href="#massa.api.v1.LargestStakersQuery">LargestStakersQuery</a></td>
                   <td></td>
@@ -2401,20 +2050,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
-                  <td>context</td>
-                  <td><a href="#massa.api.v1.LargestStakersContext">LargestStakersContext</a></td>
-                  <td></td>
-                  <td><p>Context </p></td>
-                </tr>
-              
-                <tr>
                   <td>stakers</td>
                   <td><a href="#massa.api.v1.LargestStakerEntry">LargestStakerEntry</a></td>
                   <td>repeated</td>
@@ -2432,23 +2067,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         <p>GetStatusRequest holds request from GetStatus</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -2461,13 +2079,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>status</td>
@@ -2487,23 +2098,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         <p>GetTransactionsThroughputRequest holds request for GetTransactionsThroughput</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -2516,13 +2110,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>throughput</td>
@@ -2542,23 +2129,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         <p>GetVersionRequest holds request from GetVersion</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -2571,13 +2141,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>version</td>
@@ -2615,30 +2178,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Rolls </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.LargestStakersContext">LargestStakersContext</h3>
-        <p>LargestStakers context</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>slot</td>
-                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
-                  <td></td>
-                  <td><p>Slot </p></td>
                 </tr>
               
             </tbody>
@@ -2721,23 +2260,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         <p>NewBlocksHeadersRequest holds request for NewBlocksHeaders</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -2750,13 +2272,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>block_header</td>
@@ -2776,23 +2291,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         <p>NewBlocksRequest holds request for NewBlocks</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -2805,13 +2303,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>block</td>
@@ -2831,23 +2322,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         <p>NewEndorsementsRequest holds request for NewEndorsements</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -2860,13 +2334,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>endorsement</td>
@@ -2886,23 +2353,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         <p>NewFilledBlocksRequest holds request for NewFilledBlocks</p>
 
         
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
 
         
       
@@ -2915,13 +2365,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>filled_block</td>
@@ -2996,13 +2439,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
                   <td>query</td>
                   <td><a href="#massa.api.v1.NewOperationsQuery">NewOperationsQuery</a></td>
                   <td></td>
@@ -3025,13 +2461,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>operation</td>
@@ -3106,13 +2535,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
                   <td>query</td>
                   <td><a href="#massa.api.v1.NewSlotExecutionOutputsQuery">NewSlotExecutionOutputsQuery</a></td>
                   <td></td>
@@ -3135,13 +2557,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>output</td>
@@ -3181,30 +2596,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.OperationsContext">OperationsContext</h3>
-        <p>Operations context</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>slot</td>
-                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
-                  <td></td>
-                  <td><p>Slot </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.api.v1.QueryStateRequest">QueryStateRequest</h3>
         <p>Request to atomically execute a batch of execution state queries</p>
 
@@ -3214,13 +2605,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>requests</td>
@@ -3333,13 +2717,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
                   <td>block</td>
                   <td><a href="#massa.model.v1.SecureShare">massa.model.v1.SecureShare</a></td>
                   <td></td>
@@ -3362,13 +2739,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>result</td>
@@ -3402,13 +2772,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
                   <td>endorsements</td>
                   <td><a href="#massa.model.v1.SecureShare">massa.model.v1.SecureShare</a></td>
                   <td>repeated</td>
@@ -3431,13 +2794,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>result</td>
@@ -3471,13 +2827,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
                   <td>operations</td>
                   <td><a href="#massa.model.v1.SecureShare">massa.model.v1.SecureShare</a></td>
                   <td>repeated</td>
@@ -3502,13 +2851,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
-              
-                <tr>
                   <td>result</td>
                   <td><a href="#massa.api.v1.OperationResult">OperationResult</a></td>
                   <td></td>
@@ -3529,8 +2871,8 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.TransactionsThroughputRequest">TransactionsThroughputRequest</h3>
-        <p>TransactionsThroughputRequest holds request for TransactionsThroughput</p>
+        <h3 id="massa.api.v1.Slots">Slots</h3>
+        <p>Slots holds slots</p>
 
         
           <table class="field-table">
@@ -3540,11 +2882,28 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
+                  <td>slots</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td>repeated</td>
+                  <td><p>Slots </p></td>
                 </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.TransactionsThroughputRequest">TransactionsThroughputRequest</h3>
+        <p>TransactionsThroughputRequest holds request for TransactionsThroughput</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
               
                 <tr>
                   <td>interval</td>
@@ -3569,13 +2928,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>request_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Request id </p></td>
-                </tr>
               
                 <tr>
                   <td>throughput</td>
