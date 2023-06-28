@@ -4,7 +4,8 @@
 ## Table of Contents
 
 - [massa/model/v1/draw.proto](#massa_model_v1_draw-proto)
-    - [SelectorDraws](#massa-model-v1-SelectorDraws)
+    - [EndorsementDraw](#massa-model-v1-EndorsementDraw)
+    - [SlotDraw](#massa-model-v1-SlotDraw)
   
 - [massa/model/v1/versioning.proto](#massa_model_v1_versioning-proto)
     - [MipComponentEntry](#massa-model-v1-MipComponentEntry)
@@ -119,6 +120,7 @@
     - [Slots](#massa-model-v1-Slots)
   
 - [massa/model/v1/address.proto](#massa_model_v1_address-proto)
+    - [Addresses](#massa-model-v1-Addresses)
     - [NativeAddress](#massa-model-v1-NativeAddress)
   
     - [AddressCategory](#massa-model-v1-AddressCategory)
@@ -163,17 +165,33 @@
 
 
 
-<a name="massa-model-v1-SelectorDraws"></a>
+<a name="massa-model-v1-EndorsementDraw"></a>
 
-### SelectorDraws
-Selector draws
+### EndorsementDraw
+Endorsement draw
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address |
-| next_block_draws | [Slot](#massa-model-v1-Slot) | repeated | Next block draws |
-| next_endorsement_draws | [IndexedSlot](#massa-model-v1-IndexedSlot) | repeated | Next endorsements draws |
+| index | [uint64](#uint64) |  | Endorsement index |
+| producer | [string](#string) |  | Producer address |
+
+
+
+
+
+
+<a name="massa-model-v1-SlotDraw"></a>
+
+### SlotDraw
+Slot draw
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_producer | [string](#string) |  | Block producer address |
+| slot | [Slot](#massa-model-v1-Slot) |  | Slot |
+| endorsement_draws | [EndorsementDraw](#massa-model-v1-EndorsementDraw) | repeated | Endorsement draws |
 
 
 
@@ -1973,6 +1991,21 @@ Slots holds slots
 <p align="right"><a href="#top">Top</a></p>
 
 ## massa/model/v1/address.proto
+
+
+
+<a name="massa-model-v1-Addresses"></a>
+
+### Addresses
+Addresses holds addresses
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| addresses | [string](#string) | repeated | Addresses |
+
+
+
 
 
 

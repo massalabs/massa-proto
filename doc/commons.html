@@ -179,7 +179,11 @@
             <ul>
               
                 <li>
-                  <a href="#massa.model.v1.SelectorDraws"><span class="badge">M</span>SelectorDraws</a>
+                  <a href="#massa.model.v1.EndorsementDraw"><span class="badge">M</span>EndorsementDraw</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.SlotDraw"><span class="badge">M</span>SlotDraw</a>
                 </li>
               
               
@@ -671,6 +675,10 @@
             <ul>
               
                 <li>
+                  <a href="#massa.model.v1.Addresses"><span class="badge">M</span>Addresses</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.NativeAddress"><span class="badge">M</span>NativeAddress</a>
                 </li>
               
@@ -834,8 +842,8 @@
       <p></p>
 
       
-        <h3 id="massa.model.v1.SelectorDraws">SelectorDraws</h3>
-        <p>Selector draws</p>
+        <h3 id="massa.model.v1.EndorsementDraw">EndorsementDraw</h3>
+        <p>Endorsement draw</p>
 
         
           <table class="field-table">
@@ -845,24 +853,55 @@
             <tbody>
               
                 <tr>
-                  <td>address</td>
+                  <td>index</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Endorsement index </p></td>
+                </tr>
+              
+                <tr>
+                  <td>producer</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>Address </p></td>
+                  <td><p>Producer address </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.SlotDraw">SlotDraw</h3>
+        <p>Slot draw</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_producer</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Block producer address </p></td>
                 </tr>
               
                 <tr>
-                  <td>next_block_draws</td>
+                  <td>slot</td>
                   <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td>repeated</td>
-                  <td><p>Next block draws </p></td>
+                  <td></td>
+                  <td><p>Slot </p></td>
                 </tr>
               
                 <tr>
-                  <td>next_endorsement_draws</td>
-                  <td><a href="#massa.model.v1.IndexedSlot">IndexedSlot</a></td>
+                  <td>endorsement_draws</td>
+                  <td><a href="#massa.model.v1.EndorsementDraw">EndorsementDraw</a></td>
                   <td>repeated</td>
-                  <td><p>Next endorsements draws </p></td>
+                  <td><p>Endorsement draws </p></td>
                 </tr>
               
             </tbody>
@@ -4735,6 +4774,30 @@ Change the balance </p></td>
       </div>
       <p></p>
 
+      
+        <h3 id="massa.model.v1.Addresses">Addresses</h3>
+        <p>Addresses holds addresses</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>addresses</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Addresses </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
       
         <h3 id="massa.model.v1.NativeAddress">NativeAddress</h3>
         <p>Massa NativeAddress</p>

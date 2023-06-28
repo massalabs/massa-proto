@@ -892,7 +892,7 @@ GetSelectorDrawsRequest holds request from GetSelectorDraws
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| queries | [SelectorDrawsQuery](#massa-api-v1-SelectorDrawsQuery) | repeated | Queries |
+| query | [SelectorDrawsQuery](#massa-api-v1-SelectorDrawsQuery) |  | Query |
 
 
 
@@ -907,7 +907,7 @@ GetSelectorDrawsResponse holds response from GetSelectorDraws
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| selector_draws | [massa.model.v1.SelectorDraws](#massa-model-v1-SelectorDraws) | repeated | Selector draws |
+| draws | [massa.model.v1.SlotDraw](#massa-model-v1-SlotDraw) | repeated | Selector draws |
 
 
 
@@ -1334,7 +1334,7 @@ SelectorDraws Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  |  |
 
 
 
@@ -1349,7 +1349,7 @@ SelectorDraws Query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter) |  | Filter |
+| filter | [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter) | repeated | Filter |
 
 
 
