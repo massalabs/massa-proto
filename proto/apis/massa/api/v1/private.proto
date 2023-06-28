@@ -182,7 +182,7 @@ message GetBootstrapBlacklistRequest {}
 // GetBootstrapBlacklistResponse holds the response from GetBootstrapBlacklist
 message GetBootstrapBlacklistResponse {
   // Bootstrap blacklisted IP addresses
-  repeated string ips = 2;
+  repeated string ips = 1;
 }
 
 // GetBootstrapWhitelistRequest holds the request for GetBootstrapWhitelist
@@ -191,7 +191,7 @@ message GetBootstrapWhitelistRequest {}
 // GetBootstrapWhitelistResponse holds the response from GetBootstrapWhitelist
 message GetBootstrapWhitelistResponse {
   // Bootstrap whitelisted IP addresses
-  repeated string ips = 2;
+  repeated string ips = 1;
 }
 
 // AllowEveryoneToBootstrapRequest holds the request for AllowEveryoneToBootstrap
@@ -206,7 +206,7 @@ message GetNodeStatusRequest {}
 // GetNodeStatusResponse holds the response from GetNodeStatus
 message GetNodeStatusResponse {
   // Node status
-  massa.model.v1.NodeStatus status = 2;
+  massa.model.v1.NodeStatus status = 1;
 }
 
 // GetPeersWhitelistRequest holds the request for GetPeersWhitelist
@@ -215,7 +215,7 @@ message GetPeersWhitelistRequest {}
 // GetPeersWhitelistResponse holds the response from GetPeersWhitelist
 message GetPeersWhitelistResponse {
   // Whitelisted IP addresses
-  repeated string ips = 2;
+  repeated string ips = 1;
 }
 
 // RemoveFromBootstrapBlacklistRequest holds the request for RemoveFromBootstrapBlacklist
@@ -257,13 +257,13 @@ message RemoveStakingAddressesResponse {}
 // SignMessagesRequest holds the request for SignMessages
 message SignMessagesRequest {
   // Messages to sign in bytes
-  repeated bytes messages = 2;
+  repeated bytes messages = 1;
 }
 
 // SignMessagesResponse holds the response from SignMessages
 message SignMessagesResponse {
   // Public key that signed the message
-  string public_key = 2;
+  string public_key = 1;
   // Signatures
   repeated string signatures = 3;
 }

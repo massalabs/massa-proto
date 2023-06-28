@@ -104,3 +104,9 @@ message BlockWrapper {
   // The execution statuses of the block
   repeated BlockStatus status = 3;
 }
+
+// BlockIds holds block ids
+message BlockIds {
+  // Block ids
+  repeated string block_ids = 1;
+}

@@ -669,6 +669,10 @@
                   <a href="#massa.model.v1.Slot"><span class="badge">M</span>Slot</a>
                 </li>
               
+                <li>
+                  <a href="#massa.model.v1.Slots"><span class="badge">M</span>Slots</a>
+                </li>
+              
               
               
               
@@ -705,6 +709,10 @@
               
                 <li>
                   <a href="#massa.model.v1.BlockHeader"><span class="badge">M</span>BlockHeader</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.BlockIds"><span class="badge">M</span>BlockIds</a>
                 </li>
               
                 <li>
@@ -2787,8 +2795,8 @@ For messages with filter, this boolean is true if the filter has been matched be
               
                 <tr>
                   <td>datastore_key</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
+                  <td></td>
                   <td><p>Filter on the datastore key (optional) </p></td>
                 </tr>
               
@@ -3251,8 +3259,8 @@ For messages with filter, this boolean is true if the filter has been matched be
               
                 <tr>
                   <td>block_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
                   <td><p>Block id at that slot (optional) </p></td>
                 </tr>
               
@@ -3968,8 +3976,8 @@ Change the balance </p></td>
               
                 <tr>
                   <td>block_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
                   <td><p>Block id if there was a block at that slot (optional) </p></td>
                 </tr>
               
@@ -3989,8 +3997,8 @@ Change the balance </p></td>
               
                 <tr>
                   <td>origin_operation_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
                   <td><p>Origin operation id (optional) </p></td>
                 </tr>
               
@@ -4034,22 +4042,22 @@ Change the balance </p></td>
               
                 <tr>
                   <td>caller_address</td>
-                  <td><a href="#string">string</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
                   <td><p>Caller address </p></td>
                 </tr>
               
                 <tr>
                   <td>emitter_address</td>
-                  <td><a href="#string">string</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
                   <td><p>Emitter address (Optional) </p></td>
                 </tr>
               
                 <tr>
                   <td>original_operation_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
                   <td><p>Original operation id (Optional) </p></td>
                 </tr>
               
@@ -4148,8 +4156,8 @@ Change the balance </p></td>
               
                 <tr>
                   <td>balance</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td></td>
                   <td><p>The balance of that entry (optional) </p></td>
                 </tr>
               
@@ -4179,8 +4187,8 @@ Change the balance </p></td>
               
                 <tr>
                   <td>value</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.BoolValue">google.protobuf.BoolValue</a></td>
+                  <td></td>
                   <td><p>The value of that entry (optional) </p></td>
                 </tr>
               
@@ -4210,8 +4218,8 @@ Change the balance </p></td>
               
                 <tr>
                   <td>bytecode</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
+                  <td></td>
                   <td><p>Executable bytecode (optional) </p></td>
                 </tr>
               
@@ -4241,8 +4249,8 @@ Change the balance </p></td>
               
                 <tr>
                   <td>value</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
+                  <td></td>
                   <td><p>The value of that entry (optional) </p></td>
                 </tr>
               
@@ -4303,8 +4311,8 @@ Change the balance </p></td>
               
                 <tr>
                   <td>value</td>
-                  <td><a href="#string">string</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
                   <td><p>The value of that entry (optional) </p></td>
                 </tr>
               
@@ -4334,8 +4342,8 @@ Change the balance </p></td>
               
                 <tr>
                   <td>value</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td></td>
                   <td><p>The value of that entry (optional) </p></td>
                 </tr>
               
@@ -4754,6 +4762,30 @@ Change the balance </p></td>
 
         
       
+        <h3 id="massa.model.v1.Slots">Slots</h3>
+        <p>Slots holds slots</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>slots</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td>repeated</td>
+                  <td><p>Slots </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
 
       
 
@@ -4916,6 +4948,30 @@ Change the balance </p></td>
                   <td><a href="#massa.model.v1.SignedEndorsement">SignedEndorsement</a></td>
                   <td>repeated</td>
                   <td><p>Signed endorsements </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.BlockIds">BlockIds</h3>
+        <p>BlockIds holds block ids</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Block ids </p></td>
                 </tr>
               
             </tbody>

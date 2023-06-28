@@ -314,10 +314,6 @@
             <ul>
               
                 <li>
-                  <a href="#massa.api.v1.BlockIds"><span class="badge">M</span>BlockIds</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.BlockParent"><span class="badge">M</span>BlockParent</a>
                 </li>
               
@@ -571,10 +567,6 @@
               
                 <li>
                   <a href="#massa.api.v1.SendOperationsResponse"><span class="badge">M</span>SendOperationsResponse</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.Slots"><span class="badge">M</span>Slots</a>
                 </li>
               
                 <li>
@@ -1366,30 +1358,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
       <p></p>
 
       
-        <h3 id="massa.api.v1.BlockIds">BlockIds</h3>
-        <p>BlockIds holds block ids</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>block_ids</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>Block ids </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.api.v1.BlockParent">BlockParent</h3>
         <p>Block parent tuple</p>
 
@@ -1401,7 +1369,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>block_block_id</td>
+                  <td>block_id</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Block id </p></td>
@@ -1432,7 +1400,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>block_block_id</td>
+                  <td>block_id</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Block id </p></td>
@@ -1598,14 +1566,14 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>block_ids</td>
-                  <td><a href="#massa.api.v1.BlockIds">BlockIds</a></td>
+                  <td><a href="#massa.model.v1.BlockIds">massa.model.v1.BlockIds</a></td>
                   <td></td>
                   <td><p>Block ids </p></td>
                 </tr>
               
                 <tr>
                   <td>slots</td>
-                  <td><a href="#massa.api.v1.Slots">Slots</a></td>
+                  <td><a href="#massa.model.v1.Slots">massa.model.v1.Slots</a></td>
                   <td></td>
                   <td><p>Slots </p></td>
                 </tr>
@@ -2199,15 +2167,15 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>min_rolls</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td></td>
                   <td><p>Minimum rolls (Optional) </p></td>
                 </tr>
               
                 <tr>
                   <td>max_rolls</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td></td>
                   <td><p>Maximum rolls (Optional) </p></td>
                 </tr>
               
@@ -2871,30 +2839,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.Slots">Slots</h3>
-        <p>Slots holds slots</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>slots</td>
-                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
-                  <td>repeated</td>
-                  <td><p>Slots </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.api.v1.TransactionsThroughputRequest">TransactionsThroughputRequest</h3>
         <p>TransactionsThroughputRequest holds request for TransactionsThroughput</p>
 
@@ -2907,8 +2851,8 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>interval</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td>optional</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td></td>
                   <td><p>Timer interval in seconds (Optional). Defaults to 10s </p></td>
                 </tr>
               

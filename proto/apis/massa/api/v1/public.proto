@@ -5,6 +5,7 @@ syntax = "proto3";
 package massa.api.v1;
 
 import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
 import "google/rpc/status.proto";
 import "massa/model/v1/block.proto";
 import "massa/model/v1/commons.proto";
@@ -160,7 +161,7 @@ service PublicService {
 // GetBlocksRequest holds request for GetBlocks
 message GetBlocksRequest {
   // Queries
-  repeated GetBlocksQuery queries = 2;
+  repeated GetBlocksQuery queries = 1;
 }
 
 // GetBlocks Query
@@ -174,34 +175,22 @@ message GetBlocksFilter {
   // Blocks filter
   oneof filter {
     // Block ids
-    BlockIds block_ids = 1;
+    massa.model.v1.BlockIds block_ids = 1;
     // Slots
-    Slots slots = 2;
+    massa.model.v1.Slots slots = 2;
   }
-}
-
-// BlockIds holds block ids
-message BlockIds {
-  // Block ids
-  repeated string block_ids = 1;
-}
-
-// Slots holds slots
-message Slots {
-  // Slots
-  repeated massa.model.v1.Slot slots = 1;
 }
 
 // GetBlocksResponse holds response from GetBlocks
 message GetBlocksResponse {
   // Blocks wrappers
-  repeated massa.model.v1.BlockWrapper blocks = 3;
+  repeated massa.model.v1.BlockWrapper blocks = 1;
 }
 
 // GetDatastoreEntriesRequest holds request from GetDatastoreEntries
 message GetDatastoreEntriesRequest {
   // Queries
-  repeated DatastoreEntriesQuery queries = 2;
+  repeated DatastoreEntriesQuery queries = 1;
 }
 
 // DatastoreEntries Query
@@ -220,7 +209,7 @@ message DatastoreEntryFilter {
 // GetDatastoreEntriesResponse holds response from GetDatastoreEntries
 message GetDatastoreEntriesResponse {
   // Datastore entries
-  repeated DatastoreEntry entries = 2;
+  repeated DatastoreEntry entries = 1;
 }
 
 // DatastoreEntry
@@ -234,7 +223,7 @@ message DatastoreEntry {
 // GetStakersRequest holds request from GetStakers
 message GetStakersRequest {
   // Query
-  LargestStakersQuery query = 2;
+  LargestStakersQuery query = 1;
 }
 
 // LargestStakers Query
@@ -250,15 +239,15 @@ message LargestStakersQuery {
 // LargestStakers Filter
 message LargestStakersFilter {
   // Minimum rolls (Optional)
-  optional uint64 min_rolls = 1;
+  google.protobuf.UInt64Value min_rolls = 1;
   // Maximum rolls (Optional)
-  optional uint64 max_rolls = 2;
+  google.protobuf.UInt64Value max_rolls = 2;
 }
 
 // GetStakersResponse holds response from GetStakers
 message GetStakersResponse {
   // Largest stakers
-  repeated LargestStakerEntry stakers = 3;
+  repeated LargestStakerEntry stakers = 1;
 }
 
 // LargestStakerEntry
@@ -275,7 +264,7 @@ message GetMipStatusRequest {}
 // GetMipStatusResponse holds response from GetMipStatus
 message GetMipStatusResponse {
   // MipInfo - status id entries
-  repeated massa.model.v1.MipStatusEntry entries = 2;
+  repeated massa.model.v1.MipStatusEntry entries = 1;
 }
 
 // GetNextBlockBestParentsRequest holds request for GetNextBlockBestParents
@@ -284,13 +273,13 @@ message GetNextBlockBestParentsRequest {}
 // GetNextBlockBestParentsResponse holds response from GetNextBlockBestParents
 message GetNextBlockBestParentsResponse {
   // Best parents
-  repeated BlockParent parents = 2;
+  repeated BlockParent parents = 1;
 }
 
 // Block parent tuple
 message BlockParent {
   // Block id
-  string block_block_id = 1;
+  string block_id = 1;
   // Period
   uint64 period = 2;
 }
@@ -298,7 +287,7 @@ message BlockParent {
 // GetOperationsRequest holds request for GetOperations
 message GetOperationsRequest {
   // Queries
-  repeated GetOperationsQuery queries = 2;
+  repeated GetOperationsQuery queries = 1;
 }
 
 // GetOperations Query
@@ -316,13 +305,13 @@ message GetOperationsFilter {
 // GetOperationsResponse holds response from GetOperations
 message GetOperationsResponse {
   //Operations wrappers
-  repeated massa.model.v1.OperationWrapper operations = 3;
+  repeated massa.model.v1.OperationWrapper operations = 1;
 }
 
 // GetScExecutionEventsRequest holds request for GetScExecutionEvents
 message GetScExecutionEventsRequest {
   // Query
-  GetScExecutionEventsQuery query = 2;
+  GetScExecutionEventsQuery query = 1;
 }
 
 // GetScExecutionEvents Query
@@ -334,7 +323,7 @@ message GetScExecutionEventsQuery {
 // GetScExecutionEventsResponse holds response from GetScExecutionEvents
 message GetScExecutionEventsResponse {
   //ScExecutionEvents
-  repeated massa.model.v1.ScExecutionEvent events = 3;
+  repeated massa.model.v1.ScExecutionEvent events = 1;
 }
 
 // GetStatusRequest holds request from GetStatus
@@ -343,13 +332,13 @@ message GetStatusRequest {}
 // GetStatusResponse holds request from GetStatus
 message GetStatusResponse {
   // Status
-  massa.model.v1.PublicStatus status = 2;
+  massa.model.v1.PublicStatus status = 1;
 }
 
 // GetSelectorDrawsRequest holds request from GetSelectorDraws
 message GetSelectorDrawsRequest {
   // Queries
-  repeated SelectorDrawsQuery queries = 2;
+  repeated SelectorDrawsQuery queries = 1;
 }
 
 // SelectorDraws Query
@@ -367,7 +356,7 @@ message SelectorDrawsFilter {
 // GetSelectorDrawsResponse holds response from GetSelectorDraws
 message GetSelectorDrawsResponse {
   // Selector draws
-  repeated massa.model.v1.SelectorDraws selector_draws = 2;
+  repeated massa.model.v1.SelectorDraws selector_draws = 1;
 }
 
 // GetTransactionsThroughputRequest holds request for GetTransactionsThroughput
@@ -376,7 +365,7 @@ message GetTransactionsThroughputRequest {}
 // GetTransactionsThroughputResponse holds response from GetTransactionsThroughput
 message GetTransactionsThroughputResponse {
   // Transactions throughput
-  uint32 throughput = 2;
+  uint32 throughput = 1;
 }
 
 // GetVersionRequest holds request from GetVersion
@@ -385,13 +374,13 @@ message GetVersionRequest {}
 // GetVersionResponse holds response from GetVersion
 message GetVersionResponse {
   // Version
-  string version = 2;
+  string version = 1;
 }
 
 // Request to atomically execute a batch of execution state queries
 message QueryStateRequest {
   // List of execution query request items
-  repeated massa.model.v1.ExecutionQueryRequestItem requests = 2;
+  repeated massa.model.v1.ExecutionQueryRequestItem requests = 1;
 }
 
 // Response to atomically execute a batch of execution state queries
@@ -421,7 +410,7 @@ message NewBlocksRequest {}
 // NewBlocksResponse holds response from NewBlocks
 message NewBlocksResponse {
   // Signed block
-  massa.model.v1.SignedBlock block = 2;
+  massa.model.v1.SignedBlock block = 1;
 }
 
 // NewBlocksHeadersRequest holds request for NewBlocksHeaders
@@ -430,7 +419,7 @@ message NewBlocksHeadersRequest {}
 // NewBlocksHeadersResponse holds response from NewBlocksHeaders
 message NewBlocksHeadersResponse {
   // Signed block header
-  massa.model.v1.SignedBlockHeader block_header = 2;
+  massa.model.v1.SignedBlockHeader block_header = 1;
 }
 
 // NewEndorsementsRequest holds request for NewEndorsements
@@ -439,7 +428,7 @@ message NewEndorsementsRequest {}
 // NewEndorsementsResponse holds response from NewEndorsements
 message NewEndorsementsResponse {
   // Signed endorsement
-  massa.model.v1.SignedEndorsement endorsement = 2;
+  massa.model.v1.SignedEndorsement endorsement = 1;
 }
 
 // NewFilledBlocksRequest holds request for NewFilledBlocks
@@ -448,13 +437,13 @@ message NewFilledBlocksRequest {}
 // NewFilledBlocksResponse holds response from NewFilledBlocks
 message NewFilledBlocksResponse {
   // Block with operations content
-  massa.model.v1.FilledBlock filled_block = 2;
+  massa.model.v1.FilledBlock filled_block = 1;
 }
 
 // NewOperationsRequest holds request for NewOperations
 message NewOperationsRequest {
   // Query
-  NewOperationsQuery query = 2;
+  NewOperationsQuery query = 1;
 }
 
 // NewOperations Query
@@ -482,13 +471,13 @@ enum OpType {
 // NewOperationsResponse holds response from NewOperations
 message NewOperationsResponse {
   // Signed operation
-  massa.model.v1.SignedOperation operation = 2;
+  massa.model.v1.SignedOperation operation = 1;
 }
 
 // NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs
 message NewSlotExecutionOutputsRequest {
   // Query
-  NewSlotExecutionOutputsQuery query = 2;
+  NewSlotExecutionOutputsQuery query = 1;
 }
 
 // NewSlotExecutionOutputs Query
@@ -506,13 +495,13 @@ message NewSlotExecutionOutputsFilter {
 // NewSlotExecutionOutputsResponse holds response from NewSlotExecutionOutputs
 message NewSlotExecutionOutputsResponse {
   // Slot execution output
-  massa.model.v1.SlotExecutionOutput output = 2;
+  massa.model.v1.SlotExecutionOutput output = 1;
 }
 
 // SendBlocksRequest holds parameters to SendBlocks
 message SendBlocksRequest {
   // Secure shared block
-  massa.model.v1.SecureShare block = 2;
+  massa.model.v1.SecureShare block = 1;
 }
 
 // SendBlocksResponse holds response from SendBlocks
@@ -529,19 +518,19 @@ message SendBlocksResponse {
 // Holds Block response
 message BlockResult {
   // Block id
-  string block_block_id = 1;
+  string block_id = 1;
 }
 
 // SendEndorsementsRequest holds parameters to SendEndorsements
 message SendEndorsementsRequest {
   // Secure shared endorsements
-  repeated massa.model.v1.SecureShare endorsements = 2;
+  repeated massa.model.v1.SecureShare endorsements = 1;
 }
 
 // SendEndorsementsResponse holds response from SendEndorsements
 message SendEndorsementsResponse {
   // Endorsement result or gRPC status
-  oneof message {
+  oneof message1 {
     // Endorsement result
     EndorsementResult result = 2;
     // gRPC error(status)
@@ -558,7 +547,7 @@ message EndorsementResult {
 // SendOperationsRequest holds parameters to SendOperations
 message SendOperationsRequest {
   // Secured shared operations
-  repeated massa.model.v1.SecureShare operations = 2;
+  repeated massa.model.v1.SecureShare operations = 1;
 }
 
 // SendOperationsResponse holds response from SendOperations
@@ -581,11 +570,11 @@ message OperationResult {
 // TransactionsThroughputRequest holds request for TransactionsThroughput
 message TransactionsThroughputRequest {
   // Timer interval in seconds (Optional). Defaults to 10s
-  optional uint64 interval = 2;
+  google.protobuf.UInt64Value interval = 1;
 }
 
 // TransactionsThroughputResponse holds response from TransactionsThroughput
 message TransactionsThroughputResponse {
   // Transactions throughput per second
-  uint32 throughput = 2;
+  uint32 throughput = 1;
 }
