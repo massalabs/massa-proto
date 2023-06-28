@@ -407,11 +407,11 @@
                 </li>
               
                 <li>
-                  <a href="#massa.abi.v1.DivRemNativeAmountRequest"><span class="badge">M</span>DivRemNativeAmountRequest</a>
+                  <a href="#massa.abi.v1.DivRemNativeAmountsRequest"><span class="badge">M</span>DivRemNativeAmountsRequest</a>
                 </li>
               
                 <li>
-                  <a href="#massa.abi.v1.DivRemNativeAmountResult"><span class="badge">M</span>DivRemNativeAmountResult</a>
+                  <a href="#massa.abi.v1.DivRemNativeAmountsResult"><span class="badge">M</span>DivRemNativeAmountsResult</a>
                 </li>
               
                 <li>
@@ -1504,8 +1504,8 @@
             <tbody>
               
                 <tr>
-                  <td>quotient</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td>mandatory_quotient</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
                   <td></td>
                   <td><p>Quotient of time and divisor </p></td>
                 </tr>
@@ -1542,8 +1542,8 @@
                 </tr>
               
                 <tr>
-                  <td>coefficient</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td>mandatory_coefficient</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
                   <td></td>
                   <td><p>Coefficient to multiply by </p></td>
                 </tr>
@@ -1597,8 +1597,8 @@
                 </tr>
               
                 <tr>
-                  <td>divisor</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td>mandatory_divisor</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
                   <td></td>
                   <td><p>Divisor to divide by </p></td>
                 </tr>
@@ -2147,7 +2147,7 @@
 
         
       
-        <h3 id="massa.abi.v1.DivRemNativeAmountRequest">DivRemNativeAmountRequest</h3>
+        <h3 id="massa.abi.v1.DivRemNativeAmountsRequest">DivRemNativeAmountsRequest</h3>
         <p>Amount division request</p>
 
         
@@ -2178,7 +2178,7 @@
 
         
       
-        <h3 id="massa.abi.v1.DivRemNativeAmountResult">DivRemNativeAmountResult</h3>
+        <h3 id="massa.abi.v1.DivRemNativeAmountsResult">DivRemNativeAmountsResult</h3>
         <p>Amount division result</p>
 
         
@@ -2189,8 +2189,8 @@
             <tbody>
               
                 <tr>
-                  <td>quotient</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td>mandatory_quotient</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
                   <td></td>
                   <td><p>Quotient of amount and divisor </p></td>
                 </tr>
@@ -2402,8 +2402,8 @@
             <tbody>
               
                 <tr>
-                  <td>version</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td>mandatory_version</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -2907,8 +2907,8 @@
             <tbody>
               
                 <tr>
-                  <td>version</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td>mandatory_version</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -2938,8 +2938,8 @@
             <tbody>
               
                 <tr>
-                  <td>remaining_gas</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td>mandatory_remaining_gas</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
                   <td></td>
                   <td><p>remaining gas </p></td>
                 </tr>
@@ -2986,8 +2986,8 @@
             <tbody>
               
                 <tr>
-                  <td>version</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td>mandatory_version</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -3278,8 +3278,8 @@
                 </tr>
               
                 <tr>
-                  <td>coefficient</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td>mandatory_coefficient</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
                   <td></td>
                   <td><p>Coefficient to multiply by </p></td>
                 </tr>
@@ -3422,8 +3422,8 @@
             <tbody>
               
                 <tr>
-                  <td>code</td>
-                  <td><a href="#int32">int32</a></td>
+                  <td>mandatory_code</td>
+                  <td><a href="#google.protobuf.UInt32Value">google.protobuf.UInt32Value</a></td>
                   <td></td>
                   <td><p>exit code </p></td>
                 </tr>
@@ -3628,8 +3628,8 @@
                 </tr>
               
                 <tr>
-                  <td>div_rem_native_amount_result</td>
-                  <td><a href="#massa.abi.v1.DivRemNativeAmountResult">DivRemNativeAmountResult</a></td>
+                  <td>div_rem_native_amounts_result</td>
+                  <td><a href="#massa.abi.v1.DivRemNativeAmountsResult">DivRemNativeAmountsResult</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -3918,8 +3918,8 @@
                 </tr>
               
                 <tr>
-                  <td>divisor</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td>mandatory_divisor</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
                   <td></td>
                   <td><p>Divisor to divide by </p></td>
                 </tr>
@@ -4187,15 +4187,15 @@
             <tbody>
               
                 <tr>
-                  <td>memory_addr</td>
-                  <td><a href="#int32">int32</a></td>
+                  <td>mandatory_memory_addr</td>
+                  <td><a href="#google.protobuf.UInt32Value">google.protobuf.UInt32Value</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>num_bytes</td>
-                  <td><a href="#int32">int32</a></td>
+                  <td>mandatory_num_bytes</td>
+                  <td><a href="#google.protobuf.UInt32Value">google.protobuf.UInt32Value</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>

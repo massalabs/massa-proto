@@ -61,8 +61,8 @@
     - [DateNowResult](#massa-abi-v1-DateNowResult)
     - [DeleteDataRequest](#massa-abi-v1-DeleteDataRequest)
     - [DeleteDataResult](#massa-abi-v1-DeleteDataResult)
-    - [DivRemNativeAmountRequest](#massa-abi-v1-DivRemNativeAmountRequest)
-    - [DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResult)
+    - [DivRemNativeAmountsRequest](#massa-abi-v1-DivRemNativeAmountsRequest)
+    - [DivRemNativeAmountsResult](#massa-abi-v1-DivRemNativeAmountsResult)
     - [Error](#massa-abi-v1-Error)
     - [FunctionExistsRequest](#massa-abi-v1-FunctionExistsRequest)
     - [FunctionExistsResult](#massa-abi-v1-FunctionExistsResult)
@@ -610,7 +610,7 @@ Time division checked result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| quotient | [int64](#int64) |  | Quotient of time and divisor |
+| mandatory_quotient | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Quotient of time and divisor |
 | remainder | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Remainder of time and divisor |
 
 
@@ -627,7 +627,7 @@ Time scalar mult checked request
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | time | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Time to multiply |
-| coefficient | [int64](#int64) |  | Coefficient to multiply by |
+| mandatory_coefficient | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Coefficient to multiply by |
 
 
 
@@ -658,7 +658,7 @@ Time scalar divrem checked request
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | dividend | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Time to divide |
-| divisor | [int64](#int64) |  | Divisor to divide by |
+| mandatory_divisor | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Divisor to divide by |
 
 
 
@@ -996,9 +996,9 @@ Delete data result
 
 
 
-<a name="massa-abi-v1-DivRemNativeAmountRequest"></a>
+<a name="massa-abi-v1-DivRemNativeAmountsRequest"></a>
 
-### DivRemNativeAmountRequest
+### DivRemNativeAmountsRequest
 Amount division request
 
 
@@ -1012,15 +1012,15 @@ Amount division request
 
 
 
-<a name="massa-abi-v1-DivRemNativeAmountResult"></a>
+<a name="massa-abi-v1-DivRemNativeAmountsResult"></a>
 
-### DivRemNativeAmountResult
+### DivRemNativeAmountsResult
 Amount division result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| quotient | [int64](#int64) |  | Quotient of amount and divisor |
+| mandatory_quotient | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Quotient of amount and divisor |
 | remainder | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Remainder of amount and divisor |
 
 
@@ -1152,7 +1152,7 @@ Get the version of the address result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| version | [int64](#int64) |  |  |
+| mandatory_version | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  |  |
 
 
 
@@ -1489,7 +1489,7 @@ Get the version of the public key result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| version | [int64](#int64) |  |  |
+| mandatory_version | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  |  |
 
 
 
@@ -1514,7 +1514,7 @@ Get remaining gas result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| remaining_gas | [int64](#int64) |  | remaining gas |
+| mandatory_remaining_gas | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | remaining gas |
 
 
 
@@ -1544,7 +1544,7 @@ Get the version of the signature result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| version | [int64](#int64) |  |  |
+| mandatory_version | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  |  |
 
 
 
@@ -1714,7 +1714,7 @@ Try to compute product = amount * coefficient (fail if overflow)
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to multiply |
-| coefficient | [int64](#int64) |  | Coefficient to multiply by |
+| mandatory_coefficient | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Coefficient to multiply by |
 
 
 
@@ -1805,7 +1805,7 @@ Process exit request
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  | exit code |
+| mandatory_code | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  | exit code |
 
 
 
@@ -1858,7 +1858,7 @@ the &#43;2 comes from ResResult itself which is counted above and from Compariso
 | create_sc_result | [CreateScResult](#massa-abi-v1-CreateScResult) |  |  |
 | date_now_result | [DateNowResult](#massa-abi-v1-DateNowResult) |  |  |
 | delete_data_result | [DeleteDataResult](#massa-abi-v1-DeleteDataResult) |  |  |
-| div_rem_native_amount_result | [DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResult) |  |  |
+| div_rem_native_amounts_result | [DivRemNativeAmountsResult](#massa-abi-v1-DivRemNativeAmountsResult) |  |  |
 | function_exists_result | [FunctionExistsResult](#massa-abi-v1-FunctionExistsResult) |  |  |
 | generate_event_result | [GenerateEventResult](#massa-abi-v1-GenerateEventResult) |  |  |
 | get_address_category_result | [GetAddressCategoryResult](#massa-abi-v1-GetAddressCategoryResult) |  |  |
@@ -1914,7 +1914,7 @@ Fails if underflow
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | dividend | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to divide |
-| divisor | [int64](#int64) |  | Divisor to divide by |
+| mandatory_divisor | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Divisor to divide by |
 
 
 
@@ -2084,8 +2084,8 @@ Unsafe random request
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| memory_addr | [int32](#int32) |  |  |
-| num_bytes | [int32](#int32) |  |  |
+| mandatory_memory_addr | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  |  |
+| mandatory_num_bytes | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  |  |
 
 
 

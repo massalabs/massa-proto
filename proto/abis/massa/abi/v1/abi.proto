@@ -142,7 +142,7 @@ message RespResult {
     CreateScResult create_sc_result = 23;
     DateNowResult date_now_result = 24;
     DeleteDataResult delete_data_result = 25;
-    DivRemNativeAmountResult div_rem_native_amount_result = 26;
+    DivRemNativeAmountsResult div_rem_native_amounts_result = 26;
     FunctionExistsResult function_exists_result = 27;
     GenerateEventResult generate_event_result = 28;
     GetAddressCategoryResult get_address_category_result = 29;
@@ -313,7 +313,7 @@ message MulNativeAmountRequest {
   // Amount to multiply
   massa.model.v1.NativeAmount amount = 1;
   // Coefficient to multiply by
-  int64 coefficient = 2;
+  google.protobuf.UInt64Value mandatory_coefficient = 2;
 }
 
 // Amount multiplication result
@@ -330,7 +330,7 @@ message ScalarDivRemNativeAmountRequest {
   // Amount to divide
   massa.model.v1.NativeAmount dividend = 1;
   // Divisor to divide by
-  int64 divisor = 2;
+  google.protobuf.UInt64Value mandatory_divisor = 2;
 }
 
 // Amount division by scalar result
@@ -342,7 +342,7 @@ message ScalarDivRemNativeAmountResult {
 }
 
 // Amount division request
-message DivRemNativeAmountRequest {
+message DivRemNativeAmountsRequest {
   // Amount to divide
   massa.model.v1.NativeAmount dividend = 1;
   // Divisor to divide by
@@ -350,9 +350,9 @@ message DivRemNativeAmountRequest {
 }
 
 // Amount division result
-message DivRemNativeAmountResult {
+message DivRemNativeAmountsResult {
   // Quotient of amount and divisor
-  int64 quotient = 1;
+  google.protobuf.UInt64Value mandatory_quotient = 1;
   // Remainder of amount and divisor
   massa.model.v1.NativeAmount remainder = 2;
 }
@@ -406,7 +406,7 @@ message CheckedMulNativeTimeRequest {
   // Time to multiply
   massa.model.v1.NativeTime time = 1;
   // Coefficient to multiply by
-  int64 coefficient = 2;
+  google.protobuf.UInt64Value mandatory_coefficient = 2;
 }
 
 // Time scalar mult checked result
@@ -420,7 +420,7 @@ message CheckedScalarDivRemNativeTimeRequest {
   // Time to divide
   massa.model.v1.NativeTime dividend = 1;
   // Divisor to divide by
-  int64 divisor = 2;
+  google.protobuf.UInt64Value mandatory_divisor = 2;
 }
 
 // Time scalar divrem checked result
@@ -442,7 +442,7 @@ message CheckedDivRemNativeTimeRequest {
 // Time division checked result
 message CheckedDivRemNativeTimeResult {
   // Quotient of time and divisor
-  int64 quotient = 1;
+  google.protobuf.UInt64Value mandatory_quotient = 1;
   // Remainder of time and divisor
   massa.model.v1.NativeTime remainder = 2;
 }
@@ -716,8 +716,8 @@ message AddressFromPubKeyResult {
 
 // Unsafe random request
 message UnsafeRandomRequest {
-  int32 memory_addr = 1;
-  int32 num_bytes = 2;
+  google.protobuf.UInt32Value mandatory_memory_addr = 1;
+  google.protobuf.UInt32Value mandatory_num_bytes = 2;
 }
 
 // Unsafe random result
@@ -797,7 +797,7 @@ message DateNowResult {
 // Process exit request
 message ProcessExitRequest {
   // exit code
-  int32 code = 1;
+  google.protobuf.UInt32Value mandatory_code = 1;
 }
 
 // Process exit result
@@ -857,7 +857,7 @@ message GetRemainingGasRequest {}
 // Get remaining gas result
 message GetRemainingGasResult {
   // remaining gas
-  int64 remaining_gas = 1;
+  google.protobuf.UInt64Value mandatory_remaining_gas = 1;
 }
 
 // Get balance request
@@ -888,7 +888,7 @@ message GetAddressVersionRequest {
 
 // Get the version of the address result
 message GetAddressVersionResult {
-  int64 version = 1;
+  google.protobuf.UInt64Value mandatory_version = 1;
 }
 
 // Get the category of the address request
@@ -908,7 +908,7 @@ message GetPubKeyVersionRequest {
 
 // Get the version of the public key result
 message GetPubKeyVersionResult {
-  int64 version = 1;
+  google.protobuf.UInt64Value mandatory_version = 1;
 }
 
 // Get the version of the signature request
@@ -918,7 +918,7 @@ message GetSignatureVersionRequest {
 
 // Get the version of the signature result
 message GetSignatureVersionResult {
-  int64 version = 1;
+  google.protobuf.UInt64Value mandatory_version = 1;
 }
 
 // bytes to base58 request
