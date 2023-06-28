@@ -4,6 +4,7 @@ syntax = "proto3";
 
 package massa.model.v1;
 
+import "google/protobuf/wrappers.proto";
 import "massa/model/v1/commons.proto";
 import "massa/model/v1/slot.proto";
 
@@ -35,7 +36,7 @@ message ExecutionOutput {
   // Slot
   massa.model.v1.Slot slot = 1;
   // Block id at that slot (optional)
-  optional string block_id = 2;
+  google.protobuf.StringValue block_id = 2;
   // Events emitted by the execution step
   repeated ScExecutionEvent events = 3;
   // State changes caused by the execution step
@@ -55,13 +56,13 @@ message ScExecutionEventContext {
   // When was it generated
   massa.model.v1.Slot origin_slot = 1;
   // Block id if there was a block at that slot (optional)
-  optional string block_id = 2;
+  google.protobuf.StringValue block_id = 2;
   // Index of the event in the slot
   uint64 index_in_slot = 3;
   // Call stack addresses. most recent at the end
   repeated string call_stack = 4;
   // Origin operation id (optional)
-  optional string origin_operation_id = 5;
+  google.protobuf.StringValue origin_operation_id = 5;
   // Status
   ScExecutionEventStatus status = 6;
 }
@@ -228,7 +229,7 @@ message SetOrKeepUint64 {
   // The type of the change
   SetOrKeepType type = 1;
   // The value of that entry (optional)
-  optional uint64 value = 2;
+  google.protobuf.UInt64Value value = 2;
 }
 
 // Set or Keep String
@@ -236,7 +237,7 @@ message SetOrKeepString {
   // The type of the change
   SetOrKeepType type = 1;
   // The value of that entry (optional)
-  optional string value = 2;
+  google.protobuf.StringValue value = 2;
 }
 
 // Set or Keep Bytes
@@ -244,7 +245,7 @@ message SetOrKeepBytes {
   // The type of the change
   SetOrKeepType type = 1;
   // The value of that entry (optional)
-  optional bytes value = 2;
+  google.protobuf.BytesValue value = 2;
 }
 
 // Set or Keep Bool
@@ -252,7 +253,7 @@ message SetOrKeepBool {
   // The type of the change
   SetOrKeepType type = 1;
   // The value of that entry (optional)
-  optional bool value = 2;
+  google.protobuf.BoolValue value = 2;
 }
 
 // Set or Keep AsyncMessageTrigger
@@ -268,7 +269,7 @@ message AsyncMessageTrigger {
   // Filter on the address
   string address = 1;
   // Filter on the datastore key (optional)
-  optional bytes datastore_key = 2;
+  google.protobuf.BytesValue datastore_key = 2;
 }
 
 // LedgerChangeEntry
@@ -326,7 +327,7 @@ message SetOrKeepBalance {
   // The type of the change
   SetOrKeepType type = 1;
   // The balance of that entry (optional)
-  optional uint64 balance = 2;
+  google.protobuf.UInt64Value balance = 2;
 }
 
 // Set or Keep Bytecode
@@ -334,7 +335,7 @@ message SetOrKeepBytecode {
   // The type of the change
   SetOrKeepType type = 1;
   // Executable bytecode (optional)
-  optional bytes bytecode = 2;
+  google.protobuf.BytesValue bytecode = 2;
 }
 
 // Set or Delete DatastoreEntry
@@ -641,11 +642,11 @@ message ScExecutionEventsFilter {
   // End slot (Optional)
   optional massa.model.v1.Slot end_slot = 2;
   // Caller address
-  optional string caller_address = 3;
+  google.protobuf.StringValue caller_address = 3;
   // Emitter address (Optional)
-  optional string emitter_address = 4;
+  google.protobuf.StringValue emitter_address = 4;
   // Original operation id (Optional)
-  optional string original_operation_id = 5;
+  google.protobuf.StringValue original_operation_id = 5;
   // Status
   repeated ScExecutionEventStatus status = 6;
 }

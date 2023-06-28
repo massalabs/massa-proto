@@ -28,3 +28,9 @@ message Slot {
   // Thread
   uint32 thread = 2;
 }
+
+// Slots holds slots
+message Slots {
+  // Slots
+  repeated Slot slots = 1;
+}

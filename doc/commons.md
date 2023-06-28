@@ -116,6 +116,7 @@
 - [massa/model/v1/slot.proto](#massa_model_v1_slot-proto)
     - [IndexedSlot](#massa-model-v1-IndexedSlot)
     - [Slot](#massa-model-v1-Slot)
+    - [Slots](#massa-model-v1-Slots)
   
 - [massa/model/v1/address.proto](#massa_model_v1_address-proto)
     - [NativeAddress](#massa-model-v1-NativeAddress)
@@ -132,6 +133,7 @@
 - [massa/model/v1/block.proto](#massa_model_v1_block-proto)
     - [Block](#massa-model-v1-Block)
     - [BlockHeader](#massa-model-v1-BlockHeader)
+    - [BlockIds](#massa-model-v1-BlockIds)
     - [BlockWrapper](#massa-model-v1-BlockWrapper)
     - [FilledBlock](#massa-model-v1-FilledBlock)
     - [FilledOperationEntry](#massa-model-v1-FilledOperationEntry)
@@ -1058,7 +1060,7 @@ Structure defining a trigger for an asynchronous message
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  | Filter on the address |
-| datastore_key | [bytes](#bytes) | optional | Filter on the datastore key (optional) |
+| datastore_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | Filter on the datastore key (optional) |
 
 
 
@@ -1274,7 +1276,7 @@ ExecutionOutput
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | slot | [Slot](#massa-model-v1-Slot) |  | Slot |
-| block_id | [string](#string) | optional | Block id at that slot (optional) |
+| block_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Block id at that slot (optional) |
 | events | [ScExecutionEvent](#massa-model-v1-ScExecutionEvent) | repeated | Events emitted by the execution step |
 | state_changes | [StateChanges](#massa-model-v1-StateChanges) |  | State changes caused by the execution step |
 
@@ -1573,10 +1575,10 @@ ScExecutionEvent context
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | origin_slot | [Slot](#massa-model-v1-Slot) |  | When was it generated |
-| block_id | [string](#string) | optional | Block id if there was a block at that slot (optional) |
+| block_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Block id if there was a block at that slot (optional) |
 | index_in_slot | [uint64](#uint64) |  | Index of the event in the slot |
 | call_stack | [string](#string) | repeated | Call stack addresses. most recent at the end |
-| origin_operation_id | [string](#string) | optional | Origin operation id (optional) |
+| origin_operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Origin operation id (optional) |
 | status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) |  | Status |
 
 
@@ -1594,9 +1596,9 @@ ScExecutionEvents Filter
 | ----- | ---- | ----- | ----------- |
 | start_slot | [Slot](#massa-model-v1-Slot) | optional | Start slot (Optional) |
 | end_slot | [Slot](#massa-model-v1-Slot) | optional | End slot (Optional) |
-| caller_address | [string](#string) | optional | Caller address |
-| emitter_address | [string](#string) | optional | Emitter address (Optional) |
-| original_operation_id | [string](#string) | optional | Original operation id (Optional) |
+| caller_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Caller address |
+| emitter_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Emitter address (Optional) |
+| original_operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Original operation id (Optional) |
 | status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) | repeated | Status |
 
 
@@ -1645,7 +1647,7 @@ Set or Keep Balance
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| balance | [uint64](#uint64) | optional | The balance of that entry (optional) |
+| balance | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | The balance of that entry (optional) |
 
 
 
@@ -1661,7 +1663,7 @@ Set or Keep Bool
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| value | [bool](#bool) | optional | The value of that entry (optional) |
+| value | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | The value of that entry (optional) |
 
 
 
@@ -1677,7 +1679,7 @@ Set or Keep Bytecode
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| bytecode | [bytes](#bytes) | optional | Executable bytecode (optional) |
+| bytecode | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | Executable bytecode (optional) |
 
 
 
@@ -1693,7 +1695,7 @@ Set or Keep Bytes
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| value | [bytes](#bytes) | optional | The value of that entry (optional) |
+| value | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | The value of that entry (optional) |
 
 
 
@@ -1725,7 +1727,7 @@ Set or Keep String
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| value | [string](#string) | optional | The value of that entry (optional) |
+| value | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | The value of that entry (optional) |
 
 
 
@@ -1741,7 +1743,7 @@ Set or Keep Uint64
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| value | [uint64](#uint64) | optional | The value of that entry (optional) |
+| value | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | The value of that entry (optional) |
 
 
 
@@ -1937,6 +1939,21 @@ A point in time where a block is expected
 
 
 
+
+<a name="massa-model-v1-Slots"></a>
+
+### Slots
+Slots holds slots
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slots | [Slot](#massa-model-v1-Slot) | repeated | Slots |
+
+
+
+
+
  
 
  
@@ -2115,6 +2132,21 @@ Block header
 | parents | [string](#string) | repeated | parents |
 | operations_hash | [string](#string) |  | All operations hash |
 | endorsements | [SignedEndorsement](#massa-model-v1-SignedEndorsement) | repeated | Signed endorsements |
+
+
+
+
+
+
+<a name="massa-model-v1-BlockIds"></a>
+
+### BlockIds
+BlockIds holds block ids
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_ids | [string](#string) | repeated | Block ids |
 
 
 

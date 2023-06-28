@@ -38,7 +38,6 @@
     - [PrivateService](#massa-api-v1-PrivateService)
   
 - [massa/api/v1/public.proto](#massa_api_v1_public-proto)
-    - [BlockIds](#massa-api-v1-BlockIds)
     - [BlockParent](#massa-api-v1-BlockParent)
     - [BlockResult](#massa-api-v1-BlockResult)
     - [DatastoreEntriesQuery](#massa-api-v1-DatastoreEntriesQuery)
@@ -103,7 +102,6 @@
     - [SendEndorsementsResponse](#massa-api-v1-SendEndorsementsResponse)
     - [SendOperationsRequest](#massa-api-v1-SendOperationsRequest)
     - [SendOperationsResponse](#massa-api-v1-SendOperationsResponse)
-    - [Slots](#massa-api-v1-Slots)
     - [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest)
     - [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse)
   
@@ -533,21 +531,6 @@ Massa private gRPC service
 
 
 
-<a name="massa-api-v1-BlockIds"></a>
-
-### BlockIds
-BlockIds holds block ids
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| block_ids | [string](#string) | repeated | Block ids |
-
-
-
-
-
-
 <a name="massa-api-v1-BlockParent"></a>
 
 ### BlockParent
@@ -556,7 +539,7 @@ Block parent tuple
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_block_id | [string](#string) |  | Block id |
+| block_id | [string](#string) |  | Block id |
 | period | [uint64](#uint64) |  | Period |
 
 
@@ -572,7 +555,7 @@ Holds Block response
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_block_id | [string](#string) |  | Block id |
+| block_id | [string](#string) |  | Block id |
 
 
 
@@ -665,8 +648,8 @@ GetBlocks Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_ids | [BlockIds](#massa-api-v1-BlockIds) |  | Block ids |
-| slots | [Slots](#massa-api-v1-Slots) |  | Slots |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | Block ids |
+| slots | [massa.model.v1.Slots](#massa-model-v1-Slots) |  | Slots |
 
 
 
@@ -1078,8 +1061,8 @@ LargestStakers Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| min_rolls | [uint64](#uint64) | optional | Minimum rolls (Optional) |
-| max_rolls | [uint64](#uint64) | optional | Maximum rolls (Optional) |
+| min_rolls | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Minimum rolls (Optional) |
+| max_rolls | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Maximum rolls (Optional) |
 
 
 
@@ -1493,21 +1476,6 @@ SendOperationsResponse holds response from SendOperations
 
 
 
-<a name="massa-api-v1-Slots"></a>
-
-### Slots
-Slots holds slots
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slots | [massa.model.v1.Slot](#massa-model-v1-Slot) | repeated | Slots |
-
-
-
-
-
-
 <a name="massa-api-v1-TransactionsThroughputRequest"></a>
 
 ### TransactionsThroughputRequest
@@ -1516,7 +1484,7 @@ TransactionsThroughputRequest holds request for TransactionsThroughput
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| interval | [uint64](#uint64) | optional | Timer interval in seconds (Optional). Defaults to 10s |
+| interval | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Timer interval in seconds (Optional). Defaults to 10s |
 
 
 
