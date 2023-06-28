@@ -1,5 +1,3 @@
-
-
 FROM alpine:latest
 
 RUN apk update && apk upgrade
@@ -11,6 +9,5 @@ RUN curl -sSL \
     chmod +x "/usr/bin/buf"
 
 COPY lib/protoc-gen-doc /usr/bin/
-# COPY buf /usr/bin
 WORKDIR /opt
 CMD ["bash", "build.sh"]
