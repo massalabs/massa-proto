@@ -38,16 +38,20 @@ message NodeStatus {
   massa.model.v1.Slot last_slot = 9;
   // Next slot
   massa.model.v1.Slot next_slot = 10;
+  // Last executed final slot
+  massa.model.v1.Slot last_executed_final_slot = 11;
+  // Last executed speculative slot
+  massa.model.v1.Slot last_executed_speculative_slot = 12;
   // Consensus stats
-  massa.model.v1.ConsensusStats consensus_stats = 11;
+  massa.model.v1.ConsensusStats consensus_stats = 13;
   // Pool stats (operation count and endorsement count)
-  massa.model.v1.PoolStats pool_stats = 12;
+  massa.model.v1.PoolStats pool_stats = 14;
   // Network stats
-  massa.model.v1.NetworkStats network_stats = 13;
+  massa.model.v1.NetworkStats network_stats = 15;
   // Execution stats
-  massa.model.v1.ExecutionStats execution_stats = 14;
+  massa.model.v1.ExecutionStats execution_stats = 16;
   // Compact configuration
-  CompactConfig config = 15;
+  CompactConfig config = 17;
 }
 
 // Connected node
@@ -109,4 +113,10 @@ message PublicStatus {
   massa.model.v1.Slot last_slot = 9;
   // Next slot
   massa.model.v1.Slot next_slot = 10;
+  // Last executed final slot
+  massa.model.v1.Slot last_executed_final_slot = 11;
+  // Last executed speculative slot
+  massa.model.v1.Slot last_executed_speculative_slot = 12;
+  // Compact configuration
+  CompactConfig config = 13;
 }

@@ -70,8 +70,6 @@
     - [GetStatusResponse](#massa-api-v1-GetStatusResponse)
     - [GetTransactionsThroughputRequest](#massa-api-v1-GetTransactionsThroughputRequest)
     - [GetTransactionsThroughputResponse](#massa-api-v1-GetTransactionsThroughputResponse)
-    - [GetVersionRequest](#massa-api-v1-GetVersionRequest)
-    - [GetVersionResponse](#massa-api-v1-GetVersionResponse)
     - [LargestStakerEntry](#massa-api-v1-LargestStakerEntry)
     - [LargestStakersFilter](#massa-api-v1-LargestStakersFilter)
     - [LargestStakersQuery](#massa-api-v1-LargestStakersQuery)
@@ -664,7 +662,7 @@ GetBlocks Query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [GetBlocksFilter](#massa-api-v1-GetBlocksFilter) | repeated | Filter |
+| filters | [GetBlocksFilter](#massa-api-v1-GetBlocksFilter) | repeated | Filter |
 
 
 
@@ -990,31 +988,6 @@ GetTransactionsThroughputResponse holds response from GetTransactionsThroughput
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | throughput | [uint32](#uint32) |  | Transactions throughput |
-
-
-
-
-
-
-<a name="massa-api-v1-GetVersionRequest"></a>
-
-### GetVersionRequest
-GetVersionRequest holds request from GetVersion
-
-
-
-
-
-
-<a name="massa-api-v1-GetVersionResponse"></a>
-
-### GetVersionResponse
-GetVersionResponse holds response from GetVersion
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| version | [string](#string) |  | Version |
 
 
 
@@ -1545,7 +1518,6 @@ Massa public gRPC service
 | GetSelectorDraws | [GetSelectorDrawsRequest](#massa-api-v1-GetSelectorDrawsRequest) | [GetSelectorDrawsResponse](#massa-api-v1-GetSelectorDrawsResponse) | Get selector draws |
 | GetStatus | [GetStatusRequest](#massa-api-v1-GetStatusRequest) | [GetStatusResponse](#massa-api-v1-GetStatusResponse) | Get status |
 | GetTransactionsThroughput | [GetTransactionsThroughputRequest](#massa-api-v1-GetTransactionsThroughputRequest) | [GetTransactionsThroughputResponse](#massa-api-v1-GetTransactionsThroughputResponse) | Get transactions throughput |
-| GetVersion | [GetVersionRequest](#massa-api-v1-GetVersionRequest) | [GetVersionResponse](#massa-api-v1-GetVersionResponse) | Get node version |
 | QueryState | [QueryStateRequest](#massa-api-v1-QueryStateRequest) | [QueryStateResponse](#massa-api-v1-QueryStateResponse) | Query state |
 | NewBlocks | [NewBlocksRequest](#massa-api-v1-NewBlocksRequest) stream | [NewBlocksResponse](#massa-api-v1-NewBlocksResponse) stream | New received and produced blocks |
 | NewEndorsements | [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest) stream | [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse) stream | New received and produced endorsements |

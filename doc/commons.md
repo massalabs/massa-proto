@@ -443,6 +443,8 @@ Node status
 | connected_nodes | [ConnectedNode](#massa-model-v1-ConnectedNode) | repeated | Connected nodes |
 | last_slot | [Slot](#massa-model-v1-Slot) |  | Latest slot, none if now is before genesis timestamp |
 | next_slot | [Slot](#massa-model-v1-Slot) |  | Next slot |
+| last_executed_final_slot | [Slot](#massa-model-v1-Slot) |  | Last executed final slot |
+| last_executed_speculative_slot | [Slot](#massa-model-v1-Slot) |  | Last executed speculative slot |
 | consensus_stats | [ConsensusStats](#massa-model-v1-ConsensusStats) |  | Consensus stats |
 | pool_stats | [PoolStats](#massa-model-v1-PoolStats) |  | Pool stats (operation count and endorsement count) |
 | network_stats | [NetworkStats](#massa-model-v1-NetworkStats) |  | Network stats |
@@ -470,6 +472,9 @@ Public status
 | next_cycle_time | [uint64](#uint64) |  | Next cycle starting timestamp |
 | last_slot | [Slot](#massa-model-v1-Slot) |  | Latest slot, none if now is before genesis timestamp |
 | next_slot | [Slot](#massa-model-v1-Slot) |  | Next slot |
+| last_executed_final_slot | [Slot](#massa-model-v1-Slot) |  | Last executed final slot |
+| last_executed_speculative_slot | [Slot](#massa-model-v1-Slot) |  | Last executed speculative slot |
+| config | [CompactConfig](#massa-model-v1-CompactConfig) |  | Compact configuration |
 
 
 
@@ -2163,7 +2168,7 @@ A wrapper around a block with its metadata
 | ----- | ---- | ----- | ----------- |
 | block_id | [string](#string) |  | The unique ID of the block. |
 | block | [Block](#massa-model-v1-Block) |  | The block object itself |
-| status | [BlockStatus](#massa-model-v1-BlockStatus) | repeated | TODO to be enhanced depending on the use case The execution statuses of the block |
+| status | [BlockStatus](#massa-model-v1-BlockStatus) |  | The execution status of the block |
 
 
 
@@ -2252,9 +2257,9 @@ Possible statuses for a block
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | BLOCK_STATUS_UNSPECIFIED | 0 | Default enum value |
-| BLOCK_STATUS_IN_BLOCKCLIQUE | 1 | The block is in the greatest clique (and not final) |
+| BLOCK_STATUS_NON_FINAL_BLOCKCLIQUE | 1 | The block is in the greatest clique (and not final) |
 | BLOCK_STATUS_FINAL | 2 | The block is final |
-| BLOCK_STATUS_CANDIDATE | 3 | The block is candidate (active any clique but not final) |
+| BLOCK_STATUS_NON_FINAL_ALTERNATE_CLIQUE | 3 | The block is candidate (active any clique but not final) |
 | BLOCK_STATUS_DISCARDED | 4 | The block is discarded |
 
 

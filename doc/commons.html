@@ -1517,6 +1517,20 @@
                 </tr>
               
                 <tr>
+                  <td>last_executed_final_slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Last executed final slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>last_executed_speculative_slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Last executed speculative slot </p></td>
+                </tr>
+              
+                <tr>
                   <td>consensus_stats</td>
                   <td><a href="#massa.model.v1.ConsensusStats">ConsensusStats</a></td>
                   <td></td>
@@ -1622,6 +1636,27 @@
                   <td><a href="#massa.model.v1.Slot">Slot</a></td>
                   <td></td>
                   <td><p>Next slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>last_executed_final_slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Last executed final slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>last_executed_speculative_slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Last executed speculative slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>config</td>
+                  <td><a href="#massa.model.v1.CompactConfig">CompactConfig</a></td>
+                  <td></td>
+                  <td><p>Compact configuration </p></td>
                 </tr>
               
             </tbody>
@@ -5044,9 +5079,8 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                 <tr>
                   <td>status</td>
                   <td><a href="#massa.model.v1.BlockStatus">BlockStatus</a></td>
-                  <td>repeated</td>
-                  <td><p>TODO to be enhanced depending on the use case
-The execution statuses of the block </p></td>
+                  <td></td>
+                  <td><p>The execution status of the block </p></td>
                 </tr>
               
             </tbody>
@@ -5253,7 +5287,7 @@ The execution statuses of the block </p></td>
               </tr>
             
               <tr>
-                <td>BLOCK_STATUS_IN_BLOCKCLIQUE</td>
+                <td>BLOCK_STATUS_NON_FINAL_BLOCKCLIQUE</td>
                 <td>1</td>
                 <td><p>The block is in the greatest clique (and not final)</p></td>
               </tr>
@@ -5265,7 +5299,7 @@ The execution statuses of the block </p></td>
               </tr>
             
               <tr>
-                <td>BLOCK_STATUS_CANDIDATE</td>
+                <td>BLOCK_STATUS_NON_FINAL_ALTERNATE_CLIQUE</td>
                 <td>3</td>
                 <td><p>The block is candidate (active any clique but not final)</p></td>
               </tr>
