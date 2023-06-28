@@ -25,8 +25,6 @@
     - [OperationStatus](#massa-model-v1-OperationStatus)
   
 - [massa/model/v1/address.proto](#massa_model_v1_address-proto)
-    - [NativeAddress](#massa-model-v1-NativeAddress)
-  
     - [AddressCategory](#massa-model-v1-AddressCategory)
   
 - [massa/model/v1/execution.proto](#massa_model_v1_execution-proto)
@@ -78,19 +76,12 @@
 - [massa/model/v1/draw.proto](#massa_model_v1_draw-proto)
     - [SelectorDraws](#massa-model-v1-SelectorDraws)
   
-- [massa/model/v1/signature.proto](#massa_model_v1_signature-proto)
-    - [NativePubKey](#massa-model-v1-NativePubKey)
-    - [NativeSig](#massa-model-v1-NativeSig)
-  
 - [massa/model/v1/endorsement.proto](#massa_model_v1_endorsement-proto)
     - [Endorsement](#massa-model-v1-Endorsement)
     - [SignedEndorsement](#massa-model-v1-SignedEndorsement)
   
 - [massa/model/v1/amount.proto](#massa_model_v1_amount-proto)
     - [NativeAmount](#massa-model-v1-NativeAmount)
-  
-- [massa/model/v1/hash.proto](#massa_model_v1_hash-proto)
-    - [NativeHash](#massa-model-v1-NativeHash)
   
 - [massa/model/v1/block.proto](#massa_model_v1_block-proto)
     - [Block](#massa-model-v1-Block)
@@ -403,23 +394,6 @@ Possible statuses for an operation
 <p align="right"><a href="#top">Top</a></p>
 
 ## massa/model/v1/address.proto
-
-
-
-<a name="massa-model-v1-NativeAddress"></a>
-
-### NativeAddress
-Massa NativeAddress
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| category | [AddressCategory](#massa-model-v1-AddressCategory) |  | Address category |
-| version | [fixed64](#fixed64) |  | Address version |
-| content | [bytes](#bytes) |  | Address content |
-
-
-
 
 
  
@@ -1166,54 +1140,6 @@ Selector draws
 
 
 
-<a name="massa_model_v1_signature-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/signature.proto
-
-
-
-<a name="massa-model-v1-NativePubKey"></a>
-
-### NativePubKey
-Native Public Key
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  | Version of the public key |
-| content | [bytes](#bytes) |  | Content of the public key |
-
-
-
-
-
-
-<a name="massa-model-v1-NativeSig"></a>
-
-### NativeSig
-Native Signature
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  | Version of the signature |
-| content | [bytes](#bytes) |  | Content of the signature |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
 <a name="massa_model_v1_endorsement-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -1285,38 +1211,6 @@ the future. value = mantissa / (10^scale)
 | ----- | ---- | ----- | ----------- |
 | mantissa | [fixed64](#fixed64) |  | Mantissa |
 | scale | [fixed32](#fixed32) |  | Scale |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_hash-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/hash.proto
-
-
-
-<a name="massa-model-v1-NativeHash"></a>
-
-### NativeHash
-NativeHash.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  | Version of the hash. |
-| content | [bytes](#bytes) |  | Content of the hash. |
 
 
 

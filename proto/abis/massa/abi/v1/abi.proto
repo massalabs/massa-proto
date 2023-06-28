@@ -1,14 +1,12 @@
 // Copyright (c) 2023 MASSA LABS <info@massa.net>
 
 syntax = "proto3";
-
 package massa.abi.v1;
 
+import "google/protobuf/wrappers.proto";
 import "massa/model/v1/address.proto";
 import "massa/model/v1/amount.proto";
-import "massa/model/v1/hash.proto";
 import "massa/model/v1/slot.proto";
-import "massa/model/v1/signature.proto";
 import "massa/model/v1/time.proto";
 
 option csharp_namespace = "Com.Massa.Abi.V1";
@@ -35,13 +33,13 @@ message CreateScRequest {
 // Create SC result
 message CreateScResult {
   // Address of the just created smart contract
-  massa.model.v1.NativeAddress sc_address = 1;
+  string sc_address = 1;
 }
 
 // Call SC request
 message CallRequest {
   // Address of the smart contract to call
-  massa.model.v1.NativeAddress target_sc_address = 1;
+  string target_sc_address = 1;
   // Function to call in the targeted smart contract
   string target_function_name = 2;
   // Argument to the function serialized in a byte array.
@@ -75,7 +73,7 @@ message LocalExecutionResponse {
 // Generate event request
 message GenerateEventRequest {
   // Event
-  string event = 1;
+  bytes event = 1;
 }
 
 // Generate event resulst
@@ -83,12 +81,12 @@ message GenerateEventResult {}
 
 // Transfer coins request
 message TransferCoinsRequest {
-  // The address of the sender, if none, use current address
-  massa.model.v1.NativeAddress sender_address = 1;
   // The address of the recipient
-  massa.model.v1.NativeAddress target_address = 2;
+  string target_address = 1;
   // The amount of coins to transfer
-  massa.model.v1.NativeAmount amount_to_transfer = 3;
+  massa.model.v1.NativeAmount amount_to_transfer = 2;
+  // The address of the sender, if none, use current address
+  google.protobuf.StringValue optional_sender_address = 3;
 }
 
 // Transfer coin result
@@ -97,7 +95,7 @@ message TransferCoinsResult {}
 // Function exists request
 message FunctionExistsRequest {
   // Address of the smart contract to call
-  massa.model.v1.NativeAddress target_sc_address = 1;
+  string target_sc_address = 1;
   // The name of the function to check the existance of
   string function_name = 2;
 }
@@ -119,71 +117,69 @@ message FunctionExistsResult {
 // the +2 comes from ResResult itself which is counted above and from ComparisonResult which is not in the same category
 message RespResult {
   oneof res {
-    NativeAddressToStringResult native_address_to_string_result = 1;
-    NativePubKeyToStringResult native_pub_key_to_string_result = 2;
-    NativeSigToStringResult native_sig_to_string_result = 3;
-    NativeHashToStringResult native_hash_to_string_result = 4;
-    NativeAmountToStringResult native_amount_to_string_result = 5;
-    NativeAddressFromStringResult native_address_from_string_result = 6;
-    NativePubKeyFromStringResult native_pub_key_from_string_result = 7;
-    NativeSigFromStringResult native_sig_from_string_result = 8;
-    NativeHashFromStringResult native_hash_from_string_result = 9;
-    NativeAmountFromStringResult native_amount_from_string_result = 10;
-    CheckNativeAddressResult check_native_address_result = 11;
-    CheckNativePubKeyResult check_native_pub_key_result = 12;
-    CheckNativeSigResult check_native_sig_result = 13;
-    CheckNativeHashResult check_native_hash_result = 14;
-    CheckNativeAmountResult check_native_amount_result = 15;
-    AddNativeAmountsResult add_native_amounts_result = 16;
-    SubNativeAmountsResult sub_native_amounts_result = 17;
-    MulNativeAmountResult mul_native_amount_result = 18;
-    ScalarDivRemNativeAmountResult scalar_div_rem_native_amount_result = 19;
-    DivRemNativeAmountResult div_rem_native_amount_result = 20;
-    CheckedAddNativeTimeResult checked_add_native_time_result = 21;
-    CheckedSubNativeTimeResult checked_sub_native_time_result = 22;
-    CheckedMulNativeTimeResult checked_mul_native_time_result = 23;
-    CheckedScalarDivRemNativeTimeResult checked_scalar_div_rem_native_time_result = 24;
-    CheckedDivRemNativeTimeResult checked_div_rem_native_time_result = 25;
-    CompareNativeTimeResult compare_native_time_result = 26;
-    CompareNativeAddressResult compare_native_address_result = 27;
-    CompareNativePubKeyResult compare_native_pub_key_result = 28;
-    CompareNativeSigResult compare_native_sig_result = 29;
-    VerifyNativeSigResult verify_native_sig_result = 30;
-    CompareNativeAmountResult compare_native_amount_result = 31;
-    Keccak256Result keccak256_result = 32;
-    VerifyEvmSigResult verify_evm_sig_result = 33;
-    VerifyBlsSingleSigResult verify_bls_single_sig_result = 34;
-    VerifyBlsMultiSigResult verify_bls_multi_sig_result = 35;
-    TransferCoinsResult transfer_coins_result = 36;
-    GenerateEventResult generate_event_result = 37;
-    CreateScResult create_sc_result = 38;
-    FunctionExistsResult function_exists_result = 39;
-    NativeHashResult native_hash_result = 40;
-    GetKeysResult get_keys_result = 41;
-    SetDataResult set_data_result = 42;
-    AppendDataResult append_data_result = 43;
-    GetDataResult get_data_result = 44;
-    HasDataResult has_data_result = 45;
-    DeleteDataResult delete_data_result = 46;
-    GetOwnedAddressesResult get_owned_addresses_result = 47;
-    GetCallStackResult get_call_stack_result = 48;
-    NativeAddressFromNativePubKeyResult native_address_from_native_pub_key_result = 49;
-    UnsafeRandomResult unsafe_random_request_result = 50;
-    GetNativeTimeResult get_native_time_result = 51;
-    GetCurrentSlotResult get_current_slot_result = 52;
-    SetBytecodeRequest set_bytecode_request_result = 53;
-    GetBytecodeResult get_bytecode_result = 54;
-    CallerHasWriteAccessResult caller_has_write_access_result = 55;
-    SeedResult seed_result = 56;
-    DateNowResult date_now_result = 57;
-    ProcessExitResult process_exit_result = 58;
-    HashSha256Result hash_sha256_result = 59;
-    GetOpDataResult get_op_data_result = 60;
-    HasOpKeyResult has_op_key_result = 61;
-    GetOpKeysResult get_op_keys_result = 62;
-    GetRemainingGasResult get_remaining_gas_result = 63;
-    GetBalanceResult get_balance_result = 64;
-    GetCallCoinsResult get_call_coins_result = 65;
+    AddNativeAmountsResult add_native_amounts_result = 1;
+    AddressFromPubKeyResult address_from_pub_key_result = 2;
+    AppendDataResult append_data_result = 3;
+    Base58CheckToBytesResult base58_check_to_bytes_result = 4;
+    Blake3HashResult blake3_hash_result = 5;
+    BytesToBase58CheckResult bytes_to_base58_check_result = 6;
+    CallerHasWriteAccessResult caller_has_write_access_result = 7;
+    CheckAddressResult check_address_result = 8;
+    CheckBlake3HashResult check_blake3_hash_result = 9;
+    CheckNativeAmountResult check_native_amount_result = 10;
+    CheckPubKeyResult check_pub_key_result = 11;
+    CheckSigResult check_sig_result = 12;
+    CheckedAddNativeTimeResult checked_add_native_time_result = 13;
+    CheckedDivRemNativeTimeResult checked_div_rem_native_time_result = 14;
+    CheckedMulNativeTimeResult checked_mul_native_time_result = 15;
+    CheckedScalarDivRemNativeTimeResult checked_scalar_div_rem_native_time_result = 16;
+    CheckedSubNativeTimeResult checked_sub_native_time_result = 17;
+    CompareAddressResult compare_address_result = 18;
+    CompareNativeAmountResult compare_native_amount_result = 19;
+    CompareNativeTimeResult compare_native_time_result = 20;
+    ComparePubKeyResult compare_pub_key_result = 21;
+    CompareSigResult compare_sig_result = 22;
+    CreateScResult create_sc_result = 23;
+    DateNowResult date_now_result = 24;
+    DeleteDataResult delete_data_result = 25;
+    DivRemNativeAmountResult div_rem_native_amount_result = 26;
+    FunctionExistsResult function_exists_result = 27;
+    GenerateEventResult generate_event_result = 28;
+    GetAddressCategoryResult get_address_category_result = 29;
+    GetAddressVersionResult get_address_version_result = 30;
+    GetBalanceResult get_balance_result = 31;
+    GetBytecodeResult get_bytecode_result = 32;
+    GetCallCoinsResult get_call_coins_result = 33;
+    GetCallStackResult get_call_stack_result = 34;
+    GetCurrentSlotResult get_current_slot_result = 35;
+    GetDataResult get_data_result = 36;
+    GetKeysResult get_keys_result = 37;
+    GetNativeTimeResult get_native_time_result = 38;
+    GetOpDataResult get_op_data_result = 39;
+    GetOpKeysResult get_op_keys_result = 40;
+    GetOwnedAddressesResult get_owned_addresses_result = 41;
+    GetPubKeyVersionResult get_pub_key_version_result = 42;
+    GetRemainingGasResult get_remaining_gas_result = 43;
+    GetSignatureVersionResult get_signature_version_result = 44;
+    HashSha256Result hash_sha256_result = 45;
+    HasDataResult has_data_result = 46;
+    HasOpKeyResult has_op_key_result = 47;
+    Keccak256Result keccak256_result = 48;
+    MulNativeAmountResult mul_native_amount_result = 49;
+    NativeAmountFromStringResult native_amount_from_string_result = 50;
+    NativeAmountToStringResult native_amount_to_string_result = 51;
+    ProcessExitResult process_exit_result = 52;
+    ScalarDivRemNativeAmountResult scalar_div_rem_native_amount_result = 53;
+    SeedResult seed_result = 54;
+    SetBytecodeResult set_bytecode_result = 55;
+    SetDataResult set_data_result = 56;
+    SubNativeAmountsResult sub_native_amounts_result = 57;
+    TransferCoinsResult transfer_coins_result = 58;
+    UnsafeRandomResult unsafe_random_result = 59;
+    VerifyBlsMultiSigResult verify_bls_multi_sig_result = 60;
+    VerifyBlsSingleSigResult verify_bls_single_sig_result = 61;
+    VerifyEvmSigResult verify_evm_sig_result = 62;
+    VerifySigResult verify_sig_result = 63;
   }
 }
 
@@ -197,52 +193,6 @@ message AbiResponse {
   }
 }
 
-// Address to string request
-message NativeAddressToStringRequest {
-  // Address to convert to string
-  massa.model.v1.NativeAddress to_convert = 1;
-}
-
-// Address to string result
-message NativeAddressToStringResult {
-  // Converted address
-  string converted_address = 1;
-}
-
-// PubKey to string request
-message NativePubKeyToStringRequest {
-  // PubKey to convert to string
-  massa.model.v1.NativePubKey to_convert = 1;
-}
-message NativePubKeyToStringResult {
-  // Converted PubKey
-  string converted_pubkey = 1;
-}
-
-// Sig to string request
-message NativeSigToStringRequest {
-  // Sig to convert to string
-  massa.model.v1.NativeSig to_convert = 1;
-}
-
-// Sig to string result
-message NativeSigToStringResult {
-  // Converted Sig
-  string converted_sig = 1;
-}
-
-// Hash to string request
-message NativeHashToStringRequest {
-  // Hash to convert to string
-  massa.model.v1.NativeHash to_convert = 1;
-}
-
-// Hash to string result
-message NativeHashToStringResult {
-  // Converted Hash
-  string converted_hash = 1;
-}
-
 // Amount to string request
 message NativeAmountToStringRequest {
   // Amount to convert to string
@@ -253,54 +203,6 @@ message NativeAmountToStringRequest {
 message NativeAmountToStringResult {
   // Converted Amount
   string converted_amount = 1;
-}
-
-// Address from string request
-message NativeAddressFromStringRequest {
-  // String to convert to address
-  string to_convert = 1;
-}
-
-// Address from string result
-message NativeAddressFromStringResult {
-  // Converted address
-  massa.model.v1.NativeAddress converted_address = 1;
-}
-
-// PubKey from string request
-message NativePubKeyFromStringRequest {
-  // String to convert to PubKey
-  string to_convert = 1;
-}
-
-// PubKey from string result
-message NativePubKeyFromStringResult {
-  // Converted PubKey
-  massa.model.v1.NativePubKey converted_pubkey = 1;
-}
-
-// Sig from string request
-message NativeSigFromStringRequest {
-  // String to convert to Sig
-  string to_convert = 1;
-}
-
-// Sig from string result
-message NativeSigFromStringResult {
-  // Converted Sig
-  massa.model.v1.NativeSig converted_sig = 1;
-}
-
-// Hash from string request
-message NativeHashFromStringRequest {
-  // String to convert to Hash
-  string to_convert = 1;
-}
-
-// Hash from string result
-message NativeHashFromStringResult {
-  // Converted Hash
-  massa.model.v1.NativeHash converted_hash = 1;
 }
 
 // Amount from string request
@@ -316,49 +218,49 @@ message NativeAmountFromStringResult {
 }
 
 // Check address request
-message CheckNativeAddressRequest {
+message CheckAddressRequest {
   // Address to check
-  massa.model.v1.NativeAddress to_check = 1;
+  string to_check = 1;
 }
 
 // Check address result
-message CheckNativeAddressResult {
+message CheckAddressResult {
   // Is address valid
   bool is_valid = 1;
 }
 
 // Check PubKey request
-message CheckNativePubKeyRequest {
+message CheckPubKeyRequest {
   // PubKey to check
-  massa.model.v1.NativePubKey to_check = 1;
+  string to_check = 1;
 }
 
 // Check PubKey result
-message CheckNativePubKeyResult {
+message CheckPubKeyResult {
   // Is PubKey valid
   bool is_valid = 1;
 }
 
 // Check Sig request
-message CheckNativeSigRequest {
+message CheckSigRequest {
   // Sig to check
-  massa.model.v1.NativeSig to_check = 1;
+  string to_check = 1;
 }
 
 // Check Sig result
-message CheckNativeSigResult {
+message CheckSigResult {
   // Is Sig valid
   bool is_valid = 1;
 }
 
 // Check Hash request
-message CheckNativeHashRequest {
+message CheckBlake3HashRequest {
   // Hash to check
-  massa.model.v1.NativeHash to_check = 1;
+  bytes to_check = 1;
 }
 
 // Check Hash result
-message CheckNativeHashResult {
+message CheckBlake3HashResult {
   // Is Hash valid
   bool is_valid = 1;
 }
@@ -559,60 +461,60 @@ message CompareNativeTimeResult {
   ComparisonResult result = 1;
 }
 
-// Compare NativeAddress request
-message CompareNativeAddressRequest {
+// Compare Address request
+message CompareAddressRequest {
   // First address to compare
-  massa.model.v1.NativeAddress left = 1;
+  string left = 1;
   // Second address to compare
-  massa.model.v1.NativeAddress right = 2;
+  string right = 2;
 }
 
-// Compare NativeAddress result
-message CompareNativeAddressResult {
+// Compare Address result
+message CompareAddressResult {
   // Comparison result
   ComparisonResult result = 1;
 }
 
-// Compare NativePubKey request
-message CompareNativePubKeyRequest {
+// Compare PubKey request
+message ComparePubKeyRequest {
   // First public key to compare
-  massa.model.v1.NativePubKey left = 1;
+  string left = 1;
   // Second public key to compare
-  massa.model.v1.NativePubKey right = 2;
+  string right = 2;
 }
 
-// Compare NativePubKey result
-message CompareNativePubKeyResult {
+// Compare PubKey result
+message ComparePubKeyResult {
   // Comparison result
   ComparisonResult result = 1;
 }
 
-// Compare NativeSig request
-message CompareNativeSigRequest {
+// Compare Sig request
+message CompareSigRequest {
   // First signature to compare
-  massa.model.v1.NativeSig left = 1;
+  string left = 1;
   // Second signature to compare
-  massa.model.v1.NativeSig right = 2;
+  string right = 2;
 }
 
-// Compare NativeSig result
-message CompareNativeSigResult {
+// Compare Sig result
+message CompareSigResult {
   // Comparison result
   ComparisonResult result = 1;
 }
 
-// Verify NativeSig request
-message VerifyNativeSigRequest {
+// Verify Sig request
+message VerifySigRequest {
   // Signature to verify
-  massa.model.v1.NativeSig sig = 1;
+  string sig = 1;
   // Message to verify
   bytes message = 2;
   // Public key to verify with
-  massa.model.v1.NativePubKey pub_key = 3;
+  string pub_key = 3;
 }
 
-// Verify NativeSig result
-message VerifyNativeSigResult {
+// Verify Sig result
+message VerifySigResult {
   // Verification result
   bool is_verified = 1;
 }
@@ -691,24 +593,24 @@ message VerifyBlsMultiSigResult {
   bool is_verified = 1;
 }
 
-// Native hash request
-message NativeHashRequest {
+// Blake3 hash request
+message Blake3HashRequest {
   // Data to hash
   bytes data = 1;
 }
 
-// Native hash result
-message NativeHashResult {
+// Blake3 hash result
+message Blake3HashResult {
   // Hash of data
-  massa.model.v1.NativeHash hash = 1;
+  bytes hash = 1;
 }
 
 // Get keys request
 message GetKeysRequest {
-  // NativeAddress to get keys for
-  massa.model.v1.NativeAddress address = 1;
   // keys prefix
-  bytes prefix = 2;
+  bytes prefix = 1;
+  // Address to get keys for
+  google.protobuf.StringValue optional_address = 2;
 }
 
 // Get keys result
@@ -719,12 +621,12 @@ message GetKeysResult {
 
 // Set data request
 message SetDataRequest {
-  // NativeAddress to set data for, if none, use current address
-  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 2;
+  bytes key = 1;
   // value
-  bytes value = 3;
+  bytes value = 2;
+  // Address to set data for, if none, use current address
+  google.protobuf.StringValue optional_address = 3;
 }
 
 // Set data result
@@ -732,12 +634,12 @@ message SetDataResult {}
 
 // Append data request
 message AppendDataRequest {
-  // NativeAddress to append data for, if none, use current address
-  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 2;
+  bytes key = 1;
   // value
-  bytes value = 3;
+  bytes value = 2;
+  // Address to append data for, if none, use current address
+  google.protobuf.StringValue optional_address = 3;
 }
 
 // Append data result
@@ -745,10 +647,10 @@ message AppendDataResult {}
 
 // Get data request
 message GetDataRequest {
-  // NativeAddress to get data for, if none, use current address
-  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 2;
+  bytes key = 1;
+  // Address to get data for, if none, use current address
+  google.protobuf.StringValue optional_address = 2;
 }
 
 // Get data result
@@ -759,10 +661,10 @@ message GetDataResult {
 
 // Delete data request
 message DeleteDataRequest {
-  // NativeAddress to delete data for, if none, use current address
-  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 2;
+  bytes key = 1;
+  // Address to delete data for, if none, use current address
+  google.protobuf.StringValue optional_address = 2;
 }
 
 // Delete data result
@@ -770,10 +672,10 @@ message DeleteDataResult {}
 
 // Has data request
 message HasDataRequest {
-  // NativeAddress to check data for, if none, use current address
-  massa.model.v1.NativeAddress address = 1;
   // key
-  bytes key = 2;
+  bytes key = 1;
+  // Address to check data for, if none, use current address
+  google.protobuf.StringValue optional_address = 2;
 }
 
 // Has data result
@@ -788,7 +690,7 @@ message GetOwnedAddressesRequest {}
 // Get owned addresses result
 message GetOwnedAddressesResult {
   // owned addresses
-  repeated massa.model.v1.NativeAddress addresses = 1;
+  repeated string addresses = 1;
 }
 
 // Get call stack request
@@ -800,16 +702,16 @@ message GetCallStackResult {
   repeated string calls = 1;
 }
 
-// Native address from native public key request
-message NativeAddressFromNativePubKeyRequest {
+// Address from public key request
+message AddressFromPubKeyRequest {
   // Native public key
-  massa.model.v1.NativePubKey pub_key = 1;
+  string pub_key = 1;
 }
 
-// Native address from native public key result
-message NativeAddressFromNativePubKeyResult {
-  // Native address
-  massa.model.v1.NativeAddress address = 1;
+// Address from public key result
+message AddressFromPubKeyResult {
+  // Address
+  string address = 1;
 }
 
 // Unsafe random request
@@ -820,7 +722,7 @@ message UnsafeRandomRequest {
 
 // Unsafe random result
 message UnsafeRandomResult {}
-  
+
 // Get native time request
 message GetNativeTimeRequest {}
 
@@ -841,22 +743,19 @@ message GetCurrentSlotResult {
 
 // Set bytecode request
 message SetBytecodeRequest {
-  // NativeAddress to set bytecode for, if none, use current address
-  massa.model.v1.NativeAddress address = 1;
   // Bytecode
-  bytes bytecode = 2;
+  bytes bytecode = 1;
+  // Address to set bytecode for, if none, use current address
+  google.protobuf.StringValue optional_address = 2;
 }
 
 // Set bytecode result
 message SetBytecodeResult {}
 
 // Get bytecode request
-message GetBytecodeRequest {}
-
-// Get bytecode request
-message GetBytecodeequest {
-  // NativeAddress to get bytecode for, if none, use current address
-  massa.model.v1.NativeAddress address = 1;
+message GetBytecodeRequest {
+  // Address to get bytecode for, if none, use current address
+  google.protobuf.StringValue optional_address = 1;
 }
 
 // Get bytecode result
@@ -960,8 +859,8 @@ message GetRemainingGasResult {
 
 // Get balance request
 message GetBalanceRequest {
-  // NativeAddress to get balance for, if none, use current address
-  massa.model.v1.NativeAddress address = 1;
+  // Address to get balance for, if none, use current address
+  google.protobuf.StringValue optional_address = 1;
 }
 
 // Get balance result
@@ -977,4 +876,64 @@ message GetCallCoinsRequest {}
 message GetCallCoinsResult {
   // coins
   massa.model.v1.NativeAmount coins = 1;
+}
+
+// Get the version of the address request
+message GetAddressVersionRequest {
+  string address = 1;
+}
+
+// Get the version of the address result
+message GetAddressVersionResult {
+  int64 version = 1;
+}
+
+// Get the category of the address request
+message GetAddressCategoryRequest {
+  string address = 1;
+}
+
+// Get the category of the address result
+message GetAddressCategoryResult {
+  massa.model.v1.AddressCategory category = 1;
+}
+
+// Get the version of the public key request
+message GetPubKeyVersionRequest {
+  string pub_key = 1;
+}
+
+// Get the version of the public key result
+message GetPubKeyVersionResult {
+  int64 version = 1;
+}
+
+// Get the version of the signature request
+message GetSignatureVersionRequest {
+  string signature = 1;
+}
+
+// Get the version of the signature result
+message GetSignatureVersionResult {
+  int64 version = 1;
+}
+
+// bytes to base58 request
+message BytesToBase58CheckRequest {
+  bytes bytes = 1;
+}
+
+// bytes to base58 result
+message BytesToBase58CheckResult {
+  string base58_check = 1;
+}
+
+// base58 to bytes request
+message Base58CheckToBytesRequest {
+  string base58_check = 1;
+}
+
+// base58 to bytes result
+message Base58CheckToBytesResult {
+  bytes bytes = 1;
 }
