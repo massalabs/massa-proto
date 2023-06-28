@@ -32,3 +32,9 @@ message NativeAddress {
   // Address content
   bytes content = 3;
 }
+
+// Addresses holds addresses
+message Addresses {
+  // Addresses
+  repeated string addresses = 1;
+}

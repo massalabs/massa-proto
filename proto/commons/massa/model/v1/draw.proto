@@ -15,12 +15,20 @@ option php_namespace = "Com\\Massa\\Model\\V1";
 option ruby_package = "Com::Massa::Model::V1";
 option swift_prefix = "MMODEL";
 
-// Selector draws
-message SelectorDraws {
-  // Address
-  string address = 1;
-  // Next block draws
-  repeated massa.model.v1.Slot next_block_draws = 2;
-  // Next endorsements draws
-  repeated massa.model.v1.IndexedSlot next_endorsement_draws = 3;
+// Slot draw
+message SlotDraw {
+  // Block producer address
+  string block_producer = 1;
+  // Slot
+  massa.model.v1.Slot slot = 2;
+  // Endorsement draws
+  repeated EndorsementDraw endorsement_draws = 3;
+}
+
+// Endorsement draw
+message EndorsementDraw {
+  // Endorsement index
+  uint64 index = 1;
+  // Producer address
+  string producer = 2;
 }

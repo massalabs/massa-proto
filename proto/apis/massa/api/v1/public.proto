@@ -7,6 +7,7 @@ package massa.api.v1;
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 import "google/rpc/status.proto";
+import "massa/model/v1/address.proto";
 import "massa/model/v1/block.proto";
 import "massa/model/v1/commons.proto";
 import "massa/model/v1/draw.proto";
@@ -329,26 +330,27 @@ message GetStatusResponse {
 
 // GetSelectorDrawsRequest holds request from GetSelectorDraws
 message GetSelectorDrawsRequest {
-  // Queries
-  repeated SelectorDrawsQuery queries = 1;
+  // Query
+  SelectorDrawsQuery query = 1;
 }
 
 // SelectorDraws Query
 message SelectorDrawsQuery {
   // Filter
-  SelectorDrawsFilter filter = 1;
+  repeated SelectorDrawsFilter filter = 1;
 }
 
 // SelectorDraws Filter
 message SelectorDrawsFilter {
-  // Address
-  string address = 1;
+  oneof filter {
+    massa.model.v1.Addresses addresses = 1;
+  }
 }
 
 // GetSelectorDrawsResponse holds response from GetSelectorDraws
 message GetSelectorDrawsResponse {
   // Selector draws
-  repeated massa.model.v1.SelectorDraws selector_draws = 1;
+  repeated massa.model.v1.SlotDraw draws = 1;
 }
 
 // GetTransactionsThroughputRequest holds request for GetTransactionsThroughput
