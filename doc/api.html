@@ -442,14 +442,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.GetVersionRequest"><span class="badge">M</span>GetVersionRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.GetVersionResponse"><span class="badge">M</span>GetVersionResponse</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.LargestStakerEntry"><span class="badge">M</span>LargestStakerEntry</a>
                 </li>
               
@@ -1596,7 +1588,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>filter</td>
+                  <td>filters</td>
                   <td><a href="#massa.api.v1.GetBlocksFilter">GetBlocksFilter</a></td>
                   <td>repeated</td>
                   <td><p>Filter </p></td>
@@ -2084,37 +2076,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#uint32">uint32</a></td>
                   <td></td>
                   <td><p>Transactions throughput </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.GetVersionRequest">GetVersionRequest</h3>
-        <p>GetVersionRequest holds request from GetVersion</p>
-
-        
-
-        
-      
-        <h3 id="massa.api.v1.GetVersionResponse">GetVersionResponse</h3>
-        <p>GetVersionResponse holds response from GetVersion</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>version</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Version </p></td>
                 </tr>
               
             </tbody>
@@ -3019,13 +2980,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             
               <tr>
-                <td>GetVersion</td>
-                <td><a href="#massa.api.v1.GetVersionRequest">GetVersionRequest</a></td>
-                <td><a href="#massa.api.v1.GetVersionResponse">GetVersionResponse</a></td>
-                <td><p>Get node version</p></td>
-              </tr>
-            
-              <tr>
                 <td>QueryState</td>
                 <td><a href="#massa.api.v1.QueryStateRequest">QueryStateRequest</a></td>
                 <td><a href="#massa.api.v1.QueryStateResponse">QueryStateResponse</a></td>
@@ -3209,16 +3163,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td>GetTransactionsThroughput</td>
                 <td>POST</td>
                 <td>/v1/transactions_throughput</td>
-                <td>*</td>
-              </tr>
-              
-            
-              
-              
-              <tr>
-                <td>GetVersion</td>
-                <td>POST</td>
-                <td>/v1/get_version</td>
                 <td>*</td>
               </tr>
               
