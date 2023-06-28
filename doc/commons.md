@@ -2131,7 +2131,7 @@ A wrapper around a block with its metadata
 | ----- | ---- | ----- | ----------- |
 | block_id | [string](#string) |  | The unique ID of the block. |
 | block | [Block](#massa-model-v1-Block) |  | The block object itself |
-| status | [BlockStatus](#massa-model-v1-BlockStatus) | repeated | The execution statuses of the block |
+| status | [BlockStatus](#massa-model-v1-BlockStatus) | repeated | TODO to be enhanced depending on the use case The execution statuses of the block |
 
 
 

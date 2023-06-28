@@ -159,8 +159,6 @@ service PublicService {
 
 // GetBlocksRequest holds request for GetBlocks
 message GetBlocksRequest {
-  // Request id
-  string request_id = 1;
   // Queries
   repeated GetBlocksQuery queries = 2;
 }
@@ -168,51 +166,40 @@ message GetBlocksRequest {
 // GetBlocks Query
 message GetBlocksQuery {
   // Filter
-  GetBlocksFilter filter = 1;
+  repeated GetBlocksFilter filter = 1;
 }
 
 // GetBlocks Filter
 message GetBlocksFilter {
-  // Block id
-  string block_id = 1;
+  // Blocks filter
+  oneof filter {
+    // Block ids
+    BlockIds block_ids = 1;
+    // Slots
+    Slots slots = 2;
+  }
+}
+
+// BlockIds holds block ids
+message BlockIds {
+  // Block ids
+  repeated string block_ids = 1;
+}
+
+// Slots holds slots
+message Slots {
+  // Slots
+  repeated massa.model.v1.Slot slots = 1;
 }
 
 // GetBlocksResponse holds response from GetBlocks
 message GetBlocksResponse {
-  // Request id
-  string request_id = 1;
-  // Context
-  BlocksContext context = 2;
   // Blocks wrappers
   repeated massa.model.v1.BlockWrapper blocks = 3;
 }
 
-// Blocks context
-message BlocksContext {
-  // Slot
-  massa.model.v1.Slot slot = 1;
-}
-
-// GetBlocksBySlotsRequest holds request for GetBlocksBySlots
-message GetBlocksBySlotsRequest {
-  // Request id
-  string request_id = 1;
-  // Slots
-  repeated massa.model.v1.Slot slots = 2;
-}
-
-// GetBlocksBySlotsResponse holds response from GetBlocksBySlots
-message GetBlocksBySlotsResponse {
-  // Request id
-  string request_id = 1;
-  // Blocks
-  repeated massa.model.v1.Block blocks = 2;
-}
-
 // GetDatastoreEntriesRequest holds request from GetDatastoreEntries
 message GetDatastoreEntriesRequest {
-  // Request id
-  string request_id = 1;
   // Queries
   repeated DatastoreEntriesQuery queries = 2;
 }
@@ -232,8 +219,6 @@ message DatastoreEntryFilter {
 
 // GetDatastoreEntriesResponse holds response from GetDatastoreEntries
 message GetDatastoreEntriesResponse {
-  // Request id
-  string request_id = 1;
   // Datastore entries
   repeated DatastoreEntry entries = 2;
 }
@@ -248,8 +233,6 @@ message DatastoreEntry {
 
 // GetStakersRequest holds request from GetStakers
 message GetStakersRequest {
-  // Request id
-  string request_id = 1;
   // Query
   LargestStakersQuery query = 2;
 }
@@ -274,20 +257,8 @@ message LargestStakersFilter {
 
 // GetStakersResponse holds response from GetStakers
 message GetStakersResponse {
-  // Request id
-  string request_id = 1;
-  // Context
-  LargestStakersContext context = 2;
   // Largest stakers
   repeated LargestStakerEntry stakers = 3;
-}
-
-// LargestStakers context
-message LargestStakersContext {
-  // Slot
-  massa.model.v1.Slot slot = 1;
-  // If the chain is in downtime, we will return the last snapshot before the downtime
-  bool in_downtime = 2;
 }
 
 // LargestStakerEntry
@@ -299,29 +270,19 @@ message LargestStakerEntry {
 }
 
 // GetMipStatusRequest holds request for GetMipStatus
-message GetMipStatusRequest {
-  // Request id
-  string request_id = 1;
-}
+message GetMipStatusRequest {}
 
 // GetMipStatusResponse holds response from GetMipStatus
 message GetMipStatusResponse {
-  // Request id
-  string request_id = 1;
   // MipInfo - status id entries
   repeated massa.model.v1.MipStatusEntry entries = 2;
 }
 
 // GetNextBlockBestParentsRequest holds request for GetNextBlockBestParents
-message GetNextBlockBestParentsRequest {
-  // Request id
-  string request_id = 1;
-}
+message GetNextBlockBestParentsRequest {}
 
 // GetNextBlockBestParentsResponse holds response from GetNextBlockBestParents
 message GetNextBlockBestParentsResponse {
-  // Request id
-  string request_id = 1;
   // Best parents
   repeated BlockParent parents = 2;
 }
@@ -336,8 +297,6 @@ message BlockParent {
 
 // GetOperationsRequest holds request for GetOperations
 message GetOperationsRequest {
-  // Request id
-  string request_id = 1;
   // Queries
   repeated GetOperationsQuery queries = 2;
 }
@@ -356,24 +315,12 @@ message GetOperationsFilter {
 
 // GetOperationsResponse holds response from GetOperations
 message GetOperationsResponse {
-  // Request id
-  string request_id = 1;
-  // Context
-  OperationsContext context = 2;
   //Operations wrappers
   repeated massa.model.v1.OperationWrapper operations = 3;
 }
 
-// Operations context
-message OperationsContext {
-  // Slot
-  massa.model.v1.Slot slot = 1;
-}
-
 // GetScExecutionEventsRequest holds request for GetScExecutionEvents
 message GetScExecutionEventsRequest {
-  // Request id
-  string request_id = 1;
   // Query
   GetScExecutionEventsQuery query = 2;
 }
@@ -386,38 +333,21 @@ message GetScExecutionEventsQuery {
 
 // GetScExecutionEventsResponse holds response from GetScExecutionEvents
 message GetScExecutionEventsResponse {
-  // Request id
-  string request_id = 1;
-  // Context
-  GetScExecutionEventsContext context = 2;
   //ScExecutionEvents
   repeated massa.model.v1.ScExecutionEvent events = 3;
 }
 
-// ScExecutionEvents context
-message GetScExecutionEventsContext {
-  // Slot
-  massa.model.v1.Slot slot = 1;
-}
-
 // GetStatusRequest holds request from GetStatus
-message GetStatusRequest {
-  // Request id
-  string request_id = 1;
-}
+message GetStatusRequest {}
 
 // GetStatusResponse holds request from GetStatus
 message GetStatusResponse {
-  // Request id
-  string request_id = 1;
   // Status
   massa.model.v1.PublicStatus status = 2;
 }
 
 // GetSelectorDrawsRequest holds request from GetSelectorDraws
 message GetSelectorDrawsRequest {
-  // Request id
-  string request_id = 1;
   // Queries
   repeated SelectorDrawsQuery queries = 2;
 }
@@ -436,44 +366,30 @@ message SelectorDrawsFilter {
 
 // GetSelectorDrawsResponse holds response from GetSelectorDraws
 message GetSelectorDrawsResponse {
-  // Request id
-  string request_id = 1;
   // Selector draws
   repeated massa.model.v1.SelectorDraws selector_draws = 2;
 }
 
 // GetTransactionsThroughputRequest holds request for GetTransactionsThroughput
-message GetTransactionsThroughputRequest {
-  // Request id
-  string request_id = 1;
-}
+message GetTransactionsThroughputRequest {}
 
 // GetTransactionsThroughputResponse holds response from GetTransactionsThroughput
 message GetTransactionsThroughputResponse {
-  // Request id
-  string request_id = 1;
   // Transactions throughput
   uint32 throughput = 2;
 }
 
 // GetVersionRequest holds request from GetVersion
-message GetVersionRequest {
-  // Request id
-  string request_id = 1;
-}
+message GetVersionRequest {}
 
 // GetVersionResponse holds response from GetVersion
 message GetVersionResponse {
-  // Request id
-  string request_id = 1;
   // Version
   string version = 2;
 }
 
 // Request to atomically execute a batch of execution state queries
 message QueryStateRequest {
-  // Request id
-  string request_id = 1;
   // List of execution query request items
   repeated massa.model.v1.ExecutionQueryRequestItem requests = 2;
 }
@@ -500,65 +416,43 @@ message ExecutionQueryResponse {
 }
 
 // NewBlocksRequest holds request for NewBlocks
-message NewBlocksRequest {
-  // Request id
-  string request_id = 1;
-}
+message NewBlocksRequest {}
 
 // NewBlocksResponse holds response from NewBlocks
 message NewBlocksResponse {
-  // Request id
-  string request_id = 1;
   // Signed block
   massa.model.v1.SignedBlock block = 2;
 }
 
 // NewBlocksHeadersRequest holds request for NewBlocksHeaders
-message NewBlocksHeadersRequest {
-  // Request id
-  string request_id = 1;
-}
+message NewBlocksHeadersRequest {}
 
 // NewBlocksHeadersResponse holds response from NewBlocksHeaders
 message NewBlocksHeadersResponse {
-  // Request id
-  string request_id = 1;
   // Signed block header
   massa.model.v1.SignedBlockHeader block_header = 2;
 }
 
 // NewEndorsementsRequest holds request for NewEndorsements
-message NewEndorsementsRequest {
-  // Request id
-  string request_id = 1;
-}
+message NewEndorsementsRequest {}
 
 // NewEndorsementsResponse holds response from NewEndorsements
 message NewEndorsementsResponse {
-  // Request id
-  string request_id = 1;
   // Signed endorsement
   massa.model.v1.SignedEndorsement endorsement = 2;
 }
 
 // NewFilledBlocksRequest holds request for NewFilledBlocks
-message NewFilledBlocksRequest {
-  // Request id
-  string request_id = 1;
-}
+message NewFilledBlocksRequest {}
 
 // NewFilledBlocksResponse holds response from NewFilledBlocks
 message NewFilledBlocksResponse {
-  // Request id
-  string request_id = 1;
   // Block with operations content
   massa.model.v1.FilledBlock filled_block = 2;
 }
 
 // NewOperationsRequest holds request for NewOperations
 message NewOperationsRequest {
-  // Request id
-  string request_id = 1;
   // Query
   NewOperationsQuery query = 2;
 }
@@ -587,16 +481,12 @@ enum OpType {
 
 // NewOperationsResponse holds response from NewOperations
 message NewOperationsResponse {
-  // Request id
-  string request_id = 1;
   // Signed operation
   massa.model.v1.SignedOperation operation = 2;
 }
 
 // NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs
 message NewSlotExecutionOutputsRequest {
-  // Request id
-  string request_id = 1;
   // Query
   NewSlotExecutionOutputsQuery query = 2;
 }
@@ -615,24 +505,18 @@ message NewSlotExecutionOutputsFilter {
 
 // NewSlotExecutionOutputsResponse holds response from NewSlotExecutionOutputs
 message NewSlotExecutionOutputsResponse {
-  // Request id
-  string request_id = 1;
   // Slot execution output
   massa.model.v1.SlotExecutionOutput output = 2;
 }
 
 // SendBlocksRequest holds parameters to SendBlocks
 message SendBlocksRequest {
-  // Request id
-  string request_id = 1;
   // Secure shared block
   massa.model.v1.SecureShare block = 2;
 }
 
 // SendBlocksResponse holds response from SendBlocks
 message SendBlocksResponse {
-  // Request id
-  string request_id = 1;
   // Block result or a gRPC status
   oneof message {
     // Block result
@@ -650,16 +534,12 @@ message BlockResult {
 
 // SendEndorsementsRequest holds parameters to SendEndorsements
 message SendEndorsementsRequest {
-  // Request id
-  string request_id = 1;
   // Secure shared endorsements
   repeated massa.model.v1.SecureShare endorsements = 2;
 }
 
 // SendEndorsementsResponse holds response from SendEndorsements
 message SendEndorsementsResponse {
-  // Request id
-  string request_id = 1;
   // Endorsement result or gRPC status
   oneof message {
     // Endorsement result
@@ -677,16 +557,12 @@ message EndorsementResult {
 
 // SendOperationsRequest holds parameters to SendOperations
 message SendOperationsRequest {
-  // Request id
-  string request_id = 1;
   // Secured shared operations
   repeated massa.model.v1.SecureShare operations = 2;
 }
 
 // SendOperationsResponse holds response from SendOperations
 message SendOperationsResponse {
-  // Request id
-  string request_id = 1;
   // Operation result or gRPC status
   oneof message {
     // Operation result
@@ -704,16 +580,12 @@ message OperationResult {
 
 // TransactionsThroughputRequest holds request for TransactionsThroughput
 message TransactionsThroughputRequest {
-  // Request id
-  string request_id = 1;
   // Timer interval in seconds (Optional). Defaults to 10s
   optional uint64 interval = 2;
 }
 
 // TransactionsThroughputResponse holds response from TransactionsThroughput
 message TransactionsThroughputResponse {
-  // Request id
-  string request_id = 1;
   // Transactions throughput per second
   uint32 throughput = 2;
 }

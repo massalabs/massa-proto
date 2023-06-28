@@ -100,6 +100,7 @@ message BlockWrapper {
   string block_id = 1;
   // The block object itself
   Block block = 2;
+  //TODO to be enhanced depending on the use case
   // The execution statuses of the block
   repeated BlockStatus status = 3;
 }

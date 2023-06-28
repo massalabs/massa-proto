@@ -177,29 +177,19 @@ message AddStakingSecretKeysRequest {
 message AddStakingSecretKeysResponse {}
 
 // GetBootstrapBlacklistRequest holds the request for GetBootstrapBlacklist
-message GetBootstrapBlacklistRequest {
-  // Request id
-  string request_id = 1;
-}
+message GetBootstrapBlacklistRequest {}
 
 // GetBootstrapBlacklistResponse holds the response from GetBootstrapBlacklist
 message GetBootstrapBlacklistResponse {
-  // Request id
-  string request_id = 1;
   // Bootstrap blacklisted IP addresses
   repeated string ips = 2;
 }
 
 // GetBootstrapWhitelistRequest holds the request for GetBootstrapWhitelist
-message GetBootstrapWhitelistRequest {
-  // Request id
-  string request_id = 1;
-}
+message GetBootstrapWhitelistRequest {}
 
 // GetBootstrapWhitelistResponse holds the response from GetBootstrapWhitelist
 message GetBootstrapWhitelistResponse {
-  // Request id
-  string request_id = 1;
   // Bootstrap whitelisted IP addresses
   repeated string ips = 2;
 }
@@ -211,29 +201,19 @@ message AllowEveryoneToBootstrapRequest {}
 message AllowEveryoneToBootstrapResponse {}
 
 // GetNodeStatusRequest holds the request for GetNodeStatus
-message GetNodeStatusRequest {
-  // Request id
-  string request_id = 1;
-}
+message GetNodeStatusRequest {}
 
 // GetNodeStatusResponse holds the response from GetNodeStatus
 message GetNodeStatusResponse {
-  // Request id
-  string request_id = 1;
   // Node status
   massa.model.v1.NodeStatus status = 2;
 }
 
 // GetPeersWhitelistRequest holds the request for GetPeersWhitelist
-message GetPeersWhitelistRequest {
-  // Request id
-  string request_id = 1;
-}
+message GetPeersWhitelistRequest {}
 
 // GetPeersWhitelistResponse holds the response from GetPeersWhitelist
 message GetPeersWhitelistResponse {
-  // Request id
-  string request_id = 1;
   // Whitelisted IP addresses
   repeated string ips = 2;
 }
@@ -276,16 +256,12 @@ message RemoveStakingAddressesResponse {}
 
 // SignMessagesRequest holds the request for SignMessages
 message SignMessagesRequest {
-  // Request id
-  string request_id = 1;
   // Messages to sign in bytes
   repeated bytes messages = 2;
 }
 
 // SignMessagesResponse holds the response from SignMessages
 message SignMessagesResponse {
-  // Request id
-  string request_id = 1;
   // Public key that signed the message
   string public_key = 2;
   // Signatures
