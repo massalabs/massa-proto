@@ -415,6 +415,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.Empty"><span class="badge">M</span>Empty</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.Error"><span class="badge">M</span>Error</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.SecureShare"><span class="badge">M</span>SecureShare</a>
                 </li>
               
@@ -649,10 +657,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.SetOrKeepBytecode"><span class="badge">M</span>SetOrKeepBytecode</a>
-                </li>
-              
-                <li>
                   <a href="#massa.model.v1.SetOrKeepBytes"><span class="badge">M</span>SetOrKeepBytes</a>
                 </li>
               
@@ -699,14 +703,6 @@
               
                 <li>
                   <a href="#massa.model.v1.ScExecutionEventStatus"><span class="badge">E</span>ScExecutionEventStatus</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.SetOrDeleteType"><span class="badge">E</span>SetOrDeleteType</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.SetOrKeepType"><span class="badge">E</span>SetOrKeepType</a>
                 </li>
               
               
@@ -1933,7 +1929,7 @@
               
                 <tr>
                   <td>coins</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
                   <td></td>
                   <td><p>Extra coins that are spent from the caller&#39;s balance and transferred to the target </p></td>
                 </tr>
@@ -2057,7 +2053,7 @@
               
                 <tr>
                   <td>fee</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
                   <td></td>
                   <td><p>The fee they have decided for this operation </p></td>
                 </tr>
@@ -2337,7 +2333,7 @@
               
                 <tr>
                   <td>amount</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
                   <td></td>
                   <td><p>Amount </p></td>
                 </tr>
@@ -2548,6 +2544,44 @@
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
                   <td><p>bytes key </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.Empty">Empty</h3>
+        <p>Empty</p>
+
+        
+
+        
+      
+        <h3 id="massa.model.v1.Error">Error</h3>
+        <p>Massa error</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The error code </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>A developer-facing error message, which should be in English </p></td>
                 </tr>
               
             </tbody>
@@ -3087,14 +3121,14 @@ This is used for disambiguate the emission of multiple messages at the same slot
               
                 <tr>
                   <td>fee</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
                   <td></td>
                   <td><p>Fee paid by the sender when the message is processed. </p></td>
                 </tr>
               
                 <tr>
                   <td>coins</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
                   <td></td>
                   <td><p>Coins sent from the sender to the target address of the message.
 Those coins are spent by the sender address when the message is sent,
@@ -3875,7 +3909,7 @@ For messages with filter, this boolean is true if the filter has been matched be
               
                 <tr>
                   <td>amount</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
                   <td></td>
                   <td><p>Amount value </p></td>
                 </tr>
@@ -4158,7 +4192,7 @@ For messages with filter, this boolean is true if the filter has been matched be
               
                 <tr>
                   <td>balance</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
                   <td></td>
                   <td><p>The balance of that entry </p></td>
                 </tr>
@@ -4198,13 +4232,12 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td>balance</td>
                   <td><a href="#massa.model.v1.SetOrKeepBalance">SetOrKeepBalance</a></td>
                   <td></td>
-                  <td><p>TODO improve with heavy usage of oneof
-Change the balance </p></td>
+                  <td><p>Change the balance </p></td>
                 </tr>
               
                 <tr>
                   <td>bytecode</td>
-                  <td><a href="#massa.model.v1.SetOrKeepBytecode">SetOrKeepBytecode</a></td>
+                  <td><a href="#massa.model.v1.SetOrKeepBytes">SetOrKeepBytes</a></td>
                   <td></td>
                   <td><p>Change the executable bytecode </p></td>
                 </tr>
@@ -4455,17 +4488,17 @@ Change the balance </p></td>
             <tbody>
               
                 <tr>
-                  <td>type</td>
-                  <td><a href="#massa.model.v1.SetOrDeleteType">SetOrDeleteType</a></td>
+                  <td>set</td>
+                  <td><a href="#massa.model.v1.BytesMapFieldEntry">BytesMapFieldEntry</a></td>
                   <td></td>
-                  <td><p>The type of the change </p></td>
+                  <td><p>Executable bytecode (optional) </p></td>
                 </tr>
               
                 <tr>
-                  <td>datastore_entry</td>
-                  <td><a href="#massa.model.v1.BytesMapFieldEntry">BytesMapFieldEntry</a></td>
-                  <td>optional</td>
-                  <td><p>The datastore entry (optional) </p></td>
+                  <td>delete</td>
+                  <td><a href="#massa.model.v1.Empty">Empty</a></td>
+                  <td></td>
+                  <td><p>Delete the existing bytecode </p></td>
                 </tr>
               
             </tbody>
@@ -4486,17 +4519,17 @@ Change the balance </p></td>
             <tbody>
               
                 <tr>
-                  <td>type</td>
-                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
+                  <td>set</td>
+                  <td><a href="#massa.model.v1.AsyncMessageTrigger">AsyncMessageTrigger</a></td>
                   <td></td>
-                  <td><p>The type of the change </p></td>
+                  <td><p>The value of that entry (optional) </p></td>
                 </tr>
               
                 <tr>
-                  <td>value</td>
-                  <td><a href="#massa.model.v1.AsyncMessageTrigger">AsyncMessageTrigger</a></td>
-                  <td>optional</td>
-                  <td><p>The value of that entry (optional) </p></td>
+                  <td>keep</td>
+                  <td><a href="#massa.model.v1.Empty">Empty</a></td>
+                  <td></td>
+                  <td><p>Keep the existing value </p></td>
                 </tr>
               
             </tbody>
@@ -4517,17 +4550,17 @@ Change the balance </p></td>
             <tbody>
               
                 <tr>
-                  <td>type</td>
-                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
+                  <td>set</td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
                   <td></td>
-                  <td><p>The type of the change </p></td>
+                  <td><p>The value of that entry (optional) </p></td>
                 </tr>
               
                 <tr>
-                  <td>balance</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td>keep</td>
+                  <td><a href="#massa.model.v1.Empty">Empty</a></td>
                   <td></td>
-                  <td><p>The balance of that entry (optional) </p></td>
+                  <td><p>Keep the existing value </p></td>
                 </tr>
               
             </tbody>
@@ -4548,48 +4581,17 @@ Change the balance </p></td>
             <tbody>
               
                 <tr>
-                  <td>type</td>
-                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
-                  <td></td>
-                  <td><p>The type of the change </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
+                  <td>set</td>
                   <td><a href="#google.protobuf.BoolValue">google.protobuf.BoolValue</a></td>
                   <td></td>
                   <td><p>The value of that entry (optional) </p></td>
                 </tr>
               
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.model.v1.SetOrKeepBytecode">SetOrKeepBytecode</h3>
-        <p>Set or Keep Bytecode</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
                 <tr>
-                  <td>type</td>
-                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
+                  <td>keep</td>
+                  <td><a href="#massa.model.v1.Empty">Empty</a></td>
                   <td></td>
-                  <td><p>The type of the change </p></td>
-                </tr>
-              
-                <tr>
-                  <td>bytecode</td>
-                  <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
-                  <td></td>
-                  <td><p>Executable bytecode (optional) </p></td>
+                  <td><p>Keep the existing value </p></td>
                 </tr>
               
             </tbody>
@@ -4610,17 +4612,17 @@ Change the balance </p></td>
             <tbody>
               
                 <tr>
-                  <td>type</td>
-                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
-                  <td></td>
-                  <td><p>The type of the change </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
+                  <td>set</td>
                   <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
                   <td></td>
                   <td><p>The value of that entry (optional) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>keep</td>
+                  <td><a href="#massa.model.v1.Empty">Empty</a></td>
+                  <td></td>
+                  <td><p>Keep the existing value </p></td>
                 </tr>
               
             </tbody>
@@ -4641,17 +4643,17 @@ Change the balance </p></td>
             <tbody>
               
                 <tr>
-                  <td>type</td>
-                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
+                  <td>set</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
                   <td></td>
-                  <td><p>The type of the change </p></td>
+                  <td><p>The value of that entry (optional) </p></td>
                 </tr>
               
                 <tr>
-                  <td>value</td>
-                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td>optional</td>
-                  <td><p>The value of that entry (optional) </p></td>
+                  <td>keep</td>
+                  <td><a href="#massa.model.v1.Empty">Empty</a></td>
+                  <td></td>
+                  <td><p>Keep the existing value </p></td>
                 </tr>
               
             </tbody>
@@ -4672,17 +4674,17 @@ Change the balance </p></td>
             <tbody>
               
                 <tr>
-                  <td>type</td>
-                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
-                  <td></td>
-                  <td><p>The type of the change </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
+                  <td>set</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
                   <td></td>
                   <td><p>The value of that entry (optional) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>keep</td>
+                  <td><a href="#massa.model.v1.Empty">Empty</a></td>
+                  <td></td>
+                  <td><p>Keep the existing value </p></td>
                 </tr>
               
             </tbody>
@@ -4703,17 +4705,17 @@ Change the balance </p></td>
             <tbody>
               
                 <tr>
-                  <td>type</td>
-                  <td><a href="#massa.model.v1.SetOrKeepType">SetOrKeepType</a></td>
-                  <td></td>
-                  <td><p>The type of the change </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
+                  <td>set</td>
                   <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
                   <td></td>
                   <td><p>The value of that entry (optional) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>keep</td>
+                  <td><a href="#massa.model.v1.Empty">Empty</a></td>
+                  <td></td>
+                  <td><p>Keep the existing value </p></td>
                 </tr>
               
             </tbody>
@@ -4994,64 +4996,6 @@ Change the balance </p></td>
                 <td>SC_EXECUTION_EVENT_STATUS_FAILURE</td>
                 <td>3</td>
                 <td><p>Failure status</p></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      
-        <h3 id="massa.model.v1.SetOrDeleteType">SetOrDeleteType</h3>
-        <p>SetOrDeleteType type enum</p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>SET_OR_DELETE_TYPE_UNSPECIFIED</td>
-                <td>0</td>
-                <td><p>Default enum value</p></td>
-              </tr>
-            
-              <tr>
-                <td>SET_OR_DELETE_TYPE_SET</td>
-                <td>1</td>
-                <td><p>Sets a new absolute value</p></td>
-              </tr>
-            
-              <tr>
-                <td>SET_OR_DELETE_TYPE_DELETE</td>
-                <td>2</td>
-                <td><p>Deletes the existing value</p></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      
-        <h3 id="massa.model.v1.SetOrKeepType">SetOrKeepType</h3>
-        <p>SetOrKeepType type enum</p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>SET_OR_KEEP_TYPE_UNSPECIFIED</td>
-                <td>0</td>
-                <td><p>Default enum value</p></td>
-              </tr>
-            
-              <tr>
-                <td>SET_OR_KEEP_TYPE_SET</td>
-                <td>1</td>
-                <td><p>Sets a new absolute value</p></td>
-              </tr>
-            
-              <tr>
-                <td>SET_OR_KEEP_TYPE_KEEP</td>
-                <td>2</td>
-                <td><p>Keeps the existing value</p></td>
               </tr>
             
           </tbody>
@@ -5345,6 +5289,20 @@ Change the balance </p></td>
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
+              
+                <tr>
+                  <td>current_version</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>Current network version </p></td>
+                </tr>
+              
+                <tr>
+                  <td>announced_version</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>Announced network version </p></td>
+                </tr>
               
                 <tr>
                   <td>slot</td>

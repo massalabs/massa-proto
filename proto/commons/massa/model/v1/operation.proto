@@ -4,6 +4,7 @@ syntax = "proto3";
 
 package massa.model.v1;
 
+import "massa/model/v1/amount.proto";
 import "massa/model/v1/commons.proto";
 
 option csharp_namespace = "Com.Massa.Model.v1";
@@ -18,7 +19,7 @@ option swift_prefix = "MMODEL";
 // The operation as sent in the network
 message Operation {
   // The fee they have decided for this operation
-  uint64 fee = 1;
+  massa.model.v1.NativeAmount fee = 1;
   // After `expire_period` slot the operation won't be included in a block
   uint64 expire_period = 2;
   // The type specific operation part
@@ -46,7 +47,7 @@ message Transaction {
   // Recipient address
   string recipient_address = 1;
   // Amount
-  uint64 amount = 2;
+  massa.model.v1.NativeAmount amount = 2;
 }
 
 // The sender buys `roll_count` rolls. Roll price is defined in configuration
@@ -84,7 +85,7 @@ message CallSC {
   // The maximum amount of gas that the execution of the contract is allowed to cost
   uint64 max_gas = 4;
   // Extra coins that are spent from the caller's balance and transferred to the target
-  uint64 coins = 5;
+  massa.model.v1.NativeAmount coins = 5;
 }
 
 // Signed operation
