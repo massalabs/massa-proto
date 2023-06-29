@@ -5,6 +5,7 @@ syntax = "proto3";
 package massa.model.v1;
 
 import "massa/model/v1/slot.proto";
+import "massa/model/v1/time.proto";
 
 option csharp_namespace = "Com.Massa.Model.v1";
 option go_package = "github.com/massalabs/massa/model/v1;v1";
@@ -18,9 +19,9 @@ option swift_prefix = "MMODEL";
 // Consensus statistics
 message ConsensusStats {
   // Start of the time span for stats
-  uint64 start_timespan = 1;
+  massa.model.v1.NativeTime start_timespan = 1;
   // End of the time span for stats
-  uint64 end_timespan = 2;
+  massa.model.v1.NativeTime end_timespan = 2;
   // Number of final blocks
   uint64 final_block_count = 3;
   // Number of stale blocks in memory
@@ -54,9 +55,9 @@ message NetworkStats {
 // Execution statistics
 message ExecutionStats {
   // Time window start
-  uint64 time_window_start = 1;
+  massa.model.v1.NativeTime time_window_start = 1;
   // Time window end
-  uint64 time_window_end = 2;
+  massa.model.v1.NativeTime time_window_end = 2;
   // Number of final blocks in the time window
   uint64 final_block_count = 3;
   // Number of final executed operations in the time window
