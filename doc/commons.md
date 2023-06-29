@@ -146,10 +146,10 @@
     - [Block](#massa-model-v1-Block)
     - [BlockHeader](#massa-model-v1-BlockHeader)
     - [BlockIds](#massa-model-v1-BlockIds)
+    - [BlockParent](#massa-model-v1-BlockParent)
     - [BlockWrapper](#massa-model-v1-BlockWrapper)
     - [FilledBlock](#massa-model-v1-FilledBlock)
     - [FilledOperationEntry](#massa-model-v1-FilledOperationEntry)
-    - [GetBlocksFilter](#massa-model-v1-GetBlocksFilter)
     - [SignedBlock](#massa-model-v1-SignedBlock)
     - [SignedBlockHeader](#massa-model-v1-SignedBlockHeader)
   
@@ -201,7 +201,7 @@ AddressKeys holds a list of addresses - keys
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| entries | [AddressKeyEntry](#massa-model-v1-AddressKeyEntry) | repeated | List of address- key entries |
+| address_key_entries | [AddressKeyEntry](#massa-model-v1-AddressKeyEntry) | repeated | List of address- key entries |
 
 
 
@@ -1590,7 +1590,7 @@ Staker information for execution query
 <a name="massa-model-v1-ExecutionQueryStakerInfoEntry"></a>
 
 ### ExecutionQueryStakerInfoEntry
-ExecutionQueryStakerInfo entry
+Staker information for a given cycle
 
 
 | Field | Type | Label | Description |
@@ -1693,7 +1693,7 @@ An entry associated to an address in the `FinalLedger`
 | ----- | ---- | ----- | ----------- |
 | balance | [NativeAmount](#massa-model-v1-NativeAmount) |  | The balance of that entry |
 | bytecode | [bytes](#bytes) |  | Executable bytecode |
-| entries | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) | repeated | A key-value store associating a hash to arbitrary bytes |
+| datastore | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) | repeated | A key-value store associating a hash to arbitrary bytes |
 
 
 
@@ -1806,8 +1806,7 @@ ScExecutionEvents Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| start_slot | [Slot](#massa-model-v1-Slot) |  | Start slot (Optional) |
-| end_slot | [Slot](#massa-model-v1-Slot) |  | End slot (Optional) |
+| slot_range | [SlotRange](#massa-model-v1-SlotRange) |  | Slot range (Optional) |
 | caller_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Caller address (Optional) |
 | emitter_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Emitter address (Optional) |
 | original_operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Original operation id (Optional) |
@@ -2356,6 +2355,22 @@ BlockIds holds block ids
 
 
 
+<a name="massa-model-v1-BlockParent"></a>
+
+### BlockParent
+Block parent tuple
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_id | [string](#string) |  | Block id |
+| period | [uint64](#uint64) |  | Period |
+
+
+
+
+
+
 <a name="massa-model-v1-BlockWrapper"></a>
 
 ### BlockWrapper
@@ -2399,23 +2414,6 @@ Filled Operation Tuple
 | ----- | ---- | ----- | ----------- |
 | operation_id | [string](#string) |  | Operation id |
 | operation | [SignedOperation](#massa-model-v1-SignedOperation) |  | Signed operation |
-
-
-
-
-
-
-<a name="massa-model-v1-GetBlocksFilter"></a>
-
-### GetBlocksFilter
-GetBlocks Filter
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| block_ids | [BlockIds](#massa-model-v1-BlockIds) |  | One of this Block ids |
-| slots | [SlotRange](#massa-model-v1-SlotRange) |  | One of this Slot ranges (inclusive) |
-| addresses | [Addresses](#massa-model-v1-Addresses) |  | One of this Creator is one of this addresses |
 
 
 

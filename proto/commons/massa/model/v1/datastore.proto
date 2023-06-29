@@ -16,7 +16,7 @@ option swift_prefix = "MMODEL";
 // AddressKeys holds a list of addresses - keys
 message AddressKeysEntries {
   // List of address- key entries
-  repeated AddressKeyEntry entries = 1;
+  repeated AddressKeyEntry address_key_entries = 1;
 }
 
 // AddressKeyEntry
