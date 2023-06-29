@@ -2,7 +2,7 @@
 
 # Massa proto
 
-This repository contains Protobuf Protobuf files for Massa blockchain.
+This repository contains Protobuf files for Massa blockchain.
 
 Using Docker
 ------------

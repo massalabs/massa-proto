@@ -36,14 +36,18 @@ message FilledBlock {
 
 // Block header
 message BlockHeader {
+  // Current network version
+  uint32 current_version = 1;
+  // Announced network version
+  uint32 announced_version = 2;
   // Slot
-  Slot slot = 1;
+  Slot slot = 3;
   // parents
-  repeated string parents = 2;
+  repeated string parents = 4;
   // All operations hash
-  string operations_hash = 3;
+  string operations_hash = 5;
   // Signed endorsements
-  repeated SignedEndorsement endorsements = 4;
+  repeated SignedEndorsement endorsements = 6;
 }
 
 // Filled Operation Tuple

@@ -13,6 +13,17 @@ option php_namespace = "Com\\Massa\\Model\\V1";
 option ruby_package = "Com::Massa::Model::V1";
 option swift_prefix = "MMODEL";
 
+// Massa error
+message Error {
+  // The error code
+  int32 code = 1;
+  // A developer-facing error message, which should be in English
+  string message = 2;
+}
+
+// Empty
+message Empty {}
+
 // BytesMapFieldEntry
 message BytesMapFieldEntry {
   // bytes key

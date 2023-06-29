@@ -109,7 +109,6 @@
     - [SetOrKeepAsyncMessageTrigger](#massa-model-v1-SetOrKeepAsyncMessageTrigger)
     - [SetOrKeepBalance](#massa-model-v1-SetOrKeepBalance)
     - [SetOrKeepBool](#massa-model-v1-SetOrKeepBool)
-    - [SetOrKeepBytecode](#massa-model-v1-SetOrKeepBytecode)
     - [SetOrKeepBytes](#massa-model-v1-SetOrKeepBytes)
     - [SetOrKeepSlot](#massa-model-v1-SetOrKeepSlot)
     - [SetOrKeepString](#massa-model-v1-SetOrKeepString)
@@ -123,8 +122,6 @@
     - [LedgerChangeType](#massa-model-v1-LedgerChangeType)
     - [OperationExecutionStatus](#massa-model-v1-OperationExecutionStatus)
     - [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus)
-    - [SetOrDeleteType](#massa-model-v1-SetOrDeleteType)
-    - [SetOrKeepType](#massa-model-v1-SetOrKeepType)
   
 - [massa/model/v1/slot.proto](#massa_model_v1_slot-proto)
     - [IndexedSlot](#massa-model-v1-IndexedSlot)
@@ -644,7 +641,7 @@ Calls an exported function from a stored smart contract
 | target_func | [string](#string) |  | Target function name. No function is called if empty |
 | param | [bytes](#bytes) |  | Parameter to pass to the target function |
 | max_gas | [uint64](#uint64) |  | The maximum amount of gas that the execution of the contract is allowed to cost |
-| coins | [uint64](#uint64) |  | Extra coins that are spent from the caller&#39;s balance and transferred to the target |
+| coins | [NativeAmount](#massa-model-v1-NativeAmount) |  | Extra coins that are spent from the caller&#39;s balance and transferred to the target |
 
 
 
@@ -708,7 +705,7 @@ The operation as sent in the network
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| fee | [uint64](#uint64) |  | The fee they have decided for this operation |
+| fee | [NativeAmount](#massa-model-v1-NativeAmount) |  | The fee they have decided for this operation |
 | expire_period | [uint64](#uint64) |  | After `expire_period` slot the operation won&#39;t be included in a block |
 | op | [OperationType](#massa-model-v1-OperationType) |  | The type specific operation part |
 
@@ -829,7 +826,7 @@ Transfer coins from sender to recipient
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | recipient_address | [string](#string) |  | Recipient address |
-| amount | [uint64](#uint64) |  | Amount |
+| amount | [NativeAmount](#massa-model-v1-NativeAmount) |  | Amount |
 
 
 
@@ -925,6 +922,32 @@ BytesMapFieldEntry
 | ----- | ---- | ----- | ----------- |
 | key | [bytes](#bytes) |  | bytes key |
 | value | [bytes](#bytes) |  | bytes key |
+
+
+
+
+
+
+<a name="massa-model-v1-Empty"></a>
+
+### Empty
+Empty
+
+
+
+
+
+
+<a name="massa-model-v1-Error"></a>
+
+### Error
+Massa error
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  | The error code |
+| message | [string](#string) |  | A developer-facing error message, which should be in English |
 
 
 
@@ -1227,8 +1250,8 @@ Asynchronous smart contract message
 | destination | [string](#string) |  | The address towards which the message is being sent |
 | handler | [string](#string) |  | the handler function name within the destination address&#39; bytecode |
 | max_gas | [uint64](#uint64) |  | Maximum gas to use when processing the message |
-| fee | [uint64](#uint64) |  | Fee paid by the sender when the message is processed. |
-| coins | [uint64](#uint64) |  | Coins sent from the sender to the target address of the message. Those coins are spent by the sender address when the message is sent, and credited to the destination address when receiving the message. In case of failure or discard, those coins are reimbursed to the sender. |
+| fee | [NativeAmount](#massa-model-v1-NativeAmount) |  | Fee paid by the sender when the message is processed. |
+| coins | [NativeAmount](#massa-model-v1-NativeAmount) |  | Coins sent from the sender to the target address of the message. Those coins are spent by the sender address when the message is sent, and credited to the destination address when receiving the message. In case of failure or discard, those coins are reimbursed to the sender. |
 | validity_start | [Slot](#massa-model-v1-Slot) |  | Slot at which the message starts being valid (bound included in the validity range) |
 | validity_end | [Slot](#massa-model-v1-Slot) |  | Slot at which the message stops being valid (bound not included in the validity range) |
 | data | [bytes](#bytes) |  | Raw payload data of the message |
@@ -1535,7 +1558,7 @@ Execution state query response item
 | ----- | ---- | ----- | ----------- |
 | boolean | [bool](#bool) |  | Boolean value |
 | roll_count | [uint64](#uint64) |  | Roll counts value |
-| amount | [uint64](#uint64) |  | Amount value |
+| amount | [NativeAmount](#massa-model-v1-NativeAmount) |  | Amount value |
 | bytes | [bytes](#bytes) |  | Bytes value |
 | vec_bytes | [ArrayOfBytesWrapper](#massa-model-v1-ArrayOfBytesWrapper) |  | Vector of bytes value |
 | deferred_credits | [uint64](#uint64) |  | Deferred credits value |
@@ -1668,7 +1691,7 @@ An entry associated to an address in the `FinalLedger`
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| balance | [uint64](#uint64) |  | The balance of that entry |
+| balance | [NativeAmount](#massa-model-v1-NativeAmount) |  | The balance of that entry |
 | bytecode | [bytes](#bytes) |  | Executable bytecode |
 | entries | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) | repeated | A key-value store associating a hash to arbitrary bytes |
 
@@ -1685,8 +1708,8 @@ Represents an update to one or more fields of a `LedgerEntry`
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| balance | [SetOrKeepBalance](#massa-model-v1-SetOrKeepBalance) |  | TODO improve with heavy usage of oneof Change the balance |
-| bytecode | [SetOrKeepBytecode](#massa-model-v1-SetOrKeepBytecode) |  | Change the executable bytecode |
+| balance | [SetOrKeepBalance](#massa-model-v1-SetOrKeepBalance) |  | Change the balance |
+| bytecode | [SetOrKeepBytes](#massa-model-v1-SetOrKeepBytes) |  | Change the executable bytecode |
 | datastore | [SetOrDeleteDatastoreEntry](#massa-model-v1-SetOrDeleteDatastoreEntry) | repeated | Change datastore entries |
 
 
@@ -1803,8 +1826,8 @@ Set or Delete DatastoreEntry
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| type | [SetOrDeleteType](#massa-model-v1-SetOrDeleteType) |  | The type of the change |
-| datastore_entry | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) | optional | The datastore entry (optional) |
+| set | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) |  | Executable bytecode (optional) |
+| delete | [Empty](#massa-model-v1-Empty) |  | Delete the existing bytecode |
 
 
 
@@ -1819,8 +1842,8 @@ Set or Keep AsyncMessageTrigger
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| value | [AsyncMessageTrigger](#massa-model-v1-AsyncMessageTrigger) | optional | The value of that entry (optional) |
+| set | [AsyncMessageTrigger](#massa-model-v1-AsyncMessageTrigger) |  | The value of that entry (optional) |
+| keep | [Empty](#massa-model-v1-Empty) |  | Keep the existing value |
 
 
 
@@ -1835,8 +1858,8 @@ Set or Keep Balance
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| balance | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | The balance of that entry (optional) |
+| set | [NativeAmount](#massa-model-v1-NativeAmount) |  | The value of that entry (optional) |
+| keep | [Empty](#massa-model-v1-Empty) |  | Keep the existing value |
 
 
 
@@ -1851,24 +1874,8 @@ Set or Keep Bool
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| value | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | The value of that entry (optional) |
-
-
-
-
-
-
-<a name="massa-model-v1-SetOrKeepBytecode"></a>
-
-### SetOrKeepBytecode
-Set or Keep Bytecode
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| bytecode | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | Executable bytecode (optional) |
+| set | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | The value of that entry (optional) |
+| keep | [Empty](#massa-model-v1-Empty) |  | Keep the existing value |
 
 
 
@@ -1883,8 +1890,8 @@ Set or Keep Bytes
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| value | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | The value of that entry (optional) |
+| set | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | The value of that entry (optional) |
+| keep | [Empty](#massa-model-v1-Empty) |  | Keep the existing value |
 
 
 
@@ -1899,8 +1906,8 @@ Set or Keep Slot
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| value | [Slot](#massa-model-v1-Slot) | optional | The value of that entry (optional) |
+| set | [Slot](#massa-model-v1-Slot) |  | The value of that entry (optional) |
+| keep | [Empty](#massa-model-v1-Empty) |  | Keep the existing value |
 
 
 
@@ -1915,8 +1922,8 @@ Set or Keep String
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| value | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | The value of that entry (optional) |
+| set | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | The value of that entry (optional) |
+| keep | [Empty](#massa-model-v1-Empty) |  | Keep the existing value |
 
 
 
@@ -1931,8 +1938,8 @@ Set or Keep Uint64
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| type | [SetOrKeepType](#massa-model-v1-SetOrKeepType) |  | The type of the change |
-| value | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | The value of that entry (optional) |
+| set | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | The value of that entry (optional) |
+| keep | [Empty](#massa-model-v1-Empty) |  | Keep the existing value |
 
 
 
@@ -2054,32 +2061,6 @@ ScExecutionEventStatus type enum
 | SC_EXECUTION_EVENT_STATUS_FINAL | 1 | Final status |
 | SC_EXECUTION_EVENT_STATUS_READ_ONLY | 2 | Read only status |
 | SC_EXECUTION_EVENT_STATUS_FAILURE | 3 | Failure status |
-
-
-
-<a name="massa-model-v1-SetOrDeleteType"></a>
-
-### SetOrDeleteType
-SetOrDeleteType type enum
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| SET_OR_DELETE_TYPE_UNSPECIFIED | 0 | Default enum value |
-| SET_OR_DELETE_TYPE_SET | 1 | Sets a new absolute value |
-| SET_OR_DELETE_TYPE_DELETE | 2 | Deletes the existing value |
-
-
-
-<a name="massa-model-v1-SetOrKeepType"></a>
-
-### SetOrKeepType
-SetOrKeepType type enum
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| SET_OR_KEEP_TYPE_UNSPECIFIED | 0 | Default enum value |
-| SET_OR_KEEP_TYPE_SET | 1 | Sets a new absolute value |
-| SET_OR_KEEP_TYPE_KEEP | 2 | Keeps the existing value |
 
 
  
@@ -2348,6 +2329,8 @@ Block header
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| current_version | [uint32](#uint32) |  | Current network version |
+| announced_version | [uint32](#uint32) |  | Announced network version |
 | slot | [Slot](#massa-model-v1-Slot) |  | Slot |
 | parents | [string](#string) | repeated | parents |
 | operations_hash | [string](#string) |  | All operations hash |
