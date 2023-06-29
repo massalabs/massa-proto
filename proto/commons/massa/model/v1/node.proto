@@ -6,6 +6,7 @@ package massa.model.v1;
 
 import "massa/model/v1/slot.proto";
 import "massa/model/v1/stats.proto";
+import "massa/model/v1/time.proto";
 
 option csharp_namespace = "Com.Massa.Model.v1";
 option go_package = "github.com/massalabs/massa/model/v1;v1";
@@ -25,13 +26,13 @@ message NodeStatus {
   // Node version
   string version = 3;
   // Now
-  uint64 current_time = 4;
+  massa.model.v1.NativeTime current_time = 4;
   // Current cycle
   uint64 current_cycle = 5;
   // Current cycle starting timestamp
-  uint64 current_cycle_time = 6;
+  massa.model.v1.NativeTime current_cycle_time = 6;
   // Next cycle starting timestamp
-  uint64 next_cycle_time = 7;
+  massa.model.v1.NativeTime next_cycle_time = 7;
   // Connected nodes
   repeated ConnectedNode connected_nodes = 8;
   // Latest slot, none if now is before genesis timestamp
@@ -74,9 +75,9 @@ enum ConnectionType {
 // Compact configuration
 message CompactConfig {
   // Time in milliseconds when the blockclique started.
-  uint64 genesis_timestamp = 1;
+  massa.model.v1.NativeTime genesis_timestamp = 1;
   // TESTNET: time when the blockclique is ended.
-  uint64 end_timestamp = 2;
+  massa.model.v1.NativeTime end_timestamp = 2;
   // Number of threads
   uint32 thread_count = 3;
   // Time between the periods in the same thread.
@@ -102,13 +103,13 @@ message PublicStatus {
   // Node version
   string version = 3;
   // Now
-  uint64 current_time = 4;
+  massa.model.v1.NativeTime current_time = 4;
   // Current cycle
   uint64 current_cycle = 5;
   // Current cycle starting timestamp
-  uint64 current_cycle_time = 6;
+  massa.model.v1.NativeTime current_cycle_time = 6;
   // Next cycle starting timestamp
-  uint64 next_cycle_time = 7;
+  massa.model.v1.NativeTime next_cycle_time = 7;
   // Latest slot, none if now is before genesis timestamp
   massa.model.v1.Slot last_slot = 9;
   // Next slot

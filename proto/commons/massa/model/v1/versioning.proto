@@ -4,6 +4,8 @@ syntax = "proto3";
 
 package massa.model.v1;
 
+import "massa/model/v1/time.proto";
+
 option csharp_namespace = "Com.Massa.Model.v1";
 option go_package = "github.com/massalabs/massa/model/v1;v1";
 option java_multiple_files = true;
@@ -30,7 +32,7 @@ message MipInfo {
   // A timestamp at which the version gains its meaning (e.g. announced in block header)
   uint64 start = 3;
   // A timestamp at the which the deployment is considered failed
-  uint64 timeout = 4;
+  massa.model.v1.NativeTime timeout = 4;
   // Once deployment has been locked, wait for this duration before deployment is considered active
   uint64 activation_delay = 5;
   // Components concerned by this versioning (e.g. a new Block version), and the associated component_version
