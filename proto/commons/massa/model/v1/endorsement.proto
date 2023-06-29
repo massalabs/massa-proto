@@ -41,3 +41,9 @@ message SignedEndorsement {
   // The size of the serialized endorsement in bytes
   uint64 serialized_size = 6;
 }
+
+// EndorsementIds holds endorsements ids
+message EndorsementsIds {
+  // Endorsements ids
+  repeated string endorsements_ids = 1;
+}

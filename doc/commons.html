@@ -307,6 +307,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.OperationsIds"><span class="badge">M</span>OperationsIds</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.RollBuy"><span class="badge">M</span>RollBuy</a>
                 </li>
               
@@ -660,6 +664,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.SlotRange"><span class="badge">M</span>SlotRange</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.Slots"><span class="badge">M</span>Slots</a>
                 </li>
               
@@ -740,11 +748,11 @@
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.BlockIds"><span class="badge">M</span>BlockIds</a>
+                  <a href="#massa.model.v1.BlockWrapper"><span class="badge">M</span>BlockWrapper</a>
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.BlockWrapper"><span class="badge">M</span>BlockWrapper</a>
+                  <a href="#massa.model.v1.BlocksIds"><span class="badge">M</span>BlocksIds</a>
                 </li>
               
                 <li>
@@ -780,6 +788,10 @@
               
                 <li>
                   <a href="#massa.model.v1.Endorsement"><span class="badge">M</span>Endorsement</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.EndorsementsIds"><span class="badge">M</span>EndorsementsIds</a>
                 </li>
               
                 <li>
@@ -1978,6 +1990,30 @@
                   <td><a href="#massa.model.v1.OperationStatus">OperationStatus</a></td>
                   <td>repeated</td>
                   <td><p>The execution statuses of the operation </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.OperationsIds">OperationsIds</h3>
+        <p>TODO to be used</p><p>Holds OperationsIds response</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>operations_ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Operations ids </p></td>
                 </tr>
               
             </tbody>
@@ -3953,7 +3989,7 @@ Change the balance </p></td>
                   <td>block_id</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
                   <td></td>
-                  <td><p>Block id if there was a block at that slot (optional) </p></td>
+                  <td><p>Block id if there was a block at that slot (Optional) </p></td>
                 </tr>
               
                 <tr>
@@ -3974,7 +4010,7 @@ Change the balance </p></td>
                   <td>origin_operation_id</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
                   <td></td>
-                  <td><p>Origin operation id (optional) </p></td>
+                  <td><p>Origin operation id (Optional) </p></td>
                 </tr>
               
                 <tr>
@@ -4004,14 +4040,14 @@ Change the balance </p></td>
                 <tr>
                   <td>start_slot</td>
                   <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td>optional</td>
+                  <td></td>
                   <td><p>Start slot (Optional) </p></td>
                 </tr>
               
                 <tr>
                   <td>end_slot</td>
                   <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td>optional</td>
+                  <td></td>
                   <td><p>End slot (Optional) </p></td>
                 </tr>
               
@@ -4019,7 +4055,7 @@ Change the balance </p></td>
                   <td>caller_address</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
                   <td></td>
-                  <td><p>Caller address </p></td>
+                  <td><p>Caller address (Optional) </p></td>
                 </tr>
               
                 <tr>
@@ -4040,7 +4076,7 @@ Change the balance </p></td>
                   <td>status</td>
                   <td><a href="#massa.model.v1.ScExecutionEventStatus">ScExecutionEventStatus</a></td>
                   <td>repeated</td>
-                  <td><p>Status </p></td>
+                  <td><p>Status (Optional) </p></td>
                 </tr>
               
             </tbody>
@@ -4737,6 +4773,37 @@ Change the balance </p></td>
 
         
       
+        <h3 id="massa.model.v1.SlotRange">SlotRange</h3>
+        <p>SlotsRange holds slots range</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>start_slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Start lot (Optional) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>end_slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>End slot (Optional) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.Slots">Slots</h3>
         <p>Slots holds slots</p>
 
@@ -5091,30 +5158,6 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
 
         
       
-        <h3 id="massa.model.v1.BlockIds">BlockIds</h3>
-        <p>BlockIds holds block ids</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>block_ids</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>Block ids </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.model.v1.BlockWrapper">BlockWrapper</h3>
         <p>A wrapper around a block with its metadata</p>
 
@@ -5144,6 +5187,30 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                   <td><a href="#massa.model.v1.BlockStatus">BlockStatus</a></td>
                   <td></td>
                   <td><p>The execution status of the block </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.BlocksIds">BlocksIds</h3>
+        <p>BlockIds holds blocks ids</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>blocks_ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Block ids </p></td>
                 </tr>
               
             </tbody>
@@ -5418,6 +5485,30 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                   <td></td>
                   <td><p>Hash of endorsed block
 This is the parent in thread `self.slot.thread` of the block in which the endorsement is included </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.EndorsementsIds">EndorsementsIds</h3>
+        <p>EndorsementIds holds endorsements ids</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>endorsements_ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Endorsements ids </p></td>
                 </tr>
               
             </tbody>

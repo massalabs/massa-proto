@@ -35,6 +35,7 @@
     - [Operation](#massa-model-v1-Operation)
     - [OperationType](#massa-model-v1-OperationType)
     - [OperationWrapper](#massa-model-v1-OperationWrapper)
+    - [OperationsIds](#massa-model-v1-OperationsIds)
     - [RollBuy](#massa-model-v1-RollBuy)
     - [RollSell](#massa-model-v1-RollSell)
     - [SignedOperation](#massa-model-v1-SignedOperation)
@@ -117,6 +118,7 @@
 - [massa/model/v1/slot.proto](#massa_model_v1_slot-proto)
     - [IndexedSlot](#massa-model-v1-IndexedSlot)
     - [Slot](#massa-model-v1-Slot)
+    - [SlotRange](#massa-model-v1-SlotRange)
     - [Slots](#massa-model-v1-Slots)
   
 - [massa/model/v1/address.proto](#massa_model_v1_address-proto)
@@ -135,8 +137,8 @@
 - [massa/model/v1/block.proto](#massa_model_v1_block-proto)
     - [Block](#massa-model-v1-Block)
     - [BlockHeader](#massa-model-v1-BlockHeader)
-    - [BlockIds](#massa-model-v1-BlockIds)
     - [BlockWrapper](#massa-model-v1-BlockWrapper)
+    - [BlocksIds](#massa-model-v1-BlocksIds)
     - [FilledBlock](#massa-model-v1-FilledBlock)
     - [FilledOperationEntry](#massa-model-v1-FilledOperationEntry)
     - [SignedBlock](#massa-model-v1-SignedBlock)
@@ -146,6 +148,7 @@
   
 - [massa/model/v1/endorsement.proto](#massa_model_v1_endorsement-proto)
     - [Endorsement](#massa-model-v1-Endorsement)
+    - [EndorsementsIds](#massa-model-v1-EndorsementsIds)
     - [SignedEndorsement](#massa-model-v1-SignedEndorsement)
   
     - [ComparisonResult](#massa-model-v1-ComparisonResult)
@@ -614,6 +617,22 @@ A wrapper around an operation with its metadata
 | thread | [uint32](#uint32) |  | The thread in which the operation can be included |
 | operation | [SignedOperation](#massa-model-v1-SignedOperation) |  | The operation object itself |
 | status | [OperationStatus](#massa-model-v1-OperationStatus) | repeated | The execution statuses of the operation |
+
+
+
+
+
+
+<a name="massa-model-v1-OperationsIds"></a>
+
+### OperationsIds
+TODO to be used
+Holds OperationsIds response
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| operations_ids | [string](#string) | repeated | Operations ids |
 
 
 
@@ -1598,10 +1617,10 @@ ScExecutionEvent context
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | origin_slot | [Slot](#massa-model-v1-Slot) |  | When was it generated |
-| block_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Block id if there was a block at that slot (optional) |
+| block_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Block id if there was a block at that slot (Optional) |
 | index_in_slot | [uint64](#uint64) |  | Index of the event in the slot |
 | call_stack | [string](#string) | repeated | Call stack addresses. most recent at the end |
-| origin_operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Origin operation id (optional) |
+| origin_operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Origin operation id (Optional) |
 | status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) |  | Status |
 
 
@@ -1617,12 +1636,12 @@ ScExecutionEvents Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| start_slot | [Slot](#massa-model-v1-Slot) | optional | Start slot (Optional) |
-| end_slot | [Slot](#massa-model-v1-Slot) | optional | End slot (Optional) |
-| caller_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Caller address |
+| start_slot | [Slot](#massa-model-v1-Slot) |  | Start slot (Optional) |
+| end_slot | [Slot](#massa-model-v1-Slot) |  | End slot (Optional) |
+| caller_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Caller address (Optional) |
 | emitter_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Emitter address (Optional) |
 | original_operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Original operation id (Optional) |
-| status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) | repeated | Status |
+| status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) | repeated | Status (Optional) |
 
 
 
@@ -1963,6 +1982,22 @@ A point in time where a block is expected
 
 
 
+<a name="massa-model-v1-SlotRange"></a>
+
+### SlotRange
+SlotsRange holds slots range
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| start_slot | [Slot](#massa-model-v1-Slot) |  | Start lot (Optional) |
+| end_slot | [Slot](#massa-model-v1-Slot) |  | End slot (Optional) |
+
+
+
+
+
+
 <a name="massa-model-v1-Slots"></a>
 
 ### Slots
@@ -2176,21 +2211,6 @@ Block header
 
 
 
-<a name="massa-model-v1-BlockIds"></a>
-
-### BlockIds
-BlockIds holds block ids
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| block_ids | [string](#string) | repeated | Block ids |
-
-
-
-
-
-
 <a name="massa-model-v1-BlockWrapper"></a>
 
 ### BlockWrapper
@@ -2202,6 +2222,21 @@ A wrapper around a block with its metadata
 | block_id | [string](#string) |  | The unique ID of the block. |
 | block | [Block](#massa-model-v1-Block) |  | The block object itself |
 | status | [BlockStatus](#massa-model-v1-BlockStatus) |  | The execution status of the block |
+
+
+
+
+
+
+<a name="massa-model-v1-BlocksIds"></a>
+
+### BlocksIds
+BlockIds holds blocks ids
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| blocks_ids | [string](#string) | repeated | Block ids |
 
 
 
@@ -2322,6 +2357,21 @@ An endorsement, as sent in the network
 | slot | [Slot](#massa-model-v1-Slot) |  | Slot in which the endorsement can be included |
 | index | [uint32](#uint32) |  | Endorsement index inside the including block |
 | endorsed_block | [string](#string) |  | Hash of endorsed block This is the parent in thread `self.slot.thread` of the block in which the endorsement is included |
+
+
+
+
+
+
+<a name="massa-model-v1-EndorsementsIds"></a>
+
+### EndorsementsIds
+EndorsementIds holds endorsements ids
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| endorsements_ids | [string](#string) | repeated | Endorsements ids |
 
 
 

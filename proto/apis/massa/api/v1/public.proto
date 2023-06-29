@@ -153,25 +153,16 @@ service PublicService {
 
 // GetBlocksRequest holds request for GetBlocks
 message GetBlocksRequest {
-  // Queries
-  repeated GetBlocksQuery queries = 1;
-}
-
-// GetBlocks Query
-message GetBlocksQuery {
   // Filter
-  repeated GetBlocksFilter filters = 1;
+  GetBlocksFilter filter = 1;
 }
 
 // GetBlocks Filter
 message GetBlocksFilter {
-  // Blocks filter
-  oneof filter {
-    // Block ids
-    massa.model.v1.BlockIds block_ids = 1;
-    // Slots
-    massa.model.v1.Slots slots = 2;
-  }
+  // Block ids
+  repeated string block_ids = 1;
+  // Slots
+  repeated massa.model.v1.Slots slots = 2;
 }
 
 // GetBlocksResponse holds response from GetBlocks
@@ -180,20 +171,22 @@ message GetBlocksResponse {
   repeated massa.model.v1.BlockWrapper blocks = 1;
 }
 
+//TODO be inspected
 // GetDatastoreEntriesRequest holds request from GetDatastoreEntries
 message GetDatastoreEntriesRequest {
-  // Queries
-  repeated DatastoreEntriesQuery queries = 1;
-}
-
-// DatastoreEntries Query
-message DatastoreEntriesQuery {
   // Filter
   DatastoreEntryFilter filter = 1;
 }
 
+// DatastoreEntryFilter
 message DatastoreEntryFilter {
-  /// Associated address of the entry
+  // Datastore entries
+  repeated DatastoreEntryFilterEntry entries = 1;
+}
+
+// DatastoreEntryFilterEntry
+message DatastoreEntryFilterEntry {
+  // Associated address of the entry
   string address = 1;
   // Datastore key
   bytes key = 2;
@@ -241,20 +234,16 @@ message BlockParent {
 
 // GetOperationsRequest holds request for GetOperations
 message GetOperationsRequest {
-  // Queries
-  repeated GetOperationsQuery queries = 1;
-}
-
-// GetOperations Query
-message GetOperationsQuery {
-  // Filter
+  // Filters
   GetOperationsFilter filter = 1;
 }
 
 // GetOperations Filter
 message GetOperationsFilter {
   // Operation id
-  string operation_id = 1;
+  repeated string operation_ids = 1;
+  // Operation types
+  repeated OpType operation_types = 2;
 }
 
 // GetOperationsResponse holds response from GetOperations
@@ -265,12 +254,6 @@ message GetOperationsResponse {
 
 // GetScExecutionEventsRequest holds request for GetScExecutionEvents
 message GetScExecutionEventsRequest {
-  // Query
-  GetScExecutionEventsQuery query = 1;
-}
-
-// GetScExecutionEvents Query
-message GetScExecutionEventsQuery {
   // Filter
   massa.model.v1.ScExecutionEventsFilter filter = 1;
 }
@@ -292,20 +275,18 @@ message GetStatusResponse {
 
 // GetSelectorDrawsRequest holds request from GetSelectorDraws
 message GetSelectorDrawsRequest {
-  // Query
-  SelectorDrawsQuery query = 1;
-}
-
-// SelectorDraws Query
-message SelectorDrawsQuery {
   // Filter
-  repeated SelectorDrawsFilter filters = 1;
+  SelectorDrawsFilter filter = 1;
 }
 
 // SelectorDraws Filter
 message SelectorDrawsFilter {
+  // Filter
   oneof filter {
+    // Addresses
     massa.model.v1.Addresses addresses = 1;
+    // Slot range
+    massa.model.v1.SlotRange slot_range = 2;
   }
 }
 
@@ -317,14 +298,8 @@ message GetSelectorDrawsResponse {
 
 // GetStakersRequest holds request from GetStakers
 message GetStakersRequest {
-  // Query
-  StakersQuery query = 1;
-}
-
-// Stakers Query
-message StakersQuery {
-  // Filters
-  repeated StakersFilter filters = 1;
+  // Filter
+  StakersFilter filter = 1;
 }
 
 // Stakers Filter
@@ -333,6 +308,8 @@ message StakersFilter {
   google.protobuf.UInt64Value min_rolls = 1;
   // Maximum rolls (Optional)
   google.protobuf.UInt64Value max_rolls = 2;
+  // Limit (Optional)
+  google.protobuf.UInt64Value limit = 3;
 }
 
 // GetStakersResponse holds response from GetStakers
@@ -379,9 +356,9 @@ message ExecutionQueryResponse {
   // Result or error
   oneof response {
     // Execution query response item
-    massa.model.v1.ExecutionQueryResponseItem result = 2;
+    massa.model.v1.ExecutionQueryResponseItem result = 1;
     // gRPC error(status)
-    google.rpc.Status error = 3;
+    google.rpc.Status error = 2;
   }
 }
 
@@ -423,12 +400,6 @@ message NewFilledBlocksResponse {
 
 // NewOperationsRequest holds request for NewOperations
 message NewOperationsRequest {
-  // Query
-  NewOperationsQuery query = 1;
-}
-
-// NewOperations Query
-message NewOperationsQuery {
   // Filter
   NewOperationsFilter filter = 1;
 }
@@ -457,12 +428,6 @@ message NewOperationsResponse {
 
 // NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs
 message NewSlotExecutionOutputsRequest {
-  // Query
-  NewSlotExecutionOutputsQuery query = 1;
-}
-
-// NewSlotExecutionOutputs Query
-message NewSlotExecutionOutputsQuery {
   // Filter
   NewSlotExecutionOutputsFilter filter = 1;
 }
@@ -488,18 +453,12 @@ message SendBlocksRequest {
 // SendBlocksResponse holds response from SendBlocks
 message SendBlocksResponse {
   // Block result or a gRPC status
-  oneof message {
+  oneof result {
     // Block result
-    BlockResult result = 2;
+    string block_id = 1;
     // gRPC error(status)
-    google.rpc.Status error = 3;
+    google.rpc.Status error = 2;
   }
-}
-
-// Holds Block response
-message BlockResult {
-  // Block id
-  string block_id = 1;
 }
 
 // SendEndorsementsRequest holds parameters to SendEndorsements
@@ -511,11 +470,11 @@ message SendEndorsementsRequest {
 // SendEndorsementsResponse holds response from SendEndorsements
 message SendEndorsementsResponse {
   // Endorsement result or gRPC status
-  oneof message1 {
+  oneof result {
     // Endorsement result
-    EndorsementResult result = 2;
+    massa.model.v1.EndorsementsIds endorsements_ids = 1;
     // gRPC error(status)
-    google.rpc.Status error = 3;
+    google.rpc.Status error = 2;
   }
 }
 
@@ -534,18 +493,12 @@ message SendOperationsRequest {
 // SendOperationsResponse holds response from SendOperations
 message SendOperationsResponse {
   // Operation result or gRPC status
-  oneof message {
+  oneof result {
     // Operation result
-    OperationResult result = 2;
+    massa.model.v1.OperationsIds operations_ids = 1;
     // gRPC error(status)
-    google.rpc.Status error = 3;
+    google.rpc.Status error = 2;
   }
-}
-
-// Holds Operation response
-message OperationResult {
-  // Operations ids
-  repeated string operations_ids = 1;
 }
 
 // TransactionsThroughputRequest holds request for TransactionsThroughput

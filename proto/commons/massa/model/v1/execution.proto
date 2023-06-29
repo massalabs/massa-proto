@@ -55,13 +55,13 @@ message ScExecutionEvent {
 message ScExecutionEventContext {
   // When was it generated
   massa.model.v1.Slot origin_slot = 1;
-  // Block id if there was a block at that slot (optional)
+  // Block id if there was a block at that slot (Optional)
   google.protobuf.StringValue block_id = 2;
   // Index of the event in the slot
   uint64 index_in_slot = 3;
   // Call stack addresses. most recent at the end
   repeated string call_stack = 4;
-  // Origin operation id (optional)
+  // Origin operation id (Optional)
   google.protobuf.StringValue origin_operation_id = 5;
   // Status
   ScExecutionEventStatus status = 6;
@@ -638,16 +638,16 @@ message Events {
 // ScExecutionEvents Filter
 message ScExecutionEventsFilter {
   // Start slot (Optional)
-  optional massa.model.v1.Slot start_slot = 1;
+  massa.model.v1.Slot start_slot = 1;
   // End slot (Optional)
-  optional massa.model.v1.Slot end_slot = 2;
-  // Caller address
+  massa.model.v1.Slot end_slot = 2;
+  // Caller address (Optional)
   google.protobuf.StringValue caller_address = 3;
   // Emitter address (Optional)
   google.protobuf.StringValue emitter_address = 4;
   // Original operation id (Optional)
   google.protobuf.StringValue original_operation_id = 5;
-  // Status
+  // Status (Optional)
   repeated ScExecutionEventStatus status = 6;
 }
 
