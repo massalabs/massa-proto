@@ -29,13 +29,13 @@ message Slot {
   uint32 thread = 2;
 }
 
-// Slots holds slots
+// Slots
 message Slots {
   // Slots
   repeated Slot slots = 1;
 }
 
-// SlotsRange holds slots range
+// SlotRange
 message SlotRange {
   // Start lot (Optional)
   Slot start_slot = 1;

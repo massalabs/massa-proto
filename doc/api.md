@@ -39,16 +39,13 @@
   
 - [massa/api/v1/public.proto](#massa_api_v1_public-proto)
     - [BlockParent](#massa-api-v1-BlockParent)
-    - [DatastoreEntry](#massa-api-v1-DatastoreEntry)
-    - [DatastoreEntryFilter](#massa-api-v1-DatastoreEntryFilter)
-    - [DatastoreEntryFilterEntry](#massa-api-v1-DatastoreEntryFilterEntry)
     - [EndorsementResult](#massa-api-v1-EndorsementResult)
     - [ExecutionQueryResponse](#massa-api-v1-ExecutionQueryResponse)
-    - [GetBlocksFilter](#massa-api-v1-GetBlocksFilter)
     - [GetBlocksRequest](#massa-api-v1-GetBlocksRequest)
     - [GetBlocksResponse](#massa-api-v1-GetBlocksResponse)
     - [GetDatastoreEntriesRequest](#massa-api-v1-GetDatastoreEntriesRequest)
     - [GetDatastoreEntriesResponse](#massa-api-v1-GetDatastoreEntriesResponse)
+    - [GetDatastoreEntryFilter](#massa-api-v1-GetDatastoreEntryFilter)
     - [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest)
     - [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse)
     - [GetNextBlockBestParentsRequest](#massa-api-v1-GetNextBlockBestParentsRequest)
@@ -89,12 +86,9 @@
     - [SendEndorsementsResponse](#massa-api-v1-SendEndorsementsResponse)
     - [SendOperationsRequest](#massa-api-v1-SendOperationsRequest)
     - [SendOperationsResponse](#massa-api-v1-SendOperationsResponse)
-    - [StakerEntry](#massa-api-v1-StakerEntry)
     - [StakersFilter](#massa-api-v1-StakersFilter)
     - [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest)
     - [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse)
-  
-    - [OpType](#massa-api-v1-OpType)
   
     - [PublicService](#massa-api-v1-PublicService)
   
@@ -536,53 +530,6 @@ Block parent tuple
 
 
 
-<a name="massa-api-v1-DatastoreEntry"></a>
-
-### DatastoreEntry
-DatastoreEntry
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| final_value | [bytes](#bytes) |  | final datastore entry value |
-| candidate_value | [bytes](#bytes) |  | candidate_value datastore entry value |
-
-
-
-
-
-
-<a name="massa-api-v1-DatastoreEntryFilter"></a>
-
-### DatastoreEntryFilter
-DatastoreEntryFilter
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| entries | [DatastoreEntryFilterEntry](#massa-api-v1-DatastoreEntryFilterEntry) | repeated | Datastore entries |
-
-
-
-
-
-
-<a name="massa-api-v1-DatastoreEntryFilterEntry"></a>
-
-### DatastoreEntryFilterEntry
-DatastoreEntryFilterEntry
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Associated address of the entry |
-| key | [bytes](#bytes) |  | Datastore key |
-
-
-
-
-
-
 <a name="massa-api-v1-EndorsementResult"></a>
 
 ### EndorsementResult
@@ -614,22 +561,6 @@ Execution state query response
 
 
 
-<a name="massa-api-v1-GetBlocksFilter"></a>
-
-### GetBlocksFilter
-GetBlocks Filter
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| block_ids | [string](#string) | repeated | Block ids |
-| slots | [massa.model.v1.Slots](#massa-model-v1-Slots) | repeated | Slots |
-
-
-
-
-
-
 <a name="massa-api-v1-GetBlocksRequest"></a>
 
 ### GetBlocksRequest
@@ -638,7 +569,7 @@ GetBlocksRequest holds request for GetBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [GetBlocksFilter](#massa-api-v1-GetBlocksFilter) |  | Filter |
+| filters | [massa.model.v1.GetBlocksFilter](#massa-model-v1-GetBlocksFilter) | repeated | Returns all the blocks that verify all the filters |
 
 
 
@@ -663,13 +594,12 @@ GetBlocksResponse holds response from GetBlocks
 <a name="massa-api-v1-GetDatastoreEntriesRequest"></a>
 
 ### GetDatastoreEntriesRequest
-TODO be inspected
 GetDatastoreEntriesRequest holds request from GetDatastoreEntries
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [DatastoreEntryFilter](#massa-api-v1-DatastoreEntryFilter) |  | Filter |
+| filters | [GetDatastoreEntryFilter](#massa-api-v1-GetDatastoreEntryFilter) | repeated | Returns all the datastore entries that verify all the filters |
 
 
 
@@ -684,7 +614,22 @@ GetDatastoreEntriesResponse holds response from GetDatastoreEntries
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| entries | [DatastoreEntry](#massa-api-v1-DatastoreEntry) | repeated | Datastore entries |
+| entries | [massa.model.v1.DatastoreEntry](#massa-model-v1-DatastoreEntry) | repeated | Datastore entries |
+
+
+
+
+
+
+<a name="massa-api-v1-GetDatastoreEntryFilter"></a>
+
+### GetDatastoreEntryFilter
+DatastoreEntryFilter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address_key | [massa.model.v1.AddressKeyEntry](#massa-model-v1-AddressKeyEntry) |  | One of this address - key must be present |
 
 
 
@@ -749,8 +694,8 @@ GetOperations Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| operation_ids | [string](#string) | repeated | Operation id |
-| operation_types | [OpType](#massa-api-v1-OpType) | repeated | Operation types |
+| operation_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | One of the operation ids |
+| operation_types | [massa.model.v1.OpTypes](#massa-model-v1-OpTypes) |  | One of the operation types |
 
 
 
@@ -765,7 +710,7 @@ GetOperationsRequest holds request for GetOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [GetOperationsFilter](#massa-api-v1-GetOperationsFilter) |  | Filters |
+| filters | [GetOperationsFilter](#massa-api-v1-GetOperationsFilter) | repeated | Returns all the operations that verify all the filters |
 
 
 
@@ -795,7 +740,7 @@ GetScExecutionEventsRequest holds request for GetScExecutionEvents
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [massa.model.v1.ScExecutionEventsFilter](#massa-model-v1-ScExecutionEventsFilter) |  | Filter |
+| filters | [massa.model.v1.ScExecutionEventsFilter](#massa-model-v1-ScExecutionEventsFilter) | repeated | Returns all the sc execution events that verify all the filters |
 
 
 
@@ -825,7 +770,7 @@ GetSelectorDrawsRequest holds request from GetSelectorDraws
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter) |  | Filter |
+| filter | [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter) | repeated | Returns all the selector draws that verify all the filters |
 
 
 
@@ -855,7 +800,7 @@ GetStakersRequest holds request from GetStakers
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [StakersFilter](#massa-api-v1-StakersFilter) |  | Filter |
+| filter | [StakersFilter](#massa-api-v1-StakersFilter) | repeated | Returns all the stakers that verify all the filters |
 
 
 
@@ -870,7 +815,7 @@ GetStakersResponse holds response from GetStakers
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| stakers | [StakerEntry](#massa-api-v1-StakerEntry) | repeated | Stakers |
+| stakers | [massa.model.v1.StakerEntry](#massa-model-v1-StakerEntry) | repeated | Stakers |
 
 
 
@@ -1100,7 +1045,8 @@ NewOperations Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| types | [OpType](#massa-api-v1-OpType) | repeated | Operation type enum |
+| operation_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | One of the operation ids |
+| operation_types | [massa.model.v1.OpTypes](#massa-model-v1-OpTypes) |  | One of the operation types |
 
 
 
@@ -1115,7 +1061,7 @@ NewOperationsRequest holds request for NewOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [NewOperationsFilter](#massa-api-v1-NewOperationsFilter) |  | Filter |
+| filters | [NewOperationsFilter](#massa-api-v1-NewOperationsFilter) | repeated | Returns all the operations that verify all the filters |
 
 
 
@@ -1145,7 +1091,7 @@ NewSlotExecutionOutputs Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| status | [massa.model.v1.ExecutionOutputStatus](#massa-model-v1-ExecutionOutputStatus) | repeated | Execution output status enum |
+| status | [massa.model.v1.ExecutionOutputStatus](#massa-model-v1-ExecutionOutputStatus) |  | Execution output status |
 
 
 
@@ -1160,7 +1106,7 @@ NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [NewSlotExecutionOutputsFilter](#massa-api-v1-NewSlotExecutionOutputsFilter) |  | Filter |
+| filters | [NewSlotExecutionOutputsFilter](#massa-api-v1-NewSlotExecutionOutputsFilter) | repeated | Returns all the slot execution outputs that verify all the filters |
 
 
 
@@ -1222,8 +1168,8 @@ SelectorDraws Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | Addresses |
-| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | Slot range |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of the Addresses |
+| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of the Slot range |
 
 
 
@@ -1315,24 +1261,8 @@ SendOperationsResponse holds response from SendOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| operations_ids | [massa.model.v1.OperationsIds](#massa-model-v1-OperationsIds) |  | Operation result |
+| operations_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | Operation result |
 | error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
-
-
-
-
-
-
-<a name="massa-api-v1-StakerEntry"></a>
-
-### StakerEntry
-StakerEntry
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address |
-| rolls | [uint64](#uint64) |  | Rolls |
 
 
 
@@ -1386,22 +1316,6 @@ TransactionsThroughputResponse holds response from TransactionsThroughput
 
 
  
-
-
-<a name="massa-api-v1-OpType"></a>
-
-### OpType
-Operation type enum
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| OP_TYPE_UNSPECIFIED | 0 | Default enum value |
-| OP_TYPE_TRANSACTION | 1 | Transaction |
-| OP_TYPE_ROLL_BUY | 2 | Roll buy |
-| OP_TYPE_ROLL_SELL | 3 | Roll sell |
-| OP_TYPE_EXECUTE_SC | 4 | Execute smart contract |
-| OP_TYPE_CALL_SC | 5 | Call smart contract |
-
 
  
 
