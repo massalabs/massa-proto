@@ -716,12 +716,48 @@ message AddressFromPubKeyResult {
 
 // Unsafe random request
 message UnsafeRandomRequest {
-  int32 memory_addr = 1;
-  int32 num_bytes = 2;
+  // Number of bytes to generate
+  int32 num_bytes = 1;
 }
 
 // Unsafe random result
-message UnsafeRandomResult {}
+message UnsafeRandomResult {
+  // Random bytes generated
+  bytes random_bytes = 1;
+}
+
+// Send async message request filter
+message SendAsyncMessageFilter {
+  // Target address
+  string target_address = 1;
+  // Target key
+  google.protobuf.BytesValue target_key = 2;
+}
+
+// Send async message request
+message SendAsyncMessageRequest {
+  // Target address
+  string target_address = 1;
+  // Target handler (function name)
+  string target_handler = 2;
+  // Start slot for the message execution
+  massa.model.v1.Slot validity_start = 3;
+  // End slot for the message execution
+  massa.model.v1.Slot validity_end = 4;
+  // Gas given for the execution
+  uint64 execution_gas = 5;
+  // Message fee
+  uint64 raw_fee = 6;
+  // Coins sent to the execution context
+  uint64 raw_coins = 7;
+  // Message data
+  bytes data = 8;
+  // Filter for the message
+  SendAsyncMessageFilter filter = 9;
+}
+
+// Send async message result
+message SendAsyncMessageResult {}
 
 // Get native time request
 message GetNativeTimeRequest {}
