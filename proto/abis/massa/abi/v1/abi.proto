@@ -840,7 +840,10 @@ message HasOpKeyResult {
 }
 
 // Get op keys request
-message GetOpKeysRequest {}
+message GetOpKeysRequest {
+  // keys prefix
+  bytes prefix = 1;
+}
 
 // Get op keys result
 message GetOpKeysResult {

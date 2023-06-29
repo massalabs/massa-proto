@@ -1417,6 +1417,11 @@ Get op data result
 Get op keys request
 
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| prefix | [bytes](#bytes) |  | keys prefix |
+
+
 
 
 
