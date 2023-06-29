@@ -175,6 +175,44 @@
         
           
           <li>
+            <a href="#massa%2fmodel%2fv1%2fdatastore.proto">massa/model/v1/datastore.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#massa.model.v1.AddressKeyEntry"><span class="badge">M</span>AddressKeyEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.AddressKeysEntries"><span class="badge">M</span>AddressKeysEntries</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.DatastoreEntry"><span class="badge">M</span>DatastoreEntry</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#massa%2fmodel%2fv1%2fstaker.proto">massa/model/v1/staker.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#massa.model.v1.StakerEntry"><span class="badge">M</span>StakerEntry</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#massa%2fmodel%2fv1%2fdraw.proto">massa/model/v1/draw.proto</a>
             <ul>
               
@@ -295,7 +333,19 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.GetOperationsFilter"><span class="badge">M</span>GetOperationsFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.OpTypes"><span class="badge">M</span>OpTypes</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.Operation"><span class="badge">M</span>Operation</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.OperationIds"><span class="badge">M</span>OperationIds</a>
                 </li>
               
                 <li>
@@ -304,10 +354,6 @@
               
                 <li>
                   <a href="#massa.model.v1.OperationWrapper"><span class="badge">M</span>OperationWrapper</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.OperationsIds"><span class="badge">M</span>OperationsIds</a>
                 </li>
               
                 <li>
@@ -326,6 +372,10 @@
                   <a href="#massa.model.v1.Transaction"><span class="badge">M</span>Transaction</a>
                 </li>
               
+              
+                <li>
+                  <a href="#massa.model.v1.OpType"><span class="badge">E</span>OpType</a>
+                </li>
               
                 <li>
                   <a href="#massa.model.v1.OperationStatus"><span class="badge">E</span>OperationStatus</a>
@@ -728,11 +778,11 @@
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.BlockWrapper"><span class="badge">M</span>BlockWrapper</a>
+                  <a href="#massa.model.v1.BlockIds"><span class="badge">M</span>BlockIds</a>
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.BlocksIds"><span class="badge">M</span>BlocksIds</a>
+                  <a href="#massa.model.v1.BlockWrapper"><span class="badge">M</span>BlockWrapper</a>
                 </li>
               
                 <li>
@@ -741,6 +791,10 @@
               
                 <li>
                   <a href="#massa.model.v1.FilledOperationEntry"><span class="badge">M</span>FilledOperationEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.GetBlocksFilter"><span class="badge">M</span>GetBlocksFilter</a>
                 </li>
               
                 <li>
@@ -822,6 +876,151 @@
       </ul>
     </div>
 
+    
+      
+      <div class="file-heading">
+        <h2 id="massa/model/v1/datastore.proto">massa/model/v1/datastore.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="massa.model.v1.AddressKeyEntry">AddressKeyEntry</h3>
+        <p>AddressKeyEntry</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Associated address of the entry </p></td>
+                </tr>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Datastore key </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.AddressKeysEntries">AddressKeysEntries</h3>
+        <p>AddressKeys holds a list of addresses - keys</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>entries</td>
+                  <td><a href="#massa.model.v1.AddressKeyEntry">AddressKeyEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>List of address- key entries </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.DatastoreEntry">DatastoreEntry</h3>
+        <p>DatastoreEntry</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>final_value</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>final datastore entry value </p></td>
+                </tr>
+              
+                <tr>
+                  <td>candidate_value</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>candidate_value datastore entry value </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="massa/model/v1/staker.proto">massa/model/v1/staker.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="massa.model.v1.StakerEntry">StakerEntry</h3>
+        <p>StakerEntry</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>rolls</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Rolls </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
     
       
       <div class="file-heading">
@@ -977,7 +1176,7 @@
               
                 <tr>
                   <td>timeout</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>A timestamp at the which the deployment is considered failed </p></td>
                 </tr>
@@ -1142,14 +1341,14 @@
               
                 <tr>
                   <td>start_timespan</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>Start of the time span for stats </p></td>
                 </tr>
               
                 <tr>
                   <td>end_timespan</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>End of the time span for stats </p></td>
                 </tr>
@@ -1194,14 +1393,14 @@
               
                 <tr>
                   <td>time_window_start</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>Time window start </p></td>
                 </tr>
               
                 <tr>
                   <td>time_window_end</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>Time window end </p></td>
                 </tr>
@@ -1218,20 +1417,6 @@
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Number of final executed operations in the time window </p></td>
-                </tr>
-              
-                <tr>
-                  <td>active_cursor</td>
-                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td></td>
-                  <td><p>Active execution cursor slot </p></td>
-                </tr>
-              
-                <tr>
-                  <td>final_cursor</td>
-                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td></td>
-                  <td><p>Final execution cursor slot </p></td>
                 </tr>
               
             </tbody>
@@ -1350,14 +1535,14 @@
               
                 <tr>
                   <td>genesis_timestamp</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>Time in milliseconds when the blockclique started. </p></td>
                 </tr>
               
                 <tr>
                   <td>end_timestamp</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>TESTNET: time when the blockclique is ended. </p></td>
                 </tr>
@@ -1496,7 +1681,7 @@
               
                 <tr>
                   <td>current_time</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>Now </p></td>
                 </tr>
@@ -1510,14 +1695,14 @@
               
                 <tr>
                   <td>current_cycle_time</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>Current cycle starting timestamp </p></td>
                 </tr>
               
                 <tr>
                   <td>next_cycle_time</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>Next cycle starting timestamp </p></td>
                 </tr>
@@ -1527,20 +1712,6 @@
                   <td><a href="#massa.model.v1.ConnectedNode">ConnectedNode</a></td>
                   <td>repeated</td>
                   <td><p>Connected nodes </p></td>
-                </tr>
-              
-                <tr>
-                  <td>last_slot</td>
-                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td></td>
-                  <td><p>Latest slot, none if now is before genesis timestamp </p></td>
-                </tr>
-              
-                <tr>
-                  <td>next_slot</td>
-                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td></td>
-                  <td><p>Next slot </p></td>
                 </tr>
               
                 <tr>
@@ -1625,7 +1796,7 @@
               
                 <tr>
                   <td>current_time</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>Now </p></td>
                 </tr>
@@ -1639,30 +1810,16 @@
               
                 <tr>
                   <td>current_cycle_time</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>Current cycle starting timestamp </p></td>
                 </tr>
               
                 <tr>
                   <td>next_cycle_time</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.model.v1.NativeTime">NativeTime</a></td>
                   <td></td>
                   <td><p>Next cycle starting timestamp </p></td>
-                </tr>
-              
-                <tr>
-                  <td>last_slot</td>
-                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td></td>
-                  <td><p>Latest slot, none if now is before genesis timestamp </p></td>
-                </tr>
-              
-                <tr>
-                  <td>next_slot</td>
-                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td></td>
-                  <td><p>Next slot </p></td>
                 </tr>
               
                 <tr>
@@ -1833,6 +1990,61 @@
 
         
       
+        <h3 id="massa.model.v1.GetOperationsFilter">GetOperationsFilter</h3>
+        <p>GetOperations Filter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>operation_ids</td>
+                  <td><a href="#massa.model.v1.OperationIds">OperationIds</a></td>
+                  <td></td>
+                  <td><p>One of the operation ids </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_types</td>
+                  <td><a href="#massa.model.v1.OpTypes">OpTypes</a></td>
+                  <td></td>
+                  <td><p>One of the operation types </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.OpTypes">OpTypes</h3>
+        <p>OpTypes</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>op_types</td>
+                  <td><a href="#massa.model.v1.OpType">OpType</a></td>
+                  <td>repeated</td>
+                  <td><p>Operations types </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.Operation">Operation</h3>
         <p>The operation as sent in the network</p>
 
@@ -1862,6 +2074,30 @@
                   <td><a href="#massa.model.v1.OperationType">OperationType</a></td>
                   <td></td>
                   <td><p>The type specific operation part </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.OperationIds">OperationIds</h3>
+        <p>OperationIds</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>operation_ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Operations ids </p></td>
                 </tr>
               
             </tbody>
@@ -1966,30 +2202,6 @@
                   <td><a href="#massa.model.v1.OperationStatus">OperationStatus</a></td>
                   <td>repeated</td>
                   <td><p>The execution statuses of the operation </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.model.v1.OperationsIds">OperationsIds</h3>
-        <p>TODO to be used</p><p>Holds OperationsIds response</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>operations_ids</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>Operations ids </p></td>
                 </tr>
               
             </tbody>
@@ -2138,6 +2350,53 @@
         
       
 
+      
+        <h3 id="massa.model.v1.OpType">OpType</h3>
+        <p>Operation type enum</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>OP_TYPE_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p>Default enum value</p></td>
+              </tr>
+            
+              <tr>
+                <td>OP_TYPE_TRANSACTION</td>
+                <td>1</td>
+                <td><p>Transaction</p></td>
+              </tr>
+            
+              <tr>
+                <td>OP_TYPE_ROLL_BUY</td>
+                <td>2</td>
+                <td><p>Roll buy</p></td>
+              </tr>
+            
+              <tr>
+                <td>OP_TYPE_ROLL_SELL</td>
+                <td>3</td>
+                <td><p>Roll sell</p></td>
+              </tr>
+            
+              <tr>
+                <td>OP_TYPE_EXECUTE_SC</td>
+                <td>4</td>
+                <td><p>Execute smart contract</p></td>
+              </tr>
+            
+              <tr>
+                <td>OP_TYPE_CALL_SC</td>
+                <td>5</td>
+                <td><p>Call smart contract</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
         <h3 id="massa.model.v1.OperationStatus">OperationStatus</h3>
         <p>Possible statuses for an operation</p>
@@ -4873,7 +5132,7 @@ Change the balance </p></td>
         
       
         <h3 id="massa.model.v1.SlotRange">SlotRange</h3>
-        <p>SlotsRange holds slots range</p>
+        <p>SlotRange</p>
 
         
           <table class="field-table">
@@ -4904,7 +5163,7 @@ Change the balance </p></td>
         
       
         <h3 id="massa.model.v1.Slots">Slots</h3>
-        <p>Slots holds slots</p>
+        <p>Slots</p>
 
         
           <table class="field-table">
@@ -5122,6 +5381,30 @@ Change the balance </p></td>
 
         
       
+        <h3 id="massa.model.v1.BlockIds">BlockIds</h3>
+        <p>BlockIds holds block ids</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Block ids </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.BlockWrapper">BlockWrapper</h3>
         <p>A wrapper around a block with its metadata</p>
 
@@ -5151,30 +5434,6 @@ Change the balance </p></td>
                   <td><a href="#massa.model.v1.BlockStatus">BlockStatus</a></td>
                   <td></td>
                   <td><p>The execution status of the block </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.model.v1.BlocksIds">BlocksIds</h3>
-        <p>BlockIds holds blocks ids</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>blocks_ids</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>Block ids </p></td>
                 </tr>
               
             </tbody>
@@ -5237,6 +5496,44 @@ Change the balance </p></td>
                   <td><a href="#massa.model.v1.SignedOperation">SignedOperation</a></td>
                   <td></td>
                   <td><p>Signed operation </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.GetBlocksFilter">GetBlocksFilter</h3>
+        <p>GetBlocks Filter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_ids</td>
+                  <td><a href="#massa.model.v1.BlockIds">BlockIds</a></td>
+                  <td></td>
+                  <td><p>One of this Block ids </p></td>
+                </tr>
+              
+                <tr>
+                  <td>slots</td>
+                  <td><a href="#massa.model.v1.SlotRange">SlotRange</a></td>
+                  <td></td>
+                  <td><p>One of this Slot ranges (inclusive) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>addresses</td>
+                  <td><a href="#massa.model.v1.Addresses">Addresses</a></td>
+                  <td></td>
+                  <td><p>One of this Creator is one of this addresses </p></td>
                 </tr>
               
             </tbody>

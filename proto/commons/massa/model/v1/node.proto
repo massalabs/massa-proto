@@ -35,24 +35,20 @@ message NodeStatus {
   massa.model.v1.NativeTime next_cycle_time = 7;
   // Connected nodes
   repeated ConnectedNode connected_nodes = 8;
-  // Latest slot, none if now is before genesis timestamp
-  massa.model.v1.Slot last_slot = 9;
-  // Next slot
-  massa.model.v1.Slot next_slot = 10;
   // Last executed final slot
-  massa.model.v1.Slot last_executed_final_slot = 11;
+  massa.model.v1.Slot last_executed_final_slot = 9;
   // Last executed speculative slot
-  massa.model.v1.Slot last_executed_speculative_slot = 12;
+  massa.model.v1.Slot last_executed_speculative_slot = 10;
   // Consensus stats
-  massa.model.v1.ConsensusStats consensus_stats = 13;
+  massa.model.v1.ConsensusStats consensus_stats = 11;
   // Pool stats (operation count and endorsement count)
-  massa.model.v1.PoolStats pool_stats = 14;
+  massa.model.v1.PoolStats pool_stats = 12;
   // Network stats
-  massa.model.v1.NetworkStats network_stats = 15;
+  massa.model.v1.NetworkStats network_stats = 13;
   // Execution stats
-  massa.model.v1.ExecutionStats execution_stats = 16;
+  massa.model.v1.ExecutionStats execution_stats = 14;
   // Compact configuration
-  CompactConfig config = 17;
+  CompactConfig config = 15;
 }
 
 // Connected node
@@ -110,10 +106,6 @@ message PublicStatus {
   massa.model.v1.NativeTime current_cycle_time = 6;
   // Next cycle starting timestamp
   massa.model.v1.NativeTime next_cycle_time = 7;
-  // Latest slot, none if now is before genesis timestamp
-  massa.model.v1.Slot last_slot = 9;
-  // Next slot
-  massa.model.v1.Slot next_slot = 10;
   // Last executed final slot
   massa.model.v1.Slot last_executed_final_slot = 11;
   // Last executed speculative slot

@@ -4,6 +4,7 @@ syntax = "proto3";
 
 package massa.model.v1;
 
+import "massa/model/v1/address.proto";
 import "massa/model/v1/endorsement.proto";
 import "massa/model/v1/operation.proto";
 import "massa/model/v1/slot.proto";
@@ -104,8 +105,21 @@ message BlockWrapper {
   BlockStatus status = 3;
 }
 
-// BlockIds holds blocks ids
-message BlocksIds {
+// BlockIds holds block ids
+message BlockIds {
   // Block ids
-  repeated string blocks_ids = 1;
+  repeated string block_ids = 1;
+}
+
+// GetBlocks Filter
+message GetBlocksFilter {
+  // Filter
+  oneof filter {
+    // One of this Block ids
+    BlockIds block_ids = 1;
+    // One of this Slot ranges (inclusive)
+    massa.model.v1.SlotRange slots = 2;
+    // One of this Creator is one of this addresses
+    massa.model.v1.Addresses addresses = 3;
+  }
 }

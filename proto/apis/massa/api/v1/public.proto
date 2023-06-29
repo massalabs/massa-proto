@@ -10,12 +10,14 @@ import "google/rpc/status.proto";
 import "massa/model/v1/address.proto";
 import "massa/model/v1/block.proto";
 import "massa/model/v1/commons.proto";
+import "massa/model/v1/datastore.proto";
 import "massa/model/v1/draw.proto";
 import "massa/model/v1/endorsement.proto";
 import "massa/model/v1/execution.proto";
 import "massa/model/v1/node.proto";
 import "massa/model/v1/operation.proto";
 import "massa/model/v1/slot.proto";
+import "massa/model/v1/staker.proto";
 import "massa/model/v1/versioning.proto";
 
 option csharp_namespace = "Com.Massa.Api.v1";
@@ -153,16 +155,8 @@ service PublicService {
 
 // GetBlocksRequest holds request for GetBlocks
 message GetBlocksRequest {
-  // Filter
-  GetBlocksFilter filter = 1;
-}
-
-// GetBlocks Filter
-message GetBlocksFilter {
-  // Block ids
-  repeated string block_ids = 1;
-  // Slots
-  repeated massa.model.v1.Slots slots = 2;
+  // Returns all the blocks that verify all the filters
+  repeated massa.model.v1.GetBlocksFilter filters = 1;
 }
 
 // GetBlocksResponse holds response from GetBlocks
@@ -171,39 +165,25 @@ message GetBlocksResponse {
   repeated massa.model.v1.BlockWrapper blocks = 1;
 }
 
-//TODO be inspected
 // GetDatastoreEntriesRequest holds request from GetDatastoreEntries
 message GetDatastoreEntriesRequest {
-  // Filter
-  DatastoreEntryFilter filter = 1;
+  // Returns all the datastore entries that verify all the filters
+  repeated GetDatastoreEntryFilter filters = 1;
 }
 
 // DatastoreEntryFilter
-message DatastoreEntryFilter {
-  // Datastore entries
-  repeated DatastoreEntryFilterEntry entries = 1;
-}
-
-// DatastoreEntryFilterEntry
-message DatastoreEntryFilterEntry {
-  // Associated address of the entry
-  string address = 1;
-  // Datastore key
-  bytes key = 2;
+message GetDatastoreEntryFilter {
+  // Filter
+  oneof filter {
+    // One of this address - key must be present
+    massa.model.v1.AddressKeyEntry address_key = 1;
+  }
 }
 
 // GetDatastoreEntriesResponse holds response from GetDatastoreEntries
 message GetDatastoreEntriesResponse {
   // Datastore entries
-  repeated DatastoreEntry entries = 1;
-}
-
-// DatastoreEntry
-message DatastoreEntry {
-  // final datastore entry value
-  bytes final_value = 1;
-  // candidate_value datastore entry value
-  bytes candidate_value = 2;
+  repeated massa.model.v1.DatastoreEntry entries = 1;
 }
 
 // GetMipStatusRequest holds request for GetMipStatus
@@ -234,16 +214,19 @@ message BlockParent {
 
 // GetOperationsRequest holds request for GetOperations
 message GetOperationsRequest {
-  // Filters
-  GetOperationsFilter filter = 1;
+  // Returns all the operations that verify all the filters
+  repeated GetOperationsFilter filters = 1;
 }
 
 // GetOperations Filter
 message GetOperationsFilter {
-  // Operation id
-  repeated string operation_ids = 1;
-  // Operation types
-  repeated OpType operation_types = 2;
+  // Filter
+  oneof filter {
+    // One of the operation ids
+    massa.model.v1.OperationIds operation_ids = 1;
+    // One of the operation types
+    massa.model.v1.OpTypes operation_types = 2;
+  }
 }
 
 // GetOperationsResponse holds response from GetOperations
@@ -254,8 +237,8 @@ message GetOperationsResponse {
 
 // GetScExecutionEventsRequest holds request for GetScExecutionEvents
 message GetScExecutionEventsRequest {
-  // Filter
-  massa.model.v1.ScExecutionEventsFilter filter = 1;
+  // Returns all the sc execution events that verify all the filters
+  repeated massa.model.v1.ScExecutionEventsFilter filters = 1;
 }
 
 // GetScExecutionEventsResponse holds response from GetScExecutionEvents
@@ -275,17 +258,17 @@ message GetStatusResponse {
 
 // GetSelectorDrawsRequest holds request from GetSelectorDraws
 message GetSelectorDrawsRequest {
-  // Filter
-  SelectorDrawsFilter filter = 1;
+  // Returns all the selector draws that verify all the filters
+  repeated SelectorDrawsFilter filter = 1;
 }
 
 // SelectorDraws Filter
 message SelectorDrawsFilter {
-  // Filter
+  // Returns all the selector draws that verify all the filters
   oneof filter {
-    // Addresses
+    // One of the Addresses
     massa.model.v1.Addresses addresses = 1;
-    // Slot range
+    // One of the Slot range
     massa.model.v1.SlotRange slot_range = 2;
   }
 }
@@ -298,32 +281,27 @@ message GetSelectorDrawsResponse {
 
 // GetStakersRequest holds request from GetStakers
 message GetStakersRequest {
-  // Filter
-  StakersFilter filter = 1;
+  // Returns all the stakers that verify all the filters
+  repeated StakersFilter filter = 1;
 }
 
 // Stakers Filter
 message StakersFilter {
-  // Minimum rolls (Optional)
-  google.protobuf.UInt64Value min_rolls = 1;
-  // Maximum rolls (Optional)
-  google.protobuf.UInt64Value max_rolls = 2;
-  // Limit (Optional)
-  google.protobuf.UInt64Value limit = 3;
+  // Returns all the stakers that verify all the filters
+  oneof filter {
+    // Minimum rolls (Optional)
+    google.protobuf.UInt64Value min_rolls = 1;
+    // Maximum rolls (Optional)
+    google.protobuf.UInt64Value max_rolls = 2;
+    // Limit (Optional)
+    google.protobuf.UInt64Value limit = 3;
+  }
 }
 
 // GetStakersResponse holds response from GetStakers
 message GetStakersResponse {
   // Stakers
-  repeated StakerEntry stakers = 1;
-}
-
-// StakerEntry
-message StakerEntry {
-  // Address
-  string address = 1;
-  // Rolls
-  uint64 rolls = 2;
+  repeated massa.model.v1.StakerEntry stakers = 1;
 }
 
 // GetTransactionsThroughputRequest holds request for GetTransactionsThroughput
@@ -400,24 +378,19 @@ message NewFilledBlocksResponse {
 
 // NewOperationsRequest holds request for NewOperations
 message NewOperationsRequest {
-  // Filter
-  NewOperationsFilter filter = 1;
+  // Returns all the operations that verify all the filters
+  repeated NewOperationsFilter filters = 1;
 }
 
 // NewOperations Filter
 message NewOperationsFilter {
-  // Operation type enum
-  repeated OpType types = 1;
-}
-
-// Operation type enum
-enum OpType {
-  OP_TYPE_UNSPECIFIED = 0; // Default enum value
-  OP_TYPE_TRANSACTION = 1; // Transaction
-  OP_TYPE_ROLL_BUY = 2; // Roll buy
-  OP_TYPE_ROLL_SELL = 3; // Roll sell
-  OP_TYPE_EXECUTE_SC = 4; // Execute smart contract
-  OP_TYPE_CALL_SC = 5; // Call smart contract
+  // Filter
+  oneof filter {
+    // One of the operation ids
+    massa.model.v1.OperationIds operation_ids = 1;
+    // One of the operation types
+    massa.model.v1.OpTypes operation_types = 2;
+  }
 }
 
 // NewOperationsResponse holds response from NewOperations
@@ -428,14 +401,17 @@ message NewOperationsResponse {
 
 // NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs
 message NewSlotExecutionOutputsRequest {
-  // Filter
-  NewSlotExecutionOutputsFilter filter = 1;
+  // Returns all the slot execution outputs that verify all the filters
+  repeated NewSlotExecutionOutputsFilter filters = 1;
 }
 
 // NewSlotExecutionOutputs Filter
 message NewSlotExecutionOutputsFilter {
-  // Execution output status enum
-  repeated massa.model.v1.ExecutionOutputStatus status = 1;
+  // Filter
+  oneof filter {
+    // Execution output status
+    massa.model.v1.ExecutionOutputStatus status = 1;
+  }
 }
 
 // NewSlotExecutionOutputsResponse holds response from NewSlotExecutionOutputs
@@ -495,7 +471,7 @@ message SendOperationsResponse {
   // Operation result or gRPC status
   oneof result {
     // Operation result
-    massa.model.v1.OperationsIds operations_ids = 1;
+    massa.model.v1.OperationIds operations_ids = 1;
     // gRPC error(status)
     google.rpc.Status error = 2;
   }

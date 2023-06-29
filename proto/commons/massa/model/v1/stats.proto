@@ -4,7 +4,6 @@ syntax = "proto3";
 
 package massa.model.v1;
 
-import "massa/model/v1/slot.proto";
 import "massa/model/v1/time.proto";
 
 option csharp_namespace = "Com.Massa.Model.v1";
@@ -62,8 +61,4 @@ message ExecutionStats {
   uint64 final_block_count = 3;
   // Number of final executed operations in the time window
   uint64 final_executed_operations_count = 4;
-  // Active execution cursor slot
-  massa.model.v1.Slot active_cursor = 5;
-  // Final execution cursor slot
-  massa.model.v1.Slot final_cursor = 6;
 }
