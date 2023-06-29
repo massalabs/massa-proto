@@ -34,3 +34,11 @@ message Slots {
   // Slots
   repeated Slot slots = 1;
 }
+
+// SlotsRange holds slots range
+message SlotRange {
+  // Start lot (Optional)
+  Slot start_slot = 1;
+  // End slot (Optional)
+  Slot end_slot = 2;
+}

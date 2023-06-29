@@ -318,19 +318,15 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.BlockResult"><span class="badge">M</span>BlockResult</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.DatastoreEntriesQuery"><span class="badge">M</span>DatastoreEntriesQuery</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.DatastoreEntry"><span class="badge">M</span>DatastoreEntry</a>
                 </li>
               
                 <li>
                   <a href="#massa.api.v1.DatastoreEntryFilter"><span class="badge">M</span>DatastoreEntryFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.DatastoreEntryFilterEntry"><span class="badge">M</span>DatastoreEntryFilterEntry</a>
                 </li>
               
                 <li>
@@ -343,10 +339,6 @@
               
                 <li>
                   <a href="#massa.api.v1.GetBlocksFilter"><span class="badge">M</span>GetBlocksFilter</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.GetBlocksQuery"><span class="badge">M</span>GetBlocksQuery</a>
                 </li>
               
                 <li>
@@ -386,19 +378,11 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.GetOperationsQuery"><span class="badge">M</span>GetOperationsQuery</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.GetOperationsRequest"><span class="badge">M</span>GetOperationsRequest</a>
                 </li>
               
                 <li>
                   <a href="#massa.api.v1.GetOperationsResponse"><span class="badge">M</span>GetOperationsResponse</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.GetScExecutionEventsQuery"><span class="badge">M</span>GetScExecutionEventsQuery</a>
                 </li>
               
                 <li>
@@ -478,10 +462,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.NewOperationsQuery"><span class="badge">M</span>NewOperationsQuery</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.NewOperationsRequest"><span class="badge">M</span>NewOperationsRequest</a>
                 </li>
               
@@ -494,19 +474,11 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.NewSlotExecutionOutputsQuery"><span class="badge">M</span>NewSlotExecutionOutputsQuery</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.NewSlotExecutionOutputsRequest"><span class="badge">M</span>NewSlotExecutionOutputsRequest</a>
                 </li>
               
                 <li>
                   <a href="#massa.api.v1.NewSlotExecutionOutputsResponse"><span class="badge">M</span>NewSlotExecutionOutputsResponse</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.OperationResult"><span class="badge">M</span>OperationResult</a>
                 </li>
               
                 <li>
@@ -519,10 +491,6 @@
               
                 <li>
                   <a href="#massa.api.v1.SelectorDrawsFilter"><span class="badge">M</span>SelectorDrawsFilter</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.SelectorDrawsQuery"><span class="badge">M</span>SelectorDrawsQuery</a>
                 </li>
               
                 <li>
@@ -555,10 +523,6 @@
               
                 <li>
                   <a href="#massa.api.v1.StakersFilter"><span class="badge">M</span>StakersFilter</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.StakersQuery"><span class="badge">M</span>StakersQuery</a>
                 </li>
               
                 <li>
@@ -1381,54 +1345,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.BlockResult">BlockResult</h3>
-        <p>Holds Block response</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>block_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Block id </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.DatastoreEntriesQuery">DatastoreEntriesQuery</h3>
-        <p>DatastoreEntries Query</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>filter</td>
-                  <td><a href="#massa.api.v1.DatastoreEntryFilter">DatastoreEntryFilter</a></td>
-                  <td></td>
-                  <td><p>Filter </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.api.v1.DatastoreEntry">DatastoreEntry</h3>
         <p>DatastoreEntry</p>
 
@@ -1461,7 +1377,31 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         
       
         <h3 id="massa.api.v1.DatastoreEntryFilter">DatastoreEntryFilter</h3>
-        <p></p>
+        <p>DatastoreEntryFilter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>entries</td>
+                  <td><a href="#massa.api.v1.DatastoreEntryFilterEntry">DatastoreEntryFilterEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>Datastore entries </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.DatastoreEntryFilterEntry">DatastoreEntryFilterEntry</h3>
+        <p>DatastoreEntryFilterEntry</p>
 
         
           <table class="field-table">
@@ -1558,40 +1498,16 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>block_ids</td>
-                  <td><a href="#massa.model.v1.BlockIds">massa.model.v1.BlockIds</a></td>
-                  <td></td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
                   <td><p>Block ids </p></td>
                 </tr>
               
                 <tr>
                   <td>slots</td>
                   <td><a href="#massa.model.v1.Slots">massa.model.v1.Slots</a></td>
-                  <td></td>
-                  <td><p>Slots </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.GetBlocksQuery">GetBlocksQuery</h3>
-        <p>GetBlocks Query</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>filters</td>
-                  <td><a href="#massa.api.v1.GetBlocksFilter">GetBlocksFilter</a></td>
                   <td>repeated</td>
-                  <td><p>Filter </p></td>
+                  <td><p>Slots </p></td>
                 </tr>
               
             </tbody>
@@ -1612,10 +1528,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>queries</td>
-                  <td><a href="#massa.api.v1.GetBlocksQuery">GetBlocksQuery</a></td>
-                  <td>repeated</td>
-                  <td><p>Queries </p></td>
+                  <td>filter</td>
+                  <td><a href="#massa.api.v1.GetBlocksFilter">GetBlocksFilter</a></td>
+                  <td></td>
+                  <td><p>Filter </p></td>
                 </tr>
               
             </tbody>
@@ -1650,7 +1566,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         
       
         <h3 id="massa.api.v1.GetDatastoreEntriesRequest">GetDatastoreEntriesRequest</h3>
-        <p>GetDatastoreEntriesRequest holds request from GetDatastoreEntries</p>
+        <p>TODO be inspected</p><p>GetDatastoreEntriesRequest holds request from GetDatastoreEntries</p>
 
         
           <table class="field-table">
@@ -1660,10 +1576,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>queries</td>
-                  <td><a href="#massa.api.v1.DatastoreEntriesQuery">DatastoreEntriesQuery</a></td>
-                  <td>repeated</td>
-                  <td><p>Queries </p></td>
+                  <td>filter</td>
+                  <td><a href="#massa.api.v1.DatastoreEntryFilter">DatastoreEntryFilter</a></td>
+                  <td></td>
+                  <td><p>Filter </p></td>
                 </tr>
               
             </tbody>
@@ -1770,34 +1686,17 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>operation_id</td>
+                  <td>operation_ids</td>
                   <td><a href="#string">string</a></td>
-                  <td></td>
+                  <td>repeated</td>
                   <td><p>Operation id </p></td>
                 </tr>
               
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.GetOperationsQuery">GetOperationsQuery</h3>
-        <p>GetOperations Query</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
                 <tr>
-                  <td>filter</td>
-                  <td><a href="#massa.api.v1.GetOperationsFilter">GetOperationsFilter</a></td>
-                  <td></td>
-                  <td><p>Filter </p></td>
+                  <td>operation_types</td>
+                  <td><a href="#massa.api.v1.OpType">OpType</a></td>
+                  <td>repeated</td>
+                  <td><p>Operation types </p></td>
                 </tr>
               
             </tbody>
@@ -1818,10 +1717,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>queries</td>
-                  <td><a href="#massa.api.v1.GetOperationsQuery">GetOperationsQuery</a></td>
-                  <td>repeated</td>
-                  <td><p>Queries </p></td>
+                  <td>filter</td>
+                  <td><a href="#massa.api.v1.GetOperationsFilter">GetOperationsFilter</a></td>
+                  <td></td>
+                  <td><p>Filters </p></td>
                 </tr>
               
             </tbody>
@@ -1855,8 +1754,8 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.GetScExecutionEventsQuery">GetScExecutionEventsQuery</h3>
-        <p>GetScExecutionEvents Query</p>
+        <h3 id="massa.api.v1.GetScExecutionEventsRequest">GetScExecutionEventsRequest</h3>
+        <p>GetScExecutionEventsRequest holds request for GetScExecutionEvents</p>
 
         
           <table class="field-table">
@@ -1870,30 +1769,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#massa.model.v1.ScExecutionEventsFilter">massa.model.v1.ScExecutionEventsFilter</a></td>
                   <td></td>
                   <td><p>Filter </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.GetScExecutionEventsRequest">GetScExecutionEventsRequest</h3>
-        <p>GetScExecutionEventsRequest holds request for GetScExecutionEvents</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>query</td>
-                  <td><a href="#massa.api.v1.GetScExecutionEventsQuery">GetScExecutionEventsQuery</a></td>
-                  <td></td>
-                  <td><p>Query </p></td>
                 </tr>
               
             </tbody>
@@ -1938,10 +1813,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>query</td>
-                  <td><a href="#massa.api.v1.SelectorDrawsQuery">SelectorDrawsQuery</a></td>
+                  <td>filter</td>
+                  <td><a href="#massa.api.v1.SelectorDrawsFilter">SelectorDrawsFilter</a></td>
                   <td></td>
-                  <td><p>Query </p></td>
+                  <td><p>Filter </p></td>
                 </tr>
               
             </tbody>
@@ -1986,10 +1861,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>query</td>
-                  <td><a href="#massa.api.v1.StakersQuery">StakersQuery</a></td>
+                  <td>filter</td>
+                  <td><a href="#massa.api.v1.StakersFilter">StakersFilter</a></td>
                   <td></td>
-                  <td><p>Query </p></td>
+                  <td><p>Filter </p></td>
                 </tr>
               
             </tbody>
@@ -2233,8 +2108,8 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.NewOperationsQuery">NewOperationsQuery</h3>
-        <p>NewOperations Query</p>
+        <h3 id="massa.api.v1.NewOperationsRequest">NewOperationsRequest</h3>
+        <p>NewOperationsRequest holds request for NewOperations</p>
 
         
           <table class="field-table">
@@ -2248,30 +2123,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#massa.api.v1.NewOperationsFilter">NewOperationsFilter</a></td>
                   <td></td>
                   <td><p>Filter </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.NewOperationsRequest">NewOperationsRequest</h3>
-        <p>NewOperationsRequest holds request for NewOperations</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>query</td>
-                  <td><a href="#massa.api.v1.NewOperationsQuery">NewOperationsQuery</a></td>
-                  <td></td>
-                  <td><p>Query </p></td>
                 </tr>
               
             </tbody>
@@ -2329,8 +2180,8 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.NewSlotExecutionOutputsQuery">NewSlotExecutionOutputsQuery</h3>
-        <p>NewSlotExecutionOutputs Query</p>
+        <h3 id="massa.api.v1.NewSlotExecutionOutputsRequest">NewSlotExecutionOutputsRequest</h3>
+        <p>NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs</p>
 
         
           <table class="field-table">
@@ -2344,30 +2195,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#massa.api.v1.NewSlotExecutionOutputsFilter">NewSlotExecutionOutputsFilter</a></td>
                   <td></td>
                   <td><p>Filter </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.NewSlotExecutionOutputsRequest">NewSlotExecutionOutputsRequest</h3>
-        <p>NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>query</td>
-                  <td><a href="#massa.api.v1.NewSlotExecutionOutputsQuery">NewSlotExecutionOutputsQuery</a></td>
-                  <td></td>
-                  <td><p>Query </p></td>
                 </tr>
               
             </tbody>
@@ -2392,30 +2219,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#massa.model.v1.SlotExecutionOutput">massa.model.v1.SlotExecutionOutput</a></td>
                   <td></td>
                   <td><p>Slot execution output </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.OperationResult">OperationResult</h3>
-        <p>Holds Operation response</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>operations_ids</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>Operations ids </p></td>
                 </tr>
               
             </tbody>
@@ -2501,31 +2304,14 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td>addresses</td>
                   <td><a href="#massa.model.v1.Addresses">massa.model.v1.Addresses</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>Addresses </p></td>
                 </tr>
               
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.SelectorDrawsQuery">SelectorDrawsQuery</h3>
-        <p>SelectorDraws Query</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
                 <tr>
-                  <td>filters</td>
-                  <td><a href="#massa.api.v1.SelectorDrawsFilter">SelectorDrawsFilter</a></td>
-                  <td>repeated</td>
-                  <td><p>Filter </p></td>
+                  <td>slot_range</td>
+                  <td><a href="#massa.model.v1.SlotRange">massa.model.v1.SlotRange</a></td>
+                  <td></td>
+                  <td><p>Slot range </p></td>
                 </tr>
               
             </tbody>
@@ -2570,8 +2356,8 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>result</td>
-                  <td><a href="#massa.api.v1.BlockResult">BlockResult</a></td>
+                  <td>block_id</td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Block result </p></td>
                 </tr>
@@ -2625,8 +2411,8 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>result</td>
-                  <td><a href="#massa.api.v1.EndorsementResult">EndorsementResult</a></td>
+                  <td>endorsements_ids</td>
+                  <td><a href="#massa.model.v1.EndorsementsIds">massa.model.v1.EndorsementsIds</a></td>
                   <td></td>
                   <td><p>Endorsement result </p></td>
                 </tr>
@@ -2680,8 +2466,8 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>result</td>
-                  <td><a href="#massa.api.v1.OperationResult">OperationResult</a></td>
+                  <td>operations_ids</td>
+                  <td><a href="#massa.model.v1.OperationsIds">massa.model.v1.OperationsIds</a></td>
                   <td></td>
                   <td><p>Operation result </p></td>
                 </tr>
@@ -2755,28 +2541,11 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><p>Maximum rolls (Optional) </p></td>
                 </tr>
               
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.StakersQuery">StakersQuery</h3>
-        <p>Stakers Query</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
                 <tr>
-                  <td>filters</td>
-                  <td><a href="#massa.api.v1.StakersFilter">StakersFilter</a></td>
-                  <td>repeated</td>
-                  <td><p>Filters </p></td>
+                  <td>limit</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td></td>
+                  <td><p>Limit (Optional) </p></td>
                 </tr>
               
             </tbody>

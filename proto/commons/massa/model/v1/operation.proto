@@ -126,3 +126,10 @@ message OperationWrapper {
   // The execution statuses of the operation
   repeated OperationStatus status = 7;
 }
+
+//TODO to be used
+// Holds OperationsIds response
+message OperationsIds {
+  // Operations ids
+  repeated string operations_ids = 1;
+}

@@ -39,14 +39,12 @@
   
 - [massa/api/v1/public.proto](#massa_api_v1_public-proto)
     - [BlockParent](#massa-api-v1-BlockParent)
-    - [BlockResult](#massa-api-v1-BlockResult)
-    - [DatastoreEntriesQuery](#massa-api-v1-DatastoreEntriesQuery)
     - [DatastoreEntry](#massa-api-v1-DatastoreEntry)
     - [DatastoreEntryFilter](#massa-api-v1-DatastoreEntryFilter)
+    - [DatastoreEntryFilterEntry](#massa-api-v1-DatastoreEntryFilterEntry)
     - [EndorsementResult](#massa-api-v1-EndorsementResult)
     - [ExecutionQueryResponse](#massa-api-v1-ExecutionQueryResponse)
     - [GetBlocksFilter](#massa-api-v1-GetBlocksFilter)
-    - [GetBlocksQuery](#massa-api-v1-GetBlocksQuery)
     - [GetBlocksRequest](#massa-api-v1-GetBlocksRequest)
     - [GetBlocksResponse](#massa-api-v1-GetBlocksResponse)
     - [GetDatastoreEntriesRequest](#massa-api-v1-GetDatastoreEntriesRequest)
@@ -56,10 +54,8 @@
     - [GetNextBlockBestParentsRequest](#massa-api-v1-GetNextBlockBestParentsRequest)
     - [GetNextBlockBestParentsResponse](#massa-api-v1-GetNextBlockBestParentsResponse)
     - [GetOperationsFilter](#massa-api-v1-GetOperationsFilter)
-    - [GetOperationsQuery](#massa-api-v1-GetOperationsQuery)
     - [GetOperationsRequest](#massa-api-v1-GetOperationsRequest)
     - [GetOperationsResponse](#massa-api-v1-GetOperationsResponse)
-    - [GetScExecutionEventsQuery](#massa-api-v1-GetScExecutionEventsQuery)
     - [GetScExecutionEventsRequest](#massa-api-v1-GetScExecutionEventsRequest)
     - [GetScExecutionEventsResponse](#massa-api-v1-GetScExecutionEventsResponse)
     - [GetSelectorDrawsRequest](#massa-api-v1-GetSelectorDrawsRequest)
@@ -79,18 +75,14 @@
     - [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest)
     - [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse)
     - [NewOperationsFilter](#massa-api-v1-NewOperationsFilter)
-    - [NewOperationsQuery](#massa-api-v1-NewOperationsQuery)
     - [NewOperationsRequest](#massa-api-v1-NewOperationsRequest)
     - [NewOperationsResponse](#massa-api-v1-NewOperationsResponse)
     - [NewSlotExecutionOutputsFilter](#massa-api-v1-NewSlotExecutionOutputsFilter)
-    - [NewSlotExecutionOutputsQuery](#massa-api-v1-NewSlotExecutionOutputsQuery)
     - [NewSlotExecutionOutputsRequest](#massa-api-v1-NewSlotExecutionOutputsRequest)
     - [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse)
-    - [OperationResult](#massa-api-v1-OperationResult)
     - [QueryStateRequest](#massa-api-v1-QueryStateRequest)
     - [QueryStateResponse](#massa-api-v1-QueryStateResponse)
     - [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter)
-    - [SelectorDrawsQuery](#massa-api-v1-SelectorDrawsQuery)
     - [SendBlocksRequest](#massa-api-v1-SendBlocksRequest)
     - [SendBlocksResponse](#massa-api-v1-SendBlocksResponse)
     - [SendEndorsementsRequest](#massa-api-v1-SendEndorsementsRequest)
@@ -99,7 +91,6 @@
     - [SendOperationsResponse](#massa-api-v1-SendOperationsResponse)
     - [StakerEntry](#massa-api-v1-StakerEntry)
     - [StakersFilter](#massa-api-v1-StakersFilter)
-    - [StakersQuery](#massa-api-v1-StakersQuery)
     - [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest)
     - [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse)
   
@@ -545,36 +536,6 @@ Block parent tuple
 
 
 
-<a name="massa-api-v1-BlockResult"></a>
-
-### BlockResult
-Holds Block response
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| block_id | [string](#string) |  | Block id |
-
-
-
-
-
-
-<a name="massa-api-v1-DatastoreEntriesQuery"></a>
-
-### DatastoreEntriesQuery
-DatastoreEntries Query
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| filter | [DatastoreEntryFilter](#massa-api-v1-DatastoreEntryFilter) |  | Filter |
-
-
-
-
-
-
 <a name="massa-api-v1-DatastoreEntry"></a>
 
 ### DatastoreEntry
@@ -594,7 +555,22 @@ DatastoreEntry
 <a name="massa-api-v1-DatastoreEntryFilter"></a>
 
 ### DatastoreEntryFilter
+DatastoreEntryFilter
 
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| entries | [DatastoreEntryFilterEntry](#massa-api-v1-DatastoreEntryFilterEntry) | repeated | Datastore entries |
+
+
+
+
+
+
+<a name="massa-api-v1-DatastoreEntryFilterEntry"></a>
+
+### DatastoreEntryFilterEntry
+DatastoreEntryFilterEntry
 
 
 | Field | Type | Label | Description |
@@ -646,23 +622,8 @@ GetBlocks Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | Block ids |
-| slots | [massa.model.v1.Slots](#massa-model-v1-Slots) |  | Slots |
-
-
-
-
-
-
-<a name="massa-api-v1-GetBlocksQuery"></a>
-
-### GetBlocksQuery
-GetBlocks Query
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| filters | [GetBlocksFilter](#massa-api-v1-GetBlocksFilter) | repeated | Filter |
+| block_ids | [string](#string) | repeated | Block ids |
+| slots | [massa.model.v1.Slots](#massa-model-v1-Slots) | repeated | Slots |
 
 
 
@@ -677,7 +638,7 @@ GetBlocksRequest holds request for GetBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| queries | [GetBlocksQuery](#massa-api-v1-GetBlocksQuery) | repeated | Queries |
+| filter | [GetBlocksFilter](#massa-api-v1-GetBlocksFilter) |  | Filter |
 
 
 
@@ -702,12 +663,13 @@ GetBlocksResponse holds response from GetBlocks
 <a name="massa-api-v1-GetDatastoreEntriesRequest"></a>
 
 ### GetDatastoreEntriesRequest
+TODO be inspected
 GetDatastoreEntriesRequest holds request from GetDatastoreEntries
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| queries | [DatastoreEntriesQuery](#massa-api-v1-DatastoreEntriesQuery) | repeated | Queries |
+| filter | [DatastoreEntryFilter](#massa-api-v1-DatastoreEntryFilter) |  | Filter |
 
 
 
@@ -787,22 +749,8 @@ GetOperations Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| operation_id | [string](#string) |  | Operation id |
-
-
-
-
-
-
-<a name="massa-api-v1-GetOperationsQuery"></a>
-
-### GetOperationsQuery
-GetOperations Query
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| filter | [GetOperationsFilter](#massa-api-v1-GetOperationsFilter) |  | Filter |
+| operation_ids | [string](#string) | repeated | Operation id |
+| operation_types | [OpType](#massa-api-v1-OpType) | repeated | Operation types |
 
 
 
@@ -817,7 +765,7 @@ GetOperationsRequest holds request for GetOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| queries | [GetOperationsQuery](#massa-api-v1-GetOperationsQuery) | repeated | Queries |
+| filter | [GetOperationsFilter](#massa-api-v1-GetOperationsFilter) |  | Filters |
 
 
 
@@ -839,21 +787,6 @@ GetOperationsResponse holds response from GetOperations
 
 
 
-<a name="massa-api-v1-GetScExecutionEventsQuery"></a>
-
-### GetScExecutionEventsQuery
-GetScExecutionEvents Query
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| filter | [massa.model.v1.ScExecutionEventsFilter](#massa-model-v1-ScExecutionEventsFilter) |  | Filter |
-
-
-
-
-
-
 <a name="massa-api-v1-GetScExecutionEventsRequest"></a>
 
 ### GetScExecutionEventsRequest
@@ -862,7 +795,7 @@ GetScExecutionEventsRequest holds request for GetScExecutionEvents
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| query | [GetScExecutionEventsQuery](#massa-api-v1-GetScExecutionEventsQuery) |  | Query |
+| filter | [massa.model.v1.ScExecutionEventsFilter](#massa-model-v1-ScExecutionEventsFilter) |  | Filter |
 
 
 
@@ -892,7 +825,7 @@ GetSelectorDrawsRequest holds request from GetSelectorDraws
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| query | [SelectorDrawsQuery](#massa-api-v1-SelectorDrawsQuery) |  | Query |
+| filter | [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter) |  | Filter |
 
 
 
@@ -922,7 +855,7 @@ GetStakersRequest holds request from GetStakers
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| query | [StakersQuery](#massa-api-v1-StakersQuery) |  | Query |
+| filter | [StakersFilter](#massa-api-v1-StakersFilter) |  | Filter |
 
 
 
@@ -1109,21 +1042,6 @@ NewOperations Filter
 
 
 
-<a name="massa-api-v1-NewOperationsQuery"></a>
-
-### NewOperationsQuery
-NewOperations Query
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| filter | [NewOperationsFilter](#massa-api-v1-NewOperationsFilter) |  | Filter |
-
-
-
-
-
-
 <a name="massa-api-v1-NewOperationsRequest"></a>
 
 ### NewOperationsRequest
@@ -1132,7 +1050,7 @@ NewOperationsRequest holds request for NewOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| query | [NewOperationsQuery](#massa-api-v1-NewOperationsQuery) |  | Query |
+| filter | [NewOperationsFilter](#massa-api-v1-NewOperationsFilter) |  | Filter |
 
 
 
@@ -1169,21 +1087,6 @@ NewSlotExecutionOutputs Filter
 
 
 
-<a name="massa-api-v1-NewSlotExecutionOutputsQuery"></a>
-
-### NewSlotExecutionOutputsQuery
-NewSlotExecutionOutputs Query
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| filter | [NewSlotExecutionOutputsFilter](#massa-api-v1-NewSlotExecutionOutputsFilter) |  | Filter |
-
-
-
-
-
-
 <a name="massa-api-v1-NewSlotExecutionOutputsRequest"></a>
 
 ### NewSlotExecutionOutputsRequest
@@ -1192,7 +1095,7 @@ NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| query | [NewSlotExecutionOutputsQuery](#massa-api-v1-NewSlotExecutionOutputsQuery) |  | Query |
+| filter | [NewSlotExecutionOutputsFilter](#massa-api-v1-NewSlotExecutionOutputsFilter) |  | Filter |
 
 
 
@@ -1208,21 +1111,6 @@ NewSlotExecutionOutputsResponse holds response from NewSlotExecutionOutputs
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | output | [massa.model.v1.SlotExecutionOutput](#massa-model-v1-SlotExecutionOutput) |  | Slot execution output |
-
-
-
-
-
-
-<a name="massa-api-v1-OperationResult"></a>
-
-### OperationResult
-Holds Operation response
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| operations_ids | [string](#string) | repeated | Operations ids |
 
 
 
@@ -1269,22 +1157,8 @@ SelectorDraws Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  |  |
-
-
-
-
-
-
-<a name="massa-api-v1-SelectorDrawsQuery"></a>
-
-### SelectorDrawsQuery
-SelectorDraws Query
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| filters | [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter) | repeated | Filter |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | Addresses |
+| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | Slot range |
 
 
 
@@ -1314,7 +1188,7 @@ SendBlocksResponse holds response from SendBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| result | [BlockResult](#massa-api-v1-BlockResult) |  | Block result |
+| block_id | [string](#string) |  | Block result |
 | error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
 
 
@@ -1345,7 +1219,7 @@ SendEndorsementsResponse holds response from SendEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| result | [EndorsementResult](#massa-api-v1-EndorsementResult) |  | Endorsement result |
+| endorsements_ids | [massa.model.v1.EndorsementsIds](#massa-model-v1-EndorsementsIds) |  | Endorsement result |
 | error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
 
 
@@ -1376,7 +1250,7 @@ SendOperationsResponse holds response from SendOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| result | [OperationResult](#massa-api-v1-OperationResult) |  | Operation result |
+| operations_ids | [massa.model.v1.OperationsIds](#massa-model-v1-OperationsIds) |  | Operation result |
 | error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
 
 
@@ -1410,21 +1284,7 @@ Stakers Filter
 | ----- | ---- | ----- | ----------- |
 | min_rolls | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Minimum rolls (Optional) |
 | max_rolls | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Maximum rolls (Optional) |
-
-
-
-
-
-
-<a name="massa-api-v1-StakersQuery"></a>
-
-### StakersQuery
-Stakers Query
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| filters | [StakersFilter](#massa-api-v1-StakersFilter) | repeated | Filters |
+| limit | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Limit (Optional) |
 
 
 

@@ -104,8 +104,8 @@ message BlockWrapper {
   BlockStatus status = 3;
 }
 
-// BlockIds holds block ids
-message BlockIds {
+// BlockIds holds blocks ids
+message BlocksIds {
   // Block ids
-  repeated string block_ids = 1;
+  repeated string blocks_ids = 1;
 }
