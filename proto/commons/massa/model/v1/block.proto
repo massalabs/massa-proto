@@ -4,7 +4,6 @@ syntax = "proto3";
 
 package massa.model.v1;
 
-import "massa/model/v1/address.proto";
 import "massa/model/v1/endorsement.proto";
 import "massa/model/v1/operation.proto";
 import "massa/model/v1/slot.proto";
@@ -115,15 +114,10 @@ message BlockIds {
   repeated string block_ids = 1;
 }
 
-// GetBlocks Filter
-message GetBlocksFilter {
-  // Filter
-  oneof filter {
-    // One of this Block ids
-    BlockIds block_ids = 1;
-    // One of this Slot ranges (inclusive)
-    massa.model.v1.SlotRange slots = 2;
-    // One of this Creator is one of this addresses
-    massa.model.v1.Addresses addresses = 3;
-  }
+// Block parent tuple
+message BlockParent {
+  // Block id
+  string block_id = 1;
+  // Period
+  uint64 period = 2;
 }

@@ -778,6 +778,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.BlockParent"><span class="badge">M</span>BlockParent</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.BlockWrapper"><span class="badge">M</span>BlockWrapper</a>
                 </li>
               
@@ -787,10 +791,6 @@
               
                 <li>
                   <a href="#massa.model.v1.FilledOperationEntry"><span class="badge">M</span>FilledOperationEntry</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.GetBlocksFilter"><span class="badge">M</span>GetBlocksFilter</a>
                 </li>
               
                 <li>
@@ -922,7 +922,7 @@
             <tbody>
               
                 <tr>
-                  <td>entries</td>
+                  <td>address_key_entries</td>
                   <td><a href="#massa.model.v1.AddressKeyEntry">AddressKeyEntry</a></td>
                   <td>repeated</td>
                   <td><p>List of address- key entries </p></td>
@@ -3995,7 +3995,7 @@ For messages with filter, this boolean is true if the filter has been matched be
         
       
         <h3 id="massa.model.v1.ExecutionQueryStakerInfoEntry">ExecutionQueryStakerInfoEntry</h3>
-        <p>ExecutionQueryStakerInfo entry</p>
+        <p>Staker information for a given cycle</p>
 
         
           <table class="field-table">
@@ -4205,7 +4205,7 @@ For messages with filter, this boolean is true if the filter has been matched be
                 </tr>
               
                 <tr>
-                  <td>entries</td>
+                  <td>datastore</td>
                   <td><a href="#massa.model.v1.BytesMapFieldEntry">BytesMapFieldEntry</a></td>
                   <td>repeated</td>
                   <td><p>A key-value store associating a hash to arbitrary bytes </p></td>
@@ -4429,17 +4429,10 @@ For messages with filter, this boolean is true if the filter has been matched be
             <tbody>
               
                 <tr>
-                  <td>start_slot</td>
-                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td>slot_range</td>
+                  <td><a href="#massa.model.v1.SlotRange">SlotRange</a></td>
                   <td></td>
-                  <td><p>Start slot (Optional) </p></td>
-                </tr>
-              
-                <tr>
-                  <td>end_slot</td>
-                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td></td>
-                  <td><p>End slot (Optional) </p></td>
+                  <td><p>Slot range (Optional) </p></td>
                 </tr>
               
                 <tr>
@@ -5363,6 +5356,37 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
+        <h3 id="massa.model.v1.BlockParent">BlockParent</h3>
+        <p>Block parent tuple</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Block id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>period</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Period </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.BlockWrapper">BlockWrapper</h3>
         <p>A wrapper around a block with its metadata</p>
 
@@ -5454,44 +5478,6 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td><a href="#massa.model.v1.SignedOperation">SignedOperation</a></td>
                   <td></td>
                   <td><p>Signed operation </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.model.v1.GetBlocksFilter">GetBlocksFilter</h3>
-        <p>GetBlocks Filter</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>block_ids</td>
-                  <td><a href="#massa.model.v1.BlockIds">BlockIds</a></td>
-                  <td></td>
-                  <td><p>One of this Block ids </p></td>
-                </tr>
-              
-                <tr>
-                  <td>slots</td>
-                  <td><a href="#massa.model.v1.SlotRange">SlotRange</a></td>
-                  <td></td>
-                  <td><p>One of this Slot ranges (inclusive) </p></td>
-                </tr>
-              
-                <tr>
-                  <td>addresses</td>
-                  <td><a href="#massa.model.v1.Addresses">Addresses</a></td>
-                  <td></td>
-                  <td><p>One of this Creator is one of this addresses </p></td>
                 </tr>
               
             </tbody>

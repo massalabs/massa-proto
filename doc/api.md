@@ -38,9 +38,9 @@
     - [PrivateService](#massa-api-v1-PrivateService)
   
 - [massa/api/v1/public.proto](#massa_api_v1_public-proto)
-    - [BlockParent](#massa-api-v1-BlockParent)
     - [EndorsementResult](#massa-api-v1-EndorsementResult)
     - [ExecutionQueryResponse](#massa-api-v1-ExecutionQueryResponse)
+    - [GetBlocksFilter](#massa-api-v1-GetBlocksFilter)
     - [GetBlocksRequest](#massa-api-v1-GetBlocksRequest)
     - [GetBlocksResponse](#massa-api-v1-GetBlocksResponse)
     - [GetDatastoreEntriesRequest](#massa-api-v1-GetDatastoreEntriesRequest)
@@ -514,22 +514,6 @@ Massa private gRPC service
 
 
 
-<a name="massa-api-v1-BlockParent"></a>
-
-### BlockParent
-Block parent tuple
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| block_id | [string](#string) |  | Block id |
-| period | [uint64](#uint64) |  | Period |
-
-
-
-
-
-
 <a name="massa-api-v1-EndorsementResult"></a>
 
 ### EndorsementResult
@@ -554,7 +538,24 @@ Execution state query response
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | result | [massa.model.v1.ExecutionQueryResponseItem](#massa-model-v1-ExecutionQueryResponseItem) |  | Execution query response item |
-| error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
+| error | [massa.model.v1.Error](#massa-model-v1-Error) |  | Massa error |
+
+
+
+
+
+
+<a name="massa-api-v1-GetBlocksFilter"></a>
+
+### GetBlocksFilter
+GetBlocks Filter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of this creator addresses |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of this block ids |
+| slots | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of this slot ranges (inclusive) |
 
 
 
@@ -569,7 +570,7 @@ GetBlocksRequest holds request for GetBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filters | [massa.model.v1.GetBlocksFilter](#massa-model-v1-GetBlocksFilter) | repeated | Returns all the blocks that verify all the filters |
+| filters | [GetBlocksFilter](#massa-api-v1-GetBlocksFilter) | repeated | Returns all the blocks that verify all the filters |
 
 
 
@@ -584,7 +585,7 @@ GetBlocksResponse holds response from GetBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| blocks | [massa.model.v1.BlockWrapper](#massa-model-v1-BlockWrapper) | repeated | Blocks wrappers |
+| wrapped_blocks | [massa.model.v1.BlockWrapper](#massa-model-v1-BlockWrapper) | repeated | Wrapped blocks |
 
 
 
@@ -614,7 +615,7 @@ GetDatastoreEntriesResponse holds response from GetDatastoreEntries
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| entries | [massa.model.v1.DatastoreEntry](#massa-model-v1-DatastoreEntry) | repeated | Datastore entries |
+| datastore_entries | [massa.model.v1.DatastoreEntry](#massa-model-v1-DatastoreEntry) | repeated | Datastore entries |
 
 
 
@@ -629,7 +630,7 @@ DatastoreEntryFilter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address_key | [massa.model.v1.AddressKeyEntry](#massa-model-v1-AddressKeyEntry) |  | One of this address - key must be present |
+| address_key | [massa.model.v1.AddressKeyEntry](#massa-model-v1-AddressKeyEntry) |  | One of this (address-key) pairs |
 
 
 
@@ -654,7 +655,7 @@ GetMipStatusResponse holds response from GetMipStatus
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| entries | [massa.model.v1.MipStatusEntry](#massa-model-v1-MipStatusEntry) | repeated | MipInfo - status id entries |
+| mipstatus_entries | [massa.model.v1.MipStatusEntry](#massa-model-v1-MipStatusEntry) | repeated | (MipInfo - status id) entries |
 
 
 
@@ -679,7 +680,7 @@ GetNextBlockBestParentsResponse holds response from GetNextBlockBestParents
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| parents | [BlockParent](#massa-api-v1-BlockParent) | repeated | Best parents |
+| block_parents | [massa.model.v1.BlockParent](#massa-model-v1-BlockParent) | repeated | Next block best parents |
 
 
 
@@ -725,7 +726,7 @@ GetOperationsResponse holds response from GetOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| operations | [massa.model.v1.OperationWrapper](#massa-model-v1-OperationWrapper) | repeated | Operations wrappers |
+| wrapped_operations | [massa.model.v1.OperationWrapper](#massa-model-v1-OperationWrapper) | repeated | Wrapped operations |
 
 
 
@@ -770,7 +771,7 @@ GetSelectorDrawsRequest holds request from GetSelectorDraws
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter) | repeated | Returns all the selector draws that verify all the filters |
+| filters | [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter) | repeated | Returns all the selector draws that verify all the filters |
 
 
 
@@ -800,7 +801,7 @@ GetStakersRequest holds request from GetStakers
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [StakersFilter](#massa-api-v1-StakersFilter) | repeated | Returns all the stakers that verify all the filters |
+| filters | [StakersFilter](#massa-api-v1-StakersFilter) | repeated | Returns all the stakers that verify all the filters |
 
 
 
@@ -890,7 +891,7 @@ NewBlocksHeadersResponse holds response from NewBlocksHeaders
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_header | [massa.model.v1.SignedBlockHeader](#massa-model-v1-SignedBlockHeader) |  | Signed block header |
+| signed_block_header | [massa.model.v1.SignedBlockHeader](#massa-model-v1-SignedBlockHeader) |  | Signed block header |
 
 
 
@@ -915,7 +916,7 @@ NewBlocksResponse holds response from NewBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block | [massa.model.v1.SignedBlock](#massa-model-v1-SignedBlock) |  | Signed block |
+| signed_block | [massa.model.v1.SignedBlock](#massa-model-v1-SignedBlock) |  | Signed block |
 
 
 
@@ -940,7 +941,7 @@ NewEndorsementsResponse holds response from NewEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| endorsement | [massa.model.v1.SignedEndorsement](#massa-model-v1-SignedEndorsement) |  | Signed endorsement |
+| signed_endorsement | [massa.model.v1.SignedEndorsement](#massa-model-v1-SignedEndorsement) |  | Signed endorsement |
 
 
 
@@ -965,7 +966,7 @@ NewFilledBlocksResponse holds response from NewFilledBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filled_block | [massa.model.v1.FilledBlock](#massa-model-v1-FilledBlock) |  | Block with operations content |
+| filled_block | [massa.model.v1.FilledBlock](#massa-model-v1-FilledBlock) |  | Block with operations content found in the node. |
 
 
 
@@ -1011,7 +1012,7 @@ NewOperationsResponse holds response from NewOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| operation | [massa.model.v1.SignedOperation](#massa-model-v1-SignedOperation) |  | Signed operation |
+| signed_operation | [massa.model.v1.SignedOperation](#massa-model-v1-SignedOperation) |  | Signed operation |
 
 
 
@@ -1135,7 +1136,7 @@ SendBlocksResponse holds response from SendBlocks
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | block_id | [string](#string) |  | Block result |
-| error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
+| error | [massa.model.v1.Error](#massa-model-v1-Error) |  | Massa error |
 
 
 
@@ -1166,7 +1167,7 @@ SendEndorsementsResponse holds response from SendEndorsements
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | endorsements_ids | [massa.model.v1.EndorsementsIds](#massa-model-v1-EndorsementsIds) |  | Endorsement result |
-| error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
+| error | [massa.model.v1.Error](#massa-model-v1-Error) |  | Massa error |
 
 
 
@@ -1197,7 +1198,7 @@ SendOperationsResponse holds response from SendOperations
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | operations_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | Operation result |
-| error | [google.rpc.Status](#google-rpc-Status) |  | gRPC error(status) |
+| error | [massa.model.v1.Error](#massa-model-v1-Error) |  | Massa error |
 
 
 

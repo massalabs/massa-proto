@@ -6,7 +6,6 @@ package massa.api.v1;
 
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
-import "google/rpc/status.proto";
 import "massa/model/v1/address.proto";
 import "massa/model/v1/block.proto";
 import "massa/model/v1/commons.proto";
@@ -156,13 +155,26 @@ service PublicService {
 // GetBlocksRequest holds request for GetBlocks
 message GetBlocksRequest {
   // Returns all the blocks that verify all the filters
-  repeated massa.model.v1.GetBlocksFilter filters = 1;
+  repeated GetBlocksFilter filters = 1;
+}
+
+// GetBlocks Filter
+message GetBlocksFilter {
+  // Filter
+  oneof filter {
+    // One of this creator addresses
+    massa.model.v1.Addresses addresses = 1;
+    // One of this block ids
+    massa.model.v1.BlockIds block_ids = 2;
+    // One of this slot ranges (inclusive)
+    massa.model.v1.SlotRange slots = 3;
+  }
 }
 
 // GetBlocksResponse holds response from GetBlocks
 message GetBlocksResponse {
-  // Blocks wrappers
-  repeated massa.model.v1.BlockWrapper blocks = 1;
+  // Wrapped blocks
+  repeated massa.model.v1.BlockWrapper wrapped_blocks = 1;
 }
 
 // GetDatastoreEntriesRequest holds request from GetDatastoreEntries
@@ -175,7 +187,7 @@ message GetDatastoreEntriesRequest {
 message GetDatastoreEntryFilter {
   // Filter
   oneof filter {
-    // One of this address - key must be present
+    // One of this (address-key) pairs
     massa.model.v1.AddressKeyEntry address_key = 1;
   }
 }
@@ -183,7 +195,7 @@ message GetDatastoreEntryFilter {
 // GetDatastoreEntriesResponse holds response from GetDatastoreEntries
 message GetDatastoreEntriesResponse {
   // Datastore entries
-  repeated massa.model.v1.DatastoreEntry entries = 1;
+  repeated massa.model.v1.DatastoreEntry datastore_entries = 1;
 }
 
 // GetMipStatusRequest holds request for GetMipStatus
@@ -191,8 +203,8 @@ message GetMipStatusRequest {}
 
 // GetMipStatusResponse holds response from GetMipStatus
 message GetMipStatusResponse {
-  // MipInfo - status id entries
-  repeated massa.model.v1.MipStatusEntry entries = 1;
+  // (MipInfo - status id) entries
+  repeated massa.model.v1.MipStatusEntry mipstatus_entries = 1;
 }
 
 // GetNextBlockBestParentsRequest holds request for GetNextBlockBestParents
@@ -200,16 +212,8 @@ message GetNextBlockBestParentsRequest {}
 
 // GetNextBlockBestParentsResponse holds response from GetNextBlockBestParents
 message GetNextBlockBestParentsResponse {
-  // Best parents
-  repeated BlockParent parents = 1;
-}
-
-// Block parent tuple
-message BlockParent {
-  // Block id
-  string block_id = 1;
-  // Period
-  uint64 period = 2;
+  // Next block best parents
+  repeated massa.model.v1.BlockParent block_parents = 1;
 }
 
 // GetOperationsRequest holds request for GetOperations
@@ -231,8 +235,8 @@ message GetOperationsFilter {
 
 // GetOperationsResponse holds response from GetOperations
 message GetOperationsResponse {
-  //Operations wrappers
-  repeated massa.model.v1.OperationWrapper operations = 1;
+  // Wrapped operations
+  repeated massa.model.v1.OperationWrapper wrapped_operations = 1;
 }
 
 // GetScExecutionEventsRequest holds request for GetScExecutionEvents
@@ -243,7 +247,7 @@ message GetScExecutionEventsRequest {
 
 // GetScExecutionEventsResponse holds response from GetScExecutionEvents
 message GetScExecutionEventsResponse {
-  //ScExecutionEvents
+  // ScExecutionEvents
   repeated massa.model.v1.ScExecutionEvent events = 1;
 }
 
@@ -259,7 +263,7 @@ message GetStatusResponse {
 // GetSelectorDrawsRequest holds request from GetSelectorDraws
 message GetSelectorDrawsRequest {
   // Returns all the selector draws that verify all the filters
-  repeated SelectorDrawsFilter filter = 1;
+  repeated SelectorDrawsFilter filters = 1;
 }
 
 // SelectorDraws Filter
@@ -282,7 +286,7 @@ message GetSelectorDrawsResponse {
 // GetStakersRequest holds request from GetStakers
 message GetStakersRequest {
   // Returns all the stakers that verify all the filters
-  repeated StakersFilter filter = 1;
+  repeated StakersFilter filters = 1;
 }
 
 // Stakers Filter
@@ -335,8 +339,8 @@ message ExecutionQueryResponse {
   oneof response {
     // Execution query response item
     massa.model.v1.ExecutionQueryResponseItem result = 1;
-    // gRPC error(status)
-    google.rpc.Status error = 2;
+    // Massa error
+    massa.model.v1.Error error = 2;
   }
 }
 
@@ -346,7 +350,7 @@ message NewBlocksRequest {}
 // NewBlocksResponse holds response from NewBlocks
 message NewBlocksResponse {
   // Signed block
-  massa.model.v1.SignedBlock block = 1;
+  massa.model.v1.SignedBlock signed_block = 1;
 }
 
 // NewBlocksHeadersRequest holds request for NewBlocksHeaders
@@ -355,7 +359,7 @@ message NewBlocksHeadersRequest {}
 // NewBlocksHeadersResponse holds response from NewBlocksHeaders
 message NewBlocksHeadersResponse {
   // Signed block header
-  massa.model.v1.SignedBlockHeader block_header = 1;
+  massa.model.v1.SignedBlockHeader signed_block_header = 1;
 }
 
 // NewEndorsementsRequest holds request for NewEndorsements
@@ -364,7 +368,7 @@ message NewEndorsementsRequest {}
 // NewEndorsementsResponse holds response from NewEndorsements
 message NewEndorsementsResponse {
   // Signed endorsement
-  massa.model.v1.SignedEndorsement endorsement = 1;
+  massa.model.v1.SignedEndorsement signed_endorsement = 1;
 }
 
 // NewFilledBlocksRequest holds request for NewFilledBlocks
@@ -372,7 +376,7 @@ message NewFilledBlocksRequest {}
 
 // NewFilledBlocksResponse holds response from NewFilledBlocks
 message NewFilledBlocksResponse {
-  // Block with operations content
+  // Block with operations content found in the node.
   massa.model.v1.FilledBlock filled_block = 1;
 }
 
@@ -396,7 +400,7 @@ message NewOperationsFilter {
 // NewOperationsResponse holds response from NewOperations
 message NewOperationsResponse {
   // Signed operation
-  massa.model.v1.SignedOperation operation = 1;
+  massa.model.v1.SignedOperation signed_operation = 1;
 }
 
 // NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs
@@ -432,8 +436,8 @@ message SendBlocksResponse {
   oneof result {
     // Block result
     string block_id = 1;
-    // gRPC error(status)
-    google.rpc.Status error = 2;
+    // Massa error
+    massa.model.v1.Error error = 2;
   }
 }
 
@@ -449,8 +453,8 @@ message SendEndorsementsResponse {
   oneof result {
     // Endorsement result
     massa.model.v1.EndorsementsIds endorsements_ids = 1;
-    // gRPC error(status)
-    google.rpc.Status error = 2;
+    // Massa error
+    massa.model.v1.Error error = 2;
   }
 }
 
@@ -472,8 +476,8 @@ message SendOperationsResponse {
   oneof result {
     // Operation result
     massa.model.v1.OperationIds operations_ids = 1;
-    // gRPC error(status)
-    google.rpc.Status error = 2;
+    // Massa error
+    massa.model.v1.Error error = 2;
   }
 }
 
