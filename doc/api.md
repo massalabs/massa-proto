@@ -55,7 +55,6 @@
     - [CycleInfos](#massa-api-v1-CycleInfos)
     - [DenunciationExecutionStatusCandidate](#massa-api-v1-DenunciationExecutionStatusCandidate)
     - [DenunciationExecutionStatusFinal](#massa-api-v1-DenunciationExecutionStatusFinal)
-    - [EndorsementResult](#massa-api-v1-EndorsementResult)
     - [Events](#massa-api-v1-Events)
     - [ExecutionQueryCycleInfos](#massa-api-v1-ExecutionQueryCycleInfos)
     - [ExecutionQueryRequestItem](#massa-api-v1-ExecutionQueryRequestItem)
@@ -799,21 +798,6 @@ Request to get the execution status (final) for a denunciation
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | denunciation_index | [massa.model.v1.DenunciationIndex](#massa-model-v1-DenunciationIndex) |  | Denunciation index to query |
-
-
-
-
-
-
-<a name="massa-api-v1-EndorsementResult"></a>
-
-### EndorsementResult
-Holds Endorsement response
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| endorsements_ids | [string](#string) | repeated | Endorsements ids |
 
 
 
