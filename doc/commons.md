@@ -40,7 +40,6 @@
 - [massa/model/v1/operation.proto](#massa_model_v1_operation-proto)
     - [CallSC](#massa-model-v1-CallSC)
     - [ExecuteSC](#massa-model-v1-ExecuteSC)
-    - [GetOperationsFilter](#massa-model-v1-GetOperationsFilter)
     - [OpTypes](#massa-model-v1-OpTypes)
     - [Operation](#massa-model-v1-Operation)
     - [OperationIds](#massa-model-v1-OperationIds)
@@ -627,22 +626,6 @@ Execute a smart contract
 | max_coins | [uint64](#uint64) |  | The maximum of coins that could be spent by the operation sender |
 | max_gas | [uint64](#uint64) |  | The maximum amount of gas that the execution of the contract is allowed to cost |
 | datastore | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) | repeated | A key-value store associating a hash to arbitrary bytes |
-
-
-
-
-
-
-<a name="massa-model-v1-GetOperationsFilter"></a>
-
-### GetOperationsFilter
-GetOperations Filter
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| operation_ids | [OperationIds](#massa-model-v1-OperationIds) |  | One of the operation ids |
-| operation_types | [OpTypes](#massa-model-v1-OpTypes) |  | One of the operation types |
 
 
 
