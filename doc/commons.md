@@ -58,53 +58,21 @@
     - [AddressCategory](#massa-model-v1-AddressCategory)
   
 - [massa/model/v1/execution.proto](#massa_model_v1_execution-proto)
-    - [AddressBalanceCandidate](#massa-model-v1-AddressBalanceCandidate)
-    - [AddressBalanceFinal](#massa-model-v1-AddressBalanceFinal)
-    - [AddressBytecodeCandidate](#massa-model-v1-AddressBytecodeCandidate)
-    - [AddressBytecodeFinal](#massa-model-v1-AddressBytecodeFinal)
-    - [AddressDatastoreKeysCandidate](#massa-model-v1-AddressDatastoreKeysCandidate)
-    - [AddressDatastoreKeysFinal](#massa-model-v1-AddressDatastoreKeysFinal)
-    - [AddressDatastoreValueCandidate](#massa-model-v1-AddressDatastoreValueCandidate)
-    - [AddressDatastoreValueFinal](#massa-model-v1-AddressDatastoreValueFinal)
-    - [AddressDeferredCreditsCandidate](#massa-model-v1-AddressDeferredCreditsCandidate)
-    - [AddressDeferredCreditsFinal](#massa-model-v1-AddressDeferredCreditsFinal)
-    - [AddressExistsCandidate](#massa-model-v1-AddressExistsCandidate)
-    - [AddressExistsFinal](#massa-model-v1-AddressExistsFinal)
-    - [AddressRollsCandidate](#massa-model-v1-AddressRollsCandidate)
-    - [AddressRollsFinal](#massa-model-v1-AddressRollsFinal)
     - [AsyncMessage](#massa-model-v1-AsyncMessage)
     - [AsyncMessageTrigger](#massa-model-v1-AsyncMessageTrigger)
     - [AsyncMessageUpdate](#massa-model-v1-AsyncMessageUpdate)
     - [AsyncPoolChangeEntry](#massa-model-v1-AsyncPoolChangeEntry)
     - [AsyncPoolChangeValue](#massa-model-v1-AsyncPoolChangeValue)
-    - [CycleInfos](#massa-model-v1-CycleInfos)
-    - [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader)
-    - [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement)
-    - [DenunciationExecutionStatusCandidate](#massa-model-v1-DenunciationExecutionStatusCandidate)
-    - [DenunciationExecutionStatusFinal](#massa-model-v1-DenunciationExecutionStatusFinal)
-    - [DenunciationIndex](#massa-model-v1-DenunciationIndex)
-    - [Events](#massa-model-v1-Events)
     - [ExecutedOpsChangeEntry](#massa-model-v1-ExecutedOpsChangeEntry)
     - [ExecutedOpsChangeValue](#massa-model-v1-ExecutedOpsChangeValue)
     - [ExecutionOutput](#massa-model-v1-ExecutionOutput)
-    - [ExecutionQueryCycleInfos](#massa-model-v1-ExecutionQueryCycleInfos)
-    - [ExecutionQueryRequestItem](#massa-model-v1-ExecutionQueryRequestItem)
-    - [ExecutionQueryResponseItem](#massa-model-v1-ExecutionQueryResponseItem)
-    - [ExecutionQueryStakerInfo](#massa-model-v1-ExecutionQueryStakerInfo)
-    - [ExecutionQueryStakerInfoEntry](#massa-model-v1-ExecutionQueryStakerInfoEntry)
-    - [ExecutionQueryStakerInfoProductionStats](#massa-model-v1-ExecutionQueryStakerInfoProductionStats)
-    - [ExecutionQueryStakerInfoProductionStatsEntry](#massa-model-v1-ExecutionQueryStakerInfoProductionStatsEntry)
     - [FinalizedExecutionOutput](#massa-model-v1-FinalizedExecutionOutput)
     - [LedgerChangeEntry](#massa-model-v1-LedgerChangeEntry)
     - [LedgerChangeValue](#massa-model-v1-LedgerChangeValue)
     - [LedgerEntry](#massa-model-v1-LedgerEntry)
     - [LedgerEntryUpdate](#massa-model-v1-LedgerEntryUpdate)
-    - [OpExecutionStatusCandidate](#massa-model-v1-OpExecutionStatusCandidate)
-    - [OpExecutionStatusFinal](#massa-model-v1-OpExecutionStatusFinal)
-    - [SCOutputEventsWrapper](#massa-model-v1-SCOutputEventsWrapper)
     - [ScExecutionEvent](#massa-model-v1-ScExecutionEvent)
     - [ScExecutionEventContext](#massa-model-v1-ScExecutionEventContext)
-    - [ScExecutionEventsFilter](#massa-model-v1-ScExecutionEventsFilter)
     - [SetOrDeleteDatastoreEntry](#massa-model-v1-SetOrDeleteDatastoreEntry)
     - [SetOrKeepAsyncMessageTrigger](#massa-model-v1-SetOrKeepAsyncMessageTrigger)
     - [SetOrKeepBalance](#massa-model-v1-SetOrKeepBalance)
@@ -118,7 +86,6 @@
   
     - [AsyncPoolChangeType](#massa-model-v1-AsyncPoolChangeType)
     - [ExecutionOutputStatus](#massa-model-v1-ExecutionOutputStatus)
-    - [ExecutionQueryExecutionStatus](#massa-model-v1-ExecutionQueryExecutionStatus)
     - [LedgerChangeType](#massa-model-v1-LedgerChangeType)
     - [OperationExecutionStatus](#massa-model-v1-OperationExecutionStatus)
     - [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus)
@@ -890,6 +857,69 @@ Possible statuses for an operation
 
 
 
+<a name="massa_model_v1_denunciation-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/denunciation.proto
+
+
+
+<a name="massa-model-v1-DenunciationBlockHeader"></a>
+
+### DenunciationBlockHeader
+Variant for Block header denunciation index
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [Slot](#massa-model-v1-Slot) |  | Denounciation slot |
+
+
+
+
+
+
+<a name="massa-model-v1-DenunciationEndorsement"></a>
+
+### DenunciationEndorsement
+Variant for Endorsement denunciation index
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [Slot](#massa-model-v1-Slot) |  | Denounciation slot |
+| index | [uint32](#uint32) |  | Denounciation index |
+
+
+
+
+
+
+<a name="massa-model-v1-DenunciationIndex"></a>
+
+### DenunciationIndex
+Index for Denunciations in collections (e.g. like a HashMap...)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_header | [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader) |  | Denunciation block header |
+| endorsement | [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement) |  | Denunciation endorsement |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
 <a name="massa_model_v1_commons-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -1022,220 +1052,6 @@ the future. value = mantissa / (10^scale)
 
 
 
-<a name="massa-model-v1-AddressBalanceCandidate"></a>
-
-### AddressBalanceCandidate
-Request to get the balance (candidate) of an address
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to query |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressBalanceFinal"></a>
-
-### AddressBalanceFinal
-Request to get the balance (final) of an address
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to query |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressBytecodeCandidate"></a>
-
-### AddressBytecodeCandidate
-Request to get the bytecode (candidate) of an address
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to query |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressBytecodeFinal"></a>
-
-### AddressBytecodeFinal
-Request to get the bytecode (final) of an address
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to query |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressDatastoreKeysCandidate"></a>
-
-### AddressDatastoreKeysCandidate
-Request to get the datastore keys (candidate) of an address
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to query |
-| prefix | [bytes](#bytes) |  | Prefix for the keys |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressDatastoreKeysFinal"></a>
-
-### AddressDatastoreKeysFinal
-Request to get the datastore keys (final) of an address
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to query |
-| prefix | [bytes](#bytes) |  | Prefix for the keys |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressDatastoreValueCandidate"></a>
-
-### AddressDatastoreValueCandidate
-Request to get a datastore value (candidate) for an address
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to query |
-| key | [bytes](#bytes) |  | Key for the value |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressDatastoreValueFinal"></a>
-
-### AddressDatastoreValueFinal
-Request to get a datastore value (final) for an address
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to query |
-| key | [bytes](#bytes) |  | Key for the value |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressDeferredCreditsCandidate"></a>
-
-### AddressDeferredCreditsCandidate
-Request to get the deferred credits (candidate) of an address
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to query |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressDeferredCreditsFinal"></a>
-
-### AddressDeferredCreditsFinal
-Request to get the deferred credits (final) of an address
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to query |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressExistsCandidate"></a>
-
-### AddressExistsCandidate
-Request to check if address exists (candidate)
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to check |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressExistsFinal"></a>
-
-### AddressExistsFinal
-Request to check if address exists (final)
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to check |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressRollsCandidate"></a>
-
-### AddressRollsCandidate
-Request to get the roll count (candidate) of an address
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to query |
-
-
-
-
-
-
-<a name="massa-model-v1-AddressRollsFinal"></a>
-
-### AddressRollsFinal
-Request to get the roll count (final) of an address
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address to query |
-
-
-
-
-
-
 <a name="massa-model-v1-AsyncMessage"></a>
 
 ### AsyncMessage
@@ -1339,114 +1155,6 @@ AsyncPoolChangeValue
 
 
 
-<a name="massa-model-v1-CycleInfos"></a>
-
-### CycleInfos
-Request to get all information for a given cycle
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| cycle | [uint64](#uint64) |  | Cycle to query |
-| restrict_to_addresses | [string](#string) | repeated | Addresses to restrict the query (if None, info for all addresses will be returned) |
-
-
-
-
-
-
-<a name="massa-model-v1-DenunciationBlockHeader"></a>
-
-### DenunciationBlockHeader
-Variant for Block header denunciation index
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slot | [Slot](#massa-model-v1-Slot) |  | Denounciation slot |
-
-
-
-
-
-
-<a name="massa-model-v1-DenunciationEndorsement"></a>
-
-### DenunciationEndorsement
-Variant for Endorsement denunciation index
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slot | [Slot](#massa-model-v1-Slot) |  | Denounciation slot |
-| index | [uint32](#uint32) |  | Denounciation index |
-
-
-
-
-
-
-<a name="massa-model-v1-DenunciationExecutionStatusCandidate"></a>
-
-### DenunciationExecutionStatusCandidate
-Request to get the execution status (candidate) for a denunciation
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| denunciation_index | [DenunciationIndex](#massa-model-v1-DenunciationIndex) |  | Denunciation index to query |
-
-
-
-
-
-
-<a name="massa-model-v1-DenunciationExecutionStatusFinal"></a>
-
-### DenunciationExecutionStatusFinal
-Request to get the execution status (final) for a denunciation
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| denunciation_index | [DenunciationIndex](#massa-model-v1-DenunciationIndex) |  | Denunciation index to query |
-
-
-
-
-
-
-<a name="massa-model-v1-DenunciationIndex"></a>
-
-### DenunciationIndex
-Index for Denunciations in collections (e.g. like a HashMap...)
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| block_header | [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader) |  | Denunciation block header |
-| endorsement | [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement) |  | Denunciation endorsement |
-
-
-
-
-
-
-<a name="massa-model-v1-Events"></a>
-
-### Events
-Request to get filtered events
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| filter | [ScExecutionEventsFilter](#massa-model-v1-ScExecutionEventsFilter) |  | Event filter to apply |
-
-
-
-
-
-
 <a name="massa-model-v1-ExecutedOpsChangeEntry"></a>
 
 ### ExecutedOpsChangeEntry
@@ -1491,144 +1199,6 @@ ExecutionOutput
 | block_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Block id at that slot (optional) |
 | events | [ScExecutionEvent](#massa-model-v1-ScExecutionEvent) | repeated | Events emitted by the execution step |
 | state_changes | [StateChanges](#massa-model-v1-StateChanges) |  | State changes caused by the execution step |
-
-
-
-
-
-
-<a name="massa-model-v1-ExecutionQueryCycleInfos"></a>
-
-### ExecutionQueryCycleInfos
-Cycle information for execution query
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| cycle | [uint64](#uint64) |  | Cycle number |
-| is_final | [bool](#bool) |  | Whether the cycle is final |
-| staker_infos | [ExecutionQueryStakerInfoEntry](#massa-model-v1-ExecutionQueryStakerInfoEntry) | repeated | Infos for each PoS-participating address among the ones that were asked |
-
-
-
-
-
-
-<a name="massa-model-v1-ExecutionQueryRequestItem"></a>
-
-### ExecutionQueryRequestItem
-Query state query item
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address_exists_candidate | [AddressExistsCandidate](#massa-model-v1-AddressExistsCandidate) |  | Checks if address exists (candidate) |
-| address_exists_final | [AddressExistsFinal](#massa-model-v1-AddressExistsFinal) |  | Checks if address exists (final) |
-| address_balance_candidate | [AddressBalanceCandidate](#massa-model-v1-AddressBalanceCandidate) |  | Gets the balance (candidate) of an address |
-| address_balance_final | [AddressBalanceFinal](#massa-model-v1-AddressBalanceFinal) |  | Gets the balance (final) of an address |
-| address_bytecode_candidate | [AddressBytecodeCandidate](#massa-model-v1-AddressBytecodeCandidate) |  | Gets the bytecode (candidate) of an address |
-| address_bytecode_final | [AddressBytecodeFinal](#massa-model-v1-AddressBytecodeFinal) |  | Gets the bytecode (final) of an address |
-| address_datastore_keys_candidate | [AddressDatastoreKeysCandidate](#massa-model-v1-AddressDatastoreKeysCandidate) |  | Gets the datastore keys (candidate) of an address |
-| address_datastore_keys_final | [AddressDatastoreKeysFinal](#massa-model-v1-AddressDatastoreKeysFinal) |  | Gets the datastore keys (final) of an address |
-| address_datastore_value_candidate | [AddressDatastoreValueCandidate](#massa-model-v1-AddressDatastoreValueCandidate) |  | Gets a datastore value (candidate) for an address |
-| address_datastore_value_final | [AddressDatastoreValueFinal](#massa-model-v1-AddressDatastoreValueFinal) |  | Gets a datastore value (final) for an address |
-| op_execution_status_candidate | [OpExecutionStatusCandidate](#massa-model-v1-OpExecutionStatusCandidate) |  | Gets the execution status (candidate) for an operation |
-| op_execution_status_final | [OpExecutionStatusFinal](#massa-model-v1-OpExecutionStatusFinal) |  | Gets the execution status (final) for an operation |
-| denunciation_execution_status_candidate | [DenunciationExecutionStatusCandidate](#massa-model-v1-DenunciationExecutionStatusCandidate) |  | Gets the execution status (candidate) for a denunciation |
-| denunciation_execution_status_final | [DenunciationExecutionStatusFinal](#massa-model-v1-DenunciationExecutionStatusFinal) |  | Gets the execution status (final) for a denunciation |
-| address_rolls_candidate | [AddressRollsCandidate](#massa-model-v1-AddressRollsCandidate) |  | Gets the roll count (candidate) of an address |
-| address_rolls_final | [AddressRollsFinal](#massa-model-v1-AddressRollsFinal) |  | Gets the roll count (final) of an address |
-| address_deferred_credits_candidate | [AddressDeferredCreditsCandidate](#massa-model-v1-AddressDeferredCreditsCandidate) |  | Gets the deferred credits (candidate) of an address |
-| address_deferred_credits_final | [AddressDeferredCreditsFinal](#massa-model-v1-AddressDeferredCreditsFinal) |  | Gets the deferred credits (final) of an address |
-| cycle_infos | [CycleInfos](#massa-model-v1-CycleInfos) |  | Gets all information for a given cycle |
-| events | [Events](#massa-model-v1-Events) |  | Gets filtered events |
-
-
-
-
-
-
-<a name="massa-model-v1-ExecutionQueryResponseItem"></a>
-
-### ExecutionQueryResponseItem
-Execution state query response item
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| boolean | [bool](#bool) |  | Boolean value |
-| roll_count | [uint64](#uint64) |  | Roll counts value |
-| amount | [NativeAmount](#massa-model-v1-NativeAmount) |  | Amount value |
-| bytes | [bytes](#bytes) |  | Bytes value |
-| vec_bytes | [ArrayOfBytesWrapper](#massa-model-v1-ArrayOfBytesWrapper) |  | Vector of bytes value |
-| deferred_credits | [uint64](#uint64) |  | Deferred credits value |
-| execution_status | [ExecutionQueryExecutionStatus](#massa-model-v1-ExecutionQueryExecutionStatus) |  | Execution status value |
-| cycle_infos | [ExecutionQueryCycleInfos](#massa-model-v1-ExecutionQueryCycleInfos) |  | Cycle infos value |
-| events | [SCOutputEventsWrapper](#massa-model-v1-SCOutputEventsWrapper) |  | Events |
-
-
-
-
-
-
-<a name="massa-model-v1-ExecutionQueryStakerInfo"></a>
-
-### ExecutionQueryStakerInfo
-Staker information for execution query
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| active_rolls | [uint64](#uint64) |  | Active roll count |
-| production_stats | [ExecutionQueryStakerInfoProductionStatsEntry](#massa-model-v1-ExecutionQueryStakerInfoProductionStatsEntry) | repeated | Production stats |
-
-
-
-
-
-
-<a name="massa-model-v1-ExecutionQueryStakerInfoEntry"></a>
-
-### ExecutionQueryStakerInfoEntry
-Staker information for a given cycle
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address of the staker |
-| info | [ExecutionQueryStakerInfo](#massa-model-v1-ExecutionQueryStakerInfo) |  | Staker info |
-
-
-
-
-
-
-<a name="massa-model-v1-ExecutionQueryStakerInfoProductionStats"></a>
-
-### ExecutionQueryStakerInfoProductionStats
-Production statistics for staker info in execution query
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| block_success_count | [uint64](#uint64) |  | Production successes |
-| block_failure_count | [uint64](#uint64) |  | Production failures |
-
-
-
-
-
-
-<a name="massa-model-v1-ExecutionQueryStakerInfoProductionStatsEntry"></a>
-
-### ExecutionQueryStakerInfoProductionStatsEntry
-ExecutionQueryStakerInfoProductionStats entry
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  | Address of the staker |
-| stats | [ExecutionQueryStakerInfoProductionStats](#massa-model-v1-ExecutionQueryStakerInfoProductionStats) |  | Production failure |
 
 
 
@@ -1717,51 +1287,6 @@ Represents an update to one or more fields of a `LedgerEntry`
 
 
 
-<a name="massa-model-v1-OpExecutionStatusCandidate"></a>
-
-### OpExecutionStatusCandidate
-Request to get the execution status (candidate) for an operation
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| operation_id | [string](#string) |  | Operation ID to query |
-
-
-
-
-
-
-<a name="massa-model-v1-OpExecutionStatusFinal"></a>
-
-### OpExecutionStatusFinal
-Request to get the execution status (final) for an operation
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| operation_id | [string](#string) |  | Operation ID to query |
-
-
-
-
-
-
-<a name="massa-model-v1-SCOutputEventsWrapper"></a>
-
-### SCOutputEventsWrapper
-SCOutputEvents wrapper
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| event | [ScExecutionEvent](#massa-model-v1-ScExecutionEvent) | repeated | Events |
-
-
-
-
-
-
 <a name="massa-model-v1-ScExecutionEvent"></a>
 
 ### ScExecutionEvent
@@ -1792,25 +1317,6 @@ ScExecutionEvent context
 | call_stack | [string](#string) | repeated | Call stack addresses. most recent at the end |
 | origin_operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Origin operation id (Optional) |
 | status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) |  | Status |
-
-
-
-
-
-
-<a name="massa-model-v1-ScExecutionEventsFilter"></a>
-
-### ScExecutionEventsFilter
-ScExecutionEvents Filter
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slot_range | [SlotRange](#massa-model-v1-SlotRange) |  | Slot range (Optional) |
-| caller_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Caller address (Optional) |
-| emitter_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Emitter address (Optional) |
-| original_operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Original operation id (Optional) |
-| status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) | repeated | Status (Optional) |
 
 
 
@@ -2005,20 +1511,6 @@ ExecutionOutputStatus type enum
 | EXECUTION_OUTPUT_STATUS_UNSPECIFIED | 0 | Default enum value |
 | EXECUTION_OUTPUT_STATUS_CANDIDATE | 1 | Candidate status |
 | EXECUTION_OUTPUT_STATUS_FINAL | 2 | Final status |
-
-
-
-<a name="massa-model-v1-ExecutionQueryExecutionStatus"></a>
-
-### ExecutionQueryExecutionStatus
-Execution status of an operation or denunciation
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| EXECUTION_QUERY_EXECUTION_STATUS_UNSPECIFIED | 0 | Default enum value |
-| EXECUTION_QUERY_EXECUTION_STATUS_ALREADY_EXECUTED_WITH_SUCCESS | 1 | The operation or denunciation was executed recently with success |
-| EXECUTION_QUERY_EXECUTION_STATUS_ALREADY_EXECUTED_WITH_FAILURE | 2 | The operation or denunciation was executed recently with failure |
-| EXECUTION_QUERY_EXECUTION_STATUS_EXECUTABLE_OR_EXPIRED | 3 | The operation or denunciation was not executed recently but can still be executed unless expired |
 
 
 
