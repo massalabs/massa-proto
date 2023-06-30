@@ -730,12 +730,6 @@ message SendEndorsementsResponse {
   }
 }
 
-// Holds Endorsement response
-message EndorsementResult {
-  // Endorsements ids
-  repeated string endorsements_ids = 1;
-}
-
 // SendOperationsRequest holds parameters to SendOperations
 message SendOperationsRequest {
   // Secured shared operations
