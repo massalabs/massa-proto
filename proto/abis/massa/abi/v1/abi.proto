@@ -180,6 +180,7 @@ message RespResult {
     VerifyBlsSingleSigResult verify_bls_single_sig_result = 61;
     VerifyEvmSigResult verify_evm_sig_result = 62;
     VerifySigResult verify_sig_result = 63;
+    SendAsyncMessageResult send_async_message_result = 64;
   }
 }
 
