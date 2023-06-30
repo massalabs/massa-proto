@@ -181,6 +181,7 @@ message RespResult {
     VerifyEvmSigResult verify_evm_sig_result = 62;
     VerifySigResult verify_sig_result = 63;
     SendAsyncMessageResult send_async_message_result = 64;
+    LocalExecutionResponse local_execution_response = 65;
   }
 }
 
