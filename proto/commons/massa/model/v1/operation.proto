@@ -149,14 +149,3 @@ enum OpType {
   OP_TYPE_EXECUTE_SC = 4; // Execute smart contract
   OP_TYPE_CALL_SC = 5; // Call smart contract
 }
-
-// GetOperations Filter
-message GetOperationsFilter {
-  // Filter
-  oneof filter {
-    // One of the operation ids
-    massa.model.v1.OperationIds operation_ids = 1;
-    // One of the operation types
-    massa.model.v1.OpTypes operation_types = 2;
-  }
-}
