@@ -39,16 +39,18 @@ message NodeStatus {
   massa.model.v1.Slot last_executed_final_slot = 9;
   // Last executed speculative slot
   massa.model.v1.Slot last_executed_speculative_slot = 10;
+  // The hash of the XOF final state hash
+  string final_state_fingerprint = 11;
   // Consensus stats
-  massa.model.v1.ConsensusStats consensus_stats = 11;
+  massa.model.v1.ConsensusStats consensus_stats = 12;
   // Pool stats (operation count and endorsement count)
-  massa.model.v1.PoolStats pool_stats = 12;
+  massa.model.v1.PoolStats pool_stats = 13;
   // Network stats
-  massa.model.v1.NetworkStats network_stats = 13;
+  massa.model.v1.NetworkStats network_stats = 14;
   // Execution stats
-  massa.model.v1.ExecutionStats execution_stats = 14;
+  massa.model.v1.ExecutionStats execution_stats = 15;
   // Compact configuration
-  CompactConfig config = 15;
+  CompactConfig config = 16;
 }
 
 // Connected node
@@ -107,9 +109,11 @@ message PublicStatus {
   // Next cycle starting timestamp
   massa.model.v1.NativeTime next_cycle_time = 7;
   // Last executed final slot
-  massa.model.v1.Slot last_executed_final_slot = 11;
+  massa.model.v1.Slot last_executed_final_slot = 8;
   // Last executed speculative slot
-  massa.model.v1.Slot last_executed_speculative_slot = 12;
+  massa.model.v1.Slot last_executed_speculative_slot = 9;
+  // The hash of the XOF final state hash
+  string final_state_fingerprint = 10;
   // Compact configuration
-  CompactConfig config = 13;
+  CompactConfig config = 11;
 }

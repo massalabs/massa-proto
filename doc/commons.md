@@ -541,6 +541,7 @@ Node status
 | connected_nodes | [ConnectedNode](#massa-model-v1-ConnectedNode) | repeated | Connected nodes |
 | last_executed_final_slot | [Slot](#massa-model-v1-Slot) |  | Last executed final slot |
 | last_executed_speculative_slot | [Slot](#massa-model-v1-Slot) |  | Last executed speculative slot |
+| final_state_fingerprint | [string](#string) |  | The hash of the XOF final state hash |
 | consensus_stats | [ConsensusStats](#massa-model-v1-ConsensusStats) |  | Consensus stats |
 | pool_stats | [PoolStats](#massa-model-v1-PoolStats) |  | Pool stats (operation count and endorsement count) |
 | network_stats | [NetworkStats](#massa-model-v1-NetworkStats) |  | Network stats |
@@ -568,6 +569,7 @@ Public status
 | next_cycle_time | [NativeTime](#massa-model-v1-NativeTime) |  | Next cycle starting timestamp |
 | last_executed_final_slot | [Slot](#massa-model-v1-Slot) |  | Last executed final slot |
 | last_executed_speculative_slot | [Slot](#massa-model-v1-Slot) |  | Last executed speculative slot |
+| final_state_fingerprint | [string](#string) |  | The hash of the XOF final state hash |
 | config | [CompactConfig](#massa-model-v1-CompactConfig) |  | Compact configuration |
 
 
