@@ -123,6 +123,9 @@
     - [ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResult)
     - [SeedRequest](#massa-abi-v1-SeedRequest)
     - [SeedResult](#massa-abi-v1-SeedResult)
+    - [SendAsyncMessageFilter](#massa-abi-v1-SendAsyncMessageFilter)
+    - [SendAsyncMessageRequest](#massa-abi-v1-SendAsyncMessageRequest)
+    - [SendAsyncMessageResult](#massa-abi-v1-SendAsyncMessageResult)
     - [SetBytecodeRequest](#massa-abi-v1-SetBytecodeRequest)
     - [SetBytecodeResult](#massa-abi-v1-SetBytecodeResult)
     - [SetDataRequest](#massa-abi-v1-SetDataRequest)
@@ -1896,6 +1899,8 @@ the &#43;2 comes from ResResult itself which is counted above and from Compariso
 | verify_bls_single_sig_result | [VerifyBlsSingleSigResult](#massa-abi-v1-VerifyBlsSingleSigResult) |  |  |
 | verify_evm_sig_result | [VerifyEvmSigResult](#massa-abi-v1-VerifyEvmSigResult) |  |  |
 | verify_sig_result | [VerifySigResult](#massa-abi-v1-VerifySigResult) |  |  |
+| send_async_message_result | [SendAsyncMessageResult](#massa-abi-v1-SendAsyncMessageResult) |  |  |
+| local_execution_response | [LocalExecutionResponse](#massa-abi-v1-LocalExecutionResponse) |  |  |
 
 
 
@@ -1957,6 +1962,55 @@ Seed result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | seed | [double](#double) |  | Seed |
+
+
+
+
+
+
+<a name="massa-abi-v1-SendAsyncMessageFilter"></a>
+
+### SendAsyncMessageFilter
+Send async message request filter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target_address | [string](#string) |  | Target address |
+| target_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | Target key |
+
+
+
+
+
+
+<a name="massa-abi-v1-SendAsyncMessageRequest"></a>
+
+### SendAsyncMessageRequest
+Send async message request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target_address | [string](#string) |  | Target address |
+| target_handler | [string](#string) |  | Target handler (function name) |
+| validity_start | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Start slot for the message execution |
+| validity_end | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | End slot for the message execution |
+| execution_gas | [uint64](#uint64) |  | Gas given for the execution |
+| raw_fee | [uint64](#uint64) |  | Message fee |
+| raw_coins | [uint64](#uint64) |  | Coins sent to the execution context |
+| data | [bytes](#bytes) |  | Message data |
+| filter | [SendAsyncMessageFilter](#massa-abi-v1-SendAsyncMessageFilter) |  | Filter for the message |
+
+
+
+
+
+
+<a name="massa-abi-v1-SendAsyncMessageResult"></a>
+
+### SendAsyncMessageResult
+Send async message result
 
 
 
@@ -2084,7 +2138,6 @@ Unsafe random request
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mandatory_memory_addr | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  |  |
 | mandatory_num_bytes | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  |  |
 
 
@@ -2096,6 +2149,11 @@ Unsafe random request
 
 ### UnsafeRandomResult
 Unsafe random result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| random_bytes | [bytes](#bytes) |  | Random bytes generated |
 
 
 

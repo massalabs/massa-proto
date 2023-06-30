@@ -655,6 +655,18 @@
                 </li>
               
                 <li>
+                  <a href="#massa.abi.v1.SendAsyncMessageFilter"><span class="badge">M</span>SendAsyncMessageFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.SendAsyncMessageRequest"><span class="badge">M</span>SendAsyncMessageRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.SendAsyncMessageResult"><span class="badge">M</span>SendAsyncMessageResult</a>
+                </li>
+              
+                <li>
                   <a href="#massa.abi.v1.SetBytecodeRequest"><span class="badge">M</span>SetBytecodeRequest</a>
                 </li>
               
@@ -3893,6 +3905,20 @@
                   <td><p> </p></td>
                 </tr>
               
+                <tr>
+                  <td>send_async_message_result</td>
+                  <td><a href="#massa.abi.v1.SendAsyncMessageResult">SendAsyncMessageResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>local_execution_response</td>
+                  <td><a href="#massa.abi.v1.LocalExecutionResponse">LocalExecutionResponse</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -3990,6 +4016,124 @@
           </table>
 
           
+
+        
+      
+        <h3 id="massa.abi.v1.SendAsyncMessageFilter">SendAsyncMessageFilter</h3>
+        <p>Send async message request filter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>target_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Target address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_key</td>
+                  <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
+                  <td></td>
+                  <td><p>Target key </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.SendAsyncMessageRequest">SendAsyncMessageRequest</h3>
+        <p>Send async message request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>target_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Target address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_handler</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Target handler (function name) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>validity_start</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>Start slot for the message execution </p></td>
+                </tr>
+              
+                <tr>
+                  <td>validity_end</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>End slot for the message execution </p></td>
+                </tr>
+              
+                <tr>
+                  <td>execution_gas</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Gas given for the execution </p></td>
+                </tr>
+              
+                <tr>
+                  <td>raw_fee</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Message fee </p></td>
+                </tr>
+              
+                <tr>
+                  <td>raw_coins</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Coins sent to the execution context </p></td>
+                </tr>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Message data </p></td>
+                </tr>
+              
+                <tr>
+                  <td>filter</td>
+                  <td><a href="#massa.abi.v1.SendAsyncMessageFilter">SendAsyncMessageFilter</a></td>
+                  <td></td>
+                  <td><p>Filter for the message </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.SendAsyncMessageResult">SendAsyncMessageResult</h3>
+        <p>Send async message result</p>
+
+        
 
         
       
@@ -4187,13 +4331,6 @@
             <tbody>
               
                 <tr>
-                  <td>mandatory_memory_addr</td>
-                  <td><a href="#google.protobuf.UInt32Value">google.protobuf.UInt32Value</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
                   <td>mandatory_num_bytes</td>
                   <td><a href="#google.protobuf.UInt32Value">google.protobuf.UInt32Value</a></td>
                   <td></td>
@@ -4211,6 +4348,23 @@
         <p>Unsafe random result</p>
 
         
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>random_bytes</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Random bytes generated </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
 
         
       

@@ -180,6 +180,8 @@ message RespResult {
     VerifyBlsSingleSigResult verify_bls_single_sig_result = 61;
     VerifyEvmSigResult verify_evm_sig_result = 62;
     VerifySigResult verify_sig_result = 63;
+    SendAsyncMessageResult send_async_message_result = 64;
+    LocalExecutionResponse local_execution_response = 65;
   }
 }
 
@@ -716,12 +718,47 @@ message AddressFromPubKeyResult {
 
 // Unsafe random request
 message UnsafeRandomRequest {
-  google.protobuf.UInt32Value mandatory_memory_addr = 1;
   google.protobuf.UInt32Value mandatory_num_bytes = 2;
 }
 
 // Unsafe random result
-message UnsafeRandomResult {}
+message UnsafeRandomResult {
+  // Random bytes generated
+  bytes random_bytes = 1;
+}
+
+// Send async message request filter
+message SendAsyncMessageFilter {
+  // Target address
+  string target_address = 1;
+  // Target key
+  google.protobuf.BytesValue target_key = 2;
+}
+
+// Send async message request
+message SendAsyncMessageRequest {
+  // Target address
+  string target_address = 1;
+  // Target handler (function name)
+  string target_handler = 2;
+  // Start slot for the message execution
+  massa.model.v1.Slot validity_start = 3;
+  // End slot for the message execution
+  massa.model.v1.Slot validity_end = 4;
+  // Gas given for the execution
+  uint64 execution_gas = 5;
+  // Message fee
+  uint64 raw_fee = 6;
+  // Coins sent to the execution context
+  uint64 raw_coins = 7;
+  // Message data
+  bytes data = 8;
+  // Filter for the message
+  SendAsyncMessageFilter filter = 9;
+}
+
+// Send async message result
+message SendAsyncMessageResult {}
 
 // Get native time request
 message GetNativeTimeRequest {}
