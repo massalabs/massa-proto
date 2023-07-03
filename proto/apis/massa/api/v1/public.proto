@@ -521,8 +521,10 @@ message QueryStateResponse {
   massa.model.v1.Slot final_cursor = 1;
   // Candidate cursor position
   massa.model.v1.Slot candidate_cursor = 2;
+  // The hash of the XOF final state hash
+  string final_state_fingerprint = 3;
   // List of execution query response items
-  repeated ExecutionQueryResponse responses = 3;
+  repeated ExecutionQueryResponse responses = 4;
 }
 
 // Execution state query response

@@ -1612,6 +1612,7 @@ Response to atomically execute a batch of execution state queries
 | ----- | ---- | ----- | ----------- |
 | final_cursor | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Final cursor position |
 | candidate_cursor | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Candidate cursor position |
+| final_state_fingerprint | [string](#string) |  | The hash of the XOF final state hash |
 | responses | [ExecutionQueryResponse](#massa-api-v1-ExecutionQueryResponse) | repeated | List of execution query response items |
 
 
