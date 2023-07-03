@@ -1538,6 +1538,7 @@ ScExecutionEventStatus type enum
 | SC_EXECUTION_EVENT_STATUS_FINAL | 1 | Final status |
 | SC_EXECUTION_EVENT_STATUS_READ_ONLY | 2 | Read only status |
 | SC_EXECUTION_EVENT_STATUS_FAILURE | 3 | Failure status |
+| SC_EXECUTION_EVENT_STATUS_UNKNOWN | 4 | Unknown status |
 
 
  
