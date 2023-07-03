@@ -1496,6 +1496,7 @@ ExecutionOutputStatus type enum
 | EXECUTION_OUTPUT_STATUS_UNSPECIFIED | 0 | Default enum value |
 | EXECUTION_OUTPUT_STATUS_CANDIDATE | 1 | Candidate status |
 | EXECUTION_OUTPUT_STATUS_FINAL | 2 | Final status |
+| EXECUTION_OUTPUT_STATUS_UNKNOWN | 3 | Unknown status |
 
 
 
