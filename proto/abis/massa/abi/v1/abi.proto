@@ -6,6 +6,7 @@ package massa.abi.v1;
 import "google/protobuf/wrappers.proto";
 import "massa/model/v1/address.proto";
 import "massa/model/v1/amount.proto";
+import "massa/model/v1/commons.proto";
 import "massa/model/v1/slot.proto";
 import "massa/model/v1/time.proto";
 
@@ -86,7 +87,7 @@ message TransferCoinsRequest {
   // The amount of coins to transfer
   massa.model.v1.NativeAmount amount_to_transfer = 2;
   // The address of the sender, if none, use current address
-  google.protobuf.StringValue optional_sender_address = 3;
+  optional google.protobuf.StringValue sender_address = 3;
 }
 
 // Transfer coin result
@@ -113,8 +114,8 @@ message FunctionExistsResult {
 
 // Tips to check for completeness exec:
 // `rg message | rg "\{" | rg "Result" | wc -l`
-// the given count should be equal to the number of messages in RespResult + 2
-// the +2 comes from ResResult itself which is counted above and from ComparisonResult which is not in the same category
+// the given count should be equal to the number of messages in RespResult + 1
+// the +1 comes from ResResult itself which is counted above
 message RespResult {
   oneof res {
     AddNativeAmountsResult add_native_amounts_result = 1;
@@ -315,7 +316,7 @@ message MulNativeAmountRequest {
   // Amount to multiply
   massa.model.v1.NativeAmount amount = 1;
   // Coefficient to multiply by
-  google.protobuf.UInt64Value mandatory_coefficient = 2;
+  uint64 coefficient = 2;
 }
 
 // Amount multiplication result
@@ -332,7 +333,7 @@ message ScalarDivRemNativeAmountRequest {
   // Amount to divide
   massa.model.v1.NativeAmount dividend = 1;
   // Divisor to divide by
-  google.protobuf.UInt64Value mandatory_divisor = 2;
+  uint64 divisor = 2;
 }
 
 // Amount division by scalar result
@@ -354,25 +355,9 @@ message DivRemNativeAmountsRequest {
 // Amount division result
 message DivRemNativeAmountsResult {
   // Quotient of amount and divisor
-  google.protobuf.UInt64Value mandatory_quotient = 1;
+  uint64 quotient = 1;
   // Remainder of amount and divisor
   massa.model.v1.NativeAmount remainder = 2;
-}
-
-// Comparison result
-message ComparisonResult {
-  // Left is lower
-  message LeftLower {}
-  // Left is equal to right
-  message Equal {}
-  // Left is greater
-  message LeftGreater {}
-  // Status
-  oneof restult {
-    LeftLower left_lower = 1;
-    Equal equal = 2;
-    LeftGreater left_greater = 3;
-  }
 }
 
 // Time addition checked request
@@ -408,7 +393,7 @@ message CheckedMulNativeTimeRequest {
   // Time to multiply
   massa.model.v1.NativeTime time = 1;
   // Coefficient to multiply by
-  google.protobuf.UInt64Value mandatory_coefficient = 2;
+  uint64 coefficient = 2;
 }
 
 // Time scalar mult checked result
@@ -422,7 +407,7 @@ message CheckedScalarDivRemNativeTimeRequest {
   // Time to divide
   massa.model.v1.NativeTime dividend = 1;
   // Divisor to divide by
-  google.protobuf.UInt64Value mandatory_divisor = 2;
+  uint64 divisor = 2;
 }
 
 // Time scalar divrem checked result
@@ -444,7 +429,7 @@ message CheckedDivRemNativeTimeRequest {
 // Time division checked result
 message CheckedDivRemNativeTimeResult {
   // Quotient of time and divisor
-  google.protobuf.UInt64Value mandatory_quotient = 1;
+  uint64 quotient = 1;
   // Remainder of time and divisor
   massa.model.v1.NativeTime remainder = 2;
 }
@@ -460,7 +445,7 @@ message CompareNativeTimeRequest {
 // Time comparison result
 message CompareNativeTimeResult {
   // Comparison result
-  ComparisonResult result = 1;
+  massa.model.v1.ComparisonResult result = 1;
 }
 
 // Compare Address request
@@ -474,7 +459,7 @@ message CompareAddressRequest {
 // Compare Address result
 message CompareAddressResult {
   // Comparison result
-  ComparisonResult result = 1;
+  massa.model.v1.ComparisonResult result = 1;
 }
 
 // Compare PubKey request
@@ -488,7 +473,7 @@ message ComparePubKeyRequest {
 // Compare PubKey result
 message ComparePubKeyResult {
   // Comparison result
-  ComparisonResult result = 1;
+  massa.model.v1.ComparisonResult result = 1;
 }
 
 // Compare Sig request
@@ -502,7 +487,7 @@ message CompareSigRequest {
 // Compare Sig result
 message CompareSigResult {
   // Comparison result
-  ComparisonResult result = 1;
+  massa.model.v1.ComparisonResult result = 1;
 }
 
 // Verify Sig request
@@ -532,7 +517,7 @@ message CompareNativeAmountRequest {
 // Compare NativeAmount result
 message CompareNativeAmountResult {
   // Comparison result
-  ComparisonResult result = 1;
+  massa.model.v1.ComparisonResult result = 1;
 }
 
 // Keccak256 hash request
@@ -612,7 +597,7 @@ message GetKeysRequest {
   // keys prefix
   bytes prefix = 1;
   // Address to get keys for
-  google.protobuf.StringValue optional_address = 2;
+  optional google.protobuf.StringValue address = 2;
 }
 
 // Get keys result
@@ -628,7 +613,7 @@ message SetDataRequest {
   // value
   bytes value = 2;
   // Address to set data for, if none, use current address
-  google.protobuf.StringValue optional_address = 3;
+  optional google.protobuf.StringValue address = 3;
 }
 
 // Set data result
@@ -641,7 +626,7 @@ message AppendDataRequest {
   // value
   bytes value = 2;
   // Address to append data for, if none, use current address
-  google.protobuf.StringValue optional_address = 3;
+  optional google.protobuf.StringValue address = 3;
 }
 
 // Append data result
@@ -652,7 +637,7 @@ message GetDataRequest {
   // key
   bytes key = 1;
   // Address to get data for, if none, use current address
-  google.protobuf.StringValue optional_address = 2;
+  optional google.protobuf.StringValue address = 2;
 }
 
 // Get data result
@@ -666,7 +651,7 @@ message DeleteDataRequest {
   // key
   bytes key = 1;
   // Address to delete data for, if none, use current address
-  google.protobuf.StringValue optional_address = 2;
+  optional google.protobuf.StringValue address = 2;
 }
 
 // Delete data result
@@ -677,7 +662,7 @@ message HasDataRequest {
   // key
   bytes key = 1;
   // Address to check data for, if none, use current address
-  google.protobuf.StringValue optional_address = 2;
+  optional google.protobuf.StringValue address = 2;
 }
 
 // Has data result
@@ -718,7 +703,7 @@ message AddressFromPubKeyResult {
 
 // Unsafe random request
 message UnsafeRandomRequest {
-  google.protobuf.UInt32Value mandatory_num_bytes = 2;
+  uint32 num_bytes = 2;
 }
 
 // Unsafe random result
@@ -783,7 +768,7 @@ message SetBytecodeRequest {
   // Bytecode
   bytes bytecode = 1;
   // Address to set bytecode for, if none, use current address
-  google.protobuf.StringValue optional_address = 2;
+  optional google.protobuf.StringValue address = 2;
 }
 
 // Set bytecode result
@@ -792,7 +777,7 @@ message SetBytecodeResult {}
 // Get bytecode request
 message GetBytecodeRequest {
   // Address to get bytecode for, if none, use current address
-  google.protobuf.StringValue optional_address = 1;
+  optional google.protobuf.StringValue address = 1;
 }
 
 // Get bytecode result
@@ -834,7 +819,7 @@ message DateNowResult {
 // Process exit request
 message ProcessExitRequest {
   // exit code
-  google.protobuf.UInt32Value mandatory_code = 1;
+  uint32 code = 1;
 }
 
 // Process exit result
@@ -894,13 +879,13 @@ message GetRemainingGasRequest {}
 // Get remaining gas result
 message GetRemainingGasResult {
   // remaining gas
-  google.protobuf.UInt64Value mandatory_remaining_gas = 1;
+  uint64 remaining_gas = 1;
 }
 
 // Get balance request
 message GetBalanceRequest {
   // Address to get balance for, if none, use current address
-  google.protobuf.StringValue optional_address = 1;
+  optional google.protobuf.StringValue address = 1;
 }
 
 // Get balance result
@@ -925,7 +910,7 @@ message GetAddressVersionRequest {
 
 // Get the version of the address result
 message GetAddressVersionResult {
-  google.protobuf.UInt64Value mandatory_version = 1;
+  uint64 version = 1;
 }
 
 // Get the category of the address request
@@ -945,7 +930,7 @@ message GetPubKeyVersionRequest {
 
 // Get the version of the public key result
 message GetPubKeyVersionResult {
-  google.protobuf.UInt64Value mandatory_version = 1;
+  uint64 version = 1;
 }
 
 // Get the version of the signature request
@@ -955,7 +940,7 @@ message GetSignatureVersionRequest {
 
 // Get the version of the signature result
 message GetSignatureVersionResult {
-  google.protobuf.UInt64Value mandatory_version = 1;
+  uint64 version = 1;
 }
 
 // bytes to base58 request
