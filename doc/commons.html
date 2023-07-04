@@ -455,6 +455,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.BytecodeExecution"><span class="badge">M</span>BytecodeExecution</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.ExecutedOpsChangeEntry"><span class="badge">M</span>ExecutedOpsChangeEntry</a>
                 </li>
               
@@ -467,7 +471,15 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.ExecutionStackElement"><span class="badge">M</span>ExecutionStackElement</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.FinalizedExecutionOutput"><span class="badge">M</span>FinalizedExecutionOutput</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.FunctionCall"><span class="badge">M</span>FunctionCall</a>
                 </li>
               
                 <li>
@@ -484,6 +496,14 @@
               
                 <li>
                   <a href="#massa.model.v1.LedgerEntryUpdate"><span class="badge">M</span>LedgerEntryUpdate</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.ReadOnlyExecutionOutput"><span class="badge">M</span>ReadOnlyExecutionOutput</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.ReadOnlyExecutionRequest"><span class="badge">M</span>ReadOnlyExecutionRequest</a>
                 </li>
               
                 <li>
@@ -2897,6 +2917,37 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
+        <h3 id="massa.model.v1.BytecodeExecution">BytecodeExecution</h3>
+        <p>Execute a bytecode</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>bytecode</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Byte code </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_datastore</td>
+                  <td><a href="#massa.model.v1.BytesMapFieldEntry">BytesMapFieldEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>Datastore (key value store) for `ExecuteSC` Operation (Optional) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.ExecutedOpsChangeEntry">ExecutedOpsChangeEntry</h3>
         <p>ExecutedOpsChangeEntry</p>
 
@@ -3004,6 +3055,59 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
+        <h3 id="massa.model.v1.ExecutionStackElement">ExecutionStackElement</h3>
+        <p>Structure describing an element of the execution stack.</p><p>Every time a function is called from bytecode,</p><p>a new `ExecutionStackElement` is pushed at the top of the execution stack</p><p>to represent the local execution context of the called function,</p><p>instead of the caller's which should lie just below in the stack.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Called address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coins</td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
+                  <td></td>
+                  <td><p>Coins transferred to the target address during the call </p></td>
+                </tr>
+              
+                <tr>
+                  <td>owned_addresses</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>List of addresses owned by the current call, and on which the current call has write access.
+This list should contain `ExecutionStackElement::address` in the sense that an address should have write access to itself.
+This list should also contain all addresses created previously during the call
+to allow write access on newly created addresses in order to set them up,
+but only within the scope of the current stack element.
+That way, only the current scope and neither its caller not the functions it calls gain this write access,
+which is important for security.
+Note that we use a vector instead of a pre-hashed set to ensure order determinism,
+the performance hit of linear search remains minimal because `owned_addresses` will always contain very few elements. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_datastore</td>
+                  <td><a href="#massa.model.v1.BytesMapFieldEntry">BytesMapFieldEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>Datastore (key value store) for `ExecuteSC` Operation (Optional) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.FinalizedExecutionOutput">FinalizedExecutionOutput</h3>
         <p>FinalizedExecutionOutput</p>
 
@@ -3019,6 +3123,44 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td><a href="#massa.model.v1.Slot">Slot</a></td>
                   <td></td>
                   <td><p>Slot </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.FunctionCall">FunctionCall</h3>
+        <p>Execute a function call</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>target_addr</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Target address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_func</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Target function </p></td>
+                </tr>
+              
+                <tr>
+                  <td>parameter</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Parameter to pass to the target function </p></td>
                 </tr>
               
             </tbody>
@@ -3164,6 +3306,105 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td><a href="#massa.model.v1.SetOrDeleteDatastoreEntry">SetOrDeleteDatastoreEntry</a></td>
                   <td>repeated</td>
                   <td><p>Change datastore entries </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.ReadOnlyExecutionOutput">ReadOnlyExecutionOutput</h3>
+        <p>Structure describing the output of a read only execution</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>out</td>
+                  <td><a href="#massa.model.v1.ExecutionOutput">ExecutionOutput</a></td>
+                  <td></td>
+                  <td><p>Output of a single execution </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_gas</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Gas cost for this execution </p></td>
+                </tr>
+              
+                <tr>
+                  <td>call_result</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Returned value from the module call </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.ReadOnlyExecutionRequest">ReadOnlyExecutionRequest</h3>
+        <p>Read-only execution request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>max_gas</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Maximum gas to spend in the execution. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>call_stack</td>
+                  <td><a href="#massa.model.v1.ExecutionStackElement">ExecutionStackElement</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stack to simulate, older caller first </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bytecode_call</td>
+                  <td><a href="#massa.model.v1.BytecodeExecution">BytecodeExecution</a></td>
+                  <td></td>
+                  <td><p>Byte code </p></td>
+                </tr>
+              
+                <tr>
+                  <td>function_call</td>
+                  <td><a href="#massa.model.v1.FunctionCall">FunctionCall</a></td>
+                  <td></td>
+                  <td><p>Function call </p></td>
+                </tr>
+              
+                <tr>
+                  <td>caller_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Caller&#39;s address, (Optional) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_final</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>execution start state
+
+Whether to start execution from final or active state </p></td>
                 </tr>
               
             </tbody>

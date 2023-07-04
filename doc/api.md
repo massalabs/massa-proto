@@ -64,6 +64,8 @@
     - [DenunciationExecutionStatusCandidate](#massa-api-v1-DenunciationExecutionStatusCandidate)
     - [DenunciationExecutionStatusFinal](#massa-api-v1-DenunciationExecutionStatusFinal)
     - [Events](#massa-api-v1-Events)
+    - [ExecuteReadOnlyCallRequest](#massa-api-v1-ExecuteReadOnlyCallRequest)
+    - [ExecuteReadOnlyCallResponse](#massa-api-v1-ExecuteReadOnlyCallResponse)
     - [ExecutionQueryCycleInfos](#massa-api-v1-ExecutionQueryCycleInfos)
     - [ExecutionQueryRequestItem](#massa-api-v1-ExecutionQueryRequestItem)
     - [ExecutionQueryResponse](#massa-api-v1-ExecutionQueryResponse)
@@ -925,6 +927,36 @@ Request to get filtered events
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | filter | [ScExecutionEventsFilter](#massa-api-v1-ScExecutionEventsFilter) |  | Event filter to apply |
+
+
+
+
+
+
+<a name="massa-api-v1-ExecuteReadOnlyCallRequest"></a>
+
+### ExecuteReadOnlyCallRequest
+ExecuteReadOnlyCallRequest holds request for ExecuteReadOnlyCall
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call | [massa.model.v1.ReadOnlyExecutionRequest](#massa-model-v1-ReadOnlyExecutionRequest) | repeated | Execution request |
+
+
+
+
+
+
+<a name="massa-api-v1-ExecuteReadOnlyCallResponse"></a>
+
+### ExecuteReadOnlyCallResponse
+ExecuteReadOnlyCallResponse holds response from ExecuteReadOnlyCall
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| output | [massa.model.v1.ReadOnlyExecutionOutput](#massa-model-v1-ReadOnlyExecutionOutput) | repeated | Execution output |
 
 
 
@@ -1949,6 +1981,7 @@ Massa public gRPC service
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
+| ExecuteReadOnlyCall | [ExecuteReadOnlyCallRequest](#massa-api-v1-ExecuteReadOnlyCallRequest) | [ExecuteReadOnlyCallResponse](#massa-api-v1-ExecuteReadOnlyCallResponse) | Execute read only call |
 | GetBlocks | [GetBlocksRequest](#massa-api-v1-GetBlocksRequest) | [GetBlocksResponse](#massa-api-v1-GetBlocksResponse) | Get blocks by ids |
 | GetDatastoreEntries | [GetDatastoreEntriesRequest](#massa-api-v1-GetDatastoreEntriesRequest) | [GetDatastoreEntriesResponse](#massa-api-v1-GetDatastoreEntriesResponse) | Get datastore entries |
 | GetMipStatus | [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest) | [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse) | Get Mip status |
