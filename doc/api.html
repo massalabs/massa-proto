@@ -2096,10 +2096,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>filter</td>
+                  <td>filters</td>
                   <td><a href="#massa.api.v1.ScExecutionEventsFilter">ScExecutionEventsFilter</a></td>
-                  <td></td>
-                  <td><p>Event filter to apply </p></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the events that verify all the filters </p></td>
                 </tr>
               
             </tbody>
@@ -2121,9 +2121,9 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>call</td>
-                  <td><a href="#massa.model.v1.ReadOnlyExecutionRequest">massa.model.v1.ReadOnlyExecutionRequest</a></td>
-                  <td>repeated</td>
-                  <td><p>Execution request </p></td>
+                  <td><a href="#massa.model.v1.ReadOnlyExecutionCall">massa.model.v1.ReadOnlyExecutionCall</a></td>
+                  <td></td>
+                  <td><p>Execution call </p></td>
                 </tr>
               
             </tbody>
@@ -3557,10 +3557,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>requests</td>
+                  <td>queries</td>
                   <td><a href="#massa.api.v1.ExecutionQueryRequestItem">ExecutionQueryRequestItem</a></td>
-                  <td></td>
-                  <td><p>List of execution query request items </p></td>
+                  <td>repeated</td>
+                  <td><p>Execution queries </p></td>
                 </tr>
               
             </tbody>
@@ -3653,35 +3653,35 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td>slot_range</td>
                   <td><a href="#massa.model.v1.SlotRange">massa.model.v1.SlotRange</a></td>
                   <td></td>
-                  <td><p>Slot range (Optional) </p></td>
+                  <td><p>Slot range </p></td>
                 </tr>
               
                 <tr>
                   <td>caller_address</td>
-                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>Caller address (Optional) </p></td>
+                  <td><p>Caller address </p></td>
                 </tr>
               
                 <tr>
                   <td>emitter_address</td>
-                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>Emitter address (Optional) </p></td>
+                  <td><p>Emitter address </p></td>
                 </tr>
               
                 <tr>
                   <td>original_operation_id</td>
-                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>Original operation id (Optional) </p></td>
+                  <td><p>Original operation id </p></td>
                 </tr>
               
                 <tr>
                   <td>status</td>
                   <td><a href="#massa.model.v1.ScExecutionEventStatus">massa.model.v1.ScExecutionEventStatus</a></td>
-                  <td>repeated</td>
-                  <td><p>Status (Optional) </p></td>
+                  <td></td>
+                  <td><p>Status </p></td>
                 </tr>
               
             </tbody>
@@ -3899,23 +3899,23 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>min_rolls</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>Minimum rolls (Optional) </p></td>
+                  <td><p>Minimum rolls </p></td>
                 </tr>
               
                 <tr>
                   <td>max_rolls</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>Maximum rolls (Optional) </p></td>
+                  <td><p>Maximum rolls </p></td>
                 </tr>
               
                 <tr>
                   <td>limit</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>Limit (Optional) </p></td>
+                  <td><p>Limit </p></td>
                 </tr>
               
             </tbody>

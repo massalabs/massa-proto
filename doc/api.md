@@ -926,7 +926,7 @@ Request to get filtered events
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [ScExecutionEventsFilter](#massa-api-v1-ScExecutionEventsFilter) |  | Event filter to apply |
+| filters | [ScExecutionEventsFilter](#massa-api-v1-ScExecutionEventsFilter) | repeated | Returns all the events that verify all the filters |
 
 
 
@@ -941,7 +941,7 @@ ExecuteReadOnlyCallRequest holds request for ExecuteReadOnlyCall
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| call | [massa.model.v1.ReadOnlyExecutionRequest](#massa-model-v1-ReadOnlyExecutionRequest) | repeated | Execution request |
+| call | [massa.model.v1.ReadOnlyExecutionCall](#massa-model-v1-ReadOnlyExecutionCall) |  | Execution call |
 
 
 
@@ -1739,7 +1739,7 @@ Request to atomically execute a batch of execution state queries
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| requests | [ExecutionQueryRequestItem](#massa-api-v1-ExecutionQueryRequestItem) |  | List of execution query request items |
+| queries | [ExecutionQueryRequestItem](#massa-api-v1-ExecutionQueryRequestItem) | repeated | Execution queries |
 
 
 
@@ -1787,11 +1787,11 @@ ScExecutionEvents Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | Slot range (Optional) |
-| caller_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Caller address (Optional) |
-| emitter_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Emitter address (Optional) |
-| original_operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Original operation id (Optional) |
-| status | [massa.model.v1.ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) | repeated | Status (Optional) |
+| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | Slot range |
+| caller_address | [string](#string) |  | Caller address |
+| emitter_address | [string](#string) |  | Emitter address |
+| original_operation_id | [string](#string) |  | Original operation id |
+| status | [massa.model.v1.ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) |  | Status |
 
 
 
@@ -1915,9 +1915,9 @@ Stakers Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| min_rolls | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Minimum rolls (Optional) |
-| max_rolls | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Maximum rolls (Optional) |
-| limit | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Limit (Optional) |
+| min_rolls | [uint64](#uint64) |  | Minimum rolls |
+| max_rolls | [uint64](#uint64) |  | Maximum rolls |
+| limit | [uint64](#uint64) |  | Limit |
 
 
 

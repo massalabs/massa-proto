@@ -170,8 +170,8 @@ message GetBlocksRequest {
 
 // ExecuteReadOnlyCallRequest holds request for ExecuteReadOnlyCall
 message ExecuteReadOnlyCallRequest {
-  // Execution request
-  repeated massa.model.v1.ReadOnlyExecutionRequest request = 1;
+  // Execution call
+  massa.model.v1.ReadOnlyExecutionCall call = 1;
 }
 
 // ExecuteReadOnlyCallResponse holds response from ExecuteReadOnlyCall
@@ -269,16 +269,19 @@ message GetScExecutionEventsRequest {
 
 // ScExecutionEvents Filter
 message ScExecutionEventsFilter {
-  // Slot range (Optional)
-  massa.model.v1.SlotRange slot_range = 1;
-  // Caller address (Optional)
-  google.protobuf.StringValue caller_address = 2;
-  // Emitter address (Optional)
-  google.protobuf.StringValue emitter_address = 3;
-  // Original operation id (Optional)
-  google.protobuf.StringValue original_operation_id = 4;
-  // Status (Optional)
-  repeated massa.model.v1.ScExecutionEventStatus status = 5;
+  // Filter
+  oneof filter {
+    // Slot range
+    massa.model.v1.SlotRange slot_range = 1;
+    // Caller address
+    string caller_address = 2;
+    // Emitter address
+    string emitter_address = 3;
+    // Original operation id
+    string original_operation_id = 4;
+    // Status
+    massa.model.v1.ScExecutionEventStatus status = 5;
+  }
 }
 
 // GetScExecutionEventsResponse holds response from GetScExecutionEvents
@@ -329,12 +332,12 @@ message GetStakersRequest {
 message StakersFilter {
   // Returns all the stakers that verify all the filters
   oneof filter {
-    // Minimum rolls (Optional)
-    google.protobuf.UInt64Value min_rolls = 1;
-    // Maximum rolls (Optional)
-    google.protobuf.UInt64Value max_rolls = 2;
-    // Limit (Optional)
-    google.protobuf.UInt64Value limit = 3;
+    // Minimum rolls
+    uint64 min_rolls = 1;
+    // Maximum rolls
+    uint64 max_rolls = 2;
+    // Limit
+    uint64 limit = 3;
   }
 }
 
@@ -355,8 +358,8 @@ message GetTransactionsThroughputResponse {
 
 // Request to atomically execute a batch of execution state queries
 message QueryStateRequest {
-  // List of execution query request items
-  ExecutionQueryRequestItem requests = 1;
+  // Execution queries
+  repeated ExecutionQueryRequestItem queries = 1;
 }
 
 // Query state query item
@@ -531,8 +534,8 @@ message CycleInfos {
 
 // Request to get filtered events
 message Events {
-  // Event filter to apply
-  ScExecutionEventsFilter filter = 1;
+  // Returns all the events that verify all the filters
+  repeated ScExecutionEventsFilter filters = 1;
 }
 
 // Response to atomically execute a batch of execution state queries
