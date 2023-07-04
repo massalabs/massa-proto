@@ -14,6 +14,10 @@
     - [AddToPeersWhitelistResponse](#massa-api-v1-AddToPeersWhitelistResponse)
     - [AllowEveryoneToBootstrapRequest](#massa-api-v1-AllowEveryoneToBootstrapRequest)
     - [AllowEveryoneToBootstrapResponse](#massa-api-v1-AllowEveryoneToBootstrapResponse)
+    - [BanNodesByIdsRequest](#massa-api-v1-BanNodesByIdsRequest)
+    - [BanNodesByIdsResponse](#massa-api-v1-BanNodesByIdsResponse)
+    - [BanNodesByIpsRequest](#massa-api-v1-BanNodesByIpsRequest)
+    - [BanNodesByIpsResponse](#massa-api-v1-BanNodesByIpsResponse)
     - [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest)
     - [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse)
     - [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest)
@@ -34,6 +38,10 @@
     - [ShutdownGracefullyResponse](#massa-api-v1-ShutdownGracefullyResponse)
     - [SignMessagesRequest](#massa-api-v1-SignMessagesRequest)
     - [SignMessagesResponse](#massa-api-v1-SignMessagesResponse)
+    - [UnbanNodesByIdsRequest](#massa-api-v1-UnbanNodesByIdsRequest)
+    - [UnbanNodesByIdsResponse](#massa-api-v1-UnbanNodesByIdsResponse)
+    - [UnbanNodesByIpsRequest](#massa-api-v1-UnbanNodesByIpsRequest)
+    - [UnbanNodesByIpsResponse](#massa-api-v1-UnbanNodesByIpsResponse)
   
     - [PrivateService](#massa-api-v1-PrivateService)
   
@@ -247,6 +255,56 @@ AllowEveryoneToBootstrapRequest holds the request for AllowEveryoneToBootstrap
 
 ### AllowEveryoneToBootstrapResponse
 AllowEveryoneToBootstrapResponse holds the response from AllowEveryoneToBootstrap
+
+
+
+
+
+
+<a name="massa-api-v1-BanNodesByIdsRequest"></a>
+
+### BanNodesByIdsRequest
+BanNodesByIdsRequest holds the request for BanNodesByIds
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ids | [string](#string) | repeated | Node ids to ban |
+
+
+
+
+
+
+<a name="massa-api-v1-BanNodesByIdsResponse"></a>
+
+### BanNodesByIdsResponse
+BanNodesByIdsResponse holds the response from BanNodesByIds
+
+
+
+
+
+
+<a name="massa-api-v1-BanNodesByIpsRequest"></a>
+
+### BanNodesByIpsRequest
+BanNodesByIpsRequest holds the request for BanNodesByIps
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | Node IP addresses to ban |
+
+
+
+
+
+
+<a name="massa-api-v1-BanNodesByIpsResponse"></a>
+
+### BanNodesByIpsResponse
+BanNodesByIpsResponse holds the response from BanNodesByIps
 
 
 
@@ -503,6 +561,56 @@ SignMessagesResponse holds the response from SignMessages
 
 
 
+
+<a name="massa-api-v1-UnbanNodesByIdsRequest"></a>
+
+### UnbanNodesByIdsRequest
+UnbanNodesByIdsRequest holds the request for UnbanNodesByIds
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ids | [string](#string) | repeated | Node ids to unban |
+
+
+
+
+
+
+<a name="massa-api-v1-UnbanNodesByIdsResponse"></a>
+
+### UnbanNodesByIdsResponse
+UnbanNodesByIdsResponse holds the response from UnbanNodesByIds
+
+
+
+
+
+
+<a name="massa-api-v1-UnbanNodesByIpsRequest"></a>
+
+### UnbanNodesByIpsRequest
+UnbanNodesByIpsRequest holds the request for UnbanNodesByIps
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | Nodes IP addresses to unban |
+
+
+
+
+
+
+<a name="massa-api-v1-UnbanNodesByIpsResponse"></a>
+
+### UnbanNodesByIpsResponse
+UnbanNodesByIpsResponse holds the response from UnbanNodesByIps
+
+
+
+
+
  
 
  
@@ -526,12 +634,16 @@ Massa private gRPC service
 | AllowEveryoneToBootstrap | [AllowEveryoneToBootstrapRequest](#massa-api-v1-AllowEveryoneToBootstrapRequest) | [AllowEveryoneToBootstrapResponse](#massa-api-v1-AllowEveryoneToBootstrapResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file |
 | GetNodeStatus | [GetNodeStatusRequest](#massa-api-v1-GetNodeStatusRequest) | [GetNodeStatusResponse](#massa-api-v1-GetNodeStatusResponse) | Get node status |
 | GetPeersWhitelist | [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest) | [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse) | Get node peers whitelist IP addresses |
+| BanNodesByIds | [BanNodesByIdsRequest](#massa-api-v1-BanNodesByIdsRequest) | [BanNodesByIdsResponse](#massa-api-v1-BanNodesByIdsResponse) | Ban multiple nodes by their individual ids |
+| BanNodesByIps | [BanNodesByIpsRequest](#massa-api-v1-BanNodesByIpsRequest) | [BanNodesByIpsResponse](#massa-api-v1-BanNodesByIpsResponse) | Ban multiple nodes by their individual IP addresses |
 | RemoveFromBootstrapBlacklist | [RemoveFromBootstrapBlacklistRequest](#massa-api-v1-RemoveFromBootstrapBlacklistRequest) | [RemoveFromBootstrapBlacklistResponse](#massa-api-v1-RemoveFromBootstrapBlacklistResponse) | Remove from bootstrap blacklist given IP addresses |
 | RemoveFromBootstrapWhitelist | [RemoveFromBootstrapWhitelistRequest](#massa-api-v1-RemoveFromBootstrapWhitelistRequest) | [RemoveFromBootstrapWhitelistResponse](#massa-api-v1-RemoveFromBootstrapWhitelistResponse) | Remove from bootstrap whitelist given IP addresses |
 | RemoveFromPeersWhitelist | [RemoveFromPeersWhitelistRequest](#massa-api-v1-RemoveFromPeersWhitelistRequest) | [RemoveFromPeersWhitelistResponse](#massa-api-v1-RemoveFromPeersWhitelistResponse) | Remove from peers whitelist given IP addresses |
 | RemoveStakingAddresses | [RemoveStakingAddressesRequest](#massa-api-v1-RemoveStakingAddressesRequest) | [RemoveStakingAddressesResponse](#massa-api-v1-RemoveStakingAddressesResponse) | Remove addresses from staking |
 | SignMessages | [SignMessagesRequest](#massa-api-v1-SignMessagesRequest) | [SignMessagesResponse](#massa-api-v1-SignMessagesResponse) | Sign messages with node&#39;s key |
 | ShutdownGracefully | [ShutdownGracefullyRequest](#massa-api-v1-ShutdownGracefullyRequest) | [ShutdownGracefullyResponse](#massa-api-v1-ShutdownGracefullyResponse) | Shutdown the node gracefully |
+| UnbanNodesByIds | [UnbanNodesByIdsRequest](#massa-api-v1-UnbanNodesByIdsRequest) | [UnbanNodesByIdsResponse](#massa-api-v1-UnbanNodesByIdsResponse) | Unban multiple nodes by their individual ids |
+| UnbanNodesByIps | [UnbanNodesByIpsRequest](#massa-api-v1-UnbanNodesByIpsRequest) | [UnbanNodesByIpsResponse](#massa-api-v1-UnbanNodesByIpsResponse) | Unban multiple nodes by their individual IP addresses |
 
  
 
