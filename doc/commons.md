@@ -77,14 +77,19 @@
     - [AsyncMessageUpdate](#massa-model-v1-AsyncMessageUpdate)
     - [AsyncPoolChangeEntry](#massa-model-v1-AsyncPoolChangeEntry)
     - [AsyncPoolChangeValue](#massa-model-v1-AsyncPoolChangeValue)
+    - [BytecodeExecution](#massa-model-v1-BytecodeExecution)
     - [ExecutedOpsChangeEntry](#massa-model-v1-ExecutedOpsChangeEntry)
     - [ExecutedOpsChangeValue](#massa-model-v1-ExecutedOpsChangeValue)
     - [ExecutionOutput](#massa-model-v1-ExecutionOutput)
+    - [ExecutionStackElement](#massa-model-v1-ExecutionStackElement)
     - [FinalizedExecutionOutput](#massa-model-v1-FinalizedExecutionOutput)
+    - [FunctionCall](#massa-model-v1-FunctionCall)
     - [LedgerChangeEntry](#massa-model-v1-LedgerChangeEntry)
     - [LedgerChangeValue](#massa-model-v1-LedgerChangeValue)
     - [LedgerEntry](#massa-model-v1-LedgerEntry)
     - [LedgerEntryUpdate](#massa-model-v1-LedgerEntryUpdate)
+    - [ReadOnlyExecutionOutput](#massa-model-v1-ReadOnlyExecutionOutput)
+    - [ReadOnlyExecutionRequest](#massa-model-v1-ReadOnlyExecutionRequest)
     - [ScExecutionEvent](#massa-model-v1-ScExecutionEvent)
     - [ScExecutionEventContext](#massa-model-v1-ScExecutionEventContext)
     - [SetOrDeleteDatastoreEntry](#massa-model-v1-SetOrDeleteDatastoreEntry)
@@ -1165,6 +1170,22 @@ AsyncPoolChangeValue
 
 
 
+<a name="massa-model-v1-BytecodeExecution"></a>
+
+### BytecodeExecution
+Execute a bytecode
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| bytecode | [bytes](#bytes) |  | Byte code |
+| operation_datastore | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) | repeated | Datastore (key value store) for `ExecuteSC` Operation (Optional) |
+
+
+
+
+
+
 <a name="massa-model-v1-ExecutedOpsChangeEntry"></a>
 
 ### ExecutedOpsChangeEntry
@@ -1215,6 +1236,28 @@ ExecutionOutput
 
 
 
+<a name="massa-model-v1-ExecutionStackElement"></a>
+
+### ExecutionStackElement
+Structure describing an element of the execution stack.
+Every time a function is called from bytecode,
+a new `ExecutionStackElement` is pushed at the top of the execution stack
+to represent the local execution context of the called function,
+instead of the caller&#39;s which should lie just below in the stack.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  | Called address |
+| coins | [NativeAmount](#massa-model-v1-NativeAmount) |  | Coins transferred to the target address during the call |
+| owned_addresses | [string](#string) | repeated | List of addresses owned by the current call, and on which the current call has write access. This list should contain `ExecutionStackElement::address` in the sense that an address should have write access to itself. This list should also contain all addresses created previously during the call to allow write access on newly created addresses in order to set them up, but only within the scope of the current stack element. That way, only the current scope and neither its caller not the functions it calls gain this write access, which is important for security. Note that we use a vector instead of a pre-hashed set to ensure order determinism, the performance hit of linear search remains minimal because `owned_addresses` will always contain very few elements. |
+| operation_datastore | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) | repeated | Datastore (key value store) for `ExecuteSC` Operation (Optional) |
+
+
+
+
+
+
 <a name="massa-model-v1-FinalizedExecutionOutput"></a>
 
 ### FinalizedExecutionOutput
@@ -1224,6 +1267,23 @@ FinalizedExecutionOutput
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | slot | [Slot](#massa-model-v1-Slot) |  | Slot |
+
+
+
+
+
+
+<a name="massa-model-v1-FunctionCall"></a>
+
+### FunctionCall
+Execute a function call
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target_addr | [string](#string) |  | Target address |
+| target_func | [string](#string) |  | Target function |
+| parameter | [bytes](#bytes) |  | Parameter to pass to the target function |
 
 
 
@@ -1291,6 +1351,45 @@ Represents an update to one or more fields of a `LedgerEntry`
 | balance | [SetOrKeepBalance](#massa-model-v1-SetOrKeepBalance) |  | Change the balance |
 | bytecode | [SetOrKeepBytes](#massa-model-v1-SetOrKeepBytes) |  | Change the executable bytecode |
 | datastore | [SetOrDeleteDatastoreEntry](#massa-model-v1-SetOrDeleteDatastoreEntry) | repeated | Change datastore entries |
+
+
+
+
+
+
+<a name="massa-model-v1-ReadOnlyExecutionOutput"></a>
+
+### ReadOnlyExecutionOutput
+Structure describing the output of a read only execution
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| out | [ExecutionOutput](#massa-model-v1-ExecutionOutput) |  | Output of a single execution |
+| max_gas | [uint64](#uint64) |  | Gas cost for this execution |
+| call_result | [bytes](#bytes) |  | Returned value from the module call |
+
+
+
+
+
+
+<a name="massa-model-v1-ReadOnlyExecutionRequest"></a>
+
+### ReadOnlyExecutionRequest
+Read-only execution request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| max_gas | [uint64](#uint64) |  | Maximum gas to spend in the execution. |
+| call_stack | [ExecutionStackElement](#massa-model-v1-ExecutionStackElement) | repeated | Call stack to simulate, older caller first |
+| bytecode_call | [BytecodeExecution](#massa-model-v1-BytecodeExecution) |  | Byte code |
+| function_call | [FunctionCall](#massa-model-v1-FunctionCall) |  | Function call |
+| caller_address | [string](#string) |  | Caller&#39;s address, (Optional) |
+| is_final | [bool](#bool) |  | execution start state
+
+Whether to start execution from final or active state |
 
 
 

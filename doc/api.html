@@ -418,6 +418,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.ExecuteReadOnlyCallRequest"><span class="badge">M</span>ExecuteReadOnlyCallRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.ExecuteReadOnlyCallResponse"><span class="badge">M</span>ExecuteReadOnlyCallResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.ExecutionQueryCycleInfos"><span class="badge">M</span>ExecutionQueryCycleInfos</a>
                 </li>
               
@@ -2092,6 +2100,54 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#massa.api.v1.ScExecutionEventsFilter">ScExecutionEventsFilter</a></td>
                   <td></td>
                   <td><p>Event filter to apply </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ExecuteReadOnlyCallRequest">ExecuteReadOnlyCallRequest</h3>
+        <p>ExecuteReadOnlyCallRequest holds request for ExecuteReadOnlyCall</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>call</td>
+                  <td><a href="#massa.model.v1.ReadOnlyExecutionRequest">massa.model.v1.ReadOnlyExecutionRequest</a></td>
+                  <td>repeated</td>
+                  <td><p>Execution request </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ExecuteReadOnlyCallResponse">ExecuteReadOnlyCallResponse</h3>
+        <p>ExecuteReadOnlyCallResponse holds response from ExecuteReadOnlyCall</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>output</td>
+                  <td><a href="#massa.model.v1.ReadOnlyExecutionOutput">massa.model.v1.ReadOnlyExecutionOutput</a></td>
+                  <td>repeated</td>
+                  <td><p>Execution output </p></td>
                 </tr>
               
             </tbody>
@@ -3836,6 +3892,13 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
           <tbody>
             
               <tr>
+                <td>ExecuteReadOnlyCall</td>
+                <td><a href="#massa.api.v1.ExecuteReadOnlyCallRequest">ExecuteReadOnlyCallRequest</a></td>
+                <td><a href="#massa.api.v1.ExecuteReadOnlyCallResponse">ExecuteReadOnlyCallResponse</a></td>
+                <td><p>Execute read only call</p></td>
+              </tr>
+            
+              <tr>
                 <td>GetBlocks</td>
                 <td><a href="#massa.api.v1.GetBlocksRequest">GetBlocksRequest</a></td>
                 <td><a href="#massa.api.v1.GetBlocksResponse">GetBlocksResponse</a></td>
@@ -3992,6 +4055,16 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             </thead>
             <tbody>
+            
+              
+              
+              <tr>
+                <td>ExecuteReadOnlyCall</td>
+                <td>POST</td>
+                <td>/v1/execute_read_only_call</td>
+                <td>*</td>
+              </tr>
+              
             
               
               

@@ -32,6 +32,14 @@ option swift_prefix = "MAPI";
 
 // Massa public gRPC service
 service PublicService {
+  // Execute read only call
+  rpc ExecuteReadOnlyCall(ExecuteReadOnlyCallRequest) returns (ExecuteReadOnlyCallResponse) {
+    option (google.api.http) = {
+      post: "/v1/execute_read_only_call"
+      body: "*"
+    };
+  }
+
   // Get blocks by ids
   rpc GetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {
     option (google.api.http) = {
@@ -158,6 +166,18 @@ service PublicService {
 message GetBlocksRequest {
   // Returns all the blocks that verify all the filters
   repeated GetBlocksFilter filters = 1;
+}
+
+// ExecuteReadOnlyCallRequest holds request for ExecuteReadOnlyCall
+message ExecuteReadOnlyCallRequest {
+  // Execution request
+  repeated massa.model.v1.ReadOnlyExecutionRequest request = 1;
+}
+
+// ExecuteReadOnlyCallResponse holds response from ExecuteReadOnlyCall
+message ExecuteReadOnlyCallResponse {
+  // Execution output
+  repeated massa.model.v1.ReadOnlyExecutionOutput output = 1;
 }
 
 // GetBlocks Filter

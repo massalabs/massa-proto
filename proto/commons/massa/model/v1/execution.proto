@@ -364,3 +364,76 @@ message SetOrDeleteDatastoreEntry {
     massa.model.v1.Empty delete = 2;
   }
 }
+
+// Read-only execution request
+message ReadOnlyExecutionRequest {
+  // Maximum gas to spend in the execution.
+  uint64 max_gas = 1;
+  // Call stack to simulate, older caller first
+  repeated ExecutionStackElement call_stack = 2;
+  // Target of the request
+  oneof target {
+    // Byte code
+    BytecodeExecution bytecode_call = 3;
+    // Function call
+    FunctionCall function_call = 4;
+  }
+  // Caller's address, (Optional)
+  string caller_address = 5;
+  // execution start state
+  //
+  // Whether to start execution from final or active state
+  bool is_final = 6;
+}
+
+/// Execute a bytecode
+message BytecodeExecution {
+  // Byte code
+  bytes bytecode = 1;
+  // Datastore (key value store) for `ExecuteSC` Operation (Optional)
+  repeated BytesMapFieldEntry operation_datastore = 2;
+}
+
+// Execute a function call
+message FunctionCall {
+  // Target address
+  string target_addr = 1;
+  // Target function
+  string target_func = 2;
+  // Parameter to pass to the target function
+  bytes parameter = 3;
+}
+
+// Structure describing the output of a read only execution
+message ReadOnlyExecutionOutput {
+  // Output of a single execution
+  ExecutionOutput out = 1;
+  // Gas cost for this execution
+  uint64 max_gas = 2;
+  // Returned value from the module call
+  bytes call_result = 3;
+}
+
+// Structure describing an element of the execution stack.
+// Every time a function is called from bytecode,
+// a new `ExecutionStackElement` is pushed at the top of the execution stack
+// to represent the local execution context of the called function,
+// instead of the caller's which should lie just below in the stack.
+message ExecutionStackElement {
+  // Called address
+  string address = 1;
+  // Coins transferred to the target address during the call
+  massa.model.v1.NativeAmount coins = 2;
+  // List of addresses owned by the current call, and on which the current call has write access.
+  // This list should contain `ExecutionStackElement::address` in the sense that an address should have write access to itself.
+  // This list should also contain all addresses created previously during the call
+  // to allow write access on newly created addresses in order to set them up,
+  // but only within the scope of the current stack element.
+  // That way, only the current scope and neither its caller not the functions it calls gain this write access,
+  // which is important for security.
+  // Note that we use a vector instead of a pre-hashed set to ensure order determinism,
+  // the performance hit of linear search remains minimal because `owned_addresses` will always contain very few elements.
+  repeated string owned_addresses = 3;
+  // Datastore (key value store) for `ExecuteSC` Operation (Optional)
+  repeated massa.model.v1.BytesMapFieldEntry operation_datastore = 4;
+}
