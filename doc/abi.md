@@ -23,8 +23,6 @@
     - [CallerHasWriteAccessResult](#massa-abi-v1-CallerHasWriteAccessResult)
     - [CheckAddressRequest](#massa-abi-v1-CheckAddressRequest)
     - [CheckAddressResult](#massa-abi-v1-CheckAddressResult)
-    - [CheckBlake3HashRequest](#massa-abi-v1-CheckBlake3HashRequest)
-    - [CheckBlake3HashResult](#massa-abi-v1-CheckBlake3HashResult)
     - [CheckNativeAmountRequest](#massa-abi-v1-CheckNativeAmountRequest)
     - [CheckNativeAmountResult](#massa-abi-v1-CheckNativeAmountResult)
     - [CheckPubKeyRequest](#massa-abi-v1-CheckPubKeyRequest)
@@ -428,36 +426,6 @@ Check address result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | is_valid | [bool](#bool) |  | Is address valid |
-
-
-
-
-
-
-<a name="massa-abi-v1-CheckBlake3HashRequest"></a>
-
-### CheckBlake3HashRequest
-Check Hash request
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| to_check | [bytes](#bytes) |  | Hash to check |
-
-
-
-
-
-
-<a name="massa-abi-v1-CheckBlake3HashResult"></a>
-
-### CheckBlake3HashResult
-Check Hash result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| is_valid | [bool](#bool) |  | Is Hash valid |
 
 
 
@@ -1793,7 +1761,6 @@ the &#43;1 comes from ResResult itself which is counted above
 | bytes_to_base58_check_result | [BytesToBase58CheckResult](#massa-abi-v1-BytesToBase58CheckResult) |  |  |
 | caller_has_write_access_result | [CallerHasWriteAccessResult](#massa-abi-v1-CallerHasWriteAccessResult) |  |  |
 | check_address_result | [CheckAddressResult](#massa-abi-v1-CheckAddressResult) |  |  |
-| check_blake3_hash_result | [CheckBlake3HashResult](#massa-abi-v1-CheckBlake3HashResult) |  |  |
 | check_native_amount_result | [CheckNativeAmountResult](#massa-abi-v1-CheckNativeAmountResult) |  |  |
 | check_pub_key_result | [CheckPubKeyResult](#massa-abi-v1-CheckPubKeyResult) |  |  |
 | check_sig_result | [CheckSigResult](#massa-abi-v1-CheckSigResult) |  |  |
@@ -1833,6 +1800,7 @@ the &#43;1 comes from ResResult itself which is counted above
 | has_data_result | [HasDataResult](#massa-abi-v1-HasDataResult) |  |  |
 | has_op_key_result | [HasOpKeyResult](#massa-abi-v1-HasOpKeyResult) |  |  |
 | keccak256_result | [Keccak256Result](#massa-abi-v1-Keccak256Result) |  |  |
+| local_execution_response | [LocalExecutionResponse](#massa-abi-v1-LocalExecutionResponse) |  |  |
 | mul_native_amount_result | [MulNativeAmountResult](#massa-abi-v1-MulNativeAmountResult) |  |  |
 | native_amount_from_string_result | [NativeAmountFromStringResult](#massa-abi-v1-NativeAmountFromStringResult) |  |  |
 | native_amount_to_string_result | [NativeAmountToStringResult](#massa-abi-v1-NativeAmountToStringResult) |  |  |
@@ -1849,7 +1817,6 @@ the &#43;1 comes from ResResult itself which is counted above
 | verify_evm_sig_result | [VerifyEvmSigResult](#massa-abi-v1-VerifyEvmSigResult) |  |  |
 | verify_sig_result | [VerifySigResult](#massa-abi-v1-VerifySigResult) |  |  |
 | send_async_message_result | [SendAsyncMessageResult](#massa-abi-v1-SendAsyncMessageResult) |  |  |
-| local_execution_response | [LocalExecutionResponse](#massa-abi-v1-LocalExecutionResponse) |  |  |
 
 
 

@@ -126,46 +126,46 @@ message RespResult {
     BytesToBase58CheckResult bytes_to_base58_check_result = 6;
     CallerHasWriteAccessResult caller_has_write_access_result = 7;
     CheckAddressResult check_address_result = 8;
-    CheckBlake3HashResult check_blake3_hash_result = 9;
-    CheckNativeAmountResult check_native_amount_result = 10;
-    CheckPubKeyResult check_pub_key_result = 11;
-    CheckSigResult check_sig_result = 12;
-    CheckedAddNativeTimeResult checked_add_native_time_result = 13;
-    CheckedDivRemNativeTimeResult checked_div_rem_native_time_result = 14;
-    CheckedMulNativeTimeResult checked_mul_native_time_result = 15;
-    CheckedScalarDivRemNativeTimeResult checked_scalar_div_rem_native_time_result = 16;
-    CheckedSubNativeTimeResult checked_sub_native_time_result = 17;
-    CompareAddressResult compare_address_result = 18;
-    CompareNativeAmountResult compare_native_amount_result = 19;
-    CompareNativeTimeResult compare_native_time_result = 20;
-    ComparePubKeyResult compare_pub_key_result = 21;
-    CompareSigResult compare_sig_result = 22;
-    CreateScResult create_sc_result = 23;
-    DateNowResult date_now_result = 24;
-    DeleteDataResult delete_data_result = 25;
-    DivRemNativeAmountsResult div_rem_native_amounts_result = 26;
-    FunctionExistsResult function_exists_result = 27;
-    GenerateEventResult generate_event_result = 28;
-    GetAddressCategoryResult get_address_category_result = 29;
-    GetAddressVersionResult get_address_version_result = 30;
-    GetBalanceResult get_balance_result = 31;
-    GetBytecodeResult get_bytecode_result = 32;
-    GetCallCoinsResult get_call_coins_result = 33;
-    GetCallStackResult get_call_stack_result = 34;
-    GetCurrentSlotResult get_current_slot_result = 35;
-    GetDataResult get_data_result = 36;
-    GetKeysResult get_keys_result = 37;
-    GetNativeTimeResult get_native_time_result = 38;
-    GetOpDataResult get_op_data_result = 39;
-    GetOpKeysResult get_op_keys_result = 40;
-    GetOwnedAddressesResult get_owned_addresses_result = 41;
-    GetPubKeyVersionResult get_pub_key_version_result = 42;
-    GetRemainingGasResult get_remaining_gas_result = 43;
-    GetSignatureVersionResult get_signature_version_result = 44;
-    HashSha256Result hash_sha256_result = 45;
-    HasDataResult has_data_result = 46;
-    HasOpKeyResult has_op_key_result = 47;
-    Keccak256Result keccak256_result = 48;
+    CheckNativeAmountResult check_native_amount_result = 9;
+    CheckPubKeyResult check_pub_key_result = 10;
+    CheckSigResult check_sig_result = 11;
+    CheckedAddNativeTimeResult checked_add_native_time_result = 12;
+    CheckedDivRemNativeTimeResult checked_div_rem_native_time_result = 13;
+    CheckedMulNativeTimeResult checked_mul_native_time_result = 14;
+    CheckedScalarDivRemNativeTimeResult checked_scalar_div_rem_native_time_result = 15;
+    CheckedSubNativeTimeResult checked_sub_native_time_result = 16;
+    CompareAddressResult compare_address_result = 17;
+    CompareNativeAmountResult compare_native_amount_result = 18;
+    CompareNativeTimeResult compare_native_time_result = 19;
+    ComparePubKeyResult compare_pub_key_result = 20;
+    CompareSigResult compare_sig_result = 21;
+    CreateScResult create_sc_result = 22;
+    DateNowResult date_now_result = 23;
+    DeleteDataResult delete_data_result = 24;
+    DivRemNativeAmountsResult div_rem_native_amounts_result = 25;
+    FunctionExistsResult function_exists_result = 26;
+    GenerateEventResult generate_event_result = 27;
+    GetAddressCategoryResult get_address_category_result = 28;
+    GetAddressVersionResult get_address_version_result = 29;
+    GetBalanceResult get_balance_result = 30;
+    GetBytecodeResult get_bytecode_result = 31;
+    GetCallCoinsResult get_call_coins_result = 32;
+    GetCallStackResult get_call_stack_result = 33;
+    GetCurrentSlotResult get_current_slot_result = 34;
+    GetDataResult get_data_result = 35;
+    GetKeysResult get_keys_result = 36;
+    GetNativeTimeResult get_native_time_result = 37;
+    GetOpDataResult get_op_data_result = 38;
+    GetOpKeysResult get_op_keys_result = 39;
+    GetOwnedAddressesResult get_owned_addresses_result = 40;
+    GetPubKeyVersionResult get_pub_key_version_result = 41;
+    GetRemainingGasResult get_remaining_gas_result = 42;
+    GetSignatureVersionResult get_signature_version_result = 43;
+    HashSha256Result hash_sha256_result = 44;
+    HasDataResult has_data_result = 45;
+    HasOpKeyResult has_op_key_result = 46;
+    Keccak256Result keccak256_result = 47;
+    LocalExecutionResponse local_execution_response = 48;
     MulNativeAmountResult mul_native_amount_result = 49;
     NativeAmountFromStringResult native_amount_from_string_result = 50;
     NativeAmountToStringResult native_amount_to_string_result = 51;
@@ -182,7 +182,6 @@ message RespResult {
     VerifyEvmSigResult verify_evm_sig_result = 62;
     VerifySigResult verify_sig_result = 63;
     SendAsyncMessageResult send_async_message_result = 64;
-    LocalExecutionResponse local_execution_response = 65;
   }
 }
 
@@ -253,18 +252,6 @@ message CheckSigRequest {
 // Check Sig result
 message CheckSigResult {
   // Is Sig valid
-  bool is_valid = 1;
-}
-
-// Check Hash request
-message CheckBlake3HashRequest {
-  // Hash to check
-  bytes to_check = 1;
-}
-
-// Check Hash result
-message CheckBlake3HashResult {
-  // Is Hash valid
   bool is_valid = 1;
 }
 
