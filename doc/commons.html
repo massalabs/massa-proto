@@ -373,10 +373,6 @@
                   <a href="#massa.model.v1.OpType"><span class="badge">E</span>OpType</a>
                 </li>
               
-                <li>
-                  <a href="#massa.model.v1.OperationStatus"><span class="badge">E</span>OperationStatus</a>
-                </li>
-              
               
               
             </ul>
@@ -536,11 +532,11 @@
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.ReadOnlyExecutionOutput"><span class="badge">M</span>ReadOnlyExecutionOutput</a>
+                  <a href="#massa.model.v1.ReadOnlyExecutionCall"><span class="badge">M</span>ReadOnlyExecutionCall</a>
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.ReadOnlyExecutionRequest"><span class="badge">M</span>ReadOnlyExecutionRequest</a>
+                  <a href="#massa.model.v1.ReadOnlyExecutionOutput"><span class="badge">M</span>ReadOnlyExecutionOutput</a>
                 </li>
               
                 <li>
@@ -549,6 +545,10 @@
               
                 <li>
                   <a href="#massa.model.v1.ScExecutionEventContext"><span class="badge">M</span>ScExecutionEventContext</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.ScExecutionEventsStatus"><span class="badge">M</span>ScExecutionEventsStatus</a>
                 </li>
               
                 <li>
@@ -2083,13 +2083,6 @@
                   <td><p>The operation object itself </p></td>
                 </tr>
               
-                <tr>
-                  <td>status</td>
-                  <td><a href="#massa.model.v1.OperationStatus">OperationStatus</a></td>
-                  <td>repeated</td>
-                  <td><p>The execution statuses of the operation </p></td>
-                </tr>
-              
             </tbody>
           </table>
 
@@ -2279,53 +2272,6 @@
                 <td>OP_TYPE_CALL_SC</td>
                 <td>5</td>
                 <td><p>Call smart contract</p></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      
-        <h3 id="massa.model.v1.OperationStatus">OperationStatus</h3>
-        <p>Possible statuses for an operation</p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>OPERATION_STATUS_UNSPECIFIED</td>
-                <td>0</td>
-                <td><p>Default enum value</p></td>
-              </tr>
-            
-              <tr>
-                <td>OPERATION_STATUS_PENDING</td>
-                <td>1</td>
-                <td><p>The operation is still pending</p></td>
-              </tr>
-            
-              <tr>
-                <td>OPERATION_STATUS_FINAL</td>
-                <td>2</td>
-                <td><p>The operation is final</p></td>
-              </tr>
-            
-              <tr>
-                <td>OPERATION_STATUS_SUCCESS</td>
-                <td>3</td>
-                <td><p>The operation was executed successfully</p></td>
-              </tr>
-            
-              <tr>
-                <td>OPERATION_STATUS_FAILURE</td>
-                <td>4</td>
-                <td><p>The operation failed to execute</p></td>
-              </tr>
-            
-              <tr>
-                <td>OPERATION_STATUS_UNKNOWN</td>
-                <td>5</td>
-                <td><p>The status of the operation is unknown</p></td>
               </tr>
             
           </tbody>
@@ -3416,46 +3362,8 @@ the performance hit of linear search remains minimal because `owned_addresses` w
 
         
       
-        <h3 id="massa.model.v1.ReadOnlyExecutionOutput">ReadOnlyExecutionOutput</h3>
-        <p>Structure describing the output of a read only execution</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>out</td>
-                  <td><a href="#massa.model.v1.ExecutionOutput">ExecutionOutput</a></td>
-                  <td></td>
-                  <td><p>Output of a single execution </p></td>
-                </tr>
-              
-                <tr>
-                  <td>max_gas</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td></td>
-                  <td><p>Gas cost for this execution </p></td>
-                </tr>
-              
-                <tr>
-                  <td>call_result</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Returned value from the module call </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.model.v1.ReadOnlyExecutionRequest">ReadOnlyExecutionRequest</h3>
-        <p>Read-only execution request</p>
+        <h3 id="massa.model.v1.ReadOnlyExecutionCall">ReadOnlyExecutionCall</h3>
+        <p>Read-only execution call</p>
 
         
           <table class="field-table">
@@ -3506,6 +3414,44 @@ the performance hit of linear search remains minimal because `owned_addresses` w
                   <td><p>execution start state
 
 Whether to start execution from final or active state </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.ReadOnlyExecutionOutput">ReadOnlyExecutionOutput</h3>
+        <p>Structure describing the output of a read only execution</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>out</td>
+                  <td><a href="#massa.model.v1.ExecutionOutput">ExecutionOutput</a></td>
+                  <td></td>
+                  <td><p>Output of a single execution </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_gas</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Gas cost for this execution </p></td>
+                </tr>
+              
+                <tr>
+                  <td>call_result</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Returned value from the module call </p></td>
                 </tr>
               
             </tbody>
@@ -3592,9 +3538,40 @@ Whether to start execution from final or active state </p></td>
                 </tr>
               
                 <tr>
+                  <td>is_failure</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>If a failure occurred </p></td>
+                </tr>
+              
+                <tr>
                   <td>status</td>
                   <td><a href="#massa.model.v1.ScExecutionEventStatus">ScExecutionEventStatus</a></td>
                   <td></td>
+                  <td><p>Status </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.ScExecutionEventsStatus">ScExecutionEventsStatus</h3>
+        <p>ScExecutionEventsStatus</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#massa.model.v1.ScExecutionEventStatus">ScExecutionEventStatus</a></td>
+                  <td>repeated</td>
                   <td><p>Status </p></td>
                 </tr>
               
@@ -4092,15 +4069,9 @@ Whether to start execution from final or active state </p></td>
               </tr>
             
               <tr>
-                <td>SC_EXECUTION_EVENT_STATUS_FAILURE</td>
+                <td>SC_EXECUTION_EVENT_STATUS_CANDIDATE</td>
                 <td>3</td>
-                <td><p>Failure status</p></td>
-              </tr>
-            
-              <tr>
-                <td>SC_EXECUTION_EVENT_STATUS_UNKNOWN</td>
-                <td>4</td>
-                <td><p>Unknown status</p></td>
+                <td><p>Candidate status</p></td>
               </tr>
             
           </tbody>

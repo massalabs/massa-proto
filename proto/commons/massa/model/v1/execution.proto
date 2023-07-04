@@ -65,8 +65,10 @@ message ScExecutionEventContext {
   repeated string call_stack = 4;
   // Origin operation id (Optional)
   google.protobuf.StringValue origin_operation_id = 5;
+  // If a failure occurred
+  bool is_failure = 6;
   // Status
-  ScExecutionEventStatus status = 6;
+  ScExecutionEventStatus status = 7;
 }
 
 // ScExecutionEventStatus type enum
@@ -74,8 +76,13 @@ enum ScExecutionEventStatus {
   SC_EXECUTION_EVENT_STATUS_UNSPECIFIED = 0; // Default enum value
   SC_EXECUTION_EVENT_STATUS_FINAL = 1; // Final status
   SC_EXECUTION_EVENT_STATUS_READ_ONLY = 2; // Read only status
-  SC_EXECUTION_EVENT_STATUS_FAILURE = 3; // Failure status
-  SC_EXECUTION_EVENT_STATUS_UNKNOWN = 4; // Unknown status
+  SC_EXECUTION_EVENT_STATUS_CANDIDATE = 3; // Candidate status
+}
+
+// ScExecutionEventsStatus
+message ScExecutionEventsStatus {
+  // Status
+  repeated ScExecutionEventStatus status = 1;
 }
 
 // ExecutionOutputStatus type enum
@@ -365,13 +372,13 @@ message SetOrDeleteDatastoreEntry {
   }
 }
 
-// Read-only execution request
-message ReadOnlyExecutionRequest {
+// Read-only execution call
+message ReadOnlyExecutionCall {
   // Maximum gas to spend in the execution.
   uint64 max_gas = 1;
   // Call stack to simulate, older caller first
   repeated ExecutionStackElement call_stack = 2;
-  // Target of the request
+  // Target of the call
   oneof target {
     // Byte code
     BytecodeExecution bytecode_call = 3;

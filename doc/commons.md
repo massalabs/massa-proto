@@ -51,7 +51,6 @@
     - [Transaction](#massa-model-v1-Transaction)
   
     - [OpType](#massa-model-v1-OpType)
-    - [OperationStatus](#massa-model-v1-OperationStatus)
   
 - [massa/model/v1/hash.proto](#massa_model_v1_hash-proto)
     - [NativeHash](#massa-model-v1-NativeHash)
@@ -88,10 +87,11 @@
     - [LedgerChangeValue](#massa-model-v1-LedgerChangeValue)
     - [LedgerEntry](#massa-model-v1-LedgerEntry)
     - [LedgerEntryUpdate](#massa-model-v1-LedgerEntryUpdate)
+    - [ReadOnlyExecutionCall](#massa-model-v1-ReadOnlyExecutionCall)
     - [ReadOnlyExecutionOutput](#massa-model-v1-ReadOnlyExecutionOutput)
-    - [ReadOnlyExecutionRequest](#massa-model-v1-ReadOnlyExecutionRequest)
     - [ScExecutionEvent](#massa-model-v1-ScExecutionEvent)
     - [ScExecutionEventContext](#massa-model-v1-ScExecutionEventContext)
+    - [ScExecutionEventsStatus](#massa-model-v1-ScExecutionEventsStatus)
     - [SetOrDeleteDatastoreEntry](#massa-model-v1-SetOrDeleteDatastoreEntry)
     - [SetOrKeepAsyncMessageTrigger](#massa-model-v1-SetOrKeepAsyncMessageTrigger)
     - [SetOrKeepBalance](#massa-model-v1-SetOrKeepBalance)
@@ -726,7 +726,6 @@ A wrapper around an operation with its metadata
 | block_ids | [string](#string) | repeated | The IDs of the blocks in which the operation appears |
 | thread | [uint32](#uint32) |  | The thread in which the operation can be included |
 | operation | [SignedOperation](#massa-model-v1-SignedOperation) |  | The operation object itself |
-| status | [OperationStatus](#massa-model-v1-OperationStatus) | repeated | The execution statuses of the operation |
 
 
 
@@ -814,22 +813,6 @@ Operation type enum
 | OP_TYPE_ROLL_SELL | 3 | Roll sell |
 | OP_TYPE_EXECUTE_SC | 4 | Execute smart contract |
 | OP_TYPE_CALL_SC | 5 | Call smart contract |
-
-
-
-<a name="massa-model-v1-OperationStatus"></a>
-
-### OperationStatus
-Possible statuses for an operation
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| OPERATION_STATUS_UNSPECIFIED | 0 | Default enum value |
-| OPERATION_STATUS_PENDING | 1 | The operation is still pending |
-| OPERATION_STATUS_FINAL | 2 | The operation is final |
-| OPERATION_STATUS_SUCCESS | 3 | The operation was executed successfully |
-| OPERATION_STATUS_FAILURE | 4 | The operation failed to execute |
-| OPERATION_STATUS_UNKNOWN | 5 | The status of the operation is unknown |
 
 
  
@@ -1357,27 +1340,10 @@ Represents an update to one or more fields of a `LedgerEntry`
 
 
 
-<a name="massa-model-v1-ReadOnlyExecutionOutput"></a>
+<a name="massa-model-v1-ReadOnlyExecutionCall"></a>
 
-### ReadOnlyExecutionOutput
-Structure describing the output of a read only execution
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| out | [ExecutionOutput](#massa-model-v1-ExecutionOutput) |  | Output of a single execution |
-| max_gas | [uint64](#uint64) |  | Gas cost for this execution |
-| call_result | [bytes](#bytes) |  | Returned value from the module call |
-
-
-
-
-
-
-<a name="massa-model-v1-ReadOnlyExecutionRequest"></a>
-
-### ReadOnlyExecutionRequest
-Read-only execution request
+### ReadOnlyExecutionCall
+Read-only execution call
 
 
 | Field | Type | Label | Description |
@@ -1390,6 +1356,23 @@ Read-only execution request
 | is_final | [bool](#bool) |  | execution start state
 
 Whether to start execution from final or active state |
+
+
+
+
+
+
+<a name="massa-model-v1-ReadOnlyExecutionOutput"></a>
+
+### ReadOnlyExecutionOutput
+Structure describing the output of a read only execution
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| out | [ExecutionOutput](#massa-model-v1-ExecutionOutput) |  | Output of a single execution |
+| max_gas | [uint64](#uint64) |  | Gas cost for this execution |
+| call_result | [bytes](#bytes) |  | Returned value from the module call |
 
 
 
@@ -1425,7 +1408,23 @@ ScExecutionEvent context
 | index_in_slot | [uint64](#uint64) |  | Index of the event in the slot |
 | call_stack | [string](#string) | repeated | Call stack addresses. most recent at the end |
 | origin_operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Origin operation id (Optional) |
+| is_failure | [bool](#bool) |  | If a failure occurred |
 | status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) |  | Status |
+
+
+
+
+
+
+<a name="massa-model-v1-ScExecutionEventsStatus"></a>
+
+### ScExecutionEventsStatus
+ScExecutionEventsStatus
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) | repeated | Status |
 
 
 
@@ -1661,8 +1660,7 @@ ScExecutionEventStatus type enum
 | SC_EXECUTION_EVENT_STATUS_UNSPECIFIED | 0 | Default enum value |
 | SC_EXECUTION_EVENT_STATUS_FINAL | 1 | Final status |
 | SC_EXECUTION_EVENT_STATUS_READ_ONLY | 2 | Read only status |
-| SC_EXECUTION_EVENT_STATUS_FAILURE | 3 | Failure status |
-| SC_EXECUTION_EVENT_STATUS_UNKNOWN | 4 | Unknown status |
+| SC_EXECUTION_EVENT_STATUS_CANDIDATE | 3 | Candidate status |
 
 
  
