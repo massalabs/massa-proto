@@ -91,6 +91,22 @@ service PrivateService {
     };
   }
 
+  // Ban multiple nodes by their individual ids
+  rpc BanNodesByIds(BanNodesByIdsRequest) returns (BanNodesByIdsResponse) {
+    option (google.api.http) = {
+      post: "/v1/ban_nodes_by_ids"
+      body: "*"
+    };
+  }
+
+  // Ban multiple nodes by their individual IP addresses
+  rpc BanNodesByIps(BanNodesByIpsRequest) returns (BanNodesByIpsResponse) {
+    option (google.api.http) = {
+      post: "/v1/ban_nodes_by_ips"
+      body: "*"
+    };
+  }
+
   // Remove from bootstrap blacklist given IP addresses
   rpc RemoveFromBootstrapBlacklist(RemoveFromBootstrapBlacklistRequest) returns (RemoveFromBootstrapBlacklistResponse) {
     option (google.api.http) = {
@@ -135,6 +151,22 @@ service PrivateService {
   rpc ShutdownGracefully(ShutdownGracefullyRequest) returns (ShutdownGracefullyResponse) {
     option (google.api.http) = {
       post: "/v1/shutdown_gracefully"
+      body: "*"
+    };
+  }
+
+  // Unban multiple nodes by their individual ids
+  rpc UnbanNodesByIds(UnbanNodesByIdsRequest) returns (UnbanNodesByIdsResponse) {
+    option (google.api.http) = {
+      post: "/v1/unban_nodes_by_ids"
+      body: "*"
+    };
+  }
+
+  // Unban multiple nodes by their individual IP addresses
+  rpc UnbanNodesByIps(UnbanNodesByIpsRequest) returns (UnbanNodesByIpsResponse) {
+    option (google.api.http) = {
+      post: "/v1/unban_nodes_by_ips"
       body: "*"
     };
   }
@@ -218,6 +250,24 @@ message GetPeersWhitelistResponse {
   repeated string ips = 1;
 }
 
+// BanNodesByIdsRequest holds the request for BanNodesByIds
+message BanNodesByIdsRequest {
+  // Node ids to ban
+  repeated string ids = 1;
+}
+
+// BanNodesByIdsResponse holds the response from BanNodesByIds
+message BanNodesByIdsResponse {}
+
+// BanNodesByIpsRequest holds the request for BanNodesByIps
+message BanNodesByIpsRequest {
+  // Node IP addresses to ban
+  repeated string ips = 1;
+}
+
+// BanNodesByIpsResponse holds the response from BanNodesByIps
+message BanNodesByIpsResponse {}
+
 // RemoveFromBootstrapBlacklistRequest holds the request for RemoveFromBootstrapBlacklist
 message RemoveFromBootstrapBlacklistRequest {
   // IP addresses to remove from bootstrap blacklist
@@ -273,3 +323,21 @@ message ShutdownGracefullyRequest {}
 
 // ShutdownGracefullyResponse holds the response from ShutdownGracefully
 message ShutdownGracefullyResponse {}
+
+// UnbanNodesByIdsRequest holds the request for UnbanNodesByIds
+message UnbanNodesByIdsRequest {
+  // Node ids to unban
+  repeated string ids = 1;
+}
+
+// UnbanNodesByIdsResponse holds the response from UnbanNodesByIds
+message UnbanNodesByIdsResponse {}
+
+// UnbanNodesByIpsRequest holds the request for UnbanNodesByIps
+message UnbanNodesByIpsRequest {
+  // Nodes IP addresses to unban
+  repeated string ips = 1;
+}
+
+// UnbanNodesByIpsResponse holds the response from UnbanNodesByIps
+message UnbanNodesByIpsResponse {}

@@ -219,6 +219,22 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.BanNodesByIdsRequest"><span class="badge">M</span>BanNodesByIdsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.BanNodesByIdsResponse"><span class="badge">M</span>BanNodesByIdsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.BanNodesByIpsRequest"><span class="badge">M</span>BanNodesByIpsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.BanNodesByIpsResponse"><span class="badge">M</span>BanNodesByIpsResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.GetBootstrapBlacklistRequest"><span class="badge">M</span>GetBootstrapBlacklistRequest</a>
                 </li>
               
@@ -296,6 +312,22 @@
               
                 <li>
                   <a href="#massa.api.v1.SignMessagesResponse"><span class="badge">M</span>SignMessagesResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.UnbanNodesByIdsRequest"><span class="badge">M</span>UnbanNodesByIdsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.UnbanNodesByIdsResponse"><span class="badge">M</span>UnbanNodesByIdsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.UnbanNodesByIpsRequest"><span class="badge">M</span>UnbanNodesByIpsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.UnbanNodesByIpsResponse"><span class="badge">M</span>UnbanNodesByIpsResponse</a>
                 </li>
               
               
@@ -793,6 +825,68 @@
 
         
       
+        <h3 id="massa.api.v1.BanNodesByIdsRequest">BanNodesByIdsRequest</h3>
+        <p>BanNodesByIdsRequest holds the request for BanNodesByIds</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Node ids to ban </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.BanNodesByIdsResponse">BanNodesByIdsResponse</h3>
+        <p>BanNodesByIdsResponse holds the response from BanNodesByIds</p>
+
+        
+
+        
+      
+        <h3 id="massa.api.v1.BanNodesByIpsRequest">BanNodesByIpsRequest</h3>
+        <p>BanNodesByIpsRequest holds the request for BanNodesByIps</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ips</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Node IP addresses to ban </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.BanNodesByIpsResponse">BanNodesByIpsResponse</h3>
+        <p>BanNodesByIpsResponse holds the response from BanNodesByIps</p>
+
+        
+
+        
+      
         <h3 id="massa.api.v1.GetBootstrapBlacklistRequest">GetBootstrapBlacklistRequest</h3>
         <p>GetBootstrapBlacklistRequest holds the request for GetBootstrapBlacklist</p>
 
@@ -1110,6 +1204,68 @@
 
         
       
+        <h3 id="massa.api.v1.UnbanNodesByIdsRequest">UnbanNodesByIdsRequest</h3>
+        <p>UnbanNodesByIdsRequest holds the request for UnbanNodesByIds</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Node ids to unban </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.UnbanNodesByIdsResponse">UnbanNodesByIdsResponse</h3>
+        <p>UnbanNodesByIdsResponse holds the response from UnbanNodesByIds</p>
+
+        
+
+        
+      
+        <h3 id="massa.api.v1.UnbanNodesByIpsRequest">UnbanNodesByIpsRequest</h3>
+        <p>UnbanNodesByIpsRequest holds the request for UnbanNodesByIps</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ips</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Nodes IP addresses to unban </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.UnbanNodesByIpsResponse">UnbanNodesByIpsResponse</h3>
+        <p>UnbanNodesByIpsResponse holds the response from UnbanNodesByIps</p>
+
+        
+
+        
+      
 
       
 
@@ -1189,6 +1345,20 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             
               <tr>
+                <td>BanNodesByIds</td>
+                <td><a href="#massa.api.v1.BanNodesByIdsRequest">BanNodesByIdsRequest</a></td>
+                <td><a href="#massa.api.v1.BanNodesByIdsResponse">BanNodesByIdsResponse</a></td>
+                <td><p>Ban multiple nodes by their individual ids</p></td>
+              </tr>
+            
+              <tr>
+                <td>BanNodesByIps</td>
+                <td><a href="#massa.api.v1.BanNodesByIpsRequest">BanNodesByIpsRequest</a></td>
+                <td><a href="#massa.api.v1.BanNodesByIpsResponse">BanNodesByIpsResponse</a></td>
+                <td><p>Ban multiple nodes by their individual IP addresses</p></td>
+              </tr>
+            
+              <tr>
                 <td>RemoveFromBootstrapBlacklist</td>
                 <td><a href="#massa.api.v1.RemoveFromBootstrapBlacklistRequest">RemoveFromBootstrapBlacklistRequest</a></td>
                 <td><a href="#massa.api.v1.RemoveFromBootstrapBlacklistResponse">RemoveFromBootstrapBlacklistResponse</a></td>
@@ -1228,6 +1398,20 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td><a href="#massa.api.v1.ShutdownGracefullyRequest">ShutdownGracefullyRequest</a></td>
                 <td><a href="#massa.api.v1.ShutdownGracefullyResponse">ShutdownGracefullyResponse</a></td>
                 <td><p>Shutdown the node gracefully</p></td>
+              </tr>
+            
+              <tr>
+                <td>UnbanNodesByIds</td>
+                <td><a href="#massa.api.v1.UnbanNodesByIdsRequest">UnbanNodesByIdsRequest</a></td>
+                <td><a href="#massa.api.v1.UnbanNodesByIdsResponse">UnbanNodesByIdsResponse</a></td>
+                <td><p>Unban multiple nodes by their individual ids</p></td>
+              </tr>
+            
+              <tr>
+                <td>UnbanNodesByIps</td>
+                <td><a href="#massa.api.v1.UnbanNodesByIpsRequest">UnbanNodesByIpsRequest</a></td>
+                <td><a href="#massa.api.v1.UnbanNodesByIpsResponse">UnbanNodesByIpsResponse</a></td>
+                <td><p>Unban multiple nodes by their individual IP addresses</p></td>
               </tr>
             
           </tbody>
@@ -1341,6 +1525,26 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
               
               <tr>
+                <td>BanNodesByIds</td>
+                <td>POST</td>
+                <td>/v1/ban_nodes_by_ids</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>BanNodesByIps</td>
+                <td>POST</td>
+                <td>/v1/ban_nodes_by_ips</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
                 <td>RemoveFromBootstrapBlacklist</td>
                 <td>POST</td>
                 <td>/v1/remove_from_bootstrap_blacklist</td>
@@ -1394,6 +1598,26 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td>ShutdownGracefully</td>
                 <td>POST</td>
                 <td>/v1/shutdown_gracefully</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UnbanNodesByIds</td>
+                <td>POST</td>
+                <td>/v1/unban_nodes_by_ids</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UnbanNodesByIps</td>
+                <td>POST</td>
+                <td>/v1/unban_nodes_by_ips</td>
                 <td>*</td>
               </tr>
               
