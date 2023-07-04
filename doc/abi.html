@@ -367,22 +367,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.abi.v1.ComparisonResult"><span class="badge">M</span>ComparisonResult</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.ComparisonResult.Equal"><span class="badge">M</span>ComparisonResult.Equal</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.ComparisonResult.LeftGreater"><span class="badge">M</span>ComparisonResult.LeftGreater</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.ComparisonResult.LeftLower"><span class="badge">M</span>ComparisonResult.LeftLower</a>
-                </li>
-              
-                <li>
                   <a href="#massa.abi.v1.CreateScRequest"><span class="badge">M</span>CreateScRequest</a>
                 </li>
               
@@ -915,9 +899,9 @@
                 </tr>
               
                 <tr>
-                  <td>optional_address</td>
+                  <td>address</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
+                  <td>optional</td>
                   <td><p>Address to append data for, if none, use current address </p></td>
                 </tr>
               
@@ -1516,8 +1500,8 @@
             <tbody>
               
                 <tr>
-                  <td>mandatory_quotient</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td>quotient</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Quotient of time and divisor </p></td>
                 </tr>
@@ -1554,8 +1538,8 @@
                 </tr>
               
                 <tr>
-                  <td>mandatory_coefficient</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td>coefficient</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Coefficient to multiply by </p></td>
                 </tr>
@@ -1609,8 +1593,8 @@
                 </tr>
               
                 <tr>
-                  <td>mandatory_divisor</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td>divisor</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Divisor to divide by </p></td>
                 </tr>
@@ -1751,7 +1735,7 @@
               
                 <tr>
                   <td>result</td>
-                  <td><a href="#massa.abi.v1.ComparisonResult">ComparisonResult</a></td>
+                  <td><a href="#massa.model.v1.ComparisonResult">massa.model.v1.ComparisonResult</a></td>
                   <td></td>
                   <td><p>Comparison result </p></td>
                 </tr>
@@ -1806,7 +1790,7 @@
               
                 <tr>
                   <td>result</td>
-                  <td><a href="#massa.abi.v1.ComparisonResult">ComparisonResult</a></td>
+                  <td><a href="#massa.model.v1.ComparisonResult">massa.model.v1.ComparisonResult</a></td>
                   <td></td>
                   <td><p>Comparison result </p></td>
                 </tr>
@@ -1861,7 +1845,7 @@
               
                 <tr>
                   <td>result</td>
-                  <td><a href="#massa.abi.v1.ComparisonResult">ComparisonResult</a></td>
+                  <td><a href="#massa.model.v1.ComparisonResult">massa.model.v1.ComparisonResult</a></td>
                   <td></td>
                   <td><p>Comparison result </p></td>
                 </tr>
@@ -1916,7 +1900,7 @@
               
                 <tr>
                   <td>result</td>
-                  <td><a href="#massa.abi.v1.ComparisonResult">ComparisonResult</a></td>
+                  <td><a href="#massa.model.v1.ComparisonResult">massa.model.v1.ComparisonResult</a></td>
                   <td></td>
                   <td><p>Comparison result </p></td>
                 </tr>
@@ -1971,7 +1955,7 @@
               
                 <tr>
                   <td>result</td>
-                  <td><a href="#massa.abi.v1.ComparisonResult">ComparisonResult</a></td>
+                  <td><a href="#massa.model.v1.ComparisonResult">massa.model.v1.ComparisonResult</a></td>
                   <td></td>
                   <td><p>Comparison result </p></td>
                 </tr>
@@ -1980,65 +1964,6 @@
           </table>
 
           
-
-        
-      
-        <h3 id="massa.abi.v1.ComparisonResult">ComparisonResult</h3>
-        <p>Comparison result</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>left_lower</td>
-                  <td><a href="#massa.abi.v1.ComparisonResult.LeftLower">ComparisonResult.LeftLower</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>equal</td>
-                  <td><a href="#massa.abi.v1.ComparisonResult.Equal">ComparisonResult.Equal</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>left_greater</td>
-                  <td><a href="#massa.abi.v1.ComparisonResult.LeftGreater">ComparisonResult.LeftGreater</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.ComparisonResult.Equal">ComparisonResult.Equal</h3>
-        <p>Left is equal to right</p>
-
-        
-
-        
-      
-        <h3 id="massa.abi.v1.ComparisonResult.LeftGreater">ComparisonResult.LeftGreater</h3>
-        <p>Left is greater</p>
-
-        
-
-        
-      
-        <h3 id="massa.abi.v1.ComparisonResult.LeftLower">ComparisonResult.LeftLower</h3>
-        <p>Left is lower</p>
-
-        
 
         
       
@@ -2139,9 +2064,9 @@
                 </tr>
               
                 <tr>
-                  <td>optional_address</td>
+                  <td>address</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
+                  <td>optional</td>
                   <td><p>Address to delete data for, if none, use current address </p></td>
                 </tr>
               
@@ -2201,8 +2126,8 @@
             <tbody>
               
                 <tr>
-                  <td>mandatory_quotient</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td>quotient</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Quotient of amount and divisor </p></td>
                 </tr>
@@ -2414,8 +2339,8 @@
             <tbody>
               
                 <tr>
-                  <td>mandatory_version</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td>version</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -2438,9 +2363,9 @@
             <tbody>
               
                 <tr>
-                  <td>optional_address</td>
+                  <td>address</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
+                  <td>optional</td>
                   <td><p>Address to get balance for, if none, use current address </p></td>
                 </tr>
               
@@ -2486,9 +2411,9 @@
             <tbody>
               
                 <tr>
-                  <td>optional_address</td>
+                  <td>address</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
+                  <td>optional</td>
                   <td><p>Address to get bytecode for, if none, use current address </p></td>
                 </tr>
               
@@ -2634,9 +2559,9 @@
                 </tr>
               
                 <tr>
-                  <td>optional_address</td>
+                  <td>address</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
+                  <td>optional</td>
                   <td><p>Address to get data for, if none, use current address </p></td>
                 </tr>
               
@@ -2689,9 +2614,9 @@
                 </tr>
               
                 <tr>
-                  <td>optional_address</td>
+                  <td>address</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
+                  <td>optional</td>
                   <td><p>Address to get keys for </p></td>
                 </tr>
               
@@ -2919,8 +2844,8 @@
             <tbody>
               
                 <tr>
-                  <td>mandatory_version</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td>version</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -2950,8 +2875,8 @@
             <tbody>
               
                 <tr>
-                  <td>mandatory_remaining_gas</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td>remaining_gas</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>remaining gas </p></td>
                 </tr>
@@ -2998,8 +2923,8 @@
             <tbody>
               
                 <tr>
-                  <td>mandatory_version</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td>version</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -3029,9 +2954,9 @@
                 </tr>
               
                 <tr>
-                  <td>optional_address</td>
+                  <td>address</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
+                  <td>optional</td>
                   <td><p>Address to check data for, if none, use current address </p></td>
                 </tr>
               
@@ -3290,8 +3215,8 @@
                 </tr>
               
                 <tr>
-                  <td>mandatory_coefficient</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td>coefficient</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Coefficient to multiply by </p></td>
                 </tr>
@@ -3434,8 +3359,8 @@
             <tbody>
               
                 <tr>
-                  <td>mandatory_code</td>
-                  <td><a href="#google.protobuf.UInt32Value">google.protobuf.UInt32Value</a></td>
+                  <td>code</td>
+                  <td><a href="#uint32">uint32</a></td>
                   <td></td>
                   <td><p>exit code </p></td>
                 </tr>
@@ -3455,7 +3380,7 @@
         
       
         <h3 id="massa.abi.v1.RespResult">RespResult</h3>
-        <p>Tips to check for completeness exec:</p><p>`rg message | rg "\{" | rg "Result" | wc -l`</p><p>the given count should be equal to the number of messages in RespResult + 2</p><p>the +2 comes from ResResult itself which is counted above and from ComparisonResult which is not in the same category</p>
+        <p>Tips to check for completeness exec:</p><p>`rg message | rg "\{" | rg "Result" | wc -l`</p><p>the given count should be equal to the number of messages in RespResult + 2</p><p>the +2 comes from ResResult itself which is counted above and from massa.model.v1.ComparisonResult which is not in the same category</p>
 
         
           <table class="field-table">
@@ -3944,8 +3869,8 @@
                 </tr>
               
                 <tr>
-                  <td>mandatory_divisor</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td>divisor</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Divisor to divide by </p></td>
                 </tr>
@@ -4155,9 +4080,9 @@
                 </tr>
               
                 <tr>
-                  <td>optional_address</td>
+                  <td>address</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
+                  <td>optional</td>
                   <td><p>Address to set bytecode for, if none, use current address </p></td>
                 </tr>
               
@@ -4200,9 +4125,9 @@
                 </tr>
               
                 <tr>
-                  <td>optional_address</td>
+                  <td>address</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
+                  <td>optional</td>
                   <td><p>Address to set data for, if none, use current address </p></td>
                 </tr>
               
@@ -4300,9 +4225,9 @@
                 </tr>
               
                 <tr>
-                  <td>optional_sender_address</td>
+                  <td>sender_address</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
+                  <td>optional</td>
                   <td><p>The address of the sender, if none, use current address </p></td>
                 </tr>
               
@@ -4331,8 +4256,8 @@
             <tbody>
               
                 <tr>
-                  <td>mandatory_num_bytes</td>
-                  <td><a href="#google.protobuf.UInt32Value">google.protobuf.UInt32Value</a></td>
+                  <td>num_bytes</td>
+                  <td><a href="#uint32">uint32</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>

@@ -34,3 +34,19 @@ message SecureShare {
   // A secure hash of the data. See also [massa_hash::Hash]
   string id = 5;
 }
+
+// Comparison result
+message ComparisonResult {
+  // Left is lower
+  message LeftLower {}
+  // Left is equal to right
+  message Equal {}
+  // Left is greater
+  message LeftGreater {}
+  // Status
+  oneof restult {
+    LeftLower left_lower = 1;
+    Equal equal = 2;
+    LeftGreater left_greater = 3;
+  }
+}

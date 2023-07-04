@@ -51,10 +51,6 @@
     - [ComparePubKeyResult](#massa-abi-v1-ComparePubKeyResult)
     - [CompareSigRequest](#massa-abi-v1-CompareSigRequest)
     - [CompareSigResult](#massa-abi-v1-CompareSigResult)
-    - [ComparisonResult](#massa-abi-v1-ComparisonResult)
-    - [ComparisonResult.Equal](#massa-abi-v1-ComparisonResult-Equal)
-    - [ComparisonResult.LeftGreater](#massa-abi-v1-ComparisonResult-LeftGreater)
-    - [ComparisonResult.LeftLower](#massa-abi-v1-ComparisonResult-LeftLower)
     - [CreateScRequest](#massa-abi-v1-CreateScRequest)
     - [CreateScResult](#massa-abi-v1-CreateScResult)
     - [DateNowRequest](#massa-abi-v1-DateNowRequest)
@@ -243,7 +239,7 @@ Append data request
 | ----- | ---- | ----- | ----------- |
 | key | [bytes](#bytes) |  | key |
 | value | [bytes](#bytes) |  | value |
-| optional_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Address to append data for, if none, use current address |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to append data for, if none, use current address |
 
 
 
@@ -613,7 +609,7 @@ Time division checked result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mandatory_quotient | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Quotient of time and divisor |
+| quotient | [uint64](#uint64) |  | Quotient of time and divisor |
 | remainder | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Remainder of time and divisor |
 
 
@@ -630,7 +626,7 @@ Time scalar mult checked request
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | time | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Time to multiply |
-| mandatory_coefficient | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Coefficient to multiply by |
+| coefficient | [uint64](#uint64) |  | Coefficient to multiply by |
 
 
 
@@ -661,7 +657,7 @@ Time scalar divrem checked request
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | dividend | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Time to divide |
-| mandatory_divisor | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Divisor to divide by |
+| divisor | [uint64](#uint64) |  | Divisor to divide by |
 
 
 
@@ -739,7 +735,7 @@ Compare Address result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| result | [ComparisonResult](#massa-abi-v1-ComparisonResult) |  | Comparison result |
+| result | [massa.model.v1.ComparisonResult](#massa-model-v1-ComparisonResult) |  | Comparison result |
 
 
 
@@ -770,7 +766,7 @@ Compare NativeAmount result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| result | [ComparisonResult](#massa-abi-v1-ComparisonResult) |  | Comparison result |
+| result | [massa.model.v1.ComparisonResult](#massa-model-v1-ComparisonResult) |  | Comparison result |
 
 
 
@@ -801,7 +797,7 @@ Time comparison result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| result | [ComparisonResult](#massa-abi-v1-ComparisonResult) |  | Comparison result |
+| result | [massa.model.v1.ComparisonResult](#massa-model-v1-ComparisonResult) |  | Comparison result |
 
 
 
@@ -832,7 +828,7 @@ Compare PubKey result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| result | [ComparisonResult](#massa-abi-v1-ComparisonResult) |  | Comparison result |
+| result | [massa.model.v1.ComparisonResult](#massa-model-v1-ComparisonResult) |  | Comparison result |
 
 
 
@@ -863,54 +859,7 @@ Compare Sig result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| result | [ComparisonResult](#massa-abi-v1-ComparisonResult) |  | Comparison result |
-
-
-
-
-
-
-<a name="massa-abi-v1-ComparisonResult"></a>
-
-### ComparisonResult
-Comparison result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| left_lower | [ComparisonResult.LeftLower](#massa-abi-v1-ComparisonResult-LeftLower) |  |  |
-| equal | [ComparisonResult.Equal](#massa-abi-v1-ComparisonResult-Equal) |  |  |
-| left_greater | [ComparisonResult.LeftGreater](#massa-abi-v1-ComparisonResult-LeftGreater) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-ComparisonResult-Equal"></a>
-
-### ComparisonResult.Equal
-Left is equal to right
-
-
-
-
-
-
-<a name="massa-abi-v1-ComparisonResult-LeftGreater"></a>
-
-### ComparisonResult.LeftGreater
-Left is greater
-
-
-
-
-
-
-<a name="massa-abi-v1-ComparisonResult-LeftLower"></a>
-
-### ComparisonResult.LeftLower
-Left is lower
+| result | [massa.model.v1.ComparisonResult](#massa-model-v1-ComparisonResult) |  | Comparison result |
 
 
 
@@ -982,7 +931,7 @@ Delete data request
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | key | [bytes](#bytes) |  | key |
-| optional_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Address to delete data for, if none, use current address |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to delete data for, if none, use current address |
 
 
 
@@ -1023,7 +972,7 @@ Amount division result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mandatory_quotient | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Quotient of amount and divisor |
+| quotient | [uint64](#uint64) |  | Quotient of amount and divisor |
 | remainder | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Remainder of amount and divisor |
 
 
@@ -1155,7 +1104,7 @@ Get the version of the address result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mandatory_version | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  |  |
+| version | [uint64](#uint64) |  |  |
 
 
 
@@ -1170,7 +1119,7 @@ Get balance request
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| optional_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Address to get balance for, if none, use current address |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to get balance for, if none, use current address |
 
 
 
@@ -1200,7 +1149,7 @@ Get bytecode request
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| optional_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Address to get bytecode for, if none, use current address |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to get bytecode for, if none, use current address |
 
 
 
@@ -1306,7 +1255,7 @@ Get data request
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | key | [bytes](#bytes) |  | key |
-| optional_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Address to get data for, if none, use current address |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to get data for, if none, use current address |
 
 
 
@@ -1337,7 +1286,7 @@ Get keys request
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | prefix | [bytes](#bytes) |  | keys prefix |
-| optional_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Address to get keys for |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to get keys for |
 
 
 
@@ -1492,7 +1441,7 @@ Get the version of the public key result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mandatory_version | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  |  |
+| version | [uint64](#uint64) |  |  |
 
 
 
@@ -1517,7 +1466,7 @@ Get remaining gas result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mandatory_remaining_gas | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | remaining gas |
+| remaining_gas | [uint64](#uint64) |  | remaining gas |
 
 
 
@@ -1547,7 +1496,7 @@ Get the version of the signature result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mandatory_version | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  |  |
+| version | [uint64](#uint64) |  |  |
 
 
 
@@ -1563,7 +1512,7 @@ Has data request
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | key | [bytes](#bytes) |  | key |
-| optional_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Address to check data for, if none, use current address |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to check data for, if none, use current address |
 
 
 
@@ -1717,7 +1666,7 @@ Try to compute product = amount * coefficient (fail if overflow)
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to multiply |
-| mandatory_coefficient | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Coefficient to multiply by |
+| coefficient | [uint64](#uint64) |  | Coefficient to multiply by |
 
 
 
@@ -1808,7 +1757,7 @@ Process exit request
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mandatory_code | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  | exit code |
+| code | [uint32](#uint32) |  | exit code |
 
 
 
@@ -1831,7 +1780,7 @@ Process exit result
 Tips to check for completeness exec:
 `rg message | rg &#34;\{&#34; | rg &#34;Result&#34; | wc -l`
 the given count should be equal to the number of messages in RespResult &#43; 2
-the &#43;2 comes from ResResult itself which is counted above and from ComparisonResult which is not in the same category
+the &#43;2 comes from ResResult itself which is counted above and from massa.model.v1.ComparisonResult which is not in the same category
 
 
 | Field | Type | Label | Description |
@@ -1919,7 +1868,7 @@ Fails if underflow
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | dividend | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to divide |
-| mandatory_divisor | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Divisor to divide by |
+| divisor | [uint64](#uint64) |  | Divisor to divide by |
 
 
 
@@ -2026,7 +1975,7 @@ Set bytecode request
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | bytecode | [bytes](#bytes) |  | Bytecode |
-| optional_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Address to set bytecode for, if none, use current address |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to set bytecode for, if none, use current address |
 
 
 
@@ -2053,7 +2002,7 @@ Set data request
 | ----- | ---- | ----- | ----------- |
 | key | [bytes](#bytes) |  | key |
 | value | [bytes](#bytes) |  | value |
-| optional_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Address to set data for, if none, use current address |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to set data for, if none, use current address |
 
 
 
@@ -2113,7 +2062,7 @@ Transfer coins request
 | ----- | ---- | ----- | ----------- |
 | target_address | [string](#string) |  | The address of the recipient |
 | amount_to_transfer | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | The amount of coins to transfer |
-| optional_sender_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | The address of the sender, if none, use current address |
+| sender_address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | The address of the sender, if none, use current address |
 
 
 
@@ -2138,7 +2087,7 @@ Unsafe random request
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mandatory_num_bytes | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  |  |
+| num_bytes | [uint32](#uint32) |  |  |
 
 
 
