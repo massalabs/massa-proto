@@ -36,17 +36,12 @@ message SecureShare {
 }
 
 // Comparison result
-message ComparisonResult {
-  // Left is lower
-  message LeftLower {}
-  // Left is equal to right
-  message Equal {}
-  // Left is greater
-  message LeftGreater {}
-  // Status
-  oneof restult {
-    LeftLower left_lower = 1;
-    Equal equal = 2;
-    LeftGreater left_greater = 3;
-  }
+enum ComparisonResult {
+  COMPARISON_RESULT_UNSPECIFIED = 0;
+  // left is lower
+  COMPARISON_RESULT_LOWER = 1;
+  // left and right are equal
+  COMPARISON_RESULT_EQUAL = 2;
+  // left is greater
+  COMPARISON_RESULT_GREATER = 3;
 }

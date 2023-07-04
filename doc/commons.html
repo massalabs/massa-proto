@@ -561,25 +561,13 @@
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.ComparisonResult"><span class="badge">M</span>ComparisonResult</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.ComparisonResult.Equal"><span class="badge">M</span>ComparisonResult.Equal</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.ComparisonResult.LeftGreater"><span class="badge">M</span>ComparisonResult.LeftGreater</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.ComparisonResult.LeftLower"><span class="badge">M</span>ComparisonResult.LeftLower</a>
-                </li>
-              
-                <li>
                   <a href="#massa.model.v1.SecureShare"><span class="badge">M</span>SecureShare</a>
                 </li>
               
+              
+                <li>
+                  <a href="#massa.model.v1.ComparisonResult"><span class="badge">E</span>ComparisonResult</a>
+                </li>
               
               
               
@@ -3388,65 +3376,6 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
 
         
       
-        <h3 id="massa.model.v1.ComparisonResult">ComparisonResult</h3>
-        <p>Comparison result</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>left_lower</td>
-                  <td><a href="#massa.model.v1.ComparisonResult.LeftLower">ComparisonResult.LeftLower</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>equal</td>
-                  <td><a href="#massa.model.v1.ComparisonResult.Equal">ComparisonResult.Equal</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>left_greater</td>
-                  <td><a href="#massa.model.v1.ComparisonResult.LeftGreater">ComparisonResult.LeftGreater</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.model.v1.ComparisonResult.Equal">ComparisonResult.Equal</h3>
-        <p>Left is equal to right</p>
-
-        
-
-        
-      
-        <h3 id="massa.model.v1.ComparisonResult.LeftGreater">ComparisonResult.LeftGreater</h3>
-        <p>Left is greater</p>
-
-        
-
-        
-      
-        <h3 id="massa.model.v1.ComparisonResult.LeftLower">ComparisonResult.LeftLower</h3>
-        <p>Left is lower</p>
-
-        
-
-        
-      
         <h3 id="massa.model.v1.SecureShare">SecureShare</h3>
         <p>Packages a type such that it can be securely sent and received in a trust-free network</p>
 
@@ -3500,6 +3429,41 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
         
       
 
+      
+        <h3 id="massa.model.v1.ComparisonResult">ComparisonResult</h3>
+        <p>Comparison result</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>COMPARISON_RESULT_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPARISON_RESULT_LOWER</td>
+                <td>1</td>
+                <td><p>left is lower</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPARISON_RESULT_EQUAL</td>
+                <td>2</td>
+                <td><p>left and right are equal</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPARISON_RESULT_GREATER</td>
+                <td>3</td>
+                <td><p>left is greater</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
 
       

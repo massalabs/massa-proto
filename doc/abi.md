@@ -1779,8 +1779,8 @@ Process exit result
 ### RespResult
 Tips to check for completeness exec:
 `rg message | rg &#34;\{&#34; | rg &#34;Result&#34; | wc -l`
-the given count should be equal to the number of messages in RespResult &#43; 2
-the &#43;2 comes from ResResult itself which is counted above and from massa.model.v1.ComparisonResult which is not in the same category
+the given count should be equal to the number of messages in RespResult &#43; 1
+the &#43;1 comes from ResResult itself which is counted above
 
 
 | Field | Type | Label | Description |

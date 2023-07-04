@@ -96,11 +96,9 @@
   
 - [massa/model/v1/commons.proto](#massa_model_v1_commons-proto)
     - [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry)
-    - [ComparisonResult](#massa-model-v1-ComparisonResult)
-    - [ComparisonResult.Equal](#massa-model-v1-ComparisonResult-Equal)
-    - [ComparisonResult.LeftGreater](#massa-model-v1-ComparisonResult-LeftGreater)
-    - [ComparisonResult.LeftLower](#massa-model-v1-ComparisonResult-LeftLower)
     - [SecureShare](#massa-model-v1-SecureShare)
+  
+    - [ComparisonResult](#massa-model-v1-ComparisonResult)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -1407,53 +1405,6 @@ BytesMapFieldEntry
 
 
 
-<a name="massa-model-v1-ComparisonResult"></a>
-
-### ComparisonResult
-Comparison result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| left_lower | [ComparisonResult.LeftLower](#massa-model-v1-ComparisonResult-LeftLower) |  |  |
-| equal | [ComparisonResult.Equal](#massa-model-v1-ComparisonResult-Equal) |  |  |
-| left_greater | [ComparisonResult.LeftGreater](#massa-model-v1-ComparisonResult-LeftGreater) |  |  |
-
-
-
-
-
-
-<a name="massa-model-v1-ComparisonResult-Equal"></a>
-
-### ComparisonResult.Equal
-Left is equal to right
-
-
-
-
-
-
-<a name="massa-model-v1-ComparisonResult-LeftGreater"></a>
-
-### ComparisonResult.LeftGreater
-Left is greater
-
-
-
-
-
-
-<a name="massa-model-v1-ComparisonResult-LeftLower"></a>
-
-### ComparisonResult.LeftLower
-Left is lower
-
-
-
-
-
-
 <a name="massa-model-v1-SecureShare"></a>
 
 ### SecureShare
@@ -1473,6 +1424,20 @@ Packages a type such that it can be securely sent and received in a trust-free n
 
 
  
+
+
+<a name="massa-model-v1-ComparisonResult"></a>
+
+### ComparisonResult
+Comparison result
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| COMPARISON_RESULT_UNSPECIFIED | 0 |  |
+| COMPARISON_RESULT_LOWER | 1 | left is lower |
+| COMPARISON_RESULT_EQUAL | 2 | left and right are equal |
+| COMPARISON_RESULT_GREATER | 3 | left is greater |
+
 
  
 

@@ -3380,7 +3380,7 @@
         
       
         <h3 id="massa.abi.v1.RespResult">RespResult</h3>
-        <p>Tips to check for completeness exec:</p><p>`rg message | rg "\{" | rg "Result" | wc -l`</p><p>the given count should be equal to the number of messages in RespResult + 2</p><p>the +2 comes from ResResult itself which is counted above and from massa.model.v1.ComparisonResult which is not in the same category</p>
+        <p>Tips to check for completeness exec:</p><p>`rg message | rg "\{" | rg "Result" | wc -l`</p><p>the given count should be equal to the number of messages in RespResult + 1</p><p>the +1 comes from ResResult itself which is counted above</p>
 
         
           <table class="field-table">
