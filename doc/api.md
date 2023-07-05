@@ -271,7 +271,7 @@ BanNodesByIdsRequest holds the request for BanNodesByIds
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| ids | [string](#string) | repeated | Node ids to ban |
+| node_ids | [string](#string) | repeated | Node ids to ban |
 
 
 
@@ -572,7 +572,7 @@ UnbanNodesByIdsRequest holds the request for UnbanNodesByIds
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| ids | [string](#string) | repeated | Node ids to unban |
+| node_ids | [string](#string) | repeated | Node ids to unban |
 
 
 

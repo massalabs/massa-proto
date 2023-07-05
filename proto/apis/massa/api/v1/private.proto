@@ -253,7 +253,7 @@ message GetPeersWhitelistResponse {
 // BanNodesByIdsRequest holds the request for BanNodesByIds
 message BanNodesByIdsRequest {
   // Node ids to ban
-  repeated string ids = 1;
+  repeated string node_ids = 1;
 }
 
 // BanNodesByIdsResponse holds the response from BanNodesByIds
@@ -327,7 +327,7 @@ message ShutdownGracefullyResponse {}
 // UnbanNodesByIdsRequest holds the request for UnbanNodesByIds
 message UnbanNodesByIdsRequest {
   // Node ids to unban
-  repeated string ids = 1;
+  repeated string node_ids = 1;
 }
 
 // UnbanNodesByIdsResponse holds the response from UnbanNodesByIds
