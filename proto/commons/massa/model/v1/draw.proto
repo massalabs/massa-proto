@@ -17,10 +17,10 @@ option swift_prefix = "MMODEL";
 
 // Slot draw
 message SlotDraw {
-  // Block producer address
-  string block_producer = 1;
   // Slot
-  massa.model.v1.Slot slot = 2;
+  massa.model.v1.Slot slot = 1;
+  // optional Block producer address
+  google.protobuf.StringValue block_producer = 2;
   // Endorsement draws
   repeated EndorsementDraw endorsement_draws = 3;
 }
