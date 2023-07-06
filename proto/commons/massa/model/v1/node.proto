@@ -4,6 +4,7 @@ syntax = "proto3";
 
 package massa.model.v1;
 
+import "massa/model/v1/amount.proto";
 import "massa/model/v1/slot.proto";
 import "massa/model/v1/stats.proto";
 import "massa/model/v1/time.proto";
@@ -79,7 +80,7 @@ message CompactConfig {
   // Number of threads
   uint32 thread_count = 3;
   // Time between the periods in the same thread.
-  uint64 t0 = 4;
+  massa.model.v1.NativeTime t0 = 4;
   // Threshold for fitness.
   uint64 delta_f0 = 5;
   // Maximum operation validity period count
@@ -87,9 +88,9 @@ message CompactConfig {
   // cycle duration in periods
   uint64 periods_per_cycle = 7;
   // Reward amount for a block creation
-  uint64 block_reward = 8;
+  massa.model.v1.NativeAmount block_reward = 8;
   // Price of a roll on the network
-  uint64 roll_price = 9;
+  massa.model.v1.NativeAmount roll_price = 9;
   // Max total size of a block
   uint32 max_block_size = 10;
 }
