@@ -179,6 +179,14 @@ service PrivateService {
       body: "*"
     };
   }
+
+  // Create a KeyPair
+  rpc CreateKeyPair(CreateKeyPairRequest) returns (CreateKeyPairResponse) {
+    option (google.api.http) = {
+      post: "/v1/create_keypair"
+      body: "*"
+    };
+  }
 }
 
 // AddToBootstrapBlacklistRequest holds the request for AddToBootstrapBlacklist
@@ -360,4 +368,16 @@ message GetMipStatusResponse {
   repeated massa.model.v1.MipStatusEntry mipstatus_entries = 1;
 }
 
+// CreateKeyPairRequest holds the request for CreateKeyPair
+message CreateKeyPairRequest {
+  // Nodes IP addresses to unban
+  repeated string ips = 1;
+}
 
+// CreateKeyPairResponse holds the response from CreateKeyPair
+message CreateKeyPairResponse {
+  // Public key
+  string public_key = 1;
+  // Secret key
+  string secret_key = 2;
+}
