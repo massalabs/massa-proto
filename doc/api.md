@@ -18,10 +18,14 @@
     - [BanNodesByIdsResponse](#massa-api-v1-BanNodesByIdsResponse)
     - [BanNodesByIpsRequest](#massa-api-v1-BanNodesByIpsRequest)
     - [BanNodesByIpsResponse](#massa-api-v1-BanNodesByIpsResponse)
+    - [CreateKeyPairRequest](#massa-api-v1-CreateKeyPairRequest)
+    - [CreateKeyPairResponse](#massa-api-v1-CreateKeyPairResponse)
     - [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest)
     - [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse)
     - [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest)
     - [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse)
+    - [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest)
+    - [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse)
     - [GetNodeStatusRequest](#massa-api-v1-GetNodeStatusRequest)
     - [GetNodeStatusResponse](#massa-api-v1-GetNodeStatusResponse)
     - [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest)
@@ -80,8 +84,6 @@
     - [GetDatastoreEntriesRequest](#massa-api-v1-GetDatastoreEntriesRequest)
     - [GetDatastoreEntriesResponse](#massa-api-v1-GetDatastoreEntriesResponse)
     - [GetDatastoreEntryFilter](#massa-api-v1-GetDatastoreEntryFilter)
-    - [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest)
-    - [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse)
     - [GetNextBlockBestParentsRequest](#massa-api-v1-GetNextBlockBestParentsRequest)
     - [GetNextBlockBestParentsResponse](#massa-api-v1-GetNextBlockBestParentsResponse)
     - [GetOperationsFilter](#massa-api-v1-GetOperationsFilter)
@@ -313,6 +315,31 @@ BanNodesByIpsResponse holds the response from BanNodesByIps
 
 
 
+<a name="massa-api-v1-CreateKeyPairRequest"></a>
+
+### CreateKeyPairRequest
+CreateKeyPairRequest holds the request for CreateKeyPair
+
+
+
+
+
+
+<a name="massa-api-v1-CreateKeyPairResponse"></a>
+
+### CreateKeyPairResponse
+CreateKeyPairResponse holds the response from CreateKeyPair
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key_pair | [massa.model.v1.KeyPair](#massa-model-v1-KeyPair) |  | KeyPair |
+
+
+
+
+
+
 <a name="massa-api-v1-GetBootstrapBlacklistRequest"></a>
 
 ### GetBootstrapBlacklistRequest
@@ -357,6 +384,31 @@ GetBootstrapWhitelistResponse holds the response from GetBootstrapWhitelist
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ips | [string](#string) | repeated | Bootstrap whitelisted IP addresses |
+
+
+
+
+
+
+<a name="massa-api-v1-GetMipStatusRequest"></a>
+
+### GetMipStatusRequest
+GetMipStatusRequest holds request for GetMipStatus
+
+
+
+
+
+
+<a name="massa-api-v1-GetMipStatusResponse"></a>
+
+### GetMipStatusResponse
+GetMipStatusResponse holds response from GetMipStatus
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| mipstatus_entries | [massa.model.v1.MipStatusEntry](#massa-model-v1-MipStatusEntry) | repeated | (MipInfo - status id) entries |
 
 
 
@@ -631,9 +683,11 @@ Massa private gRPC service
 | AddToBootstrapWhitelist | [AddToBootstrapWhitelistRequest](#massa-api-v1-AddToBootstrapWhitelistRequest) | [AddToBootstrapWhitelistResponse](#massa-api-v1-AddToBootstrapWhitelistResponse) | Add IP addresses to node bootstrap whitelist |
 | AddToPeersWhitelist | [AddToPeersWhitelistRequest](#massa-api-v1-AddToPeersWhitelistRequest) | [AddToPeersWhitelistResponse](#massa-api-v1-AddToPeersWhitelistResponse) | Add IP addresses to node peers whitelist. No confirmation to expect. Note: If the ip was unknown it adds it to the known peers, otherwise it updates the peer type |
 | AddStakingSecretKeys | [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest) | [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse) | Add staking secret keys to wallet |
+| AllowEveryoneToBootstrap | [AllowEveryoneToBootstrapRequest](#massa-api-v1-AllowEveryoneToBootstrapRequest) | [AllowEveryoneToBootstrapResponse](#massa-api-v1-AllowEveryoneToBootstrapResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file |
+| CreateKeyPair | [CreateKeyPairRequest](#massa-api-v1-CreateKeyPairRequest) | [CreateKeyPairResponse](#massa-api-v1-CreateKeyPairResponse) | Create a KeyPair |
 | GetBootstrapBlacklist | [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest) | [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse) | Get node bootstrap blacklist IP addresses |
 | GetBootstrapWhitelist | [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest) | [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse) | Get node bootstrap whitelist IP addresses |
-| AllowEveryoneToBootstrap | [AllowEveryoneToBootstrapRequest](#massa-api-v1-AllowEveryoneToBootstrapRequest) | [AllowEveryoneToBootstrapResponse](#massa-api-v1-AllowEveryoneToBootstrapResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file |
+| GetMipStatus | [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest) | [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse) | Get Mip status |
 | GetNodeStatus | [GetNodeStatusRequest](#massa-api-v1-GetNodeStatusRequest) | [GetNodeStatusResponse](#massa-api-v1-GetNodeStatusResponse) | Get node status |
 | GetPeersWhitelist | [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest) | [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse) | Get node peers whitelist IP addresses |
 | BanNodesByIds | [BanNodesByIdsRequest](#massa-api-v1-BanNodesByIdsRequest) | [BanNodesByIdsResponse](#massa-api-v1-BanNodesByIdsResponse) | Ban multiple nodes by their individual ids |
@@ -1203,31 +1257,6 @@ DatastoreEntryFilter
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | address_key | [massa.model.v1.AddressKeyEntry](#massa-model-v1-AddressKeyEntry) |  | One of this (address-key) pairs |
-
-
-
-
-
-
-<a name="massa-api-v1-GetMipStatusRequest"></a>
-
-### GetMipStatusRequest
-GetMipStatusRequest holds request for GetMipStatus
-
-
-
-
-
-
-<a name="massa-api-v1-GetMipStatusResponse"></a>
-
-### GetMipStatusResponse
-GetMipStatusResponse holds response from GetMipStatus
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| mipstatus_entries | [massa.model.v1.MipStatusEntry](#massa-model-v1-MipStatusEntry) | repeated | (MipInfo - status id) entries |
 
 
 
@@ -1984,7 +2013,6 @@ Massa public gRPC service
 | ExecuteReadOnlyCall | [ExecuteReadOnlyCallRequest](#massa-api-v1-ExecuteReadOnlyCallRequest) | [ExecuteReadOnlyCallResponse](#massa-api-v1-ExecuteReadOnlyCallResponse) | Execute read only call |
 | GetBlocks | [GetBlocksRequest](#massa-api-v1-GetBlocksRequest) | [GetBlocksResponse](#massa-api-v1-GetBlocksResponse) | Get blocks by ids |
 | GetDatastoreEntries | [GetDatastoreEntriesRequest](#massa-api-v1-GetDatastoreEntriesRequest) | [GetDatastoreEntriesResponse](#massa-api-v1-GetDatastoreEntriesResponse) | Get datastore entries |
-| GetMipStatus | [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest) | [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse) | Get Mip status |
 | GetNextBlockBestParents | [GetNextBlockBestParentsRequest](#massa-api-v1-GetNextBlockBestParentsRequest) | [GetNextBlockBestParentsResponse](#massa-api-v1-GetNextBlockBestParentsResponse) | Get next block best parents |
 | GetOperations | [GetOperationsRequest](#massa-api-v1-GetOperationsRequest) | [GetOperationsResponse](#massa-api-v1-GetOperationsResponse) | Get operations |
 | GetScExecutionEvents | [GetScExecutionEventsRequest](#massa-api-v1-GetScExecutionEventsRequest) | [GetScExecutionEventsResponse](#massa-api-v1-GetScExecutionEventsResponse) | Get smart contracts execution events |

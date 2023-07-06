@@ -62,3 +62,11 @@ enum ComparisonResult {
   // left is greater
   COMPARISON_RESULT_GREATER = 3;
 }
+
+// KeyPair
+message KeyPair {
+  // Public key
+  string public_key = 1;
+  // Secret key
+  string secret_key = 2;
+}

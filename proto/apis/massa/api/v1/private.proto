@@ -5,6 +5,7 @@ syntax = "proto3";
 package massa.api.v1;
 
 import "google/api/annotations.proto";
+import "massa/model/v1/commons.proto";
 import "massa/model/v1/node.proto";
 import "massa/model/v1/versioning.proto";
 
@@ -52,6 +53,22 @@ service PrivateService {
     };
   }
 
+  // Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file
+  rpc AllowEveryoneToBootstrap(AllowEveryoneToBootstrapRequest) returns (AllowEveryoneToBootstrapResponse) {
+    option (google.api.http) = {
+      post: "/v1/allow_everyone_to_bootstrap"
+      body: "*"
+    };
+  }
+
+  // Create a KeyPair
+  rpc CreateKeyPair(CreateKeyPairRequest) returns (CreateKeyPairResponse) {
+    option (google.api.http) = {
+      post: "/v1/create_keypair"
+      body: "*"
+    };
+  }
+
   // Get node bootstrap blacklist IP addresses
   rpc GetBootstrapBlacklist(GetBootstrapBlacklistRequest) returns (GetBootstrapBlacklistResponse) {
     option (google.api.http) = {
@@ -68,10 +85,10 @@ service PrivateService {
     };
   }
 
-  // Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file
-  rpc AllowEveryoneToBootstrap(AllowEveryoneToBootstrapRequest) returns (AllowEveryoneToBootstrapResponse) {
+  // Get Mip status
+  rpc GetMipStatus(GetMipStatusRequest) returns (GetMipStatusResponse) {
     option (google.api.http) = {
-      post: "/v1/allow_everyone_to_bootstrap"
+      post: "/v1/get_mip_status"
       body: "*"
     };
   }
@@ -171,22 +188,6 @@ service PrivateService {
       body: "*"
     };
   }
-
-  // Get Mip status
-  rpc GetMipStatus(GetMipStatusRequest) returns (GetMipStatusResponse) {
-    option (google.api.http) = {
-      post: "/v1/get_mip_status"
-      body: "*"
-    };
-  }
-
-  // Create a KeyPair
-  rpc CreateKeyPair(CreateKeyPairRequest) returns (CreateKeyPairResponse) {
-    option (google.api.http) = {
-      post: "/v1/create_keypair"
-      body: "*"
-    };
-  }
 }
 
 // AddToBootstrapBlacklistRequest holds the request for AddToBootstrapBlacklist
@@ -225,6 +226,21 @@ message AddStakingSecretKeysRequest {
 // AddStakingSecretKeysResponse holds the response from AddStakingSecretKeys
 message AddStakingSecretKeysResponse {}
 
+// AllowEveryoneToBootstrapRequest holds the request for AllowEveryoneToBootstrap
+message AllowEveryoneToBootstrapRequest {}
+
+// AllowEveryoneToBootstrapResponse holds the response from AllowEveryoneToBootstrap
+message AllowEveryoneToBootstrapResponse {}
+
+// CreateKeyPairRequest holds the request for CreateKeyPair
+message CreateKeyPairRequest {}
+
+// CreateKeyPairResponse holds the response from CreateKeyPair
+message CreateKeyPairResponse {
+  // KeyPair
+  massa.model.v1.KeyPair key_pair = 1;
+}
+
 // GetBootstrapBlacklistRequest holds the request for GetBootstrapBlacklist
 message GetBootstrapBlacklistRequest {}
 
@@ -243,11 +259,14 @@ message GetBootstrapWhitelistResponse {
   repeated string ips = 1;
 }
 
-// AllowEveryoneToBootstrapRequest holds the request for AllowEveryoneToBootstrap
-message AllowEveryoneToBootstrapRequest {}
+// GetMipStatusRequest holds request for GetMipStatus
+message GetMipStatusRequest {}
 
-// AllowEveryoneToBootstrapResponse holds the response from AllowEveryoneToBootstrap
-message AllowEveryoneToBootstrapResponse {}
+// GetMipStatusResponse holds response from GetMipStatus
+message GetMipStatusResponse {
+  // (MipInfo - status id) entries
+  repeated massa.model.v1.MipStatusEntry mipstatus_entries = 1;
+}
 
 // GetNodeStatusRequest holds the request for GetNodeStatus
 message GetNodeStatusRequest {}
@@ -358,26 +377,3 @@ message UnbanNodesByIpsRequest {
 
 // UnbanNodesByIpsResponse holds the response from UnbanNodesByIps
 message UnbanNodesByIpsResponse {}
-
-// GetMipStatusRequest holds request for GetMipStatus
-message GetMipStatusRequest {}
-
-// GetMipStatusResponse holds response from GetMipStatus
-message GetMipStatusResponse {
-  // (MipInfo - status id) entries
-  repeated massa.model.v1.MipStatusEntry mipstatus_entries = 1;
-}
-
-// CreateKeyPairRequest holds the request for CreateKeyPair
-message CreateKeyPairRequest {
-  // Nodes IP addresses to unban
-  repeated string ips = 1;
-}
-
-// CreateKeyPairResponse holds the response from CreateKeyPair
-message CreateKeyPairResponse {
-  // Public key
-  string public_key = 1;
-  // Secret key
-  string secret_key = 2;
-}

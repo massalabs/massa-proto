@@ -235,6 +235,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.CreateKeyPairRequest"><span class="badge">M</span>CreateKeyPairRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.CreateKeyPairResponse"><span class="badge">M</span>CreateKeyPairResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.GetBootstrapBlacklistRequest"><span class="badge">M</span>GetBootstrapBlacklistRequest</a>
                 </li>
               
@@ -248,6 +256,14 @@
               
                 <li>
                   <a href="#massa.api.v1.GetBootstrapWhitelistResponse"><span class="badge">M</span>GetBootstrapWhitelistResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetMipStatusRequest"><span class="badge">M</span>GetMipStatusRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetMipStatusResponse"><span class="badge">M</span>GetMipStatusResponse</a>
                 </li>
               
                 <li>
@@ -479,14 +495,6 @@
               
                 <li>
                   <a href="#massa.api.v1.GetDatastoreEntryFilter"><span class="badge">M</span>GetDatastoreEntryFilter</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.GetMipStatusRequest"><span class="badge">M</span>GetMipStatusRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.GetMipStatusResponse"><span class="badge">M</span>GetMipStatusResponse</a>
                 </li>
               
                 <li>
@@ -895,6 +903,37 @@
 
         
       
+        <h3 id="massa.api.v1.CreateKeyPairRequest">CreateKeyPairRequest</h3>
+        <p>CreateKeyPairRequest holds the request for CreateKeyPair</p>
+
+        
+
+        
+      
+        <h3 id="massa.api.v1.CreateKeyPairResponse">CreateKeyPairResponse</h3>
+        <p>CreateKeyPairResponse holds the response from CreateKeyPair</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key_pair</td>
+                  <td><a href="#massa.model.v1.KeyPair">massa.model.v1.KeyPair</a></td>
+                  <td></td>
+                  <td><p>KeyPair </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.GetBootstrapBlacklistRequest">GetBootstrapBlacklistRequest</h3>
         <p>GetBootstrapBlacklistRequest holds the request for GetBootstrapBlacklist</p>
 
@@ -948,6 +987,37 @@
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
                   <td><p>Bootstrap whitelisted IP addresses </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetMipStatusRequest">GetMipStatusRequest</h3>
+        <p>GetMipStatusRequest holds request for GetMipStatus</p>
+
+        
+
+        
+      
+        <h3 id="massa.api.v1.GetMipStatusResponse">GetMipStatusResponse</h3>
+        <p>GetMipStatusResponse holds response from GetMipStatus</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mipstatus_entries</td>
+                  <td><a href="#massa.model.v1.MipStatusEntry">massa.model.v1.MipStatusEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>(MipInfo - status id) entries </p></td>
                 </tr>
               
             </tbody>
@@ -1318,6 +1388,20 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             
               <tr>
+                <td>AllowEveryoneToBootstrap</td>
+                <td><a href="#massa.api.v1.AllowEveryoneToBootstrapRequest">AllowEveryoneToBootstrapRequest</a></td>
+                <td><a href="#massa.api.v1.AllowEveryoneToBootstrapResponse">AllowEveryoneToBootstrapResponse</a></td>
+                <td><p>Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateKeyPair</td>
+                <td><a href="#massa.api.v1.CreateKeyPairRequest">CreateKeyPairRequest</a></td>
+                <td><a href="#massa.api.v1.CreateKeyPairResponse">CreateKeyPairResponse</a></td>
+                <td><p>Create a KeyPair</p></td>
+              </tr>
+            
+              <tr>
                 <td>GetBootstrapBlacklist</td>
                 <td><a href="#massa.api.v1.GetBootstrapBlacklistRequest">GetBootstrapBlacklistRequest</a></td>
                 <td><a href="#massa.api.v1.GetBootstrapBlacklistResponse">GetBootstrapBlacklistResponse</a></td>
@@ -1332,10 +1416,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             
               <tr>
-                <td>AllowEveryoneToBootstrap</td>
-                <td><a href="#massa.api.v1.AllowEveryoneToBootstrapRequest">AllowEveryoneToBootstrapRequest</a></td>
-                <td><a href="#massa.api.v1.AllowEveryoneToBootstrapResponse">AllowEveryoneToBootstrapResponse</a></td>
-                <td><p>Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file</p></td>
+                <td>GetMipStatus</td>
+                <td><a href="#massa.api.v1.GetMipStatusRequest">GetMipStatusRequest</a></td>
+                <td><a href="#massa.api.v1.GetMipStatusResponse">GetMipStatusResponse</a></td>
+                <td><p>Get Mip status</p></td>
               </tr>
             
               <tr>
@@ -1483,6 +1567,26 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
               
               <tr>
+                <td>AllowEveryoneToBootstrap</td>
+                <td>POST</td>
+                <td>/v1/allow_everyone_to_bootstrap</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>CreateKeyPair</td>
+                <td>POST</td>
+                <td>/v1/create_keypair</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
                 <td>GetBootstrapBlacklist</td>
                 <td>POST</td>
                 <td>/v1/get_bootstrap_blacklist</td>
@@ -1503,9 +1607,9 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
               
               <tr>
-                <td>AllowEveryoneToBootstrap</td>
+                <td>GetMipStatus</td>
                 <td>POST</td>
-                <td>/v1/allow_everyone_to_bootstrap</td>
+                <td>/v1/get_mip_status</td>
                 <td>*</td>
               </tr>
               
@@ -2736,37 +2840,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#massa.model.v1.AddressKeyEntry">massa.model.v1.AddressKeyEntry</a></td>
                   <td></td>
                   <td><p>One of this (address-key) pairs </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.api.v1.GetMipStatusRequest">GetMipStatusRequest</h3>
-        <p>GetMipStatusRequest holds request for GetMipStatus</p>
-
-        
-
-        
-      
-        <h3 id="massa.api.v1.GetMipStatusResponse">GetMipStatusResponse</h3>
-        <p>GetMipStatusResponse holds response from GetMipStatus</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>mipstatus_entries</td>
-                  <td><a href="#massa.model.v1.MipStatusEntry">massa.model.v1.MipStatusEntry</a></td>
-                  <td>repeated</td>
-                  <td><p>(MipInfo - status id) entries </p></td>
                 </tr>
               
             </tbody>
@@ -4044,13 +4117,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             
               <tr>
-                <td>GetMipStatus</td>
-                <td><a href="#massa.api.v1.GetMipStatusRequest">GetMipStatusRequest</a></td>
-                <td><a href="#massa.api.v1.GetMipStatusResponse">GetMipStatusResponse</a></td>
-                <td><p>Get Mip status</p></td>
-              </tr>
-            
-              <tr>
                 <td>GetNextBlockBestParents</td>
                 <td><a href="#massa.api.v1.GetNextBlockBestParentsRequest">GetNextBlockBestParentsRequest</a></td>
                 <td><a href="#massa.api.v1.GetNextBlockBestParentsResponse">GetNextBlockBestParentsResponse</a></td>
@@ -4213,16 +4279,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td>GetDatastoreEntries</td>
                 <td>POST</td>
                 <td>/v1/get_datastore_entries</td>
-                <td>*</td>
-              </tr>
-              
-            
-              
-              
-              <tr>
-                <td>GetMipStatus</td>
-                <td>POST</td>
-                <td>/v1/get_mip_status</td>
                 <td>*</td>
               </tr>
               

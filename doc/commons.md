@@ -958,6 +958,22 @@ Massa error
 
 
 
+<a name="massa-model-v1-KeyPair"></a>
+
+### KeyPair
+KeyPair
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| public_key | [string](#string) |  | Public key |
+| secret_key | [string](#string) |  | Secret key |
+
+
+
+
+
+
 <a name="massa-model-v1-SecureShare"></a>
 
 ### SecureShare
