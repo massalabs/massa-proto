@@ -19,7 +19,6 @@ import "massa/model/v1/node.proto";
 import "massa/model/v1/operation.proto";
 import "massa/model/v1/slot.proto";
 import "massa/model/v1/staker.proto";
-import "massa/model/v1/versioning.proto";
 
 option csharp_namespace = "Com.Massa.Api.v1";
 option go_package = "github.com/massalabs/massa/api/v1;v1";
@@ -52,14 +51,6 @@ service PublicService {
   rpc GetDatastoreEntries(GetDatastoreEntriesRequest) returns (GetDatastoreEntriesResponse) {
     option (google.api.http) = {
       post: "/v1/get_datastore_entries"
-      body: "*"
-    };
-  }
-
-  // Get Mip status
-  rpc GetMipStatus(GetMipStatusRequest) returns (GetMipStatusResponse) {
-    option (google.api.http) = {
-      post: "/v1/get_mip_status"
       body: "*"
     };
   }
@@ -218,15 +209,6 @@ message GetDatastoreEntryFilter {
 message GetDatastoreEntriesResponse {
   // Datastore entries
   repeated massa.model.v1.DatastoreEntry datastore_entries = 1;
-}
-
-// GetMipStatusRequest holds request for GetMipStatus
-message GetMipStatusRequest {}
-
-// GetMipStatusResponse holds response from GetMipStatus
-message GetMipStatusResponse {
-  // (MipInfo - status id) entries
-  repeated massa.model.v1.MipStatusEntry mipstatus_entries = 1;
 }
 
 // GetNextBlockBestParentsRequest holds request for GetNextBlockBestParents
