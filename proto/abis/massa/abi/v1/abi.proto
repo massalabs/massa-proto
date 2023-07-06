@@ -138,7 +138,6 @@ message RespResult {
     CompareNativeAmountResult compare_native_amount_result = 18;
     CompareNativeTimeResult compare_native_time_result = 19;
     ComparePubKeyResult compare_pub_key_result = 20;
-    CompareSigResult compare_sig_result = 21;
     CreateScResult create_sc_result = 22;
     DateNowResult date_now_result = 23;
     DeleteDataResult delete_data_result = 24;
@@ -459,20 +458,6 @@ message ComparePubKeyRequest {
 
 // Compare PubKey result
 message ComparePubKeyResult {
-  // Comparison result
-  massa.model.v1.ComparisonResult result = 1;
-}
-
-// Compare Sig request
-message CompareSigRequest {
-  // First signature to compare
-  string left = 1;
-  // Second signature to compare
-  string right = 2;
-}
-
-// Compare Sig result
-message CompareSigResult {
   // Comparison result
   massa.model.v1.ComparisonResult result = 1;
 }

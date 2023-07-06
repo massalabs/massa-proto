@@ -47,8 +47,6 @@
     - [CompareNativeTimeResult](#massa-abi-v1-CompareNativeTimeResult)
     - [ComparePubKeyRequest](#massa-abi-v1-ComparePubKeyRequest)
     - [ComparePubKeyResult](#massa-abi-v1-ComparePubKeyResult)
-    - [CompareSigRequest](#massa-abi-v1-CompareSigRequest)
-    - [CompareSigResult](#massa-abi-v1-CompareSigResult)
     - [CreateScRequest](#massa-abi-v1-CreateScRequest)
     - [CreateScResult](#massa-abi-v1-CreateScResult)
     - [DateNowRequest](#massa-abi-v1-DateNowRequest)
@@ -792,37 +790,6 @@ Compare PubKey request
 
 ### ComparePubKeyResult
 Compare PubKey result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| result | [massa.model.v1.ComparisonResult](#massa-model-v1-ComparisonResult) |  | Comparison result |
-
-
-
-
-
-
-<a name="massa-abi-v1-CompareSigRequest"></a>
-
-### CompareSigRequest
-Compare Sig request
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| left | [string](#string) |  | First signature to compare |
-| right | [string](#string) |  | Second signature to compare |
-
-
-
-
-
-
-<a name="massa-abi-v1-CompareSigResult"></a>
-
-### CompareSigResult
-Compare Sig result
 
 
 | Field | Type | Label | Description |
@@ -1773,7 +1740,6 @@ the &#43;1 comes from ResResult itself which is counted above
 | compare_native_amount_result | [CompareNativeAmountResult](#massa-abi-v1-CompareNativeAmountResult) |  |  |
 | compare_native_time_result | [CompareNativeTimeResult](#massa-abi-v1-CompareNativeTimeResult) |  |  |
 | compare_pub_key_result | [ComparePubKeyResult](#massa-abi-v1-ComparePubKeyResult) |  |  |
-| compare_sig_result | [CompareSigResult](#massa-abi-v1-CompareSigResult) |  |  |
 | create_sc_result | [CreateScResult](#massa-abi-v1-CreateScResult) |  |  |
 | date_now_result | [DateNowResult](#massa-abi-v1-DateNowResult) |  |  |
 | delete_data_result | [DeleteDataResult](#massa-abi-v1-DeleteDataResult) |  |  |
