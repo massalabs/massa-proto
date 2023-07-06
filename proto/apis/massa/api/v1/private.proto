@@ -6,6 +6,7 @@ package massa.api.v1;
 
 import "google/api/annotations.proto";
 import "massa/model/v1/node.proto";
+import "massa/model/v1/versioning.proto";
 
 option csharp_namespace = "Com.Massa.Api.v1";
 option go_package = "github.com/massalabs/massa/api/v1;v1";
@@ -167,6 +168,14 @@ service PrivateService {
   rpc UnbanNodesByIps(UnbanNodesByIpsRequest) returns (UnbanNodesByIpsResponse) {
     option (google.api.http) = {
       post: "/v1/unban_nodes_by_ips"
+      body: "*"
+    };
+  }
+
+  // Get Mip status
+  rpc GetMipStatus(GetMipStatusRequest) returns (GetMipStatusResponse) {
+    option (google.api.http) = {
+      post: "/v1/get_mip_status"
       body: "*"
     };
   }
@@ -341,3 +350,14 @@ message UnbanNodesByIpsRequest {
 
 // UnbanNodesByIpsResponse holds the response from UnbanNodesByIps
 message UnbanNodesByIpsResponse {}
+
+// GetMipStatusRequest holds request for GetMipStatus
+message GetMipStatusRequest {}
+
+// GetMipStatusResponse holds response from GetMipStatus
+message GetMipStatusResponse {
+  // (MipInfo - status id) entries
+  repeated massa.model.v1.MipStatusEntry mipstatus_entries = 1;
+}
+
+
