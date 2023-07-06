@@ -65,6 +65,7 @@
     - [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry)
     - [Empty](#massa-model-v1-Empty)
     - [Error](#massa-model-v1-Error)
+    - [KeyPair](#massa-model-v1-KeyPair)
     - [SecureShare](#massa-model-v1-SecureShare)
   
 - [massa/model/v1/amount.proto](#massa_model_v1_amount-proto)
@@ -976,6 +977,22 @@ Massa error
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  | The error code |
 | message | [string](#string) |  | A developer-facing error message, which should be in English |
+
+
+
+
+
+
+<a name="massa-model-v1-KeyPair"></a>
+
+### KeyPair
+KeyPair
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| public_key | [string](#string) |  | Public key |
+| secret_key | [string](#string) |  | Secret key |
 
 
 

@@ -51,3 +51,11 @@ message SecureShare {
   // A secure hash of the non-malleable contents of a deterministic binary representation of the block header
   string secure_hash = 5;
 }
+
+// KeyPair
+message KeyPair {
+  // Public key
+  string public_key = 1;
+  // Secret key
+  string secret_key = 2;
+}
