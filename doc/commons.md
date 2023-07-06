@@ -498,12 +498,12 @@ Compact configuration
 | genesis_timestamp | [NativeTime](#massa-model-v1-NativeTime) |  | Time in milliseconds when the blockclique started. |
 | end_timestamp | [NativeTime](#massa-model-v1-NativeTime) |  | TESTNET: time when the blockclique is ended. |
 | thread_count | [uint32](#uint32) |  | Number of threads |
-| t0 | [uint64](#uint64) |  | Time between the periods in the same thread. |
+| t0 | [NativeTime](#massa-model-v1-NativeTime) |  | Time between the periods in the same thread. |
 | delta_f0 | [uint64](#uint64) |  | Threshold for fitness. |
 | operation_validity_periods | [uint64](#uint64) |  | Maximum operation validity period count |
 | periods_per_cycle | [uint64](#uint64) |  | cycle duration in periods |
-| block_reward | [uint64](#uint64) |  | Reward amount for a block creation |
-| roll_price | [uint64](#uint64) |  | Price of a roll on the network |
+| block_reward | [NativeAmount](#massa-model-v1-NativeAmount) |  | Reward amount for a block creation |
+| roll_price | [NativeAmount](#massa-model-v1-NativeAmount) |  | Price of a roll on the network |
 | max_block_size | [uint32](#uint32) |  | Max total size of a block |
 
 
