@@ -138,25 +138,26 @@ message RespResult {
     CompareNativeAmountResult compare_native_amount_result = 18;
     CompareNativeTimeResult compare_native_time_result = 19;
     ComparePubKeyResult compare_pub_key_result = 20;
-    CreateScResult create_sc_result = 22;
-    DateNowResult date_now_result = 23;
-    DeleteDataResult delete_data_result = 24;
-    DivRemNativeAmountsResult div_rem_native_amounts_result = 25;
-    FunctionExistsResult function_exists_result = 26;
-    GenerateEventResult generate_event_result = 27;
-    GetAddressCategoryResult get_address_category_result = 28;
-    GetAddressVersionResult get_address_version_result = 29;
-    GetBalanceResult get_balance_result = 30;
-    GetBytecodeResult get_bytecode_result = 31;
-    GetCallCoinsResult get_call_coins_result = 32;
-    GetCallStackResult get_call_stack_result = 33;
-    GetCurrentSlotResult get_current_slot_result = 34;
-    GetDataResult get_data_result = 35;
-    GetKeysResult get_keys_result = 36;
-    GetNativeTimeResult get_native_time_result = 37;
-    GetOpDataResult get_op_data_result = 38;
-    GetOpKeysResult get_op_keys_result = 39;
-    GetOwnedAddressesResult get_owned_addresses_result = 40;
+    CreateScResult create_sc_result = 21;
+    DateNowResult date_now_result = 22;
+    DeleteDataResult delete_data_result = 23;
+    DivRemNativeAmountsResult div_rem_native_amounts_result = 24;
+    FunctionExistsResult function_exists_result = 25;
+    GenerateEventResult generate_event_result = 26;
+    GetAddressCategoryResult get_address_category_result = 27;
+    GetAddressVersionResult get_address_version_result = 28;
+    GetBalanceResult get_balance_result = 29;
+    GetBytecodeResult get_bytecode_result = 30;
+    GetCallCoinsResult get_call_coins_result = 31;
+    GetCallStackResult get_call_stack_result = 32;
+    GetCurrentSlotResult get_current_slot_result = 33;
+    GetDataResult get_data_result = 34;
+    GetKeysResult get_keys_result = 35;
+    GetNativeTimeResult get_native_time_result = 36;
+    GetOpDataResult get_op_data_result = 37;
+    GetOpKeysResult get_op_keys_result = 38;
+    GetOwnedAddressesResult get_owned_addresses_result = 39;
+    GetOriginOperationIdResult get_origin_operation_id_result = 40;
     GetPubKeyVersionResult get_pub_key_version_result = 41;
     GetRemainingGasResult get_remaining_gas_result = 42;
     GetSignatureVersionResult get_signature_version_result = 43;
@@ -168,20 +169,18 @@ message RespResult {
     MulNativeAmountResult mul_native_amount_result = 49;
     NativeAmountFromStringResult native_amount_from_string_result = 50;
     NativeAmountToStringResult native_amount_to_string_result = 51;
-    ProcessExitResult process_exit_result = 52;
-    ScalarDivRemNativeAmountResult scalar_div_rem_native_amount_result = 53;
-    SeedResult seed_result = 54;
-    SetBytecodeResult set_bytecode_result = 55;
-    SetDataResult set_data_result = 56;
-    SubNativeAmountsResult sub_native_amounts_result = 57;
-    TransferCoinsResult transfer_coins_result = 58;
-    UnsafeRandomResult unsafe_random_result = 59;
-    VerifyBlsMultiSigResult verify_bls_multi_sig_result = 60;
-    VerifyBlsSingleSigResult verify_bls_single_sig_result = 61;
-    VerifyEvmSigResult verify_evm_sig_result = 62;
-    VerifySigResult verify_sig_result = 63;
-    SendAsyncMessageResult send_async_message_result = 64;
-    GetOriginOperationIdResult get_origin_operation_id_result = 65;
+    ScalarDivRemNativeAmountResult scalar_div_rem_native_amount_result = 52;
+    SeedResult seed_result = 53;
+    SetBytecodeResult set_bytecode_result = 54;
+    SetDataResult set_data_result = 55;
+    SubNativeAmountsResult sub_native_amounts_result = 56;
+    TransferCoinsResult transfer_coins_result = 57;
+    UnsafeRandomResult unsafe_random_result = 58;
+    VerifyBlsMultiSigResult verify_bls_multi_sig_result = 59;
+    VerifyBlsSingleSigResult verify_bls_single_sig_result = 60;
+    VerifyEvmSigResult verify_evm_sig_result = 61;
+    VerifySigResult verify_sig_result = 62;
+    SendAsyncMessageResult send_async_message_result = 63;
   }
 }
 
@@ -793,7 +792,7 @@ message DateNowRequest {}
 // date now result
 message DateNowResult {
   // date now
-  double date_now = 1;
+  uint64 date_now = 1;
 }
 
 // AS builtin `process.exit()` function
@@ -802,9 +801,6 @@ message ProcessExitRequest {
   // exit code
   uint32 code = 1;
 }
-
-// Process exit result
-message ProcessExitResult {}
 
 // Hash sha256 request
 message HashSha256Request {

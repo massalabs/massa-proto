@@ -111,7 +111,6 @@
     - [NativeAmountToStringRequest](#massa-abi-v1-NativeAmountToStringRequest)
     - [NativeAmountToStringResult](#massa-abi-v1-NativeAmountToStringResult)
     - [ProcessExitRequest](#massa-abi-v1-ProcessExitRequest)
-    - [ProcessExitResult](#massa-abi-v1-ProcessExitResult)
     - [RespResult](#massa-abi-v1-RespResult)
     - [ScalarDivRemNativeAmountRequest](#massa-abi-v1-ScalarDivRemNativeAmountRequest)
     - [ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResult)
@@ -852,7 +851,7 @@ date now result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| date_now | [double](#double) |  | date now |
+| date_now | [uint64](#uint64) |  | date now |
 
 
 
@@ -1726,16 +1725,6 @@ Process exit request
 
 
 
-<a name="massa-abi-v1-ProcessExitResult"></a>
-
-### ProcessExitResult
-Process exit result
-
-
-
-
-
-
 <a name="massa-abi-v1-RespResult"></a>
 
 ### RespResult
@@ -1786,6 +1775,7 @@ the &#43;1 comes from ResResult itself which is counted above
 | get_op_data_result | [GetOpDataResult](#massa-abi-v1-GetOpDataResult) |  |  |
 | get_op_keys_result | [GetOpKeysResult](#massa-abi-v1-GetOpKeysResult) |  |  |
 | get_owned_addresses_result | [GetOwnedAddressesResult](#massa-abi-v1-GetOwnedAddressesResult) |  |  |
+| get_origin_operation_id_result | [GetOriginOperationIdResult](#massa-abi-v1-GetOriginOperationIdResult) |  |  |
 | get_pub_key_version_result | [GetPubKeyVersionResult](#massa-abi-v1-GetPubKeyVersionResult) |  |  |
 | get_remaining_gas_result | [GetRemainingGasResult](#massa-abi-v1-GetRemainingGasResult) |  |  |
 | get_signature_version_result | [GetSignatureVersionResult](#massa-abi-v1-GetSignatureVersionResult) |  |  |
@@ -1797,7 +1787,6 @@ the &#43;1 comes from ResResult itself which is counted above
 | mul_native_amount_result | [MulNativeAmountResult](#massa-abi-v1-MulNativeAmountResult) |  |  |
 | native_amount_from_string_result | [NativeAmountFromStringResult](#massa-abi-v1-NativeAmountFromStringResult) |  |  |
 | native_amount_to_string_result | [NativeAmountToStringResult](#massa-abi-v1-NativeAmountToStringResult) |  |  |
-| process_exit_result | [ProcessExitResult](#massa-abi-v1-ProcessExitResult) |  |  |
 | scalar_div_rem_native_amount_result | [ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResult) |  |  |
 | seed_result | [SeedResult](#massa-abi-v1-SeedResult) |  |  |
 | set_bytecode_result | [SetBytecodeResult](#massa-abi-v1-SetBytecodeResult) |  |  |

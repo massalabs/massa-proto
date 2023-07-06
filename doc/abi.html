@@ -607,10 +607,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.abi.v1.ProcessExitResult"><span class="badge">M</span>ProcessExitResult</a>
-                </li>
-              
-                <li>
                   <a href="#massa.abi.v1.RespResult"><span class="badge">M</span>RespResult</a>
                 </li>
               
@@ -1923,7 +1919,7 @@
               
                 <tr>
                   <td>date_now</td>
-                  <td><a href="#double">double</a></td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>date now </p></td>
                 </tr>
@@ -3292,13 +3288,6 @@
 
         
       
-        <h3 id="massa.abi.v1.ProcessExitResult">ProcessExitResult</h3>
-        <p>Process exit result</p>
-
-        
-
-        
-      
         <h3 id="massa.abi.v1.RespResult">RespResult</h3>
         <p>Tips to check for completeness exec:</p><p>`rg message | rg "\{" | rg "Result" | wc -l`</p><p>the given count should be equal to the number of messages in RespResult + 1</p><p>the +1 comes from ResResult itself which is counted above</p>
 
@@ -3583,6 +3572,13 @@
                 </tr>
               
                 <tr>
+                  <td>get_origin_operation_id_result</td>
+                  <td><a href="#massa.abi.v1.GetOriginOperationIdResult">GetOriginOperationIdResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
                   <td>get_pub_key_version_result</td>
                   <td><a href="#massa.abi.v1.GetPubKeyVersionResult">GetPubKeyVersionResult</a></td>
                   <td></td>
@@ -3655,13 +3651,6 @@
                 <tr>
                   <td>native_amount_to_string_result</td>
                   <td><a href="#massa.abi.v1.NativeAmountToStringResult">NativeAmountToStringResult</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>process_exit_result</td>
-                  <td><a href="#massa.abi.v1.ProcessExitResult">ProcessExitResult</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
