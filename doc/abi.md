@@ -84,6 +84,8 @@
     - [GetOpDataResult](#massa-abi-v1-GetOpDataResult)
     - [GetOpKeysRequest](#massa-abi-v1-GetOpKeysRequest)
     - [GetOpKeysResult](#massa-abi-v1-GetOpKeysResult)
+    - [GetOriginOperationIdRequest](#massa-abi-v1-GetOriginOperationIdRequest)
+    - [GetOriginOperationIdResult](#massa-abi-v1-GetOriginOperationIdResult)
     - [GetOwnedAddressesRequest](#massa-abi-v1-GetOwnedAddressesRequest)
     - [GetOwnedAddressesResult](#massa-abi-v1-GetOwnedAddressesResult)
     - [GetPubKeyVersionRequest](#massa-abi-v1-GetPubKeyVersionRequest)
@@ -1322,6 +1324,31 @@ Get op keys result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | keys | [bytes](#bytes) | repeated | keys |
+
+
+
+
+
+
+<a name="massa-abi-v1-GetOriginOperationIdRequest"></a>
+
+### GetOriginOperationIdRequest
+Get origin operation id request
+
+
+
+
+
+
+<a name="massa-abi-v1-GetOriginOperationIdResult"></a>
+
+### GetOriginOperationIdResult
+Get origin operation id result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional |  |
 
 
 

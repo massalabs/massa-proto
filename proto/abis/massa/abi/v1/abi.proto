@@ -181,6 +181,7 @@ message RespResult {
     VerifyEvmSigResult verify_evm_sig_result = 62;
     VerifySigResult verify_sig_result = 63;
     SendAsyncMessageResult send_async_message_result = 64;
+    GetOriginOperationIdResult get_origin_operation_id_result = 65;
   }
 }
 
@@ -716,6 +717,14 @@ message SendAsyncMessageRequest {
 
 // Send async message result
 message SendAsyncMessageResult {}
+
+// Get origin operation id request
+message GetOriginOperationIdRequest {}
+
+// Get origin operation id result
+message GetOriginOperationIdResult {
+  optional google.protobuf.StringValue operation_id = 1;
+}
 
 // Get native time request
 message GetNativeTimeRequest {}
