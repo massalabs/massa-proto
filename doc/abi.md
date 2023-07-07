@@ -49,8 +49,6 @@
     - [ComparePubKeyResult](#massa-abi-v1-ComparePubKeyResult)
     - [CreateScRequest](#massa-abi-v1-CreateScRequest)
     - [CreateScResult](#massa-abi-v1-CreateScResult)
-    - [DateNowRequest](#massa-abi-v1-DateNowRequest)
-    - [DateNowResult](#massa-abi-v1-DateNowResult)
     - [DeleteDataRequest](#massa-abi-v1-DeleteDataRequest)
     - [DeleteDataResult](#massa-abi-v1-DeleteDataResult)
     - [DivRemNativeAmountsRequest](#massa-abi-v1-DivRemNativeAmountsRequest)
@@ -110,12 +108,9 @@
     - [NativeAmountFromStringResult](#massa-abi-v1-NativeAmountFromStringResult)
     - [NativeAmountToStringRequest](#massa-abi-v1-NativeAmountToStringRequest)
     - [NativeAmountToStringResult](#massa-abi-v1-NativeAmountToStringResult)
-    - [ProcessExitRequest](#massa-abi-v1-ProcessExitRequest)
     - [RespResult](#massa-abi-v1-RespResult)
     - [ScalarDivRemNativeAmountRequest](#massa-abi-v1-ScalarDivRemNativeAmountRequest)
     - [ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResult)
-    - [SeedRequest](#massa-abi-v1-SeedRequest)
-    - [SeedResult](#massa-abi-v1-SeedResult)
     - [SendAsyncMessageFilter](#massa-abi-v1-SendAsyncMessageFilter)
     - [SendAsyncMessageRequest](#massa-abi-v1-SendAsyncMessageRequest)
     - [SendAsyncMessageResult](#massa-abi-v1-SendAsyncMessageResult)
@@ -129,10 +124,6 @@
     - [TransferCoinsResult](#massa-abi-v1-TransferCoinsResult)
     - [UnsafeRandomRequest](#massa-abi-v1-UnsafeRandomRequest)
     - [UnsafeRandomResult](#massa-abi-v1-UnsafeRandomResult)
-    - [VerifyBlsMultiSigRequest](#massa-abi-v1-VerifyBlsMultiSigRequest)
-    - [VerifyBlsMultiSigResult](#massa-abi-v1-VerifyBlsMultiSigResult)
-    - [VerifyBlsSingleSigRequest](#massa-abi-v1-VerifyBlsSingleSigRequest)
-    - [VerifyBlsSingleSigResult](#massa-abi-v1-VerifyBlsSingleSigResult)
     - [VerifyEvmSigRequest](#massa-abi-v1-VerifyEvmSigRequest)
     - [VerifyEvmSigResult](#massa-abi-v1-VerifyEvmSigResult)
     - [VerifySigRequest](#massa-abi-v1-VerifySigRequest)
@@ -826,32 +817,6 @@ Create SC result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | sc_address | [string](#string) |  | Address of the just created smart contract |
-
-
-
-
-
-
-<a name="massa-abi-v1-DateNowRequest"></a>
-
-### DateNowRequest
-AS builtin `Date.now` function
-date now request
-
-
-
-
-
-
-<a name="massa-abi-v1-DateNowResult"></a>
-
-### DateNowResult
-date now result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| date_now | [uint64](#uint64) |  | date now |
 
 
 
@@ -1709,22 +1674,6 @@ Amount to string result
 
 
 
-<a name="massa-abi-v1-ProcessExitRequest"></a>
-
-### ProcessExitRequest
-AS builtin `process.exit()` function
-Process exit request
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [uint32](#uint32) |  | exit code |
-
-
-
-
-
-
 <a name="massa-abi-v1-RespResult"></a>
 
 ### RespResult
@@ -1757,7 +1706,6 @@ the &#43;1 comes from ResResult itself which is counted above
 | compare_native_time_result | [CompareNativeTimeResult](#massa-abi-v1-CompareNativeTimeResult) |  |  |
 | compare_pub_key_result | [ComparePubKeyResult](#massa-abi-v1-ComparePubKeyResult) |  |  |
 | create_sc_result | [CreateScResult](#massa-abi-v1-CreateScResult) |  |  |
-| date_now_result | [DateNowResult](#massa-abi-v1-DateNowResult) |  |  |
 | delete_data_result | [DeleteDataResult](#massa-abi-v1-DeleteDataResult) |  |  |
 | div_rem_native_amounts_result | [DivRemNativeAmountsResult](#massa-abi-v1-DivRemNativeAmountsResult) |  |  |
 | function_exists_result | [FunctionExistsResult](#massa-abi-v1-FunctionExistsResult) |  |  |
@@ -1788,14 +1736,11 @@ the &#43;1 comes from ResResult itself which is counted above
 | native_amount_from_string_result | [NativeAmountFromStringResult](#massa-abi-v1-NativeAmountFromStringResult) |  |  |
 | native_amount_to_string_result | [NativeAmountToStringResult](#massa-abi-v1-NativeAmountToStringResult) |  |  |
 | scalar_div_rem_native_amount_result | [ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResult) |  |  |
-| seed_result | [SeedResult](#massa-abi-v1-SeedResult) |  |  |
 | set_bytecode_result | [SetBytecodeResult](#massa-abi-v1-SetBytecodeResult) |  |  |
 | set_data_result | [SetDataResult](#massa-abi-v1-SetDataResult) |  |  |
 | sub_native_amounts_result | [SubNativeAmountsResult](#massa-abi-v1-SubNativeAmountsResult) |  |  |
 | transfer_coins_result | [TransferCoinsResult](#massa-abi-v1-TransferCoinsResult) |  |  |
 | unsafe_random_result | [UnsafeRandomResult](#massa-abi-v1-UnsafeRandomResult) |  |  |
-| verify_bls_multi_sig_result | [VerifyBlsMultiSigResult](#massa-abi-v1-VerifyBlsMultiSigResult) |  |  |
-| verify_bls_single_sig_result | [VerifyBlsSingleSigResult](#massa-abi-v1-VerifyBlsSingleSigResult) |  |  |
 | verify_evm_sig_result | [VerifyEvmSigResult](#massa-abi-v1-VerifyEvmSigResult) |  |  |
 | verify_sig_result | [VerifySigResult](#massa-abi-v1-VerifySigResult) |  |  |
 | send_async_message_result | [SendAsyncMessageResult](#massa-abi-v1-SendAsyncMessageResult) |  |  |
@@ -1834,32 +1779,6 @@ Amount division by scalar result
 | ----- | ---- | ----- | ----------- |
 | quotient | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Quotient of amount and divisor |
 | remainder | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Remainder of amount and divisor |
-
-
-
-
-
-
-<a name="massa-abi-v1-SeedRequest"></a>
-
-### SeedRequest
-AS builtin `seed` function
-Seed request
-
-
-
-
-
-
-<a name="massa-abi-v1-SeedResult"></a>
-
-### SeedResult
-Seed result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| seed | [double](#double) |  | Seed |
 
 
 
@@ -2052,70 +1971,6 @@ Unsafe random result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | random_bytes | [bytes](#bytes) |  | Random bytes generated |
-
-
-
-
-
-
-<a name="massa-abi-v1-VerifyBlsMultiSigRequest"></a>
-
-### VerifyBlsMultiSigRequest
-BLS signature multiple verification request
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| sig | [bytes](#bytes) |  | Signature to verify |
-| message | [bytes](#bytes) |  | Message to verify |
-| pub_keys | [bytes](#bytes) | repeated | Public keys to verify with |
-
-
-
-
-
-
-<a name="massa-abi-v1-VerifyBlsMultiSigResult"></a>
-
-### VerifyBlsMultiSigResult
-BLS signature multiple verification result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| is_verified | [bool](#bool) |  | Verification result |
-
-
-
-
-
-
-<a name="massa-abi-v1-VerifyBlsSingleSigRequest"></a>
-
-### VerifyBlsSingleSigRequest
-BLS signature single verification request
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| sig | [bytes](#bytes) |  | Signature to verify |
-| message | [bytes](#bytes) |  | Message to verify |
-| pub_key | [bytes](#bytes) |  | Public key to verify with |
-
-
-
-
-
-
-<a name="massa-abi-v1-VerifyBlsSingleSigResult"></a>
-
-### VerifyBlsSingleSigResult
-BLS signature single verification result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| is_verified | [bool](#bool) |  | Verification result |
 
 
 
