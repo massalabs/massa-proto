@@ -13,8 +13,6 @@
     - [AppendDataResult](#massa-abi-v1-AppendDataResult)
     - [Base58CheckToBytesRequest](#massa-abi-v1-Base58CheckToBytesRequest)
     - [Base58CheckToBytesResult](#massa-abi-v1-Base58CheckToBytesResult)
-    - [Blake3HashRequest](#massa-abi-v1-Blake3HashRequest)
-    - [Blake3HashResult](#massa-abi-v1-Blake3HashResult)
     - [BytesToBase58CheckRequest](#massa-abi-v1-BytesToBase58CheckRequest)
     - [BytesToBase58CheckResult](#massa-abi-v1-BytesToBase58CheckResult)
     - [CallRequest](#massa-abi-v1-CallRequest)
@@ -96,6 +94,8 @@
     - [HasDataResult](#massa-abi-v1-HasDataResult)
     - [HasOpKeyRequest](#massa-abi-v1-HasOpKeyRequest)
     - [HasOpKeyResult](#massa-abi-v1-HasOpKeyResult)
+    - [HashBlake3Request](#massa-abi-v1-HashBlake3Request)
+    - [HashBlake3Result](#massa-abi-v1-HashBlake3Result)
     - [HashSha256Request](#massa-abi-v1-HashSha256Request)
     - [HashSha256Result](#massa-abi-v1-HashSha256Result)
     - [Keccak256Request](#massa-abi-v1-Keccak256Request)
@@ -268,36 +268,6 @@ base58 to bytes result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | bytes | [bytes](#bytes) |  |  |
-
-
-
-
-
-
-<a name="massa-abi-v1-Blake3HashRequest"></a>
-
-### Blake3HashRequest
-Blake3 hash request
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| data | [bytes](#bytes) |  | Data to hash |
-
-
-
-
-
-
-<a name="massa-abi-v1-Blake3HashResult"></a>
-
-### Blake3HashResult
-Blake3 hash result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| hash | [bytes](#bytes) |  | Hash of data |
 
 
 
@@ -1490,6 +1460,36 @@ Has op key result
 
 
 
+<a name="massa-abi-v1-HashBlake3Request"></a>
+
+### HashBlake3Request
+Blake3 hash request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| data | [bytes](#bytes) |  | Data to hash |
+
+
+
+
+
+
+<a name="massa-abi-v1-HashBlake3Result"></a>
+
+### HashBlake3Result
+Blake3 hash result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| hash | [bytes](#bytes) |  | Hash of data |
+
+
+
+
+
+
 <a name="massa-abi-v1-HashSha256Request"></a>
 
 ### HashSha256Request
@@ -1689,7 +1689,6 @@ the &#43;1 comes from ResResult itself which is counted above
 | address_from_pub_key_result | [AddressFromPubKeyResult](#massa-abi-v1-AddressFromPubKeyResult) |  |  |
 | append_data_result | [AppendDataResult](#massa-abi-v1-AppendDataResult) |  |  |
 | base58_check_to_bytes_result | [Base58CheckToBytesResult](#massa-abi-v1-Base58CheckToBytesResult) |  |  |
-| blake3_hash_result | [Blake3HashResult](#massa-abi-v1-Blake3HashResult) |  |  |
 | bytes_to_base58_check_result | [BytesToBase58CheckResult](#massa-abi-v1-BytesToBase58CheckResult) |  |  |
 | caller_has_write_access_result | [CallerHasWriteAccessResult](#massa-abi-v1-CallerHasWriteAccessResult) |  |  |
 | check_address_result | [CheckAddressResult](#massa-abi-v1-CheckAddressResult) |  |  |
@@ -1722,11 +1721,12 @@ the &#43;1 comes from ResResult itself which is counted above
 | get_native_time_result | [GetNativeTimeResult](#massa-abi-v1-GetNativeTimeResult) |  |  |
 | get_op_data_result | [GetOpDataResult](#massa-abi-v1-GetOpDataResult) |  |  |
 | get_op_keys_result | [GetOpKeysResult](#massa-abi-v1-GetOpKeysResult) |  |  |
-| get_owned_addresses_result | [GetOwnedAddressesResult](#massa-abi-v1-GetOwnedAddressesResult) |  |  |
 | get_origin_operation_id_result | [GetOriginOperationIdResult](#massa-abi-v1-GetOriginOperationIdResult) |  |  |
+| get_owned_addresses_result | [GetOwnedAddressesResult](#massa-abi-v1-GetOwnedAddressesResult) |  |  |
 | get_pub_key_version_result | [GetPubKeyVersionResult](#massa-abi-v1-GetPubKeyVersionResult) |  |  |
 | get_remaining_gas_result | [GetRemainingGasResult](#massa-abi-v1-GetRemainingGasResult) |  |  |
 | get_signature_version_result | [GetSignatureVersionResult](#massa-abi-v1-GetSignatureVersionResult) |  |  |
+| hash_blake3_result | [HashBlake3Result](#massa-abi-v1-HashBlake3Result) |  |  |
 | hash_sha256_result | [HashSha256Result](#massa-abi-v1-HashSha256Result) |  |  |
 | has_data_result | [HasDataResult](#massa-abi-v1-HasDataResult) |  |  |
 | has_op_key_result | [HasOpKeyResult](#massa-abi-v1-HasOpKeyResult) |  |  |
