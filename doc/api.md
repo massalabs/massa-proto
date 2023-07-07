@@ -18,8 +18,6 @@
     - [BanNodesByIdsResponse](#massa-api-v1-BanNodesByIdsResponse)
     - [BanNodesByIpsRequest](#massa-api-v1-BanNodesByIpsRequest)
     - [BanNodesByIpsResponse](#massa-api-v1-BanNodesByIpsResponse)
-    - [CreateKeyPairRequest](#massa-api-v1-CreateKeyPairRequest)
-    - [CreateKeyPairResponse](#massa-api-v1-CreateKeyPairResponse)
     - [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest)
     - [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse)
     - [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest)
@@ -309,31 +307,6 @@ BanNodesByIpsRequest holds the request for BanNodesByIps
 
 ### BanNodesByIpsResponse
 BanNodesByIpsResponse holds the response from BanNodesByIps
-
-
-
-
-
-
-<a name="massa-api-v1-CreateKeyPairRequest"></a>
-
-### CreateKeyPairRequest
-CreateKeyPairRequest holds the request for CreateKeyPair
-
-
-
-
-
-
-<a name="massa-api-v1-CreateKeyPairResponse"></a>
-
-### CreateKeyPairResponse
-CreateKeyPairResponse holds the response from CreateKeyPair
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| key_pair | [massa.model.v1.KeyPair](#massa-model-v1-KeyPair) |  | KeyPair |
 
 
 
@@ -684,7 +657,6 @@ Massa private gRPC service
 | AddToPeersWhitelist | [AddToPeersWhitelistRequest](#massa-api-v1-AddToPeersWhitelistRequest) | [AddToPeersWhitelistResponse](#massa-api-v1-AddToPeersWhitelistResponse) | Add IP addresses to node peers whitelist. No confirmation to expect. Note: If the ip was unknown it adds it to the known peers, otherwise it updates the peer type |
 | AddStakingSecretKeys | [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest) | [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse) | Add staking secret keys to wallet |
 | AllowEveryoneToBootstrap | [AllowEveryoneToBootstrapRequest](#massa-api-v1-AllowEveryoneToBootstrapRequest) | [AllowEveryoneToBootstrapResponse](#massa-api-v1-AllowEveryoneToBootstrapResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file |
-| CreateKeyPair | [CreateKeyPairRequest](#massa-api-v1-CreateKeyPairRequest) | [CreateKeyPairResponse](#massa-api-v1-CreateKeyPairResponse) | Create a KeyPair |
 | GetBootstrapBlacklist | [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest) | [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse) | Get node bootstrap blacklist IP addresses |
 | GetBootstrapWhitelist | [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest) | [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse) | Get node bootstrap whitelist IP addresses |
 | GetMipStatus | [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest) | [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse) | Get Mip status |
