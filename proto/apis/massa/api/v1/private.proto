@@ -61,14 +61,6 @@ service PrivateService {
     };
   }
 
-  // Create a KeyPair
-  rpc CreateKeyPair(CreateKeyPairRequest) returns (CreateKeyPairResponse) {
-    option (google.api.http) = {
-      post: "/v1/create_keypair"
-      body: "*"
-    };
-  }
-
   // Get node bootstrap blacklist IP addresses
   rpc GetBootstrapBlacklist(GetBootstrapBlacklistRequest) returns (GetBootstrapBlacklistResponse) {
     option (google.api.http) = {
@@ -231,15 +223,6 @@ message AllowEveryoneToBootstrapRequest {}
 
 // AllowEveryoneToBootstrapResponse holds the response from AllowEveryoneToBootstrap
 message AllowEveryoneToBootstrapResponse {}
-
-// CreateKeyPairRequest holds the request for CreateKeyPair
-message CreateKeyPairRequest {}
-
-// CreateKeyPairResponse holds the response from CreateKeyPair
-message CreateKeyPairResponse {
-  // KeyPair
-  massa.model.v1.KeyPair key_pair = 1;
-}
 
 // GetBootstrapBlacklistRequest holds the request for GetBootstrapBlacklist
 message GetBootstrapBlacklistRequest {}
