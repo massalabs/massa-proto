@@ -359,14 +359,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.abi.v1.DateNowRequest"><span class="badge">M</span>DateNowRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.DateNowResult"><span class="badge">M</span>DateNowResult</a>
-                </li>
-              
-                <li>
                   <a href="#massa.abi.v1.DeleteDataRequest"><span class="badge">M</span>DeleteDataRequest</a>
                 </li>
               
@@ -603,10 +595,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.abi.v1.ProcessExitRequest"><span class="badge">M</span>ProcessExitRequest</a>
-                </li>
-              
-                <li>
                   <a href="#massa.abi.v1.RespResult"><span class="badge">M</span>RespResult</a>
                 </li>
               
@@ -616,14 +604,6 @@
               
                 <li>
                   <a href="#massa.abi.v1.ScalarDivRemNativeAmountResult"><span class="badge">M</span>ScalarDivRemNativeAmountResult</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.SeedRequest"><span class="badge">M</span>SeedRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.SeedResult"><span class="badge">M</span>SeedResult</a>
                 </li>
               
                 <li>
@@ -676,22 +656,6 @@
               
                 <li>
                   <a href="#massa.abi.v1.UnsafeRandomResult"><span class="badge">M</span>UnsafeRandomResult</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.VerifyBlsMultiSigRequest"><span class="badge">M</span>VerifyBlsMultiSigRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.VerifyBlsMultiSigResult"><span class="badge">M</span>VerifyBlsMultiSigResult</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.VerifyBlsSingleSigRequest"><span class="badge">M</span>VerifyBlsSingleSigRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.VerifyBlsSingleSigResult"><span class="badge">M</span>VerifyBlsSingleSigResult</a>
                 </li>
               
                 <li>
@@ -1891,37 +1855,6 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Address of the just created smart contract </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.DateNowRequest">DateNowRequest</h3>
-        <p>AS builtin `Date.now` function</p><p>date now request</p>
-
-        
-
-        
-      
-        <h3 id="massa.abi.v1.DateNowResult">DateNowResult</h3>
-        <p>date now result</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>date_now</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td></td>
-                  <td><p>date now </p></td>
                 </tr>
               
             </tbody>
@@ -3264,30 +3197,6 @@
 
         
       
-        <h3 id="massa.abi.v1.ProcessExitRequest">ProcessExitRequest</h3>
-        <p>AS builtin `process.exit()` function</p><p>Process exit request</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>code</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p>exit code </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.abi.v1.RespResult">RespResult</h3>
         <p>Tips to check for completeness exec:</p><p>`rg message | rg "\{" | rg "Result" | wc -l`</p><p>the given count should be equal to the number of messages in RespResult + 1</p><p>the +1 comes from ResResult itself which is counted above</p>
 
@@ -3441,13 +3350,6 @@
                 <tr>
                   <td>create_sc_result</td>
                   <td><a href="#massa.abi.v1.CreateScResult">CreateScResult</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>date_now_result</td>
-                  <td><a href="#massa.abi.v1.DateNowResult">DateNowResult</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -3663,13 +3565,6 @@
                 </tr>
               
                 <tr>
-                  <td>seed_result</td>
-                  <td><a href="#massa.abi.v1.SeedResult">SeedResult</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
                   <td>set_bytecode_result</td>
                   <td><a href="#massa.abi.v1.SetBytecodeResult">SetBytecodeResult</a></td>
                   <td></td>
@@ -3700,20 +3595,6 @@
                 <tr>
                   <td>unsafe_random_result</td>
                   <td><a href="#massa.abi.v1.UnsafeRandomResult">UnsafeRandomResult</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>verify_bls_multi_sig_result</td>
-                  <td><a href="#massa.abi.v1.VerifyBlsMultiSigResult">VerifyBlsMultiSigResult</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>verify_bls_single_sig_result</td>
-                  <td><a href="#massa.abi.v1.VerifyBlsSingleSigResult">VerifyBlsSingleSigResult</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -3799,37 +3680,6 @@
                   <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
                   <td></td>
                   <td><p>Remainder of amount and divisor </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.SeedRequest">SeedRequest</h3>
-        <p>AS builtin `seed` function</p><p>Seed request</p>
-
-        
-
-        
-      
-        <h3 id="massa.abi.v1.SeedResult">SeedResult</h3>
-        <p>Seed result</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>seed</td>
-                  <td><a href="#double">double</a></td>
-                  <td></td>
-                  <td><p>Seed </p></td>
                 </tr>
               
             </tbody>
@@ -4179,130 +4029,6 @@
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
                   <td><p>Random bytes generated </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.VerifyBlsMultiSigRequest">VerifyBlsMultiSigRequest</h3>
-        <p>BLS signature multiple verification request</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>sig</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Signature to verify </p></td>
-                </tr>
-              
-                <tr>
-                  <td>message</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Message to verify </p></td>
-                </tr>
-              
-                <tr>
-                  <td>pub_keys</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td>repeated</td>
-                  <td><p>Public keys to verify with </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.VerifyBlsMultiSigResult">VerifyBlsMultiSigResult</h3>
-        <p>BLS signature multiple verification result</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>is_verified</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>Verification result </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.VerifyBlsSingleSigRequest">VerifyBlsSingleSigRequest</h3>
-        <p>BLS signature single verification request</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>sig</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Signature to verify </p></td>
-                </tr>
-              
-                <tr>
-                  <td>message</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Message to verify </p></td>
-                </tr>
-              
-                <tr>
-                  <td>pub_key</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Public key to verify with </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.VerifyBlsSingleSigResult">VerifyBlsSingleSigResult</h3>
-        <p>BLS signature single verification result</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>is_verified</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>Verification result </p></td>
                 </tr>
               
             </tbody>
