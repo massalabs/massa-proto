@@ -443,11 +443,7 @@
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.AsyncPoolChangeEntry"><span class="badge">M</span>AsyncPoolChangeEntry</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.AsyncPoolChangeValue"><span class="badge">M</span>AsyncPoolChangeValue</a>
+                  <a href="#massa.model.v1.AsyncPoolChange"><span class="badge">M</span>AsyncPoolChange</a>
                 </li>
               
                 <li>
@@ -2794,39 +2790,8 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
-        <h3 id="massa.model.v1.AsyncPoolChangeEntry">AsyncPoolChangeEntry</h3>
-        <p>AsyncPoolChange Entry</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>async_message_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Async message id </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
-                  <td><a href="#massa.model.v1.AsyncPoolChangeValue">AsyncPoolChangeValue</a></td>
-                  <td></td>
-                  <td><p>AsyncPool message </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.model.v1.AsyncPoolChangeValue">AsyncPoolChangeValue</h3>
-        <p>AsyncPoolChangeValue</p>
+        <h3 id="massa.model.v1.AsyncPoolChange">AsyncPoolChange</h3>
+        <p>AsyncPoolChange</p>
 
         
           <table class="field-table">
@@ -3779,7 +3744,7 @@ Whether to start execution from final or active state </p></td>
               
                 <tr>
                   <td>async_pool_changes</td>
-                  <td><a href="#massa.model.v1.AsyncPoolChangeEntry">AsyncPoolChangeEntry</a></td>
+                  <td><a href="#massa.model.v1.AsyncPoolChange">AsyncPoolChange</a></td>
                   <td>repeated</td>
                   <td><p>Asynchronous pool changes </p></td>
                 </tr>

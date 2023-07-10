@@ -59,8 +59,7 @@
     - [AsyncMessage](#massa-model-v1-AsyncMessage)
     - [AsyncMessageTrigger](#massa-model-v1-AsyncMessageTrigger)
     - [AsyncMessageUpdate](#massa-model-v1-AsyncMessageUpdate)
-    - [AsyncPoolChangeEntry](#massa-model-v1-AsyncPoolChangeEntry)
-    - [AsyncPoolChangeValue](#massa-model-v1-AsyncPoolChangeValue)
+    - [AsyncPoolChange](#massa-model-v1-AsyncPoolChange)
     - [BytecodeExecution](#massa-model-v1-BytecodeExecution)
     - [ExecutedOpsChangeEntry](#massa-model-v1-ExecutedOpsChangeEntry)
     - [ExecutedOpsChangeValue](#massa-model-v1-ExecutedOpsChangeValue)
@@ -1096,26 +1095,10 @@ Asynchronous smart contract message
 
 
 
-<a name="massa-model-v1-AsyncPoolChangeEntry"></a>
+<a name="massa-model-v1-AsyncPoolChange"></a>
 
-### AsyncPoolChangeEntry
-AsyncPoolChange Entry
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| async_message_id | [string](#string) |  | Async message id |
-| value | [AsyncPoolChangeValue](#massa-model-v1-AsyncPoolChangeValue) |  | AsyncPool message |
-
-
-
-
-
-
-<a name="massa-model-v1-AsyncPoolChangeValue"></a>
-
-### AsyncPoolChangeValue
-AsyncPoolChangeValue
+### AsyncPoolChange
+AsyncPoolChange
 
 
 | Field | Type | Label | Description |
@@ -1560,7 +1543,7 @@ StateChanges
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ledger_changes | [LedgerChangeEntry](#massa-model-v1-LedgerChangeEntry) | repeated | Ledger changes |
-| async_pool_changes | [AsyncPoolChangeEntry](#massa-model-v1-AsyncPoolChangeEntry) | repeated | Asynchronous pool changes |
+| async_pool_changes | [AsyncPoolChange](#massa-model-v1-AsyncPoolChange) | repeated | Asynchronous pool changes |
 | executed_ops_changes | [ExecutedOpsChangeEntry](#massa-model-v1-ExecutedOpsChangeEntry) | repeated | Executed operations changes |
 | executed_denunciations_changes | [DenunciationIndex](#massa-model-v1-DenunciationIndex) | repeated | Executed denunciations changes |
 
