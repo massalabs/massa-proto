@@ -1727,6 +1727,7 @@ ScExecutionEvents Filter
 | caller_address | [string](#string) |  | Caller address |
 | emitter_address | [string](#string) |  | Emitter address |
 | original_operation_id | [string](#string) |  | Original operation id |
+| is_failure | [bool](#bool) |  | Whether the event is a failure |
 | status | [massa.model.v1.ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) |  | Status |
 
 
