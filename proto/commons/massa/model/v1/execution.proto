@@ -98,7 +98,7 @@ message StateChanges {
   // Ledger changes
   repeated LedgerChangeEntry ledger_changes = 1;
   // Asynchronous pool changes
-  repeated AsyncPoolChange async_pool_changes = 2;
+  repeated AsyncPoolChangeEntry async_pool_changes = 2;
   // Executed operations changes
   repeated ExecutedOpsChangeEntry executed_ops_changes = 4;
   // Executed denunciations changes
@@ -128,8 +128,16 @@ enum OperationExecutionStatus {
   OPERATION_EXECUTION_STATUS_FAILED = 2; // Failed only status
 }
 
-// AsyncPoolChange
-message AsyncPoolChange {
+// AsyncPoolChange Entry
+message AsyncPoolChangeEntry {
+  // Async message id
+  string async_message_id = 1;
+  // AsyncPool message
+  AsyncPoolChangeValue value = 2;
+}
+
+// AsyncPoolChangeValue
+message AsyncPoolChangeValue {
   // The type of the change
   AsyncPoolChangeType type = 1;
   // AsyncPool message
