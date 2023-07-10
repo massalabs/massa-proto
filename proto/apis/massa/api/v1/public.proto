@@ -261,8 +261,10 @@ message ScExecutionEventsFilter {
     string emitter_address = 3;
     // Original operation id
     string original_operation_id = 4;
+    // Whether the event is a failure
+    bool is_failure = 5;
     // Status
-    massa.model.v1.ScExecutionEventStatus status = 5;
+    massa.model.v1.ScExecutionEventStatus status = 6;
   }
 }
 
