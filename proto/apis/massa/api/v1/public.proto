@@ -670,12 +670,7 @@ message NewOperationsRequest {
 // NewOperations Filter
 message NewOperationsFilter {
   // Filter
-  oneof filter {
-    // One of the operation ids
-    massa.model.v1.OperationIds operation_ids = 1;
-    // One of the operation types
-    massa.model.v1.OpTypes operation_types = 2;
-  }
+  massa.model.v1.OpTypes operation_types = 2;
 }
 
 // NewOperationsResponse holds response from NewOperations

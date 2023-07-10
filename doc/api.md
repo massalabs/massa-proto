@@ -1619,8 +1619,7 @@ NewOperations Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| operation_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | One of the operation ids |
-| operation_types | [massa.model.v1.OpTypes](#massa-model-v1-OpTypes) |  | One of the operation types |
+| operation_types | [massa.model.v1.OpTypes](#massa-model-v1-OpTypes) |  | Filter |
 
 
 
