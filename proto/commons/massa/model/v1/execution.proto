@@ -37,7 +37,7 @@ message FinalizedExecutionOutput {
 message ExecutionOutput {
   // Slot
   massa.model.v1.Slot slot = 1;
-  // Block id at that slot (optional)
+  // Block id at that slot (Optional)
   google.protobuf.StringValue block_id = 2;
   // Events emitted by the execution step
   repeated ScExecutionEvent events = 3;
@@ -231,7 +231,7 @@ message AsyncMessageUpdate {
 message SetOrKeepSlot {
   // The type of the change
   oneof change {
-    // The value of that entry (optional)
+    // The value of that entry (Optional)
     massa.model.v1.Slot set = 1;
     // Keep the existing value
     massa.model.v1.Empty keep = 2;
@@ -242,7 +242,7 @@ message SetOrKeepSlot {
 message SetOrKeepUint64 {
   // The type of the change
   oneof change {
-    // The value of that entry (optional)
+    // The value of that entry (Optional)
     google.protobuf.UInt64Value set = 1;
     // Keep the existing value
     massa.model.v1.Empty keep = 2;
@@ -253,7 +253,7 @@ message SetOrKeepUint64 {
 message SetOrKeepString {
   // The type of the change
   oneof change {
-    // The value of that entry (optional)
+    // The value of that entry (Optional)
     google.protobuf.StringValue set = 1;
     // Keep the existing value
     massa.model.v1.Empty keep = 2;
@@ -264,7 +264,7 @@ message SetOrKeepString {
 message SetOrKeepBytes {
   // The type of the change
   oneof change {
-    // The value of that entry (optional)
+    // The value of that entry (Optional)
     google.protobuf.BytesValue set = 1;
     // Keep the existing value
     massa.model.v1.Empty keep = 2;
@@ -275,7 +275,7 @@ message SetOrKeepBytes {
 message SetOrKeepBool {
   // The type of the change
   oneof change {
-    // The value of that entry (optional)
+    // The value of that entry (Optional)
     google.protobuf.BoolValue set = 1;
     // Keep the existing value
     massa.model.v1.Empty keep = 2;
@@ -286,7 +286,7 @@ message SetOrKeepBool {
 message SetOrKeepAsyncMessageTrigger {
   // The type of the change
   oneof change {
-    // The value of that entry (optional)
+    // The value of that entry (Optional)
     AsyncMessageTrigger set = 1;
     // Keep the existing value
     massa.model.v1.Empty keep = 2;
@@ -297,7 +297,7 @@ message SetOrKeepAsyncMessageTrigger {
 message AsyncMessageTrigger {
   // Filter on the address
   string address = 1;
-  // Filter on the datastore key (optional)
+  // Filter on the datastore key (Optional)
   google.protobuf.BytesValue datastore_key = 2;
 }
 
@@ -354,7 +354,7 @@ message LedgerEntryUpdate {
 message SetOrKeepBalance {
   // The type of the change
   oneof change {
-    // The value of that entry (optional)
+    // The value of that entry (Optional)
     massa.model.v1.NativeAmount set = 1;
     // Keep the existing value
     massa.model.v1.Empty keep = 2;
@@ -365,7 +365,7 @@ message SetOrKeepBalance {
 message SetOrDeleteDatastoreEntry {
   // The type of the change
   oneof change {
-    // Executable bytecode (optional)
+    // Executable bytecode (Optional)
     massa.model.v1.BytesMapFieldEntry set = 1;
     // Delete the existing bytecode
     massa.model.v1.Empty delete = 2;

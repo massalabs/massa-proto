@@ -4,6 +4,7 @@ syntax = "proto3";
 
 package massa.model.v1;
 
+import "google/protobuf/wrappers.proto";
 import "massa/model/v1/endorsement.proto";
 import "massa/model/v1/operation.proto";
 import "massa/model/v1/slot.proto";
@@ -37,8 +38,8 @@ message FilledBlock {
 message BlockHeader {
   // Current network version
   uint32 current_version = 1;
-  // Announced network version
-  uint32 announced_version = 2;
+  // Announced network version(Optional)
+  google.protobuf.UInt32Value announced_version = 2;
   // Slot
   Slot slot = 3;
   // parents
