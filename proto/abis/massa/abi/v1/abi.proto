@@ -22,7 +22,7 @@ message Address {
 // Amount
 message Amount {
   // Amount is a 64-bit unsigned integer
-  fixed64 amount = 1;
+  uint64 amount = 1;
 }
 
 // Empty

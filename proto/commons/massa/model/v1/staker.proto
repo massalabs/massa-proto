@@ -13,11 +13,10 @@ option php_namespace = "Com\\Massa\\Model\\V1";
 option ruby_package = "Com::Massa::Model::V1";
 option swift_prefix = "MMODEL";
 
-// NativeAmount is represented as a fraction so precision can be adjusted in
-// the future. value = mantissa / (10^scale)
-message NativeAmount {
-  // Mantissa
-  uint64 mantissa = 1;
-  // Scale
-  uint32 scale = 2;
+// StakerEntry
+message StakerEntry {
+  // Address
+  string address = 1;
+  // Rolls
+  uint64 rolls = 2;
 }

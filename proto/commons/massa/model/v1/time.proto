@@ -16,5 +16,5 @@ option swift_prefix = "MMODEL";
 // NativeTime represents a native duration or unix timestamp
 message NativeTime {
   // Milliseconds
-  fixed64 milliseconds = 1;
+  uint64 milliseconds = 1;
 }
