@@ -118,9 +118,9 @@ message FunctionExistsResult {
 // the +1 comes from ResResult itself which is counted above
 message RespResult {
   oneof res {
-    AddNativeAmountsResult add_native_amounts_result = 1;
+    AddNativeAmountResult add_native_amount_result = 1;
     AddressFromPubKeyResult address_from_pub_key_result = 2;
-    AppendDataResult append_data_result = 3;
+    AppendDsValueResult append_ds_value_result = 3;
     Base58CheckToBytesResult base58_check_to_bytes_result = 4;
     BytesToBase58CheckResult bytes_to_base58_check_result = 5;
     CallerHasWriteAccessResult caller_has_write_access_result = 6;
@@ -130,53 +130,53 @@ message RespResult {
     CheckSigResult check_sig_result = 10;
     CheckedAddNativeTimeResult checked_add_native_time_result = 11;
     CheckedDivRemNativeTimeResult checked_div_rem_native_time_result = 12;
-    CheckedMulNativeTimeResult checked_mul_native_time_result = 13;
-    CheckedScalarDivRemNativeTimeResult checked_scalar_div_rem_native_time_result = 14;
+    CheckedScalarDivRemNativeTimeResult checked_scalar_div_rem_native_time_result = 13;
+    CheckedScalarMulNativeTimeResult checked_scalar_mul_native_time_result = 14;
     CheckedSubNativeTimeResult checked_sub_native_time_result = 15;
     CompareAddressResult compare_address_result = 16;
     CompareNativeAmountResult compare_native_amount_result = 17;
     CompareNativeTimeResult compare_native_time_result = 18;
     ComparePubKeyResult compare_pub_key_result = 19;
     CreateScResult create_sc_result = 20;
-    DeleteDataResult delete_data_result = 21;
-    DivRemNativeAmountsResult div_rem_native_amounts_result = 22;
-    FunctionExistsResult function_exists_result = 23;
-    GenerateEventResult generate_event_result = 24;
-    GetAddressCategoryResult get_address_category_result = 25;
-    GetAddressVersionResult get_address_version_result = 26;
-    GetBalanceResult get_balance_result = 27;
-    GetBytecodeResult get_bytecode_result = 28;
-    GetCallCoinsResult get_call_coins_result = 29;
-    GetCallStackResult get_call_stack_result = 30;
-    GetCurrentSlotResult get_current_slot_result = 31;
-    GetDataResult get_data_result = 32;
-    GetKeysResult get_keys_result = 33;
-    GetNativeTimeResult get_native_time_result = 34;
-    GetOpDataResult get_op_data_result = 35;
-    GetOpKeysResult get_op_keys_result = 36;
-    GetOriginOperationIdResult get_origin_operation_id_result = 37;
-    GetOwnedAddressesResult get_owned_addresses_result = 38;
-    GetPubKeyVersionResult get_pub_key_version_result = 39;
-    GetRemainingGasResult get_remaining_gas_result = 40;
-    GetSignatureVersionResult get_signature_version_result = 41;
-    HashBlake3Result hash_blake3_result = 42;
-    HashSha256Result hash_sha256_result = 43;
-    HasDataResult has_data_result = 44;
-    HasOpKeyResult has_op_key_result = 45;
+    DeleteDsEntryResult delete_ds_entry_result = 21;
+    DivRemNativeAmountResult div_rem_native_amount_result = 22;
+    DsEntryExistsResult ds_entry_exists_result = 23;
+    FunctionExistsResult function_exists_result = 24;
+    GenerateEventResult generate_event_result = 25;
+    GetAddressCategoryResult get_address_category_result = 26;
+    GetAddressVersionResult get_address_version_result = 27;
+    GetBalanceResult get_balance_result = 28;
+    GetBytecodeResult get_bytecode_result = 29;
+    GetCallCoinsResult get_call_coins_result = 30;
+    GetCallStackResult get_call_stack_result = 31;
+    GetCurrentSlotResult get_current_slot_result = 32;
+    GetDsKeysResult get_ds_keys_result = 33;
+    GetDsValueResult get_ds_value_result = 34;
+    GetNativeTimeResult get_native_time_result = 35;
+    GetOpDataResult get_op_data_result = 36;
+    GetOpKeysResult get_op_keys_result = 37;
+    GetOriginOperationIdResult get_origin_operation_id_result = 38;
+    GetOwnedAddressesResult get_owned_addresses_result = 39;
+    GetPubKeyVersionResult get_pub_key_version_result = 40;
+    GetRemainingGasResult get_remaining_gas_result = 41;
+    GetSignatureVersionResult get_signature_version_result = 42;
+    HashBlake3Result hash_blake3_result = 43;
+    HashSha256Result hash_sha256_result = 44;
+    OpEntryExistsResult op_entry_exists_result = 45;
     Keccak256Result keccak256_result = 46;
     LocalExecutionResponse local_execution_response = 47;
-    MulNativeAmountResult mul_native_amount_result = 48;
-    NativeAmountFromStringResult native_amount_from_string_result = 49;
-    NativeAmountToStringResult native_amount_to_string_result = 50;
-    ScalarDivRemNativeAmountResult scalar_div_rem_native_amount_result = 51;
-    SetBytecodeResult set_bytecode_result = 52;
-    SetDataResult set_data_result = 53;
-    SubNativeAmountsResult sub_native_amounts_result = 54;
-    TransferCoinsResult transfer_coins_result = 55;
-    UnsafeRandomResult unsafe_random_result = 56;
-    VerifyEvmSigResult verify_evm_sig_result = 57;
-    VerifySigResult verify_sig_result = 58;
-    SendAsyncMessageResult send_async_message_result = 59;
+    NativeAmountFromStringResult native_amount_from_string_result = 48;
+    NativeAmountToStringResult native_amount_to_string_result = 49;
+    ScalarDivRemNativeAmountResult scalar_div_rem_native_amount_result = 50;
+    ScalarMulNativeAmountResult scalar_mul_native_amount_result = 51;
+    SendAsyncMessageResult send_async_message_result = 52;
+    SetBytecodeResult set_bytecode_result = 53;
+    SetDsValueResult set_ds_value_result = 54;
+    SubNativeAmountResult sub_native_amount_result = 55;
+    TransferCoinsResult transfer_coins_result = 56;
+    UnsafeRandomResult unsafe_random_result = 57;
+    VerifyEvmSigResult verify_evm_sig_result = 58;
+    VerifySigResult verify_sig_result = 59;
   }
 }
 
@@ -263,7 +263,7 @@ message CheckNativeAmountResult {
 }
 
 // Amount addition request
-message AddNativeAmountsRequest {
+message AddNativeAmountRequest {
   // First amount to add
   massa.model.v1.NativeAmount amount1 = 1;
   // Second amount to add
@@ -271,7 +271,7 @@ message AddNativeAmountsRequest {
 }
 
 // Amount addition result
-message AddNativeAmountsResult {
+message AddNativeAmountResult {
   // Sum of amounts
   massa.model.v1.NativeAmount sum = 1;
 }
@@ -279,7 +279,7 @@ message AddNativeAmountsResult {
 // Amount subtraction request
 // try to compute difference = left - right
 // fails if right > left
-message SubNativeAmountsRequest {
+message SubNativeAmountRequest {
   // First amount to subtract from
   massa.model.v1.NativeAmount left = 1;
   // Second amount to subtract
@@ -287,14 +287,14 @@ message SubNativeAmountsRequest {
 }
 
 // Amount subtraction result
-message SubNativeAmountsResult {
+message SubNativeAmountResult {
   // Difference of amounts (left - right)
   massa.model.v1.NativeAmount difference = 1;
 }
 
 // Amount multiplication request
 // Try to compute product = amount * coefficient (fail if overflow)
-message MulNativeAmountRequest {
+message ScalarMulNativeAmountRequest {
   // Amount to multiply
   massa.model.v1.NativeAmount amount = 1;
   // Coefficient to multiply by
@@ -302,7 +302,7 @@ message MulNativeAmountRequest {
 }
 
 // Amount multiplication result
-message MulNativeAmountResult {
+message ScalarMulNativeAmountResult {
   // Product of amount and coefficient
   massa.model.v1.NativeAmount product = 1;
 }
@@ -327,7 +327,7 @@ message ScalarDivRemNativeAmountResult {
 }
 
 // Amount division request
-message DivRemNativeAmountsRequest {
+message DivRemNativeAmountRequest {
   // Amount to divide
   massa.model.v1.NativeAmount dividend = 1;
   // Divisor to divide by
@@ -335,7 +335,7 @@ message DivRemNativeAmountsRequest {
 }
 
 // Amount division result
-message DivRemNativeAmountsResult {
+message DivRemNativeAmountResult {
   // Quotient of amount and divisor
   uint64 quotient = 1;
   // Remainder of amount and divisor
@@ -371,7 +371,7 @@ message CheckedSubNativeTimeResult {
 }
 
 // Time scalar mult checked request
-message CheckedMulNativeTimeRequest {
+message CheckedScalarMulNativeTimeRequest {
   // Time to multiply
   massa.model.v1.NativeTime time = 1;
   // Coefficient to multiply by
@@ -379,7 +379,7 @@ message CheckedMulNativeTimeRequest {
 }
 
 // Time scalar mult checked result
-message CheckedMulNativeTimeResult {
+message CheckedScalarMulNativeTimeResult {
   // Product of time and coefficient
   massa.model.v1.NativeTime product = 1;
 }
@@ -529,7 +529,7 @@ message HashBlake3Result {
 }
 
 // Get keys request
-message GetKeysRequest {
+message GetDsKeysRequest {
   // keys prefix
   bytes prefix = 1;
   // Address to get keys for
@@ -537,13 +537,13 @@ message GetKeysRequest {
 }
 
 // Get keys result
-message GetKeysResult {
+message GetDsKeysResult {
   // keys
   repeated bytes keys = 1;
 }
 
-// Set data request
-message SetDataRequest {
+// Set data store value request
+message SetDsValueRequest {
   // key
   bytes key = 1;
   // value
@@ -552,11 +552,11 @@ message SetDataRequest {
   optional google.protobuf.StringValue address = 3;
 }
 
-// Set data result
-message SetDataResult {}
+// Set data store value result
+message SetDsValueResult {}
 
 // Append data request
-message AppendDataRequest {
+message AppendDsValueRequest {
   // key
   bytes key = 1;
   // value
@@ -566,10 +566,10 @@ message AppendDataRequest {
 }
 
 // Append data result
-message AppendDataResult {}
+message AppendDsValueResult {}
 
 // Get data request
-message GetDataRequest {
+message GetDsValueRequest {
   // key
   bytes key = 1;
   // Address to get data for, if none, use current address
@@ -577,32 +577,32 @@ message GetDataRequest {
 }
 
 // Get data result
-message GetDataResult {
+message GetDsValueResult {
   // value
   bytes value = 1;
 }
 
-// Delete data request
-message DeleteDataRequest {
+// Delete data store entry request
+message DeleteDsEntryRequest {
   // key
   bytes key = 1;
   // Address to delete data for, if none, use current address
   optional google.protobuf.StringValue address = 2;
 }
 
-// Delete data result
-message DeleteDataResult {}
+// Delete data store entry result
+message DeleteDsEntryResult {}
 
-// Has data request
-message HasDataRequest {
+// Data store entry exists request
+message DsEntryExistsRequest {
   // key
   bytes key = 1;
   // Address to check data for, if none, use current address
   optional google.protobuf.StringValue address = 2;
 }
 
-// Has data result
-message HasDataResult {
+// Data store entry exists result
+message DsEntryExistsResult {
   // has data
   bool has_data = 1;
 }
@@ -763,14 +763,14 @@ message GetOpDataResult {
   bytes value = 1;
 }
 
-// Has op key request
-message HasOpKeyRequest {
+// Op entry exists request
+message OpEntryExistsRequest {
   // key
   bytes key = 1;
 }
 
-// Has op key result
-message HasOpKeyResult {
+// Op entry exists result
+message OpEntryExistsResult {
   // has key
   bool has_key = 1;
 }

@@ -5,12 +5,12 @@
 
 - [massa/abi/v1/abi.proto](#massa_abi_v1_abi-proto)
     - [AbiResponse](#massa-abi-v1-AbiResponse)
-    - [AddNativeAmountsRequest](#massa-abi-v1-AddNativeAmountsRequest)
-    - [AddNativeAmountsResult](#massa-abi-v1-AddNativeAmountsResult)
+    - [AddNativeAmountRequest](#massa-abi-v1-AddNativeAmountRequest)
+    - [AddNativeAmountResult](#massa-abi-v1-AddNativeAmountResult)
     - [AddressFromPubKeyRequest](#massa-abi-v1-AddressFromPubKeyRequest)
     - [AddressFromPubKeyResult](#massa-abi-v1-AddressFromPubKeyResult)
-    - [AppendDataRequest](#massa-abi-v1-AppendDataRequest)
-    - [AppendDataResult](#massa-abi-v1-AppendDataResult)
+    - [AppendDsValueRequest](#massa-abi-v1-AppendDsValueRequest)
+    - [AppendDsValueResult](#massa-abi-v1-AppendDsValueResult)
     - [Base58CheckToBytesRequest](#massa-abi-v1-Base58CheckToBytesRequest)
     - [Base58CheckToBytesResult](#massa-abi-v1-Base58CheckToBytesResult)
     - [BytesToBase58CheckRequest](#massa-abi-v1-BytesToBase58CheckRequest)
@@ -31,10 +31,10 @@
     - [CheckedAddNativeTimeResult](#massa-abi-v1-CheckedAddNativeTimeResult)
     - [CheckedDivRemNativeTimeRequest](#massa-abi-v1-CheckedDivRemNativeTimeRequest)
     - [CheckedDivRemNativeTimeResult](#massa-abi-v1-CheckedDivRemNativeTimeResult)
-    - [CheckedMulNativeTimeRequest](#massa-abi-v1-CheckedMulNativeTimeRequest)
-    - [CheckedMulNativeTimeResult](#massa-abi-v1-CheckedMulNativeTimeResult)
     - [CheckedScalarDivRemNativeTimeRequest](#massa-abi-v1-CheckedScalarDivRemNativeTimeRequest)
     - [CheckedScalarDivRemNativeTimeResult](#massa-abi-v1-CheckedScalarDivRemNativeTimeResult)
+    - [CheckedScalarMulNativeTimeRequest](#massa-abi-v1-CheckedScalarMulNativeTimeRequest)
+    - [CheckedScalarMulNativeTimeResult](#massa-abi-v1-CheckedScalarMulNativeTimeResult)
     - [CheckedSubNativeTimeRequest](#massa-abi-v1-CheckedSubNativeTimeRequest)
     - [CheckedSubNativeTimeResult](#massa-abi-v1-CheckedSubNativeTimeResult)
     - [CompareAddressRequest](#massa-abi-v1-CompareAddressRequest)
@@ -47,10 +47,12 @@
     - [ComparePubKeyResult](#massa-abi-v1-ComparePubKeyResult)
     - [CreateScRequest](#massa-abi-v1-CreateScRequest)
     - [CreateScResult](#massa-abi-v1-CreateScResult)
-    - [DeleteDataRequest](#massa-abi-v1-DeleteDataRequest)
-    - [DeleteDataResult](#massa-abi-v1-DeleteDataResult)
-    - [DivRemNativeAmountsRequest](#massa-abi-v1-DivRemNativeAmountsRequest)
-    - [DivRemNativeAmountsResult](#massa-abi-v1-DivRemNativeAmountsResult)
+    - [DeleteDsEntryRequest](#massa-abi-v1-DeleteDsEntryRequest)
+    - [DeleteDsEntryResult](#massa-abi-v1-DeleteDsEntryResult)
+    - [DivRemNativeAmountRequest](#massa-abi-v1-DivRemNativeAmountRequest)
+    - [DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResult)
+    - [DsEntryExistsRequest](#massa-abi-v1-DsEntryExistsRequest)
+    - [DsEntryExistsResult](#massa-abi-v1-DsEntryExistsResult)
     - [Error](#massa-abi-v1-Error)
     - [FunctionExistsRequest](#massa-abi-v1-FunctionExistsRequest)
     - [FunctionExistsResult](#massa-abi-v1-FunctionExistsResult)
@@ -70,10 +72,10 @@
     - [GetCallStackResult](#massa-abi-v1-GetCallStackResult)
     - [GetCurrentSlotRequest](#massa-abi-v1-GetCurrentSlotRequest)
     - [GetCurrentSlotResult](#massa-abi-v1-GetCurrentSlotResult)
-    - [GetDataRequest](#massa-abi-v1-GetDataRequest)
-    - [GetDataResult](#massa-abi-v1-GetDataResult)
-    - [GetKeysRequest](#massa-abi-v1-GetKeysRequest)
-    - [GetKeysResult](#massa-abi-v1-GetKeysResult)
+    - [GetDsKeysRequest](#massa-abi-v1-GetDsKeysRequest)
+    - [GetDsKeysResult](#massa-abi-v1-GetDsKeysResult)
+    - [GetDsValueRequest](#massa-abi-v1-GetDsValueRequest)
+    - [GetDsValueResult](#massa-abi-v1-GetDsValueResult)
     - [GetNativeTimeRequest](#massa-abi-v1-GetNativeTimeRequest)
     - [GetNativeTimeResult](#massa-abi-v1-GetNativeTimeResult)
     - [GetOpDataRequest](#massa-abi-v1-GetOpDataRequest)
@@ -90,10 +92,6 @@
     - [GetRemainingGasResult](#massa-abi-v1-GetRemainingGasResult)
     - [GetSignatureVersionRequest](#massa-abi-v1-GetSignatureVersionRequest)
     - [GetSignatureVersionResult](#massa-abi-v1-GetSignatureVersionResult)
-    - [HasDataRequest](#massa-abi-v1-HasDataRequest)
-    - [HasDataResult](#massa-abi-v1-HasDataResult)
-    - [HasOpKeyRequest](#massa-abi-v1-HasOpKeyRequest)
-    - [HasOpKeyResult](#massa-abi-v1-HasOpKeyResult)
     - [HashBlake3Request](#massa-abi-v1-HashBlake3Request)
     - [HashBlake3Result](#massa-abi-v1-HashBlake3Result)
     - [HashSha256Request](#massa-abi-v1-HashSha256Request)
@@ -102,24 +100,26 @@
     - [Keccak256Result](#massa-abi-v1-Keccak256Result)
     - [LocalExecutionRequest](#massa-abi-v1-LocalExecutionRequest)
     - [LocalExecutionResponse](#massa-abi-v1-LocalExecutionResponse)
-    - [MulNativeAmountRequest](#massa-abi-v1-MulNativeAmountRequest)
-    - [MulNativeAmountResult](#massa-abi-v1-MulNativeAmountResult)
     - [NativeAmountFromStringRequest](#massa-abi-v1-NativeAmountFromStringRequest)
     - [NativeAmountFromStringResult](#massa-abi-v1-NativeAmountFromStringResult)
     - [NativeAmountToStringRequest](#massa-abi-v1-NativeAmountToStringRequest)
     - [NativeAmountToStringResult](#massa-abi-v1-NativeAmountToStringResult)
+    - [OpEntryExistsRequest](#massa-abi-v1-OpEntryExistsRequest)
+    - [OpEntryExistsResult](#massa-abi-v1-OpEntryExistsResult)
     - [RespResult](#massa-abi-v1-RespResult)
     - [ScalarDivRemNativeAmountRequest](#massa-abi-v1-ScalarDivRemNativeAmountRequest)
     - [ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResult)
+    - [ScalarMulNativeAmountRequest](#massa-abi-v1-ScalarMulNativeAmountRequest)
+    - [ScalarMulNativeAmountResult](#massa-abi-v1-ScalarMulNativeAmountResult)
     - [SendAsyncMessageFilter](#massa-abi-v1-SendAsyncMessageFilter)
     - [SendAsyncMessageRequest](#massa-abi-v1-SendAsyncMessageRequest)
     - [SendAsyncMessageResult](#massa-abi-v1-SendAsyncMessageResult)
     - [SetBytecodeRequest](#massa-abi-v1-SetBytecodeRequest)
     - [SetBytecodeResult](#massa-abi-v1-SetBytecodeResult)
-    - [SetDataRequest](#massa-abi-v1-SetDataRequest)
-    - [SetDataResult](#massa-abi-v1-SetDataResult)
-    - [SubNativeAmountsRequest](#massa-abi-v1-SubNativeAmountsRequest)
-    - [SubNativeAmountsResult](#massa-abi-v1-SubNativeAmountsResult)
+    - [SetDsValueRequest](#massa-abi-v1-SetDsValueRequest)
+    - [SetDsValueResult](#massa-abi-v1-SetDsValueResult)
+    - [SubNativeAmountRequest](#massa-abi-v1-SubNativeAmountRequest)
+    - [SubNativeAmountResult](#massa-abi-v1-SubNativeAmountResult)
     - [TransferCoinsRequest](#massa-abi-v1-TransferCoinsRequest)
     - [TransferCoinsResult](#massa-abi-v1-TransferCoinsResult)
     - [UnsafeRandomRequest](#massa-abi-v1-UnsafeRandomRequest)
@@ -156,9 +156,9 @@ Generic message that encapsulate response from ABI calls.
 
 
 
-<a name="massa-abi-v1-AddNativeAmountsRequest"></a>
+<a name="massa-abi-v1-AddNativeAmountRequest"></a>
 
-### AddNativeAmountsRequest
+### AddNativeAmountRequest
 Amount addition request
 
 
@@ -172,9 +172,9 @@ Amount addition request
 
 
 
-<a name="massa-abi-v1-AddNativeAmountsResult"></a>
+<a name="massa-abi-v1-AddNativeAmountResult"></a>
 
-### AddNativeAmountsResult
+### AddNativeAmountResult
 Amount addition result
 
 
@@ -217,9 +217,9 @@ Address from public key result
 
 
 
-<a name="massa-abi-v1-AppendDataRequest"></a>
+<a name="massa-abi-v1-AppendDsValueRequest"></a>
 
-### AppendDataRequest
+### AppendDsValueRequest
 Append data request
 
 
@@ -234,9 +234,9 @@ Append data request
 
 
 
-<a name="massa-abi-v1-AppendDataResult"></a>
+<a name="massa-abi-v1-AppendDsValueResult"></a>
 
-### AppendDataResult
+### AppendDsValueResult
 Append data result
 
 
@@ -545,37 +545,6 @@ Time division checked result
 
 
 
-<a name="massa-abi-v1-CheckedMulNativeTimeRequest"></a>
-
-### CheckedMulNativeTimeRequest
-Time scalar mult checked request
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| time | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Time to multiply |
-| coefficient | [uint64](#uint64) |  | Coefficient to multiply by |
-
-
-
-
-
-
-<a name="massa-abi-v1-CheckedMulNativeTimeResult"></a>
-
-### CheckedMulNativeTimeResult
-Time scalar mult checked result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| product | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Product of time and coefficient |
-
-
-
-
-
-
 <a name="massa-abi-v1-CheckedScalarDivRemNativeTimeRequest"></a>
 
 ### CheckedScalarDivRemNativeTimeRequest
@@ -602,6 +571,37 @@ Time scalar divrem checked result
 | ----- | ---- | ----- | ----------- |
 | quotient | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Quotient of time and divisor |
 | remainder | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Remainder of time and divisor |
+
+
+
+
+
+
+<a name="massa-abi-v1-CheckedScalarMulNativeTimeRequest"></a>
+
+### CheckedScalarMulNativeTimeRequest
+Time scalar mult checked request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| time | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Time to multiply |
+| coefficient | [uint64](#uint64) |  | Coefficient to multiply by |
+
+
+
+
+
+
+<a name="massa-abi-v1-CheckedScalarMulNativeTimeResult"></a>
+
+### CheckedScalarMulNativeTimeResult
+Time scalar mult checked result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| product | [massa.model.v1.NativeTime](#massa-model-v1-NativeTime) |  | Product of time and coefficient |
 
 
 
@@ -793,10 +793,10 @@ Create SC result
 
 
 
-<a name="massa-abi-v1-DeleteDataRequest"></a>
+<a name="massa-abi-v1-DeleteDsEntryRequest"></a>
 
-### DeleteDataRequest
-Delete data request
+### DeleteDsEntryRequest
+Delete data store entry request
 
 
 | Field | Type | Label | Description |
@@ -809,19 +809,19 @@ Delete data request
 
 
 
-<a name="massa-abi-v1-DeleteDataResult"></a>
+<a name="massa-abi-v1-DeleteDsEntryResult"></a>
 
-### DeleteDataResult
-Delete data result
-
-
+### DeleteDsEntryResult
+Delete data store entry result
 
 
 
 
-<a name="massa-abi-v1-DivRemNativeAmountsRequest"></a>
 
-### DivRemNativeAmountsRequest
+
+<a name="massa-abi-v1-DivRemNativeAmountRequest"></a>
+
+### DivRemNativeAmountRequest
 Amount division request
 
 
@@ -835,9 +835,9 @@ Amount division request
 
 
 
-<a name="massa-abi-v1-DivRemNativeAmountsResult"></a>
+<a name="massa-abi-v1-DivRemNativeAmountResult"></a>
 
-### DivRemNativeAmountsResult
+### DivRemNativeAmountResult
 Amount division result
 
 
@@ -845,6 +845,37 @@ Amount division result
 | ----- | ---- | ----- | ----------- |
 | quotient | [uint64](#uint64) |  | Quotient of amount and divisor |
 | remainder | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Remainder of amount and divisor |
+
+
+
+
+
+
+<a name="massa-abi-v1-DsEntryExistsRequest"></a>
+
+### DsEntryExistsRequest
+Data store entry exists request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [bytes](#bytes) |  | key |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to check data for, if none, use current address |
+
+
+
+
+
+
+<a name="massa-abi-v1-DsEntryExistsResult"></a>
+
+### DsEntryExistsResult
+Data store entry exists result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| has_data | [bool](#bool) |  | has data |
 
 
 
@@ -1117,40 +1148,9 @@ Get current slot result
 
 
 
-<a name="massa-abi-v1-GetDataRequest"></a>
+<a name="massa-abi-v1-GetDsKeysRequest"></a>
 
-### GetDataRequest
-Get data request
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| key | [bytes](#bytes) |  | key |
-| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to get data for, if none, use current address |
-
-
-
-
-
-
-<a name="massa-abi-v1-GetDataResult"></a>
-
-### GetDataResult
-Get data result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| value | [bytes](#bytes) |  | value |
-
-
-
-
-
-
-<a name="massa-abi-v1-GetKeysRequest"></a>
-
-### GetKeysRequest
+### GetDsKeysRequest
 Get keys request
 
 
@@ -1164,15 +1164,46 @@ Get keys request
 
 
 
-<a name="massa-abi-v1-GetKeysResult"></a>
+<a name="massa-abi-v1-GetDsKeysResult"></a>
 
-### GetKeysResult
+### GetDsKeysResult
 Get keys result
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | keys | [bytes](#bytes) | repeated | keys |
+
+
+
+
+
+
+<a name="massa-abi-v1-GetDsValueRequest"></a>
+
+### GetDsValueRequest
+Get data request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [bytes](#bytes) |  | key |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to get data for, if none, use current address |
+
+
+
+
+
+
+<a name="massa-abi-v1-GetDsValueResult"></a>
+
+### GetDsValueResult
+Get data result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| value | [bytes](#bytes) |  | value |
 
 
 
@@ -1399,67 +1430,6 @@ Get the version of the signature result
 
 
 
-<a name="massa-abi-v1-HasDataRequest"></a>
-
-### HasDataRequest
-Has data request
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| key | [bytes](#bytes) |  | key |
-| address | [google.protobuf.StringValue](#google-protobuf-StringValue) | optional | Address to check data for, if none, use current address |
-
-
-
-
-
-
-<a name="massa-abi-v1-HasDataResult"></a>
-
-### HasDataResult
-Has data result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| has_data | [bool](#bool) |  | has data |
-
-
-
-
-
-
-<a name="massa-abi-v1-HasOpKeyRequest"></a>
-
-### HasOpKeyRequest
-Has op key request
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| key | [bytes](#bytes) |  | key |
-
-
-
-
-
-
-<a name="massa-abi-v1-HasOpKeyResult"></a>
-
-### HasOpKeyResult
-Has op key result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| has_key | [bool](#bool) |  | has key |
-
-
-
-
-
-
 <a name="massa-abi-v1-HashBlake3Request"></a>
 
 ### HashBlake3Request
@@ -1582,38 +1552,6 @@ Local call response
 
 
 
-<a name="massa-abi-v1-MulNativeAmountRequest"></a>
-
-### MulNativeAmountRequest
-Amount multiplication request
-Try to compute product = amount * coefficient (fail if overflow)
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to multiply |
-| coefficient | [uint64](#uint64) |  | Coefficient to multiply by |
-
-
-
-
-
-
-<a name="massa-abi-v1-MulNativeAmountResult"></a>
-
-### MulNativeAmountResult
-Amount multiplication result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| product | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Product of amount and coefficient |
-
-
-
-
-
-
 <a name="massa-abi-v1-NativeAmountFromStringRequest"></a>
 
 ### NativeAmountFromStringRequest
@@ -1674,6 +1612,36 @@ Amount to string result
 
 
 
+<a name="massa-abi-v1-OpEntryExistsRequest"></a>
+
+### OpEntryExistsRequest
+Op entry exists request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [bytes](#bytes) |  | key |
+
+
+
+
+
+
+<a name="massa-abi-v1-OpEntryExistsResult"></a>
+
+### OpEntryExistsResult
+Op entry exists result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| has_key | [bool](#bool) |  | has key |
+
+
+
+
+
+
 <a name="massa-abi-v1-RespResult"></a>
 
 ### RespResult
@@ -1685,9 +1653,9 @@ the &#43;1 comes from ResResult itself which is counted above
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| add_native_amounts_result | [AddNativeAmountsResult](#massa-abi-v1-AddNativeAmountsResult) |  |  |
+| add_native_amount_result | [AddNativeAmountResult](#massa-abi-v1-AddNativeAmountResult) |  |  |
 | address_from_pub_key_result | [AddressFromPubKeyResult](#massa-abi-v1-AddressFromPubKeyResult) |  |  |
-| append_data_result | [AppendDataResult](#massa-abi-v1-AppendDataResult) |  |  |
+| append_ds_value_result | [AppendDsValueResult](#massa-abi-v1-AppendDsValueResult) |  |  |
 | base58_check_to_bytes_result | [Base58CheckToBytesResult](#massa-abi-v1-Base58CheckToBytesResult) |  |  |
 | bytes_to_base58_check_result | [BytesToBase58CheckResult](#massa-abi-v1-BytesToBase58CheckResult) |  |  |
 | caller_has_write_access_result | [CallerHasWriteAccessResult](#massa-abi-v1-CallerHasWriteAccessResult) |  |  |
@@ -1697,16 +1665,17 @@ the &#43;1 comes from ResResult itself which is counted above
 | check_sig_result | [CheckSigResult](#massa-abi-v1-CheckSigResult) |  |  |
 | checked_add_native_time_result | [CheckedAddNativeTimeResult](#massa-abi-v1-CheckedAddNativeTimeResult) |  |  |
 | checked_div_rem_native_time_result | [CheckedDivRemNativeTimeResult](#massa-abi-v1-CheckedDivRemNativeTimeResult) |  |  |
-| checked_mul_native_time_result | [CheckedMulNativeTimeResult](#massa-abi-v1-CheckedMulNativeTimeResult) |  |  |
 | checked_scalar_div_rem_native_time_result | [CheckedScalarDivRemNativeTimeResult](#massa-abi-v1-CheckedScalarDivRemNativeTimeResult) |  |  |
+| checked_scalar_mul_native_time_result | [CheckedScalarMulNativeTimeResult](#massa-abi-v1-CheckedScalarMulNativeTimeResult) |  |  |
 | checked_sub_native_time_result | [CheckedSubNativeTimeResult](#massa-abi-v1-CheckedSubNativeTimeResult) |  |  |
 | compare_address_result | [CompareAddressResult](#massa-abi-v1-CompareAddressResult) |  |  |
 | compare_native_amount_result | [CompareNativeAmountResult](#massa-abi-v1-CompareNativeAmountResult) |  |  |
 | compare_native_time_result | [CompareNativeTimeResult](#massa-abi-v1-CompareNativeTimeResult) |  |  |
 | compare_pub_key_result | [ComparePubKeyResult](#massa-abi-v1-ComparePubKeyResult) |  |  |
 | create_sc_result | [CreateScResult](#massa-abi-v1-CreateScResult) |  |  |
-| delete_data_result | [DeleteDataResult](#massa-abi-v1-DeleteDataResult) |  |  |
-| div_rem_native_amounts_result | [DivRemNativeAmountsResult](#massa-abi-v1-DivRemNativeAmountsResult) |  |  |
+| delete_ds_entry_result | [DeleteDsEntryResult](#massa-abi-v1-DeleteDsEntryResult) |  |  |
+| div_rem_native_amount_result | [DivRemNativeAmountResult](#massa-abi-v1-DivRemNativeAmountResult) |  |  |
+| ds_entry_exists_result | [DsEntryExistsResult](#massa-abi-v1-DsEntryExistsResult) |  |  |
 | function_exists_result | [FunctionExistsResult](#massa-abi-v1-FunctionExistsResult) |  |  |
 | generate_event_result | [GenerateEventResult](#massa-abi-v1-GenerateEventResult) |  |  |
 | get_address_category_result | [GetAddressCategoryResult](#massa-abi-v1-GetAddressCategoryResult) |  |  |
@@ -1716,8 +1685,8 @@ the &#43;1 comes from ResResult itself which is counted above
 | get_call_coins_result | [GetCallCoinsResult](#massa-abi-v1-GetCallCoinsResult) |  |  |
 | get_call_stack_result | [GetCallStackResult](#massa-abi-v1-GetCallStackResult) |  |  |
 | get_current_slot_result | [GetCurrentSlotResult](#massa-abi-v1-GetCurrentSlotResult) |  |  |
-| get_data_result | [GetDataResult](#massa-abi-v1-GetDataResult) |  |  |
-| get_keys_result | [GetKeysResult](#massa-abi-v1-GetKeysResult) |  |  |
+| get_ds_keys_result | [GetDsKeysResult](#massa-abi-v1-GetDsKeysResult) |  |  |
+| get_ds_value_result | [GetDsValueResult](#massa-abi-v1-GetDsValueResult) |  |  |
 | get_native_time_result | [GetNativeTimeResult](#massa-abi-v1-GetNativeTimeResult) |  |  |
 | get_op_data_result | [GetOpDataResult](#massa-abi-v1-GetOpDataResult) |  |  |
 | get_op_keys_result | [GetOpKeysResult](#massa-abi-v1-GetOpKeysResult) |  |  |
@@ -1728,22 +1697,21 @@ the &#43;1 comes from ResResult itself which is counted above
 | get_signature_version_result | [GetSignatureVersionResult](#massa-abi-v1-GetSignatureVersionResult) |  |  |
 | hash_blake3_result | [HashBlake3Result](#massa-abi-v1-HashBlake3Result) |  |  |
 | hash_sha256_result | [HashSha256Result](#massa-abi-v1-HashSha256Result) |  |  |
-| has_data_result | [HasDataResult](#massa-abi-v1-HasDataResult) |  |  |
-| has_op_key_result | [HasOpKeyResult](#massa-abi-v1-HasOpKeyResult) |  |  |
+| op_entry_exists_result | [OpEntryExistsResult](#massa-abi-v1-OpEntryExistsResult) |  |  |
 | keccak256_result | [Keccak256Result](#massa-abi-v1-Keccak256Result) |  |  |
 | local_execution_response | [LocalExecutionResponse](#massa-abi-v1-LocalExecutionResponse) |  |  |
-| mul_native_amount_result | [MulNativeAmountResult](#massa-abi-v1-MulNativeAmountResult) |  |  |
 | native_amount_from_string_result | [NativeAmountFromStringResult](#massa-abi-v1-NativeAmountFromStringResult) |  |  |
 | native_amount_to_string_result | [NativeAmountToStringResult](#massa-abi-v1-NativeAmountToStringResult) |  |  |
 | scalar_div_rem_native_amount_result | [ScalarDivRemNativeAmountResult](#massa-abi-v1-ScalarDivRemNativeAmountResult) |  |  |
+| scalar_mul_native_amount_result | [ScalarMulNativeAmountResult](#massa-abi-v1-ScalarMulNativeAmountResult) |  |  |
+| send_async_message_result | [SendAsyncMessageResult](#massa-abi-v1-SendAsyncMessageResult) |  |  |
 | set_bytecode_result | [SetBytecodeResult](#massa-abi-v1-SetBytecodeResult) |  |  |
-| set_data_result | [SetDataResult](#massa-abi-v1-SetDataResult) |  |  |
-| sub_native_amounts_result | [SubNativeAmountsResult](#massa-abi-v1-SubNativeAmountsResult) |  |  |
+| set_ds_value_result | [SetDsValueResult](#massa-abi-v1-SetDsValueResult) |  |  |
+| sub_native_amount_result | [SubNativeAmountResult](#massa-abi-v1-SubNativeAmountResult) |  |  |
 | transfer_coins_result | [TransferCoinsResult](#massa-abi-v1-TransferCoinsResult) |  |  |
 | unsafe_random_result | [UnsafeRandomResult](#massa-abi-v1-UnsafeRandomResult) |  |  |
 | verify_evm_sig_result | [VerifyEvmSigResult](#massa-abi-v1-VerifyEvmSigResult) |  |  |
 | verify_sig_result | [VerifySigResult](#massa-abi-v1-VerifySigResult) |  |  |
-| send_async_message_result | [SendAsyncMessageResult](#massa-abi-v1-SendAsyncMessageResult) |  |  |
 
 
 
@@ -1779,6 +1747,38 @@ Amount division by scalar result
 | ----- | ---- | ----- | ----------- |
 | quotient | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Quotient of amount and divisor |
 | remainder | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Remainder of amount and divisor |
+
+
+
+
+
+
+<a name="massa-abi-v1-ScalarMulNativeAmountRequest"></a>
+
+### ScalarMulNativeAmountRequest
+Amount multiplication request
+Try to compute product = amount * coefficient (fail if overflow)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount to multiply |
+| coefficient | [uint64](#uint64) |  | Coefficient to multiply by |
+
+
+
+
+
+
+<a name="massa-abi-v1-ScalarMulNativeAmountResult"></a>
+
+### ScalarMulNativeAmountResult
+Amount multiplication result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| product | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Product of amount and coefficient |
 
 
 
@@ -1860,10 +1860,10 @@ Set bytecode result
 
 
 
-<a name="massa-abi-v1-SetDataRequest"></a>
+<a name="massa-abi-v1-SetDsValueRequest"></a>
 
-### SetDataRequest
-Set data request
+### SetDsValueRequest
+Set data store value request
 
 
 | Field | Type | Label | Description |
@@ -1877,19 +1877,19 @@ Set data request
 
 
 
-<a name="massa-abi-v1-SetDataResult"></a>
+<a name="massa-abi-v1-SetDsValueResult"></a>
 
-### SetDataResult
-Set data result
-
-
+### SetDsValueResult
+Set data store value result
 
 
 
 
-<a name="massa-abi-v1-SubNativeAmountsRequest"></a>
 
-### SubNativeAmountsRequest
+
+<a name="massa-abi-v1-SubNativeAmountRequest"></a>
+
+### SubNativeAmountRequest
 Amount subtraction request
 try to compute difference = left - right
 fails if right &gt; left
@@ -1905,9 +1905,9 @@ fails if right &gt; left
 
 
 
-<a name="massa-abi-v1-SubNativeAmountsResult"></a>
+<a name="massa-abi-v1-SubNativeAmountResult"></a>
 
-### SubNativeAmountsResult
+### SubNativeAmountResult
 Amount subtraction result
 
 
