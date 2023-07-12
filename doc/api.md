@@ -924,7 +924,7 @@ Deferred credits entry
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Slot |
+| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Slot |
 | amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount |
 
 
