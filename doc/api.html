@@ -414,6 +414,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.DeferredCreditsEntry"><span class="badge">M</span>DeferredCreditsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.DeferredCreditsEntryWrapper"><span class="badge">M</span>DeferredCreditsEntryWrapper</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.DenunciationExecutionStatusCandidate"><span class="badge">M</span>DenunciationExecutionStatusCandidate</a>
                 </li>
               
@@ -622,11 +630,11 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.SCOutputEventsWrapper"><span class="badge">M</span>SCOutputEventsWrapper</a>
+                  <a href="#massa.api.v1.ScExecutionEventsFilter"><span class="badge">M</span>ScExecutionEventsFilter</a>
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.ScExecutionEventsFilter"><span class="badge">M</span>ScExecutionEventsFilter</a>
+                  <a href="#massa.api.v1.ScOutputEventsWrapper"><span class="badge">M</span>ScOutputEventsWrapper</a>
                 </li>
               
                 <li>
@@ -2085,6 +2093,61 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
+        <h3 id="massa.api.v1.DeferredCreditsEntry">DeferredCreditsEntry</h3>
+        <p>Deferred credits entry</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>Slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>amount</td>
+                  <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
+                  <td></td>
+                  <td><p>Amount </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.DeferredCreditsEntryWrapper">DeferredCreditsEntryWrapper</h3>
+        <p>Deferred credits entry wrapper</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>entries</td>
+                  <td><a href="#massa.api.v1.DeferredCreditsEntry">DeferredCreditsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>Deferred credits entry </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.DenunciationExecutionStatusCandidate">DenunciationExecutionStatusCandidate</h3>
         <p>Request to get the execution status (candidate) for a denunciation</p>
 
@@ -2478,7 +2541,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>deferred_credits</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#massa.api.v1.DeferredCreditsEntryWrapper">DeferredCreditsEntryWrapper</a></td>
                   <td></td>
                   <td><p>Deferred credits value </p></td>
                 </tr>
@@ -2499,7 +2562,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>events</td>
-                  <td><a href="#massa.api.v1.SCOutputEventsWrapper">SCOutputEventsWrapper</a></td>
+                  <td><a href="#massa.api.v1.ScOutputEventsWrapper">ScOutputEventsWrapper</a></td>
                   <td></td>
                   <td><p>Events </p></td>
                 </tr>
@@ -2531,7 +2594,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <tr>
                   <td>production_stats</td>
                   <td><a href="#massa.api.v1.ExecutionQueryStakerInfoProductionStatsEntry">ExecutionQueryStakerInfoProductionStatsEntry</a></td>
-                  <td>repeated</td>
+                  <td></td>
                   <td><p>Production stats </p></td>
                 </tr>
               
@@ -3625,30 +3688,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.SCOutputEventsWrapper">SCOutputEventsWrapper</h3>
-        <p>SCOutputEvents wrapper</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>event</td>
-                  <td><a href="#massa.model.v1.ScExecutionEvent">massa.model.v1.ScExecutionEvent</a></td>
-                  <td>repeated</td>
-                  <td><p>Events </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.api.v1.ScExecutionEventsFilter">ScExecutionEventsFilter</h3>
         <p>ScExecutionEvents Filter</p>
 
@@ -3699,6 +3738,30 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#massa.model.v1.ScExecutionEventStatus">massa.model.v1.ScExecutionEventStatus</a></td>
                   <td></td>
                   <td><p>Status </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ScOutputEventsWrapper">ScOutputEventsWrapper</h3>
+        <p>ScOutputEvents wrapper</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>events</td>
+                  <td><a href="#massa.model.v1.ScExecutionEvent">massa.model.v1.ScExecutionEvent</a></td>
+                  <td>repeated</td>
+                  <td><p>Events </p></td>
                 </tr>
               
             </tbody>

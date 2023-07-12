@@ -559,14 +559,28 @@ message ExecutionQueryResponseItem {
     // Vector of bytes value
     massa.model.v1.ArrayOfBytesWrapper vec_bytes = 5;
     // Deferred credits value
-    uint64 deferred_credits = 6;
+    DeferredCreditsEntryWrapper deferred_credits = 6;
     // Execution status value
     ExecutionQueryExecutionStatus execution_status = 7;
     // Cycle infos value
     ExecutionQueryCycleInfos cycle_infos = 8;
     // Events
-    SCOutputEventsWrapper events = 9;
+    ScOutputEventsWrapper events = 9;
   }
+}
+
+// Deferred credits entry wrapper
+message DeferredCreditsEntryWrapper {
+  // Deferred credits entry
+  repeated DeferredCreditsEntry entries = 1;
+}
+
+// Deferred credits entry
+message DeferredCreditsEntry {
+  // Slot
+  massa.model.v1.Slot address = 1;
+  // Amount
+  massa.model.v1.NativeAmount amount = 2;
 }
 
 // Execution status of an operation or denunciation
@@ -600,7 +614,7 @@ message ExecutionQueryStakerInfo {
   // Active roll count
   uint64 active_rolls = 1;
   // Production stats
-  repeated ExecutionQueryStakerInfoProductionStatsEntry production_stats = 2;
+  ExecutionQueryStakerInfoProductionStatsEntry production_stats = 2;
 }
 
 // ExecutionQueryStakerInfoProductionStats entry
@@ -619,10 +633,10 @@ message ExecutionQueryStakerInfoProductionStats {
   uint64 block_failure_count = 2;
 }
 
-// SCOutputEvents wrapper
-message SCOutputEventsWrapper {
+// ScOutputEvents wrapper
+message ScOutputEventsWrapper {
   // Events
-  repeated massa.model.v1.ScExecutionEvent event = 1;
+  repeated massa.model.v1.ScExecutionEvent events = 1;
 }
 
 // NewBlocksRequest holds request for NewBlocks

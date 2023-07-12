@@ -63,6 +63,8 @@
     - [AddressRollsCandidate](#massa-api-v1-AddressRollsCandidate)
     - [AddressRollsFinal](#massa-api-v1-AddressRollsFinal)
     - [CycleInfos](#massa-api-v1-CycleInfos)
+    - [DeferredCreditsEntry](#massa-api-v1-DeferredCreditsEntry)
+    - [DeferredCreditsEntryWrapper](#massa-api-v1-DeferredCreditsEntryWrapper)
     - [DenunciationExecutionStatusCandidate](#massa-api-v1-DenunciationExecutionStatusCandidate)
     - [DenunciationExecutionStatusFinal](#massa-api-v1-DenunciationExecutionStatusFinal)
     - [Events](#massa-api-v1-Events)
@@ -115,8 +117,8 @@
     - [OpExecutionStatusFinal](#massa-api-v1-OpExecutionStatusFinal)
     - [QueryStateRequest](#massa-api-v1-QueryStateRequest)
     - [QueryStateResponse](#massa-api-v1-QueryStateResponse)
-    - [SCOutputEventsWrapper](#massa-api-v1-SCOutputEventsWrapper)
     - [ScExecutionEventsFilter](#massa-api-v1-ScExecutionEventsFilter)
+    - [ScOutputEventsWrapper](#massa-api-v1-ScOutputEventsWrapper)
     - [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter)
     - [SendBlocksRequest](#massa-api-v1-SendBlocksRequest)
     - [SendBlocksResponse](#massa-api-v1-SendBlocksResponse)
@@ -914,6 +916,37 @@ Request to get all information for a given cycle
 
 
 
+<a name="massa-api-v1-DeferredCreditsEntry"></a>
+
+### DeferredCreditsEntry
+Deferred credits entry
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Slot |
+| amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCreditsEntryWrapper"></a>
+
+### DeferredCreditsEntryWrapper
+Deferred credits entry wrapper
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| entries | [DeferredCreditsEntry](#massa-api-v1-DeferredCreditsEntry) | repeated | Deferred credits entry |
+
+
+
+
+
+
 <a name="massa-api-v1-DenunciationExecutionStatusCandidate"></a>
 
 ### DenunciationExecutionStatusCandidate
@@ -1069,10 +1102,10 @@ Execution state query response item
 | amount | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | Amount value |
 | bytes | [bytes](#bytes) |  | Bytes value |
 | vec_bytes | [massa.model.v1.ArrayOfBytesWrapper](#massa-model-v1-ArrayOfBytesWrapper) |  | Vector of bytes value |
-| deferred_credits | [uint64](#uint64) |  | Deferred credits value |
+| deferred_credits | [DeferredCreditsEntryWrapper](#massa-api-v1-DeferredCreditsEntryWrapper) |  | Deferred credits value |
 | execution_status | [ExecutionQueryExecutionStatus](#massa-api-v1-ExecutionQueryExecutionStatus) |  | Execution status value |
 | cycle_infos | [ExecutionQueryCycleInfos](#massa-api-v1-ExecutionQueryCycleInfos) |  | Cycle infos value |
-| events | [SCOutputEventsWrapper](#massa-api-v1-SCOutputEventsWrapper) |  | Events |
+| events | [ScOutputEventsWrapper](#massa-api-v1-ScOutputEventsWrapper) |  | Events |
 
 
 
@@ -1088,7 +1121,7 @@ Staker information for execution query
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | active_rolls | [uint64](#uint64) |  | Active roll count |
-| production_stats | [ExecutionQueryStakerInfoProductionStatsEntry](#massa-api-v1-ExecutionQueryStakerInfoProductionStatsEntry) | repeated | Production stats |
+| production_stats | [ExecutionQueryStakerInfoProductionStatsEntry](#massa-api-v1-ExecutionQueryStakerInfoProductionStatsEntry) |  | Production stats |
 
 
 
@@ -1764,21 +1797,6 @@ Response to atomically execute a batch of execution state queries
 
 
 
-<a name="massa-api-v1-SCOutputEventsWrapper"></a>
-
-### SCOutputEventsWrapper
-SCOutputEvents wrapper
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| event | [massa.model.v1.ScExecutionEvent](#massa-model-v1-ScExecutionEvent) | repeated | Events |
-
-
-
-
-
-
 <a name="massa-api-v1-ScExecutionEventsFilter"></a>
 
 ### ScExecutionEventsFilter
@@ -1793,6 +1811,21 @@ ScExecutionEvents Filter
 | original_operation_id | [string](#string) |  | Original operation id |
 | is_failure | [bool](#bool) |  | Whether the event is a failure |
 | status | [massa.model.v1.ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) |  | Status |
+
+
+
+
+
+
+<a name="massa-api-v1-ScOutputEventsWrapper"></a>
+
+### ScOutputEventsWrapper
+ScOutputEvents wrapper
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| events | [massa.model.v1.ScExecutionEvent](#massa-model-v1-ScExecutionEvent) | repeated | Events |
 
 
 
