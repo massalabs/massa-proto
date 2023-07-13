@@ -683,6 +683,7 @@ LargestStakers context
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Slot |
+| in_downtime | [bool](#bool) |  | If the chain is in downtime, we will return the last snapshot before the downtime |
 
 
 

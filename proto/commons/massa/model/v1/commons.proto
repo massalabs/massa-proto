@@ -34,3 +34,14 @@ message SecureShare {
   // A secure hash of the data. See also [massa_hash::Hash]
   string id = 5;
 }
+
+// Comparison result
+enum ComparisonResult {
+  COMPARISON_RESULT_UNSPECIFIED = 0;
+  // left is lower
+  COMPARISON_RESULT_LOWER = 1;
+  // left and right are equal
+  COMPARISON_RESULT_EQUAL = 2;
+  // left is greater
+  COMPARISON_RESULT_GREATER = 3;
+}
