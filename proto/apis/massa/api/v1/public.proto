@@ -168,7 +168,7 @@ message ExecuteReadOnlyCallRequest {
 // ExecuteReadOnlyCallResponse holds response from ExecuteReadOnlyCall
 message ExecuteReadOnlyCallResponse {
   // Execution output
-  repeated massa.model.v1.ReadOnlyExecutionOutput output = 1;
+  massa.model.v1.ReadOnlyExecutionOutput output = 1;
 }
 
 // GetBlocks Filter

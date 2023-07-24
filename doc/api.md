@@ -1015,7 +1015,7 @@ ExecuteReadOnlyCallResponse holds response from ExecuteReadOnlyCall
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| output | [massa.model.v1.ReadOnlyExecutionOutput](#massa-model-v1-ReadOnlyExecutionOutput) | repeated | Execution output |
+| output | [massa.model.v1.ReadOnlyExecutionOutput](#massa-model-v1-ReadOnlyExecutionOutput) |  | Execution output |
 
 
 
