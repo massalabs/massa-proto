@@ -175,8 +175,11 @@ message RespResult {
     SubNativeAmountResult sub_native_amount_result = 55;
     TransferCoinsResult transfer_coins_result = 56;
     UnsafeRandomResult unsafe_random_result = 57;
-    VerifyEvmSigResult verify_evm_sig_result = 58;
+    EvmVerifySigResult evm_verify_sig_result = 58;
     VerifySigResult verify_sig_result = 59;
+    EvmGetAddressFromPubkeyResult evm_get_address_from_pubkey_result = 60;
+    EvmGetPubkeyFromSignatureResult evm_get_pubkey_from_signature_result = 61;
+    IsAddressEoaResult is_address_eoa_result = 62;
   }
 }
 
@@ -501,7 +504,7 @@ message Keccak256Result {
 }
 
 // EVM signature verification request
-message VerifyEvmSigRequest {
+message EvmVerifySigRequest {
   // Signature to verify
   bytes sig = 1;
   // Message to verify
@@ -511,9 +514,47 @@ message VerifyEvmSigRequest {
 }
 
 // EVM signature verification result
-message VerifyEvmSigResult {
+message EvmVerifySigResult {
   // Verification result
   bool is_verified = 1;
+}
+
+// EVM get address from public key request
+message EvmGetAddressFromPubkeyRequest {
+  // Public key to get address from
+  bytes pub_key = 1;
+}
+
+// EVM get address from public key result
+message EvmGetAddressFromPubkeyResult {
+  // Address
+  bytes address = 1;
+}
+
+// EVM get public key from signature request
+message EvmGetPubkeyFromSignatureRequest {
+  // Signed hash to verify
+  bytes hash = 1;
+  // Signature to verify
+  bytes sig = 2;
+}
+
+// EVM get public key from signature result
+message EvmGetPubkeyFromSignatureResult {
+  // Public key
+  bytes pub_key = 1;
+}
+
+// Is address EOA request
+message IsAddressEoaRequest {
+  // Address to check
+  string address = 1;
+}
+
+// Is address EOA result
+message IsAddressEoaResult {
+  // Is address EOA
+  bool is_eoa = 1;
 }
 
 // Blake3 hash request
