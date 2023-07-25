@@ -319,7 +319,7 @@ MIP info (name &amp; versions &amp; time range for a MIP)
 | ----- | ---- | ----- | ----------- |
 | name | [string](#string) |  | MIP name or descriptive name |
 | version | [uint32](#uint32) |  | Network (or global) version (to be included in block header) |
-| start | [uint64](#uint64) |  | A timestamp at which the version gains its meaning (e.g. announced in block header) |
+| start | [NativeTime](#massa-model-v1-NativeTime) |  | A timestamp at which the version gains its meaning (e.g. announced in block header) |
 | timeout | [NativeTime](#massa-model-v1-NativeTime) |  | A timestamp at the which the deployment is considered failed |
 | activation_delay | [uint64](#uint64) |  | Once deployment has been locked, wait for this duration before deployment is considered active |
 | components | [MipComponentEntry](#massa-model-v1-MipComponentEntry) | repeated | Components concerned by this versioning (e.g. a new Block version), and the associated component_version |

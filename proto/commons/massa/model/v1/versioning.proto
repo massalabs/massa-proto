@@ -30,7 +30,7 @@ message MipInfo {
   // Network (or global) version (to be included in block header)
   uint32 version = 2;
   // A timestamp at which the version gains its meaning (e.g. announced in block header)
-  uint64 start = 3;
+  massa.model.v1.NativeTime start = 3;
   // A timestamp at the which the deployment is considered failed
   massa.model.v1.NativeTime timeout = 4;
   // Once deployment has been locked, wait for this duration before deployment is considered active
