@@ -34,7 +34,7 @@ message MipInfo {
   // A timestamp at the which the deployment is considered failed
   massa.model.v1.NativeTime timeout = 4;
   // Once deployment has been locked, wait for this duration before deployment is considered active
-  uint64 activation_delay = 5;
+  massa.model.v1.NativeTime activation_delay = 5;
   // Components concerned by this versioning (e.g. a new Block version), and the associated component_version
   repeated MipComponentEntry components = 6;
 }
