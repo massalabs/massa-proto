@@ -13,12 +13,29 @@ option php_namespace = "Com\\Massa\\Model\\V1";
 option ruby_package = "Com::Massa::Model::V1";
 option swift_prefix = "MMODEL";
 
+// Massa error
+message Error {
+  // The error code
+  int32 code = 1;
+  // A developer-facing error message, which should be in English
+  string message = 2;
+}
+
+// Empty
+message Empty {}
+
 // BytesMapFieldEntry
 message BytesMapFieldEntry {
   // bytes key
   bytes key = 1;
   // bytes key
   bytes value = 2;
+}
+
+// Array of bytes wrapper
+message ArrayOfBytesWrapper {
+  // Repeated bytes
+  repeated bytes items = 1;
 }
 
 // Packages a type such that it can be securely sent and received in a trust-free network
@@ -31,8 +48,8 @@ message SecureShare {
   string content_creator_pub_key = 3;
   // Derived from the same public key used to generate the signature
   string content_creator_address = 4;
-  // A secure hash of the data. See also [massa_hash::Hash]
-  string id = 5;
+  // A secure hash of the non-malleable contents of a deterministic binary representation of the block header
+  string secure_hash = 5;
 }
 
 // Comparison result
@@ -44,4 +61,12 @@ enum ComparisonResult {
   COMPARISON_RESULT_EQUAL = 2;
   // left is greater
   COMPARISON_RESULT_GREATER = 3;
+}
+
+// KeyPair
+message KeyPair {
+  // Public key
+  string public_key = 1;
+  // Secret key
+  string secret_key = 2;
 }

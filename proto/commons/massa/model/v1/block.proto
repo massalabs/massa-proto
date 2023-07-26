@@ -4,6 +4,7 @@ syntax = "proto3";
 
 package massa.model.v1;
 
+import "google/protobuf/wrappers.proto";
 import "massa/model/v1/endorsement.proto";
 import "massa/model/v1/operation.proto";
 import "massa/model/v1/slot.proto";
@@ -30,23 +31,27 @@ message FilledBlock {
   // Signed header
   SignedBlockHeader header = 1;
   // Operations
-  repeated FilledOperationTuple operations = 2;
+  repeated FilledOperationEntry operations = 2;
 }
 
 // Block header
 message BlockHeader {
+  // Current network version
+  uint32 current_version = 1;
+  // Announced network version(Optional)
+  google.protobuf.UInt32Value announced_version = 2;
   // Slot
-  Slot slot = 1;
+  Slot slot = 3;
   // parents
-  repeated string parents = 2;
+  repeated string parents = 4;
   // All operations hash
-  string operation_merkle_root = 3;
+  string operations_hash = 5;
   // Signed endorsements
-  repeated SignedEndorsement endorsements = 4;
+  repeated SignedEndorsement endorsements = 6;
 }
 
 // Filled Operation Tuple
-message FilledOperationTuple {
+message FilledOperationEntry {
   // Operation id
   string operation_id = 1;
   // Signed operation
@@ -63,10 +68,10 @@ message SignedBlock {
   string content_creator_pub_key = 3;
   // Derived from the same public key used to generate the signature
   string content_creator_address = 4;
-  // A secure hash of the data. See also [massa_hash::Hash]
-  string id = 5;
-  // The size of the serialized block
-  fixed64 serialized_size = 6;
+  // A secure hash of the non-malleable contents of a deterministic binary representation of the block header
+  string secure_hash = 5;
+  // The size of the serialized block in bytes
+  uint64 serialized_size = 6;
 }
 
 // Signed block header
@@ -79,27 +84,41 @@ message SignedBlockHeader {
   string content_creator_pub_key = 3;
   // Derived from the same public key used to generate the signature
   string content_creator_address = 4;
-  // A secure hash of the data. See also [massa_hash::Hash]
-  string id = 5;
-  // The size of the serialized block header
-  fixed64 serialized_size = 6;
+  // A secure hash of the non-malleable contents of a deterministic binary representation of the block header
+  string secure_hash = 5;
+  // The size of the serialized block header in bytes
+  uint64 serialized_size = 6;
 }
 
 // Possible statuses for a block
 enum BlockStatus {
   BLOCK_STATUS_UNSPECIFIED = 0; // Default enum value
-  BLOCK_STATUS_IN_BLOCKCLIQUE = 1; // The block is in the greatest clique (and not final)
+  BLOCK_STATUS_NON_FINAL_BLOCKCLIQUE = 1; // The block is in the greatest clique (and not final)
   BLOCK_STATUS_FINAL = 2; // The block is final
-  BLOCK_STATUS_CANDIDATE = 3; // The block is candidate (active any clique but not final)
+  BLOCK_STATUS_NON_FINAL_ALTERNATE_CLIQUE = 3; // The block is candidate (active any clique but not final)
   BLOCK_STATUS_DISCARDED = 4; // The block is discarded
 }
 
 // A wrapper around a block with its metadata
 message BlockWrapper {
   // The unique ID of the block.
-  string id = 1;
+  string block_id = 1;
   // The block object itself
   Block block = 2;
-  // The execution statuses of the block
-  repeated BlockStatus status = 3;
+  // The execution status of the block
+  BlockStatus status = 3;
+}
+
+// BlockIds holds block ids
+message BlockIds {
+  // Block ids
+  repeated string block_ids = 1;
+}
+
+// Block parent tuple
+message BlockParent {
+  // Block id
+  string block_id = 1;
+  // Period
+  uint64 period = 2;
 }

@@ -20,7 +20,7 @@ message Endorsement {
   // Slot in which the endorsement can be included
   Slot slot = 1;
   // Endorsement index inside the including block
-  fixed32 index = 2;
+  uint32 index = 2;
   // Hash of endorsed block
   // This is the parent in thread `self.slot.thread` of the block in which the endorsement is included
   string endorsed_block = 3;
@@ -36,8 +36,14 @@ message SignedEndorsement {
   string content_creator_pub_key = 3;
   // Derived from the same public key used to generate the signature
   string content_creator_address = 4;
-  // A secure hash of the data. See also [massa_hash::Hash]
-  string id = 5;
-  // The size of the serialized endorsement
-  fixed64 serialized_size = 6;
+  // A secure hash of the non-malleable contents of a deterministic binary representation of the block header
+  string secure_hash = 5;
+  // The size of the serialized endorsement in bytes
+  uint64 serialized_size = 6;
+}
+
+// EndorsementIds holds endorsements ids
+message EndorsementsIds {
+  // Endorsements ids
+  repeated string endorsements_ids = 1;
 }

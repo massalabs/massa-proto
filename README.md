@@ -2,7 +2,20 @@
 
 # Massa proto
 
-This repository contains Protobuf Protobuf files for Massa blockchain.
+This repository contains Protobuf files for Massa blockchain.
+
+Using Docker
+------------
+Build image
+```bash
+docker build -t massaprotobuild:latest .
+```
+Run image 
+```bash
+docker run --rm --name protobuild -v ./:/opt massaprotobuild
+```
+
+OR
 
 Requirements
 ------------

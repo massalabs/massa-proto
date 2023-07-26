@@ -379,6 +379,30 @@
                 </li>
               
                 <li>
+                  <a href="#massa.abi.v1.EvmGetAddressFromPubkeyRequest"><span class="badge">M</span>EvmGetAddressFromPubkeyRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.EvmGetAddressFromPubkeyResult"><span class="badge">M</span>EvmGetAddressFromPubkeyResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.EvmGetPubkeyFromSignatureRequest"><span class="badge">M</span>EvmGetPubkeyFromSignatureRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.EvmGetPubkeyFromSignatureResult"><span class="badge">M</span>EvmGetPubkeyFromSignatureResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.EvmVerifySigRequest"><span class="badge">M</span>EvmVerifySigRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.EvmVerifySigResult"><span class="badge">M</span>EvmVerifySigResult</a>
+                </li>
+              
+                <li>
                   <a href="#massa.abi.v1.FunctionExistsRequest"><span class="badge">M</span>FunctionExistsRequest</a>
                 </li>
               
@@ -547,6 +571,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.abi.v1.IsAddressEoaRequest"><span class="badge">M</span>IsAddressEoaRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.IsAddressEoaResult"><span class="badge">M</span>IsAddressEoaResult</a>
+                </li>
+              
+                <li>
                   <a href="#massa.abi.v1.Keccak256Request"><span class="badge">M</span>Keccak256Request</a>
                 </li>
               
@@ -656,14 +688,6 @@
               
                 <li>
                   <a href="#massa.abi.v1.UnsafeRandomResult"><span class="badge">M</span>UnsafeRandomResult</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.VerifyEvmSigRequest"><span class="badge">M</span>VerifyEvmSigRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.abi.v1.VerifyEvmSigResult"><span class="badge">M</span>VerifyEvmSigResult</a>
                 </li>
               
                 <li>
@@ -1995,6 +2019,171 @@
 
         
       
+        <h3 id="massa.abi.v1.EvmGetAddressFromPubkeyRequest">EvmGetAddressFromPubkeyRequest</h3>
+        <p>EVM get address from public key request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pub_key</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Public key to get address from </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.EvmGetAddressFromPubkeyResult">EvmGetAddressFromPubkeyResult</h3>
+        <p>EVM get address from public key result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Address </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.EvmGetPubkeyFromSignatureRequest">EvmGetPubkeyFromSignatureRequest</h3>
+        <p>EVM get public key from signature request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>hash</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Signed hash to verify </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sig</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Signature to verify </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.EvmGetPubkeyFromSignatureResult">EvmGetPubkeyFromSignatureResult</h3>
+        <p>EVM get public key from signature result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pub_key</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Public key </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.EvmVerifySigRequest">EvmVerifySigRequest</h3>
+        <p>EVM signature verification request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>sig</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Signature to verify </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Message to verify </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pub_key</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Public key to verify with </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.EvmVerifySigResult">EvmVerifySigResult</h3>
+        <p>EVM signature verification result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>is_verified</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Verification result </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.abi.v1.FunctionExistsRequest">FunctionExistsRequest</h3>
         <p>Function exists request</p>
 
@@ -2888,6 +3077,54 @@
 
         
       
+        <h3 id="massa.abi.v1.IsAddressEoaRequest">IsAddressEoaRequest</h3>
+        <p>Is address EOA request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Address to check </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.IsAddressEoaResult">IsAddressEoaResult</h3>
+        <p>Is address EOA result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>is_eoa</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Is address EOA </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.abi.v1.Keccak256Request">Keccak256Request</h3>
         <p>Keccak256 hash request</p>
 
@@ -3552,8 +3789,8 @@
                 </tr>
               
                 <tr>
-                  <td>verify_evm_sig_result</td>
-                  <td><a href="#massa.abi.v1.VerifyEvmSigResult">VerifyEvmSigResult</a></td>
+                  <td>evm_verify_sig_result</td>
+                  <td><a href="#massa.abi.v1.EvmVerifySigResult">EvmVerifySigResult</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -3561,6 +3798,27 @@
                 <tr>
                   <td>verify_sig_result</td>
                   <td><a href="#massa.abi.v1.VerifySigResult">VerifySigResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>evm_get_address_from_pubkey_result</td>
+                  <td><a href="#massa.abi.v1.EvmGetAddressFromPubkeyResult">EvmGetAddressFromPubkeyResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>evm_get_pubkey_from_signature_result</td>
+                  <td><a href="#massa.abi.v1.EvmGetPubkeyFromSignatureResult">EvmGetPubkeyFromSignatureResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_address_eoa_result</td>
+                  <td><a href="#massa.abi.v1.IsAddressEoaResult">IsAddressEoaResult</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -4029,68 +4287,6 @@
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
                   <td><p>Random bytes generated </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.VerifyEvmSigRequest">VerifyEvmSigRequest</h3>
-        <p>EVM signature verification request</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>sig</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Signature to verify </p></td>
-                </tr>
-              
-                <tr>
-                  <td>message</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Message to verify </p></td>
-                </tr>
-              
-                <tr>
-                  <td>pub_key</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Public key to verify with </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.abi.v1.VerifyEvmSigResult">VerifyEvmSigResult</h3>
-        <p>EVM signature verification result</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>is_verified</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>Verification result </p></td>
                 </tr>
               
             </tbody>
