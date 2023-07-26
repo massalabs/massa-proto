@@ -398,7 +398,7 @@ message BytecodeExecution {
   // Byte code
   bytes bytecode = 1;
   // Serialized datastore (key value store)  for `ExecuteSC` Operation (Optional)
-  repeated bytes operation_datastore = 2;
+  bytes operation_datastore = 2;
 }
 
 // Execute a function call

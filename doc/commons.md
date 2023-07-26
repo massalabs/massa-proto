@@ -1138,7 +1138,7 @@ Execute a bytecode
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | bytecode | [bytes](#bytes) |  | Byte code |
-| operation_datastore | [bytes](#bytes) | repeated | Serialized datastore (key value store) for `ExecuteSC` Operation (Optional) |
+| operation_datastore | [bytes](#bytes) |  | Serialized datastore (key value store) for `ExecuteSC` Operation (Optional) |
 
 
 
