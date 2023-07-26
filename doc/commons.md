@@ -52,8 +52,23 @@
   
     - [OpType](#massa-model-v1-OpType)
   
-- [massa/model/v1/address.proto](#massa_model_v1_address-proto)
-    - [AddressCategory](#massa-model-v1-AddressCategory)
+- [massa/model/v1/denunciation.proto](#massa_model_v1_denunciation-proto)
+    - [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader)
+    - [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement)
+    - [DenunciationIndex](#massa-model-v1-DenunciationIndex)
+  
+- [massa/model/v1/commons.proto](#massa_model_v1_commons-proto)
+    - [ArrayOfBytesWrapper](#massa-model-v1-ArrayOfBytesWrapper)
+    - [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry)
+    - [Empty](#massa-model-v1-Empty)
+    - [Error](#massa-model-v1-Error)
+    - [KeyPair](#massa-model-v1-KeyPair)
+    - [SecureShare](#massa-model-v1-SecureShare)
+  
+    - [ComparisonResult](#massa-model-v1-ComparisonResult)
+  
+- [massa/model/v1/amount.proto](#massa_model_v1_amount-proto)
+    - [NativeAmount](#massa-model-v1-NativeAmount)
   
 - [massa/model/v1/execution.proto](#massa_model_v1_execution-proto)
     - [AsyncMessage](#massa-model-v1-AsyncMessage)
@@ -106,13 +121,6 @@
   
     - [AddressCategory](#massa-model-v1-AddressCategory)
   
-- [massa/model/v1/endorsement.proto](#massa_model_v1_endorsement-proto)
-    - [Endorsement](#massa-model-v1-Endorsement)
-    - [SignedEndorsement](#massa-model-v1-SignedEndorsement)
-  
-- [massa/model/v1/amount.proto](#massa_model_v1_amount-proto)
-    - [NativeAmount](#massa-model-v1-NativeAmount)
-  
 - [massa/model/v1/block.proto](#massa_model_v1_block-proto)
     - [Block](#massa-model-v1-Block)
     - [BlockHeader](#massa-model-v1-BlockHeader)
@@ -131,12 +139,8 @@
     - [EndorsementsIds](#massa-model-v1-EndorsementsIds)
     - [SignedEndorsement](#massa-model-v1-SignedEndorsement)
   
-    - [ComparisonResult](#massa-model-v1-ComparisonResult)
-  
-- [massa/model/v1/versioning.proto](#massa_model_v1_versioning-proto)
-    - [MipComponentEntry](#massa-model-v1-MipComponentEntry)
-    - [MipInfo](#massa-model-v1-MipInfo)
-    - [MipStatusEntry](#massa-model-v1-MipStatusEntry)
+- [massa/model/v1/time.proto](#massa_model_v1_time-proto)
+    - [NativeTime](#massa-model-v1-NativeTime)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -815,22 +819,6 @@ Operation type enum
 
 
 
-<a name="massa_model_v1_hash-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/hash.proto
-
-
- 
-
- 
-
- 
-
- 
-
-
-
 <a name="massa_model_v1_denunciation-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -958,6 +946,22 @@ Massa error
 
 
 
+<a name="massa-model-v1-KeyPair"></a>
+
+### KeyPair
+KeyPair
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| public_key | [string](#string) |  | Public key |
+| secret_key | [string](#string) |  | Secret key |
+
+
+
+
+
+
 <a name="massa-model-v1-SecureShare"></a>
 
 ### SecureShare
@@ -977,6 +981,20 @@ Packages a type such that it can be securely sent and received in a trust-free n
 
 
  
+
+
+<a name="massa-model-v1-ComparisonResult"></a>
+
+### ComparisonResult
+Comparison result
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| COMPARISON_RESULT_UNSPECIFIED | 0 |  |
+| COMPARISON_RESULT_LOWER | 1 | left is lower |
+| COMPARISON_RESULT_EQUAL | 2 | left and right are equal |
+| COMPARISON_RESULT_GREATER | 3 | left is greater |
+
 
  
 
@@ -1787,102 +1805,11 @@ Address category discriminant
 
 
 
-
-<a name="massa_model_v1_endorsement-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/endorsement.proto
-
-
-
-<a name="massa-model-v1-Endorsement"></a>
-
-### Endorsement
-An endorsement, as sent in the network
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slot | [Slot](#massa-model-v1-Slot) |  | Slot in which the endorsement can be included |
-| index | [fixed32](#fixed32) |  | Endorsement index inside the including block |
-| endorsed_block | [string](#string) |  | Hash of endorsed block This is the parent in thread `self.slot.thread` of the block in which the endorsement is included |
-
-
-
-
-
-
-<a name="massa-model-v1-SignedEndorsement"></a>
-
-### SignedEndorsement
-Signed endorsement
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| content | [Endorsement](#massa-model-v1-Endorsement) |  | Endorsement |
-| signature | [string](#string) |  | A cryptographically generated value using `serialized_data` and a public key. |
-| content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
-| content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
-| id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
-| serialized_size | [fixed64](#fixed64) |  | The size of the serialized endorsement |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_amount-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/amount.proto
-
-
-
-<a name="massa-model-v1-NativeAmount"></a>
-
-### NativeAmount
-NativeAmount is represented as a fraction so precision can be adjusted in
-the future. value = mantissa / (10^scale)
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| mantissa | [uint64](#uint64) |  | Mantissa |
-| scale | [uint32](#uint32) |  | Scale |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
 <a name="massa_model_v1_block-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
+## massa/model/v1/block.proto
 
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| fee | [NativeAmount](#massa-model-v1-NativeAmount) |  | The fee they have decided for this operation |
-| expire_period | [uint64](#uint64) |  | After `expire_period` slot the operation won&#39;t be included in a block |
-| op | [OperationType](#massa-model-v1-OperationType) |  | The type specific operation part |
 
 
 <a name="massa-model-v1-Block"></a>
@@ -2116,27 +2043,14 @@ Signed endorsement
 | signature | [string](#string) |  | A cryptographically generated value using `serialized_data` and a public key. |
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
-| id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
+| secure_hash | [string](#string) |  | A secure hash of the non-malleable contents of a deterministic binary representation of the block header |
+| serialized_size | [uint64](#uint64) |  | The size of the serialized endorsement in bytes |
 
 
 
 
 
  
-
-
-<a name="massa-model-v1-ComparisonResult"></a>
-
-### ComparisonResult
-Comparison result
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| COMPARISON_RESULT_UNSPECIFIED | 0 |  |
-| COMPARISON_RESULT_LOWER | 1 | left is lower |
-| COMPARISON_RESULT_EQUAL | 2 | left and right are equal |
-| COMPARISON_RESULT_GREATER | 3 | left is greater |
-
 
  
 
@@ -2162,54 +2076,6 @@ NativeTime represents a native duration or unix timestamp
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | milliseconds | [uint64](#uint64) |  | Milliseconds |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_signature-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/signature.proto
-
-
-
-<a name="massa-model-v1-NativePubKey"></a>
-
-### NativePubKey
-Native Public Key
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  | Version of the public key |
-| content | [bytes](#bytes) |  | Content of the public key |
-
-
-
-
-
-
-<a name="massa-model-v1-NativeSig"></a>
-
-### NativeSig
-Native Signature
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  | Version of the signature |
-| content | [bytes](#bytes) |  | Content of the signature |
 
 
 

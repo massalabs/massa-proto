@@ -380,16 +380,38 @@
         
           
           <li>
-            <a href="#massa%2fmodel%2fv1%2fhash.proto">massa/model/v1/hash.proto</a>
+            <a href="#massa%2fmodel%2fv1%2fdenunciation.proto">massa/model/v1/denunciation.proto</a>
             <ul>
               
+                <li>
+                  <a href="#massa.model.v1.DenunciationBlockHeader"><span class="badge">M</span>DenunciationBlockHeader</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.DenunciationEndorsement"><span class="badge">M</span>DenunciationEndorsement</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.DenunciationIndex"><span class="badge">M</span>DenunciationIndex</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#massa%2fmodel%2fv1%2fcommons.proto">massa/model/v1/commons.proto</a>
+            <ul>
               
                 <li>
                   <a href="#massa.model.v1.ArrayOfBytesWrapper"><span class="badge">M</span>ArrayOfBytesWrapper</a>
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.SlotDraw"><span class="badge">M</span>SlotDraw</a>
+                  <a href="#massa.model.v1.BytesMapFieldEntry"><span class="badge">M</span>BytesMapFieldEntry</a>
                 </li>
               
                 <li>
@@ -401,9 +423,17 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.KeyPair"><span class="badge">M</span>KeyPair</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.SecureShare"><span class="badge">M</span>SecureShare</a>
                 </li>
               
+              
+                <li>
+                  <a href="#massa.model.v1.ComparisonResult"><span class="badge">E</span>ComparisonResult</a>
+                </li>
               
               
               
@@ -632,45 +662,11 @@
         
           
           <li>
-            <a href="#massa%2fmodel%2fv1%2fendorsement.proto">massa/model/v1/endorsement.proto</a>
-            <ul>
-              
-                <li>
-                  <a href="#massa.model.v1.Endorsement"><span class="badge">M</span>Endorsement</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.SignedEndorsement"><span class="badge">M</span>SignedEndorsement</a>
-                </li>
-              
-              
-              
-              
-            </ul>
-          </li>
-        
-          
-          <li>
-            <a href="#massa%2fmodel%2fv1%2famount.proto">massa/model/v1/amount.proto</a>
-            <ul>
-              
-                <li>
-                  <a href="#massa.model.v1.NativeAmount"><span class="badge">M</span>NativeAmount</a>
-                </li>
-              
-              
-              
-              
-            </ul>
-          </li>
-        
-          
-          <li>
             <a href="#massa%2fmodel%2fv1%2fblock.proto">massa/model/v1/block.proto</a>
             <ul>
               
                 <li>
-                  <a href="#massa.model.v1.RollBuy"><span class="badge">M</span>RollBuy</a>
+                  <a href="#massa.model.v1.Block"><span class="badge">M</span>Block</a>
                 </li>
               
                 <li>
@@ -733,10 +729,6 @@
                 </li>
               
               
-                <li>
-                  <a href="#massa.model.v1.ComparisonResult"><span class="badge">E</span>ComparisonResult</a>
-                </li>
-              
               
               
             </ul>
@@ -749,25 +741,6 @@
               
                 <li>
                   <a href="#massa.model.v1.NativeTime"><span class="badge">M</span>NativeTime</a>
-                </li>
-              
-              
-              
-              
-            </ul>
-          </li>
-        
-          
-          <li>
-            <a href="#massa%2fmodel%2fv1%2fsignature.proto">massa/model/v1/signature.proto</a>
-            <ul>
-              
-                <li>
-                  <a href="#massa.model.v1.NativePubKey"><span class="badge">M</span>NativePubKey</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.NativeSig"><span class="badge">M</span>NativeSig</a>
                 </li>
               
               
@@ -2285,41 +2258,98 @@
     
       
       <div class="file-heading">
-        <h2 id="massa/model/v1/hash.proto">massa/model/v1/hash.proto</h2><a href="#title">Top</a>
+        <h2 id="massa/model/v1/denunciation.proto">massa/model/v1/denunciation.proto</h2><a href="#title">Top</a>
       </div>
       <p></p>
 
       
+        <h3 id="massa.model.v1.DenunciationBlockHeader">DenunciationBlockHeader</h3>
+        <p>Variant for Block header denunciation index</p>
 
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Denounciation slot </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
       
-        <h3 id="massa.model.v1.AddressCategory">AddressCategory</h3>
-        <p>Address category discriminant</p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>ADDRESS_CATEGORY_UNSPECIFIED</td>
-                <td>0</td>
-                <td><p>Unspecified address category</p></td>
-              </tr>
-            
-              <tr>
-                <td>ADDRESS_CATEGORY_USER_ADDRESS</td>
-                <td>1</td>
-                <td><p>User address</p></td>
-              </tr>
-            
-              <tr>
-                <td>ADDRESS_CATEGORY_SC_ADDRESS</td>
-                <td>2</td>
-                <td><p>Smart contract address</p></td>
-              </tr>
-            
-          </tbody>
-        </table>
+        <h3 id="massa.model.v1.DenunciationEndorsement">DenunciationEndorsement</h3>
+        <p>Variant for Endorsement denunciation index</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Denounciation slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>index</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>Denounciation index </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.DenunciationIndex">DenunciationIndex</h3>
+        <p>Index for Denunciations in collections (e.g. like a HashMap...)</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_header</td>
+                  <td><a href="#massa.model.v1.DenunciationBlockHeader">DenunciationBlockHeader</a></td>
+                  <td></td>
+                  <td><p>Denunciation block header </p></td>
+                </tr>
+              
+                <tr>
+                  <td>endorsement</td>
+                  <td><a href="#massa.model.v1.DenunciationEndorsement">DenunciationEndorsement</a></td>
+                  <td></td>
+                  <td><p>Denunciation endorsement </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
       
 
       
@@ -2328,7 +2358,7 @@
     
       
       <div class="file-heading">
-        <h2 id="massa/model/v1/amount.proto">massa/model/v1/amount.proto</h2><a href="#title">Top</a>
+        <h2 id="massa/model/v1/commons.proto">massa/model/v1/commons.proto</h2><a href="#title">Top</a>
       </div>
       <p></p>
 
@@ -2426,6 +2456,37 @@
 
         
       
+        <h3 id="massa.model.v1.KeyPair">KeyPair</h3>
+        <p>KeyPair</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>public_key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Public key </p></td>
+                </tr>
+              
+                <tr>
+                  <td>secret_key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Secret key </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.SecureShare">SecureShare</h3>
         <p>Packages a type such that it can be securely sent and received in a trust-free network</p>
 
@@ -2479,6 +2540,41 @@
         
       
 
+      
+        <h3 id="massa.model.v1.ComparisonResult">ComparisonResult</h3>
+        <p>Comparison result</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>COMPARISON_RESULT_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPARISON_RESULT_LOWER</td>
+                <td>1</td>
+                <td><p>left is lower</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPARISON_RESULT_EQUAL</td>
+                <td>2</td>
+                <td><p>left and right are equal</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPARISON_RESULT_GREATER</td>
+                <td>3</td>
+                <td><p>left is greater</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
 
       
@@ -4161,136 +4257,17 @@ Whether to start execution from final or active state </p></td>
                 </tr>
               
                 <tr>
-                  <td>address</td>
-                  <td><a href="#string">string</a></td>
+                  <td>version</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>Address </p></td>
+                  <td><p>Address version </p></td>
                 </tr>
-              
-                <tr>
-                  <td>next_block_draws</td>
-                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td>repeated</td>
-                  <td><p>Next block draws </p></td>
-                </tr>
-              
-                <tr>
-                  <td>next_endorsement_draws</td>
-                  <td><a href="#massa.model.v1.IndexedSlot">IndexedSlot</a></td>
-                  <td>repeated</td>
-                  <td><p>Next endorsements draws </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-
-      
-
-      
-
-      
-    
-      
-      <div class="file-heading">
-        <h2 id="massa/model/v1/endorsement.proto">massa/model/v1/endorsement.proto</h2><a href="#title">Top</a>
-      </div>
-      <p></p>
-
-      
-        <h3 id="massa.model.v1.Endorsement">Endorsement</h3>
-        <p>An endorsement, as sent in the network</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>slot</td>
-                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
-                  <td></td>
-                  <td><p>Slot in which the endorsement can be included </p></td>
-                </tr>
-              
-                <tr>
-                  <td>index</td>
-                  <td><a href="#fixed32">fixed32</a></td>
-                  <td></td>
-                  <td><p>Endorsement index inside the including block </p></td>
-                </tr>
-              
-                <tr>
-                  <td>endorsed_block</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Hash of endorsed block
-This is the parent in thread `self.slot.thread` of the block in which the endorsement is included </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.model.v1.SignedEndorsement">SignedEndorsement</h3>
-        <p>Signed endorsement</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
               
                 <tr>
                   <td>content</td>
-                  <td><a href="#massa.model.v1.Endorsement">Endorsement</a></td>
+                  <td><a href="#bytes">bytes</a></td>
                   <td></td>
-                  <td><p>Endorsement </p></td>
-                </tr>
-              
-                <tr>
-                  <td>signature</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>A cryptographically generated value using `serialized_data` and a public key. </p></td>
-                </tr>
-              
-                <tr>
-                  <td>content_creator_pub_key</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>The public-key component used in the generation of the signature </p></td>
-                </tr>
-              
-                <tr>
-                  <td>content_creator_address</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Derived from the same public key used to generate the signature </p></td>
-                </tr>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
-                </tr>
-              
-                <tr>
-                  <td>serialized_size</td>
-                  <td><a href="#fixed64">fixed64</a></td>
-                  <td></td>
-                  <td><p>The size of the serialized endorsement </p></td>
+                  <td><p>Address content </p></td>
                 </tr>
               
             </tbody>
@@ -4302,50 +4279,34 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
       
 
       
-
-      
-
-      
-    
-      
-      <div class="file-heading">
-        <h2 id="massa/model/v1/amount.proto">massa/model/v1/amount.proto</h2><a href="#title">Top</a>
-      </div>
-      <p></p>
-
-      
-        <h3 id="massa.model.v1.NativeAmount">NativeAmount</h3>
-        <p>NativeAmount is represented as a fraction so precision can be adjusted in</p><p>the future. value = mantissa / (10^scale)</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>mantissa</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td></td>
-                  <td><p>Mantissa </p></td>
-                </tr>
-              
-                <tr>
-                  <td>scale</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p>Scale </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-
+        <h3 id="massa.model.v1.AddressCategory">AddressCategory</h3>
+        <p>Address category discriminant</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ADDRESS_CATEGORY_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p>Unspecified address category</p></td>
+              </tr>
+            
+              <tr>
+                <td>ADDRESS_CATEGORY_USER_ADDRESS</td>
+                <td>1</td>
+                <td><p>User address</p></td>
+              </tr>
+            
+              <tr>
+                <td>ADDRESS_CATEGORY_SC_ADDRESS</td>
+                <td>2</td>
+                <td><p>Smart contract address</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
 
       
@@ -4885,6 +4846,13 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                   <td><p>A secure hash of the non-malleable contents of a deterministic binary representation of the block header </p></td>
                 </tr>
               
+                <tr>
+                  <td>serialized_size</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>The size of the serialized endorsement in bytes </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -4893,41 +4861,6 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
         
       
 
-      
-        <h3 id="massa.model.v1.ComparisonResult">ComparisonResult</h3>
-        <p>Comparison result</p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>COMPARISON_RESULT_UNSPECIFIED</td>
-                <td>0</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>COMPARISON_RESULT_LOWER</td>
-                <td>1</td>
-                <td><p>left is lower</p></td>
-              </tr>
-            
-              <tr>
-                <td>COMPARISON_RESULT_EQUAL</td>
-                <td>2</td>
-                <td><p>left and right are equal</p></td>
-              </tr>
-            
-              <tr>
-                <td>COMPARISON_RESULT_GREATER</td>
-                <td>3</td>
-                <td><p>left is greater</p></td>
-              </tr>
-            
-          </tbody>
-        </table>
       
 
       
@@ -4956,82 +4889,6 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Milliseconds </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-
-      
-
-      
-
-      
-    
-      
-      <div class="file-heading">
-        <h2 id="massa/model/v1/signature.proto">massa/model/v1/signature.proto</h2><a href="#title">Top</a>
-      </div>
-      <p></p>
-
-      
-        <h3 id="massa.model.v1.NativePubKey">NativePubKey</h3>
-        <p>Native Public Key</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>version</td>
-                  <td><a href="#fixed64">fixed64</a></td>
-                  <td></td>
-                  <td><p>Version of the public key </p></td>
-                </tr>
-              
-                <tr>
-                  <td>content</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Content of the public key </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.model.v1.NativeSig">NativeSig</h3>
-        <p>Native Signature</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>version</td>
-                  <td><a href="#fixed64">fixed64</a></td>
-                  <td></td>
-                  <td><p>Version of the signature </p></td>
-                </tr>
-              
-                <tr>
-                  <td>content</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Content of the signature </p></td>
                 </tr>
               
             </tbody>

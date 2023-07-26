@@ -54,6 +54,12 @@
     - [DsEntryExistsRequest](#massa-abi-v1-DsEntryExistsRequest)
     - [DsEntryExistsResult](#massa-abi-v1-DsEntryExistsResult)
     - [Error](#massa-abi-v1-Error)
+    - [EvmGetAddressFromPubkeyRequest](#massa-abi-v1-EvmGetAddressFromPubkeyRequest)
+    - [EvmGetAddressFromPubkeyResult](#massa-abi-v1-EvmGetAddressFromPubkeyResult)
+    - [EvmGetPubkeyFromSignatureRequest](#massa-abi-v1-EvmGetPubkeyFromSignatureRequest)
+    - [EvmGetPubkeyFromSignatureResult](#massa-abi-v1-EvmGetPubkeyFromSignatureResult)
+    - [EvmVerifySigRequest](#massa-abi-v1-EvmVerifySigRequest)
+    - [EvmVerifySigResult](#massa-abi-v1-EvmVerifySigResult)
     - [FunctionExistsRequest](#massa-abi-v1-FunctionExistsRequest)
     - [FunctionExistsResult](#massa-abi-v1-FunctionExistsResult)
     - [GenerateEventRequest](#massa-abi-v1-GenerateEventRequest)
@@ -96,6 +102,8 @@
     - [HashBlake3Result](#massa-abi-v1-HashBlake3Result)
     - [HashSha256Request](#massa-abi-v1-HashSha256Request)
     - [HashSha256Result](#massa-abi-v1-HashSha256Result)
+    - [IsAddressEoaRequest](#massa-abi-v1-IsAddressEoaRequest)
+    - [IsAddressEoaResult](#massa-abi-v1-IsAddressEoaResult)
     - [Keccak256Request](#massa-abi-v1-Keccak256Request)
     - [Keccak256Result](#massa-abi-v1-Keccak256Result)
     - [LocalExecutionRequest](#massa-abi-v1-LocalExecutionRequest)
@@ -124,8 +132,6 @@
     - [TransferCoinsResult](#massa-abi-v1-TransferCoinsResult)
     - [UnsafeRandomRequest](#massa-abi-v1-UnsafeRandomRequest)
     - [UnsafeRandomResult](#massa-abi-v1-UnsafeRandomResult)
-    - [VerifyEvmSigRequest](#massa-abi-v1-VerifyEvmSigRequest)
-    - [VerifyEvmSigResult](#massa-abi-v1-VerifyEvmSigResult)
     - [VerifySigRequest](#massa-abi-v1-VerifySigRequest)
     - [VerifySigResult](#massa-abi-v1-VerifySigResult)
   
@@ -897,6 +903,99 @@ Error message used in abi Response
 
 
 
+<a name="massa-abi-v1-EvmGetAddressFromPubkeyRequest"></a>
+
+### EvmGetAddressFromPubkeyRequest
+EVM get address from public key request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| pub_key | [bytes](#bytes) |  | Public key to get address from |
+
+
+
+
+
+
+<a name="massa-abi-v1-EvmGetAddressFromPubkeyResult"></a>
+
+### EvmGetAddressFromPubkeyResult
+EVM get address from public key result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [bytes](#bytes) |  | Address |
+
+
+
+
+
+
+<a name="massa-abi-v1-EvmGetPubkeyFromSignatureRequest"></a>
+
+### EvmGetPubkeyFromSignatureRequest
+EVM get public key from signature request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| hash | [bytes](#bytes) |  | Signed hash to verify |
+| sig | [bytes](#bytes) |  | Signature to verify |
+
+
+
+
+
+
+<a name="massa-abi-v1-EvmGetPubkeyFromSignatureResult"></a>
+
+### EvmGetPubkeyFromSignatureResult
+EVM get public key from signature result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| pub_key | [bytes](#bytes) |  | Public key |
+
+
+
+
+
+
+<a name="massa-abi-v1-EvmVerifySigRequest"></a>
+
+### EvmVerifySigRequest
+EVM signature verification request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sig | [bytes](#bytes) |  | Signature to verify |
+| message | [bytes](#bytes) |  | Message to verify |
+| pub_key | [bytes](#bytes) |  | Public key to verify with |
+
+
+
+
+
+
+<a name="massa-abi-v1-EvmVerifySigResult"></a>
+
+### EvmVerifySigResult
+EVM signature verification result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| is_verified | [bool](#bool) |  | Verification result |
+
+
+
+
+
+
 <a name="massa-abi-v1-FunctionExistsRequest"></a>
 
 ### FunctionExistsRequest
@@ -1490,6 +1589,36 @@ Hash sha256 result
 
 
 
+<a name="massa-abi-v1-IsAddressEoaRequest"></a>
+
+### IsAddressEoaRequest
+Is address EOA request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  | Address to check |
+
+
+
+
+
+
+<a name="massa-abi-v1-IsAddressEoaResult"></a>
+
+### IsAddressEoaResult
+Is address EOA result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| is_eoa | [bool](#bool) |  | Is address EOA |
+
+
+
+
+
+
 <a name="massa-abi-v1-Keccak256Request"></a>
 
 ### Keccak256Request
@@ -1710,8 +1839,11 @@ the &#43;1 comes from ResResult itself which is counted above
 | sub_native_amount_result | [SubNativeAmountResult](#massa-abi-v1-SubNativeAmountResult) |  |  |
 | transfer_coins_result | [TransferCoinsResult](#massa-abi-v1-TransferCoinsResult) |  |  |
 | unsafe_random_result | [UnsafeRandomResult](#massa-abi-v1-UnsafeRandomResult) |  |  |
-| verify_evm_sig_result | [VerifyEvmSigResult](#massa-abi-v1-VerifyEvmSigResult) |  |  |
+| evm_verify_sig_result | [EvmVerifySigResult](#massa-abi-v1-EvmVerifySigResult) |  |  |
 | verify_sig_result | [VerifySigResult](#massa-abi-v1-VerifySigResult) |  |  |
+| evm_get_address_from_pubkey_result | [EvmGetAddressFromPubkeyResult](#massa-abi-v1-EvmGetAddressFromPubkeyResult) |  |  |
+| evm_get_pubkey_from_signature_result | [EvmGetPubkeyFromSignatureResult](#massa-abi-v1-EvmGetPubkeyFromSignatureResult) |  |  |
+| is_address_eoa_result | [IsAddressEoaResult](#massa-abi-v1-IsAddressEoaResult) |  |  |
 
 
 
@@ -1971,38 +2103,6 @@ Unsafe random result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | random_bytes | [bytes](#bytes) |  | Random bytes generated |
-
-
-
-
-
-
-<a name="massa-abi-v1-VerifyEvmSigRequest"></a>
-
-### VerifyEvmSigRequest
-EVM signature verification request
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| sig | [bytes](#bytes) |  | Signature to verify |
-| message | [bytes](#bytes) |  | Message to verify |
-| pub_key | [bytes](#bytes) |  | Public key to verify with |
-
-
-
-
-
-
-<a name="massa-abi-v1-VerifyEvmSigResult"></a>
-
-### VerifyEvmSigResult
-EVM signature verification result
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| is_verified | [bool](#bool) |  | Verification result |
 
 
 
