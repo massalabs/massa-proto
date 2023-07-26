@@ -385,8 +385,8 @@ message ReadOnlyExecutionCall {
     // Function call
     FunctionCall function_call = 4;
   }
-  // Caller's address, (Optional)
-  string caller_address = 5;
+  // Caller's address, (Optional) if not set, an auto-generated address will be used
+  google.protobuf.StringValue caller_address = 5;
   // execution start state
   //
   // Whether to start execution from final or active state
@@ -441,6 +441,6 @@ message ExecutionStackElement {
   // Note that we use a vector instead of a pre-hashed set to ensure order determinism,
   // the performance hit of linear search remains minimal because `owned_addresses` will always contain very few elements.
   repeated string owned_addresses = 3;
-  // Datastore (key value store) for `ExecuteSC` Operation (Optional)
-  repeated massa.model.v1.BytesMapFieldEntry operation_datastore = 4;
+  // Serialized datastore (key value store)  for `ExecuteSC` Operation (Optional)
+  repeated bytes operation_datastore = 4;
 }

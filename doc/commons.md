@@ -269,7 +269,7 @@ Slot draw
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | slot | [Slot](#massa-model-v1-Slot) |  | Slot |
-| block_producer | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | optional Block producer address |
+| block_producer | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Block producer address (Optional) |
 | endorsement_draws | [EndorsementDraw](#massa-model-v1-EndorsementDraw) | repeated | Endorsement draws |
 
 
@@ -1210,7 +1210,7 @@ instead of the caller&#39;s which should lie just below in the stack.
 | address | [string](#string) |  | Called address |
 | coins | [NativeAmount](#massa-model-v1-NativeAmount) |  | Coins transferred to the target address during the call |
 | owned_addresses | [string](#string) | repeated | List of addresses owned by the current call, and on which the current call has write access. This list should contain `ExecutionStackElement::address` in the sense that an address should have write access to itself. This list should also contain all addresses created previously during the call to allow write access on newly created addresses in order to set them up, but only within the scope of the current stack element. That way, only the current scope and neither its caller not the functions it calls gain this write access, which is important for security. Note that we use a vector instead of a pre-hashed set to ensure order determinism, the performance hit of linear search remains minimal because `owned_addresses` will always contain very few elements. |
-| operation_datastore | [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry) | repeated | Datastore (key value store) for `ExecuteSC` Operation (Optional) |
+| operation_datastore | [bytes](#bytes) | repeated | Serialized datastore (key value store) for `ExecuteSC` Operation (Optional) |
 
 
 
@@ -1328,7 +1328,7 @@ Read-only execution call
 | call_stack | [ExecutionStackElement](#massa-model-v1-ExecutionStackElement) | repeated | Call stack to simulate, older caller first |
 | bytecode_call | [BytecodeExecution](#massa-model-v1-BytecodeExecution) |  | Byte code |
 | function_call | [FunctionCall](#massa-model-v1-FunctionCall) |  | Function call |
-| caller_address | [string](#string) |  | Caller&#39;s address, (Optional) |
+| caller_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Caller&#39;s address, (Optional) if not set, an auto-generated address will be used |
 | is_final | [bool](#bool) |  | execution start state
 
 Whether to start execution from final or active state |

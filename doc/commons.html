@@ -985,7 +985,7 @@
                   <td>block_producer</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
                   <td></td>
-                  <td><p>optional Block producer address </p></td>
+                  <td><p>Block producer address (Optional) </p></td>
                 </tr>
               
                 <tr>
@@ -3042,9 +3042,9 @@ the performance hit of linear search remains minimal because `owned_addresses` w
               
                 <tr>
                   <td>operation_datastore</td>
-                  <td><a href="#massa.model.v1.BytesMapFieldEntry">BytesMapFieldEntry</a></td>
+                  <td><a href="#bytes">bytes</a></td>
                   <td>repeated</td>
-                  <td><p>Datastore (key value store) for `ExecuteSC` Operation (Optional) </p></td>
+                  <td><p>Serialized datastore (key value store)  for `ExecuteSC` Operation (Optional) </p></td>
                 </tr>
               
             </tbody>
@@ -3301,9 +3301,9 @@ the performance hit of linear search remains minimal because `owned_addresses` w
               
                 <tr>
                   <td>caller_address</td>
-                  <td><a href="#string">string</a></td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
                   <td></td>
-                  <td><p>Caller&#39;s address, (Optional) </p></td>
+                  <td><p>Caller&#39;s address, (Optional) if not set, an auto-generated address will be used </p></td>
                 </tr>
               
                 <tr>
