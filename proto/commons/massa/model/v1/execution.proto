@@ -397,8 +397,8 @@ message ReadOnlyExecutionCall {
 message BytecodeExecution {
   // Byte code
   bytes bytecode = 1;
-  // Datastore (key value store) for `ExecuteSC` Operation (Optional)
-  repeated BytesMapFieldEntry operation_datastore = 2;
+  // Serialized datastore (key value store)  for `ExecuteSC` Operation (Optional)
+  repeated bytes operation_datastore = 2;
 }
 
 // Execute a function call
@@ -441,6 +441,6 @@ message ExecutionStackElement {
   // Note that we use a vector instead of a pre-hashed set to ensure order determinism,
   // the performance hit of linear search remains minimal because `owned_addresses` will always contain very few elements.
   repeated string owned_addresses = 3;
-  // Serialized datastore (key value store)  for `ExecuteSC` Operation (Optional)
-  repeated bytes operation_datastore = 4;
+  // Datastore (key value store) for `ExecuteSC` Operation (Optional)
+  repeated massa.model.v1.BytesMapFieldEntry operation_datastore = 4;
 }
