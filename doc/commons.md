@@ -25,8 +25,6 @@
     - [OperationStatus](#massa-model-v1-OperationStatus)
   
 - [massa/model/v1/address.proto](#massa_model_v1_address-proto)
-    - [NativeAddress](#massa-model-v1-NativeAddress)
-  
     - [AddressCategory](#massa-model-v1-AddressCategory)
   
 - [massa/model/v1/execution.proto](#massa_model_v1_execution-proto)
@@ -78,19 +76,12 @@
 - [massa/model/v1/draw.proto](#massa_model_v1_draw-proto)
     - [SelectorDraws](#massa-model-v1-SelectorDraws)
   
-- [massa/model/v1/signature.proto](#massa_model_v1_signature-proto)
-    - [NativePubKey](#massa-model-v1-NativePubKey)
-    - [NativeSig](#massa-model-v1-NativeSig)
-  
 - [massa/model/v1/endorsement.proto](#massa_model_v1_endorsement-proto)
     - [Endorsement](#massa-model-v1-Endorsement)
     - [SignedEndorsement](#massa-model-v1-SignedEndorsement)
   
 - [massa/model/v1/amount.proto](#massa_model_v1_amount-proto)
     - [NativeAmount](#massa-model-v1-NativeAmount)
-  
-- [massa/model/v1/hash.proto](#massa_model_v1_hash-proto)
-    - [NativeHash](#massa-model-v1-NativeHash)
   
 - [massa/model/v1/block.proto](#massa_model_v1_block-proto)
     - [Block](#massa-model-v1-Block)
@@ -106,6 +97,8 @@
 - [massa/model/v1/commons.proto](#massa_model_v1_commons-proto)
     - [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry)
     - [SecureShare](#massa-model-v1-SecureShare)
+  
+    - [ComparisonResult](#massa-model-v1-ComparisonResult)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -403,23 +396,6 @@ Possible statuses for an operation
 <p align="right"><a href="#top">Top</a></p>
 
 ## massa/model/v1/address.proto
-
-
-
-<a name="massa-model-v1-NativeAddress"></a>
-
-### NativeAddress
-Massa NativeAddress
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| category | [AddressCategory](#massa-model-v1-AddressCategory) |  | Address category |
-| version | [fixed64](#fixed64) |  | Address version |
-| content | [bytes](#bytes) |  | Address content |
-
-
-
 
 
  
@@ -1166,54 +1142,6 @@ Selector draws
 
 
 
-<a name="massa_model_v1_signature-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/signature.proto
-
-
-
-<a name="massa-model-v1-NativePubKey"></a>
-
-### NativePubKey
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  |  |
-| content | [bytes](#bytes) |  |  |
-
-
-
-
-
-
-<a name="massa-model-v1-NativeSig"></a>
-
-### NativeSig
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  |  |
-| content | [bytes](#bytes) |  |  |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
 <a name="massa_model_v1_endorsement-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -1251,6 +1179,7 @@ Signed endorsement
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
+| serialized_size | [fixed64](#fixed64) |  | The size of the serialized endorsement |
 
 
 
@@ -1282,40 +1211,8 @@ the future. value = mantissa / (10^scale)
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mantissa | [fixed64](#fixed64) |  | Mantissa |
-| scale | [fixed32](#fixed32) |  | Scale |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_hash-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/hash.proto
-
-
-
-<a name="massa-model-v1-NativeHash"></a>
-
-### NativeHash
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| version | [fixed64](#fixed64) |  |  |
-| content | [bytes](#bytes) |  |  |
+| mantissa | [uint64](#uint64) |  | Mantissa |
+| scale | [uint32](#uint32) |  | Scale |
 
 
 
@@ -1521,13 +1418,26 @@ Packages a type such that it can be securely sent and received in a trust-free n
 | content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
 | content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
 | id | [string](#string) |  | A secure hash of the data. See also [massa_hash::Hash] |
-| serialized_size | [fixed64](#fixed64) |  | The size of the serialized endorsement |
 
 
 
 
 
  
+
+
+<a name="massa-model-v1-ComparisonResult"></a>
+
+### ComparisonResult
+Comparison result
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| COMPARISON_RESULT_UNSPECIFIED | 0 |  |
+| COMPARISON_RESULT_LOWER | 1 | left is lower |
+| COMPARISON_RESULT_EQUAL | 2 | left and right are equal |
+| COMPARISON_RESULT_GREATER | 3 | left is greater |
+
 
  
 

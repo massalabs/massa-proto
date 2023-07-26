@@ -260,10 +260,6 @@
             <a href="#massa%2fmodel%2fv1%2faddress.proto">massa/model/v1/address.proto</a>
             <ul>
               
-                <li>
-                  <a href="#massa.model.v1.NativeAddress"><span class="badge">M</span>NativeAddress</a>
-                </li>
-              
               
                 <li>
                   <a href="#massa.model.v1.AddressCategory"><span class="badge">E</span>AddressCategory</a>
@@ -480,25 +476,6 @@
         
           
           <li>
-            <a href="#massa%2fmodel%2fv1%2fsignature.proto">massa/model/v1/signature.proto</a>
-            <ul>
-              
-                <li>
-                  <a href="#massa.model.v1.NativePubKey"><span class="badge">M</span>NativePubKey</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.NativeSig"><span class="badge">M</span>NativeSig</a>
-                </li>
-              
-              
-              
-              
-            </ul>
-          </li>
-        
-          
-          <li>
             <a href="#massa%2fmodel%2fv1%2fendorsement.proto">massa/model/v1/endorsement.proto</a>
             <ul>
               
@@ -523,21 +500,6 @@
               
                 <li>
                   <a href="#massa.model.v1.NativeAmount"><span class="badge">M</span>NativeAmount</a>
-                </li>
-              
-              
-              
-              
-            </ul>
-          </li>
-        
-          
-          <li>
-            <a href="#massa%2fmodel%2fv1%2fhash.proto">massa/model/v1/hash.proto</a>
-            <ul>
-              
-                <li>
-                  <a href="#massa.model.v1.NativeHash"><span class="badge">M</span>NativeHash</a>
                 </li>
               
               
@@ -602,6 +564,10 @@
                   <a href="#massa.model.v1.SecureShare"><span class="badge">M</span>SecureShare</a>
                 </li>
               
+              
+                <li>
+                  <a href="#massa.model.v1.ComparisonResult"><span class="badge">E</span>ComparisonResult</a>
+                </li>
               
               
               
@@ -1274,44 +1240,6 @@
       </div>
       <p></p>
 
-      
-        <h3 id="massa.model.v1.NativeAddress">NativeAddress</h3>
-        <p>Massa NativeAddress</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>category</td>
-                  <td><a href="#massa.model.v1.AddressCategory">AddressCategory</a></td>
-                  <td></td>
-                  <td><p>Address category </p></td>
-                </tr>
-              
-                <tr>
-                  <td>version</td>
-                  <td><a href="#fixed64">fixed64</a></td>
-                  <td></td>
-                  <td><p>Address version </p></td>
-                </tr>
-              
-                <tr>
-                  <td>content</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Address content </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
       
 
       
@@ -2906,82 +2834,6 @@ For messages with filter, this boolean is true if the filter has been matched be
     
       
       <div class="file-heading">
-        <h2 id="massa/model/v1/signature.proto">massa/model/v1/signature.proto</h2><a href="#title">Top</a>
-      </div>
-      <p></p>
-
-      
-        <h3 id="massa.model.v1.NativePubKey">NativePubKey</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>version</td>
-                  <td><a href="#fixed64">fixed64</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>content</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.model.v1.NativeSig">NativeSig</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>version</td>
-                  <td><a href="#fixed64">fixed64</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>content</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-
-      
-
-      
-
-      
-    
-      
-      <div class="file-heading">
         <h2 id="massa/model/v1/endorsement.proto">massa/model/v1/endorsement.proto</h2><a href="#title">Top</a>
       </div>
       <p></p>
@@ -3071,6 +2923,13 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                   <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
                 </tr>
               
+                <tr>
+                  <td>serialized_size</td>
+                  <td><a href="#fixed64">fixed64</a></td>
+                  <td></td>
+                  <td><p>The size of the serialized endorsement </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -3104,61 +2963,16 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
               
                 <tr>
                   <td>mantissa</td>
-                  <td><a href="#fixed64">fixed64</a></td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Mantissa </p></td>
                 </tr>
               
                 <tr>
                   <td>scale</td>
-                  <td><a href="#fixed32">fixed32</a></td>
+                  <td><a href="#uint32">uint32</a></td>
                   <td></td>
                   <td><p>Scale </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-
-      
-
-      
-
-      
-    
-      
-      <div class="file-heading">
-        <h2 id="massa/model/v1/hash.proto">massa/model/v1/hash.proto</h2><a href="#title">Top</a>
-      </div>
-      <p></p>
-
-      
-        <h3 id="massa.model.v1.NativeHash">NativeHash</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>version</td>
-                  <td><a href="#fixed64">fixed64</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>content</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -3607,13 +3421,6 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                   <td><p>A secure hash of the data. See also [massa_hash::Hash] </p></td>
                 </tr>
               
-                <tr>
-                  <td>serialized_size</td>
-                  <td><a href="#fixed64">fixed64</a></td>
-                  <td></td>
-                  <td><p>The size of the serialized endorsement </p></td>
-                </tr>
-              
             </tbody>
           </table>
 
@@ -3622,6 +3429,41 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
         
       
 
+      
+        <h3 id="massa.model.v1.ComparisonResult">ComparisonResult</h3>
+        <p>Comparison result</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>COMPARISON_RESULT_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPARISON_RESULT_LOWER</td>
+                <td>1</td>
+                <td><p>left is lower</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPARISON_RESULT_EQUAL</td>
+                <td>2</td>
+                <td><p>left and right are equal</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPARISON_RESULT_GREATER</td>
+                <td>3</td>
+                <td><p>left is greater</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
 
       

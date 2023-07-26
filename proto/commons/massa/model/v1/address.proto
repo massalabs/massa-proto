@@ -22,13 +22,3 @@ enum AddressCategory {
   // Smart contract address
   ADDRESS_CATEGORY_SC_ADDRESS = 2;
 }
-
-// Massa NativeAddress
-message NativeAddress {
-  // Address category
-  AddressCategory category = 1;
-  // Address version
-  fixed64 version = 2;
-  // Address content
-  bytes content = 3;
-}
