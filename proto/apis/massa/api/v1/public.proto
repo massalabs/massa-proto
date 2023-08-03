@@ -55,7 +55,7 @@ service PublicService {
     };
   }
 
-  // Get endorsements
+  // Get endorsements by ids
   rpc GetEndorsements(GetEndorsementsRequest) returns (GetEndorsementsResponse) {
     option (google.api.http) = {
       post: "/v1/get_endorsements"
@@ -127,6 +127,14 @@ service PublicService {
     };
   }
 
+  // Search blocks
+  rpc SearchBlocks(SearchBlocksRequest) returns (SearchBlocksResponse) {
+    option (google.api.http) = {
+      post: "/v1/search_blocks"
+      body: "*"
+    };
+  }
+
   // Search endorsements
   rpc SearchEndorsements(SearchEndorsementsRequest) returns (SearchEndorsementsResponse) {
     option (google.api.http) = {
@@ -183,21 +191,8 @@ message ExecuteReadOnlyCallResponse {
 
 // GetBlocksRequest holds request for GetBlocks
 message GetBlocksRequest {
-  // Returns all the blocks that verify all the filters
-  repeated GetBlocksFilter filters = 1;
-}
-
-// GetBlocks Filter
-message GetBlocksFilter {
-  // Filter
-  oneof filter {
-    // One of this creator addresses
-    massa.model.v1.Addresses addresses = 1;
-    // One of this block ids
-    massa.model.v1.BlockIds block_ids = 2;
-    // One of this slot ranges (inclusive)
-    massa.model.v1.SlotRange slot_range = 3;
-  }
+  // Block ids
+  repeated string block_ids = 1;
 }
 
 // GetBlocksResponse holds response from GetBlocks
@@ -805,6 +800,31 @@ message TransactionsThroughputResponse {
   uint32 throughput = 1;
 }
 
+// SearchBlocksRequest holds request for SearchBlocks
+message SearchBlocksRequest {
+  // Returns all the blocks that verify all the filters
+  repeated SearchBlocksFilter filters = 1;
+}
+
+// SearchBlocks Filter
+message SearchBlocksFilter {
+  // Filter
+  oneof filter {
+    // One of this block ids
+    massa.model.v1.BlockIds block_ids = 1;
+    // One of this creator addresses
+    massa.model.v1.Addresses addresses = 2;
+    // One of this slot ranges (inclusive)
+    massa.model.v1.SlotRange slot_range = 3;
+  }
+}
+
+// SearchBlocksResponse holds response from SearchBlocks
+message SearchBlocksResponse {
+  // Information about the blocks
+  repeated massa.model.v1.BlockInfo block_infos = 1;
+}
+
 // SearchEndorsementsRequest holds request for SearchEndorsements
 message SearchEndorsementsRequest {
   // Returns all the endorsements informations that verify all the filters
@@ -827,5 +847,5 @@ message SearchEndorsementsFilter {
 // SearchEndorsementsResponse holds response from SearchEndorsements
 message SearchEndorsementsResponse {
   // Information about the endorsements
-  repeated massa.model.v1.EndorsementInfo endorsement_info = 1;
+  repeated massa.model.v1.EndorsementInfo endorsement_infos = 1;
 }

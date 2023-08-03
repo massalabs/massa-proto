@@ -109,6 +109,14 @@ message BlockWrapper {
   BlockStatus status = 3;
 }
 
+// Informations about a block with its metadata
+message BlockInfo {
+  // The unique ID of the block.
+  string block_id = 1;
+  // The execution status of the block
+  BlockStatus status = 2;
+}
+
 // BlockIds holds block ids
 message BlockIds {
   // Block ids

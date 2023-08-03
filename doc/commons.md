@@ -125,6 +125,7 @@
     - [Block](#massa-model-v1-Block)
     - [BlockHeader](#massa-model-v1-BlockHeader)
     - [BlockIds](#massa-model-v1-BlockIds)
+    - [BlockInfo](#massa-model-v1-BlockInfo)
     - [BlockParent](#massa-model-v1-BlockParent)
     - [BlockWrapper](#massa-model-v1-BlockWrapper)
     - [FilledBlock](#massa-model-v1-FilledBlock)
@@ -1859,6 +1860,22 @@ BlockIds holds block ids
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | block_ids | [string](#string) | repeated | Block ids |
+
+
+
+
+
+
+<a name="massa-model-v1-BlockInfo"></a>
+
+### BlockInfo
+Informations about a block with its metadata
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_id | [string](#string) |  | The unique ID of the block. |
+| status | [BlockStatus](#massa-model-v1-BlockStatus) |  | The execution status of the block |
 
 
 
