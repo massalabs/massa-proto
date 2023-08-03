@@ -12,3 +12,4 @@ lint:
       - google/api/annotations.proto
       - google/api/http.proto
       - google/rpc/status.proto
+      - google/protobuf/wrappers.proto
