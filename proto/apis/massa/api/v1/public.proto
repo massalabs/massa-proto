@@ -71,7 +71,7 @@ service PublicService {
     };
   }
 
-  // Get operations
+  // Get operations by ids
   rpc GetOperations(GetOperationsRequest) returns (GetOperationsResponse) {
     option (google.api.http) = {
       post: "/v1/get_operations"
@@ -139,6 +139,14 @@ service PublicService {
   rpc SearchEndorsements(SearchEndorsementsRequest) returns (SearchEndorsementsResponse) {
     option (google.api.http) = {
       post: "/v1/search_endorsements"
+      body: "*"
+    };
+  }
+
+  // Search operations
+  rpc SearchOperations(SearchOperationsRequest) returns (SearchOperationsResponse) {
+    option (google.api.http) = {
+      post: "/v1/search_operations"
       body: "*"
     };
   }
@@ -245,19 +253,8 @@ message GetNextBlockBestParentsResponse {
 
 // GetOperationsRequest holds request for GetOperations
 message GetOperationsRequest {
-  // Returns all the operations that verify all the filters
-  repeated GetOperationsFilter filters = 1;
-}
-
-// GetOperations Filter
-message GetOperationsFilter {
-  // Filter
-  oneof filter {
-    // One of the operation ids
-    massa.model.v1.OperationIds operation_ids = 1;
-    // One of the operation types
-    massa.model.v1.OpTypes operation_types = 2;
-  }
+  // Operation ids
+  repeated string operation_ids = 1;
 }
 
 // GetOperationsResponse holds response from GetOperations
@@ -848,4 +845,27 @@ message SearchEndorsementsFilter {
 message SearchEndorsementsResponse {
   // Information about the endorsements
   repeated massa.model.v1.EndorsementInfo endorsement_infos = 1;
+}
+
+// SearchOperationsRequest holds request for SearchOperations
+message SearchOperationsRequest {
+  // Returns all the operations that verify all the filters
+  repeated SearchOperationsFilter filters = 1;
+}
+
+// SearchOperations Filter
+message SearchOperationsFilter {
+  // Filter
+  oneof filter {
+    // One of the operation ids
+    massa.model.v1.OperationIds operation_ids = 1;
+    // One of the operation types
+    massa.model.v1.OpTypes operation_types = 2;
+  }
+}
+
+// SearchOperationsResponse holds response from SearchOperations
+message SearchOperationsResponse {
+  // Information about the operations
+  repeated massa.model.v1.OperationInfo operation_infos = 1;
 }

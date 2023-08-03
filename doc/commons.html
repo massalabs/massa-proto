@@ -345,6 +345,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.OperationInfo"><span class="badge">M</span>OperationInfo</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.OperationType"><span class="badge">M</span>OperationType</a>
                 </li>
               
@@ -1970,6 +1974,44 @@
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
                   <td><p>Operations ids </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.OperationInfo">OperationInfo</h3>
+        <p>Information about an operation with its metadata</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The unique ID of the operation. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>block_ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>The IDs of the blocks in which the operation appears </p></td>
+                </tr>
+              
+                <tr>
+                  <td>thread</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>The thread in which the operation can be included </p></td>
                 </tr>
               
             </tbody>

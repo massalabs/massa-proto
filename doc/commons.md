@@ -43,6 +43,7 @@
     - [OpTypes](#massa-model-v1-OpTypes)
     - [Operation](#massa-model-v1-Operation)
     - [OperationIds](#massa-model-v1-OperationIds)
+    - [OperationInfo](#massa-model-v1-OperationInfo)
     - [OperationType](#massa-model-v1-OperationType)
     - [OperationWrapper](#massa-model-v1-OperationWrapper)
     - [RollBuy](#massa-model-v1-RollBuy)
@@ -688,6 +689,23 @@ OperationIds
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | operation_ids | [string](#string) | repeated | Operations ids |
+
+
+
+
+
+
+<a name="massa-model-v1-OperationInfo"></a>
+
+### OperationInfo
+Information about an operation with its metadata
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | The unique ID of the operation. |
+| block_ids | [string](#string) | repeated | The IDs of the blocks in which the operation appears |
+| thread | [uint32](#uint32) |  | The thread in which the operation can be included |
 
 
 

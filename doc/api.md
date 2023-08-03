@@ -87,7 +87,6 @@
     - [GetEndorsementsResponse](#massa-api-v1-GetEndorsementsResponse)
     - [GetNextBlockBestParentsRequest](#massa-api-v1-GetNextBlockBestParentsRequest)
     - [GetNextBlockBestParentsResponse](#massa-api-v1-GetNextBlockBestParentsResponse)
-    - [GetOperationsFilter](#massa-api-v1-GetOperationsFilter)
     - [GetOperationsRequest](#massa-api-v1-GetOperationsRequest)
     - [GetOperationsResponse](#massa-api-v1-GetOperationsResponse)
     - [GetScExecutionEventsRequest](#massa-api-v1-GetScExecutionEventsRequest)
@@ -126,6 +125,9 @@
     - [SearchEndorsementsFilter](#massa-api-v1-SearchEndorsementsFilter)
     - [SearchEndorsementsRequest](#massa-api-v1-SearchEndorsementsRequest)
     - [SearchEndorsementsResponse](#massa-api-v1-SearchEndorsementsResponse)
+    - [SearchOperationsFilter](#massa-api-v1-SearchOperationsFilter)
+    - [SearchOperationsRequest](#massa-api-v1-SearchOperationsRequest)
+    - [SearchOperationsResponse](#massa-api-v1-SearchOperationsResponse)
     - [SelectorDrawsFilter](#massa-api-v1-SelectorDrawsFilter)
     - [SendBlocksRequest](#massa-api-v1-SendBlocksRequest)
     - [SendBlocksResponse](#massa-api-v1-SendBlocksResponse)
@@ -1313,22 +1315,6 @@ GetNextBlockBestParentsResponse holds response from GetNextBlockBestParents
 
 
 
-<a name="massa-api-v1-GetOperationsFilter"></a>
-
-### GetOperationsFilter
-GetOperations Filter
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| operation_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | One of the operation ids |
-| operation_types | [massa.model.v1.OpTypes](#massa-model-v1-OpTypes) |  | One of the operation types |
-
-
-
-
-
-
 <a name="massa-api-v1-GetOperationsRequest"></a>
 
 ### GetOperationsRequest
@@ -1337,7 +1323,7 @@ GetOperationsRequest holds request for GetOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filters | [GetOperationsFilter](#massa-api-v1-GetOperationsFilter) | repeated | Returns all the operations that verify all the filters |
+| operation_ids | [string](#string) | repeated | Operation ids |
 
 
 
@@ -1881,6 +1867,52 @@ SearchEndorsementsResponse holds response from SearchEndorsements
 
 
 
+<a name="massa-api-v1-SearchOperationsFilter"></a>
+
+### SearchOperationsFilter
+SearchOperations Filter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| operation_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | One of the operation ids |
+| operation_types | [massa.model.v1.OpTypes](#massa-model-v1-OpTypes) |  | One of the operation types |
+
+
+
+
+
+
+<a name="massa-api-v1-SearchOperationsRequest"></a>
+
+### SearchOperationsRequest
+SearchOperationsRequest holds request for SearchOperations
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [SearchOperationsFilter](#massa-api-v1-SearchOperationsFilter) | repeated | Returns all the operations that verify all the filters |
+
+
+
+
+
+
+<a name="massa-api-v1-SearchOperationsResponse"></a>
+
+### SearchOperationsResponse
+SearchOperationsResponse holds response from SearchOperations
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| operation_infos | [massa.model.v1.OperationInfo](#massa-model-v1-OperationInfo) | repeated | Information about the operations |
+
+
+
+
+
+
 <a name="massa-api-v1-SelectorDrawsFilter"></a>
 
 ### SelectorDrawsFilter
@@ -2069,7 +2101,7 @@ Massa public gRPC service
 | GetDatastoreEntries | [GetDatastoreEntriesRequest](#massa-api-v1-GetDatastoreEntriesRequest) | [GetDatastoreEntriesResponse](#massa-api-v1-GetDatastoreEntriesResponse) | Get datastore entries |
 | GetEndorsements | [GetEndorsementsRequest](#massa-api-v1-GetEndorsementsRequest) | [GetEndorsementsResponse](#massa-api-v1-GetEndorsementsResponse) | Get endorsements by ids |
 | GetNextBlockBestParents | [GetNextBlockBestParentsRequest](#massa-api-v1-GetNextBlockBestParentsRequest) | [GetNextBlockBestParentsResponse](#massa-api-v1-GetNextBlockBestParentsResponse) | Get next block best parents |
-| GetOperations | [GetOperationsRequest](#massa-api-v1-GetOperationsRequest) | [GetOperationsResponse](#massa-api-v1-GetOperationsResponse) | Get operations |
+| GetOperations | [GetOperationsRequest](#massa-api-v1-GetOperationsRequest) | [GetOperationsResponse](#massa-api-v1-GetOperationsResponse) | Get operations by ids |
 | GetScExecutionEvents | [GetScExecutionEventsRequest](#massa-api-v1-GetScExecutionEventsRequest) | [GetScExecutionEventsResponse](#massa-api-v1-GetScExecutionEventsResponse) | Get smart contracts execution events |
 | GetSelectorDraws | [GetSelectorDrawsRequest](#massa-api-v1-GetSelectorDrawsRequest) | [GetSelectorDrawsResponse](#massa-api-v1-GetSelectorDrawsResponse) | Get selector draws |
 | GetStakers | [GetStakersRequest](#massa-api-v1-GetStakersRequest) | [GetStakersResponse](#massa-api-v1-GetStakersResponse) | Get stakers |
@@ -2078,6 +2110,7 @@ Massa public gRPC service
 | QueryState | [QueryStateRequest](#massa-api-v1-QueryStateRequest) | [QueryStateResponse](#massa-api-v1-QueryStateResponse) | Query state |
 | SearchBlocks | [SearchBlocksRequest](#massa-api-v1-SearchBlocksRequest) | [SearchBlocksResponse](#massa-api-v1-SearchBlocksResponse) | Search blocks |
 | SearchEndorsements | [SearchEndorsementsRequest](#massa-api-v1-SearchEndorsementsRequest) | [SearchEndorsementsResponse](#massa-api-v1-SearchEndorsementsResponse) | Search endorsements |
+| SearchOperations | [SearchOperationsRequest](#massa-api-v1-SearchOperationsRequest) | [SearchOperationsResponse](#massa-api-v1-SearchOperationsResponse) | Search operations |
 | NewBlocks | [NewBlocksRequest](#massa-api-v1-NewBlocksRequest) stream | [NewBlocksResponse](#massa-api-v1-NewBlocksResponse) stream | New received and produced blocks |
 | NewEndorsements | [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest) stream | [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse) stream | New received and produced endorsements |
 | NewFilledBlocks | [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest) stream | [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse) stream | New received and produced blocks with operations |

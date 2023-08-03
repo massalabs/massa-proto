@@ -116,6 +116,16 @@ message OperationWrapper {
   SignedOperation operation = 4;
 }
 
+// Information about an operation with its metadata
+message OperationInfo {
+  // The unique ID of the operation.
+  string id = 1;
+  // The IDs of the blocks in which the operation appears
+  repeated string block_ids = 2;
+  // The thread in which the operation can be included
+  uint32 thread = 3;
+}
+
 // OperationIds
 message OperationIds {
   // Operations ids

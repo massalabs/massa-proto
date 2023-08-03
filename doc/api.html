@@ -510,10 +510,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.GetOperationsFilter"><span class="badge">M</span>GetOperationsFilter</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.GetOperationsRequest"><span class="badge">M</span>GetOperationsRequest</a>
                 </li>
               
@@ -663,6 +659,18 @@
               
                 <li>
                   <a href="#massa.api.v1.SearchEndorsementsResponse"><span class="badge">M</span>SearchEndorsementsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SearchOperationsFilter"><span class="badge">M</span>SearchOperationsFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SearchOperationsRequest"><span class="badge">M</span>SearchOperationsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SearchOperationsResponse"><span class="badge">M</span>SearchOperationsResponse</a>
                 </li>
               
                 <li>
@@ -2925,37 +2933,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.GetOperationsFilter">GetOperationsFilter</h3>
-        <p>GetOperations Filter</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>operation_ids</td>
-                  <td><a href="#massa.model.v1.OperationIds">massa.model.v1.OperationIds</a></td>
-                  <td></td>
-                  <td><p>One of the operation ids </p></td>
-                </tr>
-              
-                <tr>
-                  <td>operation_types</td>
-                  <td><a href="#massa.model.v1.OpTypes">massa.model.v1.OpTypes</a></td>
-                  <td></td>
-                  <td><p>One of the operation types </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.api.v1.GetOperationsRequest">GetOperationsRequest</h3>
         <p>GetOperationsRequest holds request for GetOperations</p>
 
@@ -2967,10 +2944,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>filters</td>
-                  <td><a href="#massa.api.v1.GetOperationsFilter">GetOperationsFilter</a></td>
+                  <td>operation_ids</td>
+                  <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p>Returns all the operations that verify all the filters </p></td>
+                  <td><p>Operation ids </p></td>
                 </tr>
               
             </tbody>
@@ -3850,6 +3827,85 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
+        <h3 id="massa.api.v1.SearchOperationsFilter">SearchOperationsFilter</h3>
+        <p>SearchOperations Filter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>operation_ids</td>
+                  <td><a href="#massa.model.v1.OperationIds">massa.model.v1.OperationIds</a></td>
+                  <td></td>
+                  <td><p>One of the operation ids </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_types</td>
+                  <td><a href="#massa.model.v1.OpTypes">massa.model.v1.OpTypes</a></td>
+                  <td></td>
+                  <td><p>One of the operation types </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.SearchOperationsRequest">SearchOperationsRequest</h3>
+        <p>SearchOperationsRequest holds request for SearchOperations</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.SearchOperationsFilter">SearchOperationsFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the operations that verify all the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.SearchOperationsResponse">SearchOperationsResponse</h3>
+        <p>SearchOperationsResponse holds response from SearchOperations</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>operation_infos</td>
+                  <td><a href="#massa.model.v1.OperationInfo">massa.model.v1.OperationInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>Information about the operations </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.SelectorDrawsFilter">SelectorDrawsFilter</h3>
         <p>SelectorDraws Filter</p>
 
@@ -4220,7 +4276,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td>GetOperations</td>
                 <td><a href="#massa.api.v1.GetOperationsRequest">GetOperationsRequest</a></td>
                 <td><a href="#massa.api.v1.GetOperationsResponse">GetOperationsResponse</a></td>
-                <td><p>Get operations</p></td>
+                <td><p>Get operations by ids</p></td>
               </tr>
             
               <tr>
@@ -4277,6 +4333,13 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td><a href="#massa.api.v1.SearchEndorsementsRequest">SearchEndorsementsRequest</a></td>
                 <td><a href="#massa.api.v1.SearchEndorsementsResponse">SearchEndorsementsResponse</a></td>
                 <td><p>Search endorsements</p></td>
+              </tr>
+            
+              <tr>
+                <td>SearchOperations</td>
+                <td><a href="#massa.api.v1.SearchOperationsRequest">SearchOperationsRequest</a></td>
+                <td><a href="#massa.api.v1.SearchOperationsResponse">SearchOperationsResponse</a></td>
+                <td><p>Search operations</p></td>
               </tr>
             
               <tr>
@@ -4496,6 +4559,16 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td>SearchEndorsements</td>
                 <td>POST</td>
                 <td>/v1/search_endorsements</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>SearchOperations</td>
+                <td>POST</td>
+                <td>/v1/search_operations</td>
                 <td>*</td>
               </tr>
               
