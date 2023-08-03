@@ -136,7 +136,9 @@
   
 - [massa/model/v1/endorsement.proto](#massa_model_v1_endorsement-proto)
     - [Endorsement](#massa-model-v1-Endorsement)
-    - [EndorsementsIds](#massa-model-v1-EndorsementsIds)
+    - [EndorsementIds](#massa-model-v1-EndorsementIds)
+    - [EndorsementInfo](#massa-model-v1-EndorsementInfo)
+    - [EndorsementWrapper](#massa-model-v1-EndorsementWrapper)
     - [SignedEndorsement](#massa-model-v1-SignedEndorsement)
   
 - [massa/model/v1/time.proto](#massa_model_v1_time-proto)
@@ -2016,15 +2018,53 @@ An endorsement, as sent in the network
 
 
 
-<a name="massa-model-v1-EndorsementsIds"></a>
+<a name="massa-model-v1-EndorsementIds"></a>
 
-### EndorsementsIds
+### EndorsementIds
 EndorsementIds holds endorsements ids
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | endorsements_ids | [string](#string) | repeated | Endorsements ids |
+
+
+
+
+
+
+<a name="massa-model-v1-EndorsementInfo"></a>
+
+### EndorsementInfo
+Informations about an endorsement with its metadata
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Id |
+| in_pool | [bool](#bool) |  | Whether the endorsement is still in pool |
+| in_blocks | [string](#string) | repeated | The endorsement appears in `in_blocks` If it appears in multiple blocks, these blocks are in different cliques |
+| is_final | [bool](#bool) |  | Whether the the endorsement is final (for example in a final block) |
+| endorsement_id | [string](#string) |  | The endorsement id |
+
+
+
+
+
+
+<a name="massa-model-v1-EndorsementWrapper"></a>
+
+### EndorsementWrapper
+A wrapper around an endorsement with its metadata
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Id |
+| in_pool | [bool](#bool) |  | Whether the endorsement is still in pool |
+| in_blocks | [string](#string) | repeated | The endorsement appears in `in_blocks` If it appears in multiple blocks, these blocks are in different cliques |
+| is_final | [bool](#bool) |  | Whether the the endorsement is final (for example in a final block) |
+| endorsement | [SignedEndorsement](#massa-model-v1-SignedEndorsement) |  | The endorsement itself |
 
 
 

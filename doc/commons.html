@@ -721,7 +721,15 @@
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.EndorsementsIds"><span class="badge">M</span>EndorsementsIds</a>
+                  <a href="#massa.model.v1.EndorsementIds"><span class="badge">M</span>EndorsementIds</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.EndorsementInfo"><span class="badge">M</span>EndorsementInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.EndorsementWrapper"><span class="badge">M</span>EndorsementWrapper</a>
                 </li>
               
                 <li>
@@ -4777,7 +4785,7 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
 
         
       
-        <h3 id="massa.model.v1.EndorsementsIds">EndorsementsIds</h3>
+        <h3 id="massa.model.v1.EndorsementIds">EndorsementIds</h3>
         <p>EndorsementIds holds endorsements ids</p>
 
         
@@ -4792,6 +4800,112 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
                   <td><p>Endorsements ids </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.EndorsementInfo">EndorsementInfo</h3>
+        <p>Informations about an endorsement with its metadata</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>in_pool</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Whether the endorsement is still in pool </p></td>
+                </tr>
+              
+                <tr>
+                  <td>in_blocks</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>The endorsement appears in `in_blocks`
+If it appears in multiple blocks, these blocks are in different cliques </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_final</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Whether the the endorsement is final (for example in a final block) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>endorsement_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The endorsement id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.EndorsementWrapper">EndorsementWrapper</h3>
+        <p>A wrapper around an endorsement with its metadata</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>in_pool</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Whether the endorsement is still in pool </p></td>
+                </tr>
+              
+                <tr>
+                  <td>in_blocks</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>The endorsement appears in `in_blocks`
+If it appears in multiple blocks, these blocks are in different cliques </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_final</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Whether the the endorsement is final (for example in a final block) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>endorsement</td>
+                  <td><a href="#massa.model.v1.SignedEndorsement">SignedEndorsement</a></td>
+                  <td></td>
+                  <td><p>The endorsement itself </p></td>
                 </tr>
               
             </tbody>

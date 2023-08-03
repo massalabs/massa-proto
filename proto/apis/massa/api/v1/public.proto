@@ -55,6 +55,14 @@ service PublicService {
     };
   }
 
+  // Get endorsements
+  rpc GetEndorsements(GetEndorsementsRequest) returns (GetEndorsementsResponse) {
+    option (google.api.http) = {
+      post: "/v1/get_endorsements"
+      body: "*"
+    };
+  }
+
   // Get next block best parents
   rpc GetNextBlockBestParents(GetNextBlockBestParentsRequest) returns (GetNextBlockBestParentsResponse) {
     option (google.api.http) = {
@@ -119,6 +127,14 @@ service PublicService {
     };
   }
 
+  // Search endorsements
+  rpc SearchEndorsements(SearchEndorsementsRequest) returns (SearchEndorsementsResponse) {
+    option (google.api.http) = {
+      post: "/v1/search_endorsements"
+      body: "*"
+    };
+  }
+
   // ███████╗████████╗██████╗ ███████╗ █████╗ ███╗   ███╗
   // ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗████╗ ████║
   // ███████╗   ██║   ██████╔╝█████╗  ███████║██╔████╔██║
@@ -153,12 +169,6 @@ service PublicService {
   rpc TransactionsThroughput(stream TransactionsThroughputRequest) returns (stream TransactionsThroughputResponse) {}
 }
 
-// GetBlocksRequest holds request for GetBlocks
-message GetBlocksRequest {
-  // Returns all the blocks that verify all the filters
-  repeated GetBlocksFilter filters = 1;
-}
-
 // ExecuteReadOnlyCallRequest holds request for ExecuteReadOnlyCall
 message ExecuteReadOnlyCallRequest {
   // Execution call
@@ -169,6 +179,12 @@ message ExecuteReadOnlyCallRequest {
 message ExecuteReadOnlyCallResponse {
   // Execution output
   massa.model.v1.ReadOnlyExecutionOutput output = 1;
+}
+
+// GetBlocksRequest holds request for GetBlocks
+message GetBlocksRequest {
+  // Returns all the blocks that verify all the filters
+  repeated GetBlocksFilter filters = 1;
 }
 
 // GetBlocks Filter
@@ -209,6 +225,18 @@ message GetDatastoreEntryFilter {
 message GetDatastoreEntriesResponse {
   // Datastore entries
   repeated massa.model.v1.DatastoreEntry datastore_entries = 1;
+}
+
+// GetEndorsementsRequest holds request for GetEndorsements
+message GetEndorsementsRequest {
+  // Endorsement ids
+  repeated string endorsement_ids = 1;
+}
+
+// GetEndorsementsResponse holds response from GetEndorsements
+message GetEndorsementsResponse {
+  // Wrapped operations
+  repeated massa.model.v1.EndorsementWrapper wrapped_endorsements = 1;
 }
 
 // GetNextBlockBestParentsRequest holds request for GetNextBlockBestParents
@@ -742,7 +770,7 @@ message SendEndorsementsResponse {
   // Endorsement result or gRPC status
   oneof result {
     // Endorsement result
-    massa.model.v1.EndorsementsIds endorsements_ids = 1;
+    massa.model.v1.EndorsementIds endorsements_ids = 1;
     // Massa error
     massa.model.v1.Error error = 2;
   }
@@ -775,4 +803,29 @@ message TransactionsThroughputRequest {
 message TransactionsThroughputResponse {
   // Transactions throughput per second
   uint32 throughput = 1;
+}
+
+// SearchEndorsementsRequest holds request for SearchEndorsements
+message SearchEndorsementsRequest {
+  // Returns all the endorsements informations that verify all the filters
+  repeated SearchEndorsementsFilter filters = 1;
+}
+
+// SearchEndorsements Filter
+message SearchEndorsementsFilter {
+  // Filter
+  oneof filter {
+    // One of this endorsement ids
+    massa.model.v1.EndorsementIds endorsement_ids = 1;
+    // One of this creator addresses
+    massa.model.v1.Addresses addresses = 2;
+    // One of this block ids
+    massa.model.v1.BlockIds block_ids = 3;
+  }
+}
+
+// SearchEndorsementsResponse holds response from SearchEndorsements
+message SearchEndorsementsResponse {
+  // Information about the endorsements
+  repeated massa.model.v1.EndorsementInfo endorsement_info = 1;
 }
