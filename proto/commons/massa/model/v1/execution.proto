@@ -171,7 +171,7 @@ message AsyncMessage {
   // the handler function name within the destination address' bytecode
   string handler = 5;
   // Maximum gas to use when processing the message
-  uint64 max_gas = 6;
+  uint64 used_gas = 6;
   // Fee paid by the sender when the message is processed.
   massa.model.v1.NativeAmount fee = 7;
   // Coins sent from the sender to the target address of the message.
@@ -206,7 +206,7 @@ message AsyncMessageUpdate {
   // Change the handler function name within the destination address' bytecode
   SetOrKeepString handler = 5;
   // Change the maximum gas to use when processing the message
-  SetOrKeepUint64 max_gas = 6;
+  SetOrKeepUint64 used_gas = 6;
   // Change the fee paid by the sender when the message is processed.
   SetOrKeepUint64 fee = 7;
   // Change the coins sent from the sender to the target address of the message.
@@ -375,7 +375,7 @@ message SetOrDeleteDatastoreEntry {
 // Read-only execution call
 message ReadOnlyExecutionCall {
   // Maximum gas to spend in the execution.
-  uint64 max_gas = 1;
+  uint64 used_gas = 1;
   // Call stack to simulate, older caller first
   repeated ExecutionStackElement call_stack = 2;
   // Target of the call
@@ -416,7 +416,7 @@ message ReadOnlyExecutionOutput {
   // Output of a single execution
   ExecutionOutput out = 1;
   // Gas cost for this execution
-  uint64 max_gas = 2;
+  uint64 used_gas = 2;
   // Returned value from the module call
   bytes call_result = 3;
 }
