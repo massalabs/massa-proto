@@ -474,10 +474,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.GetBlocksFilter"><span class="badge">M</span>GetBlocksFilter</a>
-                </li>
-              
-                <li>
                   <a href="#massa.api.v1.GetBlocksRequest"><span class="badge">M</span>GetBlocksRequest</a>
                 </li>
               
@@ -498,15 +494,19 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.GetEndorsementsRequest"><span class="badge">M</span>GetEndorsementsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetEndorsementsResponse"><span class="badge">M</span>GetEndorsementsResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.GetNextBlockBestParentsRequest"><span class="badge">M</span>GetNextBlockBestParentsRequest</a>
                 </li>
               
                 <li>
                   <a href="#massa.api.v1.GetNextBlockBestParentsResponse"><span class="badge">M</span>GetNextBlockBestParentsResponse</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.api.v1.GetOperationsFilter"><span class="badge">M</span>GetOperationsFilter</a>
                 </li>
               
                 <li>
@@ -635,6 +635,42 @@
               
                 <li>
                   <a href="#massa.api.v1.ScOutputEventsWrapper"><span class="badge">M</span>ScOutputEventsWrapper</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SearchBlocksFilter"><span class="badge">M</span>SearchBlocksFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SearchBlocksRequest"><span class="badge">M</span>SearchBlocksRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SearchBlocksResponse"><span class="badge">M</span>SearchBlocksResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SearchEndorsementsFilter"><span class="badge">M</span>SearchEndorsementsFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SearchEndorsementsRequest"><span class="badge">M</span>SearchEndorsementsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SearchEndorsementsResponse"><span class="badge">M</span>SearchEndorsementsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SearchOperationsFilter"><span class="badge">M</span>SearchOperationsFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SearchOperationsRequest"><span class="badge">M</span>SearchOperationsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.SearchOperationsResponse"><span class="badge">M</span>SearchOperationsResponse</a>
                 </li>
               
                 <li>
@@ -2698,44 +2734,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.GetBlocksFilter">GetBlocksFilter</h3>
-        <p>GetBlocks Filter</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>addresses</td>
-                  <td><a href="#massa.model.v1.Addresses">massa.model.v1.Addresses</a></td>
-                  <td></td>
-                  <td><p>One of this creator addresses </p></td>
-                </tr>
-              
-                <tr>
-                  <td>block_ids</td>
-                  <td><a href="#massa.model.v1.BlockIds">massa.model.v1.BlockIds</a></td>
-                  <td></td>
-                  <td><p>One of this block ids </p></td>
-                </tr>
-              
-                <tr>
-                  <td>slot_range</td>
-                  <td><a href="#massa.model.v1.SlotRange">massa.model.v1.SlotRange</a></td>
-                  <td></td>
-                  <td><p>One of this slot ranges (inclusive) </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.api.v1.GetBlocksRequest">GetBlocksRequest</h3>
         <p>GetBlocksRequest holds request for GetBlocks</p>
 
@@ -2747,10 +2745,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>filters</td>
-                  <td><a href="#massa.api.v1.GetBlocksFilter">GetBlocksFilter</a></td>
+                  <td>block_ids</td>
+                  <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p>Returns all the blocks that verify all the filters </p></td>
+                  <td><p>Block ids </p></td>
                 </tr>
               
             </tbody>
@@ -2856,6 +2854,54 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
+        <h3 id="massa.api.v1.GetEndorsementsRequest">GetEndorsementsRequest</h3>
+        <p>GetEndorsementsRequest holds request for GetEndorsements</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>endorsement_ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Endorsement ids </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetEndorsementsResponse">GetEndorsementsResponse</h3>
+        <p>GetEndorsementsResponse holds response from GetEndorsements</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wrapped_endorsements</td>
+                  <td><a href="#massa.model.v1.EndorsementWrapper">massa.model.v1.EndorsementWrapper</a></td>
+                  <td>repeated</td>
+                  <td><p>Wrapped operations </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.GetNextBlockBestParentsRequest">GetNextBlockBestParentsRequest</h3>
         <p>GetNextBlockBestParentsRequest holds request for GetNextBlockBestParents</p>
 
@@ -2887,37 +2933,6 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.GetOperationsFilter">GetOperationsFilter</h3>
-        <p>GetOperations Filter</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>operation_ids</td>
-                  <td><a href="#massa.model.v1.OperationIds">massa.model.v1.OperationIds</a></td>
-                  <td></td>
-                  <td><p>One of the operation ids </p></td>
-                </tr>
-              
-                <tr>
-                  <td>operation_types</td>
-                  <td><a href="#massa.model.v1.OpTypes">massa.model.v1.OpTypes</a></td>
-                  <td></td>
-                  <td><p>One of the operation types </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.api.v1.GetOperationsRequest">GetOperationsRequest</h3>
         <p>GetOperationsRequest holds request for GetOperations</p>
 
@@ -2929,10 +2944,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>filters</td>
-                  <td><a href="#massa.api.v1.GetOperationsFilter">GetOperationsFilter</a></td>
+                  <td>operation_ids</td>
+                  <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p>Returns all the operations that verify all the filters </p></td>
+                  <td><p>Operation ids </p></td>
                 </tr>
               
             </tbody>
@@ -3640,6 +3655,257 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
+        <h3 id="massa.api.v1.SearchBlocksFilter">SearchBlocksFilter</h3>
+        <p>SearchBlocks Filter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_ids</td>
+                  <td><a href="#massa.model.v1.BlockIds">massa.model.v1.BlockIds</a></td>
+                  <td></td>
+                  <td><p>One of this block ids </p></td>
+                </tr>
+              
+                <tr>
+                  <td>addresses</td>
+                  <td><a href="#massa.model.v1.Addresses">massa.model.v1.Addresses</a></td>
+                  <td></td>
+                  <td><p>One of this creator addresses </p></td>
+                </tr>
+              
+                <tr>
+                  <td>slot_range</td>
+                  <td><a href="#massa.model.v1.SlotRange">massa.model.v1.SlotRange</a></td>
+                  <td></td>
+                  <td><p>One of this slot ranges (inclusive) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.SearchBlocksRequest">SearchBlocksRequest</h3>
+        <p>SearchBlocksRequest holds request for SearchBlocks</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.SearchBlocksFilter">SearchBlocksFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the blocks that verify all the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.SearchBlocksResponse">SearchBlocksResponse</h3>
+        <p>SearchBlocksResponse holds response from SearchBlocks</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_infos</td>
+                  <td><a href="#massa.model.v1.BlockInfo">massa.model.v1.BlockInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>Information about the blocks </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.SearchEndorsementsFilter">SearchEndorsementsFilter</h3>
+        <p>SearchEndorsements Filter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>endorsement_ids</td>
+                  <td><a href="#massa.model.v1.EndorsementIds">massa.model.v1.EndorsementIds</a></td>
+                  <td></td>
+                  <td><p>One of this endorsement ids </p></td>
+                </tr>
+              
+                <tr>
+                  <td>addresses</td>
+                  <td><a href="#massa.model.v1.Addresses">massa.model.v1.Addresses</a></td>
+                  <td></td>
+                  <td><p>One of this creator addresses </p></td>
+                </tr>
+              
+                <tr>
+                  <td>block_ids</td>
+                  <td><a href="#massa.model.v1.BlockIds">massa.model.v1.BlockIds</a></td>
+                  <td></td>
+                  <td><p>One of this block ids </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.SearchEndorsementsRequest">SearchEndorsementsRequest</h3>
+        <p>SearchEndorsementsRequest holds request for SearchEndorsements</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.SearchEndorsementsFilter">SearchEndorsementsFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the endorsements informations that verify all the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.SearchEndorsementsResponse">SearchEndorsementsResponse</h3>
+        <p>SearchEndorsementsResponse holds response from SearchEndorsements</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>endorsement_infos</td>
+                  <td><a href="#massa.model.v1.EndorsementInfo">massa.model.v1.EndorsementInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>Information about the endorsements </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.SearchOperationsFilter">SearchOperationsFilter</h3>
+        <p>SearchOperations Filter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>operation_ids</td>
+                  <td><a href="#massa.model.v1.OperationIds">massa.model.v1.OperationIds</a></td>
+                  <td></td>
+                  <td><p>One of the operation ids </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_types</td>
+                  <td><a href="#massa.model.v1.OpTypes">massa.model.v1.OpTypes</a></td>
+                  <td></td>
+                  <td><p>One of the operation types </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.SearchOperationsRequest">SearchOperationsRequest</h3>
+        <p>SearchOperationsRequest holds request for SearchOperations</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.SearchOperationsFilter">SearchOperationsFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the operations that verify all the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.SearchOperationsResponse">SearchOperationsResponse</h3>
+        <p>SearchOperationsResponse holds response from SearchOperations</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>operation_infos</td>
+                  <td><a href="#massa.model.v1.OperationInfo">massa.model.v1.OperationInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>Information about the operations </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.SelectorDrawsFilter">SelectorDrawsFilter</h3>
         <p>SelectorDraws Filter</p>
 
@@ -3762,7 +4028,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>endorsements_ids</td>
-                  <td><a href="#massa.model.v1.EndorsementsIds">massa.model.v1.EndorsementsIds</a></td>
+                  <td><a href="#massa.model.v1.EndorsementIds">massa.model.v1.EndorsementIds</a></td>
                   <td></td>
                   <td><p>Endorsement result </p></td>
                 </tr>
@@ -3993,6 +4259,13 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               </tr>
             
               <tr>
+                <td>GetEndorsements</td>
+                <td><a href="#massa.api.v1.GetEndorsementsRequest">GetEndorsementsRequest</a></td>
+                <td><a href="#massa.api.v1.GetEndorsementsResponse">GetEndorsementsResponse</a></td>
+                <td><p>Get endorsements by ids</p></td>
+              </tr>
+            
+              <tr>
                 <td>GetNextBlockBestParents</td>
                 <td><a href="#massa.api.v1.GetNextBlockBestParentsRequest">GetNextBlockBestParentsRequest</a></td>
                 <td><a href="#massa.api.v1.GetNextBlockBestParentsResponse">GetNextBlockBestParentsResponse</a></td>
@@ -4003,7 +4276,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td>GetOperations</td>
                 <td><a href="#massa.api.v1.GetOperationsRequest">GetOperationsRequest</a></td>
                 <td><a href="#massa.api.v1.GetOperationsResponse">GetOperationsResponse</a></td>
-                <td><p>Get operations</p></td>
+                <td><p>Get operations by ids</p></td>
               </tr>
             
               <tr>
@@ -4046,6 +4319,27 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td><a href="#massa.api.v1.QueryStateRequest">QueryStateRequest</a></td>
                 <td><a href="#massa.api.v1.QueryStateResponse">QueryStateResponse</a></td>
                 <td><p>Query state</p></td>
+              </tr>
+            
+              <tr>
+                <td>SearchBlocks</td>
+                <td><a href="#massa.api.v1.SearchBlocksRequest">SearchBlocksRequest</a></td>
+                <td><a href="#massa.api.v1.SearchBlocksResponse">SearchBlocksResponse</a></td>
+                <td><p>Search blocks</p></td>
+              </tr>
+            
+              <tr>
+                <td>SearchEndorsements</td>
+                <td><a href="#massa.api.v1.SearchEndorsementsRequest">SearchEndorsementsRequest</a></td>
+                <td><a href="#massa.api.v1.SearchEndorsementsResponse">SearchEndorsementsResponse</a></td>
+                <td><p>Search endorsements</p></td>
+              </tr>
+            
+              <tr>
+                <td>SearchOperations</td>
+                <td><a href="#massa.api.v1.SearchOperationsRequest">SearchOperationsRequest</a></td>
+                <td><a href="#massa.api.v1.SearchOperationsResponse">SearchOperationsResponse</a></td>
+                <td><p>Search operations</p></td>
               </tr>
             
               <tr>
@@ -4162,6 +4456,16 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
               
               <tr>
+                <td>GetEndorsements</td>
+                <td>POST</td>
+                <td>/v1/get_endorsements</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
                 <td>GetNextBlockBestParents</td>
                 <td>POST</td>
                 <td>/v1/get_next_block_best_parents</td>
@@ -4235,6 +4539,36 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 <td>QueryState</td>
                 <td>POST</td>
                 <td>/v1/query_state</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>SearchBlocks</td>
+                <td>POST</td>
+                <td>/v1/search_blocks</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>SearchEndorsements</td>
+                <td>POST</td>
+                <td>/v1/search_endorsements</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>SearchOperations</td>
+                <td>POST</td>
+                <td>/v1/search_operations</td>
                 <td>*</td>
               </tr>
               

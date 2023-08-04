@@ -43,6 +43,7 @@
     - [OpTypes](#massa-model-v1-OpTypes)
     - [Operation](#massa-model-v1-Operation)
     - [OperationIds](#massa-model-v1-OperationIds)
+    - [OperationInfo](#massa-model-v1-OperationInfo)
     - [OperationType](#massa-model-v1-OperationType)
     - [OperationWrapper](#massa-model-v1-OperationWrapper)
     - [RollBuy](#massa-model-v1-RollBuy)
@@ -125,6 +126,7 @@
     - [Block](#massa-model-v1-Block)
     - [BlockHeader](#massa-model-v1-BlockHeader)
     - [BlockIds](#massa-model-v1-BlockIds)
+    - [BlockInfo](#massa-model-v1-BlockInfo)
     - [BlockParent](#massa-model-v1-BlockParent)
     - [BlockWrapper](#massa-model-v1-BlockWrapper)
     - [FilledBlock](#massa-model-v1-FilledBlock)
@@ -136,7 +138,9 @@
   
 - [massa/model/v1/endorsement.proto](#massa_model_v1_endorsement-proto)
     - [Endorsement](#massa-model-v1-Endorsement)
-    - [EndorsementsIds](#massa-model-v1-EndorsementsIds)
+    - [EndorsementIds](#massa-model-v1-EndorsementIds)
+    - [EndorsementInfo](#massa-model-v1-EndorsementInfo)
+    - [EndorsementWrapper](#massa-model-v1-EndorsementWrapper)
     - [SignedEndorsement](#massa-model-v1-SignedEndorsement)
   
 - [massa/model/v1/time.proto](#massa_model_v1_time-proto)
@@ -685,6 +689,23 @@ OperationIds
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | operation_ids | [string](#string) | repeated | Operations ids |
+
+
+
+
+
+
+<a name="massa-model-v1-OperationInfo"></a>
+
+### OperationInfo
+Information about an operation with its metadata
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | The unique ID of the operation. |
+| block_ids | [string](#string) | repeated | The IDs of the blocks in which the operation appears |
+| thread | [uint32](#uint32) |  | The thread in which the operation can be included |
 
 
 
@@ -1863,6 +1884,22 @@ BlockIds holds block ids
 
 
 
+<a name="massa-model-v1-BlockInfo"></a>
+
+### BlockInfo
+Informations about a block with its metadata
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_id | [string](#string) |  | The unique ID of the block. |
+| status | [BlockStatus](#massa-model-v1-BlockStatus) |  | The execution status of the block |
+
+
+
+
+
+
 <a name="massa-model-v1-BlockParent"></a>
 
 ### BlockParent
@@ -2016,15 +2053,53 @@ An endorsement, as sent in the network
 
 
 
-<a name="massa-model-v1-EndorsementsIds"></a>
+<a name="massa-model-v1-EndorsementIds"></a>
 
-### EndorsementsIds
+### EndorsementIds
 EndorsementIds holds endorsements ids
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | endorsements_ids | [string](#string) | repeated | Endorsements ids |
+
+
+
+
+
+
+<a name="massa-model-v1-EndorsementInfo"></a>
+
+### EndorsementInfo
+Informations about an endorsement with its metadata
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Id |
+| in_pool | [bool](#bool) |  | Whether the endorsement is still in pool |
+| in_blocks | [string](#string) | repeated | The endorsement appears in `in_blocks` If it appears in multiple blocks, these blocks are in different cliques |
+| is_final | [bool](#bool) |  | Whether the the endorsement is final (for example in a final block) |
+| endorsement_id | [string](#string) |  | The endorsement id |
+
+
+
+
+
+
+<a name="massa-model-v1-EndorsementWrapper"></a>
+
+### EndorsementWrapper
+A wrapper around an endorsement with its metadata
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Id |
+| in_pool | [bool](#bool) |  | Whether the endorsement is still in pool |
+| in_blocks | [string](#string) | repeated | The endorsement appears in `in_blocks` If it appears in multiple blocks, these blocks are in different cliques |
+| is_final | [bool](#bool) |  | Whether the the endorsement is final (for example in a final block) |
+| endorsement | [SignedEndorsement](#massa-model-v1-SignedEndorsement) |  | The endorsement itself |
 
 
 

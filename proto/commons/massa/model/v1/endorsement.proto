@@ -43,7 +43,37 @@ message SignedEndorsement {
 }
 
 // EndorsementIds holds endorsements ids
-message EndorsementsIds {
+message EndorsementIds {
   // Endorsements ids
   repeated string endorsements_ids = 1;
+}
+
+// A wrapper around an endorsement with its metadata
+message EndorsementWrapper {
+  // Id
+  string id = 1;
+  // Whether the endorsement is still in pool
+  bool in_pool = 2;
+  // The endorsement appears in `in_blocks`
+  // If it appears in multiple blocks, these blocks are in different cliques
+  repeated string in_blocks = 3;
+  // Whether the the endorsement is final (for example in a final block)
+  bool is_final = 4;
+  // The endorsement itself
+  SignedEndorsement endorsement = 5;
+}
+
+// Informations about an endorsement with its metadata
+message EndorsementInfo {
+  // Id
+  string id = 1;
+  // Whether the endorsement is still in pool
+  bool in_pool = 2;
+  // The endorsement appears in `in_blocks`
+  // If it appears in multiple blocks, these blocks are in different cliques
+  repeated string in_blocks = 3;
+  // Whether the the endorsement is final (for example in a final block)
+  bool is_final = 4;
+  // The endorsement id
+  string endorsement_id = 5;
 }
