@@ -739,7 +739,6 @@ A wrapper around an operation with its metadata
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | The unique ID of the operation. |
 | block_ids | [string](#string) | repeated | The IDs of the blocks in which the operation appears |
 | thread | [uint32](#uint32) |  | The thread in which the operation can be included |
 | operation | [SignedOperation](#massa-model-v1-SignedOperation) |  | The operation object itself |
@@ -1924,9 +1923,8 @@ A wrapper around a block with its metadata
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_id | [string](#string) |  | The unique ID of the block. |
-| block | [Block](#massa-model-v1-Block) |  | The block object itself |
 | status | [BlockStatus](#massa-model-v1-BlockStatus) |  | The execution status of the block |
+| block | [Block](#massa-model-v1-Block) |  | The block object itself |
 
 
 
@@ -2076,11 +2074,10 @@ Informations about an endorsement with its metadata
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Id |
+| endorsement_id | [string](#string) |  | The endorsement id |
 | in_pool | [bool](#bool) |  | Whether the endorsement is still in pool |
 | in_blocks | [string](#string) | repeated | The endorsement appears in `in_blocks` If it appears in multiple blocks, these blocks are in different cliques |
 | is_final | [bool](#bool) |  | Whether the the endorsement is final (for example in a final block) |
-| endorsement_id | [string](#string) |  | The endorsement id |
 
 
 
@@ -2095,7 +2092,6 @@ A wrapper around an endorsement with its metadata
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Id |
 | in_pool | [bool](#bool) |  | Whether the endorsement is still in pool |
 | in_blocks | [string](#string) | repeated | The endorsement appears in `in_blocks` If it appears in multiple blocks, these blocks are in different cliques |
 | is_final | [bool](#bool) |  | Whether the the endorsement is final (for example in a final block) |

@@ -50,23 +50,21 @@ message EndorsementIds {
 
 // A wrapper around an endorsement with its metadata
 message EndorsementWrapper {
-  // Id
-  string id = 1;
   // Whether the endorsement is still in pool
-  bool in_pool = 2;
+  bool in_pool = 1;
   // The endorsement appears in `in_blocks`
   // If it appears in multiple blocks, these blocks are in different cliques
-  repeated string in_blocks = 3;
+  repeated string in_blocks = 2;
   // Whether the the endorsement is final (for example in a final block)
-  bool is_final = 4;
+  bool is_final = 3;
   // The endorsement itself
-  SignedEndorsement endorsement = 5;
+  SignedEndorsement endorsement = 4;
 }
 
 // Informations about an endorsement with its metadata
 message EndorsementInfo {
-  // Id
-  string id = 1;
+  // The endorsement id
+  string endorsement_id = 1;
   // Whether the endorsement is still in pool
   bool in_pool = 2;
   // The endorsement appears in `in_blocks`
@@ -74,6 +72,4 @@ message EndorsementInfo {
   repeated string in_blocks = 3;
   // Whether the the endorsement is final (for example in a final block)
   bool is_final = 4;
-  // The endorsement id
-  string endorsement_id = 5;
 }
