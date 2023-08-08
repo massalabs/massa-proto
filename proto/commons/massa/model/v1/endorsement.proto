@@ -45,7 +45,7 @@ message SignedEndorsement {
 // EndorsementIds holds endorsements ids
 message EndorsementIds {
   // Endorsements ids
-  repeated string endorsements_ids = 1;
+  repeated string endorsement_ids = 1;
 }
 
 // A wrapper around an endorsement with its metadata
