@@ -2084,13 +2084,6 @@
             <tbody>
               
                 <tr>
-                  <td>id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>The unique ID of the operation. </p></td>
-                </tr>
-              
-                <tr>
                   <td>block_ids</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
@@ -4561,10 +4554,10 @@ Whether to start execution from final or active state </p></td>
             <tbody>
               
                 <tr>
-                  <td>block_id</td>
-                  <td><a href="#string">string</a></td>
+                  <td>status</td>
+                  <td><a href="#massa.model.v1.BlockStatus">BlockStatus</a></td>
                   <td></td>
-                  <td><p>The unique ID of the block. </p></td>
+                  <td><p>The execution status of the block </p></td>
                 </tr>
               
                 <tr>
@@ -4572,13 +4565,6 @@ Whether to start execution from final or active state </p></td>
                   <td><a href="#massa.model.v1.Block">Block</a></td>
                   <td></td>
                   <td><p>The block object itself </p></td>
-                </tr>
-              
-                <tr>
-                  <td>status</td>
-                  <td><a href="#massa.model.v1.BlockStatus">BlockStatus</a></td>
-                  <td></td>
-                  <td><p>The execution status of the block </p></td>
                 </tr>
               
             </tbody>
@@ -4897,10 +4883,10 @@ This is the parent in thread `self.slot.thread` of the block in which the endors
             <tbody>
               
                 <tr>
-                  <td>id</td>
+                  <td>endorsement_id</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>Id </p></td>
+                  <td><p>The endorsement id </p></td>
                 </tr>
               
                 <tr>
@@ -4925,13 +4911,6 @@ If it appears in multiple blocks, these blocks are in different cliques </p></td
                   <td><p>Whether the the endorsement is final (for example in a final block) </p></td>
                 </tr>
               
-                <tr>
-                  <td>endorsement_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>The endorsement id </p></td>
-                </tr>
-              
             </tbody>
           </table>
 
@@ -4948,13 +4927,6 @@ If it appears in multiple blocks, these blocks are in different cliques </p></td
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Id </p></td>
-                </tr>
               
                 <tr>
                   <td>in_pool</td>

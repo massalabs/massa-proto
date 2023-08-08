@@ -101,12 +101,10 @@ enum BlockStatus {
 
 // A wrapper around a block with its metadata
 message BlockWrapper {
-  // The unique ID of the block.
-  string block_id = 1;
+  // The execution status of the block
+  BlockStatus status = 1;
   // The block object itself
   Block block = 2;
-  // The execution status of the block
-  BlockStatus status = 3;
 }
 
 // Informations about a block with its metadata
