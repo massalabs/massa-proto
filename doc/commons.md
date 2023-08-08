@@ -1120,7 +1120,7 @@ Asynchronous smart contract message
 | sender | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Change the address that sent the message |
 | destination | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Change the address towards which the message is being sent |
 | handler | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Change the handler function name within the destination address&#39; bytecode |
-| used_gas | [SetOrKeepUint64](#massa-model-v1-SetOrKeepUint64) |  | Change the maximum gas to use when processing the message |
+| max_gas | [SetOrKeepUint64](#massa-model-v1-SetOrKeepUint64) |  | Change the maximum gas to use when processing the message |
 | fee | [SetOrKeepUint64](#massa-model-v1-SetOrKeepUint64) |  | Change the fee paid by the sender when the message is processed. |
 | coins | [SetOrKeepUint64](#massa-model-v1-SetOrKeepUint64) |  | Change the coins sent from the sender to the target address of the message. Those coins are spent by the sender address when the message is sent, and credited to the destination address when receiving the message. In case of failure or discard, those coins are reimbursed to the sender. |
 | validity_start | [SetOrKeepSlot](#massa-model-v1-SetOrKeepSlot) |  | Change the slot at which the message starts being valid (bound included in the validity range) |
@@ -1362,7 +1362,7 @@ Read-only execution call
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| used_gas | [uint64](#uint64) |  | Maximum gas to spend in the execution. |
+| max_gas | [uint64](#uint64) |  | Maximum gas to spend in the execution. |
 | call_stack | [ExecutionStackElement](#massa-model-v1-ExecutionStackElement) | repeated | Call stack to simulate, older caller first |
 | bytecode_call | [BytecodeExecution](#massa-model-v1-BytecodeExecution) |  | Byte code |
 | function_call | [FunctionCall](#massa-model-v1-FunctionCall) |  | Function call |
