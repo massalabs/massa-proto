@@ -762,7 +762,7 @@ message SendEndorsementsResponse {
   // Endorsement result or gRPC status
   oneof result {
     // Endorsement result
-    massa.model.v1.EndorsementIds endorsements_ids = 1;
+    massa.model.v1.EndorsementIds endorsement_ids = 1;
     // Massa error
     massa.model.v1.Error error = 2;
   }
@@ -779,7 +779,7 @@ message SendOperationsResponse {
   // Operation result or gRPC status
   oneof result {
     // Operation result
-    massa.model.v1.OperationIds operations_ids = 1;
+    massa.model.v1.OperationIds operation_ids = 1;
     // Massa error
     massa.model.v1.Error error = 2;
   }
