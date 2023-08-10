@@ -404,9 +404,9 @@ message BytecodeExecution {
 // Execute a function call
 message FunctionCall {
   // Target address
-  string target_addr = 1;
+  string target_address = 1;
   // Target function
-  string target_func = 2;
+  string target_function = 2;
   // Parameter to pass to the target function
   bytes parameter = 3;
 }

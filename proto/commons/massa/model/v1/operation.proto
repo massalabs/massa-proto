@@ -77,11 +77,11 @@ message ExecuteSC {
 // Calls an exported function from a stored smart contract
 message CallSC {
   // Target smart contract address
-  string target_addr = 1;
+  string target_address = 1;
   // Target function name. No function is called if empty
-  string target_func = 2;
+  string target_function = 2;
   // Parameter to pass to the target function
-  bytes param = 3;
+  bytes parameter = 3;
   // The maximum amount of gas that the execution of the contract is allowed to cost
   uint64 max_gas = 4;
   // Extra coins that are spent from the caller's balance and transferred to the target
