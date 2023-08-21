@@ -1077,7 +1077,7 @@ Asynchronous smart contract message
 | sender | [string](#string) |  | The address that sent the message |
 | destination | [string](#string) |  | The address towards which the message is being sent |
 | handler | [string](#string) |  | the handler function name within the destination address&#39; bytecode |
-| used_gas | [uint64](#uint64) |  | Maximum gas to use when processing the message |
+| max_gas | [uint64](#uint64) |  | Maximum gas to use when processing the message |
 | fee | [NativeAmount](#massa-model-v1-NativeAmount) |  | Fee paid by the sender when the message is processed. |
 | coins | [NativeAmount](#massa-model-v1-NativeAmount) |  | Coins sent from the sender to the target address of the message. Those coins are spent by the sender address when the message is sent, and credited to the destination address when receiving the message. In case of failure or discard, those coins are reimbursed to the sender. |
 | validity_start | [Slot](#massa-model-v1-Slot) |  | Slot at which the message starts being valid (bound included in the validity range) |
