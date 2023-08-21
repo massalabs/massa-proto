@@ -171,7 +171,7 @@ message AsyncMessage {
   // the handler function name within the destination address' bytecode
   string handler = 5;
   // Maximum gas to use when processing the message
-  uint64 used_gas = 6;
+  uint64 max_gas = 6;
   // Fee paid by the sender when the message is processed.
   massa.model.v1.NativeAmount fee = 7;
   // Coins sent from the sender to the target address of the message.
