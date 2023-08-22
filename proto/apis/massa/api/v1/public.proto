@@ -219,7 +219,7 @@ message GetDatastoreEntriesRequest {
 message GetDatastoreEntryFilter {
   // Filter
   oneof filter {
-    // One of this (address-key) pairs
+    // One of these (address-key) pairs
     massa.model.v1.AddressKeyEntry address_key = 1;
   }
 }
@@ -669,11 +669,11 @@ message NewBlocksRequest {
 message NewBlocksFilter {
   // Filter
   oneof filter {
-    // One of this block ids
+    // One of these block ids
     massa.model.v1.BlockIds block_ids = 1;
-    // One of this creator addresses
+    // One of these creator addresses
     massa.model.v1.Addresses addresses = 2;
-    // One of this slot ranges (inclusive)
+    // One of these slot ranges (inclusive)
     massa.model.v1.SlotRange slot_range = 3;
   }
 }
@@ -694,11 +694,11 @@ message NewBlocksHeadersRequest {
 message NewBlockHeadersBlocksFilter {
   // Filter
   oneof filter {
-    // One of this block ids
+    // One of these block ids
     massa.model.v1.BlockIds block_ids = 1;
-    // One of this creator addresses
+    // One of these creator addresses
     massa.model.v1.Addresses addresses = 2;
-    // One of this slot ranges (inclusive)
+    // One of these slot ranges (inclusive)
     massa.model.v1.SlotRange slot_range = 3;
   }
 }
@@ -719,11 +719,11 @@ message NewEndorsementsRequest {
 message NewEndorsementsFilter {
   // Filter
   oneof filter {
-    // One of this endorsement ids
+    // One of these endorsement ids
     massa.model.v1.EndorsementIds endorsement_ids = 1;
-    // One of this creator addresses
+    // One of these creator addresses
     massa.model.v1.Addresses addresses = 2;
-    // One of this block ids
+    // One of these block ids
     massa.model.v1.BlockIds block_ids = 3;
   }
 }
@@ -755,7 +755,7 @@ message NewOperationsFilter {
   oneof filter {
     // One of the operation ids
     massa.model.v1.OperationIds operation_ids = 1;
-    // One of this creator addresses
+    // One of these creator addresses
     massa.model.v1.Addresses addresses = 2;
     // One of the operation types
     massa.model.v1.OpTypes operation_types = 3;
@@ -862,11 +862,11 @@ message SearchBlocksRequest {
 message SearchBlocksFilter {
   // Filter
   oneof filter {
-    // One of this block ids
+    // One of these block ids
     massa.model.v1.BlockIds block_ids = 1;
-    // One of this creator addresses
+    // One of these creator addresses
     massa.model.v1.Addresses addresses = 2;
-    // One of this slot ranges (inclusive)
+    // One of these slot ranges (inclusive)
     massa.model.v1.SlotRange slot_range = 3;
   }
 }
@@ -887,11 +887,11 @@ message SearchEndorsementsRequest {
 message SearchEndorsementsFilter {
   // Filter
   oneof filter {
-    // One of this endorsement ids
+    // One of these endorsement ids
     massa.model.v1.EndorsementIds endorsement_ids = 1;
-    // One of this creator addresses
+    // One of these creator addresses
     massa.model.v1.Addresses addresses = 2;
-    // One of this block ids
+    // One of these block ids
     massa.model.v1.BlockIds block_ids = 3;
   }
 }
@@ -914,7 +914,7 @@ message SearchOperationsFilter {
   oneof filter {
     // One of the operation ids
     massa.model.v1.OperationIds operation_ids = 1;
-    // One of this creator addresses
+    // One of these creator addresses
     massa.model.v1.Addresses addresses = 2;
     // One of the operation types. Requires at least addresses or operation_types to be set
     massa.model.v1.OpTypes operation_types = 3;

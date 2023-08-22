@@ -1256,7 +1256,7 @@ DatastoreEntryFilter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address_key | [massa.model.v1.AddressKeyEntry](#massa-model-v1-AddressKeyEntry) |  | One of this (address-key) pairs |
+| address_key | [massa.model.v1.AddressKeyEntry](#massa-model-v1-AddressKeyEntry) |  | One of these (address-key) pairs |
 
 
 
@@ -1496,9 +1496,9 @@ NewBlockHeadersBlocks Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of this block ids |
-| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of this creator addresses |
-| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of this slot ranges (inclusive) |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
+| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of these slot ranges (inclusive) |
 
 
 
@@ -1513,9 +1513,9 @@ NewBlocks Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of this block ids |
-| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of this creator addresses |
-| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of this slot ranges (inclusive) |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
+| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of these slot ranges (inclusive) |
 
 
 
@@ -1590,9 +1590,9 @@ NewEndorsements Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| endorsement_ids | [massa.model.v1.EndorsementIds](#massa-model-v1-EndorsementIds) |  | One of this endorsement ids |
-| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of this creator addresses |
-| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of this block ids |
+| endorsement_ids | [massa.model.v1.EndorsementIds](#massa-model-v1-EndorsementIds) |  | One of these endorsement ids |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
 
 
 
@@ -1663,7 +1663,7 @@ NewOperations Filter
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | operation_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | One of the operation ids |
-| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of this creator addresses |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
 | operation_types | [massa.model.v1.OpTypes](#massa-model-v1-OpTypes) |  | One of the operation types |
 
 
@@ -1852,9 +1852,9 @@ SearchBlocks Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of this block ids |
-| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of this creator addresses |
-| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of this slot ranges (inclusive) |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
+| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of these slot ranges (inclusive) |
 
 
 
@@ -1899,9 +1899,9 @@ SearchEndorsements Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| endorsement_ids | [massa.model.v1.EndorsementIds](#massa-model-v1-EndorsementIds) |  | One of this endorsement ids |
-| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of this creator addresses |
-| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of this block ids |
+| endorsement_ids | [massa.model.v1.EndorsementIds](#massa-model-v1-EndorsementIds) |  | One of these endorsement ids |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
 
 
 
@@ -1947,7 +1947,7 @@ SearchOperations Filter
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | operation_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | One of the operation ids |
-| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of this creator addresses |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
 | operation_types | [massa.model.v1.OpTypes](#massa-model-v1-OpTypes) |  | One of the operation types. Requires at least addresses or operation_types to be set |
 
 
