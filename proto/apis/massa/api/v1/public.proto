@@ -660,7 +660,23 @@ message ScOutputEventsWrapper {
 }
 
 // NewBlocksRequest holds request for NewBlocks
-message NewBlocksRequest {}
+message NewBlocksRequest {
+  // Returns all the blocks that verify all the filters
+  repeated NewBlocksFilter filters = 1;
+}
+
+// NewBlocks Filter
+message NewBlocksFilter {
+  // Filter
+  oneof filter {
+    // One of this block ids
+    massa.model.v1.BlockIds block_ids = 1;
+    // One of this creator addresses
+    massa.model.v1.Addresses addresses = 2;
+    // One of this slot ranges (inclusive)
+    massa.model.v1.SlotRange slot_range = 3;
+  }
+}
 
 // NewBlocksResponse holds response from NewBlocks
 message NewBlocksResponse {
@@ -669,7 +685,23 @@ message NewBlocksResponse {
 }
 
 // NewBlocksHeadersRequest holds request for NewBlocksHeaders
-message NewBlocksHeadersRequest {}
+message NewBlocksHeadersRequest {
+  // Returns all the block headers that verify all the filters
+  repeated NewBlockHeadersBlocksFilter filters = 1;
+}
+
+// NewBlockHeadersBlocks Filter
+message NewBlockHeadersBlocksFilter {
+  // Filter
+  oneof filter {
+    // One of this block ids
+    massa.model.v1.BlockIds block_ids = 1;
+    // One of this creator addresses
+    massa.model.v1.Addresses addresses = 2;
+    // One of this slot ranges (inclusive)
+    massa.model.v1.SlotRange slot_range = 3;
+  }
+}
 
 // NewBlocksHeadersResponse holds response from NewBlocksHeaders
 message NewBlocksHeadersResponse {
@@ -678,7 +710,23 @@ message NewBlocksHeadersResponse {
 }
 
 // NewEndorsementsRequest holds request for NewEndorsements
-message NewEndorsementsRequest {}
+message NewEndorsementsRequest {
+  // Returns all the endorsements that verify all the filters
+  repeated NewEndorsementsFilter filters = 1;
+}
+
+// NewEndorsements Filter
+message NewEndorsementsFilter {
+  // Filter
+  oneof filter {
+    // One of this endorsement ids
+    massa.model.v1.EndorsementIds endorsement_ids = 1;
+    // One of this creator addresses
+    massa.model.v1.Addresses addresses = 2;
+    // One of this block ids
+    massa.model.v1.BlockIds block_ids = 3;
+  }
+}
 
 // NewEndorsementsResponse holds response from NewEndorsements
 message NewEndorsementsResponse {
@@ -704,7 +752,14 @@ message NewOperationsRequest {
 // NewOperations Filter
 message NewOperationsFilter {
   // Filter
-  massa.model.v1.OpTypes operation_types = 2;
+  oneof filter {
+    // One of the operation ids
+    massa.model.v1.OperationIds operation_ids = 1;
+    // One of this creator addresses
+    massa.model.v1.Addresses addresses = 2;
+    // One of the operation types
+    massa.model.v1.OpTypes operation_types = 3;
+  }
 }
 
 // NewOperationsResponse holds response from NewOperations
@@ -859,8 +914,10 @@ message SearchOperationsFilter {
   oneof filter {
     // One of the operation ids
     massa.model.v1.OperationIds operation_ids = 1;
-    // One of the operation types
-    massa.model.v1.OpTypes operation_types = 2;
+    // One of this creator addresses
+    massa.model.v1.Addresses addresses = 2;
+    // One of the operation types. Requires at least addresses or operation_types to be set
+    massa.model.v1.OpTypes operation_types = 3;
   }
 }
 

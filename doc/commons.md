@@ -619,9 +619,9 @@ Calls an exported function from a stored smart contract
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_addr | [string](#string) |  | Target smart contract address |
-| target_func | [string](#string) |  | Target function name. No function is called if empty |
-| param | [bytes](#bytes) |  | Parameter to pass to the target function |
+| target_address | [string](#string) |  | Target smart contract address |
+| target_function | [string](#string) |  | Target function name. No function is called if empty |
+| parameter | [bytes](#bytes) |  | Parameter to pass to the target function |
 | max_gas | [uint64](#uint64) |  | The maximum amount of gas that the execution of the contract is allowed to cost |
 | coins | [NativeAmount](#massa-model-v1-NativeAmount) |  | Extra coins that are spent from the caller&#39;s balance and transferred to the target |
 
@@ -1278,8 +1278,8 @@ Execute a function call
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_addr | [string](#string) |  | Target address |
-| target_func | [string](#string) |  | Target function |
+| target_address | [string](#string) |  | Target address |
+| target_function | [string](#string) |  | Target function |
 | parameter | [bytes](#bytes) |  | Parameter to pass to the target function |
 
 
@@ -2059,7 +2059,7 @@ EndorsementIds holds endorsements ids
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| endorsements_ids | [string](#string) | repeated | Endorsements ids |
+| endorsement_ids | [string](#string) | repeated | Endorsements ids |
 
 
 
