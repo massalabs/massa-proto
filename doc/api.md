@@ -105,6 +105,7 @@
     - [NewEndorsementsFilter](#massa-api-v1-NewEndorsementsFilter)
     - [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest)
     - [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse)
+    - [NewFilledBlocksFilter](#massa-api-v1-NewFilledBlocksFilter)
     - [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest)
     - [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse)
     - [NewOperationsFilter](#massa-api-v1-NewOperationsFilter)
@@ -1579,10 +1580,32 @@ NewEndorsementsResponse holds response from NewEndorsements
 
 
 
+<a name="massa-api-v1-NewFilledBlocksFilter"></a>
+
+### NewFilledBlocksFilter
+NewFilledBlocks Filter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
+| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of these slot ranges (inclusive) |
+
+
+
+
+
+
 <a name="massa-api-v1-NewFilledBlocksRequest"></a>
 
 ### NewFilledBlocksRequest
 NewFilledBlocksRequest holds request for NewFilledBlocks
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [NewBlocksFilter](#massa-api-v1-NewBlocksFilter) | repeated | Returns all the blocks that verify one of the filters |
 
 
 

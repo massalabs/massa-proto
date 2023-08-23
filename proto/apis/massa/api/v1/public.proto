@@ -710,7 +710,23 @@ message NewEndorsementsResponse {
 }
 
 // NewFilledBlocksRequest holds request for NewFilledBlocks
-message NewFilledBlocksRequest {}
+message NewFilledBlocksRequest {
+  // Returns all the blocks that verify one of the filters
+  repeated NewBlocksFilter filters = 1;
+}
+
+// NewFilledBlocks Filter
+message NewFilledBlocksFilter {
+  // Filter
+  oneof filter {
+    // One of these block ids
+    massa.model.v1.BlockIds block_ids = 1;
+    // One of these creator addresses
+    massa.model.v1.Addresses addresses = 2;
+    // One of these slot ranges (inclusive)
+    massa.model.v1.SlotRange slot_range = 3;
+  }
+}
 
 // NewFilledBlocksResponse holds response from NewFilledBlocks
 message NewFilledBlocksResponse {
