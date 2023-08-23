@@ -907,8 +907,6 @@ message SearchOperationsFilter {
     massa.model.v1.OperationIds operation_ids = 1;
     // One of these creator addresses
     massa.model.v1.Addresses addresses = 2;
-    // One of the operation types. Requires at least addresses or operation_types to be set
-    massa.model.v1.OpTypes operation_types = 3;
   }
 }
 

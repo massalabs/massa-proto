@@ -1921,7 +1921,6 @@ SearchOperations Filter
 | ----- | ---- | ----- | ----------- |
 | operation_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | One of the operation ids |
 | addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
-| operation_types | [massa.model.v1.OpTypes](#massa-model-v1-OpTypes) |  | One of the operation types. Requires at least addresses or operation_types to be set |
 
 
 
