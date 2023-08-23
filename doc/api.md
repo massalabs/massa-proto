@@ -99,10 +99,7 @@
     - [GetStatusResponse](#massa-api-v1-GetStatusResponse)
     - [GetTransactionsThroughputRequest](#massa-api-v1-GetTransactionsThroughputRequest)
     - [GetTransactionsThroughputResponse](#massa-api-v1-GetTransactionsThroughputResponse)
-    - [NewBlockHeadersBlocksFilter](#massa-api-v1-NewBlockHeadersBlocksFilter)
     - [NewBlocksFilter](#massa-api-v1-NewBlocksFilter)
-    - [NewBlocksHeadersRequest](#massa-api-v1-NewBlocksHeadersRequest)
-    - [NewBlocksHeadersResponse](#massa-api-v1-NewBlocksHeadersResponse)
     - [NewBlocksRequest](#massa-api-v1-NewBlocksRequest)
     - [NewBlocksResponse](#massa-api-v1-NewBlocksResponse)
     - [NewEndorsementsFilter](#massa-api-v1-NewEndorsementsFilter)
@@ -1488,23 +1485,6 @@ GetTransactionsThroughputResponse holds response from GetTransactionsThroughput
 
 
 
-<a name="massa-api-v1-NewBlockHeadersBlocksFilter"></a>
-
-### NewBlockHeadersBlocksFilter
-NewBlockHeadersBlocks Filter
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
-| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
-| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of these slot ranges (inclusive) |
-
-
-
-
-
-
 <a name="massa-api-v1-NewBlocksFilter"></a>
 
 ### NewBlocksFilter
@@ -1516,36 +1496,6 @@ NewBlocks Filter
 | block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
 | addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
 | slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of these slot ranges (inclusive) |
-
-
-
-
-
-
-<a name="massa-api-v1-NewBlocksHeadersRequest"></a>
-
-### NewBlocksHeadersRequest
-NewBlocksHeadersRequest holds request for NewBlocksHeaders
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| filters | [NewBlockHeadersBlocksFilter](#massa-api-v1-NewBlockHeadersBlocksFilter) | repeated | Returns all the block headers that verify all the filters |
-
-
-
-
-
-
-<a name="massa-api-v1-NewBlocksHeadersResponse"></a>
-
-### NewBlocksHeadersResponse
-NewBlocksHeadersResponse holds response from NewBlocksHeaders
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| signed_block_header | [massa.model.v1.SignedBlockHeader](#massa-model-v1-SignedBlockHeader) |  | Signed block header |
 
 
 

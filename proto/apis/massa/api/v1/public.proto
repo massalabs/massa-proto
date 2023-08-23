@@ -684,31 +684,6 @@ message NewBlocksResponse {
   massa.model.v1.SignedBlock signed_block = 1;
 }
 
-// NewBlocksHeadersRequest holds request for NewBlocksHeaders
-message NewBlocksHeadersRequest {
-  // Returns all the block headers that verify all the filters
-  repeated NewBlockHeadersBlocksFilter filters = 1;
-}
-
-// NewBlockHeadersBlocks Filter
-message NewBlockHeadersBlocksFilter {
-  // Filter
-  oneof filter {
-    // One of these block ids
-    massa.model.v1.BlockIds block_ids = 1;
-    // One of these creator addresses
-    massa.model.v1.Addresses addresses = 2;
-    // One of these slot ranges (inclusive)
-    massa.model.v1.SlotRange slot_range = 3;
-  }
-}
-
-// NewBlocksHeadersResponse holds response from NewBlocksHeaders
-message NewBlocksHeadersResponse {
-  // Signed block header
-  massa.model.v1.SignedBlockHeader signed_block_header = 1;
-}
-
 // NewEndorsementsRequest holds request for NewEndorsements
 message NewEndorsementsRequest {
   // Returns all the endorsements that verify all the filters
