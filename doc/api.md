@@ -62,6 +62,7 @@
     - [AddressExistsFinal](#massa-api-v1-AddressExistsFinal)
     - [AddressRollsCandidate](#massa-api-v1-AddressRollsCandidate)
     - [AddressRollsFinal](#massa-api-v1-AddressRollsFinal)
+    - [AsyncPoolChangesFilter](#massa-api-v1-AsyncPoolChangesFilter)
     - [CycleInfos](#massa-api-v1-CycleInfos)
     - [DeferredCreditsEntry](#massa-api-v1-DeferredCreditsEntry)
     - [DeferredCreditsEntryWrapper](#massa-api-v1-DeferredCreditsEntryWrapper)
@@ -70,6 +71,9 @@
     - [Events](#massa-api-v1-Events)
     - [ExecuteReadOnlyCallRequest](#massa-api-v1-ExecuteReadOnlyCallRequest)
     - [ExecuteReadOnlyCallResponse](#massa-api-v1-ExecuteReadOnlyCallResponse)
+    - [ExecutedDenounciationFilter](#massa-api-v1-ExecutedDenounciationFilter)
+    - [ExecutedOpsChangesFilter](#massa-api-v1-ExecutedOpsChangesFilter)
+    - [ExecutionEventFilter](#massa-api-v1-ExecutionEventFilter)
     - [ExecutionQueryCycleInfos](#massa-api-v1-ExecutionQueryCycleInfos)
     - [ExecutionQueryRequestItem](#massa-api-v1-ExecutionQueryRequestItem)
     - [ExecutionQueryResponse](#massa-api-v1-ExecutionQueryResponse)
@@ -99,6 +103,7 @@
     - [GetStatusResponse](#massa-api-v1-GetStatusResponse)
     - [GetTransactionsThroughputRequest](#massa-api-v1-GetTransactionsThroughputRequest)
     - [GetTransactionsThroughputResponse](#massa-api-v1-GetTransactionsThroughputResponse)
+    - [LedgerChangesFilter](#massa-api-v1-LedgerChangesFilter)
     - [NewBlocksFilter](#massa-api-v1-NewBlocksFilter)
     - [NewBlocksRequest](#massa-api-v1-NewBlocksRequest)
     - [NewBlocksResponse](#massa-api-v1-NewBlocksResponse)
@@ -116,6 +121,7 @@
     - [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse)
     - [OpExecutionStatusCandidate](#massa-api-v1-OpExecutionStatusCandidate)
     - [OpExecutionStatusFinal](#massa-api-v1-OpExecutionStatusFinal)
+    - [PosChangesFilter](#massa-api-v1-PosChangesFilter)
     - [QueryStateRequest](#massa-api-v1-QueryStateRequest)
     - [QueryStateResponse](#massa-api-v1-QueryStateResponse)
     - [ScExecutionEventsFilter](#massa-api-v1-ScExecutionEventsFilter)
@@ -910,6 +916,26 @@ Request to get the roll count (final) of an address
 
 
 
+<a name="massa-api-v1-AsyncPoolChangesFilter"></a>
+
+### AsyncPoolChangesFilter
+AsyncPoolChangesFilter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| none | [massa.model.v1.Empty](#massa-model-v1-Empty) |  | Do not return any message |
+| type | [massa.model.v1.AsyncPoolChangeType](#massa-model-v1-AsyncPoolChangeType) |  | The type of the change |
+| handler | [string](#string) |  | The handler function name within the destination address bytecode |
+| destination_address | [string](#string) |  | The address towards which the message is being sent |
+| emitter_address | [string](#string) |  | The address that sent the message |
+| can_be_executed | [bool](#bool) |  | Boolean that determine if the message can be executed. For messages without filter this boolean is always true. For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. |
+
+
+
+
+
+
 <a name="massa-api-v1-CycleInfos"></a>
 
 ### CycleInfos
@@ -1026,6 +1052,56 @@ ExecuteReadOnlyCallResponse holds response from ExecuteReadOnlyCall
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | output | [massa.model.v1.ReadOnlyExecutionOutput](#massa-model-v1-ReadOnlyExecutionOutput) |  | Execution output |
+
+
+
+
+
+
+<a name="massa-api-v1-ExecutedDenounciationFilter"></a>
+
+### ExecutedDenounciationFilter
+ExecutedDenounciationFilter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| none | [massa.model.v1.Empty](#massa-model-v1-Empty) |  | Do not return any message |
+
+
+
+
+
+
+<a name="massa-api-v1-ExecutedOpsChangesFilter"></a>
+
+### ExecutedOpsChangesFilter
+ExecutedOpsChangesFilter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| none | [massa.model.v1.Empty](#massa-model-v1-Empty) |  | Do not return any message |
+| operation_id | [string](#string) |  | Operation id |
+
+
+
+
+
+
+<a name="massa-api-v1-ExecutionEventFilter"></a>
+
+### ExecutionEventFilter
+ExecutionEventFilter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| none | [massa.model.v1.Empty](#massa-model-v1-Empty) |  | Do not return any message |
+| caller_address | [string](#string) |  | Caller address |
+| emitter_address | [string](#string) |  | Emitter address |
+| original_operation_id | [string](#string) |  | Original operation id |
+| is_failure | [bool](#bool) |  | Whether the event is a failure |
 
 
 
@@ -1486,6 +1562,22 @@ GetTransactionsThroughputResponse holds response from GetTransactionsThroughput
 
 
 
+<a name="massa-api-v1-LedgerChangesFilter"></a>
+
+### LedgerChangesFilter
+LedgerChangesFilter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| none | [massa.model.v1.Empty](#massa-model-v1-Empty) |  | Do not return any message |
+| address | [string](#string) |  | Address for which we have ledger changes |
+
+
+
+
+
+
 <a name="massa-api-v1-NewBlocksFilter"></a>
 
 ### NewBlocksFilter
@@ -1683,6 +1775,13 @@ NewSlotExecutionOutputs Filter
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | status | [massa.model.v1.ExecutionOutputStatus](#massa-model-v1-ExecutionOutputStatus) |  | Execution output status |
+| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | Slot range |
+| async_pool_changes_filter | [AsyncPoolChangesFilter](#massa-api-v1-AsyncPoolChangesFilter) |  | AsyncPoolChangesFilter |
+| executed_denounciation_filter | [ExecutedDenounciationFilter](#massa-api-v1-ExecutedDenounciationFilter) |  | ExecutedDenounciationFilter |
+| event_filter | [ExecutionEventFilter](#massa-api-v1-ExecutionEventFilter) |  | Execution event filter |
+| executed_ops_changes_filter | [ExecutedOpsChangesFilter](#massa-api-v1-ExecutedOpsChangesFilter) |  | ExecutedOpsChangesFilter |
+| ledger_changes_filter | [LedgerChangesFilter](#massa-api-v1-LedgerChangesFilter) |  | LedgerChangesFilter |
+| pos_changes_filter | [PosChangesFilter](#massa-api-v1-PosChangesFilter) |  | PosChangesFilter |
 
 
 
@@ -1743,6 +1842,22 @@ Request to get the execution status (final) for an operation
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | operation_id | [string](#string) |  | Operation ID to query |
+
+
+
+
+
+
+<a name="massa-api-v1-PosChangesFilter"></a>
+
+### PosChangesFilter
+PosChangesFilter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| none | [massa.model.v1.Empty](#massa-model-v1-Empty) |  | Do not return any message |
+| address | [string](#string) |  | Address for which we have roll changes |
 
 
 

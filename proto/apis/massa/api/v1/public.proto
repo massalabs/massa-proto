@@ -771,6 +771,99 @@ message NewSlotExecutionOutputsFilter {
   oneof filter {
     // Execution output status
     massa.model.v1.ExecutionOutputStatus status = 1;
+    // Slot range
+    massa.model.v1.SlotRange slot_range = 2;
+    // AsyncPoolChangesFilter
+    AsyncPoolChangesFilter async_pool_changes_filter = 3;
+    // ExecutedDenounciationFilter
+    ExecutedDenounciationFilter executed_denounciation_filter = 4;
+    // Execution event filter
+    ExecutionEventFilter event_filter = 5;
+    // ExecutedOpsChangesFilter
+    ExecutedOpsChangesFilter executed_ops_changes_filter = 6;
+    // LedgerChangesFilter
+    LedgerChangesFilter ledger_changes_filter = 7;
+    // PosChangesFilter
+    PosChangesFilter pos_changes_filter = 8;
+  }
+}
+
+// AsyncPoolChangesFilter
+message AsyncPoolChangesFilter {
+  // Filter
+  oneof filter {
+    // Do not return any message
+    massa.model.v1.Empty none = 1;
+    // The type of the change
+    massa.model.v1.AsyncPoolChangeType type = 2;
+    // The handler function name within the destination address bytecode
+    string handler = 3;
+    // The address towards which the message is being sent
+    string destination_address = 4;
+    // The address that sent the message
+    string emitter_address = 5;
+    // Boolean that determine if the message can be executed. For messages without filter this boolean is always true.
+    // For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot.
+    bool can_be_executed = 6;
+  }
+}
+
+// PosChangesFilter
+message PosChangesFilter {
+  // Filter
+  oneof filter {
+    // Do not return any message
+    massa.model.v1.Empty none = 1;
+    // Address for which we have roll changes
+    string address = 2;
+  }
+}
+
+// ExecutionEventFilter
+message ExecutionEventFilter {
+  // Filter
+  oneof filter {
+    // Do not return any message
+    massa.model.v1.Empty none = 1;
+    // Caller address
+    string caller_address = 2;
+    // Emitter address
+    string emitter_address = 3;
+    // Original operation id
+    string original_operation_id = 4;
+    // Whether the event is a failure
+    bool is_failure = 5;
+  }
+}
+
+// ExecutedOpsChangesFilter
+message ExecutedOpsChangesFilter {
+  // Filter
+  oneof filter {
+    // Do not return any message
+    massa.model.v1.Empty none = 1;
+    // Operation id
+    string operation_id = 2;
+  }
+}
+
+// ExecutedDenounciationFilter
+message ExecutedDenounciationFilter {
+  // Filter
+  oneof filter {
+    // Do not return any message
+    massa.model.v1.Empty none = 1;
+  }
+}
+
+// LedgerChangesFilter
+message LedgerChangesFilter {
+  // Filter
+  oneof filter {
+    // Do not return any message
+    massa.model.v1.Empty none = 1;
+    // Address for which we have ledger changes
+    string address = 2;
   }
 }
 

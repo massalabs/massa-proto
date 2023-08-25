@@ -410,6 +410,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.AsyncPoolChangesFilter"><span class="badge">M</span>AsyncPoolChangesFilter</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.CycleInfos"><span class="badge">M</span>CycleInfos</a>
                 </li>
               
@@ -439,6 +443,18 @@
               
                 <li>
                   <a href="#massa.api.v1.ExecuteReadOnlyCallResponse"><span class="badge">M</span>ExecuteReadOnlyCallResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.ExecutedDenounciationFilter"><span class="badge">M</span>ExecutedDenounciationFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.ExecutedOpsChangesFilter"><span class="badge">M</span>ExecutedOpsChangesFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.ExecutionEventFilter"><span class="badge">M</span>ExecutionEventFilter</a>
                 </li>
               
                 <li>
@@ -558,6 +574,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.LedgerChangesFilter"><span class="badge">M</span>LedgerChangesFilter</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.NewBlocksFilter"><span class="badge">M</span>NewBlocksFilter</a>
                 </li>
               
@@ -623,6 +643,10 @@
               
                 <li>
                   <a href="#massa.api.v1.OpExecutionStatusFinal"><span class="badge">M</span>OpExecutionStatusFinal</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.PosChangesFilter"><span class="badge">M</span>PosChangesFilter</a>
                 </li>
               
                 <li>
@@ -2102,6 +2126,66 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
+        <h3 id="massa.api.v1.AsyncPoolChangesFilter">AsyncPoolChangesFilter</h3>
+        <p>AsyncPoolChangesFilter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>none</td>
+                  <td><a href="#massa.model.v1.Empty">massa.model.v1.Empty</a></td>
+                  <td></td>
+                  <td><p>Do not return any message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#massa.model.v1.AsyncPoolChangeType">massa.model.v1.AsyncPoolChangeType</a></td>
+                  <td></td>
+                  <td><p>The type of the change </p></td>
+                </tr>
+              
+                <tr>
+                  <td>handler</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The handler function name within the destination address bytecode </p></td>
+                </tr>
+              
+                <tr>
+                  <td>destination_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The address towards which the message is being sent </p></td>
+                </tr>
+              
+                <tr>
+                  <td>emitter_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The address that sent the message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>can_be_executed</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Boolean that determine if the message can be executed. For messages without filter this boolean is always true.
+For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.CycleInfos">CycleInfos</h3>
         <p>Request to get all information for a given cycle</p>
 
@@ -2299,6 +2383,113 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#massa.model.v1.ReadOnlyExecutionOutput">massa.model.v1.ReadOnlyExecutionOutput</a></td>
                   <td></td>
                   <td><p>Execution output </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ExecutedDenounciationFilter">ExecutedDenounciationFilter</h3>
+        <p>ExecutedDenounciationFilter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>none</td>
+                  <td><a href="#massa.model.v1.Empty">massa.model.v1.Empty</a></td>
+                  <td></td>
+                  <td><p>Do not return any message </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ExecutedOpsChangesFilter">ExecutedOpsChangesFilter</h3>
+        <p>ExecutedOpsChangesFilter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>none</td>
+                  <td><a href="#massa.model.v1.Empty">massa.model.v1.Empty</a></td>
+                  <td></td>
+                  <td><p>Do not return any message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Operation id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ExecutionEventFilter">ExecutionEventFilter</h3>
+        <p>ExecutionEventFilter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>none</td>
+                  <td><a href="#massa.model.v1.Empty">massa.model.v1.Empty</a></td>
+                  <td></td>
+                  <td><p>Do not return any message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>caller_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Caller address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>emitter_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Emitter address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>original_operation_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Original operation id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_failure</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Whether the event is a failure </p></td>
                 </tr>
               
             </tbody>
@@ -3191,6 +3382,37 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
+        <h3 id="massa.api.v1.LedgerChangesFilter">LedgerChangesFilter</h3>
+        <p>LedgerChangesFilter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>none</td>
+                  <td><a href="#massa.model.v1.Empty">massa.model.v1.Empty</a></td>
+                  <td></td>
+                  <td><p>Do not return any message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Address for which we have ledger changes </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.NewBlocksFilter">NewBlocksFilter</h3>
         <p>NewBlocks Filter</p>
 
@@ -3552,6 +3774,55 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><p>Execution output status </p></td>
                 </tr>
               
+                <tr>
+                  <td>slot_range</td>
+                  <td><a href="#massa.model.v1.SlotRange">massa.model.v1.SlotRange</a></td>
+                  <td></td>
+                  <td><p>Slot range </p></td>
+                </tr>
+              
+                <tr>
+                  <td>async_pool_changes_filter</td>
+                  <td><a href="#massa.api.v1.AsyncPoolChangesFilter">AsyncPoolChangesFilter</a></td>
+                  <td></td>
+                  <td><p>AsyncPoolChangesFilter </p></td>
+                </tr>
+              
+                <tr>
+                  <td>executed_denounciation_filter</td>
+                  <td><a href="#massa.api.v1.ExecutedDenounciationFilter">ExecutedDenounciationFilter</a></td>
+                  <td></td>
+                  <td><p>ExecutedDenounciationFilter </p></td>
+                </tr>
+              
+                <tr>
+                  <td>event_filter</td>
+                  <td><a href="#massa.api.v1.ExecutionEventFilter">ExecutionEventFilter</a></td>
+                  <td></td>
+                  <td><p>Execution event filter </p></td>
+                </tr>
+              
+                <tr>
+                  <td>executed_ops_changes_filter</td>
+                  <td><a href="#massa.api.v1.ExecutedOpsChangesFilter">ExecutedOpsChangesFilter</a></td>
+                  <td></td>
+                  <td><p>ExecutedOpsChangesFilter </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ledger_changes_filter</td>
+                  <td><a href="#massa.api.v1.LedgerChangesFilter">LedgerChangesFilter</a></td>
+                  <td></td>
+                  <td><p>LedgerChangesFilter </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pos_changes_filter</td>
+                  <td><a href="#massa.api.v1.PosChangesFilter">PosChangesFilter</a></td>
+                  <td></td>
+                  <td><p>PosChangesFilter </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -3646,6 +3917,37 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Operation ID to query </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.PosChangesFilter">PosChangesFilter</h3>
+        <p>PosChangesFilter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>none</td>
+                  <td><a href="#massa.model.v1.Empty">massa.model.v1.Empty</a></td>
+                  <td></td>
+                  <td><p>Do not return any message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Address for which we have roll changes </p></td>
                 </tr>
               
             </tbody>
