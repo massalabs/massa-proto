@@ -430,10 +430,6 @@
                   <a href="#massa.model.v1.KeyPair"><span class="badge">M</span>KeyPair</a>
                 </li>
               
-                <li>
-                  <a href="#massa.model.v1.SecureShare"><span class="badge">M</span>SecureShare</a>
-                </li>
-              
               
                 <li>
                   <a href="#massa.model.v1.ComparisonResult"><span class="badge">E</span>ComparisonResult</a>
@@ -2534,58 +2530,6 @@
 
         
       
-        <h3 id="massa.model.v1.SecureShare">SecureShare</h3>
-        <p>Packages a type such that it can be securely sent and received in a trust-free network</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>serialized_data</td>
-                  <td><a href="#bytes">bytes</a></td>
-                  <td></td>
-                  <td><p>Content in sharable, deserializable form. Is used in the secure verification protocols </p></td>
-                </tr>
-              
-                <tr>
-                  <td>signature</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>A cryptographically generated value using `serialized_data` and a public key. </p></td>
-                </tr>
-              
-                <tr>
-                  <td>content_creator_pub_key</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>The public-key component used in the generation of the signature </p></td>
-                </tr>
-              
-                <tr>
-                  <td>content_creator_address</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>Derived from the same public key used to generate the signature </p></td>
-                </tr>
-              
-                <tr>
-                  <td>secure_hash</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>A secure hash of the non-malleable contents of a deterministic binary representation of the block header </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
 
       
         <h3 id="massa.model.v1.ComparisonResult">ComparisonResult</h3>
@@ -3939,6 +3883,13 @@ Whether to start execution from final or active state </p></td>
                   <td><a href="#massa.model.v1.DenunciationIndex">DenunciationIndex</a></td>
                   <td>repeated</td>
                   <td><p>Executed denunciations changes </p></td>
+                </tr>
+              
+                <tr>
+                  <td>execution_trail_hash_change</td>
+                  <td><a href="#massa.model.v1.SetOrKeepString">SetOrKeepString</a></td>
+                  <td></td>
+                  <td><p>Execution trail hash change </p></td>
                 </tr>
               
             </tbody>

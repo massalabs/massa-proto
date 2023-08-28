@@ -2096,7 +2096,7 @@ SendBlocksRequest holds parameters to SendBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block | [massa.model.v1.SecureShare](#massa-model-v1-SecureShare) |  | Secure shared block |
+| block | [bytes](#bytes) |  | Secure shared block |
 
 
 
@@ -2127,7 +2127,7 @@ SendEndorsementsRequest holds parameters to SendEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| endorsements | [massa.model.v1.SecureShare](#massa-model-v1-SecureShare) | repeated | Secure shared endorsements |
+| endorsements | [bytes](#bytes) | repeated | Secure shared endorsements |
 
 
 
@@ -2158,7 +2158,7 @@ SendOperationsRequest holds parameters to SendOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| operations | [massa.model.v1.SecureShare](#massa-model-v1-SecureShare) | repeated | Secured shared operations |
+| operations | [bytes](#bytes) | repeated | Secured shared operations |
 
 
 

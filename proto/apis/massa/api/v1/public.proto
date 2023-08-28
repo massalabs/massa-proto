@@ -876,7 +876,7 @@ message NewSlotExecutionOutputsResponse {
 // SendBlocksRequest holds parameters to SendBlocks
 message SendBlocksRequest {
   // Secure shared block
-  massa.model.v1.SecureShare block = 1;
+  bytes block = 1;
 }
 
 // SendBlocksResponse holds response from SendBlocks
@@ -893,7 +893,7 @@ message SendBlocksResponse {
 // SendEndorsementsRequest holds parameters to SendEndorsements
 message SendEndorsementsRequest {
   // Secure shared endorsements
-  repeated massa.model.v1.SecureShare endorsements = 1;
+  repeated bytes endorsements = 1;
 }
 
 // SendEndorsementsResponse holds response from SendEndorsements
@@ -910,7 +910,7 @@ message SendEndorsementsResponse {
 // SendOperationsRequest holds parameters to SendOperations
 message SendOperationsRequest {
   // Secured shared operations
-  repeated massa.model.v1.SecureShare operations = 1;
+  repeated bytes operations = 1;
 }
 
 // SendOperationsResponse holds response from SendOperations
