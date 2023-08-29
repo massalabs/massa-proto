@@ -17,7 +17,7 @@ option swift_prefix = "MMODEL";
 // the future. value = mantissa / (10^scale)
 message NativeAmount {
   // Mantissa
-  uint64 mantissa = 1;
+  fixed64 mantissa = 1;
   // Scale
-  uint32 scale = 2;
+  fixed32 scale = 2;
 }
