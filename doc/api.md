@@ -1781,7 +1781,6 @@ NewSlotExecutionOutputs Filter
 | event_filter | [ExecutionEventFilter](#massa-api-v1-ExecutionEventFilter) |  | Execution event filter |
 | executed_ops_changes_filter | [ExecutedOpsChangesFilter](#massa-api-v1-ExecutedOpsChangesFilter) |  | ExecutedOpsChangesFilter |
 | ledger_changes_filter | [LedgerChangesFilter](#massa-api-v1-LedgerChangesFilter) |  | LedgerChangesFilter |
-| pos_changes_filter | [PosChangesFilter](#massa-api-v1-PosChangesFilter) |  | PosChangesFilter |
 
 
 

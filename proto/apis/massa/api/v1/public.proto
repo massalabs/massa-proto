@@ -783,8 +783,6 @@ message NewSlotExecutionOutputsFilter {
     ExecutedOpsChangesFilter executed_ops_changes_filter = 6;
     // LedgerChangesFilter
     LedgerChangesFilter ledger_changes_filter = 7;
-    // PosChangesFilter
-    PosChangesFilter pos_changes_filter = 8;
   }
 }
 
