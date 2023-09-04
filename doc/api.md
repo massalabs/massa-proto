@@ -62,6 +62,7 @@
     - [AddressExistsFinal](#massa-api-v1-AddressExistsFinal)
     - [AddressRollsCandidate](#massa-api-v1-AddressRollsCandidate)
     - [AddressRollsFinal](#massa-api-v1-AddressRollsFinal)
+    - [AsyncPoolChangesFilter](#massa-api-v1-AsyncPoolChangesFilter)
     - [CycleInfos](#massa-api-v1-CycleInfos)
     - [DeferredCreditsEntry](#massa-api-v1-DeferredCreditsEntry)
     - [DeferredCreditsEntryWrapper](#massa-api-v1-DeferredCreditsEntryWrapper)
@@ -70,6 +71,9 @@
     - [Events](#massa-api-v1-Events)
     - [ExecuteReadOnlyCallRequest](#massa-api-v1-ExecuteReadOnlyCallRequest)
     - [ExecuteReadOnlyCallResponse](#massa-api-v1-ExecuteReadOnlyCallResponse)
+    - [ExecutedDenounciationFilter](#massa-api-v1-ExecutedDenounciationFilter)
+    - [ExecutedOpsChangesFilter](#massa-api-v1-ExecutedOpsChangesFilter)
+    - [ExecutionEventFilter](#massa-api-v1-ExecutionEventFilter)
     - [ExecutionQueryCycleInfos](#massa-api-v1-ExecutionQueryCycleInfos)
     - [ExecutionQueryRequestItem](#massa-api-v1-ExecutionQueryRequestItem)
     - [ExecutionQueryResponse](#massa-api-v1-ExecutionQueryResponse)
@@ -99,12 +103,14 @@
     - [GetStatusResponse](#massa-api-v1-GetStatusResponse)
     - [GetTransactionsThroughputRequest](#massa-api-v1-GetTransactionsThroughputRequest)
     - [GetTransactionsThroughputResponse](#massa-api-v1-GetTransactionsThroughputResponse)
-    - [NewBlocksHeadersRequest](#massa-api-v1-NewBlocksHeadersRequest)
-    - [NewBlocksHeadersResponse](#massa-api-v1-NewBlocksHeadersResponse)
+    - [LedgerChangesFilter](#massa-api-v1-LedgerChangesFilter)
+    - [NewBlocksFilter](#massa-api-v1-NewBlocksFilter)
     - [NewBlocksRequest](#massa-api-v1-NewBlocksRequest)
     - [NewBlocksResponse](#massa-api-v1-NewBlocksResponse)
+    - [NewEndorsementsFilter](#massa-api-v1-NewEndorsementsFilter)
     - [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest)
     - [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse)
+    - [NewFilledBlocksFilter](#massa-api-v1-NewFilledBlocksFilter)
     - [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest)
     - [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse)
     - [NewOperationsFilter](#massa-api-v1-NewOperationsFilter)
@@ -115,6 +121,7 @@
     - [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse)
     - [OpExecutionStatusCandidate](#massa-api-v1-OpExecutionStatusCandidate)
     - [OpExecutionStatusFinal](#massa-api-v1-OpExecutionStatusFinal)
+    - [PosChangesFilter](#massa-api-v1-PosChangesFilter)
     - [QueryStateRequest](#massa-api-v1-QueryStateRequest)
     - [QueryStateResponse](#massa-api-v1-QueryStateResponse)
     - [ScExecutionEventsFilter](#massa-api-v1-ScExecutionEventsFilter)
@@ -909,6 +916,26 @@ Request to get the roll count (final) of an address
 
 
 
+<a name="massa-api-v1-AsyncPoolChangesFilter"></a>
+
+### AsyncPoolChangesFilter
+AsyncPoolChangesFilter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| none | [massa.model.v1.Empty](#massa-model-v1-Empty) |  | Do not return any message |
+| type | [massa.model.v1.AsyncPoolChangeType](#massa-model-v1-AsyncPoolChangeType) |  | The type of the change |
+| handler | [string](#string) |  | The handler function name within the destination address bytecode |
+| destination_address | [string](#string) |  | The address towards which the message is being sent |
+| emitter_address | [string](#string) |  | The address that sent the message |
+| can_be_executed | [bool](#bool) |  | Boolean that determine if the message can be executed. For messages without filter this boolean is always true. For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. |
+
+
+
+
+
+
 <a name="massa-api-v1-CycleInfos"></a>
 
 ### CycleInfos
@@ -1025,6 +1052,56 @@ ExecuteReadOnlyCallResponse holds response from ExecuteReadOnlyCall
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | output | [massa.model.v1.ReadOnlyExecutionOutput](#massa-model-v1-ReadOnlyExecutionOutput) |  | Execution output |
+
+
+
+
+
+
+<a name="massa-api-v1-ExecutedDenounciationFilter"></a>
+
+### ExecutedDenounciationFilter
+ExecutedDenounciationFilter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| none | [massa.model.v1.Empty](#massa-model-v1-Empty) |  | Do not return any message |
+
+
+
+
+
+
+<a name="massa-api-v1-ExecutedOpsChangesFilter"></a>
+
+### ExecutedOpsChangesFilter
+ExecutedOpsChangesFilter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| none | [massa.model.v1.Empty](#massa-model-v1-Empty) |  | Do not return any message |
+| operation_id | [string](#string) |  | Operation id |
+
+
+
+
+
+
+<a name="massa-api-v1-ExecutionEventFilter"></a>
+
+### ExecutionEventFilter
+ExecutionEventFilter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| none | [massa.model.v1.Empty](#massa-model-v1-Empty) |  | Do not return any message |
+| caller_address | [string](#string) |  | Caller address |
+| emitter_address | [string](#string) |  | Emitter address |
+| original_operation_id | [string](#string) |  | Original operation id |
+| is_failure | [bool](#bool) |  | Whether the event is a failure |
 
 
 
@@ -1253,7 +1330,7 @@ DatastoreEntryFilter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address_key | [massa.model.v1.AddressKeyEntry](#massa-model-v1-AddressKeyEntry) |  | One of this (address-key) pairs |
+| address_key | [massa.model.v1.AddressKeyEntry](#massa-model-v1-AddressKeyEntry) |  | One of these (address-key) pairs |
 
 
 
@@ -1485,25 +1562,33 @@ GetTransactionsThroughputResponse holds response from GetTransactionsThroughput
 
 
 
-<a name="massa-api-v1-NewBlocksHeadersRequest"></a>
+<a name="massa-api-v1-LedgerChangesFilter"></a>
 
-### NewBlocksHeadersRequest
-NewBlocksHeadersRequest holds request for NewBlocksHeaders
-
-
-
-
-
-
-<a name="massa-api-v1-NewBlocksHeadersResponse"></a>
-
-### NewBlocksHeadersResponse
-NewBlocksHeadersResponse holds response from NewBlocksHeaders
+### LedgerChangesFilter
+LedgerChangesFilter
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| signed_block_header | [massa.model.v1.SignedBlockHeader](#massa-model-v1-SignedBlockHeader) |  | Signed block header |
+| none | [massa.model.v1.Empty](#massa-model-v1-Empty) |  | Do not return any message |
+| address | [string](#string) |  | Address for which we have ledger changes |
+
+
+
+
+
+
+<a name="massa-api-v1-NewBlocksFilter"></a>
+
+### NewBlocksFilter
+NewBlocks Filter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
+| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of these slot ranges (inclusive) |
 
 
 
@@ -1514,6 +1599,11 @@ NewBlocksHeadersResponse holds response from NewBlocksHeaders
 
 ### NewBlocksRequest
 NewBlocksRequest holds request for NewBlocks
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [NewBlocksFilter](#massa-api-v1-NewBlocksFilter) | repeated | Returns all the blocks that verify all the filters |
 
 
 
@@ -1535,10 +1625,32 @@ NewBlocksResponse holds response from NewBlocks
 
 
 
+<a name="massa-api-v1-NewEndorsementsFilter"></a>
+
+### NewEndorsementsFilter
+NewEndorsements Filter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| endorsement_ids | [massa.model.v1.EndorsementIds](#massa-model-v1-EndorsementIds) |  | One of these endorsement ids |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
+
+
+
+
+
+
 <a name="massa-api-v1-NewEndorsementsRequest"></a>
 
 ### NewEndorsementsRequest
 NewEndorsementsRequest holds request for NewEndorsements
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [NewEndorsementsFilter](#massa-api-v1-NewEndorsementsFilter) | repeated | Returns all the endorsements that verify all the filters |
 
 
 
@@ -1560,10 +1672,32 @@ NewEndorsementsResponse holds response from NewEndorsements
 
 
 
+<a name="massa-api-v1-NewFilledBlocksFilter"></a>
+
+### NewFilledBlocksFilter
+NewFilledBlocks Filter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
+| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of these slot ranges (inclusive) |
+
+
+
+
+
+
 <a name="massa-api-v1-NewFilledBlocksRequest"></a>
 
 ### NewFilledBlocksRequest
 NewFilledBlocksRequest holds request for NewFilledBlocks
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [NewBlocksFilter](#massa-api-v1-NewBlocksFilter) | repeated | Returns all the blocks that verify one of the filters |
 
 
 
@@ -1593,7 +1727,9 @@ NewOperations Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| operation_types | [massa.model.v1.OpTypes](#massa-model-v1-OpTypes) |  | Filter |
+| operation_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | One of the operation ids |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
+| operation_types | [massa.model.v1.OpTypes](#massa-model-v1-OpTypes) |  | One of the operation types |
 
 
 
@@ -1639,6 +1775,12 @@ NewSlotExecutionOutputs Filter
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | status | [massa.model.v1.ExecutionOutputStatus](#massa-model-v1-ExecutionOutputStatus) |  | Execution output status |
+| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | Slot range |
+| async_pool_changes_filter | [AsyncPoolChangesFilter](#massa-api-v1-AsyncPoolChangesFilter) |  | AsyncPoolChangesFilter |
+| executed_denounciation_filter | [ExecutedDenounciationFilter](#massa-api-v1-ExecutedDenounciationFilter) |  | ExecutedDenounciationFilter |
+| event_filter | [ExecutionEventFilter](#massa-api-v1-ExecutionEventFilter) |  | Execution event filter |
+| executed_ops_changes_filter | [ExecutedOpsChangesFilter](#massa-api-v1-ExecutedOpsChangesFilter) |  | ExecutedOpsChangesFilter |
+| ledger_changes_filter | [LedgerChangesFilter](#massa-api-v1-LedgerChangesFilter) |  | LedgerChangesFilter |
 
 
 
@@ -1699,6 +1841,22 @@ Request to get the execution status (final) for an operation
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | operation_id | [string](#string) |  | Operation ID to query |
+
+
+
+
+
+
+<a name="massa-api-v1-PosChangesFilter"></a>
+
+### PosChangesFilter
+PosChangesFilter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| none | [massa.model.v1.Empty](#massa-model-v1-Empty) |  | Do not return any message |
+| address | [string](#string) |  | Address for which we have roll changes |
 
 
 
@@ -1781,9 +1939,9 @@ SearchBlocks Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of this block ids |
-| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of this creator addresses |
-| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of this slot ranges (inclusive) |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
+| slot_range | [massa.model.v1.SlotRange](#massa-model-v1-SlotRange) |  | One of these slot ranges (inclusive) |
 
 
 
@@ -1828,9 +1986,9 @@ SearchEndorsements Filter
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| endorsement_ids | [massa.model.v1.EndorsementIds](#massa-model-v1-EndorsementIds) |  | One of this endorsement ids |
-| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of this creator addresses |
-| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of this block ids |
+| endorsement_ids | [massa.model.v1.EndorsementIds](#massa-model-v1-EndorsementIds) |  | One of these endorsement ids |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
+| block_ids | [massa.model.v1.BlockIds](#massa-model-v1-BlockIds) |  | One of these block ids |
 
 
 
@@ -1876,7 +2034,7 @@ SearchOperations Filter
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | operation_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | One of the operation ids |
-| operation_types | [massa.model.v1.OpTypes](#massa-model-v1-OpTypes) |  | One of the operation types |
+| addresses | [massa.model.v1.Addresses](#massa-model-v1-Addresses) |  | One of these creator addresses |
 
 
 
@@ -1937,7 +2095,7 @@ SendBlocksRequest holds parameters to SendBlocks
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block | [massa.model.v1.SecureShare](#massa-model-v1-SecureShare) |  | Secure shared block |
+| block | [bytes](#bytes) |  | Secure shared block |
 
 
 
@@ -1968,7 +2126,7 @@ SendEndorsementsRequest holds parameters to SendEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| endorsements | [massa.model.v1.SecureShare](#massa-model-v1-SecureShare) | repeated | Secure shared endorsements |
+| endorsements | [bytes](#bytes) | repeated | Secure shared endorsements |
 
 
 
@@ -1983,7 +2141,7 @@ SendEndorsementsResponse holds response from SendEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| endorsements_ids | [massa.model.v1.EndorsementIds](#massa-model-v1-EndorsementIds) |  | Endorsement result |
+| endorsement_ids | [massa.model.v1.EndorsementIds](#massa-model-v1-EndorsementIds) |  | Endorsement result |
 | error | [massa.model.v1.Error](#massa-model-v1-Error) |  | Massa error |
 
 
@@ -1999,7 +2157,7 @@ SendOperationsRequest holds parameters to SendOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| operations | [massa.model.v1.SecureShare](#massa-model-v1-SecureShare) | repeated | Secured shared operations |
+| operations | [bytes](#bytes) | repeated | Secured shared operations |
 
 
 
@@ -2014,7 +2172,7 @@ SendOperationsResponse holds response from SendOperations
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| operations_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | Operation result |
+| operation_ids | [massa.model.v1.OperationIds](#massa-model-v1-OperationIds) |  | Operation result |
 | error | [massa.model.v1.Error](#massa-model-v1-Error) |  | Massa error |
 
 

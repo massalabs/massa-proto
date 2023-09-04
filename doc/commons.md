@@ -64,7 +64,6 @@
     - [Empty](#massa-model-v1-Empty)
     - [Error](#massa-model-v1-Error)
     - [KeyPair](#massa-model-v1-KeyPair)
-    - [SecureShare](#massa-model-v1-SecureShare)
   
     - [ComparisonResult](#massa-model-v1-ComparisonResult)
   
@@ -619,9 +618,9 @@ Calls an exported function from a stored smart contract
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_addr | [string](#string) |  | Target smart contract address |
-| target_func | [string](#string) |  | Target function name. No function is called if empty |
-| param | [bytes](#bytes) |  | Parameter to pass to the target function |
+| target_address | [string](#string) |  | Target smart contract address |
+| target_function | [string](#string) |  | Target function name. No function is called if empty |
+| parameter | [bytes](#bytes) |  | Parameter to pass to the target function |
 | max_gas | [uint64](#uint64) |  | The maximum amount of gas that the execution of the contract is allowed to cost |
 | coins | [NativeAmount](#massa-model-v1-NativeAmount) |  | Extra coins that are spent from the caller&#39;s balance and transferred to the target |
 
@@ -981,25 +980,6 @@ KeyPair
 
 
 
-
-<a name="massa-model-v1-SecureShare"></a>
-
-### SecureShare
-Packages a type such that it can be securely sent and received in a trust-free network
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| serialized_data | [bytes](#bytes) |  | Content in sharable, deserializable form. Is used in the secure verification protocols |
-| signature | [string](#string) |  | A cryptographically generated value using `serialized_data` and a public key. |
-| content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
-| content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
-| secure_hash | [string](#string) |  | A secure hash of the non-malleable contents of a deterministic binary representation of the block header |
-
-
-
-
-
  
 
 
@@ -1278,8 +1258,8 @@ Execute a function call
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_addr | [string](#string) |  | Target address |
-| target_func | [string](#string) |  | Target function |
+| target_address | [string](#string) |  | Target address |
+| target_function | [string](#string) |  | Target function |
 | parameter | [bytes](#bytes) |  | Parameter to pass to the target function |
 
 
@@ -1601,6 +1581,7 @@ StateChanges
 | async_pool_changes | [AsyncPoolChangeEntry](#massa-model-v1-AsyncPoolChangeEntry) | repeated | Asynchronous pool changes |
 | executed_ops_changes | [ExecutedOpsChangeEntry](#massa-model-v1-ExecutedOpsChangeEntry) | repeated | Executed operations changes |
 | executed_denunciations_changes | [DenunciationIndex](#massa-model-v1-DenunciationIndex) | repeated | Executed denunciations changes |
+| execution_trail_hash_change | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Execution trail hash change |
 
 
 
@@ -2059,7 +2040,7 @@ EndorsementIds holds endorsements ids
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| endorsements_ids | [string](#string) | repeated | Endorsements ids |
+| endorsement_ids | [string](#string) | repeated | Endorsements ids |
 
 
 

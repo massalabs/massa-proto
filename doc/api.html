@@ -410,6 +410,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.AsyncPoolChangesFilter"><span class="badge">M</span>AsyncPoolChangesFilter</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.CycleInfos"><span class="badge">M</span>CycleInfos</a>
                 </li>
               
@@ -439,6 +443,18 @@
               
                 <li>
                   <a href="#massa.api.v1.ExecuteReadOnlyCallResponse"><span class="badge">M</span>ExecuteReadOnlyCallResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.ExecutedDenounciationFilter"><span class="badge">M</span>ExecutedDenounciationFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.ExecutedOpsChangesFilter"><span class="badge">M</span>ExecutedOpsChangesFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.ExecutionEventFilter"><span class="badge">M</span>ExecutionEventFilter</a>
                 </li>
               
                 <li>
@@ -558,11 +574,11 @@
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.NewBlocksHeadersRequest"><span class="badge">M</span>NewBlocksHeadersRequest</a>
+                  <a href="#massa.api.v1.LedgerChangesFilter"><span class="badge">M</span>LedgerChangesFilter</a>
                 </li>
               
                 <li>
-                  <a href="#massa.api.v1.NewBlocksHeadersResponse"><span class="badge">M</span>NewBlocksHeadersResponse</a>
+                  <a href="#massa.api.v1.NewBlocksFilter"><span class="badge">M</span>NewBlocksFilter</a>
                 </li>
               
                 <li>
@@ -574,11 +590,19 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.NewEndorsementsFilter"><span class="badge">M</span>NewEndorsementsFilter</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.NewEndorsementsRequest"><span class="badge">M</span>NewEndorsementsRequest</a>
                 </li>
               
                 <li>
                   <a href="#massa.api.v1.NewEndorsementsResponse"><span class="badge">M</span>NewEndorsementsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewFilledBlocksFilter"><span class="badge">M</span>NewFilledBlocksFilter</a>
                 </li>
               
                 <li>
@@ -619,6 +643,10 @@
               
                 <li>
                   <a href="#massa.api.v1.OpExecutionStatusFinal"><span class="badge">M</span>OpExecutionStatusFinal</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.PosChangesFilter"><span class="badge">M</span>PosChangesFilter</a>
                 </li>
               
                 <li>
@@ -2098,6 +2126,66 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
+        <h3 id="massa.api.v1.AsyncPoolChangesFilter">AsyncPoolChangesFilter</h3>
+        <p>AsyncPoolChangesFilter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>none</td>
+                  <td><a href="#massa.model.v1.Empty">massa.model.v1.Empty</a></td>
+                  <td></td>
+                  <td><p>Do not return any message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#massa.model.v1.AsyncPoolChangeType">massa.model.v1.AsyncPoolChangeType</a></td>
+                  <td></td>
+                  <td><p>The type of the change </p></td>
+                </tr>
+              
+                <tr>
+                  <td>handler</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The handler function name within the destination address bytecode </p></td>
+                </tr>
+              
+                <tr>
+                  <td>destination_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The address towards which the message is being sent </p></td>
+                </tr>
+              
+                <tr>
+                  <td>emitter_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The address that sent the message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>can_be_executed</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Boolean that determine if the message can be executed. For messages without filter this boolean is always true.
+For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.CycleInfos">CycleInfos</h3>
         <p>Request to get all information for a given cycle</p>
 
@@ -2295,6 +2383,113 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#massa.model.v1.ReadOnlyExecutionOutput">massa.model.v1.ReadOnlyExecutionOutput</a></td>
                   <td></td>
                   <td><p>Execution output </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ExecutedDenounciationFilter">ExecutedDenounciationFilter</h3>
+        <p>ExecutedDenounciationFilter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>none</td>
+                  <td><a href="#massa.model.v1.Empty">massa.model.v1.Empty</a></td>
+                  <td></td>
+                  <td><p>Do not return any message </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ExecutedOpsChangesFilter">ExecutedOpsChangesFilter</h3>
+        <p>ExecutedOpsChangesFilter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>none</td>
+                  <td><a href="#massa.model.v1.Empty">massa.model.v1.Empty</a></td>
+                  <td></td>
+                  <td><p>Do not return any message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Operation id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ExecutionEventFilter">ExecutionEventFilter</h3>
+        <p>ExecutionEventFilter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>none</td>
+                  <td><a href="#massa.model.v1.Empty">massa.model.v1.Empty</a></td>
+                  <td></td>
+                  <td><p>Do not return any message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>caller_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Caller address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>emitter_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Emitter address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>original_operation_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Original operation id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_failure</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Whether the event is a failure </p></td>
                 </tr>
               
             </tbody>
@@ -2844,7 +3039,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td>address_key</td>
                   <td><a href="#massa.model.v1.AddressKeyEntry">massa.model.v1.AddressKeyEntry</a></td>
                   <td></td>
-                  <td><p>One of this (address-key) pairs </p></td>
+                  <td><p>One of these (address-key) pairs </p></td>
                 </tr>
               
             </tbody>
@@ -3187,15 +3382,8 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
-        <h3 id="massa.api.v1.NewBlocksHeadersRequest">NewBlocksHeadersRequest</h3>
-        <p>NewBlocksHeadersRequest holds request for NewBlocksHeaders</p>
-
-        
-
-        
-      
-        <h3 id="massa.api.v1.NewBlocksHeadersResponse">NewBlocksHeadersResponse</h3>
-        <p>NewBlocksHeadersResponse holds response from NewBlocksHeaders</p>
+        <h3 id="massa.api.v1.LedgerChangesFilter">LedgerChangesFilter</h3>
+        <p>LedgerChangesFilter</p>
 
         
           <table class="field-table">
@@ -3205,10 +3393,55 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>signed_block_header</td>
-                  <td><a href="#massa.model.v1.SignedBlockHeader">massa.model.v1.SignedBlockHeader</a></td>
+                  <td>none</td>
+                  <td><a href="#massa.model.v1.Empty">massa.model.v1.Empty</a></td>
                   <td></td>
-                  <td><p>Signed block header </p></td>
+                  <td><p>Do not return any message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Address for which we have ledger changes </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewBlocksFilter">NewBlocksFilter</h3>
+        <p>NewBlocks Filter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_ids</td>
+                  <td><a href="#massa.model.v1.BlockIds">massa.model.v1.BlockIds</a></td>
+                  <td></td>
+                  <td><p>One of these block ids </p></td>
+                </tr>
+              
+                <tr>
+                  <td>addresses</td>
+                  <td><a href="#massa.model.v1.Addresses">massa.model.v1.Addresses</a></td>
+                  <td></td>
+                  <td><p>One of these creator addresses </p></td>
+                </tr>
+              
+                <tr>
+                  <td>slot_range</td>
+                  <td><a href="#massa.model.v1.SlotRange">massa.model.v1.SlotRange</a></td>
+                  <td></td>
+                  <td><p>One of these slot ranges (inclusive) </p></td>
                 </tr>
               
             </tbody>
@@ -3222,6 +3455,23 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
         <p>NewBlocksRequest holds request for NewBlocks</p>
 
         
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.NewBlocksFilter">NewBlocksFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the blocks that verify all the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
 
         
       
@@ -3249,10 +3499,65 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
+        <h3 id="massa.api.v1.NewEndorsementsFilter">NewEndorsementsFilter</h3>
+        <p>NewEndorsements Filter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>endorsement_ids</td>
+                  <td><a href="#massa.model.v1.EndorsementIds">massa.model.v1.EndorsementIds</a></td>
+                  <td></td>
+                  <td><p>One of these endorsement ids </p></td>
+                </tr>
+              
+                <tr>
+                  <td>addresses</td>
+                  <td><a href="#massa.model.v1.Addresses">massa.model.v1.Addresses</a></td>
+                  <td></td>
+                  <td><p>One of these creator addresses </p></td>
+                </tr>
+              
+                <tr>
+                  <td>block_ids</td>
+                  <td><a href="#massa.model.v1.BlockIds">massa.model.v1.BlockIds</a></td>
+                  <td></td>
+                  <td><p>One of these block ids </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.NewEndorsementsRequest">NewEndorsementsRequest</h3>
         <p>NewEndorsementsRequest holds request for NewEndorsements</p>
 
         
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.NewEndorsementsFilter">NewEndorsementsFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the endorsements that verify all the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
 
         
       
@@ -3280,10 +3585,65 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
+        <h3 id="massa.api.v1.NewFilledBlocksFilter">NewFilledBlocksFilter</h3>
+        <p>NewFilledBlocks Filter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_ids</td>
+                  <td><a href="#massa.model.v1.BlockIds">massa.model.v1.BlockIds</a></td>
+                  <td></td>
+                  <td><p>One of these block ids </p></td>
+                </tr>
+              
+                <tr>
+                  <td>addresses</td>
+                  <td><a href="#massa.model.v1.Addresses">massa.model.v1.Addresses</a></td>
+                  <td></td>
+                  <td><p>One of these creator addresses </p></td>
+                </tr>
+              
+                <tr>
+                  <td>slot_range</td>
+                  <td><a href="#massa.model.v1.SlotRange">massa.model.v1.SlotRange</a></td>
+                  <td></td>
+                  <td><p>One of these slot ranges (inclusive) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.NewFilledBlocksRequest">NewFilledBlocksRequest</h3>
         <p>NewFilledBlocksRequest holds request for NewFilledBlocks</p>
 
         
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.NewBlocksFilter">NewBlocksFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the blocks that verify one of the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
 
         
       
@@ -3322,10 +3682,24 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
+                  <td>operation_ids</td>
+                  <td><a href="#massa.model.v1.OperationIds">massa.model.v1.OperationIds</a></td>
+                  <td></td>
+                  <td><p>One of the operation ids </p></td>
+                </tr>
+              
+                <tr>
+                  <td>addresses</td>
+                  <td><a href="#massa.model.v1.Addresses">massa.model.v1.Addresses</a></td>
+                  <td></td>
+                  <td><p>One of these creator addresses </p></td>
+                </tr>
+              
+                <tr>
                   <td>operation_types</td>
                   <td><a href="#massa.model.v1.OpTypes">massa.model.v1.OpTypes</a></td>
                   <td></td>
-                  <td><p>Filter </p></td>
+                  <td><p>One of the operation types </p></td>
                 </tr>
               
             </tbody>
@@ -3398,6 +3772,48 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#massa.model.v1.ExecutionOutputStatus">massa.model.v1.ExecutionOutputStatus</a></td>
                   <td></td>
                   <td><p>Execution output status </p></td>
+                </tr>
+              
+                <tr>
+                  <td>slot_range</td>
+                  <td><a href="#massa.model.v1.SlotRange">massa.model.v1.SlotRange</a></td>
+                  <td></td>
+                  <td><p>Slot range </p></td>
+                </tr>
+              
+                <tr>
+                  <td>async_pool_changes_filter</td>
+                  <td><a href="#massa.api.v1.AsyncPoolChangesFilter">AsyncPoolChangesFilter</a></td>
+                  <td></td>
+                  <td><p>AsyncPoolChangesFilter </p></td>
+                </tr>
+              
+                <tr>
+                  <td>executed_denounciation_filter</td>
+                  <td><a href="#massa.api.v1.ExecutedDenounciationFilter">ExecutedDenounciationFilter</a></td>
+                  <td></td>
+                  <td><p>ExecutedDenounciationFilter </p></td>
+                </tr>
+              
+                <tr>
+                  <td>event_filter</td>
+                  <td><a href="#massa.api.v1.ExecutionEventFilter">ExecutionEventFilter</a></td>
+                  <td></td>
+                  <td><p>Execution event filter </p></td>
+                </tr>
+              
+                <tr>
+                  <td>executed_ops_changes_filter</td>
+                  <td><a href="#massa.api.v1.ExecutedOpsChangesFilter">ExecutedOpsChangesFilter</a></td>
+                  <td></td>
+                  <td><p>ExecutedOpsChangesFilter </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ledger_changes_filter</td>
+                  <td><a href="#massa.api.v1.LedgerChangesFilter">LedgerChangesFilter</a></td>
+                  <td></td>
+                  <td><p>LedgerChangesFilter </p></td>
                 </tr>
               
             </tbody>
@@ -3494,6 +3910,37 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Operation ID to query </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.PosChangesFilter">PosChangesFilter</h3>
+        <p>PosChangesFilter</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>none</td>
+                  <td><a href="#massa.model.v1.Empty">massa.model.v1.Empty</a></td>
+                  <td></td>
+                  <td><p>Do not return any message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Address for which we have roll changes </p></td>
                 </tr>
               
             </tbody>
@@ -3669,21 +4116,21 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td>block_ids</td>
                   <td><a href="#massa.model.v1.BlockIds">massa.model.v1.BlockIds</a></td>
                   <td></td>
-                  <td><p>One of this block ids </p></td>
+                  <td><p>One of these block ids </p></td>
                 </tr>
               
                 <tr>
                   <td>addresses</td>
                   <td><a href="#massa.model.v1.Addresses">massa.model.v1.Addresses</a></td>
                   <td></td>
-                  <td><p>One of this creator addresses </p></td>
+                  <td><p>One of these creator addresses </p></td>
                 </tr>
               
                 <tr>
                   <td>slot_range</td>
                   <td><a href="#massa.model.v1.SlotRange">massa.model.v1.SlotRange</a></td>
                   <td></td>
-                  <td><p>One of this slot ranges (inclusive) </p></td>
+                  <td><p>One of these slot ranges (inclusive) </p></td>
                 </tr>
               
             </tbody>
@@ -3755,21 +4202,21 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td>endorsement_ids</td>
                   <td><a href="#massa.model.v1.EndorsementIds">massa.model.v1.EndorsementIds</a></td>
                   <td></td>
-                  <td><p>One of this endorsement ids </p></td>
+                  <td><p>One of these endorsement ids </p></td>
                 </tr>
               
                 <tr>
                   <td>addresses</td>
                   <td><a href="#massa.model.v1.Addresses">massa.model.v1.Addresses</a></td>
                   <td></td>
-                  <td><p>One of this creator addresses </p></td>
+                  <td><p>One of these creator addresses </p></td>
                 </tr>
               
                 <tr>
                   <td>block_ids</td>
                   <td><a href="#massa.model.v1.BlockIds">massa.model.v1.BlockIds</a></td>
                   <td></td>
-                  <td><p>One of this block ids </p></td>
+                  <td><p>One of these block ids </p></td>
                 </tr>
               
             </tbody>
@@ -3845,10 +4292,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                 </tr>
               
                 <tr>
-                  <td>operation_types</td>
-                  <td><a href="#massa.model.v1.OpTypes">massa.model.v1.OpTypes</a></td>
+                  <td>addresses</td>
+                  <td><a href="#massa.model.v1.Addresses">massa.model.v1.Addresses</a></td>
                   <td></td>
-                  <td><p>One of the operation types </p></td>
+                  <td><p>One of these creator addresses </p></td>
                 </tr>
               
             </tbody>
@@ -3949,7 +4396,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>block</td>
-                  <td><a href="#massa.model.v1.SecureShare">massa.model.v1.SecureShare</a></td>
+                  <td><a href="#bytes">bytes</a></td>
                   <td></td>
                   <td><p>Secure shared block </p></td>
                 </tr>
@@ -4004,7 +4451,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>endorsements</td>
-                  <td><a href="#massa.model.v1.SecureShare">massa.model.v1.SecureShare</a></td>
+                  <td><a href="#bytes">bytes</a></td>
                   <td>repeated</td>
                   <td><p>Secure shared endorsements </p></td>
                 </tr>
@@ -4027,7 +4474,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>endorsements_ids</td>
+                  <td>endorsement_ids</td>
                   <td><a href="#massa.model.v1.EndorsementIds">massa.model.v1.EndorsementIds</a></td>
                   <td></td>
                   <td><p>Endorsement result </p></td>
@@ -4059,7 +4506,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
               
                 <tr>
                   <td>operations</td>
-                  <td><a href="#massa.model.v1.SecureShare">massa.model.v1.SecureShare</a></td>
+                  <td><a href="#bytes">bytes</a></td>
                   <td>repeated</td>
                   <td><p>Secured shared operations </p></td>
                 </tr>
@@ -4082,7 +4529,7 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
             <tbody>
               
                 <tr>
-                  <td>operations_ids</td>
+                  <td>operation_ids</td>
                   <td><a href="#massa.model.v1.OperationIds">massa.model.v1.OperationIds</a></td>
                   <td></td>
                   <td><p>Operation result </p></td>

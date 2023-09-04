@@ -38,20 +38,6 @@ message ArrayOfBytesWrapper {
   repeated bytes items = 1;
 }
 
-// Packages a type such that it can be securely sent and received in a trust-free network
-message SecureShare {
-  // Content in sharable, deserializable form. Is used in the secure verification protocols
-  bytes serialized_data = 1;
-  // A cryptographically generated value using `serialized_data` and a public key.
-  string signature = 2;
-  // The public-key component used in the generation of the signature
-  string content_creator_pub_key = 3;
-  // Derived from the same public key used to generate the signature
-  string content_creator_address = 4;
-  // A secure hash of the non-malleable contents of a deterministic binary representation of the block header
-  string secure_hash = 5;
-}
-
 // Comparison result
 enum ComparisonResult {
   COMPARISON_RESULT_UNSPECIFIED = 0;

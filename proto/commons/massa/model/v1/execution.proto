@@ -103,6 +103,8 @@ message StateChanges {
   repeated ExecutedOpsChangeEntry executed_ops_changes = 4;
   // Executed denunciations changes
   repeated massa.model.v1.DenunciationIndex executed_denunciations_changes = 5;
+  // Execution trail hash change
+  SetOrKeepString execution_trail_hash_change = 6;
 }
 
 // ExecutedOpsChangeEntry
