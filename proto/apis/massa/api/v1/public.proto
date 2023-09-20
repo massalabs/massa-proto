@@ -173,7 +173,7 @@ service PublicService {
   rpc NewSlotExecutionOutputs(stream NewSlotExecutionOutputsRequest) returns (stream NewSlotExecutionOutputsResponse) {}
 
   // unidirectional streaming
-  rpc NewSlotExecutionOutputsServerStream(NewSlotExecutionOutputsRequest) returns (stream NewSlotExecutionOutputsResponse) {}
+  rpc NewSlotExecutionOutputsServer(NewSlotExecutionOutputsRequest) returns (stream NewSlotExecutionOutputsResponse) {}
 
   // Send blocks
   rpc SendBlocks(stream SendBlocksRequest) returns (stream SendBlocksResponse) {}
