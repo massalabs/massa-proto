@@ -393,10 +393,8 @@ message ReadOnlyExecutionCall {
   //
   // Whether to start execution from final or active state
   bool is_final = 6;
-  // Coins transferred to the target address during the call
-  massa.model.v1.NativeAmount coins = 7;
   // fee paid by the caller when the call is processed.
-  massa.model.v1.NativeAmount fee = 8;
+  massa.model.v1.NativeAmount fee = 7;
 }
 
 /// Execute a bytecode
@@ -415,6 +413,8 @@ message FunctionCall {
   string target_function = 2;
   // Parameter to pass to the target function
   bytes parameter = 3;
+  // Coins transferred to the target address during the call
+  massa.model.v1.NativeAmount coins = 4;
 }
 
 // Structure describing the output of a read only execution
