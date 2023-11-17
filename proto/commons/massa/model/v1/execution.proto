@@ -391,8 +391,6 @@ message ReadOnlyExecutionCall {
   google.protobuf.StringValue caller_address = 5;
   // execution start state
   //
-  // Whether to start execution from final or active state
-  bool is_final = 6;
   // fee paid by the caller when the call is processed.
   massa.model.v1.NativeAmount fee = 7;
 }
