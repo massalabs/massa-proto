@@ -389,9 +389,7 @@ message ReadOnlyExecutionCall {
   }
   // Caller's address, (Optional) if not set, an auto-generated address will be used
   google.protobuf.StringValue caller_address = 5;
-  // execution start state
-  //
-  // fee paid by the caller when the call is processed.
+  // fee paid by the caller when the call is processed (optional)
   massa.model.v1.NativeAmount fee = 7;
 }
 
