@@ -1347,12 +1347,6 @@ Read-only execution call
 | bytecode_call | [BytecodeExecution](#massa-model-v1-BytecodeExecution) |  | Byte code |
 | function_call | [FunctionCall](#massa-model-v1-FunctionCall) |  | Function call |
 | caller_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Caller&#39;s address, (Optional) if not set, an auto-generated address will be used |
-| is_final | [bool](#bool) |  | execution start state
-
-Whether to start execution from final or active state |
-
-
-
 
 
 
