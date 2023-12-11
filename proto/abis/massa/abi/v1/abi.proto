@@ -917,3 +917,11 @@ message Base58CheckToBytesRequest {
 message Base58CheckToBytesResult {
   bytes bytes = 1;
 }
+
+// Chain id request
+message ChainIdRequest {}
+
+// Chain id result
+message ChainIdResult {
+  uint64 id = 1;
+}
