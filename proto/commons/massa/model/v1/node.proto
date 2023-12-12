@@ -52,6 +52,8 @@ message NodeStatus {
   massa.model.v1.ExecutionStats execution_stats = 15;
   // Compact configuration
   CompactConfig config = 16;
+  // Chain id
+  uint64 chain_id = 17;
 }
 
 // Connected node
@@ -117,4 +119,6 @@ message PublicStatus {
   string final_state_fingerprint = 10;
   // Compact configuration
   CompactConfig config = 11;
+  // Chain id
+  uint64 chain_id = 12;
 }

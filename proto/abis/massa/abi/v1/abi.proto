@@ -180,6 +180,7 @@ message RespResult {
     EvmGetAddressFromPubkeyResult evm_get_address_from_pubkey_result = 60;
     EvmGetPubkeyFromSignatureResult evm_get_pubkey_from_signature_result = 61;
     IsAddressEoaResult is_address_eoa_result = 62;
+    ChainIdResult chain_id_result = 63;
   }
 }
 
@@ -916,4 +917,12 @@ message Base58CheckToBytesRequest {
 // base58 to bytes result
 message Base58CheckToBytesResult {
   bytes bytes = 1;
+}
+
+// Chain id request
+message ChainIdRequest {}
+
+// Chain id result
+message ChainIdResult {
+  uint64 id = 1;
 }
