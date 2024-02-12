@@ -151,6 +151,14 @@ service PublicService {
     };
   }
 
+  // Get ABI call stack of an operation
+  rpc GetOperationABICallStacks(GetOperationABICallStackRequest) returns (GetOperationABICallStackResponse) {
+    option (google.api.http) = {
+      post: "/v1/get_operation_abi_call_stacks"
+      body: "*"
+    };
+  }
+
   // ███████╗████████╗██████╗ ███████╗ █████╗ ███╗   ███╗
   // ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗████╗ ████║
   // ███████╗   ██║   ██████╔╝█████╗  ███████║██╔████╔██║
@@ -1005,4 +1013,54 @@ message SearchOperationsFilter {
 message SearchOperationsResponse {
   // Information about the operations
   repeated massa.model.v1.OperationInfo operation_infos = 1;
+}
+
+// GetOperationABICallStacks request
+message GetOperationABICallStacksRequest {
+  // Operations ids to get the call stack from
+  repeated string operation_ids = 1;
+}
+
+// Definition of an ABI call stack element
+message ABICallStackElement {
+  // name of the ABI
+  string name = 1;
+  // Parameters of the ABI
+  repeated string parameters = 2;
+  // Return value of the ABI
+  string return_value = 3;
+}
+
+// Definition of an ABI call stack element that is the 'call' ABI
+message ABICallStackElementCall {
+  // name of the ABI
+  string name = 1;
+  // Parameters of the ABI
+  repeated string parameters = 2;
+  // Calls made within this SC call
+  repeated ABICallStackElementParent sub_calls = 3;
+  // Return value of the ABI
+  string return_value = 4;
+}
+
+// Definition of an ABI call stack element parent
+message ABICallStackElementParent {
+  // Element of the call stack
+  oneof call_stack_element {
+    // Any ABI call that is not the ABI 'call'
+    ABICallStackElement element = 1;
+    // Element that is the ABI 'call'
+    ABICallStackElementCall element_call = 2;
+  }
+}
+
+// Definition of an ABI call stack
+message ABICallStack {
+  // All elements of the call stack
+  repeated ABICallStackElementParent call_stack = 1;
+}
+
+// GetOperationABICallStacks response
+message GetOperationABICallStacksResponse {
+  repeated ABICallStack call_stacks = 1;
 }
