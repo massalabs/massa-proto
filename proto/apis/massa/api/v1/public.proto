@@ -159,7 +159,7 @@ service PublicService {
     };
   }
 
-  // Get ABI call stack of all asynchronous message and all operations for a given slot
+  // Get ABI call stack of all asynchronous executions and all operations for a given slot
   rpc GetSlotABICallStacks(GetSlotABICallStacksRequest) returns (GetSlotABICallStacksResponse) {
     option (google.api.http) = {
       post: "/v1/get_slot_abi_call_stacks"
@@ -1079,8 +1079,26 @@ message GetSlotABICallStacksRequest {
   repeated massa.model.v1.Slot slots = 1;
 }
 
+// ABI asynchronous execution call stack 
+message ASCABICallStack {
+  // Index of the execution in the slot
+  uint64 index = 1;
+  // Call stack
+  repeated ABICallStackElementParent call_stack = 2;
+}
+
+// Operation execution call stack
+message OperationABICallStack {
+  // Operation id
+  string operation_id = 1;
+  // Call stack
+  repeated ABICallStackElementParent call_stack = 2;
+}
+
 // GetSlotABICallStacks response
 message GetSlotABICallStacksResponse {
-  // TODO
-  string todo = 1; 
+  // Call stacks for asynchronous execution 
+  repeated ASCABICallStack asc_call_stacks = 1;
+  // Call stack for operations
+  repeated OperationABICallStack operation_call_stacks = 2;
 }
