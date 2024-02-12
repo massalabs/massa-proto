@@ -152,9 +152,17 @@ service PublicService {
   }
 
   // Get ABI call stack of an operation
-  rpc GetOperationABICallStacks(GetOperationABICallStackRequest) returns (GetOperationABICallStackResponse) {
+  rpc GetOperationABICallStacks(GetOperationABICallStacksRequest) returns (GetOperationABICallStacksResponse) {
     option (google.api.http) = {
       post: "/v1/get_operation_abi_call_stacks"
+      body: "*"
+    };
+  }
+
+  // Get ABI call stack of all asynchronous message and all operations for a given slot
+  rpc GetSlotABICallStacks(GetSlotABICallStacksRequest) returns (GetSlotABICallStacksResponse) {
+    option (google.api.http) = {
+      post: "/v1/get_slot_abi_call_stacks"
       body: "*"
     };
   }
@@ -1063,4 +1071,16 @@ message ABICallStack {
 // GetOperationABICallStacks response
 message GetOperationABICallStacksResponse {
   repeated ABICallStack call_stacks = 1;
+}
+
+// GetSlotABICallStacks request
+message GetSlotABICallStacksRequest {
+  // Slots asked
+  repeated massa.model.v1.Slot slots = 1;
+}
+
+// GetSlotABICallStacks response
+message GetSlotABICallStacksRequest {
+  // TODO
+  string todo = 1; 
 }
