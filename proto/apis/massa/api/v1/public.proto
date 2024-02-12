@@ -893,9 +893,9 @@ message NewSlotExecutionOutputsResponse {
 // Finality level to filter on in streams
 enum FinalityLevel {
   // Candidate level
-  CANDIDATE = 1;
+  CANDIDATE = 0;
   // Final level
-  FINAL = 2;
+  FINAL = 1;
 }
 
 // NewSlotABICallStacks request
