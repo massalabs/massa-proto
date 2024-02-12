@@ -188,6 +188,9 @@ service PublicService {
   // New received and slot execution events
   rpc NewSlotExecutionOutputs(stream NewSlotExecutionOutputsRequest) returns (stream NewSlotExecutionOutputsResponse) {}
 
+  // Call stack for each slot executed
+  rpc NewSlotABICallStacks(stream NewSlotABICallStacksRequest) returns (stream NewSlotABICallStacksResponse) {}
+
   // Send blocks
   rpc SendBlocks(stream SendBlocksRequest) returns (stream SendBlocksResponse) {}
 
@@ -885,6 +888,30 @@ message LedgerChangesFilter {
 message NewSlotExecutionOutputsResponse {
   // Slot execution output
   massa.model.v1.SlotExecutionOutput output = 1;
+}
+
+// Finality level to filter on in streams
+enum FinalityLevel {
+  // Candidate level
+  CANDIDATE = 1;
+  // Final level
+  FINAL = 2;
+}
+
+// NewSlotABICallStacks request
+message NewSlotABICallStacksRequest {
+  // Finality level to receive informations from
+  optional FinalityLevel finality_level = 1;
+}
+
+// NewSlotABICallStacks response
+message NewSlotABICallStacksResponse {
+  // Finality level to receive informations from
+  massa.model.v1.Slot slot = 1;
+  // Call stacks for asynchronous execution 
+  repeated ASCABICallStack asc_call_stacks = 2;
+  // Call stack for operations
+  repeated OperationABICallStack operation_call_stacks = 3;
 }
 
 // SendBlocksRequest holds parameters to SendBlocks
