@@ -892,16 +892,18 @@ message NewSlotExecutionOutputsResponse {
 
 // Finality level to filter on in streams
 enum FinalityLevel {
+  // Unspecified (receive both)
+  FINALITY_LEVEL_UNSPECIFIED = 0;
   // Candidate level
-  CANDIDATE = 0;
+  FINALITY_LEVEL_CANDIDATE = 1;
   // Final level
-  FINAL = 1;
+  FINALITY_LEVEL_FINAL = 2;
 }
 
 // NewSlotABICallStacks request
 message NewSlotABICallStacksRequest {
   // Finality level to receive informations from
-  optional FinalityLevel finality_level = 1;
+  FinalityLevel finality_level = 1;
 }
 
 // NewSlotABICallStacks response
