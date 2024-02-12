@@ -1080,7 +1080,7 @@ message GetSlotABICallStacksRequest {
 }
 
 // GetSlotABICallStacks response
-message GetSlotABICallStacksRequest {
+message GetSlotABICallStacksResponse {
   // TODO
   string todo = 1; 
 }
