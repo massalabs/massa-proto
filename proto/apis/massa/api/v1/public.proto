@@ -1124,10 +1124,16 @@ message OperationABICallStack {
   repeated ABICallStackElementParent call_stack = 2;
 }
 
-// GetSlotABICallStacks response
-message GetSlotABICallStacksResponse {
+// Call stack for a slot
+message SlotABICallStacks {
   // Call stacks for asynchronous execution 
   repeated ASCABICallStack asc_call_stacks = 1;
   // Call stack for operations
   repeated OperationABICallStack operation_call_stacks = 2;
+}
+
+// GetSlotABICallStacks response
+message GetSlotABICallStacksResponse {
+  // Call stacks for the slots
+  repeated SlotABICallStacks slot_call_stacks = 1;
 }
