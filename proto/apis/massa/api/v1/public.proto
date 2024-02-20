@@ -167,6 +167,14 @@ service PublicService {
     };
   }
 
+  // Get all the transfers of MAS for a given slot
+  rpc GetSlotTransfers(GetSlotTransfersRequest) returns (GetSlotTransfersResponse) {
+    option (google.api.http) = {
+      post: "/v1/get_slot_transfers"
+      body: "*"
+    };
+  }
+
   // ███████╗████████╗██████╗ ███████╗ █████╗ ███╗   ███╗
   // ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗████╗ ████║
   // ███████╗   ██║   ██████╔╝█████╗  ███████║██╔████╔██║
@@ -190,6 +198,9 @@ service PublicService {
 
   // Call stack for each slot executed
   rpc NewSlotABICallStacks(stream NewSlotABICallStacksRequest) returns (stream NewSlotABICallStacksResponse) {}
+
+  // Transfer list for each slot executed
+  rpc NewSlotTransfers(stream NewSlotTransfersRequest) returns (stream NewSlotTransfersResponse) {}
 
   // Send blocks
   rpc SendBlocks(stream SendBlocksRequest) returns (stream SendBlocksResponse) {}
@@ -916,6 +927,20 @@ message NewSlotABICallStacksResponse {
   repeated OperationABICallStack operation_call_stacks = 3;
 }
 
+// NewSlotTransfers request
+message NewSlotTransfersRequest {
+  // Finality level to receive informations from
+  FinalityLevel finality_level = 1;
+}
+
+// NewSlotTransfers response
+message NewSlotTransfersResponse {
+  // Finality level to receive informations from
+  massa.model.v1.Slot slot = 1;
+  // Transfers
+  repeated TransferInfo transfers = 2;
+}
+
 // SendBlocksRequest holds parameters to SendBlocks
 message SendBlocksRequest {
   // Secure shared block
@@ -1136,4 +1161,41 @@ message SlotABICallStacks {
 message GetSlotABICallStacksResponse {
   // Call stacks for the slots
   repeated SlotABICallStacks slot_call_stacks = 1;
+}
+
+// GetSlotTransfersRequest holds request for GetSlotTransfers
+message GetSlotTransfersRequest {
+  // Slot to get the transfers from
+  repeated massa.model.v1.Slot slot = 1;
+}
+
+// Transfer info
+message TransferInfo {
+  // Sender
+  string from = 1;
+  // Receiver
+  string to = 2;
+  // Amount in nMAS
+  uint64 amount = 3;
+  // Operation id or asc index
+  oneof operation_id_or_asc_index {
+    // Operation id
+    string operation_id = 4;
+    // Asynchronous execution index
+    uint64 asc_index = 5;
+  }
+}
+
+// List of transfers for a slot
+message TransferInfos {
+  // Slot
+  massa.model.v1.Slot slot = 1;
+  // Transfers
+  repeated TransferInfo transfers = 2;
+}
+
+// GetSlotTransfersResponse holds response from GetSlotTransfers
+message GetSlotTransfersResponse {
+  // Transfers for the slot
+  repeated TransferInfos transfer_each_slot = 1;
 }
