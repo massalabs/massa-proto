@@ -1166,7 +1166,7 @@ message GetSlotABICallStacksResponse {
 // GetSlotTransfersRequest holds request for GetSlotTransfers
 message GetSlotTransfersRequest {
   // Slot to get the transfers from
-  repeated massa.model.v1.Slot slot = 1;
+  repeated massa.model.v1.Slot slots = 1;
 }
 
 // Transfer info
