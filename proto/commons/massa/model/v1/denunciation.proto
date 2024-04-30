@@ -15,6 +15,48 @@ option php_namespace = "Com\\Massa\\Model\\V1";
 option ruby_package = "Com::Massa::Model::V1";
 option swift_prefix = "MMODEL";
 
+message Denunciation {
+  // BlockHeaderDenunciation or EndorsementDenunciation
+  oneof entry {
+    // Denunciation block header
+    BlockHeaderDenunciation block_header = 1;
+    // Denunciation endorsement
+    EndorsementDenunciation endorsement = 2;
+  }
+}
+
+message BlockHeaderDenunciation {
+  // Denunciation public key
+  string public_key = 1;
+  // Denunciation slot
+  massa.model.v1.Slot slot = 2;
+  // Denunciation hash 1
+  string hash_1 = 3;
+  // Denunciation hash 2
+  string hash_2 = 4;
+  // Denunciation sig 1
+  string signature_1 = 5;
+  // Denunciation sig 2
+  string signature_2 = 6;
+}
+
+message EndorsementDenunciation {
+  // Denunciation public key
+  string public_key = 1;
+  // Denunciation slot
+  massa.model.v1.Slot slot = 2;
+  // Denunciation index
+  uint32 index = 3;
+  // Denunciation hash 1
+  string hash_1 = 4;
+  // Denunciation hash 2
+  string hash_2 = 5;
+  // Denunciation sig 1
+  string signature_1 = 6;
+  // Denunciation sig 2
+  string signature_2 = 7;
+}
+
 // Index for Denunciations in collections (e.g. like a HashMap...)
 message DenunciationIndex {
   // DenunciationBlockHeader or DenunciationEndorsement
@@ -28,7 +70,7 @@ message DenunciationIndex {
 
 // Variant for Block header denunciation index
 message DenunciationBlockHeader {
-  // Denounciation slot
+  // Denunciation slot
   massa.model.v1.Slot slot = 1;
 }
 
