@@ -698,6 +698,14 @@ message DeferredCallQuoteRequest {
   uint64 max_gas = 2;
 }
 
+// Deferred call quote result
+message DeferredCallQuoteResult {
+  /// available
+  bool available = 1;
+  /// cost
+  uint64 cost = 2;
+}
+
 // Send async message request filter
 message SendAsyncMessageFilter {
   // Target address

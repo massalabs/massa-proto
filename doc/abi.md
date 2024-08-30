@@ -50,6 +50,7 @@
     - [CreateScRequest](#massa-abi-v1-CreateScRequest)
     - [CreateScResult](#massa-abi-v1-CreateScResult)
     - [DeferredCallQuoteRequest](#massa-abi-v1-DeferredCallQuoteRequest)
+    - [DeferredCallQuoteResult](#massa-abi-v1-DeferredCallQuoteResult)
     - [DeleteDsEntryRequest](#massa-abi-v1-DeleteDsEntryRequest)
     - [DeleteDsEntryResult](#massa-abi-v1-DeleteDsEntryResult)
     - [DivRemNativeAmountRequest](#massa-abi-v1-DivRemNativeAmountRequest)
@@ -837,6 +838,22 @@ Deferred call quote
 | ----- | ---- | ----- | ----------- |
 | target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | target slot |
 | max_gas | [uint64](#uint64) |  | max gas requested |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallQuoteResult"></a>
+
+### DeferredCallQuoteResult
+Deferred call quote result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| available | [bool](#bool) |  | available |
+| cost | [uint64](#uint64) |  | cost |
 
 
 
