@@ -19,6 +19,8 @@
     - [CallResponse](#massa-abi-v1-CallResponse)
     - [CallerHasWriteAccessRequest](#massa-abi-v1-CallerHasWriteAccessRequest)
     - [CallerHasWriteAccessResult](#massa-abi-v1-CallerHasWriteAccessResult)
+    - [ChainIdRequest](#massa-abi-v1-ChainIdRequest)
+    - [ChainIdResult](#massa-abi-v1-ChainIdResult)
     - [CheckAddressRequest](#massa-abi-v1-CheckAddressRequest)
     - [CheckAddressResult](#massa-abi-v1-CheckAddressResult)
     - [CheckNativeAmountRequest](#massa-abi-v1-CheckNativeAmountRequest)
@@ -47,6 +49,7 @@
     - [ComparePubKeyResult](#massa-abi-v1-ComparePubKeyResult)
     - [CreateScRequest](#massa-abi-v1-CreateScRequest)
     - [CreateScResult](#massa-abi-v1-CreateScResult)
+    - [DeferredCallQuoteRequest](#massa-abi-v1-DeferredCallQuoteRequest)
     - [DeleteDsEntryRequest](#massa-abi-v1-DeleteDsEntryRequest)
     - [DeleteDsEntryResult](#massa-abi-v1-DeleteDsEntryResult)
     - [DivRemNativeAmountRequest](#massa-abi-v1-DivRemNativeAmountRequest)
@@ -362,6 +365,31 @@ Caller has write access result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | has_write_access | [bool](#bool) |  | Caller has write access |
+
+
+
+
+
+
+<a name="massa-abi-v1-ChainIdRequest"></a>
+
+### ChainIdRequest
+Chain id request
+
+
+
+
+
+
+<a name="massa-abi-v1-ChainIdResult"></a>
+
+### ChainIdResult
+Chain id result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [uint64](#uint64) |  |  |
 
 
 
@@ -793,6 +821,22 @@ Create SC result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | sc_address | [string](#string) |  | Address of the just created smart contract |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallQuoteRequest"></a>
+
+### DeferredCallQuoteRequest
+Deferred call quote
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | target slot |
+| max_gas | [uint64](#uint64) |  | max gas requested |
 
 
 
@@ -1844,6 +1888,7 @@ the &#43;1 comes from ResResult itself which is counted above
 | evm_get_address_from_pubkey_result | [EvmGetAddressFromPubkeyResult](#massa-abi-v1-EvmGetAddressFromPubkeyResult) |  |  |
 | evm_get_pubkey_from_signature_result | [EvmGetPubkeyFromSignatureResult](#massa-abi-v1-EvmGetPubkeyFromSignatureResult) |  |  |
 | is_address_eoa_result | [IsAddressEoaResult](#massa-abi-v1-IsAddressEoaResult) |  |  |
+| chain_id_result | [ChainIdResult](#massa-abi-v1-ChainIdResult) |  |  |
 
 
 

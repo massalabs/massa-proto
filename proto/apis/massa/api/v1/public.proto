@@ -921,7 +921,7 @@ message NewSlotABICallStacksRequest {
 message NewSlotABICallStacksResponse {
   // Finality level to receive informations from
   massa.model.v1.Slot slot = 1;
-  // Call stacks for asynchronous execution 
+  // Call stacks for asynchronous execution
   repeated ASCABICallStack asc_call_stacks = 2;
   // Call stack for operations
   repeated OperationABICallStack operation_call_stacks = 3;
@@ -1133,7 +1133,7 @@ message GetSlotABICallStacksRequest {
   repeated massa.model.v1.Slot slots = 1;
 }
 
-// ABI asynchronous execution call stack 
+// ABI asynchronous execution call stack
 message ASCABICallStack {
   // Index of the execution in the slot
   uint64 index = 1;
@@ -1151,7 +1151,7 @@ message OperationABICallStack {
 
 // Call stack for a slot
 message SlotABICallStacks {
-  // Call stacks for asynchronous execution 
+  // Call stacks for asynchronous execution
   repeated ASCABICallStack asc_call_stacks = 1;
   // Call stack for operations
   repeated OperationABICallStack operation_call_stacks = 2;

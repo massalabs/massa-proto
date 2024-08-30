@@ -69,8 +69,8 @@ message ConnectedNode {
 // ConnectionType enum
 enum ConnectionType {
   CONNECTION_TYPE_UNSPECIFIED = 0; // Default enum value
-  CONNECTION_TYPE_INCOMING = 1;    // Incoming connection
-  CONNECTION_TYPE_OUTGOING = 2;    // Outgoing connection
+  CONNECTION_TYPE_INCOMING = 1; // Incoming connection
+  CONNECTION_TYPE_OUTGOING = 2; // Outgoing connection
 }
 
 // Compact configuration

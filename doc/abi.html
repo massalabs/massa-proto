@@ -239,6 +239,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.abi.v1.ChainIdRequest"><span class="badge">M</span>ChainIdRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.ChainIdResult"><span class="badge">M</span>ChainIdResult</a>
+                </li>
+              
+                <li>
                   <a href="#massa.abi.v1.CheckAddressRequest"><span class="badge">M</span>CheckAddressRequest</a>
                 </li>
               
@@ -348,6 +356,10 @@
               
                 <li>
                   <a href="#massa.abi.v1.CreateScResult"><span class="badge">M</span>CreateScResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.DeferredCallQuoteRequest"><span class="badge">M</span>DeferredCallQuoteRequest</a>
                 </li>
               
                 <li>
@@ -1082,6 +1094,37 @@
                   <td><a href="#bool">bool</a></td>
                   <td></td>
                   <td><p>Caller has write access </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.ChainIdRequest">ChainIdRequest</h3>
+        <p>Chain id request</p>
+
+        
+
+        
+      
+        <h3 id="massa.abi.v1.ChainIdResult">ChainIdResult</h3>
+        <p>Chain id result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -1831,6 +1874,37 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Address of the just created smart contract </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallQuoteRequest">DeferredCallQuoteRequest</h3>
+        <p>Deferred call quote</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>target_slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>target slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_gas</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>max gas requested </p></td>
                 </tr>
               
             </tbody>
@@ -3819,6 +3893,13 @@
                 <tr>
                   <td>is_address_eoa_result</td>
                   <td><a href="#massa.abi.v1.IsAddressEoaResult">IsAddressEoaResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>chain_id_result</td>
+                  <td><a href="#massa.abi.v1.ChainIdResult">ChainIdResult</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>

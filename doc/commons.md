@@ -54,9 +54,12 @@
     - [OpType](#massa-model-v1-OpType)
   
 - [massa/model/v1/denunciation.proto](#massa_model_v1_denunciation-proto)
+    - [BlockHeaderDenunciation](#massa-model-v1-BlockHeaderDenunciation)
+    - [Denunciation](#massa-model-v1-Denunciation)
     - [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader)
     - [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement)
     - [DenunciationIndex](#massa-model-v1-DenunciationIndex)
+    - [EndorsementDenunciation](#massa-model-v1-EndorsementDenunciation)
   
 - [massa/model/v1/commons.proto](#massa_model_v1_commons-proto)
     - [ArrayOfBytesWrapper](#massa-model-v1-ArrayOfBytesWrapper)
@@ -551,6 +554,7 @@ Node status
 | network_stats | [NetworkStats](#massa-model-v1-NetworkStats) |  | Network stats |
 | execution_stats | [ExecutionStats](#massa-model-v1-ExecutionStats) |  | Execution stats |
 | config | [CompactConfig](#massa-model-v1-CompactConfig) |  | Compact configuration |
+| chain_id | [uint64](#uint64) |  | Chain id |
 
 
 
@@ -575,6 +579,8 @@ Public status
 | last_executed_speculative_slot | [Slot](#massa-model-v1-Slot) |  | Last executed speculative slot |
 | final_state_fingerprint | [string](#string) |  | The hash of the XOF final state hash |
 | config | [CompactConfig](#massa-model-v1-CompactConfig) |  | Compact configuration |
+| chain_id | [uint64](#uint64) |  | Chain id |
+| minimal_fees | [NativeAmount](#massa-model-v1-NativeAmount) |  | minimal fees |
 
 
 
@@ -845,6 +851,42 @@ Operation type enum
 
 
 
+<a name="massa-model-v1-BlockHeaderDenunciation"></a>
+
+### BlockHeaderDenunciation
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| public_key | [string](#string) |  | Denunciation public key |
+| slot | [Slot](#massa-model-v1-Slot) |  | Denunciation slot |
+| hash_1 | [string](#string) |  | Denunciation hash 1 |
+| hash_2 | [string](#string) |  | Denunciation hash 2 |
+| signature_1 | [string](#string) |  | Denunciation sig 1 |
+| signature_2 | [string](#string) |  | Denunciation sig 2 |
+
+
+
+
+
+
+<a name="massa-model-v1-Denunciation"></a>
+
+### Denunciation
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_header | [BlockHeaderDenunciation](#massa-model-v1-BlockHeaderDenunciation) |  | Denunciation block header |
+| endorsement | [EndorsementDenunciation](#massa-model-v1-EndorsementDenunciation) |  | Denunciation endorsement |
+
+
+
+
+
+
 <a name="massa-model-v1-DenunciationBlockHeader"></a>
 
 ### DenunciationBlockHeader
@@ -853,7 +895,7 @@ Variant for Block header denunciation index
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| slot | [Slot](#massa-model-v1-Slot) |  | Denounciation slot |
+| slot | [Slot](#massa-model-v1-Slot) |  | Denunciation slot |
 
 
 
@@ -886,6 +928,27 @@ Index for Denunciations in collections (e.g. like a HashMap...)
 | ----- | ---- | ----- | ----------- |
 | block_header | [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader) |  | Denunciation block header |
 | endorsement | [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement) |  | Denunciation endorsement |
+
+
+
+
+
+
+<a name="massa-model-v1-EndorsementDenunciation"></a>
+
+### EndorsementDenunciation
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| public_key | [string](#string) |  | Denunciation public key |
+| slot | [Slot](#massa-model-v1-Slot) |  | Denunciation slot |
+| index | [uint32](#uint32) |  | Denunciation index |
+| hash_1 | [string](#string) |  | Denunciation hash 1 |
+| hash_2 | [string](#string) |  | Denunciation hash 2 |
+| signature_1 | [string](#string) |  | Denunciation sig 1 |
+| signature_2 | [string](#string) |  | Denunciation sig 2 |
 
 
 
@@ -1261,6 +1324,7 @@ Execute a function call
 | target_address | [string](#string) |  | Target address |
 | target_function | [string](#string) |  | Target function |
 | parameter | [bytes](#bytes) |  | Parameter to pass to the target function |
+| coins | [NativeAmount](#massa-model-v1-NativeAmount) |  | Coins transferred to the target address during the call |
 
 
 
@@ -1347,6 +1411,10 @@ Read-only execution call
 | bytecode_call | [BytecodeExecution](#massa-model-v1-BytecodeExecution) |  | Byte code |
 | function_call | [FunctionCall](#massa-model-v1-FunctionCall) |  | Function call |
 | caller_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Caller&#39;s address, (Optional) if not set, an auto-generated address will be used |
+| fee | [NativeAmount](#massa-model-v1-NativeAmount) |  | fee paid by the caller when the call is processed (optional) |
+
+
+
 
 
 
@@ -1837,6 +1905,7 @@ Block header
 | parents | [string](#string) | repeated | parents |
 | operations_hash | [string](#string) |  | All operations hash |
 | endorsements | [SignedEndorsement](#massa-model-v1-SignedEndorsement) | repeated | Signed endorsements |
+| denunciations | [Denunciation](#massa-model-v1-Denunciation) | repeated | Denunciations |
 
 
 
