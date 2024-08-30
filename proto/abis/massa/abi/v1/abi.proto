@@ -182,6 +182,7 @@ message RespResult {
     IsAddressEoaResult is_address_eoa_result = 62;
     ChainIdResult chain_id_result = 63;
     DeferredCallQuoteResult deferred_call_quote_result = 64;
+    DeferredCallExistsResult deferred_call_exists_result = 65;
   }
 }
 

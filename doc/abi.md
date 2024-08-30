@@ -1939,6 +1939,7 @@ the &#43;1 comes from ResResult itself which is counted above
 | is_address_eoa_result | [IsAddressEoaResult](#massa-abi-v1-IsAddressEoaResult) |  |  |
 | chain_id_result | [ChainIdResult](#massa-abi-v1-ChainIdResult) |  |  |
 | deferred_call_quote_result | [DeferredCallQuoteResult](#massa-abi-v1-DeferredCallQuoteResult) |  |  |
+| deferred_call_exists_result | [DeferredCallExistsResult](#massa-abi-v1-DeferredCallExistsResult) |  |  |
 
 
 
