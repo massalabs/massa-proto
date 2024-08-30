@@ -49,6 +49,8 @@
     - [ComparePubKeyResult](#massa-abi-v1-ComparePubKeyResult)
     - [CreateScRequest](#massa-abi-v1-CreateScRequest)
     - [CreateScResult](#massa-abi-v1-CreateScResult)
+    - [DeferredCallExistsRequest](#massa-abi-v1-DeferredCallExistsRequest)
+    - [DeferredCallExistsResult](#massa-abi-v1-DeferredCallExistsResult)
     - [DeferredCallQuoteRequest](#massa-abi-v1-DeferredCallQuoteRequest)
     - [DeferredCallQuoteResult](#massa-abi-v1-DeferredCallQuoteResult)
     - [DeleteDsEntryRequest](#massa-abi-v1-DeleteDsEntryRequest)
@@ -822,6 +824,36 @@ Create SC result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | sc_address | [string](#string) |  | Address of the just created smart contract |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallExistsRequest"></a>
+
+### DeferredCallExistsRequest
+deferred call exists request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | call id |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallExistsResult"></a>
+
+### DeferredCallExistsResult
+deferred call exists result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_exists | [bool](#bool) |  | call exists |
 
 
 

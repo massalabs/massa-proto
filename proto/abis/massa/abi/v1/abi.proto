@@ -707,6 +707,18 @@ message DeferredCallQuoteResult {
   uint64 cost = 2;
 }
 
+// deferred call exists request
+message DeferredCallExistsRequest {
+  /// call id
+  google.protobuf.StringValue call_id = 1;
+}
+
+// deferred call exists result
+message DeferredCallExistsResult {
+  /// call exists
+  bool call_exists = 1;
+}
+
 // Send async message request filter
 message SendAsyncMessageFilter {
   // Target address
