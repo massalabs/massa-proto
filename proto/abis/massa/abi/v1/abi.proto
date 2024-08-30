@@ -181,6 +181,7 @@ message RespResult {
     EvmGetPubkeyFromSignatureResult evm_get_pubkey_from_signature_result = 61;
     IsAddressEoaResult is_address_eoa_result = 62;
     ChainIdResult chain_id_result = 63;
+    DeferredCallQuoteResult deferred_call_quote_result = 64;
   }
 }
 
