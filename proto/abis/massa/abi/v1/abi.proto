@@ -720,6 +720,28 @@ message DeferredCallExistsResult {
   bool call_exists = 1;
 }
 
+// deferred call register request
+message DeferredCallRegisterRequest {
+  /// target address
+  string target_address = 1;
+  /// target function
+  string target_function = 2;
+  /// start slot
+  massa.model.v1.Slot target_slot = 3;
+  /// gas
+  uint64 max_gas = 4;
+  /// params
+  bytes params = 5;
+  /// coins
+  uint64 coins = 6;
+}
+
+/// deferred call register result
+message DeferredCallRegisterResult {
+  /// call id
+  google.protobuf.StringValue call_id = 1;
+}
+
 // Send async message request filter
 message SendAsyncMessageFilter {
   // Target address

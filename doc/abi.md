@@ -53,6 +53,8 @@
     - [DeferredCallExistsResult](#massa-abi-v1-DeferredCallExistsResult)
     - [DeferredCallQuoteRequest](#massa-abi-v1-DeferredCallQuoteRequest)
     - [DeferredCallQuoteResult](#massa-abi-v1-DeferredCallQuoteResult)
+    - [DeferredCallRegisterRequest](#massa-abi-v1-DeferredCallRegisterRequest)
+    - [DeferredCallRegisterResult](#massa-abi-v1-DeferredCallRegisterResult)
     - [DeleteDsEntryRequest](#massa-abi-v1-DeleteDsEntryRequest)
     - [DeleteDsEntryResult](#massa-abi-v1-DeleteDsEntryResult)
     - [DivRemNativeAmountRequest](#massa-abi-v1-DivRemNativeAmountRequest)
@@ -886,6 +888,41 @@ Deferred call quote result
 | ----- | ---- | ----- | ----------- |
 | available | [bool](#bool) |  | available |
 | cost | [uint64](#uint64) |  | cost |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallRegisterRequest"></a>
+
+### DeferredCallRegisterRequest
+deferred call register request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target_address | [string](#string) |  | target address |
+| target_function | [string](#string) |  | target function |
+| target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | start slot |
+| max_gas | [uint64](#uint64) |  | gas |
+| params | [bytes](#bytes) |  | params |
+| coins | [uint64](#uint64) |  | coins |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallRegisterResult"></a>
+
+### DeferredCallRegisterResult
+deferred call register result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | call id |
 
 
 

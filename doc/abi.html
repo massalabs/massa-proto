@@ -375,6 +375,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.abi.v1.DeferredCallRegisterRequest"><span class="badge">M</span>DeferredCallRegisterRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.DeferredCallRegisterResult"><span class="badge">M</span>DeferredCallRegisterResult</a>
+                </li>
+              
+                <li>
                   <a href="#massa.abi.v1.DeleteDsEntryRequest"><span class="badge">M</span>DeleteDsEntryRequest</a>
                 </li>
               
@@ -1996,6 +2004,89 @@
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>cost </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallRegisterRequest">DeferredCallRegisterRequest</h3>
+        <p>deferred call register request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>target_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>target address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_function</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>target function </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>start slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_gas</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>gas </p></td>
+                </tr>
+              
+                <tr>
+                  <td>params</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>params </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coins</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>coins </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallRegisterResult">DeferredCallRegisterResult</h3>
+        <p>deferred call register result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>call_id</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p>call id </p></td>
                 </tr>
               
             </tbody>
