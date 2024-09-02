@@ -184,6 +184,7 @@ message RespResult {
     DeferredCallQuoteResult deferred_call_quote_result = 64;
     DeferredCallExistsResult deferred_call_exists_result = 65;
     DeferredCallRegisterResult deferred_call_register_result = 66;
+    DeferredCallCancelResult deferred_call_cancel_result = 67;
   }
 }
 
@@ -691,6 +692,18 @@ message UnsafeRandomRequest {
 message UnsafeRandomResult {
   // Random bytes generated
   bytes random_bytes = 1;
+}
+
+/// Deferred call cancel request
+message DeferredCallCancelRequest {
+  /// call id
+  google.protobuf.StringValue call_id = 1;
+}
+
+/// Deferred call cancel result
+message DeferredCallCancelResult {
+  /// call canceled
+  bool canceled = 1;
 }
 
 // Deferred call quote

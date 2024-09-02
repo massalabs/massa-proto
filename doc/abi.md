@@ -49,6 +49,8 @@
     - [ComparePubKeyResult](#massa-abi-v1-ComparePubKeyResult)
     - [CreateScRequest](#massa-abi-v1-CreateScRequest)
     - [CreateScResult](#massa-abi-v1-CreateScResult)
+    - [DeferredCallCancelRequest](#massa-abi-v1-DeferredCallCancelRequest)
+    - [DeferredCallCancelResult](#massa-abi-v1-DeferredCallCancelResult)
     - [DeferredCallExistsRequest](#massa-abi-v1-DeferredCallExistsRequest)
     - [DeferredCallExistsResult](#massa-abi-v1-DeferredCallExistsResult)
     - [DeferredCallQuoteRequest](#massa-abi-v1-DeferredCallQuoteRequest)
@@ -826,6 +828,36 @@ Create SC result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | sc_address | [string](#string) |  | Address of the just created smart contract |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallCancelRequest"></a>
+
+### DeferredCallCancelRequest
+Deferred call cancel request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | call id |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallCancelResult"></a>
+
+### DeferredCallCancelResult
+Deferred call cancel result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| canceled | [bool](#bool) |  | call canceled |
 
 
 
@@ -1978,6 +2010,7 @@ the &#43;1 comes from ResResult itself which is counted above
 | deferred_call_quote_result | [DeferredCallQuoteResult](#massa-abi-v1-DeferredCallQuoteResult) |  |  |
 | deferred_call_exists_result | [DeferredCallExistsResult](#massa-abi-v1-DeferredCallExistsResult) |  |  |
 | deferred_call_register_result | [DeferredCallRegisterResult](#massa-abi-v1-DeferredCallRegisterResult) |  |  |
+| deferred_call_cancel_result | [DeferredCallCancelResult](#massa-abi-v1-DeferredCallCancelResult) |  |  |
 
 
 

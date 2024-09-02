@@ -359,6 +359,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.abi.v1.DeferredCallCancelRequest"><span class="badge">M</span>DeferredCallCancelRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.DeferredCallCancelResult"><span class="badge">M</span>DeferredCallCancelResult</a>
+                </li>
+              
+                <li>
                   <a href="#massa.abi.v1.DeferredCallExistsRequest"><span class="badge">M</span>DeferredCallExistsRequest</a>
                 </li>
               
@@ -1894,6 +1902,54 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Address of the just created smart contract </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallCancelRequest">DeferredCallCancelRequest</h3>
+        <p>Deferred call cancel request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>call_id</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p>call id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallCancelResult">DeferredCallCancelResult</h3>
+        <p>Deferred call cancel result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>canceled</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>call canceled </p></td>
                 </tr>
               
             </tbody>
@@ -4103,6 +4159,13 @@
                 <tr>
                   <td>deferred_call_register_result</td>
                   <td><a href="#massa.abi.v1.DeferredCallRegisterResult">DeferredCallRegisterResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deferred_call_cancel_result</td>
+                  <td><a href="#massa.abi.v1.DeferredCallCancelResult">DeferredCallCancelResult</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
