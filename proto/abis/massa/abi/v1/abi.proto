@@ -183,6 +183,7 @@ message RespResult {
     ChainIdResult chain_id_result = 63;
     DeferredCallQuoteResult deferred_call_quote_result = 64;
     DeferredCallExistsResult deferred_call_exists_result = 65;
+    DeferredCallRegisterResult deferred_call_register_result = 66;
   }
 }
 
