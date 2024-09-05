@@ -701,10 +701,7 @@ message DeferredCallCancelRequest {
 }
 
 /// Deferred call cancel result
-message DeferredCallCancelResult {
-  /// call canceled
-  bool canceled = 1;
-}
+message DeferredCallCancelResult {}
 
 // Deferred call quote
 message DeferredCallQuoteRequest {

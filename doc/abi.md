@@ -855,11 +855,6 @@ Deferred call cancel request
 Deferred call cancel result
 
 
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| canceled | [bool](#bool) |  | call canceled |
-
-
 
 
 
