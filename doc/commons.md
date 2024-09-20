@@ -738,7 +738,7 @@ Type specific operation content
 | transaction | [Transaction](#massa-model-v1-Transaction) |  | Transfer coins from sender to recipient |
 | roll_buy | [RollBuy](#massa-model-v1-RollBuy) |  | The sender buys `roll_count` rolls. Roll price is defined in configuration |
 | roll_sell | [RollSell](#massa-model-v1-RollSell) |  | The sender sells `roll_count` rolls. Roll price is defined in configuration |
-| execut_sc | [ExecuteSC](#massa-model-v1-ExecuteSC) |  | Execute a smart contract |
+| execute_sc | [ExecuteSC](#massa-model-v1-ExecuteSC) |  | Execute a smart contract |
 | call_sc | [CallSC](#massa-model-v1-CallSC) |  | Calls an exported function from a stored smart contract |
 
 
