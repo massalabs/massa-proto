@@ -19,6 +19,8 @@
     - [CallResponse](#massa-abi-v1-CallResponse)
     - [CallerHasWriteAccessRequest](#massa-abi-v1-CallerHasWriteAccessRequest)
     - [CallerHasWriteAccessResult](#massa-abi-v1-CallerHasWriteAccessResult)
+    - [ChainIdRequest](#massa-abi-v1-ChainIdRequest)
+    - [ChainIdResult](#massa-abi-v1-ChainIdResult)
     - [CheckAddressRequest](#massa-abi-v1-CheckAddressRequest)
     - [CheckAddressResult](#massa-abi-v1-CheckAddressResult)
     - [CheckNativeAmountRequest](#massa-abi-v1-CheckNativeAmountRequest)
@@ -362,6 +364,31 @@ Caller has write access result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | has_write_access | [bool](#bool) |  | Caller has write access |
+
+
+
+
+
+
+<a name="massa-abi-v1-ChainIdRequest"></a>
+
+### ChainIdRequest
+Chain id request
+
+
+
+
+
+
+<a name="massa-abi-v1-ChainIdResult"></a>
+
+### ChainIdResult
+Chain id result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [uint64](#uint64) |  |  |
 
 
 
@@ -1844,6 +1871,7 @@ the &#43;1 comes from ResResult itself which is counted above
 | evm_get_address_from_pubkey_result | [EvmGetAddressFromPubkeyResult](#massa-abi-v1-EvmGetAddressFromPubkeyResult) |  |  |
 | evm_get_pubkey_from_signature_result | [EvmGetPubkeyFromSignatureResult](#massa-abi-v1-EvmGetPubkeyFromSignatureResult) |  |  |
 | is_address_eoa_result | [IsAddressEoaResult](#massa-abi-v1-IsAddressEoaResult) |  |  |
+| chain_id_result | [ChainIdResult](#massa-abi-v1-ChainIdResult) |  |  |
 
 
 

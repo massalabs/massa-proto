@@ -354,6 +354,26 @@
             <ul>
               
                 <li>
+                  <a href="#massa.api.v1.ABICallStack"><span class="badge">M</span>ABICallStack</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.ABICallStackElement"><span class="badge">M</span>ABICallStackElement</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.ABICallStackElementCall"><span class="badge">M</span>ABICallStackElementCall</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.ABICallStackElementParent"><span class="badge">M</span>ABICallStackElementParent</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.ASCABICallStack"><span class="badge">M</span>ASCABICallStack</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.AddressBalanceCandidate"><span class="badge">M</span>AddressBalanceCandidate</a>
                 </li>
               
@@ -526,6 +546,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.GetOperationABICallStacksRequest"><span class="badge">M</span>GetOperationABICallStacksRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetOperationABICallStacksResponse"><span class="badge">M</span>GetOperationABICallStacksResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.GetOperationsRequest"><span class="badge">M</span>GetOperationsRequest</a>
                 </li>
               
@@ -547,6 +575,22 @@
               
                 <li>
                   <a href="#massa.api.v1.GetSelectorDrawsResponse"><span class="badge">M</span>GetSelectorDrawsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetSlotABICallStacksRequest"><span class="badge">M</span>GetSlotABICallStacksRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetSlotABICallStacksResponse"><span class="badge">M</span>GetSlotABICallStacksResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetSlotTransfersRequest"><span class="badge">M</span>GetSlotTransfersRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.GetSlotTransfersResponse"><span class="badge">M</span>GetSlotTransfersResponse</a>
                 </li>
               
                 <li>
@@ -626,6 +670,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.NewSlotABICallStacksRequest"><span class="badge">M</span>NewSlotABICallStacksRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewSlotABICallStacksResponse"><span class="badge">M</span>NewSlotABICallStacksResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.NewSlotExecutionOutputsFilter"><span class="badge">M</span>NewSlotExecutionOutputsFilter</a>
                 </li>
               
@@ -638,11 +690,23 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.NewSlotTransfersRequest"><span class="badge">M</span>NewSlotTransfersRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewSlotTransfersResponse"><span class="badge">M</span>NewSlotTransfersResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.OpExecutionStatusCandidate"><span class="badge">M</span>OpExecutionStatusCandidate</a>
                 </li>
               
                 <li>
                   <a href="#massa.api.v1.OpExecutionStatusFinal"><span class="badge">M</span>OpExecutionStatusFinal</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.OperationABICallStack"><span class="badge">M</span>OperationABICallStack</a>
                 </li>
               
                 <li>
@@ -730,6 +794,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.SlotABICallStacks"><span class="badge">M</span>SlotABICallStacks</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.StakersFilter"><span class="badge">M</span>StakersFilter</a>
                 </li>
               
@@ -741,9 +809,21 @@
                   <a href="#massa.api.v1.TransactionsThroughputResponse"><span class="badge">M</span>TransactionsThroughputResponse</a>
                 </li>
               
+                <li>
+                  <a href="#massa.api.v1.TransferInfo"><span class="badge">M</span>TransferInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.TransferInfos"><span class="badge">M</span>TransferInfos</a>
+                </li>
+              
               
                 <li>
                   <a href="#massa.api.v1.ExecutionQueryExecutionStatus"><span class="badge">E</span>ExecutionQueryExecutionStatus</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.FinalityLevel"><span class="badge">E</span>FinalityLevel</a>
                 </li>
               
               
@@ -1761,6 +1841,175 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
       </div>
       <p></p>
 
+      
+        <h3 id="massa.api.v1.ABICallStack">ABICallStack</h3>
+        <p>Definition of an ABI call stack</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>call_stack</td>
+                  <td><a href="#massa.api.v1.ABICallStackElementParent">ABICallStackElementParent</a></td>
+                  <td>repeated</td>
+                  <td><p>All elements of the call stack </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ABICallStackElement">ABICallStackElement</h3>
+        <p>Definition of an ABI call stack element</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the ABI </p></td>
+                </tr>
+              
+                <tr>
+                  <td>parameters</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Parameters of the ABI </p></td>
+                </tr>
+              
+                <tr>
+                  <td>return_value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Return value of the ABI </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ABICallStackElementCall">ABICallStackElementCall</h3>
+        <p>Definition of an ABI call stack element that is the 'call' ABI</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the ABI </p></td>
+                </tr>
+              
+                <tr>
+                  <td>parameters</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Parameters of the ABI </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sub_calls</td>
+                  <td><a href="#massa.api.v1.ABICallStackElementParent">ABICallStackElementParent</a></td>
+                  <td>repeated</td>
+                  <td><p>Calls made within this SC call </p></td>
+                </tr>
+              
+                <tr>
+                  <td>return_value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Return value of the ABI </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ABICallStackElementParent">ABICallStackElementParent</h3>
+        <p>Definition of an ABI call stack element parent</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>element</td>
+                  <td><a href="#massa.api.v1.ABICallStackElement">ABICallStackElement</a></td>
+                  <td></td>
+                  <td><p>Any ABI call that is not the ABI &#39;call&#39; </p></td>
+                </tr>
+              
+                <tr>
+                  <td>element_call</td>
+                  <td><a href="#massa.api.v1.ABICallStackElementCall">ABICallStackElementCall</a></td>
+                  <td></td>
+                  <td><p>Element that is the ABI &#39;call&#39; </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.ASCABICallStack">ASCABICallStack</h3>
+        <p>ABI asynchronous execution call stack</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>index</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Index of the execution in the slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>call_stack</td>
+                  <td><a href="#massa.api.v1.ABICallStackElementParent">ABICallStackElementParent</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stack </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
       
         <h3 id="massa.api.v1.AddressBalanceCandidate">AddressBalanceCandidate</h3>
         <p>Request to get the balance (candidate) of an address</p>
@@ -3128,6 +3377,54 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
+        <h3 id="massa.api.v1.GetOperationABICallStacksRequest">GetOperationABICallStacksRequest</h3>
+        <p>GetOperationABICallStacks request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>operation_ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>Operations ids to get the call stack from </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetOperationABICallStacksResponse">GetOperationABICallStacksResponse</h3>
+        <p>GetOperationABICallStacks response</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>call_stacks</td>
+                  <td><a href="#massa.api.v1.ABICallStack">ABICallStack</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.GetOperationsRequest">GetOperationsRequest</h3>
         <p>GetOperationsRequest holds request for GetOperations</p>
 
@@ -3263,6 +3560,102 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td><a href="#massa.model.v1.SlotDraw">massa.model.v1.SlotDraw</a></td>
                   <td>repeated</td>
                   <td><p>Selector draws </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetSlotABICallStacksRequest">GetSlotABICallStacksRequest</h3>
+        <p>GetSlotABICallStacks request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>slots</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td>repeated</td>
+                  <td><p>Slots asked </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetSlotABICallStacksResponse">GetSlotABICallStacksResponse</h3>
+        <p>GetSlotABICallStacks response</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>slot_call_stacks</td>
+                  <td><a href="#massa.api.v1.SlotABICallStacks">SlotABICallStacks</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stacks for the slots </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetSlotTransfersRequest">GetSlotTransfersRequest</h3>
+        <p>GetSlotTransfersRequest holds request for GetSlotTransfers</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>slots</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td>repeated</td>
+                  <td><p>Slot to get the transfers from </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.GetSlotTransfersResponse">GetSlotTransfersResponse</h3>
+        <p>GetSlotTransfersResponse holds response from GetSlotTransfers</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>transfer_each_slot</td>
+                  <td><a href="#massa.api.v1.TransferInfos">TransferInfos</a></td>
+                  <td>repeated</td>
+                  <td><p>Transfers for the slot </p></td>
                 </tr>
               
             </tbody>
@@ -3757,6 +4150,68 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
+        <h3 id="massa.api.v1.NewSlotABICallStacksRequest">NewSlotABICallStacksRequest</h3>
+        <p>NewSlotABICallStacks request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>finality_level</td>
+                  <td><a href="#massa.api.v1.FinalityLevel">FinalityLevel</a></td>
+                  <td></td>
+                  <td><p>Finality level to receive informations from </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewSlotABICallStacksResponse">NewSlotABICallStacksResponse</h3>
+        <p>NewSlotABICallStacks response</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>Finality level to receive informations from </p></td>
+                </tr>
+              
+                <tr>
+                  <td>asc_call_stacks</td>
+                  <td><a href="#massa.api.v1.ASCABICallStack">ASCABICallStack</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stacks for asynchronous execution </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_call_stacks</td>
+                  <td><a href="#massa.api.v1.OperationABICallStack">OperationABICallStack</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stack for operations </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.NewSlotExecutionOutputsFilter">NewSlotExecutionOutputsFilter</h3>
         <p>NewSlotExecutionOutputs Filter</p>
 
@@ -3871,6 +4326,61 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
+        <h3 id="massa.api.v1.NewSlotTransfersRequest">NewSlotTransfersRequest</h3>
+        <p>NewSlotTransfers request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>finality_level</td>
+                  <td><a href="#massa.api.v1.FinalityLevel">FinalityLevel</a></td>
+                  <td></td>
+                  <td><p>Finality level to receive informations from </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewSlotTransfersResponse">NewSlotTransfersResponse</h3>
+        <p>NewSlotTransfers response</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>Finality level to receive informations from </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transfers</td>
+                  <td><a href="#massa.api.v1.TransferInfo">TransferInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>Transfers </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.OpExecutionStatusCandidate">OpExecutionStatusCandidate</h3>
         <p>Request to get the execution status (candidate) for an operation</p>
 
@@ -3910,6 +4420,37 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Operation ID to query </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.OperationABICallStack">OperationABICallStack</h3>
+        <p>Operation execution call stack</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>operation_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Operation id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>call_stack</td>
+                  <td><a href="#massa.api.v1.ABICallStackElementParent">ABICallStackElementParent</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stack </p></td>
                 </tr>
               
             </tbody>
@@ -4549,6 +5090,37 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
+        <h3 id="massa.api.v1.SlotABICallStacks">SlotABICallStacks</h3>
+        <p>Call stack for a slot</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>asc_call_stacks</td>
+                  <td><a href="#massa.api.v1.ASCABICallStack">ASCABICallStack</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stacks for asynchronous execution </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_call_stacks</td>
+                  <td><a href="#massa.api.v1.OperationABICallStack">OperationABICallStack</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stack for operations </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.StakersFilter">StakersFilter</h3>
         <p>Stakers Filter</p>
 
@@ -4635,6 +5207,89 @@ For messages with filter, this boolean is true if the filter has been matched be
 
         
       
+        <h3 id="massa.api.v1.TransferInfo">TransferInfo</h3>
+        <p>Transfer info</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>from</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Sender </p></td>
+                </tr>
+              
+                <tr>
+                  <td>to</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Receiver </p></td>
+                </tr>
+              
+                <tr>
+                  <td>amount</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Amount in nMAS </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Operation id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>asc_index</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Asynchronous execution index </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.TransferInfos">TransferInfos</h3>
+        <p>List of transfers for a slot</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>Slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transfers</td>
+                  <td><a href="#massa.api.v1.TransferInfo">TransferInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>Transfers </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
 
       
         <h3 id="massa.api.v1.ExecutionQueryExecutionStatus">ExecutionQueryExecutionStatus</h3>
@@ -4667,6 +5322,35 @@ For messages with filter, this boolean is true if the filter has been matched be
                 <td>EXECUTION_QUERY_EXECUTION_STATUS_EXECUTABLE_OR_EXPIRED</td>
                 <td>3</td>
                 <td><p>The operation or denunciation was not executed recently but can still be executed unless expired</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="massa.api.v1.FinalityLevel">FinalityLevel</h3>
+        <p>Finality level to filter on in streams</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>FINALITY_LEVEL_UNSPECIFIED</td>
+                <td>0</td>
+                <td><p>Unspecified (receive both)</p></td>
+              </tr>
+            
+              <tr>
+                <td>FINALITY_LEVEL_CANDIDATE</td>
+                <td>1</td>
+                <td><p>Candidate level</p></td>
+              </tr>
+            
+              <tr>
+                <td>FINALITY_LEVEL_FINAL</td>
+                <td>2</td>
+                <td><p>Final level</p></td>
               </tr>
             
           </tbody>
@@ -4790,6 +5474,27 @@ For messages with filter, this boolean is true if the filter has been matched be
               </tr>
             
               <tr>
+                <td>GetOperationABICallStacks</td>
+                <td><a href="#massa.api.v1.GetOperationABICallStacksRequest">GetOperationABICallStacksRequest</a></td>
+                <td><a href="#massa.api.v1.GetOperationABICallStacksResponse">GetOperationABICallStacksResponse</a></td>
+                <td><p>Get ABI call stack of an operation</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSlotABICallStacks</td>
+                <td><a href="#massa.api.v1.GetSlotABICallStacksRequest">GetSlotABICallStacksRequest</a></td>
+                <td><a href="#massa.api.v1.GetSlotABICallStacksResponse">GetSlotABICallStacksResponse</a></td>
+                <td><p>Get ABI call stack of all asynchronous executions and all operations for a given slot</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSlotTransfers</td>
+                <td><a href="#massa.api.v1.GetSlotTransfersRequest">GetSlotTransfersRequest</a></td>
+                <td><a href="#massa.api.v1.GetSlotTransfersResponse">GetSlotTransfersResponse</a></td>
+                <td><p>Get all the transfers of MAS for a given slot</p></td>
+              </tr>
+            
+              <tr>
                 <td>NewBlocks</td>
                 <td><a href="#massa.api.v1.NewBlocksRequest">NewBlocksRequest</a> stream</td>
                 <td><a href="#massa.api.v1.NewBlocksResponse">NewBlocksResponse</a> stream</td>
@@ -4822,6 +5527,20 @@ For messages with filter, this boolean is true if the filter has been matched be
                 <td><a href="#massa.api.v1.NewSlotExecutionOutputsRequest">NewSlotExecutionOutputsRequest</a> stream</td>
                 <td><a href="#massa.api.v1.NewSlotExecutionOutputsResponse">NewSlotExecutionOutputsResponse</a> stream</td>
                 <td><p>New received and slot execution events</p></td>
+              </tr>
+            
+              <tr>
+                <td>NewSlotABICallStacks</td>
+                <td><a href="#massa.api.v1.NewSlotABICallStacksRequest">NewSlotABICallStacksRequest</a> stream</td>
+                <td><a href="#massa.api.v1.NewSlotABICallStacksResponse">NewSlotABICallStacksResponse</a> stream</td>
+                <td><p>Call stack for each slot executed</p></td>
+              </tr>
+            
+              <tr>
+                <td>NewSlotTransfers</td>
+                <td><a href="#massa.api.v1.NewSlotTransfersRequest">NewSlotTransfersRequest</a> stream</td>
+                <td><a href="#massa.api.v1.NewSlotTransfersResponse">NewSlotTransfersResponse</a> stream</td>
+                <td><p>Transfer list for each slot executed</p></td>
               </tr>
             
               <tr>
@@ -5016,6 +5735,36 @@ For messages with filter, this boolean is true if the filter has been matched be
                 <td>SearchOperations</td>
                 <td>POST</td>
                 <td>/v1/search_operations</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetOperationABICallStacks</td>
+                <td>POST</td>
+                <td>/v1/get_operation_abi_call_stacks</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetSlotABICallStacks</td>
+                <td>POST</td>
+                <td>/v1/get_slot_abi_call_stacks</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetSlotTransfers</td>
+                <td>POST</td>
+                <td>/v1/get_slot_transfers</td>
                 <td>*</td>
               </tr>
               
