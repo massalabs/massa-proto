@@ -443,6 +443,8 @@ message ExecutionQueryRequestItem {
     Events events = 20;
     // Deferred call quote
     DeferredCallQuote deferred_call_quote = 21;
+    // Deferred calls info
+    DeferredCallInfo deferred_call_info = 22;
   }
 }
 
@@ -584,6 +586,27 @@ message DeferredCallQuote {
   uint64 max_gas_request = 2;
 }
 
+message DeferredCallInfo {
+  repeated string call_ids = 1;
+}
+
+message DeferredCallInfoResponse {
+  string call_id = 1;
+  DeferredCallInfoEntry call = 2;
+}
+
+message DeferredCallInfoEntry {
+  string sender_address = 1;
+  massa.model.v1.Slot target_slot = 2;
+  string target_address = 3;
+  string target_function = 4;
+  bytes parameters = 5;
+  massa.model.v1.NativeAmount coins = 6;
+  uint64 max_gas = 7;
+  massa.model.v1.NativeAmount fee = 8;
+  bool cancelled = 9;
+}
+
 // deferred call quote response
 message DeferredCallQuoteResponse {
   // the slot requested
@@ -642,6 +665,8 @@ message ExecutionQueryResponseItem {
     ScOutputEventsWrapper events = 9;
     // Deferred call quote
     DeferredCallQuoteResponse deferred_call_quote = 10;
+    // Deferred call info
+    DeferredCallInfoResponse deferred_call_info = 11;
   }
 }
 

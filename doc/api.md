@@ -69,6 +69,9 @@
     - [AddressRollsFinal](#massa-api-v1-AddressRollsFinal)
     - [AsyncPoolChangesFilter](#massa-api-v1-AsyncPoolChangesFilter)
     - [CycleInfos](#massa-api-v1-CycleInfos)
+    - [DeferredCallInfo](#massa-api-v1-DeferredCallInfo)
+    - [DeferredCallInfoEntry](#massa-api-v1-DeferredCallInfoEntry)
+    - [DeferredCallInfoResponse](#massa-api-v1-DeferredCallInfoResponse)
     - [DeferredCallQuote](#massa-api-v1-DeferredCallQuote)
     - [DeferredCallQuoteResponse](#massa-api-v1-DeferredCallQuoteResponse)
     - [DeferredCreditsEntry](#massa-api-v1-DeferredCreditsEntry)
@@ -1056,6 +1059,60 @@ Request to get all information for a given cycle
 
 
 
+<a name="massa-api-v1-DeferredCallInfo"></a>
+
+### DeferredCallInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_ids | [string](#string) | repeated |  |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCallInfoEntry"></a>
+
+### DeferredCallInfoEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sender_address | [string](#string) |  |  |
+| target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  |  |
+| target_address | [string](#string) |  |  |
+| target_function | [string](#string) |  |  |
+| parameters | [bytes](#bytes) |  |  |
+| coins | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| max_gas | [uint64](#uint64) |  |  |
+| fee | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| cancelled | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCallInfoResponse"></a>
+
+### DeferredCallInfoResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_id | [string](#string) |  |  |
+| call | [DeferredCallInfoEntry](#massa-api-v1-DeferredCallInfoEntry) |  |  |
+
+
+
+
+
+
 <a name="massa-api-v1-DeferredCallQuote"></a>
 
 ### DeferredCallQuote
@@ -1292,6 +1349,7 @@ Query state query item
 | cycle_infos | [CycleInfos](#massa-api-v1-CycleInfos) |  | Gets all information for a given cycle |
 | events | [Events](#massa-api-v1-Events) |  | Gets filtered events |
 | deferred_call_quote | [DeferredCallQuote](#massa-api-v1-DeferredCallQuote) |  | Deferred call quote |
+| deferred_call_info | [DeferredCallInfo](#massa-api-v1-DeferredCallInfo) |  | Deferred calls info |
 
 
 
@@ -1332,6 +1390,7 @@ Execution state query response item
 | cycle_infos | [ExecutionQueryCycleInfos](#massa-api-v1-ExecutionQueryCycleInfos) |  | Cycle infos value |
 | events | [ScOutputEventsWrapper](#massa-api-v1-ScOutputEventsWrapper) |  | Events |
 | deferred_call_quote | [DeferredCallQuoteResponse](#massa-api-v1-DeferredCallQuoteResponse) |  | Deferred call quote |
+| deferred_call_info | [DeferredCallInfoResponse](#massa-api-v1-DeferredCallInfoResponse) |  | Deferred call info |
 
 
 

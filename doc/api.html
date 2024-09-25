@@ -438,6 +438,18 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.DeferredCallInfo"><span class="badge">M</span>DeferredCallInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.DeferredCallInfoEntry"><span class="badge">M</span>DeferredCallInfoEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.DeferredCallInfoResponse"><span class="badge">M</span>DeferredCallInfoResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.DeferredCallQuote"><span class="badge">M</span>DeferredCallQuote</a>
                 </li>
               
@@ -2477,6 +2489,141 @@ returned) </p></td>
 
         
       
+        <h3 id="massa.api.v1.DeferredCallInfo">DeferredCallInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>call_ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.DeferredCallInfoEntry">DeferredCallInfoEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>sender_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_function</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>parameters</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coins</td>
+                  <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_gas</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fee</td>
+                  <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>cancelled</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.DeferredCallInfoResponse">DeferredCallInfoResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>call_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>call</td>
+                  <td><a href="#massa.api.v1.DeferredCallInfoEntry">DeferredCallInfoEntry</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.DeferredCallQuote">DeferredCallQuote</h3>
         <p>Deferred call quote</p>
 
@@ -3030,6 +3177,13 @@ returned) </p></td>
                   <td><p>Deferred call quote </p></td>
                 </tr>
               
+                <tr>
+                  <td>deferred_call_info</td>
+                  <td><a href="#massa.api.v1.DeferredCallInfo">DeferredCallInfo</a></td>
+                  <td></td>
+                  <td><p>Deferred calls info </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -3146,6 +3300,13 @@ returned) </p></td>
                   <td><a href="#massa.api.v1.DeferredCallQuoteResponse">DeferredCallQuoteResponse</a></td>
                   <td></td>
                   <td><p>Deferred call quote </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deferred_call_info</td>
+                  <td><a href="#massa.api.v1.DeferredCallInfoResponse">DeferredCallInfoResponse</a></td>
+                  <td></td>
+                  <td><p>Deferred call info </p></td>
                 </tr>
               
             </tbody>
