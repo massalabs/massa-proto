@@ -159,7 +159,8 @@ service PublicService {
     };
   }
 
-  // Get ABI call stack of all asynchronous executions and all operations for a given slot
+  // Get ABI call stack of all asynchronous executions and all operations for a
+  // given slot
   rpc GetSlotABICallStacks(GetSlotABICallStacksRequest) returns (GetSlotABICallStacksResponse) {
     option (google.api.http) = {
       post: "/v1/get_slot_abi_call_stacks"
@@ -384,7 +385,8 @@ message GetStakersResponse {
 // GetTransactionsThroughputRequest holds request for GetTransactionsThroughput
 message GetTransactionsThroughputRequest {}
 
-// GetTransactionsThroughputResponse holds response from GetTransactionsThroughput
+// GetTransactionsThroughputResponse holds response from
+// GetTransactionsThroughput
 message GetTransactionsThroughputResponse {
   // Transactions throughput
   uint32 throughput = 1;
@@ -439,6 +441,8 @@ message ExecutionQueryRequestItem {
     CycleInfos cycle_infos = 19;
     // Gets filtered events
     Events events = 20;
+    // Deferred call quote
+    DeferredCallQuote deferred_call_quote = 21;
   }
 }
 
@@ -562,7 +566,8 @@ message AddressDeferredCreditsFinal {
 message CycleInfos {
   // Cycle to query
   uint64 cycle = 1;
-  // Addresses to restrict the query (if None, info for all addresses will be returned)
+  // Addresses to restrict the query (if None, info for all addresses will be
+  // returned)
   repeated string restrict_to_addresses = 2;
 }
 
@@ -570,6 +575,25 @@ message CycleInfos {
 message Events {
   // Returns all the events that verify all the filters
   repeated ScExecutionEventsFilter filters = 1;
+}
+
+// Deferred call quote
+message DeferredCallQuote {
+  massa.model.v1.Slot target_slot = 1;
+
+  uint64 max_gas_request = 2;
+}
+
+// deferred call quote response
+message DeferredCallQuoteResponse {
+  // the slot requested
+  massa.model.v1.Slot target_slot = 1;
+  // The gas requested
+  uint64 max_gas_request = 2;
+  // if the quote is available
+  bool available = 3;
+  // The amount
+  massa.model.v1.NativeAmount price = 4;
 }
 
 // Response to atomically execute a batch of execution state queries
@@ -616,6 +640,8 @@ message ExecutionQueryResponseItem {
     ExecutionQueryCycleInfos cycle_infos = 8;
     // Events
     ScOutputEventsWrapper events = 9;
+    // Deferred call quote
+    DeferredCallQuoteResponse deferred_call_quote = 10;
   }
 }
 
@@ -638,7 +664,8 @@ enum ExecutionQueryExecutionStatus {
   EXECUTION_QUERY_EXECUTION_STATUS_UNSPECIFIED = 0; // Default enum value
   EXECUTION_QUERY_EXECUTION_STATUS_ALREADY_EXECUTED_WITH_SUCCESS = 1; // The operation or denunciation was executed recently with success
   EXECUTION_QUERY_EXECUTION_STATUS_ALREADY_EXECUTED_WITH_FAILURE = 2; // The operation or denunciation was executed recently with failure
-  EXECUTION_QUERY_EXECUTION_STATUS_EXECUTABLE_OR_EXPIRED = 3; // The operation or denunciation was not executed recently but can still be executed unless expired
+  EXECUTION_QUERY_EXECUTION_STATUS_EXECUTABLE_OR_EXPIRED = 3; // The operation or denunciation was not executed recently but can
+  // still be executed unless expired
 }
 
 // Cycle information for execution query
@@ -830,8 +857,10 @@ message AsyncPoolChangesFilter {
     string destination_address = 4;
     // The address that sent the message
     string emitter_address = 5;
-    // Boolean that determine if the message can be executed. For messages without filter this boolean is always true.
-    // For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot.
+    // Boolean that determine if the message can be executed. For messages
+    // without filter this boolean is always true. For messages with filter,
+    // this boolean is true if the filter has been matched between
+    // `validity_start` and current slot.
     bool can_be_executed = 6;
   }
 }

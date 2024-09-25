@@ -69,6 +69,8 @@
     - [AddressRollsFinal](#massa-api-v1-AddressRollsFinal)
     - [AsyncPoolChangesFilter](#massa-api-v1-AsyncPoolChangesFilter)
     - [CycleInfos](#massa-api-v1-CycleInfos)
+    - [DeferredCallQuote](#massa-api-v1-DeferredCallQuote)
+    - [DeferredCallQuoteResponse](#massa-api-v1-DeferredCallQuoteResponse)
     - [DeferredCreditsEntry](#massa-api-v1-DeferredCreditsEntry)
     - [DeferredCreditsEntryWrapper](#massa-api-v1-DeferredCreditsEntryWrapper)
     - [DenunciationExecutionStatusCandidate](#massa-api-v1-DenunciationExecutionStatusCandidate)
@@ -1054,6 +1056,40 @@ Request to get all information for a given cycle
 
 
 
+<a name="massa-api-v1-DeferredCallQuote"></a>
+
+### DeferredCallQuote
+Deferred call quote
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  |  |
+| max_gas_request | [uint64](#uint64) |  |  |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCallQuoteResponse"></a>
+
+### DeferredCallQuoteResponse
+deferred call quote response
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | the slot requested |
+| max_gas_request | [uint64](#uint64) |  | The gas requested |
+| available | [bool](#bool) |  | if the quote is available |
+| price | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | The amount |
+
+
+
+
+
+
 <a name="massa-api-v1-DeferredCreditsEntry"></a>
 
 ### DeferredCreditsEntry
@@ -1255,6 +1291,7 @@ Query state query item
 | address_deferred_credits_final | [AddressDeferredCreditsFinal](#massa-api-v1-AddressDeferredCreditsFinal) |  | Gets the deferred credits (final) of an address |
 | cycle_infos | [CycleInfos](#massa-api-v1-CycleInfos) |  | Gets all information for a given cycle |
 | events | [Events](#massa-api-v1-Events) |  | Gets filtered events |
+| deferred_call_quote | [DeferredCallQuote](#massa-api-v1-DeferredCallQuote) |  | Deferred call quote |
 
 
 
@@ -1294,6 +1331,7 @@ Execution state query response item
 | execution_status | [ExecutionQueryExecutionStatus](#massa-api-v1-ExecutionQueryExecutionStatus) |  | Execution status value |
 | cycle_infos | [ExecutionQueryCycleInfos](#massa-api-v1-ExecutionQueryCycleInfos) |  | Cycle infos value |
 | events | [ScOutputEventsWrapper](#massa-api-v1-ScOutputEventsWrapper) |  | Events |
+| deferred_call_quote | [DeferredCallQuoteResponse](#massa-api-v1-DeferredCallQuoteResponse) |  | Deferred call quote |
 
 
 
@@ -1742,7 +1780,8 @@ GetTransactionsThroughputRequest holds request for GetTransactionsThroughput
 <a name="massa-api-v1-GetTransactionsThroughputResponse"></a>
 
 ### GetTransactionsThroughputResponse
-GetTransactionsThroughputResponse holds response from GetTransactionsThroughput
+GetTransactionsThroughputResponse holds response from
+GetTransactionsThroughput
 
 
 | Field | Type | Label | Description |
@@ -2561,7 +2600,7 @@ Execution status of an operation or denunciation
 | EXECUTION_QUERY_EXECUTION_STATUS_UNSPECIFIED | 0 | Default enum value |
 | EXECUTION_QUERY_EXECUTION_STATUS_ALREADY_EXECUTED_WITH_SUCCESS | 1 | The operation or denunciation was executed recently with success |
 | EXECUTION_QUERY_EXECUTION_STATUS_ALREADY_EXECUTED_WITH_FAILURE | 2 | The operation or denunciation was executed recently with failure |
-| EXECUTION_QUERY_EXECUTION_STATUS_EXECUTABLE_OR_EXPIRED | 3 | The operation or denunciation was not executed recently but can still be executed unless expired |
+| EXECUTION_QUERY_EXECUTION_STATUS_EXECUTABLE_OR_EXPIRED | 3 | The operation or denunciation was not executed recently but can |
 
 
 

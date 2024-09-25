@@ -438,6 +438,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.DeferredCallQuote"><span class="badge">M</span>DeferredCallQuote</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.DeferredCallQuoteResponse"><span class="badge">M</span>DeferredCallQuoteResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.DeferredCreditsEntry"><span class="badge">M</span>DeferredCreditsEntry</a>
                 </li>
               
@@ -2424,8 +2432,10 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td>can_be_executed</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p>Boolean that determine if the message can be executed. For messages without filter this boolean is always true.
-For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. </p></td>
+                  <td><p>Boolean that determine if the message can be executed. For messages
+without filter this boolean is always true. For messages with filter,
+this boolean is true if the filter has been matched between
+`validity_start` and current slot. </p></td>
                 </tr>
               
             </tbody>
@@ -2456,7 +2466,84 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td>restrict_to_addresses</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p>Addresses to restrict the query (if None, info for all addresses will be returned) </p></td>
+                  <td><p>Addresses to restrict the query (if None, info for all addresses will be
+returned) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.DeferredCallQuote">DeferredCallQuote</h3>
+        <p>Deferred call quote</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>target_slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_gas_request</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.DeferredCallQuoteResponse">DeferredCallQuoteResponse</h3>
+        <p>deferred call quote response</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>target_slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>the slot requested </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_gas_request</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>The gas requested </p></td>
+                </tr>
+              
+                <tr>
+                  <td>available</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>if the quote is available </p></td>
+                </tr>
+              
+                <tr>
+                  <td>price</td>
+                  <td><a href="#massa.model.v1.NativeAmount">massa.model.v1.NativeAmount</a></td>
+                  <td></td>
+                  <td><p>The amount </p></td>
                 </tr>
               
             </tbody>
@@ -2936,6 +3023,13 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td><p>Gets filtered events </p></td>
                 </tr>
               
+                <tr>
+                  <td>deferred_call_quote</td>
+                  <td><a href="#massa.api.v1.DeferredCallQuote">DeferredCallQuote</a></td>
+                  <td></td>
+                  <td><p>Deferred call quote </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -3045,6 +3139,13 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td><a href="#massa.api.v1.ScOutputEventsWrapper">ScOutputEventsWrapper</a></td>
                   <td></td>
                   <td><p>Events </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deferred_call_quote</td>
+                  <td><a href="#massa.api.v1.DeferredCallQuoteResponse">DeferredCallQuoteResponse</a></td>
+                  <td></td>
+                  <td><p>Deferred call quote </p></td>
                 </tr>
               
             </tbody>
@@ -3752,7 +3853,7 @@ For messages with filter, this boolean is true if the filter has been matched be
         
       
         <h3 id="massa.api.v1.GetTransactionsThroughputResponse">GetTransactionsThroughputResponse</h3>
-        <p>GetTransactionsThroughputResponse holds response from GetTransactionsThroughput</p>
+        <p>GetTransactionsThroughputResponse holds response from</p><p>GetTransactionsThroughput</p>
 
         
           <table class="field-table">
@@ -5321,7 +5422,7 @@ For messages with filter, this boolean is true if the filter has been matched be
               <tr>
                 <td>EXECUTION_QUERY_EXECUTION_STATUS_EXECUTABLE_OR_EXPIRED</td>
                 <td>3</td>
-                <td><p>The operation or denunciation was not executed recently but can still be executed unless expired</p></td>
+                <td><p>The operation or denunciation was not executed recently but can</p></td>
               </tr>
             
           </tbody>
@@ -5484,7 +5585,8 @@ For messages with filter, this boolean is true if the filter has been matched be
                 <td>GetSlotABICallStacks</td>
                 <td><a href="#massa.api.v1.GetSlotABICallStacksRequest">GetSlotABICallStacksRequest</a></td>
                 <td><a href="#massa.api.v1.GetSlotABICallStacksResponse">GetSlotABICallStacksResponse</a></td>
-                <td><p>Get ABI call stack of all asynchronous executions and all operations for a given slot</p></td>
+                <td><p>Get ABI call stack of all asynchronous executions and all operations for a
+given slot</p></td>
               </tr>
             
               <tr>
