@@ -445,6 +445,8 @@ message ExecutionQueryRequestItem {
     DeferredCallQuote deferred_call_quote = 21;
     // Deferred calls info
     DeferredCallInfo deferred_call_info = 22;
+    // Deferred calls by slot
+    DeferredCallsBySlot deferred_calls_by_slot = 23;
   }
 }
 
@@ -595,6 +597,15 @@ message DeferredCallInfoResponse {
   DeferredCallInfoEntry call = 2;
 }
 
+message DeferredCallsBySlot {
+  massa.model.v1.Slot slot = 1;
+}
+
+message DeferredCallsBySlotResponse {
+  massa.model.v1.Slot slot = 1;
+  repeated DeferredCallInfoEntry calls = 2;
+}
+
 message DeferredCallInfoEntry {
   string sender_address = 1;
   massa.model.v1.Slot target_slot = 2;
@@ -667,6 +678,8 @@ message ExecutionQueryResponseItem {
     DeferredCallQuoteResponse deferred_call_quote = 10;
     // Deferred call info
     DeferredCallInfoResponse deferred_call_info = 11;
+    // Deferred calls by slot
+    DeferredCallsBySlotResponse deferred_calls_by_slot = 12;
   }
 }
 

@@ -458,6 +458,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.DeferredCallsBySlot"><span class="badge">M</span>DeferredCallsBySlot</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.DeferredCallsBySlotResponse"><span class="badge">M</span>DeferredCallsBySlotResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.DeferredCreditsEntry"><span class="badge">M</span>DeferredCreditsEntry</a>
                 </li>
               
@@ -2700,6 +2708,61 @@ returned) </p></td>
 
         
       
+        <h3 id="massa.api.v1.DeferredCallsBySlot">DeferredCallsBySlot</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.DeferredCallsBySlotResponse">DeferredCallsBySlotResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>calls</td>
+                  <td><a href="#massa.api.v1.DeferredCallInfoEntry">DeferredCallInfoEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.DeferredCreditsEntry">DeferredCreditsEntry</h3>
         <p>Deferred credits entry</p>
 
@@ -3184,6 +3247,13 @@ returned) </p></td>
                   <td><p>Deferred calls info </p></td>
                 </tr>
               
+                <tr>
+                  <td>deferred_calls_by_slot</td>
+                  <td><a href="#massa.api.v1.DeferredCallsBySlot">DeferredCallsBySlot</a></td>
+                  <td></td>
+                  <td><p>Deferred calls by slot </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -3307,6 +3377,13 @@ returned) </p></td>
                   <td><a href="#massa.api.v1.DeferredCallInfoResponse">DeferredCallInfoResponse</a></td>
                   <td></td>
                   <td><p>Deferred call info </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deferred_calls_by_slot</td>
+                  <td><a href="#massa.api.v1.DeferredCallsBySlotResponse">DeferredCallsBySlotResponse</a></td>
+                  <td></td>
+                  <td><p>Deferred calls by slot </p></td>
                 </tr>
               
             </tbody>

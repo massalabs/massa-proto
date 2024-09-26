@@ -74,6 +74,8 @@
     - [DeferredCallInfoResponse](#massa-api-v1-DeferredCallInfoResponse)
     - [DeferredCallQuote](#massa-api-v1-DeferredCallQuote)
     - [DeferredCallQuoteResponse](#massa-api-v1-DeferredCallQuoteResponse)
+    - [DeferredCallsBySlot](#massa-api-v1-DeferredCallsBySlot)
+    - [DeferredCallsBySlotResponse](#massa-api-v1-DeferredCallsBySlotResponse)
     - [DeferredCreditsEntry](#massa-api-v1-DeferredCreditsEntry)
     - [DeferredCreditsEntryWrapper](#massa-api-v1-DeferredCreditsEntryWrapper)
     - [DenunciationExecutionStatusCandidate](#massa-api-v1-DenunciationExecutionStatusCandidate)
@@ -1147,6 +1149,37 @@ deferred call quote response
 
 
 
+<a name="massa-api-v1-DeferredCallsBySlot"></a>
+
+### DeferredCallsBySlot
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  |  |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCallsBySlotResponse"></a>
+
+### DeferredCallsBySlotResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  |  |
+| calls | [DeferredCallInfoEntry](#massa-api-v1-DeferredCallInfoEntry) | repeated |  |
+
+
+
+
+
+
 <a name="massa-api-v1-DeferredCreditsEntry"></a>
 
 ### DeferredCreditsEntry
@@ -1350,6 +1383,7 @@ Query state query item
 | events | [Events](#massa-api-v1-Events) |  | Gets filtered events |
 | deferred_call_quote | [DeferredCallQuote](#massa-api-v1-DeferredCallQuote) |  | Deferred call quote |
 | deferred_call_info | [DeferredCallInfo](#massa-api-v1-DeferredCallInfo) |  | Deferred calls info |
+| deferred_calls_by_slot | [DeferredCallsBySlot](#massa-api-v1-DeferredCallsBySlot) |  | Deferred calls by slot |
 
 
 
@@ -1391,6 +1425,7 @@ Execution state query response item
 | events | [ScOutputEventsWrapper](#massa-api-v1-ScOutputEventsWrapper) |  | Events |
 | deferred_call_quote | [DeferredCallQuoteResponse](#massa-api-v1-DeferredCallQuoteResponse) |  | Deferred call quote |
 | deferred_call_info | [DeferredCallInfoResponse](#massa-api-v1-DeferredCallInfoResponse) |  | Deferred call info |
+| deferred_calls_by_slot | [DeferredCallsBySlotResponse](#massa-api-v1-DeferredCallsBySlotResponse) |  | Deferred calls by slot |
 
 
 
