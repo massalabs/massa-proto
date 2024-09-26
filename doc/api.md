@@ -1067,7 +1067,7 @@ Request to get all information for a given cycle
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| call_ids | [string](#string) | repeated |  |
+| call_id | [string](#string) |  |  |
 
 
 

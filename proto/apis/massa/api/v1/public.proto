@@ -587,7 +587,7 @@ message DeferredCallQuote {
 }
 
 message DeferredCallInfo {
-  repeated string call_ids = 1;
+  string call_id = 1;
 }
 
 message DeferredCallInfoResponse {
