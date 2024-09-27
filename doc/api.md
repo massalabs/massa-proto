@@ -1173,7 +1173,7 @@ deferred call quote response
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  |  |
-| calls | [DeferredCallInfoResponse](#massa-api-v1-DeferredCallInfoResponse) | repeated |  |
+| call_ids | [string](#string) | repeated |  |
 
 
 

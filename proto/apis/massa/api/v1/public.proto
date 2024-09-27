@@ -603,7 +603,7 @@ message DeferredCallsBySlot {
 
 message DeferredCallsBySlotResponse {
   massa.model.v1.Slot slot = 1;
-  repeated DeferredCallInfoResponse calls = 2;
+  repeated string call_ids = 2;
 }
 
 message DeferredCallInfoEntry {
