@@ -1123,8 +1123,9 @@ Deferred call quote
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  |  |
-| max_gas_request | [uint64](#uint64) |  |  |
+| target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | target slot |
+| max_gas | [uint64](#uint64) |  | max gas requested |
+| params_size | [uint64](#uint64) |  | params size in bytes |
 
 
 

@@ -583,9 +583,12 @@ message Events {
 
 // Deferred call quote
 message DeferredCallQuote {
+  /// target slot
   massa.model.v1.Slot target_slot = 1;
-
-  uint64 max_gas_request = 2;
+  /// max gas requested
+  uint64 max_gas = 2;
+  /// params size in bytes
+  uint64 params_size = 3;
 }
 
 message DeferredCallInfo {

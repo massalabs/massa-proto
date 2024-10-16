@@ -709,6 +709,8 @@ message DeferredCallQuoteRequest {
   massa.model.v1.Slot target_slot = 1;
   /// max gas requested
   uint64 max_gas = 2;
+  /// params size in bytes
+  uint64 params_size = 3;
 }
 
 // Deferred call quote result
@@ -721,7 +723,7 @@ message DeferredCallQuoteResult {
 
 // deferred call exists request
 message DeferredCallExistsRequest {
-  /// call id
+  /// deferred call id
   google.protobuf.StringValue call_id = 1;
 }
 
@@ -739,9 +741,9 @@ message DeferredCallRegisterRequest {
   string target_function = 2;
   /// start slot
   massa.model.v1.Slot target_slot = 3;
-  /// gas
+  /// gas requested
   uint64 max_gas = 4;
-  /// params
+  /// params of the call
   bytes params = 5;
   /// coins
   uint64 coins = 6;
@@ -749,7 +751,7 @@ message DeferredCallRegisterRequest {
 
 /// deferred call register result
 message DeferredCallRegisterResult {
-  /// call id
+  /// deferred call id
   google.protobuf.StringValue call_id = 1;
 }
 

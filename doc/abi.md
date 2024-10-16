@@ -867,7 +867,7 @@ deferred call exists request
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | call id |
+| call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | deferred call id |
 
 
 
@@ -899,6 +899,7 @@ Deferred call quote
 | ----- | ---- | ----- | ----------- |
 | target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | target slot |
 | max_gas | [uint64](#uint64) |  | max gas requested |
+| params_size | [uint64](#uint64) |  | params size in bytes |
 
 
 
@@ -932,8 +933,8 @@ deferred call register request
 | target_address | [string](#string) |  | target address |
 | target_function | [string](#string) |  | target function |
 | target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | start slot |
-| max_gas | [uint64](#uint64) |  | gas |
-| params | [bytes](#bytes) |  | params |
+| max_gas | [uint64](#uint64) |  | gas requested |
+| params | [bytes](#bytes) |  | params of the call |
 | coins | [uint64](#uint64) |  | coins |
 
 
@@ -949,7 +950,7 @@ deferred call register result
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | call id |
+| call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | deferred call id |
 
 
 
