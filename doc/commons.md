@@ -555,6 +555,7 @@ Node status
 | execution_stats | [ExecutionStats](#massa-model-v1-ExecutionStats) |  | Execution stats |
 | config | [CompactConfig](#massa-model-v1-CompactConfig) |  | Compact configuration |
 | chain_id | [uint64](#uint64) |  | Chain id |
+| current_mip_version | [uint32](#uint32) |  | Current mip version |
 
 
 

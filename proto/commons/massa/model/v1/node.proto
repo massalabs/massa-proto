@@ -54,6 +54,8 @@ message NodeStatus {
   CompactConfig config = 16;
   // Chain id
   uint64 chain_id = 17;
+  // Current mip version
+  uint32 current_mip_version = 18;
 }
 
 // Connected node
