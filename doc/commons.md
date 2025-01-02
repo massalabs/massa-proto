@@ -582,6 +582,7 @@ Public status
 | config | [CompactConfig](#massa-model-v1-CompactConfig) |  | Compact configuration |
 | chain_id | [uint64](#uint64) |  | Chain id |
 | minimal_fees | [NativeAmount](#massa-model-v1-NativeAmount) |  | minimal fees |
+| current_mip_version | [uint32](#uint32) |  | current mip version |
 
 
 
