@@ -881,6 +881,8 @@ Request to get the datastore keys (candidate) of an address
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  | Address to query |
 | prefix | [bytes](#bytes) |  | Prefix for the keys |
+| offset_key | [bytes](#bytes) |  | Key offset for the search |
+| limit | [uint32](#uint32) |  | Limit for the number of keys |
 
 
 
@@ -897,6 +899,8 @@ Request to get the datastore keys (final) of an address
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  | Address to query |
 | prefix | [bytes](#bytes) |  | Prefix for the keys |
+| offset_key | [bytes](#bytes) |  | Key offset for the search |
+| limit | [uint32](#uint32) |  | Limit for the number of keys |
 
 
 
