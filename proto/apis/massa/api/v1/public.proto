@@ -493,11 +493,11 @@ message AddressDatastoreKeysCandidate {
   // Prefix for the keys
   bytes prefix = 2;
   // Key offset for the search
-  bytes start_key = 3;
+  google.protobuf.BytesValue start_key = 3;
   // included start_key
-  bool inclusive_start_key = 4;
+  google.protobuf.BoolValue inclusive_start_key = 4;
   // Limit for the number of keys
-  uint32 limit = 5;
+  google.protobuf.UInt32Value limit = 5;
 }
 
 // Request to get the datastore keys (final) of an address
@@ -507,11 +507,11 @@ message AddressDatastoreKeysFinal {
   // Prefix for the keys
   bytes prefix = 2;
   // Key offset for the search
-  bytes start_key = 3;
+  google.protobuf.BytesValue start_key = 3;
   // included start_key
-  bool inclusive_start_key = 4;
+  google.protobuf.BoolValue inclusive_start_key = 4;
   // Limit for the number of keys
-  uint32 limit = 5;
+  google.protobuf.UInt32Value limit = 5;
 }
 
 // Request to get a datastore value (candidate) for an address
