@@ -181,6 +181,10 @@ message RespResult {
     EvmGetPubkeyFromSignatureResult evm_get_pubkey_from_signature_result = 61;
     IsAddressEoaResult is_address_eoa_result = 62;
     ChainIdResult chain_id_result = 63;
+    DeferredCallQuoteResult deferred_call_quote_result = 64;
+    DeferredCallExistsResult deferred_call_exists_result = 65;
+    DeferredCallRegisterResult deferred_call_register_result = 66;
+    DeferredCallCancelResult deferred_call_cancel_result = 67;
   }
 }
 
@@ -688,6 +692,67 @@ message UnsafeRandomRequest {
 message UnsafeRandomResult {
   // Random bytes generated
   bytes random_bytes = 1;
+}
+
+/// Deferred call cancel request
+message DeferredCallCancelRequest {
+  /// call id
+  google.protobuf.StringValue call_id = 1;
+}
+
+/// Deferred call cancel result
+message DeferredCallCancelResult {}
+
+// Deferred call quote
+message DeferredCallQuoteRequest {
+  /// target slot
+  massa.model.v1.Slot target_slot = 1;
+  /// max gas requested
+  uint64 max_gas = 2;
+  /// params size in bytes
+  uint64 params_size = 3;
+}
+
+// Deferred call quote result
+message DeferredCallQuoteResult {
+  /// available
+  bool available = 1;
+  /// cost
+  uint64 cost = 2;
+}
+
+// deferred call exists request
+message DeferredCallExistsRequest {
+  /// deferred call id
+  google.protobuf.StringValue call_id = 1;
+}
+
+// deferred call exists result
+message DeferredCallExistsResult {
+  /// call exists
+  bool call_exists = 1;
+}
+
+// deferred call register request
+message DeferredCallRegisterRequest {
+  /// target address
+  string target_address = 1;
+  /// target function
+  string target_function = 2;
+  /// start slot
+  massa.model.v1.Slot target_slot = 3;
+  /// gas requested
+  uint64 max_gas = 4;
+  /// params of the call
+  bytes params = 5;
+  /// coins
+  uint64 coins = 6;
+}
+
+/// deferred call register result
+message DeferredCallRegisterResult {
+  /// deferred call id
+  google.protobuf.StringValue call_id = 1;
 }
 
 // Send async message request filter

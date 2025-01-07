@@ -48,6 +48,11 @@
     - [PrivateService](#massa-api-v1-PrivateService)
   
 - [massa/api/v1/public.proto](#massa_api_v1_public-proto)
+    - [ABICallStack](#massa-api-v1-ABICallStack)
+    - [ABICallStackElement](#massa-api-v1-ABICallStackElement)
+    - [ABICallStackElementCall](#massa-api-v1-ABICallStackElementCall)
+    - [ABICallStackElementParent](#massa-api-v1-ABICallStackElementParent)
+    - [ASCABICallStack](#massa-api-v1-ASCABICallStack)
     - [AddressBalanceCandidate](#massa-api-v1-AddressBalanceCandidate)
     - [AddressBalanceFinal](#massa-api-v1-AddressBalanceFinal)
     - [AddressBytecodeCandidate](#massa-api-v1-AddressBytecodeCandidate)
@@ -64,6 +69,13 @@
     - [AddressRollsFinal](#massa-api-v1-AddressRollsFinal)
     - [AsyncPoolChangesFilter](#massa-api-v1-AsyncPoolChangesFilter)
     - [CycleInfos](#massa-api-v1-CycleInfos)
+    - [DeferredCallInfo](#massa-api-v1-DeferredCallInfo)
+    - [DeferredCallInfoEntry](#massa-api-v1-DeferredCallInfoEntry)
+    - [DeferredCallInfoResponse](#massa-api-v1-DeferredCallInfoResponse)
+    - [DeferredCallQuote](#massa-api-v1-DeferredCallQuote)
+    - [DeferredCallQuoteResponse](#massa-api-v1-DeferredCallQuoteResponse)
+    - [DeferredCallsBySlot](#massa-api-v1-DeferredCallsBySlot)
+    - [DeferredCallsBySlotResponse](#massa-api-v1-DeferredCallsBySlotResponse)
     - [DeferredCreditsEntry](#massa-api-v1-DeferredCreditsEntry)
     - [DeferredCreditsEntryWrapper](#massa-api-v1-DeferredCreditsEntryWrapper)
     - [DenunciationExecutionStatusCandidate](#massa-api-v1-DenunciationExecutionStatusCandidate)
@@ -91,12 +103,18 @@
     - [GetEndorsementsResponse](#massa-api-v1-GetEndorsementsResponse)
     - [GetNextBlockBestParentsRequest](#massa-api-v1-GetNextBlockBestParentsRequest)
     - [GetNextBlockBestParentsResponse](#massa-api-v1-GetNextBlockBestParentsResponse)
+    - [GetOperationABICallStacksRequest](#massa-api-v1-GetOperationABICallStacksRequest)
+    - [GetOperationABICallStacksResponse](#massa-api-v1-GetOperationABICallStacksResponse)
     - [GetOperationsRequest](#massa-api-v1-GetOperationsRequest)
     - [GetOperationsResponse](#massa-api-v1-GetOperationsResponse)
     - [GetScExecutionEventsRequest](#massa-api-v1-GetScExecutionEventsRequest)
     - [GetScExecutionEventsResponse](#massa-api-v1-GetScExecutionEventsResponse)
     - [GetSelectorDrawsRequest](#massa-api-v1-GetSelectorDrawsRequest)
     - [GetSelectorDrawsResponse](#massa-api-v1-GetSelectorDrawsResponse)
+    - [GetSlotABICallStacksRequest](#massa-api-v1-GetSlotABICallStacksRequest)
+    - [GetSlotABICallStacksResponse](#massa-api-v1-GetSlotABICallStacksResponse)
+    - [GetSlotTransfersRequest](#massa-api-v1-GetSlotTransfersRequest)
+    - [GetSlotTransfersResponse](#massa-api-v1-GetSlotTransfersResponse)
     - [GetStakersRequest](#massa-api-v1-GetStakersRequest)
     - [GetStakersResponse](#massa-api-v1-GetStakersResponse)
     - [GetStatusRequest](#massa-api-v1-GetStatusRequest)
@@ -116,11 +134,16 @@
     - [NewOperationsFilter](#massa-api-v1-NewOperationsFilter)
     - [NewOperationsRequest](#massa-api-v1-NewOperationsRequest)
     - [NewOperationsResponse](#massa-api-v1-NewOperationsResponse)
+    - [NewSlotABICallStacksRequest](#massa-api-v1-NewSlotABICallStacksRequest)
+    - [NewSlotABICallStacksResponse](#massa-api-v1-NewSlotABICallStacksResponse)
     - [NewSlotExecutionOutputsFilter](#massa-api-v1-NewSlotExecutionOutputsFilter)
     - [NewSlotExecutionOutputsRequest](#massa-api-v1-NewSlotExecutionOutputsRequest)
     - [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse)
+    - [NewSlotTransfersRequest](#massa-api-v1-NewSlotTransfersRequest)
+    - [NewSlotTransfersResponse](#massa-api-v1-NewSlotTransfersResponse)
     - [OpExecutionStatusCandidate](#massa-api-v1-OpExecutionStatusCandidate)
     - [OpExecutionStatusFinal](#massa-api-v1-OpExecutionStatusFinal)
+    - [OperationABICallStack](#massa-api-v1-OperationABICallStack)
     - [PosChangesFilter](#massa-api-v1-PosChangesFilter)
     - [QueryStateRequest](#massa-api-v1-QueryStateRequest)
     - [QueryStateResponse](#massa-api-v1-QueryStateResponse)
@@ -142,11 +165,15 @@
     - [SendEndorsementsResponse](#massa-api-v1-SendEndorsementsResponse)
     - [SendOperationsRequest](#massa-api-v1-SendOperationsRequest)
     - [SendOperationsResponse](#massa-api-v1-SendOperationsResponse)
+    - [SlotABICallStacks](#massa-api-v1-SlotABICallStacks)
     - [StakersFilter](#massa-api-v1-StakersFilter)
     - [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest)
     - [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse)
+    - [TransferInfo](#massa-api-v1-TransferInfo)
+    - [TransferInfos](#massa-api-v1-TransferInfos)
   
     - [ExecutionQueryExecutionStatus](#massa-api-v1-ExecutionQueryExecutionStatus)
+    - [FinalityLevel](#massa-api-v1-FinalityLevel)
   
     - [PublicService](#massa-api-v1-PublicService)
   
@@ -702,6 +729,88 @@ Massa private gRPC service
 
 
 
+<a name="massa-api-v1-ABICallStack"></a>
+
+### ABICallStack
+Definition of an ABI call stack
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_stack | [ABICallStackElementParent](#massa-api-v1-ABICallStackElementParent) | repeated | All elements of the call stack |
+
+
+
+
+
+
+<a name="massa-api-v1-ABICallStackElement"></a>
+
+### ABICallStackElement
+Definition of an ABI call stack element
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  | name of the ABI |
+| parameters | [string](#string) | repeated | Parameters of the ABI |
+| return_value | [string](#string) |  | Return value of the ABI |
+
+
+
+
+
+
+<a name="massa-api-v1-ABICallStackElementCall"></a>
+
+### ABICallStackElementCall
+Definition of an ABI call stack element that is the &#39;call&#39; ABI
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  | name of the ABI |
+| parameters | [string](#string) | repeated | Parameters of the ABI |
+| sub_calls | [ABICallStackElementParent](#massa-api-v1-ABICallStackElementParent) | repeated | Calls made within this SC call |
+| return_value | [string](#string) |  | Return value of the ABI |
+
+
+
+
+
+
+<a name="massa-api-v1-ABICallStackElementParent"></a>
+
+### ABICallStackElementParent
+Definition of an ABI call stack element parent
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| element | [ABICallStackElement](#massa-api-v1-ABICallStackElement) |  | Any ABI call that is not the ABI &#39;call&#39; |
+| element_call | [ABICallStackElementCall](#massa-api-v1-ABICallStackElementCall) |  | Element that is the ABI &#39;call&#39; |
+
+
+
+
+
+
+<a name="massa-api-v1-ASCABICallStack"></a>
+
+### ASCABICallStack
+ABI asynchronous execution call stack
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| index | [uint64](#uint64) |  | Index of the execution in the slot |
+| call_stack | [ABICallStackElementParent](#massa-api-v1-ABICallStackElementParent) | repeated | Call stack |
+
+
+
+
+
+
 <a name="massa-api-v1-AddressBalanceCandidate"></a>
 
 ### AddressBalanceCandidate
@@ -952,6 +1061,126 @@ Request to get all information for a given cycle
 
 
 
+<a name="massa-api-v1-DeferredCallInfo"></a>
+
+### DeferredCallInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_id | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCallInfoEntry"></a>
+
+### DeferredCallInfoEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sender_address | [string](#string) |  |  |
+| target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  |  |
+| target_address | [string](#string) |  |  |
+| target_function | [string](#string) |  |  |
+| parameters | [bytes](#bytes) |  |  |
+| coins | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| max_gas | [uint64](#uint64) |  |  |
+| fee | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| cancelled | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCallInfoResponse"></a>
+
+### DeferredCallInfoResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_id | [string](#string) |  |  |
+| call | [DeferredCallInfoEntry](#massa-api-v1-DeferredCallInfoEntry) |  |  |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCallQuote"></a>
+
+### DeferredCallQuote
+Deferred call quote
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | target slot |
+| max_gas | [uint64](#uint64) |  | max gas requested |
+| params_size | [uint64](#uint64) |  | params size in bytes |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCallQuoteResponse"></a>
+
+### DeferredCallQuoteResponse
+deferred call quote response
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | the slot requested |
+| max_gas_request | [uint64](#uint64) |  | The gas requested |
+| available | [bool](#bool) |  | if the quote is available |
+| price | [massa.model.v1.NativeAmount](#massa-model-v1-NativeAmount) |  | The amount |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCallsBySlot"></a>
+
+### DeferredCallsBySlot
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  |  |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCallsBySlotResponse"></a>
+
+### DeferredCallsBySlotResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  |  |
+| call_ids | [string](#string) | repeated |  |
+
+
+
+
+
+
 <a name="massa-api-v1-DeferredCreditsEntry"></a>
 
 ### DeferredCreditsEntry
@@ -1153,6 +1382,9 @@ Query state query item
 | address_deferred_credits_final | [AddressDeferredCreditsFinal](#massa-api-v1-AddressDeferredCreditsFinal) |  | Gets the deferred credits (final) of an address |
 | cycle_infos | [CycleInfos](#massa-api-v1-CycleInfos) |  | Gets all information for a given cycle |
 | events | [Events](#massa-api-v1-Events) |  | Gets filtered events |
+| deferred_call_quote | [DeferredCallQuote](#massa-api-v1-DeferredCallQuote) |  | Deferred call quote |
+| deferred_call_info | [DeferredCallInfo](#massa-api-v1-DeferredCallInfo) |  | Deferred calls info |
+| deferred_calls_by_slot | [DeferredCallsBySlot](#massa-api-v1-DeferredCallsBySlot) |  | Deferred calls by slot |
 
 
 
@@ -1192,6 +1424,9 @@ Execution state query response item
 | execution_status | [ExecutionQueryExecutionStatus](#massa-api-v1-ExecutionQueryExecutionStatus) |  | Execution status value |
 | cycle_infos | [ExecutionQueryCycleInfos](#massa-api-v1-ExecutionQueryCycleInfos) |  | Cycle infos value |
 | events | [ScOutputEventsWrapper](#massa-api-v1-ScOutputEventsWrapper) |  | Events |
+| deferred_call_quote | [DeferredCallQuoteResponse](#massa-api-v1-DeferredCallQuoteResponse) |  | Deferred call quote |
+| deferred_call_info | [DeferredCallInfoResponse](#massa-api-v1-DeferredCallInfoResponse) |  | Deferred call info |
+| deferred_calls_by_slot | [DeferredCallsBySlotResponse](#massa-api-v1-DeferredCallsBySlotResponse) |  | Deferred calls by slot |
 
 
 
@@ -1392,6 +1627,36 @@ GetNextBlockBestParentsResponse holds response from GetNextBlockBestParents
 
 
 
+<a name="massa-api-v1-GetOperationABICallStacksRequest"></a>
+
+### GetOperationABICallStacksRequest
+GetOperationABICallStacks request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| operation_ids | [string](#string) | repeated | Operations ids to get the call stack from |
+
+
+
+
+
+
+<a name="massa-api-v1-GetOperationABICallStacksResponse"></a>
+
+### GetOperationABICallStacksResponse
+GetOperationABICallStacks response
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_stacks | [ABICallStack](#massa-api-v1-ABICallStack) | repeated |  |
+
+
+
+
+
+
 <a name="massa-api-v1-GetOperationsRequest"></a>
 
 ### GetOperationsRequest
@@ -1482,6 +1747,66 @@ GetSelectorDrawsResponse holds response from GetSelectorDraws
 
 
 
+<a name="massa-api-v1-GetSlotABICallStacksRequest"></a>
+
+### GetSlotABICallStacksRequest
+GetSlotABICallStacks request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slots | [massa.model.v1.Slot](#massa-model-v1-Slot) | repeated | Slots asked |
+
+
+
+
+
+
+<a name="massa-api-v1-GetSlotABICallStacksResponse"></a>
+
+### GetSlotABICallStacksResponse
+GetSlotABICallStacks response
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot_call_stacks | [SlotABICallStacks](#massa-api-v1-SlotABICallStacks) | repeated | Call stacks for the slots |
+
+
+
+
+
+
+<a name="massa-api-v1-GetSlotTransfersRequest"></a>
+
+### GetSlotTransfersRequest
+GetSlotTransfersRequest holds request for GetSlotTransfers
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slots | [massa.model.v1.Slot](#massa-model-v1-Slot) | repeated | Slot to get the transfers from |
+
+
+
+
+
+
+<a name="massa-api-v1-GetSlotTransfersResponse"></a>
+
+### GetSlotTransfersResponse
+GetSlotTransfersResponse holds response from GetSlotTransfers
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| transfer_each_slot | [TransferInfos](#massa-api-v1-TransferInfos) | repeated | Transfers for the slot |
+
+
+
+
+
+
 <a name="massa-api-v1-GetStakersRequest"></a>
 
 ### GetStakersRequest
@@ -1550,7 +1875,8 @@ GetTransactionsThroughputRequest holds request for GetTransactionsThroughput
 <a name="massa-api-v1-GetTransactionsThroughputResponse"></a>
 
 ### GetTransactionsThroughputResponse
-GetTransactionsThroughputResponse holds response from GetTransactionsThroughput
+GetTransactionsThroughputResponse holds response from
+GetTransactionsThroughput
 
 
 | Field | Type | Label | Description |
@@ -1766,6 +2092,38 @@ NewOperationsResponse holds response from NewOperations
 
 
 
+<a name="massa-api-v1-NewSlotABICallStacksRequest"></a>
+
+### NewSlotABICallStacksRequest
+NewSlotABICallStacks request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| finality_level | [FinalityLevel](#massa-api-v1-FinalityLevel) |  | Finality level to receive informations from |
+
+
+
+
+
+
+<a name="massa-api-v1-NewSlotABICallStacksResponse"></a>
+
+### NewSlotABICallStacksResponse
+NewSlotABICallStacks response
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Finality level to receive informations from |
+| asc_call_stacks | [ASCABICallStack](#massa-api-v1-ASCABICallStack) | repeated | Call stacks for asynchronous execution |
+| operation_call_stacks | [OperationABICallStack](#massa-api-v1-OperationABICallStack) | repeated | Call stack for operations |
+
+
+
+
+
+
 <a name="massa-api-v1-NewSlotExecutionOutputsFilter"></a>
 
 ### NewSlotExecutionOutputsFilter
@@ -1817,6 +2175,37 @@ NewSlotExecutionOutputsResponse holds response from NewSlotExecutionOutputs
 
 
 
+<a name="massa-api-v1-NewSlotTransfersRequest"></a>
+
+### NewSlotTransfersRequest
+NewSlotTransfers request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| finality_level | [FinalityLevel](#massa-api-v1-FinalityLevel) |  | Finality level to receive informations from |
+
+
+
+
+
+
+<a name="massa-api-v1-NewSlotTransfersResponse"></a>
+
+### NewSlotTransfersResponse
+NewSlotTransfers response
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Finality level to receive informations from |
+| transfers | [TransferInfo](#massa-api-v1-TransferInfo) | repeated | Transfers |
+
+
+
+
+
+
 <a name="massa-api-v1-OpExecutionStatusCandidate"></a>
 
 ### OpExecutionStatusCandidate
@@ -1841,6 +2230,22 @@ Request to get the execution status (final) for an operation
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | operation_id | [string](#string) |  | Operation ID to query |
+
+
+
+
+
+
+<a name="massa-api-v1-OperationABICallStack"></a>
+
+### OperationABICallStack
+Operation execution call stack
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| operation_id | [string](#string) |  | Operation id |
+| call_stack | [ABICallStackElementParent](#massa-api-v1-ABICallStackElementParent) | repeated | Call stack |
 
 
 
@@ -2180,6 +2585,22 @@ SendOperationsResponse holds response from SendOperations
 
 
 
+<a name="massa-api-v1-SlotABICallStacks"></a>
+
+### SlotABICallStacks
+Call stack for a slot
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| asc_call_stacks | [ASCABICallStack](#massa-api-v1-ASCABICallStack) | repeated | Call stacks for asynchronous execution |
+| operation_call_stacks | [OperationABICallStack](#massa-api-v1-OperationABICallStack) | repeated | Call stack for operations |
+
+
+
+
+
+
 <a name="massa-api-v1-StakersFilter"></a>
 
 ### StakersFilter
@@ -2226,6 +2647,41 @@ TransactionsThroughputResponse holds response from TransactionsThroughput
 
 
 
+
+<a name="massa-api-v1-TransferInfo"></a>
+
+### TransferInfo
+Transfer info
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| from | [string](#string) |  | Sender |
+| to | [string](#string) |  | Receiver |
+| amount | [uint64](#uint64) |  | Amount in nMAS |
+| operation_id | [string](#string) |  | Operation id |
+| asc_index | [uint64](#uint64) |  | Asynchronous execution index |
+
+
+
+
+
+
+<a name="massa-api-v1-TransferInfos"></a>
+
+### TransferInfos
+List of transfers for a slot
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Slot |
+| transfers | [TransferInfo](#massa-api-v1-TransferInfo) | repeated | Transfers |
+
+
+
+
+
  
 
 
@@ -2239,7 +2695,20 @@ Execution status of an operation or denunciation
 | EXECUTION_QUERY_EXECUTION_STATUS_UNSPECIFIED | 0 | Default enum value |
 | EXECUTION_QUERY_EXECUTION_STATUS_ALREADY_EXECUTED_WITH_SUCCESS | 1 | The operation or denunciation was executed recently with success |
 | EXECUTION_QUERY_EXECUTION_STATUS_ALREADY_EXECUTED_WITH_FAILURE | 2 | The operation or denunciation was executed recently with failure |
-| EXECUTION_QUERY_EXECUTION_STATUS_EXECUTABLE_OR_EXPIRED | 3 | The operation or denunciation was not executed recently but can still be executed unless expired |
+| EXECUTION_QUERY_EXECUTION_STATUS_EXECUTABLE_OR_EXPIRED | 3 | The operation or denunciation was not executed recently but can |
+
+
+
+<a name="massa-api-v1-FinalityLevel"></a>
+
+### FinalityLevel
+Finality level to filter on in streams
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| FINALITY_LEVEL_UNSPECIFIED | 0 | Unspecified (receive both) |
+| FINALITY_LEVEL_CANDIDATE | 1 | Candidate level |
+| FINALITY_LEVEL_FINAL | 2 | Final level |
 
 
  
@@ -2269,11 +2738,16 @@ Massa public gRPC service
 | SearchBlocks | [SearchBlocksRequest](#massa-api-v1-SearchBlocksRequest) | [SearchBlocksResponse](#massa-api-v1-SearchBlocksResponse) | Search blocks |
 | SearchEndorsements | [SearchEndorsementsRequest](#massa-api-v1-SearchEndorsementsRequest) | [SearchEndorsementsResponse](#massa-api-v1-SearchEndorsementsResponse) | Search endorsements |
 | SearchOperations | [SearchOperationsRequest](#massa-api-v1-SearchOperationsRequest) | [SearchOperationsResponse](#massa-api-v1-SearchOperationsResponse) | Search operations |
+| GetOperationABICallStacks | [GetOperationABICallStacksRequest](#massa-api-v1-GetOperationABICallStacksRequest) | [GetOperationABICallStacksResponse](#massa-api-v1-GetOperationABICallStacksResponse) | Get ABI call stack of an operation |
+| GetSlotABICallStacks | [GetSlotABICallStacksRequest](#massa-api-v1-GetSlotABICallStacksRequest) | [GetSlotABICallStacksResponse](#massa-api-v1-GetSlotABICallStacksResponse) | Get ABI call stack of all asynchronous executions and all operations for a given slot |
+| GetSlotTransfers | [GetSlotTransfersRequest](#massa-api-v1-GetSlotTransfersRequest) | [GetSlotTransfersResponse](#massa-api-v1-GetSlotTransfersResponse) | Get all the transfers of MAS for a given slot |
 | NewBlocks | [NewBlocksRequest](#massa-api-v1-NewBlocksRequest) stream | [NewBlocksResponse](#massa-api-v1-NewBlocksResponse) stream | New received and produced blocks |
 | NewEndorsements | [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest) stream | [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse) stream | New received and produced endorsements |
 | NewFilledBlocks | [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest) stream | [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse) stream | New received and produced blocks with operations |
 | NewOperations | [NewOperationsRequest](#massa-api-v1-NewOperationsRequest) stream | [NewOperationsResponse](#massa-api-v1-NewOperationsResponse) stream | New received and produced operations |
 | NewSlotExecutionOutputs | [NewSlotExecutionOutputsRequest](#massa-api-v1-NewSlotExecutionOutputsRequest) stream | [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse) stream | New received and slot execution events |
+| NewSlotABICallStacks | [NewSlotABICallStacksRequest](#massa-api-v1-NewSlotABICallStacksRequest) stream | [NewSlotABICallStacksResponse](#massa-api-v1-NewSlotABICallStacksResponse) stream | Call stack for each slot executed |
+| NewSlotTransfers | [NewSlotTransfersRequest](#massa-api-v1-NewSlotTransfersRequest) stream | [NewSlotTransfersResponse](#massa-api-v1-NewSlotTransfersResponse) stream | Transfer list for each slot executed |
 | SendBlocks | [SendBlocksRequest](#massa-api-v1-SendBlocksRequest) stream | [SendBlocksResponse](#massa-api-v1-SendBlocksResponse) stream | Send blocks |
 | SendEndorsements | [SendEndorsementsRequest](#massa-api-v1-SendEndorsementsRequest) stream | [SendEndorsementsResponse](#massa-api-v1-SendEndorsementsResponse) stream | Send endorsements |
 | SendOperations | [SendOperationsRequest](#massa-api-v1-SendOperationsRequest) stream | [SendOperationsResponse](#massa-api-v1-SendOperationsResponse) stream | Send operations |

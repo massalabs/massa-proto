@@ -5,9 +5,9 @@ syntax = "proto3";
 package massa.model.v1;
 
 import "google/protobuf/wrappers.proto";
+import "massa/model/v1/denunciation.proto";
 import "massa/model/v1/endorsement.proto";
 import "massa/model/v1/operation.proto";
-import "massa/model/v1/denunciation.proto";
 import "massa/model/v1/slot.proto";
 
 option csharp_namespace = "Com.Massa.Model.v1";

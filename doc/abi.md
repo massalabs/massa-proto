@@ -19,6 +19,8 @@
     - [CallResponse](#massa-abi-v1-CallResponse)
     - [CallerHasWriteAccessRequest](#massa-abi-v1-CallerHasWriteAccessRequest)
     - [CallerHasWriteAccessResult](#massa-abi-v1-CallerHasWriteAccessResult)
+    - [ChainIdRequest](#massa-abi-v1-ChainIdRequest)
+    - [ChainIdResult](#massa-abi-v1-ChainIdResult)
     - [CheckAddressRequest](#massa-abi-v1-CheckAddressRequest)
     - [CheckAddressResult](#massa-abi-v1-CheckAddressResult)
     - [CheckNativeAmountRequest](#massa-abi-v1-CheckNativeAmountRequest)
@@ -47,6 +49,14 @@
     - [ComparePubKeyResult](#massa-abi-v1-ComparePubKeyResult)
     - [CreateScRequest](#massa-abi-v1-CreateScRequest)
     - [CreateScResult](#massa-abi-v1-CreateScResult)
+    - [DeferredCallCancelRequest](#massa-abi-v1-DeferredCallCancelRequest)
+    - [DeferredCallCancelResult](#massa-abi-v1-DeferredCallCancelResult)
+    - [DeferredCallExistsRequest](#massa-abi-v1-DeferredCallExistsRequest)
+    - [DeferredCallExistsResult](#massa-abi-v1-DeferredCallExistsResult)
+    - [DeferredCallQuoteRequest](#massa-abi-v1-DeferredCallQuoteRequest)
+    - [DeferredCallQuoteResult](#massa-abi-v1-DeferredCallQuoteResult)
+    - [DeferredCallRegisterRequest](#massa-abi-v1-DeferredCallRegisterRequest)
+    - [DeferredCallRegisterResult](#massa-abi-v1-DeferredCallRegisterResult)
     - [DeleteDsEntryRequest](#massa-abi-v1-DeleteDsEntryRequest)
     - [DeleteDsEntryResult](#massa-abi-v1-DeleteDsEntryResult)
     - [DivRemNativeAmountRequest](#massa-abi-v1-DivRemNativeAmountRequest)
@@ -362,6 +372,31 @@ Caller has write access result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | has_write_access | [bool](#bool) |  | Caller has write access |
+
+
+
+
+
+
+<a name="massa-abi-v1-ChainIdRequest"></a>
+
+### ChainIdRequest
+Chain id request
+
+
+
+
+
+
+<a name="massa-abi-v1-ChainIdResult"></a>
+
+### ChainIdResult
+Chain id result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [uint64](#uint64) |  |  |
 
 
 
@@ -793,6 +828,129 @@ Create SC result
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | sc_address | [string](#string) |  | Address of the just created smart contract |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallCancelRequest"></a>
+
+### DeferredCallCancelRequest
+Deferred call cancel request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | call id |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallCancelResult"></a>
+
+### DeferredCallCancelResult
+Deferred call cancel result
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallExistsRequest"></a>
+
+### DeferredCallExistsRequest
+deferred call exists request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | deferred call id |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallExistsResult"></a>
+
+### DeferredCallExistsResult
+deferred call exists result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_exists | [bool](#bool) |  | call exists |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallQuoteRequest"></a>
+
+### DeferredCallQuoteRequest
+Deferred call quote
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | target slot |
+| max_gas | [uint64](#uint64) |  | max gas requested |
+| params_size | [uint64](#uint64) |  | params size in bytes |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallQuoteResult"></a>
+
+### DeferredCallQuoteResult
+Deferred call quote result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| available | [bool](#bool) |  | available |
+| cost | [uint64](#uint64) |  | cost |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallRegisterRequest"></a>
+
+### DeferredCallRegisterRequest
+deferred call register request
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target_address | [string](#string) |  | target address |
+| target_function | [string](#string) |  | target function |
+| target_slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | start slot |
+| max_gas | [uint64](#uint64) |  | gas requested |
+| params | [bytes](#bytes) |  | params of the call |
+| coins | [uint64](#uint64) |  | coins |
+
+
+
+
+
+
+<a name="massa-abi-v1-DeferredCallRegisterResult"></a>
+
+### DeferredCallRegisterResult
+deferred call register result
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | deferred call id |
 
 
 
@@ -1844,6 +2002,11 @@ the &#43;1 comes from ResResult itself which is counted above
 | evm_get_address_from_pubkey_result | [EvmGetAddressFromPubkeyResult](#massa-abi-v1-EvmGetAddressFromPubkeyResult) |  |  |
 | evm_get_pubkey_from_signature_result | [EvmGetPubkeyFromSignatureResult](#massa-abi-v1-EvmGetPubkeyFromSignatureResult) |  |  |
 | is_address_eoa_result | [IsAddressEoaResult](#massa-abi-v1-IsAddressEoaResult) |  |  |
+| chain_id_result | [ChainIdResult](#massa-abi-v1-ChainIdResult) |  |  |
+| deferred_call_quote_result | [DeferredCallQuoteResult](#massa-abi-v1-DeferredCallQuoteResult) |  |  |
+| deferred_call_exists_result | [DeferredCallExistsResult](#massa-abi-v1-DeferredCallExistsResult) |  |  |
+| deferred_call_register_result | [DeferredCallRegisterResult](#massa-abi-v1-DeferredCallRegisterResult) |  |  |
+| deferred_call_cancel_result | [DeferredCallCancelResult](#massa-abi-v1-DeferredCallCancelResult) |  |  |
 
 
 

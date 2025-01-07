@@ -239,6 +239,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.abi.v1.ChainIdRequest"><span class="badge">M</span>ChainIdRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.ChainIdResult"><span class="badge">M</span>ChainIdResult</a>
+                </li>
+              
+                <li>
                   <a href="#massa.abi.v1.CheckAddressRequest"><span class="badge">M</span>CheckAddressRequest</a>
                 </li>
               
@@ -348,6 +356,38 @@
               
                 <li>
                   <a href="#massa.abi.v1.CreateScResult"><span class="badge">M</span>CreateScResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.DeferredCallCancelRequest"><span class="badge">M</span>DeferredCallCancelRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.DeferredCallCancelResult"><span class="badge">M</span>DeferredCallCancelResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.DeferredCallExistsRequest"><span class="badge">M</span>DeferredCallExistsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.DeferredCallExistsResult"><span class="badge">M</span>DeferredCallExistsResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.DeferredCallQuoteRequest"><span class="badge">M</span>DeferredCallQuoteRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.DeferredCallQuoteResult"><span class="badge">M</span>DeferredCallQuoteResult</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.DeferredCallRegisterRequest"><span class="badge">M</span>DeferredCallRegisterRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.abi.v1.DeferredCallRegisterResult"><span class="badge">M</span>DeferredCallRegisterResult</a>
                 </li>
               
                 <li>
@@ -1082,6 +1122,37 @@
                   <td><a href="#bool">bool</a></td>
                   <td></td>
                   <td><p>Caller has write access </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.ChainIdRequest">ChainIdRequest</h3>
+        <p>Chain id request</p>
+
+        
+
+        
+      
+        <h3 id="massa.abi.v1.ChainIdResult">ChainIdResult</h3>
+        <p>Chain id result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -1831,6 +1902,237 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>Address of the just created smart contract </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallCancelRequest">DeferredCallCancelRequest</h3>
+        <p>Deferred call cancel request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>call_id</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p>call id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallCancelResult">DeferredCallCancelResult</h3>
+        <p>Deferred call cancel result</p>
+
+        
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallExistsRequest">DeferredCallExistsRequest</h3>
+        <p>deferred call exists request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>call_id</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p>deferred call id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallExistsResult">DeferredCallExistsResult</h3>
+        <p>deferred call exists result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>call_exists</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>call exists </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallQuoteRequest">DeferredCallQuoteRequest</h3>
+        <p>Deferred call quote</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>target_slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>target slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_gas</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>max gas requested </p></td>
+                </tr>
+              
+                <tr>
+                  <td>params_size</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>params size in bytes </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallQuoteResult">DeferredCallQuoteResult</h3>
+        <p>Deferred call quote result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>available</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>available </p></td>
+                </tr>
+              
+                <tr>
+                  <td>cost</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>cost </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallRegisterRequest">DeferredCallRegisterRequest</h3>
+        <p>deferred call register request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>target_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>target address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_function</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>target function </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>start slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_gas</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>gas requested </p></td>
+                </tr>
+              
+                <tr>
+                  <td>params</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>params of the call </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coins</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>coins </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.abi.v1.DeferredCallRegisterResult">DeferredCallRegisterResult</h3>
+        <p>deferred call register result</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>call_id</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p>deferred call id </p></td>
                 </tr>
               
             </tbody>
@@ -3819,6 +4121,41 @@
                 <tr>
                   <td>is_address_eoa_result</td>
                   <td><a href="#massa.abi.v1.IsAddressEoaResult">IsAddressEoaResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>chain_id_result</td>
+                  <td><a href="#massa.abi.v1.ChainIdResult">ChainIdResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deferred_call_quote_result</td>
+                  <td><a href="#massa.abi.v1.DeferredCallQuoteResult">DeferredCallQuoteResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deferred_call_exists_result</td>
+                  <td><a href="#massa.abi.v1.DeferredCallExistsResult">DeferredCallExistsResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deferred_call_register_result</td>
+                  <td><a href="#massa.abi.v1.DeferredCallRegisterResult">DeferredCallRegisterResult</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deferred_call_cancel_result</td>
+                  <td><a href="#massa.abi.v1.DeferredCallCancelResult">DeferredCallCancelResult</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>

@@ -54,6 +54,8 @@ message NodeStatus {
   CompactConfig config = 16;
   // Chain id
   uint64 chain_id = 17;
+  // Current mip version
+  uint32 current_mip_version = 18;
 }
 
 // Connected node
@@ -69,8 +71,8 @@ message ConnectedNode {
 // ConnectionType enum
 enum ConnectionType {
   CONNECTION_TYPE_UNSPECIFIED = 0; // Default enum value
-  CONNECTION_TYPE_INCOMING = 1;    // Incoming connection
-  CONNECTION_TYPE_OUTGOING = 2;    // Outgoing connection
+  CONNECTION_TYPE_INCOMING = 1; // Incoming connection
+  CONNECTION_TYPE_OUTGOING = 2; // Outgoing connection
 }
 
 // Compact configuration
@@ -123,4 +125,6 @@ message PublicStatus {
   uint64 chain_id = 12;
   // minimal fees
   massa.model.v1.NativeAmount minimal_fees = 13;
+  // current mip version
+  uint32 current_mip_version = 14;
 }

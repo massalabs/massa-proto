@@ -388,6 +388,14 @@
             <ul>
               
                 <li>
+                  <a href="#massa.model.v1.BlockHeaderDenunciation"><span class="badge">M</span>BlockHeaderDenunciation</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.Denunciation"><span class="badge">M</span>Denunciation</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.DenunciationBlockHeader"><span class="badge">M</span>DenunciationBlockHeader</a>
                 </li>
               
@@ -397,6 +405,10 @@
               
                 <li>
                   <a href="#massa.model.v1.DenunciationIndex"><span class="badge">M</span>DenunciationIndex</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.EndorsementDenunciation"><span class="badge">M</span>EndorsementDenunciation</a>
                 </li>
               
               
@@ -1659,6 +1671,20 @@
                   <td><p>Compact configuration </p></td>
                 </tr>
               
+                <tr>
+                  <td>chain_id</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Chain id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>current_mip_version</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>Current mip version </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -1744,6 +1770,27 @@
                   <td><a href="#massa.model.v1.CompactConfig">CompactConfig</a></td>
                   <td></td>
                   <td><p>Compact configuration </p></td>
+                </tr>
+              
+                <tr>
+                  <td>chain_id</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Chain id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>minimal_fees</td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
+                  <td></td>
+                  <td><p>minimal fees </p></td>
+                </tr>
+              
+                <tr>
+                  <td>current_mip_version</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>current mip version </p></td>
                 </tr>
               
             </tbody>
@@ -2306,6 +2353,96 @@
       <p></p>
 
       
+        <h3 id="massa.model.v1.BlockHeaderDenunciation">BlockHeaderDenunciation</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>public_key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Denunciation public key </p></td>
+                </tr>
+              
+                <tr>
+                  <td>slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Denunciation slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hash_1</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Denunciation hash 1 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hash_2</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Denunciation hash 2 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>signature_1</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Denunciation sig 1 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>signature_2</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Denunciation sig 2 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.Denunciation">Denunciation</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_header</td>
+                  <td><a href="#massa.model.v1.BlockHeaderDenunciation">BlockHeaderDenunciation</a></td>
+                  <td></td>
+                  <td><p>Denunciation block header </p></td>
+                </tr>
+              
+                <tr>
+                  <td>endorsement</td>
+                  <td><a href="#massa.model.v1.EndorsementDenunciation">EndorsementDenunciation</a></td>
+                  <td></td>
+                  <td><p>Denunciation endorsement </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.DenunciationBlockHeader">DenunciationBlockHeader</h3>
         <p>Variant for Block header denunciation index</p>
 
@@ -2320,7 +2457,7 @@
                   <td>slot</td>
                   <td><a href="#massa.model.v1.Slot">Slot</a></td>
                   <td></td>
-                  <td><p>Denounciation slot </p></td>
+                  <td><p>Denunciation slot </p></td>
                 </tr>
               
             </tbody>
@@ -2383,6 +2520,72 @@
                   <td><a href="#massa.model.v1.DenunciationEndorsement">DenunciationEndorsement</a></td>
                   <td></td>
                   <td><p>Denunciation endorsement </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.EndorsementDenunciation">EndorsementDenunciation</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>public_key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Denunciation public key </p></td>
+                </tr>
+              
+                <tr>
+                  <td>slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>Denunciation slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>index</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>Denunciation index </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hash_1</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Denunciation hash 1 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hash_2</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Denunciation hash 2 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>signature_1</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Denunciation sig 1 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>signature_2</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Denunciation sig 2 </p></td>
                 </tr>
               
             </tbody>
@@ -3196,6 +3399,13 @@ the performance hit of linear search remains minimal because `owned_addresses` w
                   <td><p>Parameter to pass to the target function </p></td>
                 </tr>
               
+                <tr>
+                  <td>coins</td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
+                  <td></td>
+                  <td><p>Coins transferred to the target address during the call </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -3391,6 +3601,13 @@ the performance hit of linear search remains minimal because `owned_addresses` w
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
                   <td></td>
                   <td><p>Caller&#39;s address, (Optional) if not set, an auto-generated address will be used </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fee</td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
+                  <td></td>
+                  <td><p>fee paid by the caller when the call is processed (optional) </p></td>
                 </tr>
               
             </tbody>
@@ -4390,6 +4607,13 @@ the performance hit of linear search remains minimal because `owned_addresses` w
                   <td><a href="#massa.model.v1.SignedEndorsement">SignedEndorsement</a></td>
                   <td>repeated</td>
                   <td><p>Signed endorsements </p></td>
+                </tr>
+              
+                <tr>
+                  <td>denunciations</td>
+                  <td><a href="#massa.model.v1.Denunciation">Denunciation</a></td>
+                  <td>repeated</td>
+                  <td><p>Denunciations </p></td>
                 </tr>
               
             </tbody>
