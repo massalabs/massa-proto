@@ -881,6 +881,11 @@ Request to get the datastore keys (candidate) of an address
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  | Address to query |
 | prefix | [bytes](#bytes) |  | Prefix for the keys |
+| start_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | Key offset for the search |
+| inclusive_start_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included start_key |
+| end_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | End key for the search |
+| inclusive_end_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included end_key |
+| limit | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  | Limit for the number of keys |
 
 
 
@@ -897,6 +902,11 @@ Request to get the datastore keys (final) of an address
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  | Address to query |
 | prefix | [bytes](#bytes) |  | Prefix for the keys |
+| start_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | Key offset for the search |
+| inclusive_start_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included start_key |
+| end_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | End key for the search |
+| inclusive_end_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included end_key |
+| limit | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  | Limit for the number of keys |
 
 
 
