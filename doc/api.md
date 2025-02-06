@@ -2756,6 +2756,7 @@ Massa public gRPC service
 | NewFilledBlocks | [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest) stream | [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse) stream | New received and produced blocks with operations |
 | NewOperations | [NewOperationsRequest](#massa-api-v1-NewOperationsRequest) stream | [NewOperationsResponse](#massa-api-v1-NewOperationsResponse) stream | New received and produced operations |
 | NewSlotExecutionOutputs | [NewSlotExecutionOutputsRequest](#massa-api-v1-NewSlotExecutionOutputsRequest) stream | [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse) stream | New received and slot execution events |
+| NewSlotExecutionOutputsServer | [NewSlotExecutionOutputsRequest](#massa-api-v1-NewSlotExecutionOutputsRequest) | [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse) stream | unidirectional stream NewSlotExecutionOutputs |
 | NewSlotABICallStacks | [NewSlotABICallStacksRequest](#massa-api-v1-NewSlotABICallStacksRequest) stream | [NewSlotABICallStacksResponse](#massa-api-v1-NewSlotABICallStacksResponse) stream | Call stack for each slot executed |
 | NewSlotTransfers | [NewSlotTransfersRequest](#massa-api-v1-NewSlotTransfersRequest) stream | [NewSlotTransfersResponse](#massa-api-v1-NewSlotTransfersResponse) stream | Transfer list for each slot executed |
 | SendBlocks | [SendBlocksRequest](#massa-api-v1-SendBlocksRequest) stream | [SendBlocksResponse](#massa-api-v1-SendBlocksResponse) stream | Send blocks |
