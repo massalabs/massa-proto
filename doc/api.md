@@ -2752,6 +2752,7 @@ Massa public gRPC service
 | GetSlotABICallStacks | [GetSlotABICallStacksRequest](#massa-api-v1-GetSlotABICallStacksRequest) | [GetSlotABICallStacksResponse](#massa-api-v1-GetSlotABICallStacksResponse) | Get ABI call stack of all asynchronous executions and all operations for a given slot |
 | GetSlotTransfers | [GetSlotTransfersRequest](#massa-api-v1-GetSlotTransfersRequest) | [GetSlotTransfersResponse](#massa-api-v1-GetSlotTransfersResponse) | Get all the transfers of MAS for a given slot |
 | NewBlocks | [NewBlocksRequest](#massa-api-v1-NewBlocksRequest) stream | [NewBlocksResponse](#massa-api-v1-NewBlocksResponse) stream | New received and produced blocks |
+| NewBlocksServer | [NewBlocksRequest](#massa-api-v1-NewBlocksRequest) | [NewBlocksResponse](#massa-api-v1-NewBlocksResponse) stream | unidirecitonnal |
 | NewEndorsements | [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest) stream | [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse) stream | New received and produced endorsements |
 | NewFilledBlocks | [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest) stream | [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse) stream | New received and produced blocks with operations |
 | NewOperations | [NewOperationsRequest](#massa-api-v1-NewOperationsRequest) stream | [NewOperationsResponse](#massa-api-v1-NewOperationsResponse) stream | New received and produced operations |
