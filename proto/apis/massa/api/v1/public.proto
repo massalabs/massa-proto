@@ -193,8 +193,14 @@ service PublicService {
   // New received and produced blocks with operations
   rpc NewFilledBlocks(stream NewFilledBlocksRequest) returns (stream NewFilledBlocksResponse) {}
 
+  // New received and produced blocks with operations unidirectional
+  rpc NewFilledBlocksServer(NewFilledBlocksRequest) returns (stream NewFilledBlocksResponse) {}
+
   // New received and produced operations
   rpc NewOperations(stream NewOperationsRequest) returns (stream NewOperationsResponse) {}
+
+  // unidirectional stream NewOperations
+  rpc NewOperationsServer(NewOperationsRequest) returns (stream NewOperationsResponse) {}
 
   // New received and slot execution events
   rpc NewSlotExecutionOutputs(stream NewSlotExecutionOutputsRequest) returns (stream NewSlotExecutionOutputsResponse) {}
@@ -219,6 +225,9 @@ service PublicService {
 
   // Transactions throughput
   rpc TransactionsThroughput(stream TransactionsThroughputRequest) returns (stream TransactionsThroughputResponse) {}
+
+  // Transactions throughput unidirectional
+  rpc TransactionsThroughputServer(TransactionsThroughputRequest) returns (stream TransactionsThroughputResponse) {}
 }
 
 // ExecuteReadOnlyCallRequest holds request for ExecuteReadOnlyCall
