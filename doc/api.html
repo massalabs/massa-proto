@@ -5919,8 +5919,22 @@ given slot</p></td>
               </tr>
             
               <tr>
+                <td>NewBlocksServer</td>
+                <td><a href="#massa.api.v1.NewBlocksRequest">NewBlocksRequest</a></td>
+                <td><a href="#massa.api.v1.NewBlocksResponse">NewBlocksResponse</a> stream</td>
+                <td><p>unidirecitonnal</p></td>
+              </tr>
+            
+              <tr>
                 <td>NewEndorsements</td>
                 <td><a href="#massa.api.v1.NewEndorsementsRequest">NewEndorsementsRequest</a> stream</td>
+                <td><a href="#massa.api.v1.NewEndorsementsResponse">NewEndorsementsResponse</a> stream</td>
+                <td><p>New received and produced endorsements</p></td>
+              </tr>
+            
+              <tr>
+                <td>NewEndorsementsServer</td>
+                <td><a href="#massa.api.v1.NewEndorsementsRequest">NewEndorsementsRequest</a></td>
                 <td><a href="#massa.api.v1.NewEndorsementsResponse">NewEndorsementsResponse</a> stream</td>
                 <td><p>New received and produced endorsements</p></td>
               </tr>
@@ -5933,6 +5947,13 @@ given slot</p></td>
               </tr>
             
               <tr>
+                <td>NewFilledBlocksServer</td>
+                <td><a href="#massa.api.v1.NewFilledBlocksRequest">NewFilledBlocksRequest</a></td>
+                <td><a href="#massa.api.v1.NewFilledBlocksResponse">NewFilledBlocksResponse</a> stream</td>
+                <td><p>New received and produced blocks with operations unidirectional</p></td>
+              </tr>
+            
+              <tr>
                 <td>NewOperations</td>
                 <td><a href="#massa.api.v1.NewOperationsRequest">NewOperationsRequest</a> stream</td>
                 <td><a href="#massa.api.v1.NewOperationsResponse">NewOperationsResponse</a> stream</td>
@@ -5940,10 +5961,24 @@ given slot</p></td>
               </tr>
             
               <tr>
+                <td>NewOperationsServer</td>
+                <td><a href="#massa.api.v1.NewOperationsRequest">NewOperationsRequest</a></td>
+                <td><a href="#massa.api.v1.NewOperationsResponse">NewOperationsResponse</a> stream</td>
+                <td><p>unidirectional stream NewOperations</p></td>
+              </tr>
+            
+              <tr>
                 <td>NewSlotExecutionOutputs</td>
                 <td><a href="#massa.api.v1.NewSlotExecutionOutputsRequest">NewSlotExecutionOutputsRequest</a> stream</td>
                 <td><a href="#massa.api.v1.NewSlotExecutionOutputsResponse">NewSlotExecutionOutputsResponse</a> stream</td>
                 <td><p>New received and slot execution events</p></td>
+              </tr>
+            
+              <tr>
+                <td>NewSlotExecutionOutputsServer</td>
+                <td><a href="#massa.api.v1.NewSlotExecutionOutputsRequest">NewSlotExecutionOutputsRequest</a></td>
+                <td><a href="#massa.api.v1.NewSlotExecutionOutputsResponse">NewSlotExecutionOutputsResponse</a> stream</td>
+                <td><p>unidirectional stream NewSlotExecutionOutputs</p></td>
               </tr>
             
               <tr>
@@ -5986,6 +6021,13 @@ given slot</p></td>
                 <td><a href="#massa.api.v1.TransactionsThroughputRequest">TransactionsThroughputRequest</a> stream</td>
                 <td><a href="#massa.api.v1.TransactionsThroughputResponse">TransactionsThroughputResponse</a> stream</td>
                 <td><p>Transactions throughput</p></td>
+              </tr>
+            
+              <tr>
+                <td>TransactionsThroughputServer</td>
+                <td><a href="#massa.api.v1.TransactionsThroughputRequest">TransactionsThroughputRequest</a></td>
+                <td><a href="#massa.api.v1.TransactionsThroughputResponse">TransactionsThroughputResponse</a> stream</td>
+                <td><p>Transactions throughput unidirectional</p></td>
               </tr>
             
           </tbody>

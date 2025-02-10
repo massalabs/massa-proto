@@ -184,18 +184,32 @@ service PublicService {
 
   // New received and produced blocks
   rpc NewBlocks(stream NewBlocksRequest) returns (stream NewBlocksResponse) {}
+  // unidirecitonnal
+  rpc NewBlocksServer(NewBlocksRequest) returns (stream NewBlocksResponse) {}
 
   // New received and produced endorsements
   rpc NewEndorsements(stream NewEndorsementsRequest) returns (stream NewEndorsementsResponse) {}
 
+  // New received and produced endorsements
+  rpc NewEndorsementsServer(NewEndorsementsRequest) returns (stream NewEndorsementsResponse) {}
+
   // New received and produced blocks with operations
   rpc NewFilledBlocks(stream NewFilledBlocksRequest) returns (stream NewFilledBlocksResponse) {}
+
+  // New received and produced blocks with operations unidirectional
+  rpc NewFilledBlocksServer(NewFilledBlocksRequest) returns (stream NewFilledBlocksResponse) {}
 
   // New received and produced operations
   rpc NewOperations(stream NewOperationsRequest) returns (stream NewOperationsResponse) {}
 
+  // unidirectional stream NewOperations
+  rpc NewOperationsServer(NewOperationsRequest) returns (stream NewOperationsResponse) {}
+
   // New received and slot execution events
   rpc NewSlotExecutionOutputs(stream NewSlotExecutionOutputsRequest) returns (stream NewSlotExecutionOutputsResponse) {}
+
+  // unidirectional stream NewSlotExecutionOutputs
+  rpc NewSlotExecutionOutputsServer(NewSlotExecutionOutputsRequest) returns (stream NewSlotExecutionOutputsResponse) {}
 
   // Call stack for each slot executed
   rpc NewSlotABICallStacks(stream NewSlotABICallStacksRequest) returns (stream NewSlotABICallStacksResponse) {}
@@ -214,6 +228,9 @@ service PublicService {
 
   // Transactions throughput
   rpc TransactionsThroughput(stream TransactionsThroughputRequest) returns (stream TransactionsThroughputResponse) {}
+
+  // Transactions throughput unidirectional
+  rpc TransactionsThroughputServer(TransactionsThroughputRequest) returns (stream TransactionsThroughputResponse) {}
 }
 
 // ExecuteReadOnlyCallRequest holds request for ExecuteReadOnlyCall

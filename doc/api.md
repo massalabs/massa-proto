@@ -2752,16 +2752,22 @@ Massa public gRPC service
 | GetSlotABICallStacks | [GetSlotABICallStacksRequest](#massa-api-v1-GetSlotABICallStacksRequest) | [GetSlotABICallStacksResponse](#massa-api-v1-GetSlotABICallStacksResponse) | Get ABI call stack of all asynchronous executions and all operations for a given slot |
 | GetSlotTransfers | [GetSlotTransfersRequest](#massa-api-v1-GetSlotTransfersRequest) | [GetSlotTransfersResponse](#massa-api-v1-GetSlotTransfersResponse) | Get all the transfers of MAS for a given slot |
 | NewBlocks | [NewBlocksRequest](#massa-api-v1-NewBlocksRequest) stream | [NewBlocksResponse](#massa-api-v1-NewBlocksResponse) stream | New received and produced blocks |
+| NewBlocksServer | [NewBlocksRequest](#massa-api-v1-NewBlocksRequest) | [NewBlocksResponse](#massa-api-v1-NewBlocksResponse) stream | unidirecitonnal |
 | NewEndorsements | [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest) stream | [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse) stream | New received and produced endorsements |
+| NewEndorsementsServer | [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest) | [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse) stream | New received and produced endorsements |
 | NewFilledBlocks | [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest) stream | [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse) stream | New received and produced blocks with operations |
+| NewFilledBlocksServer | [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest) | [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse) stream | New received and produced blocks with operations unidirectional |
 | NewOperations | [NewOperationsRequest](#massa-api-v1-NewOperationsRequest) stream | [NewOperationsResponse](#massa-api-v1-NewOperationsResponse) stream | New received and produced operations |
+| NewOperationsServer | [NewOperationsRequest](#massa-api-v1-NewOperationsRequest) | [NewOperationsResponse](#massa-api-v1-NewOperationsResponse) stream | unidirectional stream NewOperations |
 | NewSlotExecutionOutputs | [NewSlotExecutionOutputsRequest](#massa-api-v1-NewSlotExecutionOutputsRequest) stream | [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse) stream | New received and slot execution events |
+| NewSlotExecutionOutputsServer | [NewSlotExecutionOutputsRequest](#massa-api-v1-NewSlotExecutionOutputsRequest) | [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse) stream | unidirectional stream NewSlotExecutionOutputs |
 | NewSlotABICallStacks | [NewSlotABICallStacksRequest](#massa-api-v1-NewSlotABICallStacksRequest) stream | [NewSlotABICallStacksResponse](#massa-api-v1-NewSlotABICallStacksResponse) stream | Call stack for each slot executed |
 | NewSlotTransfers | [NewSlotTransfersRequest](#massa-api-v1-NewSlotTransfersRequest) stream | [NewSlotTransfersResponse](#massa-api-v1-NewSlotTransfersResponse) stream | Transfer list for each slot executed |
 | SendBlocks | [SendBlocksRequest](#massa-api-v1-SendBlocksRequest) stream | [SendBlocksResponse](#massa-api-v1-SendBlocksResponse) stream | Send blocks |
 | SendEndorsements | [SendEndorsementsRequest](#massa-api-v1-SendEndorsementsRequest) stream | [SendEndorsementsResponse](#massa-api-v1-SendEndorsementsResponse) stream | Send endorsements |
 | SendOperations | [SendOperationsRequest](#massa-api-v1-SendOperationsRequest) stream | [SendOperationsResponse](#massa-api-v1-SendOperationsResponse) stream | Send operations |
 | TransactionsThroughput | [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest) stream | [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse) stream | Transactions throughput |
+| TransactionsThroughputServer | [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest) | [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse) stream | Transactions throughput unidirectional |
 
  
 
