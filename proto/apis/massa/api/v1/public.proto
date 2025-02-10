@@ -190,6 +190,9 @@ service PublicService {
   // New received and produced endorsements
   rpc NewEndorsements(stream NewEndorsementsRequest) returns (stream NewEndorsementsResponse) {}
 
+  // New received and produced endorsements
+  rpc NewEndorsementsServer(NewEndorsementsRequest) returns (stream NewEndorsementsResponse) {}
+
   // New received and produced blocks with operations
   rpc NewFilledBlocks(stream NewFilledBlocksRequest) returns (stream NewFilledBlocksResponse) {}
 
