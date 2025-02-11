@@ -185,13 +185,13 @@ service PublicService {
   // New received and produced blocks
   rpc NewBlocks(stream NewBlocksRequest) returns (stream NewBlocksResponse) {}
   // unidirecitonnal
-  rpc NewBlocksServer(NewBlocksRequest) returns (stream NewBlocksResponse) {}
+  rpc NewBlocksServer(NewBlocksServerRequest) returns (stream NewBlocksServerResponse) {}
 
   // New received and produced endorsements
   rpc NewEndorsements(stream NewEndorsementsRequest) returns (stream NewEndorsementsResponse) {}
 
   // New received and produced endorsements
-  rpc NewEndorsementsServer(NewEndorsementsRequest) returns (stream NewEndorsementsResponse) {}
+  rpc NewEndorsementsServer(NewEndorsementsServerRequest) returns (stream NewEndorsementsServerResponse) {}
 
   // New received and produced blocks with operations
   rpc NewFilledBlocks(stream NewFilledBlocksRequest) returns (stream NewFilledBlocksResponse) {}
@@ -800,6 +800,12 @@ message NewBlocksRequest {
   repeated NewBlocksFilter filters = 1;
 }
 
+// NewBlocksServerRequest holds request for unidirectional NewBlocks 
+message NewBlocksServerRequest {
+  // Returns all the blocks that verify all the filters
+  repeated NewBlocksFilter filters = 1;
+}
+
 // NewBlocks Filter
 message NewBlocksFilter {
   // Filter
@@ -819,11 +825,25 @@ message NewBlocksResponse {
   massa.model.v1.SignedBlock signed_block = 1;
 }
 
+// NewBlocksServerResponse holds response from unidirectional NewBlocks
+message NewBlocksServerResponse {
+  // Signed block
+  massa.model.v1.SignedBlock signed_block = 1;
+}
+
+
 // NewEndorsementsRequest holds request for NewEndorsements
 message NewEndorsementsRequest {
   // Returns all the endorsements that verify all the filters
   repeated NewEndorsementsFilter filters = 1;
 }
+
+// NewEndorsementsServerRequest holds request for NewEndorsements
+message NewEndorsementsServerRequest {
+  // Returns all the endorsements that verify all the filters
+  repeated NewEndorsementsFilter filters = 1;
+}
+
 
 // NewEndorsements Filter
 message NewEndorsementsFilter {
@@ -840,6 +860,12 @@ message NewEndorsementsFilter {
 
 // NewEndorsementsResponse holds response from NewEndorsements
 message NewEndorsementsResponse {
+  // Signed endorsement
+  massa.model.v1.SignedEndorsement signed_endorsement = 1;
+}
+
+// NewEndorsementsServerResponse holds response from NewEndorsements
+message NewEndorsementsServerResponse {
   // Signed endorsement
   massa.model.v1.SignedEndorsement signed_endorsement = 1;
 }

@@ -125,9 +125,13 @@
     - [NewBlocksFilter](#massa-api-v1-NewBlocksFilter)
     - [NewBlocksRequest](#massa-api-v1-NewBlocksRequest)
     - [NewBlocksResponse](#massa-api-v1-NewBlocksResponse)
+    - [NewBlocksServerRequest](#massa-api-v1-NewBlocksServerRequest)
+    - [NewBlocksServerResponse](#massa-api-v1-NewBlocksServerResponse)
     - [NewEndorsementsFilter](#massa-api-v1-NewEndorsementsFilter)
     - [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest)
     - [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse)
+    - [NewEndorsementsServerRequest](#massa-api-v1-NewEndorsementsServerRequest)
+    - [NewEndorsementsServerResponse](#massa-api-v1-NewEndorsementsServerResponse)
     - [NewFilledBlocksFilter](#massa-api-v1-NewFilledBlocksFilter)
     - [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest)
     - [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse)
@@ -1961,6 +1965,36 @@ NewBlocksResponse holds response from NewBlocks
 
 
 
+<a name="massa-api-v1-NewBlocksServerRequest"></a>
+
+### NewBlocksServerRequest
+NewBlocksServerRequest holds request for unidirectional NewBlocks
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [NewBlocksFilter](#massa-api-v1-NewBlocksFilter) | repeated | Returns all the blocks that verify all the filters |
+
+
+
+
+
+
+<a name="massa-api-v1-NewBlocksServerResponse"></a>
+
+### NewBlocksServerResponse
+NewBlocksServerResponse holds response from unidirectional NewBlocks
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| signed_block | [massa.model.v1.SignedBlock](#massa-model-v1-SignedBlock) |  | Signed block |
+
+
+
+
+
+
 <a name="massa-api-v1-NewEndorsementsFilter"></a>
 
 ### NewEndorsementsFilter
@@ -1997,6 +2031,36 @@ NewEndorsementsRequest holds request for NewEndorsements
 
 ### NewEndorsementsResponse
 NewEndorsementsResponse holds response from NewEndorsements
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| signed_endorsement | [massa.model.v1.SignedEndorsement](#massa-model-v1-SignedEndorsement) |  | Signed endorsement |
+
+
+
+
+
+
+<a name="massa-api-v1-NewEndorsementsServerRequest"></a>
+
+### NewEndorsementsServerRequest
+NewEndorsementsServerRequest holds request for NewEndorsements
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [NewEndorsementsFilter](#massa-api-v1-NewEndorsementsFilter) | repeated | Returns all the endorsements that verify all the filters |
+
+
+
+
+
+
+<a name="massa-api-v1-NewEndorsementsServerResponse"></a>
+
+### NewEndorsementsServerResponse
+NewEndorsementsServerResponse holds response from NewEndorsements
 
 
 | Field | Type | Label | Description |
@@ -2752,9 +2816,9 @@ Massa public gRPC service
 | GetSlotABICallStacks | [GetSlotABICallStacksRequest](#massa-api-v1-GetSlotABICallStacksRequest) | [GetSlotABICallStacksResponse](#massa-api-v1-GetSlotABICallStacksResponse) | Get ABI call stack of all asynchronous executions and all operations for a given slot |
 | GetSlotTransfers | [GetSlotTransfersRequest](#massa-api-v1-GetSlotTransfersRequest) | [GetSlotTransfersResponse](#massa-api-v1-GetSlotTransfersResponse) | Get all the transfers of MAS for a given slot |
 | NewBlocks | [NewBlocksRequest](#massa-api-v1-NewBlocksRequest) stream | [NewBlocksResponse](#massa-api-v1-NewBlocksResponse) stream | New received and produced blocks |
-| NewBlocksServer | [NewBlocksRequest](#massa-api-v1-NewBlocksRequest) | [NewBlocksResponse](#massa-api-v1-NewBlocksResponse) stream | unidirecitonnal |
+| NewBlocksServer | [NewBlocksServerRequest](#massa-api-v1-NewBlocksServerRequest) | [NewBlocksServerResponse](#massa-api-v1-NewBlocksServerResponse) stream | unidirecitonnal |
 | NewEndorsements | [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest) stream | [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse) stream | New received and produced endorsements |
-| NewEndorsementsServer | [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest) | [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse) stream | New received and produced endorsements |
+| NewEndorsementsServer | [NewEndorsementsServerRequest](#massa-api-v1-NewEndorsementsServerRequest) | [NewEndorsementsServerResponse](#massa-api-v1-NewEndorsementsServerResponse) stream | New received and produced endorsements |
 | NewFilledBlocks | [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest) stream | [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse) stream | New received and produced blocks with operations |
 | NewFilledBlocksServer | [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest) | [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse) stream | New received and produced blocks with operations unidirectional |
 | NewOperations | [NewOperationsRequest](#massa-api-v1-NewOperationsRequest) stream | [NewOperationsResponse](#massa-api-v1-NewOperationsResponse) stream | New received and produced operations |

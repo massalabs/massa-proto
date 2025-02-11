@@ -662,6 +662,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.NewBlocksServerRequest"><span class="badge">M</span>NewBlocksServerRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewBlocksServerResponse"><span class="badge">M</span>NewBlocksServerResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.NewEndorsementsFilter"><span class="badge">M</span>NewEndorsementsFilter</a>
                 </li>
               
@@ -671,6 +679,14 @@
               
                 <li>
                   <a href="#massa.api.v1.NewEndorsementsResponse"><span class="badge">M</span>NewEndorsementsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewEndorsementsServerRequest"><span class="badge">M</span>NewEndorsementsServerRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewEndorsementsServerResponse"><span class="badge">M</span>NewEndorsementsServerResponse</a>
                 </li>
               
                 <li>
@@ -4308,6 +4324,54 @@ returned) </p></td>
 
         
       
+        <h3 id="massa.api.v1.NewBlocksServerRequest">NewBlocksServerRequest</h3>
+        <p>NewBlocksServerRequest holds request for unidirectional NewBlocks</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.NewBlocksFilter">NewBlocksFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the blocks that verify all the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewBlocksServerResponse">NewBlocksServerResponse</h3>
+        <p>NewBlocksServerResponse holds response from unidirectional NewBlocks</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>signed_block</td>
+                  <td><a href="#massa.model.v1.SignedBlock">massa.model.v1.SignedBlock</a></td>
+                  <td></td>
+                  <td><p>Signed block </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.NewEndorsementsFilter">NewEndorsementsFilter</h3>
         <p>NewEndorsements Filter</p>
 
@@ -4372,6 +4436,54 @@ returned) </p></td>
       
         <h3 id="massa.api.v1.NewEndorsementsResponse">NewEndorsementsResponse</h3>
         <p>NewEndorsementsResponse holds response from NewEndorsements</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>signed_endorsement</td>
+                  <td><a href="#massa.model.v1.SignedEndorsement">massa.model.v1.SignedEndorsement</a></td>
+                  <td></td>
+                  <td><p>Signed endorsement </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewEndorsementsServerRequest">NewEndorsementsServerRequest</h3>
+        <p>NewEndorsementsServerRequest holds request for NewEndorsements</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.NewEndorsementsFilter">NewEndorsementsFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the endorsements that verify all the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewEndorsementsServerResponse">NewEndorsementsServerResponse</h3>
+        <p>NewEndorsementsServerResponse holds response from NewEndorsements</p>
 
         
           <table class="field-table">
@@ -5920,8 +6032,8 @@ given slot</p></td>
             
               <tr>
                 <td>NewBlocksServer</td>
-                <td><a href="#massa.api.v1.NewBlocksRequest">NewBlocksRequest</a></td>
-                <td><a href="#massa.api.v1.NewBlocksResponse">NewBlocksResponse</a> stream</td>
+                <td><a href="#massa.api.v1.NewBlocksServerRequest">NewBlocksServerRequest</a></td>
+                <td><a href="#massa.api.v1.NewBlocksServerResponse">NewBlocksServerResponse</a> stream</td>
                 <td><p>unidirecitonnal</p></td>
               </tr>
             
@@ -5934,8 +6046,8 @@ given slot</p></td>
             
               <tr>
                 <td>NewEndorsementsServer</td>
-                <td><a href="#massa.api.v1.NewEndorsementsRequest">NewEndorsementsRequest</a></td>
-                <td><a href="#massa.api.v1.NewEndorsementsResponse">NewEndorsementsResponse</a> stream</td>
+                <td><a href="#massa.api.v1.NewEndorsementsServerRequest">NewEndorsementsServerRequest</a></td>
+                <td><a href="#massa.api.v1.NewEndorsementsServerResponse">NewEndorsementsServerResponse</a> stream</td>
                 <td><p>New received and produced endorsements</p></td>
               </tr>
             
