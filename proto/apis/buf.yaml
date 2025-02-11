@@ -8,7 +8,7 @@ breaking:
 lint:
   use:
     - DEFAULT
-  ignore:
+  except:
     - RPC_REQUEST_RESPONSE_UNIQUE
   ignore_only:
     PACKAGE_VERSION_SUFFIX:
