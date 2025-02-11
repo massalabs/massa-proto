@@ -8,6 +8,7 @@ breaking:
 lint:
   use:
     - DEFAULT
+  rpc_allow_same_request_response: true
   ignore_only:
     PACKAGE_VERSION_SUFFIX:
       - google/api/annotations.proto
