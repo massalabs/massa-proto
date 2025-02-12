@@ -85,13 +85,6 @@ message DenunciationEndorsement {
   uint32 index = 2;
 }
 
-message DenunciationResult {
-  oneof result {
-    DenunciationAddress denunciation_address = 1;
-    string error = 2;
-  }
-}
-
 message DenunciationAddress {
   // target address
   string address_denounced = 1;

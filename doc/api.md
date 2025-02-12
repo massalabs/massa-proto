@@ -2106,9 +2106,15 @@ NewEndorsementsServerResponse holds response from NewEndorsements
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | block_producer_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  |  |
-| endorsement_creator_rewards | [string](#string) |  | todo |
+| endorsement_creator_rewards | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated |  |
 | endorsement_target_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  |  |
-| denunciations | [massa.model.v1.DenunciationResult](#massa-model-v1-DenunciationResult) | repeated |  |
+| denunciations | [massa.model.v1.DenunciationAddress](#massa-model-v1-DenunciationAddress) | repeated |  |
+| operations | [massa.model.v1.OperationTypeRoll](#massa-model-v1-OperationTypeRoll) | repeated |  |
+| async_messages | [massa.model.v1.AsyncMessageExecution](#massa-model-v1-AsyncMessageExecution) | repeated |  |
+| deferred_calls_messages | [massa.model.v1.DeferredCallExecution](#massa-model-v1-DeferredCallExecution) | repeated |  |
+| deferred_credits_execution | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated |  |
+| cancel_async_message_execution | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated |  |
+| auto_sell_execution | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated |  |
 
 
 

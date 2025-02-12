@@ -45,6 +45,7 @@
     - [OperationIds](#massa-model-v1-OperationIds)
     - [OperationInfo](#massa-model-v1-OperationInfo)
     - [OperationType](#massa-model-v1-OperationType)
+    - [OperationTypeRoll](#massa-model-v1-OperationTypeRoll)
     - [OperationWrapper](#massa-model-v1-OperationWrapper)
     - [RollBuy](#massa-model-v1-RollBuy)
     - [RollSell](#massa-model-v1-RollSell)
@@ -60,7 +61,6 @@
     - [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader)
     - [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement)
     - [DenunciationIndex](#massa-model-v1-DenunciationIndex)
-    - [DenunciationResult](#massa-model-v1-DenunciationResult)
     - [EndorsementDenunciation](#massa-model-v1-EndorsementDenunciation)
   
 - [massa/model/v1/commons.proto](#massa_model_v1_commons-proto)
@@ -77,11 +77,13 @@
   
 - [massa/model/v1/execution.proto](#massa_model_v1_execution-proto)
     - [AsyncMessage](#massa-model-v1-AsyncMessage)
+    - [AsyncMessageExecution](#massa-model-v1-AsyncMessageExecution)
     - [AsyncMessageTrigger](#massa-model-v1-AsyncMessageTrigger)
     - [AsyncMessageUpdate](#massa-model-v1-AsyncMessageUpdate)
     - [AsyncPoolChangeEntry](#massa-model-v1-AsyncPoolChangeEntry)
     - [AsyncPoolChangeValue](#massa-model-v1-AsyncPoolChangeValue)
     - [BytecodeExecution](#massa-model-v1-BytecodeExecution)
+    - [DeferredCallExecution](#massa-model-v1-DeferredCallExecution)
     - [ExecutedOpsChangeEntry](#massa-model-v1-ExecutedOpsChangeEntry)
     - [ExecutedOpsChangeValue](#massa-model-v1-ExecutedOpsChangeValue)
     - [ExecutionOutput](#massa-model-v1-ExecutionOutput)
@@ -741,6 +743,22 @@ Type specific operation content
 
 
 
+<a name="massa-model-v1-OperationTypeRoll"></a>
+
+### OperationTypeRoll
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| roll_buy | [RollBuy](#massa-model-v1-RollBuy) |  |  |
+| roll_sell | [RollSell](#massa-model-v1-RollSell) |  |  |
+
+
+
+
+
+
 <a name="massa-model-v1-OperationWrapper"></a>
 
 ### OperationWrapper
@@ -957,22 +975,6 @@ Index for Denunciations in collections (e.g. like a HashMap...)
 
 
 
-<a name="massa-model-v1-DenunciationResult"></a>
-
-### DenunciationResult
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| denunciation_address | [DenunciationAddress](#massa-model-v1-DenunciationAddress) |  |  |
-| error | [string](#string) |  |  |
-
-
-
-
-
-
 <a name="massa-model-v1-EndorsementDenunciation"></a>
 
 ### EndorsementDenunciation
@@ -1173,6 +1175,24 @@ Asynchronous smart contract message
 
 
 
+<a name="massa-model-v1-AsyncMessageExecution"></a>
+
+### AsyncMessageExecution
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| success | [bool](#bool) |  |  |
+| sender | [string](#string) |  |  |
+| destination | [string](#string) |  |  |
+| coins | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+
+
+
+
+
+
 <a name="massa-model-v1-AsyncMessageTrigger"></a>
 
 ### AsyncMessageTrigger
@@ -1259,6 +1279,25 @@ Execute a bytecode
 | ----- | ---- | ----- | ----------- |
 | bytecode | [bytes](#bytes) |  | Byte code |
 | operation_datastore | [bytes](#bytes) |  | Serialized datastore (key value store) for `ExecuteSC` Operation (Optional) |
+
+
+
+
+
+
+<a name="massa-model-v1-DeferredCallExecution"></a>
+
+### DeferredCallExecution
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| success | [bool](#bool) |  |  |
+| sender | [string](#string) |  |  |
+| target_address | [string](#string) |  |  |
+| target_function | [string](#string) |  |  |
+| coins | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
 
 
 

@@ -465,3 +465,18 @@ message TargetAmount {
   massa.model.v1.NativeAmount amount = 1;
   string address = 2;
 }
+
+message AsyncMessageExecution {
+  bool success = 1;
+  string sender = 2;
+  string destination = 3;
+  massa.model.v1.NativeAmount coins = 4;
+}
+
+message DeferredCallExecution {
+  bool success = 1;
+  string sender = 2;
+  string target_address = 3;
+  string target_function = 4;
+  massa.model.v1.NativeAmount coins = 5;
+}

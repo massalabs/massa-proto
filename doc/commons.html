@@ -353,6 +353,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.OperationTypeRoll"><span class="badge">M</span>OperationTypeRoll</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.OperationWrapper"><span class="badge">M</span>OperationWrapper</a>
                 </li>
               
@@ -409,10 +413,6 @@
               
                 <li>
                   <a href="#massa.model.v1.DenunciationIndex"><span class="badge">M</span>DenunciationIndex</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.DenunciationResult"><span class="badge">M</span>DenunciationResult</a>
                 </li>
               
                 <li>
@@ -485,6 +485,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.AsyncMessageExecution"><span class="badge">M</span>AsyncMessageExecution</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.AsyncMessageTrigger"><span class="badge">M</span>AsyncMessageTrigger</a>
                 </li>
               
@@ -502,6 +506,10 @@
               
                 <li>
                   <a href="#massa.model.v1.BytecodeExecution"><span class="badge">M</span>BytecodeExecution</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.DeferredCallExecution"><span class="badge">M</span>DeferredCallExecution</a>
                 </li>
               
                 <li>
@@ -1890,14 +1898,16 @@
                   <td>max_gas</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>The maximum amount of gas that the execution of the contract is allowed to cost </p></td>
+                  <td><p>The maximum amount of gas that the execution of the contract is allowed to
+cost </p></td>
                 </tr>
               
                 <tr>
                   <td>coins</td>
                   <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
                   <td></td>
-                  <td><p>Extra coins that are spent from the caller&#39;s balance and transferred to the target </p></td>
+                  <td><p>Extra coins that are spent from the caller&#39;s balance and transferred to the
+target </p></td>
                 </tr>
               
             </tbody>
@@ -1935,7 +1945,8 @@
                   <td>max_gas</td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
-                  <td><p>The maximum amount of gas that the execution of the contract is allowed to cost </p></td>
+                  <td><p>The maximum amount of gas that the execution of the contract is allowed to
+cost </p></td>
                 </tr>
               
                 <tr>
@@ -2097,14 +2108,16 @@
                   <td>roll_buy</td>
                   <td><a href="#massa.model.v1.RollBuy">RollBuy</a></td>
                   <td></td>
-                  <td><p>The sender buys `roll_count` rolls. Roll price is defined in configuration </p></td>
+                  <td><p>The sender buys `roll_count` rolls. Roll price is defined in
+configuration </p></td>
                 </tr>
               
                 <tr>
                   <td>roll_sell</td>
                   <td><a href="#massa.model.v1.RollSell">RollSell</a></td>
                   <td></td>
-                  <td><p>The sender sells `roll_count` rolls. Roll price is defined in configuration </p></td>
+                  <td><p>The sender sells `roll_count` rolls. Roll price is defined in
+configuration </p></td>
                 </tr>
               
                 <tr>
@@ -2119,6 +2132,37 @@
                   <td><a href="#massa.model.v1.CallSC">CallSC</a></td>
                   <td></td>
                   <td><p>Calls an exported function from a stored smart contract </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.OperationTypeRoll">OperationTypeRoll</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>roll_buy</td>
+                  <td><a href="#massa.model.v1.RollBuy">RollBuy</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>roll_sell</td>
+                  <td><a href="#massa.model.v1.RollSell">RollSell</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -2235,7 +2279,8 @@
                   <td>signature</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>A cryptographically generated value using `serialized_data` and a public key. </p></td>
+                  <td><p>A cryptographically generated value using `serialized_data` and a public
+key. </p></td>
                 </tr>
               
                 <tr>
@@ -2256,7 +2301,8 @@
                   <td>secure_hash</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>A secure hash of the non-malleable contents of a deterministic binary representation of the block header </p></td>
+                  <td><p>A secure hash of the non-malleable contents of a deterministic binary
+representation of the block header </p></td>
                 </tr>
               
                 <tr>
@@ -2577,37 +2623,6 @@
                   <td><a href="#massa.model.v1.DenunciationEndorsement">DenunciationEndorsement</a></td>
                   <td></td>
                   <td><p>Denunciation endorsement </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="massa.model.v1.DenunciationResult">DenunciationResult</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>denunciation_address</td>
-                  <td><a href="#massa.model.v1.DenunciationAddress">DenunciationAddress</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>error</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -3033,6 +3048,51 @@ slot. </p></td>
 
         
       
+        <h3 id="massa.model.v1.AsyncMessageExecution">AsyncMessageExecution</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>success</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sender</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>destination</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coins</td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.AsyncMessageTrigger">AsyncMessageTrigger</h3>
         <p>Structure defining a trigger for an asynchronous message</p>
 
@@ -3274,6 +3334,58 @@ filter, this boolean is true if the filter has been matched between
                   <td></td>
                   <td><p>Serialized datastore (key value store)  for `ExecuteSC` Operation
 (Optional) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.DeferredCallExecution">DeferredCallExecution</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>success</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sender</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_function</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coins</td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>

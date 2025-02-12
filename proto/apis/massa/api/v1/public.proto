@@ -951,11 +951,15 @@ message NewExecutionInfoServerRequest {
 
 message NewExecutionInfoServerResponse {
   massa.model.v1.TargetAmount block_producer_reward = 1;
-  // todo
-  string endorsement_creator_rewards = 2;
-
+  repeated massa.model.v1.TargetAmount endorsement_creator_rewards = 2;
   massa.model.v1.TargetAmount endorsement_target_reward = 3;
-  repeated massa.model.v1.DenunciationResult denunciations = 4;
+  repeated massa.model.v1.DenunciationAddress denunciations = 4;
+  repeated massa.model.v1.OperationTypeRoll operations = 5;
+  repeated massa.model.v1.AsyncMessageExecution async_messages = 6;
+  repeated massa.model.v1.DeferredCallExecution deferred_calls_messages = 7;
+  repeated massa.model.v1.TargetAmount deferred_credits_execution = 8;
+  repeated massa.model.v1.TargetAmount cancel_async_message_execution = 9;
+  repeated massa.model.v1.TargetAmount auto_sell_execution = 10;
 }
 
 // NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs
