@@ -2090,7 +2090,7 @@ NewEndorsementsServerResponse holds response from NewEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address | [string](#string) |  |  |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
 
 
 
