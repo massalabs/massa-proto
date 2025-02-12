@@ -946,6 +946,10 @@ message NewOperationsServerResponse {
 }
 
 message NewExecutionInfoServerRequest {
+  string address = 1;
+}
+
+message NewExecutionInfoServerResponse {
   massa.model.v1.TargetAmount block_producer_reward = 1;
   // todo
   string endorsement_creator_rewards = 2;
@@ -953,8 +957,6 @@ message NewExecutionInfoServerRequest {
   massa.model.v1.TargetAmount endorsement_target_reward = 3;
   repeated massa.model.v1.DenunciationResult denunciations = 4;
 }
-
-message NewExecutionInfoServerResponse {}
 
 // NewSlotExecutionOutputsRequest holds request for NewSlotExecutionOutputs
 message NewSlotExecutionOutputsRequest {

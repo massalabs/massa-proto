@@ -2090,10 +2090,7 @@ NewEndorsementsServerResponse holds response from NewEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_producer_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  |  |
-| endorsement_creator_rewards | [string](#string) |  | todo |
-| endorsement_target_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  |  |
-| denunciations | [massa.model.v1.DenunciationResult](#massa-model-v1-DenunciationResult) | repeated |  |
+| address | [string](#string) |  |  |
 
 
 
@@ -2104,6 +2101,14 @@ NewEndorsementsServerResponse holds response from NewEndorsements
 
 ### NewExecutionInfoServerResponse
 
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_producer_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  |  |
+| endorsement_creator_rewards | [string](#string) |  | todo |
+| endorsement_target_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  |  |
+| denunciations | [massa.model.v1.DenunciationResult](#massa-model-v1-DenunciationResult) | repeated |  |
 
 
 
