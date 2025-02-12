@@ -396,6 +396,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.DenunciationAddress"><span class="badge">M</span>DenunciationAddress</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.DenunciationBlockHeader"><span class="badge">M</span>DenunciationBlockHeader</a>
                 </li>
               
@@ -405,6 +409,10 @@
               
                 <li>
                   <a href="#massa.model.v1.DenunciationIndex"><span class="badge">M</span>DenunciationIndex</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.DenunciationResult"><span class="badge">M</span>DenunciationResult</a>
                 </li>
               
                 <li>
@@ -594,6 +602,10 @@
               
                 <li>
                   <a href="#massa.model.v1.StateChanges"><span class="badge">M</span>StateChanges</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.model.v1.TargetAmount"><span class="badge">M</span>TargetAmount</a>
                 </li>
               
               
@@ -2436,6 +2448,51 @@
                   <td><p>Denunciation endorsement </p></td>
                 </tr>
               
+                <tr>
+                  <td>address</td>
+                  <td><a href="#massa.model.v1.DenunciationAddress">DenunciationAddress</a></td>
+                  <td></td>
+                  <td><p>Denunciation address </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.DenunciationAddress">DenunciationAddress</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address_denounced</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>target address </p></td>
+                </tr>
+              
+                <tr>
+                  <td>slot</td>
+                  <td><a href="#massa.model.v1.Slot">Slot</a></td>
+                  <td></td>
+                  <td><p>slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>slashed</td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
+                  <td></td>
+                  <td><p>amount slashed </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -2520,6 +2577,37 @@
                   <td><a href="#massa.model.v1.DenunciationEndorsement">DenunciationEndorsement</a></td>
                   <td></td>
                   <td><p>Denunciation endorsement </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.DenunciationResult">DenunciationResult</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>denunciation_address</td>
+                  <td><a href="#massa.model.v1.DenunciationAddress">DenunciationAddress</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>error</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -2849,7 +2937,8 @@
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Index of the emitted message within the `emission_slot`.
-This is used for disambiguate the emission of multiple messages at the same slot. </p></td>
+This is used for disambiguate the emission of multiple messages at the same
+slot. </p></td>
                 </tr>
               
                 <tr>
@@ -2901,14 +2990,16 @@ In case of failure or discard, those coins are reimbursed to the sender. </p></t
                   <td>validity_start</td>
                   <td><a href="#massa.model.v1.Slot">Slot</a></td>
                   <td></td>
-                  <td><p>Slot at which the message starts being valid (bound included in the validity range) </p></td>
+                  <td><p>Slot at which the message starts being valid (bound included in the
+validity range) </p></td>
                 </tr>
               
                 <tr>
                   <td>validity_end</td>
                   <td><a href="#massa.model.v1.Slot">Slot</a></td>
                   <td></td>
-                  <td><p>Slot at which the message stops being valid (bound not included in the validity range) </p></td>
+                  <td><p>Slot at which the message stops being valid (bound not included in the
+validity range) </p></td>
                 </tr>
               
                 <tr>
@@ -2929,8 +3020,10 @@ In case of failure or discard, those coins are reimbursed to the sender. </p></t
                   <td>can_be_executed</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p>Boolean that determine if the message can be executed. For messages without filter this boolean is always true.
-For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. </p></td>
+                  <td><p>Boolean that determine if the message can be executed. For messages without
+filter this boolean is always true. For messages with filter, this boolean
+is true if the filter has been matched between `validity_start` and current
+slot. </p></td>
                 </tr>
               
             </tbody>
@@ -2993,7 +3086,8 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td><a href="#massa.model.v1.SetOrKeepUint64">SetOrKeepUint64</a></td>
                   <td></td>
                   <td><p>Change the index of the emitted message within the `emission_slot`.
-This is used for disambiguate the emission of multiple messages at the same slot. </p></td>
+This is used for disambiguate the emission of multiple messages at the same
+slot. </p></td>
                 </tr>
               
                 <tr>
@@ -3045,14 +3139,16 @@ In case of failure or discard, those coins are reimbursed to the sender. </p></t
                   <td>validity_start</td>
                   <td><a href="#massa.model.v1.SetOrKeepSlot">SetOrKeepSlot</a></td>
                   <td></td>
-                  <td><p>Change the slot at which the message starts being valid (bound included in the validity range) </p></td>
+                  <td><p>Change the slot at which the message starts being valid (bound included in
+the validity range) </p></td>
                 </tr>
               
                 <tr>
                   <td>validity_end</td>
                   <td><a href="#massa.model.v1.SetOrKeepSlot">SetOrKeepSlot</a></td>
                   <td></td>
-                  <td><p>Change the slot at which the message stops being valid (bound not included in the validity range) </p></td>
+                  <td><p>Change the slot at which the message stops being valid (bound not included
+in the validity range) </p></td>
                 </tr>
               
                 <tr>
@@ -3073,8 +3169,10 @@ In case of failure or discard, those coins are reimbursed to the sender. </p></t
                   <td>can_be_executed</td>
                   <td><a href="#massa.model.v1.SetOrKeepBool">SetOrKeepBool</a></td>
                   <td></td>
-                  <td><p>Change the boolean that determine if the message can be executed. For messages without filter this boolean is always true.
-For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. </p></td>
+                  <td><p>Change the boolean that determine if the message can be executed. For
+messages without filter this boolean is always true. For messages with
+filter, this boolean is true if the filter has been matched between
+`validity_start` and current slot. </p></td>
                 </tr>
               
             </tbody>
@@ -3174,7 +3272,8 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td>operation_datastore</td>
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
-                  <td><p>Serialized datastore (key value store)  for `ExecuteSC` Operation (Optional) </p></td>
+                  <td><p>Serialized datastore (key value store)  for `ExecuteSC` Operation
+(Optional) </p></td>
                 </tr>
               
             </tbody>
@@ -3319,15 +3418,17 @@ For messages with filter, this boolean is true if the filter has been matched be
                   <td>owned_addresses</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p>List of addresses owned by the current call, and on which the current call has write access.
-This list should contain `ExecutionStackElement::address` in the sense that an address should have write access to itself.
-This list should also contain all addresses created previously during the call
-to allow write access on newly created addresses in order to set them up,
-but only within the scope of the current stack element.
-That way, only the current scope and neither its caller not the functions it calls gain this write access,
-which is important for security.
-Note that we use a vector instead of a pre-hashed set to ensure order determinism,
-the performance hit of linear search remains minimal because `owned_addresses` will always contain very few elements. </p></td>
+                  <td><p>List of addresses owned by the current call, and on which the current call
+has write access. This list should contain `ExecutionStackElement::address`
+in the sense that an address should have write access to itself. This list
+should also contain all addresses created previously during the call to
+allow write access on newly created addresses in order to set them up, but
+only within the scope of the current stack element. That way, only the
+current scope and neither its caller not the functions it calls gain this
+write access, which is important for security. Note that we use a vector
+instead of a pre-hashed set to ensure order determinism, the performance
+hit of linear search remains minimal because `owned_addresses` will always
+contain very few elements. </p></td>
                 </tr>
               
                 <tr>
@@ -3600,7 +3701,8 @@ the performance hit of linear search remains minimal because `owned_addresses` w
                   <td>caller_address</td>
                   <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
                   <td></td>
-                  <td><p>Caller&#39;s address, (Optional) if not set, an auto-generated address will be used </p></td>
+                  <td><p>Caller&#39;s address, (Optional) if not set, an auto-generated address will be
+used </p></td>
                 </tr>
               
                 <tr>
@@ -4098,6 +4200,37 @@ the performance hit of linear search remains minimal because `owned_addresses` w
                   <td><a href="#massa.model.v1.SetOrKeepString">SetOrKeepString</a></td>
                   <td></td>
                   <td><p>Execution trail hash change </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.model.v1.TargetAmount">TargetAmount</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>amount</td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>

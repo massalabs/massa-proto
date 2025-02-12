@@ -132,6 +132,8 @@
     - [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse)
     - [NewEndorsementsServerRequest](#massa-api-v1-NewEndorsementsServerRequest)
     - [NewEndorsementsServerResponse](#massa-api-v1-NewEndorsementsServerResponse)
+    - [NewExecutionInfoServerRequest](#massa-api-v1-NewExecutionInfoServerRequest)
+    - [NewExecutionInfoServerResponse](#massa-api-v1-NewExecutionInfoServerResponse)
     - [NewFilledBlocksFilter](#massa-api-v1-NewFilledBlocksFilter)
     - [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest)
     - [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse)
@@ -2080,6 +2082,34 @@ NewEndorsementsServerResponse holds response from NewEndorsements
 
 
 
+<a name="massa-api-v1-NewExecutionInfoServerRequest"></a>
+
+### NewExecutionInfoServerRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_producer_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  |  |
+| endorsement_creator_rewards | [string](#string) |  | todo |
+| endorsement_target_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  |  |
+| denunciations | [massa.model.v1.DenunciationResult](#massa-model-v1-DenunciationResult) | repeated |  |
+
+
+
+
+
+
+<a name="massa-api-v1-NewExecutionInfoServerResponse"></a>
+
+### NewExecutionInfoServerResponse
+
+
+
+
+
+
+
 <a name="massa-api-v1-NewFilledBlocksFilter"></a>
 
 ### NewFilledBlocksFilter
@@ -2320,7 +2350,8 @@ NewSlotExecutionOutputsResponse holds response from NewSlotExecutionOutputs
 <a name="massa-api-v1-NewSlotExecutionOutputsServerRequest"></a>
 
 ### NewSlotExecutionOutputsServerRequest
-NewSlotExecutionOutputsServerRequest holds request for NewSlotExecutionOutputs
+NewSlotExecutionOutputsServerRequest holds request for
+NewSlotExecutionOutputs
 
 
 | Field | Type | Label | Description |
@@ -2335,7 +2366,8 @@ NewSlotExecutionOutputsServerRequest holds request for NewSlotExecutionOutputs
 <a name="massa-api-v1-NewSlotExecutionOutputsServerResponse"></a>
 
 ### NewSlotExecutionOutputsServerResponse
-NewSlotExecutionOutputsServerResponse holds response from NewSlotExecutionOutputs
+NewSlotExecutionOutputsServerResponse holds response from
+NewSlotExecutionOutputs
 
 
 | Field | Type | Label | Description |
@@ -2838,7 +2870,8 @@ TransactionsThroughputServerRequest holds request for TransactionsThroughput
 <a name="massa-api-v1-TransactionsThroughputServerResponse"></a>
 
 ### TransactionsThroughputServerResponse
-TransactionsThroughputServerResponse holds response from TransactionsThroughput
+TransactionsThroughputServerResponse holds response from
+TransactionsThroughput
 
 
 | Field | Type | Label | Description |
@@ -2960,6 +2993,7 @@ Massa public gRPC service
 | SendOperations | [SendOperationsRequest](#massa-api-v1-SendOperationsRequest) stream | [SendOperationsResponse](#massa-api-v1-SendOperationsResponse) stream | Send operations |
 | TransactionsThroughput | [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest) stream | [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse) stream | Transactions throughput |
 | TransactionsThroughputServer | [TransactionsThroughputServerRequest](#massa-api-v1-TransactionsThroughputServerRequest) | [TransactionsThroughputServerResponse](#massa-api-v1-TransactionsThroughputServerResponse) stream | Transactions throughput unidirectional |
+| NewExecutionInfoServer | [NewExecutionInfoServerRequest](#massa-api-v1-NewExecutionInfoServerRequest) | [NewExecutionInfoServerResponse](#massa-api-v1-NewExecutionInfoServerResponse) stream | New execution Info |
 
  
 

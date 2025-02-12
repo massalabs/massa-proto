@@ -56,9 +56,11 @@
 - [massa/model/v1/denunciation.proto](#massa_model_v1_denunciation-proto)
     - [BlockHeaderDenunciation](#massa-model-v1-BlockHeaderDenunciation)
     - [Denunciation](#massa-model-v1-Denunciation)
+    - [DenunciationAddress](#massa-model-v1-DenunciationAddress)
     - [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader)
     - [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement)
     - [DenunciationIndex](#massa-model-v1-DenunciationIndex)
+    - [DenunciationResult](#massa-model-v1-DenunciationResult)
     - [EndorsementDenunciation](#massa-model-v1-EndorsementDenunciation)
   
 - [massa/model/v1/commons.proto](#massa_model_v1_commons-proto)
@@ -105,6 +107,7 @@
     - [SetOrKeepUint64](#massa-model-v1-SetOrKeepUint64)
     - [SlotExecutionOutput](#massa-model-v1-SlotExecutionOutput)
     - [StateChanges](#massa-model-v1-StateChanges)
+    - [TargetAmount](#massa-model-v1-TargetAmount)
   
     - [AsyncPoolChangeType](#massa-model-v1-AsyncPoolChangeType)
     - [ExecutionOutputStatus](#massa-model-v1-ExecutionOutputStatus)
@@ -883,6 +886,24 @@ Operation type enum
 | ----- | ---- | ----- | ----------- |
 | block_header | [BlockHeaderDenunciation](#massa-model-v1-BlockHeaderDenunciation) |  | Denunciation block header |
 | endorsement | [EndorsementDenunciation](#massa-model-v1-EndorsementDenunciation) |  | Denunciation endorsement |
+| address | [DenunciationAddress](#massa-model-v1-DenunciationAddress) |  | Denunciation address |
+
+
+
+
+
+
+<a name="massa-model-v1-DenunciationAddress"></a>
+
+### DenunciationAddress
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address_denounced | [string](#string) |  | target address |
+| slot | [Slot](#massa-model-v1-Slot) |  | slot |
+| slashed | [NativeAmount](#massa-model-v1-NativeAmount) |  | amount slashed |
 
 
 
@@ -930,6 +951,22 @@ Index for Denunciations in collections (e.g. like a HashMap...)
 | ----- | ---- | ----- | ----------- |
 | block_header | [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader) |  | Denunciation block header |
 | endorsement | [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement) |  | Denunciation endorsement |
+
+
+
+
+
+
+<a name="massa-model-v1-DenunciationResult"></a>
+
+### DenunciationResult
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| denunciation_address | [DenunciationAddress](#massa-model-v1-DenunciationAddress) |  |  |
+| error | [string](#string) |  |  |
 
 
 
@@ -1646,6 +1683,22 @@ StateChanges
 | executed_ops_changes | [ExecutedOpsChangeEntry](#massa-model-v1-ExecutedOpsChangeEntry) | repeated | Executed operations changes |
 | executed_denunciations_changes | [DenunciationIndex](#massa-model-v1-DenunciationIndex) | repeated | Executed denunciations changes |
 | execution_trail_hash_change | [SetOrKeepString](#massa-model-v1-SetOrKeepString) |  | Execution trail hash change |
+
+
+
+
+
+
+<a name="massa-model-v1-TargetAmount"></a>
+
+### TargetAmount
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| amount | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| address | [string](#string) |  |  |
 
 
 

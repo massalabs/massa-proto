@@ -690,6 +690,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.NewExecutionInfoServerRequest"><span class="badge">M</span>NewExecutionInfoServerRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewExecutionInfoServerResponse"><span class="badge">M</span>NewExecutionInfoServerResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.NewFilledBlocksFilter"><span class="badge">M</span>NewFilledBlocksFilter</a>
                 </li>
               
@@ -4538,6 +4546,58 @@ returned) </p></td>
 
         
       
+        <h3 id="massa.api.v1.NewExecutionInfoServerRequest">NewExecutionInfoServerRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>block_producer_reward</td>
+                  <td><a href="#massa.model.v1.TargetAmount">massa.model.v1.TargetAmount</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>endorsement_creator_rewards</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>todo </p></td>
+                </tr>
+              
+                <tr>
+                  <td>endorsement_target_reward</td>
+                  <td><a href="#massa.model.v1.TargetAmount">massa.model.v1.TargetAmount</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>denunciations</td>
+                  <td><a href="#massa.model.v1.DenunciationResult">massa.model.v1.DenunciationResult</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewExecutionInfoServerResponse">NewExecutionInfoServerResponse</h3>
+        <p></p>
+
+        
+
+        
+      
         <h3 id="massa.api.v1.NewFilledBlocksFilter">NewFilledBlocksFilter</h3>
         <p>NewFilledBlocks Filter</p>
 
@@ -4983,7 +5043,7 @@ returned) </p></td>
         
       
         <h3 id="massa.api.v1.NewSlotExecutionOutputsServerRequest">NewSlotExecutionOutputsServerRequest</h3>
-        <p>NewSlotExecutionOutputsServerRequest holds request for NewSlotExecutionOutputs</p>
+        <p>NewSlotExecutionOutputsServerRequest holds request for</p><p>NewSlotExecutionOutputs</p>
 
         
           <table class="field-table">
@@ -5007,7 +5067,7 @@ returned) </p></td>
         
       
         <h3 id="massa.api.v1.NewSlotExecutionOutputsServerResponse">NewSlotExecutionOutputsServerResponse</h3>
-        <p>NewSlotExecutionOutputsServerResponse holds response from NewSlotExecutionOutputs</p>
+        <p>NewSlotExecutionOutputsServerResponse holds response from</p><p>NewSlotExecutionOutputs</p>
 
         
           <table class="field-table">
@@ -5936,7 +5996,7 @@ returned) </p></td>
         
       
         <h3 id="massa.api.v1.TransactionsThroughputServerResponse">TransactionsThroughputServerResponse</h3>
-        <p>TransactionsThroughputServerResponse holds response from TransactionsThroughput</p>
+        <p>TransactionsThroughputServerResponse holds response from</p><p>TransactionsThroughput</p>
 
         
           <table class="field-table">
@@ -6364,6 +6424,13 @@ given slot</p></td>
                 <td><a href="#massa.api.v1.TransactionsThroughputServerRequest">TransactionsThroughputServerRequest</a></td>
                 <td><a href="#massa.api.v1.TransactionsThroughputServerResponse">TransactionsThroughputServerResponse</a> stream</td>
                 <td><p>Transactions throughput unidirectional</p></td>
+              </tr>
+            
+              <tr>
+                <td>NewExecutionInfoServer</td>
+                <td><a href="#massa.api.v1.NewExecutionInfoServerRequest">NewExecutionInfoServerRequest</a></td>
+                <td><a href="#massa.api.v1.NewExecutionInfoServerResponse">NewExecutionInfoServerResponse</a> stream</td>
+                <td><p>New execution Info</p></td>
               </tr>
             
           </tbody>

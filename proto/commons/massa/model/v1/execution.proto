@@ -164,7 +164,8 @@ message AsyncMessage {
   // Slot at which the message was emitted
   massa.model.v1.Slot emission_slot = 1;
   // Index of the emitted message within the `emission_slot`.
-  // This is used for disambiguate the emission of multiple messages at the same slot.
+  // This is used for disambiguate the emission of multiple messages at the same
+  // slot.
   uint64 emission_index = 2;
   // The address that sent the message
   string sender = 3;
@@ -181,16 +182,20 @@ message AsyncMessage {
   // and credited to the destination address when receiving the message.
   // In case of failure or discard, those coins are reimbursed to the sender.
   massa.model.v1.NativeAmount coins = 8;
-  // Slot at which the message starts being valid (bound included in the validity range)
+  // Slot at which the message starts being valid (bound included in the
+  // validity range)
   massa.model.v1.Slot validity_start = 9;
-  // Slot at which the message stops being valid (bound not included in the validity range)
+  // Slot at which the message stops being valid (bound not included in the
+  // validity range)
   massa.model.v1.Slot validity_end = 10;
   // Raw payload data of the message
   bytes data = 11;
   // Trigger that define whenever a message can be executed
   AsyncMessageTrigger trigger = 12;
-  // Boolean that determine if the message can be executed. For messages without filter this boolean is always true.
-  // For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot.
+  // Boolean that determine if the message can be executed. For messages without
+  // filter this boolean is always true. For messages with filter, this boolean
+  // is true if the filter has been matched between `validity_start` and current
+  // slot.
   bool can_be_executed = 13;
 }
 
@@ -199,7 +204,8 @@ message AsyncMessageUpdate {
   // Change the slot at which the message was emitted
   SetOrKeepSlot emission_slot = 1;
   // Change the index of the emitted message within the `emission_slot`.
-  // This is used for disambiguate the emission of multiple messages at the same slot.
+  // This is used for disambiguate the emission of multiple messages at the same
+  // slot.
   SetOrKeepUint64 emission_index = 2;
   // Change the address that sent the message
   SetOrKeepString sender = 3;
@@ -216,16 +222,20 @@ message AsyncMessageUpdate {
   // and credited to the destination address when receiving the message.
   // In case of failure or discard, those coins are reimbursed to the sender.
   SetOrKeepUint64 coins = 8;
-  // Change the slot at which the message starts being valid (bound included in the validity range)
+  // Change the slot at which the message starts being valid (bound included in
+  // the validity range)
   SetOrKeepSlot validity_start = 9;
-  // Change the slot at which the message stops being valid (bound not included in the validity range)
+  // Change the slot at which the message stops being valid (bound not included
+  // in the validity range)
   SetOrKeepSlot validity_end = 10;
   // Change the raw payload data of the message
   SetOrKeepBytes data = 11;
   // Change the trigger that define whenever a message can be executed
   SetOrKeepAsyncMessageTrigger trigger = 12;
-  // Change the boolean that determine if the message can be executed. For messages without filter this boolean is always true.
-  // For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot.
+  // Change the boolean that determine if the message can be executed. For
+  // messages without filter this boolean is always true. For messages with
+  // filter, this boolean is true if the filter has been matched between
+  // `validity_start` and current slot.
   SetOrKeepBool can_be_executed = 13;
 }
 
@@ -387,7 +397,8 @@ message ReadOnlyExecutionCall {
     // Function call
     FunctionCall function_call = 4;
   }
-  // Caller's address, (Optional) if not set, an auto-generated address will be used
+  // Caller's address, (Optional) if not set, an auto-generated address will be
+  // used
   google.protobuf.StringValue caller_address = 5;
   // fee paid by the caller when the call is processed (optional)
   massa.model.v1.NativeAmount fee = 7;
@@ -397,7 +408,8 @@ message ReadOnlyExecutionCall {
 message BytecodeExecution {
   // Byte code
   bytes bytecode = 1;
-  // Serialized datastore (key value store)  for `ExecuteSC` Operation (Optional)
+  // Serialized datastore (key value store)  for `ExecuteSC` Operation
+  // (Optional)
   bytes operation_datastore = 2;
 }
 
@@ -433,16 +445,23 @@ message ExecutionStackElement {
   string address = 1;
   // Coins transferred to the target address during the call
   massa.model.v1.NativeAmount coins = 2;
-  // List of addresses owned by the current call, and on which the current call has write access.
-  // This list should contain `ExecutionStackElement::address` in the sense that an address should have write access to itself.
-  // This list should also contain all addresses created previously during the call
-  // to allow write access on newly created addresses in order to set them up,
-  // but only within the scope of the current stack element.
-  // That way, only the current scope and neither its caller not the functions it calls gain this write access,
-  // which is important for security.
-  // Note that we use a vector instead of a pre-hashed set to ensure order determinism,
-  // the performance hit of linear search remains minimal because `owned_addresses` will always contain very few elements.
+  // List of addresses owned by the current call, and on which the current call
+  // has write access. This list should contain `ExecutionStackElement::address`
+  // in the sense that an address should have write access to itself. This list
+  // should also contain all addresses created previously during the call to
+  // allow write access on newly created addresses in order to set them up, but
+  // only within the scope of the current stack element. That way, only the
+  // current scope and neither its caller not the functions it calls gain this
+  // write access, which is important for security. Note that we use a vector
+  // instead of a pre-hashed set to ensure order determinism, the performance
+  // hit of linear search remains minimal because `owned_addresses` will always
+  // contain very few elements.
   repeated string owned_addresses = 3;
   // Datastore (key value store) for `ExecuteSC` Operation (Optional)
   repeated massa.model.v1.BytesMapFieldEntry operation_datastore = 4;
+}
+
+message TargetAmount {
+  massa.model.v1.NativeAmount amount = 1;
+  string address = 2;
 }
