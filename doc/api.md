@@ -2105,16 +2105,7 @@ NewEndorsementsServerResponse holds response from NewEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_producer_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  | reward for block producer |
-| endorsement_creator_rewards | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated | reward for endorsement creator |
-| endorsement_target_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  | reward for endorsement target |
-| denunciations | [massa.model.v1.DenunciationAddress](#massa-model-v1-DenunciationAddress) | repeated | executed denunciations |
-| operations | [massa.model.v1.OperationTypeRoll](#massa-model-v1-OperationTypeRoll) | repeated | executed roll buy / roll sell |
-| async_messages | [massa.model.v1.AsyncMessageExecution](#massa-model-v1-AsyncMessageExecution) | repeated | executed async messages |
-| deferred_calls_messages | [massa.model.v1.DeferredCallExecution](#massa-model-v1-DeferredCallExecution) | repeated | executed deferred calls |
-| deferred_credits_execution | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated | executed deferred credits |
-| cancel_async_message_execution | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated | executed cancel async messages |
-| auto_sell_execution | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated | executed auto sell roll |
+| execution_infos | [massa.model.v1.ExecutionInfo](#massa-model-v1-ExecutionInfo) | repeated | reward for block producer massa.model.v1.TargetAmount block_producer_reward = 1; // reward for endorsement creator repeated massa.model.v1.TargetAmount endorsement_creator_rewards = 2; // reward for endorsement target massa.model.v1.TargetAmount endorsement_target_reward = 3; // executed denunciations repeated massa.model.v1.DenunciationAddress denunciations = 4; // executed roll buy / roll sell repeated massa.model.v1.OperationTypeRoll operations = 5; // executed async messages repeated massa.model.v1.AsyncMessageExecution async_messages = 6; // executed deferred calls repeated massa.model.v1.DeferredCallExecution deferred_calls_messages = 7; // executed deferred credits repeated massa.model.v1.TargetAmount deferred_credits_execution = 8; // executed cancel async messages repeated massa.model.v1.TargetAmount cancel_async_message_execution = 9; // executed auto sell roll repeated massa.model.v1.TargetAmount auto_sell_execution = 10; |
 
 
 

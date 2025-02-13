@@ -86,6 +86,7 @@
     - [DeferredCallExecution](#massa-model-v1-DeferredCallExecution)
     - [ExecutedOpsChangeEntry](#massa-model-v1-ExecutedOpsChangeEntry)
     - [ExecutedOpsChangeValue](#massa-model-v1-ExecutedOpsChangeValue)
+    - [ExecutionInfo](#massa-model-v1-ExecutionInfo)
     - [ExecutionOutput](#massa-model-v1-ExecutionOutput)
     - [ExecutionStackElement](#massa-model-v1-ExecutionStackElement)
     - [FinalizedExecutionOutput](#massa-model-v1-FinalizedExecutionOutput)
@@ -112,7 +113,10 @@
     - [TargetAmount](#massa-model-v1-TargetAmount)
   
     - [AsyncPoolChangeType](#massa-model-v1-AsyncPoolChangeType)
+    - [CoinDirection](#massa-model-v1-CoinDirection)
+    - [CoinOrigin](#massa-model-v1-CoinOrigin)
     - [ExecutionOutputStatus](#massa-model-v1-ExecutionOutputStatus)
+    - [Item](#massa-model-v1-Item)
     - [LedgerChangeType](#massa-model-v1-LedgerChangeType)
     - [OperationExecutionStatus](#massa-model-v1-OperationExecutionStatus)
     - [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus)
@@ -1337,6 +1341,30 @@ ExecutedOpsChangeValue
 
 
 
+<a name="massa-model-v1-ExecutionInfo"></a>
+
+### ExecutionInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  |  |
+| address | [string](#string) |  |  |
+| direction | [CoinDirection](#massa-model-v1-CoinDirection) |  |  |
+| item | [Item](#massa-model-v1-Item) |  |  |
+| prev_amount | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| amount | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| post_amount | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| slot | [Slot](#massa-model-v1-Slot) |  |  |
+| origin | [CoinOrigin](#massa-model-v1-CoinOrigin) |  |  |
+
+
+
+
+
+
 <a name="massa-model-v1-ExecutionOutput"></a>
 
 ### ExecutionOutput
@@ -1761,6 +1789,46 @@ AsyncPoolChangeType type enum
 
 
 
+<a name="massa-model-v1-CoinDirection"></a>
+
+### CoinDirection
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| COIN_DIRECTION_UNSPECIFIED | 0 |  |
+| COIN_DIRECTION_DEBIT | 1 |  |
+| COIN_DIRECTION_CREDIT | 2 |  |
+
+
+
+<a name="massa-model-v1-CoinOrigin"></a>
+
+### CoinOrigin
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| COIN_ORIGIN_UNSPECIFIED | 0 |  |
+| COIN_ORIGIN_BLOCK_REWARD | 1 |  |
+| COIN_ORIGIN_DEFERRED_CALL | 2 |  |
+| COIN_ORIGIN_ENDORSEMENT_REWARD | 3 |  |
+| COIN_ORIGIN_ENDORSED_REWARD | 4 |  |
+| COIN_ORIGIN_SLASH | 5 |  |
+| COIN_ORIGIN_OP_ROLL_BUY_COINS | 6 |  |
+| COIN_ORIGIN_OP_ROLL_BUY_FEES | 7 |  |
+| COIN_ORIGIN_OP_ROLL_BUY_ROLLS | 8 |  |
+| COIN_ORIGIN_OP_ROLL_SELL_ROLLS | 9 |  |
+| COIN_ORIGIN_OP_ROLL_SELL_DEFERRED_MAS | 10 |  |
+| COIN_ORIGIN_OP_EXECUTESC_FEES | 11 |  |
+| COIN_ORIGIN_OP_CALLSC_COINS | 12 |  |
+| COIN_ORIGIN_OP_CALLSC_FEES | 13 |  |
+| COIN_ORIGIN_OP_TRANSACTION_COINS | 14 |  |
+| COIN_ORIGIN_OP_TRANSACTION_FEES | 15 |  |
+| COIN_ORIGIN_ASYNC_MSG | 16 |  |
+
+
+
 <a name="massa-model-v1-ExecutionOutputStatus"></a>
 
 ### ExecutionOutputStatus
@@ -1772,6 +1840,20 @@ ExecutionOutputStatus type enum
 | EXECUTION_OUTPUT_STATUS_CANDIDATE | 1 | Candidate status |
 | EXECUTION_OUTPUT_STATUS_FINAL | 2 | Final status |
 | EXECUTION_OUTPUT_STATUS_UNKNOWN | 3 | Unknown status |
+
+
+
+<a name="massa-model-v1-Item"></a>
+
+### Item
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| ITEM_UNSPECIFIED | 0 |  |
+| ITEM_ROLL | 1 |  |
+| ITEM_MAS | 2 |  |
+| ITEM_DEFERRED_MAS | 3 |  |
 
 
 

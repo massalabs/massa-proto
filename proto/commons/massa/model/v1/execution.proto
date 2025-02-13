@@ -480,3 +480,49 @@ message DeferredCallExecution {
   string target_function = 4;
   massa.model.v1.NativeAmount coins = 5;
 }
+
+message ExecutionInfo {
+  string id = 1;
+  string address = 2;
+  massa.model.v1.CoinDirection direction = 3;
+  massa.model.v1.Item item = 4;
+  massa.model.v1.NativeAmount prev_amount = 5;
+  massa.model.v1.NativeAmount amount = 6;
+  massa.model.v1.NativeAmount post_amount = 7;
+  int64 timestamp = 8;
+  massa.model.v1.Slot slot = 9;
+  massa.model.v1.CoinOrigin origin = 10;
+}
+
+enum CoinDirection {
+  COIN_DIRECTION_UNSPECIFIED = 0;
+  COIN_DIRECTION_DEBIT = 1;
+  COIN_DIRECTION_CREDIT = 2;
+}
+
+enum Item {
+  ITEM_UNSPECIFIED = 0;
+  ITEM_ROLL = 1;
+  ITEM_MAS = 2;
+  ITEM_DEFERRED_MAS = 3;
+}
+
+enum CoinOrigin {
+  COIN_ORIGIN_UNSPECIFIED = 0;
+  COIN_ORIGIN_BLOCK_REWARD = 1;
+  COIN_ORIGIN_DEFERRED_CALL = 2;
+  COIN_ORIGIN_ENDORSEMENT_REWARD = 3;
+  COIN_ORIGIN_ENDORSED_REWARD = 4;
+  COIN_ORIGIN_SLASH = 5;
+  COIN_ORIGIN_OP_ROLL_BUY_COINS = 6;
+  COIN_ORIGIN_OP_ROLL_BUY_FEES = 7;
+  COIN_ORIGIN_OP_ROLL_BUY_ROLLS = 8;
+  COIN_ORIGIN_OP_ROLL_SELL_ROLLS = 9;
+  COIN_ORIGIN_OP_ROLL_SELL_DEFERRED_MAS = 10;
+  COIN_ORIGIN_OP_EXECUTESC_FEES = 11;
+  COIN_ORIGIN_OP_CALLSC_COINS = 12;
+  COIN_ORIGIN_OP_CALLSC_FEES = 13;
+  COIN_ORIGIN_OP_TRANSACTION_COINS = 14;
+  COIN_ORIGIN_OP_TRANSACTION_FEES = 15;
+  COIN_ORIGIN_ASYNC_MSG = 16;
+}
