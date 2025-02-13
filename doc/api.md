@@ -2090,7 +2090,7 @@ NewEndorsementsServerResponse holds response from NewEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | optional filter address |
 
 
 
@@ -2105,16 +2105,16 @@ NewEndorsementsServerResponse holds response from NewEndorsements
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_producer_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  |  |
-| endorsement_creator_rewards | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated |  |
-| endorsement_target_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  |  |
-| denunciations | [massa.model.v1.DenunciationAddress](#massa-model-v1-DenunciationAddress) | repeated |  |
-| operations | [massa.model.v1.OperationTypeRoll](#massa-model-v1-OperationTypeRoll) | repeated |  |
-| async_messages | [massa.model.v1.AsyncMessageExecution](#massa-model-v1-AsyncMessageExecution) | repeated |  |
-| deferred_calls_messages | [massa.model.v1.DeferredCallExecution](#massa-model-v1-DeferredCallExecution) | repeated |  |
-| deferred_credits_execution | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated |  |
-| cancel_async_message_execution | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated |  |
-| auto_sell_execution | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated |  |
+| block_producer_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  | reward for block producer |
+| endorsement_creator_rewards | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated | reward for endorsement creator |
+| endorsement_target_reward | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) |  | reward for endorsement target |
+| denunciations | [massa.model.v1.DenunciationAddress](#massa-model-v1-DenunciationAddress) | repeated | executed denunciations |
+| operations | [massa.model.v1.OperationTypeRoll](#massa-model-v1-OperationTypeRoll) | repeated | executed roll buy / roll sell |
+| async_messages | [massa.model.v1.AsyncMessageExecution](#massa-model-v1-AsyncMessageExecution) | repeated | executed async messages |
+| deferred_calls_messages | [massa.model.v1.DeferredCallExecution](#massa-model-v1-DeferredCallExecution) | repeated | executed deferred calls |
+| deferred_credits_execution | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated | executed deferred credits |
+| cancel_async_message_execution | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated | executed cancel async messages |
+| auto_sell_execution | [massa.model.v1.TargetAmount](#massa-model-v1-TargetAmount) | repeated | executed auto sell roll |
 
 
 

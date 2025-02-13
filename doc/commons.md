@@ -751,6 +751,7 @@ Type specific operation content
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  |  |
 | roll_buy | [RollBuy](#massa-model-v1-RollBuy) |  |  |
 | roll_sell | [RollSell](#massa-model-v1-RollSell) |  |  |
 

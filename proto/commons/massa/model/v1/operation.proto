@@ -154,8 +154,9 @@ enum OpType {
 }
 
 message OperationTypeRoll {
+  string address = 1;
   oneof type {
-    RollBuy roll_buy = 1;
-    RollSell roll_sell = 2;
+    RollBuy roll_buy = 2;
+    RollSell roll_sell = 3;
   }
 }
