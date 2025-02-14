@@ -1350,10 +1350,10 @@ ExecutedOpsChangeValue
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  |  |
-| address | [string](#string) |  |  |
-| direction | [CoinDirection](#massa-model-v1-CoinDirection) |  |  |
+| from_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| to_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
 | item | [Item](#massa-model-v1-Item) |  |  |
-| amount | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| amount | [uint64](#uint64) |  | both mas and rolls are represented in the same field |
 | origin | [CoinOrigin](#massa-model-v1-CoinOrigin) |  |  |
 
 

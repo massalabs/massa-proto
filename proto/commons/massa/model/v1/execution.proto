@@ -483,10 +483,11 @@ message DeferredCallExecution {
 
 message ExecutionInfo {
   string id = 1;
-  string address = 2;
-  massa.model.v1.CoinDirection direction = 3;
+  google.protobuf.StringValue from_address = 2;
+  google.protobuf.StringValue to_address = 3;
   massa.model.v1.Item item = 4;
-  massa.model.v1.NativeAmount amount = 5;
+  // both mas and rolls are represented in the same field
+  uint64 amount = 5;
   massa.model.v1.CoinOrigin origin = 6;
 }
 
