@@ -951,7 +951,9 @@ message NewExecutionInfoServerRequest {
 }
 
 message NewExecutionInfoServerResponse {
-  repeated massa.model.v1.ExecutionInfo execution_infos = 1;
+  massa.model.v1.Slot slot = 1;
+  int64 timestamp = 2;
+  repeated massa.model.v1.ExecutionInfo execution_infos = 3;
   // // reward for block producer
   // massa.model.v1.TargetAmount block_producer_reward = 1;
   // // reward for endorsement creator

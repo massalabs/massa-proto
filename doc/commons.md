@@ -1353,11 +1353,7 @@ ExecutedOpsChangeValue
 | address | [string](#string) |  |  |
 | direction | [CoinDirection](#massa-model-v1-CoinDirection) |  |  |
 | item | [Item](#massa-model-v1-Item) |  |  |
-| prev_amount | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
 | amount | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
-| post_amount | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
-| timestamp | [int64](#int64) |  |  |
-| slot | [Slot](#massa-model-v1-Slot) |  |  |
 | origin | [CoinOrigin](#massa-model-v1-CoinOrigin) |  |  |
 
 
