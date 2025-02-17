@@ -86,7 +86,6 @@
     - [DeferredCallExecution](#massa-model-v1-DeferredCallExecution)
     - [ExecutedOpsChangeEntry](#massa-model-v1-ExecutedOpsChangeEntry)
     - [ExecutedOpsChangeValue](#massa-model-v1-ExecutedOpsChangeValue)
-    - [ExecutionInfo](#massa-model-v1-ExecutionInfo)
     - [ExecutionOutput](#massa-model-v1-ExecutionOutput)
     - [ExecutionStackElement](#massa-model-v1-ExecutionStackElement)
     - [FinalizedExecutionOutput](#massa-model-v1-FinalizedExecutionOutput)
@@ -111,9 +110,9 @@
     - [SlotExecutionOutput](#massa-model-v1-SlotExecutionOutput)
     - [StateChanges](#massa-model-v1-StateChanges)
     - [TargetAmount](#massa-model-v1-TargetAmount)
+    - [TransferInfo](#massa-model-v1-TransferInfo)
   
     - [AsyncPoolChangeType](#massa-model-v1-AsyncPoolChangeType)
-    - [CoinDirection](#massa-model-v1-CoinDirection)
     - [CoinOrigin](#massa-model-v1-CoinOrigin)
     - [ExecutionOutputStatus](#massa-model-v1-ExecutionOutputStatus)
     - [Item](#massa-model-v1-Item)
@@ -1341,26 +1340,6 @@ ExecutedOpsChangeValue
 
 
 
-<a name="massa-model-v1-ExecutionInfo"></a>
-
-### ExecutionInfo
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  |  |
-| from_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
-| to_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
-| item | [Item](#massa-model-v1-Item) |  |  |
-| amount | [uint64](#uint64) |  | both mas and rolls are represented in the same field |
-| origin | [CoinOrigin](#massa-model-v1-CoinOrigin) |  |  |
-
-
-
-
-
-
 <a name="massa-model-v1-ExecutionOutput"></a>
 
 ### ExecutionOutput
@@ -1768,6 +1747,27 @@ StateChanges
 
 
 
+
+<a name="massa-model-v1-TransferInfo"></a>
+
+### TransferInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  |  |
+| from_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| to_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| item | [Item](#massa-model-v1-Item) |  |  |
+| amount | [uint64](#uint64) |  | both mas and rolls are represented in the same field |
+| origin | [CoinOrigin](#massa-model-v1-CoinOrigin) |  |  |
+| operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+
+
+
+
+
  
 
 
@@ -1782,19 +1782,6 @@ AsyncPoolChangeType type enum
 | ASYNC_POOL_CHANGE_TYPE_SET | 1 | Set type |
 | ASYNC_POOL_CHANGE_TYPE_UPDATE | 2 | Activate only type |
 | ASYNC_POOL_CHANGE_TYPE_DELETE | 3 | Delete only type |
-
-
-
-<a name="massa-model-v1-CoinDirection"></a>
-
-### CoinDirection
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| COIN_DIRECTION_UNSPECIFIED | 0 |  |
-| COIN_DIRECTION_DEBIT | 1 |  |
-| COIN_DIRECTION_CREDIT | 2 |  |
 
 
 

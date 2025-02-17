@@ -481,7 +481,7 @@ message DeferredCallExecution {
   massa.model.v1.NativeAmount coins = 5;
 }
 
-message ExecutionInfo {
+message TransferInfo {
   string id = 1;
   google.protobuf.StringValue from_address = 2;
   google.protobuf.StringValue to_address = 3;
@@ -489,13 +489,14 @@ message ExecutionInfo {
   // both mas and rolls are represented in the same field
   uint64 amount = 5;
   massa.model.v1.CoinOrigin origin = 6;
+  google.protobuf.StringValue operation_id = 7;
 }
 
-enum CoinDirection {
-  COIN_DIRECTION_UNSPECIFIED = 0;
-  COIN_DIRECTION_DEBIT = 1;
-  COIN_DIRECTION_CREDIT = 2;
-}
+// enum CoinDirection {
+//   COIN_DIRECTION_UNSPECIFIED = 0;
+//   COIN_DIRECTION_DEBIT = 1;
+//   COIN_DIRECTION_CREDIT = 2;
+// }
 
 enum Item {
   ITEM_UNSPECIFIED = 0;

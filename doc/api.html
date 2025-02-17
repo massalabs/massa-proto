@@ -4584,21 +4584,30 @@ returned) </p></td>
                   <td>slot</td>
                   <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>executed slot </p></td>
                 </tr>
               
                 <tr>
                   <td>timestamp</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>timestamp </p></td>
                 </tr>
               
                 <tr>
-                  <td>execution_infos</td>
-                  <td><a href="#massa.model.v1.ExecutionInfo">massa.model.v1.ExecutionInfo</a></td>
+                  <td>block_id</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p>block id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transfers_info</td>
+                  <td><a href="#massa.model.v1.TransferInfo">massa.model.v1.TransferInfo</a></td>
                   <td>repeated</td>
-                  <td><p>reward for block producer
+                  <td><p>transfers info
+
+// reward for block producer
 massa.model.v1.TargetAmount block_producer_reward = 1;
 // reward for endorsement creator
 repeated massa.model.v1.TargetAmount endorsement_creator_rewards = 2;

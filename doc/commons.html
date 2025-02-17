@@ -521,10 +521,6 @@
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.ExecutionInfo"><span class="badge">M</span>ExecutionInfo</a>
-                </li>
-              
-                <li>
                   <a href="#massa.model.v1.ExecutionOutput"><span class="badge">M</span>ExecutionOutput</a>
                 </li>
               
@@ -620,13 +616,13 @@
                   <a href="#massa.model.v1.TargetAmount"><span class="badge">M</span>TargetAmount</a>
                 </li>
               
+                <li>
+                  <a href="#massa.model.v1.TransferInfo"><span class="badge">M</span>TransferInfo</a>
+                </li>
+              
               
                 <li>
                   <a href="#massa.model.v1.AsyncPoolChangeType"><span class="badge">E</span>AsyncPoolChangeType</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.CoinDirection"><span class="badge">E</span>CoinDirection</a>
                 </li>
               
                 <li>
@@ -3480,65 +3476,6 @@ filter, this boolean is true if the filter has been matched between
 
         
       
-        <h3 id="massa.model.v1.ExecutionInfo">ExecutionInfo</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>from_address</td>
-                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>to_address</td>
-                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>item</td>
-                  <td><a href="#massa.model.v1.Item">Item</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>amount</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td></td>
-                  <td><p>both mas and rolls are represented in the same field </p></td>
-                </tr>
-              
-                <tr>
-                  <td>origin</td>
-                  <td><a href="#massa.model.v1.CoinOrigin">CoinOrigin</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="massa.model.v1.ExecutionOutput">ExecutionOutput</h3>
         <p>ExecutionOutput</p>
 
@@ -4434,6 +4371,72 @@ used </p></td>
 
         
       
+        <h3 id="massa.model.v1.TransferInfo">TransferInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>from_address</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>to_address</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>item</td>
+                  <td><a href="#massa.model.v1.Item">Item</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>amount</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>both mas and rolls are represented in the same field </p></td>
+                </tr>
+              
+                <tr>
+                  <td>origin</td>
+                  <td><a href="#massa.model.v1.CoinOrigin">CoinOrigin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_id</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
 
       
         <h3 id="massa.model.v1.AsyncPoolChangeType">AsyncPoolChangeType</h3>
@@ -4466,35 +4469,6 @@ used </p></td>
                 <td>ASYNC_POOL_CHANGE_TYPE_DELETE</td>
                 <td>3</td>
                 <td><p>Delete only type</p></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      
-        <h3 id="massa.model.v1.CoinDirection">CoinDirection</h3>
-        <p></p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>COIN_DIRECTION_UNSPECIFIED</td>
-                <td>0</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>COIN_DIRECTION_DEBIT</td>
-                <td>1</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>COIN_DIRECTION_CREDIT</td>
-                <td>2</td>
-                <td><p></p></td>
               </tr>
             
           </tbody>
