@@ -1760,7 +1760,8 @@ StateChanges
 | from_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
 | to_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
 | item | [Item](#massa-model-v1-Item) |  |  |
-| amount | [uint64](#uint64) |  | both mas and rolls are represented in the same field |
+| amount | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | mas |
+| rolls_count | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  |  |
 | origin | [CoinOrigin](#massa-model-v1-CoinOrigin) |  |  |
 | operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
 

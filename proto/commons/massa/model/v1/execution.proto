@@ -486,10 +486,11 @@ message TransferInfo {
   google.protobuf.StringValue from_address = 2;
   google.protobuf.StringValue to_address = 3;
   massa.model.v1.Item item = 4;
-  // both mas and rolls are represented in the same field
-  uint64 amount = 5;
-  massa.model.v1.CoinOrigin origin = 6;
-  google.protobuf.StringValue operation_id = 7;
+  // mas
+  google.protobuf.UInt64Value amount = 5;
+  google.protobuf.UInt64Value rolls_count = 6;
+  massa.model.v1.CoinOrigin origin = 7;
+  google.protobuf.StringValue operation_id = 8;
 }
 
 // enum CoinDirection {
