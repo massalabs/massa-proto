@@ -4444,6 +4444,13 @@ used </p></td>
                   <td><p> </p></td>
                 </tr>
               
+                <tr>
+                  <td>deferred_call_id</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -4509,61 +4516,61 @@ used </p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_DEFERRED_CALL</td>
+                <td>COIN_ORIGIN_DEFERRED_CALL_FAIL</td>
                 <td>2</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_ENDORSEMENT_REWARD</td>
+                <td>COIN_ORIGIN_DEFERRED_CALL_CANCEL</td>
                 <td>3</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_ENDORSED_REWARD</td>
+                <td>COIN_ORIGIN_DEFERRED_CALL_COINS</td>
                 <td>4</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_SLASH</td>
+                <td>COIN_ORIGIN_DEFERRED_CALL_REGISTER</td>
                 <td>5</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_OP_ROLL_BUY_COINS</td>
+                <td>COIN_ORIGIN_DEFERRED_CALL_STORAGE_REFUND</td>
                 <td>6</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_OP_ROLL_BUY_FEES</td>
+                <td>COIN_ORIGIN_ENDORSEMENT_REWARD</td>
                 <td>7</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_OP_ROLL_BUY_ROLLS</td>
+                <td>COIN_ORIGIN_ENDORSED_REWARD</td>
                 <td>8</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_OP_ROLL_SELL_ROLLS</td>
+                <td>COIN_ORIGIN_SLASH</td>
                 <td>9</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_OP_ROLL_SELL_DEFERRED_MAS</td>
+                <td>COIN_ORIGIN_OP_ROLL_BUY</td>
                 <td>10</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_OP_EXECUTESC_FEES</td>
+                <td>COIN_ORIGIN_OP_ROLL_SELL</td>
                 <td>11</td>
                 <td><p></p></td>
               </tr>
@@ -4575,38 +4582,110 @@ used </p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_OP_CALLSC_FEES</td>
+                <td>COIN_ORIGIN_READ_ONLY_FN_CALL_FEES</td>
                 <td>13</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_OP_TRANSACTION_COINS</td>
+                <td>COIN_ORIGIN_READ_ONLY_FN_CALL_COINS</td>
                 <td>14</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_OP_TRANSACTION_FEES</td>
+                <td>COIN_ORIGIN_READ_ONLY_BYTECODE_EXEC_FEES</td>
                 <td>15</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_ASYNC_MSG</td>
+                <td>COIN_ORIGIN_SET_BYTECODE_STORAGE</td>
                 <td>16</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_DEFERRED_CREDIT</td>
+                <td>COIN_ORIGIN_ABI_CALL_COINS</td>
                 <td>17</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>COIN_ORIGIN_ROLL_AUTOSELL</td>
+                <td>COIN_ORIGIN_ABI_TRANSFER_COINS</td>
                 <td>18</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ORIGIN_ABI_TRANSFER_FOR_COINS</td>
+                <td>19</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ORIGIN_ABI_SEND_MSG_COINS</td>
+                <td>20</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ORIGIN_ABI_SEND_MSG_FEES</td>
+                <td>21</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ORIGIN_OP_ROLL_SELL_DEFERRED_MAS</td>
+                <td>22</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ORIGIN_OP_EXECUTESC_FEES</td>
+                <td>23</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ORIGIN_OP_TRANSACTION_COINS</td>
+                <td>24</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ORIGIN_OP_TRANSACTION_FEES</td>
+                <td>25</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ORIGIN_ASYNC_MSG_COINS</td>
+                <td>26</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ORIGIN_ASYNC_MSG_CANCEL</td>
+                <td>27</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ORIGIN_CREATE_SC_STORAGE</td>
+                <td>28</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ORIGIN_DATASTORE_STORAGE</td>
+                <td>29</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ORIGIN_DEFERRED_CREDIT</td>
+                <td>30</td>
                 <td><p></p></td>
               </tr>
             
