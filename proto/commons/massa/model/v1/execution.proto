@@ -491,6 +491,7 @@ message TransferInfo {
   google.protobuf.UInt64Value rolls_count = 6;
   massa.model.v1.CoinOrigin origin = 7;
   google.protobuf.StringValue operation_id = 8;
+  google.protobuf.StringValue async_msg_id = 9;
 }
 
 // enum CoinDirection {

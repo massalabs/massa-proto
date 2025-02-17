@@ -1764,6 +1764,7 @@ StateChanges
 | rolls_count | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  |  |
 | origin | [CoinOrigin](#massa-model-v1-CoinOrigin) |  |  |
 | operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| async_msg_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
 
 
 
