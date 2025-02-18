@@ -493,6 +493,7 @@ message TransferInfo {
   google.protobuf.StringValue operation_id = 8;
   google.protobuf.StringValue async_msg_id = 9;
   google.protobuf.StringValue deferred_call_id = 10;
+  massa.model.v1.DenunciationIndex denunciation_index = 11;
 }
 
 // enum CoinDirection {

@@ -1766,6 +1766,7 @@ StateChanges
 | operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
 | async_msg_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
 | deferred_call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| denunciation_index | [DenunciationIndex](#massa-model-v1-DenunciationIndex) |  |  |
 
 
 
