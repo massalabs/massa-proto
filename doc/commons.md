@@ -84,6 +84,7 @@
     - [AsyncPoolChangeValue](#massa-model-v1-AsyncPoolChangeValue)
     - [BytecodeExecution](#massa-model-v1-BytecodeExecution)
     - [DeferredCallExecution](#massa-model-v1-DeferredCallExecution)
+    - [ExecTransferInfo](#massa-model-v1-ExecTransferInfo)
     - [ExecutedOpsChangeEntry](#massa-model-v1-ExecutedOpsChangeEntry)
     - [ExecutedOpsChangeValue](#massa-model-v1-ExecutedOpsChangeValue)
     - [ExecutionOutput](#massa-model-v1-ExecutionOutput)
@@ -110,12 +111,11 @@
     - [SlotExecutionOutput](#massa-model-v1-SlotExecutionOutput)
     - [StateChanges](#massa-model-v1-StateChanges)
     - [TargetAmount](#massa-model-v1-TargetAmount)
-    - [TransferInfo](#massa-model-v1-TransferInfo)
+    - [TransferValue](#massa-model-v1-TransferValue)
   
     - [AsyncPoolChangeType](#massa-model-v1-AsyncPoolChangeType)
     - [CoinOrigin](#massa-model-v1-CoinOrigin)
     - [ExecutionOutputStatus](#massa-model-v1-ExecutionOutputStatus)
-    - [Item](#massa-model-v1-Item)
     - [LedgerChangeType](#massa-model-v1-LedgerChangeType)
     - [OperationExecutionStatus](#massa-model-v1-OperationExecutionStatus)
     - [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus)
@@ -1308,6 +1308,29 @@ Execute a bytecode
 
 
 
+<a name="massa-model-v1-ExecTransferInfo"></a>
+
+### ExecTransferInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  |  |
+| from_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| to_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| value | [TransferValue](#massa-model-v1-TransferValue) |  |  |
+| origin | [CoinOrigin](#massa-model-v1-CoinOrigin) |  |  |
+| operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| async_msg_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| deferred_call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| denunciation_index | [DenunciationIndex](#massa-model-v1-DenunciationIndex) |  |  |
+
+
+
+
+
+
 <a name="massa-model-v1-ExecutedOpsChangeEntry"></a>
 
 ### ExecutedOpsChangeEntry
@@ -1748,25 +1771,17 @@ StateChanges
 
 
 
-<a name="massa-model-v1-TransferInfo"></a>
+<a name="massa-model-v1-TransferValue"></a>
 
-### TransferInfo
+### TransferValue
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  |  |
-| from_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
-| to_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
-| item | [Item](#massa-model-v1-Item) |  |  |
-| amount | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | mas |
-| rolls_count | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  |  |
-| origin | [CoinOrigin](#massa-model-v1-CoinOrigin) |  |  |
-| operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
-| async_msg_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
-| deferred_call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
-| denunciation_index | [DenunciationIndex](#massa-model-v1-DenunciationIndex) |  |  |
+| rolls | [uint64](#uint64) |  |  |
+| coins | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| deferred_credits | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
 
 
 
@@ -1841,20 +1856,6 @@ ExecutionOutputStatus type enum
 | EXECUTION_OUTPUT_STATUS_CANDIDATE | 1 | Candidate status |
 | EXECUTION_OUTPUT_STATUS_FINAL | 2 | Final status |
 | EXECUTION_OUTPUT_STATUS_UNKNOWN | 3 | Unknown status |
-
-
-
-<a name="massa-model-v1-Item"></a>
-
-### Item
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| ITEM_UNSPECIFIED | 0 |  |
-| ITEM_ROLL | 1 |  |
-| ITEM_MAS | 2 |  |
-| ITEM_DEFERRED_MAS | 3 |  |
 
 
 

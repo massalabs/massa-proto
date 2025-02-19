@@ -958,7 +958,7 @@ message NewTransfersInfoServerResponse {
   // block id
   google.protobuf.StringValue block_id = 3;
   // transfers info
-  repeated massa.model.v1.TransferInfo transfers_info = 4;
+  repeated massa.model.v1.ExecTransferInfo transfers_info = 4;
   // // reward for block producer
   // massa.model.v1.TargetAmount block_producer_reward = 1;
   // // reward for endorsement creator

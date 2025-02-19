@@ -513,6 +513,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.model.v1.ExecTransferInfo"><span class="badge">M</span>ExecTransferInfo</a>
+                </li>
+              
+                <li>
                   <a href="#massa.model.v1.ExecutedOpsChangeEntry"><span class="badge">M</span>ExecutedOpsChangeEntry</a>
                 </li>
               
@@ -617,7 +621,7 @@
                 </li>
               
                 <li>
-                  <a href="#massa.model.v1.TransferInfo"><span class="badge">M</span>TransferInfo</a>
+                  <a href="#massa.model.v1.TransferValue"><span class="badge">M</span>TransferValue</a>
                 </li>
               
               
@@ -631,10 +635,6 @@
               
                 <li>
                   <a href="#massa.model.v1.ExecutionOutputStatus"><span class="badge">E</span>ExecutionOutputStatus</a>
-                </li>
-              
-                <li>
-                  <a href="#massa.model.v1.Item"><span class="badge">E</span>Item</a>
                 </li>
               
                 <li>
@@ -3414,6 +3414,86 @@ filter, this boolean is true if the filter has been matched between
 
         
       
+        <h3 id="massa.model.v1.ExecTransferInfo">ExecTransferInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>from_address</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>to_address</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#massa.model.v1.TransferValue">TransferValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>origin</td>
+                  <td><a href="#massa.model.v1.CoinOrigin">CoinOrigin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operation_id</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>async_msg_id</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deferred_call_id</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>denunciation_index</td>
+                  <td><a href="#massa.model.v1.DenunciationIndex">DenunciationIndex</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.model.v1.ExecutedOpsChangeEntry">ExecutedOpsChangeEntry</h3>
         <p>ExecutedOpsChangeEntry</p>
 
@@ -4371,7 +4451,7 @@ used </p></td>
 
         
       
-        <h3 id="massa.model.v1.TransferInfo">TransferInfo</h3>
+        <h3 id="massa.model.v1.TransferValue">TransferValue</h3>
         <p></p>
 
         
@@ -4382,78 +4462,22 @@ used </p></td>
             <tbody>
               
                 <tr>
-                  <td>id</td>
-                  <td><a href="#string">string</a></td>
+                  <td>rolls</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>from_address</td>
-                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td>coins</td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>to_address</td>
-                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>item</td>
-                  <td><a href="#massa.model.v1.Item">Item</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>amount</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
-                  <td></td>
-                  <td><p>mas </p></td>
-                </tr>
-              
-                <tr>
-                  <td>rolls_count</td>
-                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>origin</td>
-                  <td><a href="#massa.model.v1.CoinOrigin">CoinOrigin</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>operation_id</td>
-                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>async_msg_id</td>
-                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>deferred_call_id</td>
-                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>denunciation_index</td>
-                  <td><a href="#massa.model.v1.DenunciationIndex">DenunciationIndex</a></td>
+                  <td>deferred_credits</td>
+                  <td><a href="#massa.model.v1.NativeAmount">NativeAmount</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -4729,41 +4753,6 @@ used </p></td>
                 <td>EXECUTION_OUTPUT_STATUS_UNKNOWN</td>
                 <td>3</td>
                 <td><p>Unknown status</p></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      
-        <h3 id="massa.model.v1.Item">Item</h3>
-        <p></p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>ITEM_UNSPECIFIED</td>
-                <td>0</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>ITEM_ROLL</td>
-                <td>1</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>ITEM_MAS</td>
-                <td>2</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>ITEM_DEFERRED_MAS</td>
-                <td>3</td>
-                <td><p></p></td>
               </tr>
             
           </tbody>

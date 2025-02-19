@@ -481,19 +481,16 @@ message DeferredCallExecution {
   massa.model.v1.NativeAmount coins = 5;
 }
 
-message TransferInfo {
+message ExecTransferInfo {
   string id = 1;
   google.protobuf.StringValue from_address = 2;
   google.protobuf.StringValue to_address = 3;
-  massa.model.v1.Item item = 4;
-  // mas
-  google.protobuf.UInt64Value amount = 5;
-  google.protobuf.UInt64Value rolls_count = 6;
-  massa.model.v1.CoinOrigin origin = 7;
-  google.protobuf.StringValue operation_id = 8;
-  google.protobuf.StringValue async_msg_id = 9;
-  google.protobuf.StringValue deferred_call_id = 10;
-  massa.model.v1.DenunciationIndex denunciation_index = 11;
+  massa.model.v1.TransferValue value = 4;
+  massa.model.v1.CoinOrigin origin = 5;
+  google.protobuf.StringValue operation_id = 6;
+  google.protobuf.StringValue async_msg_id = 7;
+  google.protobuf.StringValue deferred_call_id = 8;
+  massa.model.v1.DenunciationIndex denunciation_index = 9;
 }
 
 // enum CoinDirection {
@@ -502,11 +499,12 @@ message TransferInfo {
 //   COIN_DIRECTION_CREDIT = 2;
 // }
 
-enum Item {
-  ITEM_UNSPECIFIED = 0;
-  ITEM_ROLL = 1;
-  ITEM_MAS = 2;
-  ITEM_DEFERRED_MAS = 3;
+message TransferValue {
+  oneof value {
+    uint64 rolls = 1;
+    massa.model.v1.NativeAmount coins = 2;
+    massa.model.v1.NativeAmount deferred_credits = 3;
+  }
 }
 
 enum CoinOrigin {

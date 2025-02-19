@@ -2408,7 +2408,7 @@ NewSlotTransfers response
 | slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | executed slot |
 | timestamp | [int64](#int64) |  | timestamp |
 | block_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | block id |
-| transfers_info | [massa.model.v1.TransferInfo](#massa-model-v1-TransferInfo) | repeated | transfers info
+| transfers_info | [massa.model.v1.ExecTransferInfo](#massa-model-v1-ExecTransferInfo) | repeated | transfers info
 
 // reward for block producer massa.model.v1.TargetAmount block_producer_reward = 1; // reward for endorsement creator repeated massa.model.v1.TargetAmount endorsement_creator_rewards = 2; // reward for endorsement target massa.model.v1.TargetAmount endorsement_target_reward = 3; // executed denunciations repeated massa.model.v1.DenunciationAddress denunciations = 4; // executed roll buy / roll sell repeated massa.model.v1.OperationTypeRoll operations = 5; // executed async messages repeated massa.model.v1.AsyncMessageExecution async_messages = 6; // executed deferred calls repeated massa.model.v1.DeferredCallExecution deferred_calls_messages = 7; // executed deferred credits repeated massa.model.v1.TargetAmount deferred_credits_execution = 8; // executed cancel async messages repeated massa.model.v1.TargetAmount cancel_async_message_execution = 9; // executed auto sell roll repeated massa.model.v1.TargetAmount auto_sell_execution = 10; |
 
