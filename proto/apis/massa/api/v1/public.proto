@@ -233,7 +233,7 @@ service PublicService {
   rpc TransactionsThroughputServer(TransactionsThroughputServerRequest) returns (stream TransactionsThroughputServerResponse) {}
 
   // New execution Info
-  rpc NewExecutionInfoServer(NewExecutionInfoServerRequest) returns (stream NewExecutionInfoServerResponse) {}
+  rpc NewTransfersInfoServer(NewTransfersInfoServerRequest) returns (stream NewTransfersInfoServerResponse) {}
 }
 
 // ExecuteReadOnlyCallRequest holds request for ExecuteReadOnlyCall
@@ -945,12 +945,12 @@ message NewOperationsServerResponse {
   massa.model.v1.SignedOperation signed_operation = 1;
 }
 
-message NewExecutionInfoServerRequest {
+message NewTransfersInfoServerRequest {
   // optional filter address
   google.protobuf.StringValue address = 1;
 }
 
-message NewExecutionInfoServerResponse {
+message NewTransfersInfoServerResponse {
   // executed slot
   massa.model.v1.Slot slot = 1;
   // timestamp
