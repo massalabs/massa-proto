@@ -1468,6 +1468,7 @@ ScExecutionEvent context
 | origin_operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Origin operation id (Optional) |
 | is_failure | [bool](#bool) |  | If a failure occurred |
 | status | [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus) |  | Status |
+| read_only | [bool](#bool) |  | read only |
 
 
 
