@@ -31,9 +31,11 @@ message OperationType {
   oneof type {
     // Transfer coins from sender to recipient
     Transaction transaction = 1;
-    // The sender buys `roll_count` rolls. Roll price is defined in configuration
+    // The sender buys `roll_count` rolls. Roll price is defined in
+    // configuration
     RollBuy roll_buy = 2;
-    // The sender sells `roll_count` rolls. Roll price is defined in configuration
+    // The sender sells `roll_count` rolls. Roll price is defined in
+    // configuration
     RollSell roll_sell = 3;
     // Execute a smart contract
     ExecuteSC execut_sc = 4;
@@ -68,7 +70,8 @@ message ExecuteSC {
   bytes data = 1;
   // The maximum of coins that could be spent by the operation sender
   uint64 max_coins = 2;
-  // The maximum amount of gas that the execution of the contract is allowed to cost
+  // The maximum amount of gas that the execution of the contract is allowed to
+  // cost
   uint64 max_gas = 3;
   // A key-value store associating a hash to arbitrary bytes
   repeated BytesMapFieldEntry datastore = 4;
@@ -82,9 +85,11 @@ message CallSC {
   string target_function = 2;
   // Parameter to pass to the target function
   bytes parameter = 3;
-  // The maximum amount of gas that the execution of the contract is allowed to cost
+  // The maximum amount of gas that the execution of the contract is allowed to
+  // cost
   uint64 max_gas = 4;
-  // Extra coins that are spent from the caller's balance and transferred to the target
+  // Extra coins that are spent from the caller's balance and transferred to the
+  // target
   massa.model.v1.NativeAmount coins = 5;
 }
 
@@ -92,13 +97,15 @@ message CallSC {
 message SignedOperation {
   // Operation
   Operation content = 1;
-  // A cryptographically generated value using `serialized_data` and a public key.
+  // A cryptographically generated value using `serialized_data` and a public
+  // key.
   string signature = 2;
   // The public-key component used in the generation of the signature
   string content_creator_pub_key = 3;
   // Derived from the same public key used to generate the signature
   string content_creator_address = 4;
-  // A secure hash of the non-malleable contents of a deterministic binary representation of the block header
+  // A secure hash of the non-malleable contents of a deterministic binary
+  // representation of the block header
   string secure_hash = 5;
   // The size of the serialized operation in bytes
   uint64 serialized_size = 6;
@@ -144,4 +151,12 @@ enum OpType {
   OP_TYPE_ROLL_SELL = 3; // Roll sell
   OP_TYPE_EXECUTE_SC = 4; // Execute smart contract
   OP_TYPE_CALL_SC = 5; // Call smart contract
+}
+
+message OperationTypeRoll {
+  string address = 1;
+  oneof type {
+    RollBuy roll_buy = 2;
+    RollSell roll_sell = 3;
+  }
 }

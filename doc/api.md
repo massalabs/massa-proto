@@ -151,6 +151,8 @@
     - [NewSlotExecutionOutputsServerResponse](#massa-api-v1-NewSlotExecutionOutputsServerResponse)
     - [NewSlotTransfersRequest](#massa-api-v1-NewSlotTransfersRequest)
     - [NewSlotTransfersResponse](#massa-api-v1-NewSlotTransfersResponse)
+    - [NewTransfersInfoServerRequest](#massa-api-v1-NewTransfersInfoServerRequest)
+    - [NewTransfersInfoServerResponse](#massa-api-v1-NewTransfersInfoServerResponse)
     - [OpExecutionStatusCandidate](#massa-api-v1-OpExecutionStatusCandidate)
     - [OpExecutionStatusFinal](#massa-api-v1-OpExecutionStatusFinal)
     - [OperationABICallStack](#massa-api-v1-OperationABICallStack)
@@ -2320,7 +2322,8 @@ NewSlotExecutionOutputsResponse holds response from NewSlotExecutionOutputs
 <a name="massa-api-v1-NewSlotExecutionOutputsServerRequest"></a>
 
 ### NewSlotExecutionOutputsServerRequest
-NewSlotExecutionOutputsServerRequest holds request for NewSlotExecutionOutputs
+NewSlotExecutionOutputsServerRequest holds request for
+NewSlotExecutionOutputs
 
 
 | Field | Type | Label | Description |
@@ -2335,7 +2338,8 @@ NewSlotExecutionOutputsServerRequest holds request for NewSlotExecutionOutputs
 <a name="massa-api-v1-NewSlotExecutionOutputsServerResponse"></a>
 
 ### NewSlotExecutionOutputsServerResponse
-NewSlotExecutionOutputsServerResponse holds response from NewSlotExecutionOutputs
+NewSlotExecutionOutputsServerResponse holds response from
+NewSlotExecutionOutputs
 
 
 | Field | Type | Label | Description |
@@ -2372,6 +2376,41 @@ NewSlotTransfers response
 | ----- | ---- | ----- | ----------- |
 | slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Finality level to receive informations from |
 | transfers | [TransferInfo](#massa-api-v1-TransferInfo) | repeated | Transfers |
+
+
+
+
+
+
+<a name="massa-api-v1-NewTransfersInfoServerRequest"></a>
+
+### NewTransfersInfoServerRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | optional filter address |
+
+
+
+
+
+
+<a name="massa-api-v1-NewTransfersInfoServerResponse"></a>
+
+### NewTransfersInfoServerResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | executed slot |
+| timestamp | [int64](#int64) |  | timestamp |
+| block_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | block id |
+| transfers_info | [massa.model.v1.ExecTransferInfo](#massa-model-v1-ExecTransferInfo) | repeated | transfers info
+
+// reward for block producer massa.model.v1.TargetAmount block_producer_reward = 1; // reward for endorsement creator repeated massa.model.v1.TargetAmount endorsement_creator_rewards = 2; // reward for endorsement target massa.model.v1.TargetAmount endorsement_target_reward = 3; // executed denunciations repeated massa.model.v1.DenunciationAddress denunciations = 4; // executed roll buy / roll sell repeated massa.model.v1.OperationTypeRoll operations = 5; // executed async messages repeated massa.model.v1.AsyncMessageExecution async_messages = 6; // executed deferred calls repeated massa.model.v1.DeferredCallExecution deferred_calls_messages = 7; // executed deferred credits repeated massa.model.v1.TargetAmount deferred_credits_execution = 8; // executed cancel async messages repeated massa.model.v1.TargetAmount cancel_async_message_execution = 9; // executed auto sell roll repeated massa.model.v1.TargetAmount auto_sell_execution = 10; |
 
 
 
@@ -2838,7 +2877,8 @@ TransactionsThroughputServerRequest holds request for TransactionsThroughput
 <a name="massa-api-v1-TransactionsThroughputServerResponse"></a>
 
 ### TransactionsThroughputServerResponse
-TransactionsThroughputServerResponse holds response from TransactionsThroughput
+TransactionsThroughputServerResponse holds response from
+TransactionsThroughput
 
 
 | Field | Type | Label | Description |
@@ -2960,6 +3000,7 @@ Massa public gRPC service
 | SendOperations | [SendOperationsRequest](#massa-api-v1-SendOperationsRequest) stream | [SendOperationsResponse](#massa-api-v1-SendOperationsResponse) stream | Send operations |
 | TransactionsThroughput | [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest) stream | [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse) stream | Transactions throughput |
 | TransactionsThroughputServer | [TransactionsThroughputServerRequest](#massa-api-v1-TransactionsThroughputServerRequest) | [TransactionsThroughputServerResponse](#massa-api-v1-TransactionsThroughputServerResponse) stream | Transactions throughput unidirectional |
+| NewTransfersInfoServer | [NewTransfersInfoServerRequest](#massa-api-v1-NewTransfersInfoServerRequest) | [NewTransfersInfoServerResponse](#massa-api-v1-NewTransfersInfoServerResponse) stream | New execution Info |
 
  
 
