@@ -438,6 +438,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.DeferredCallABICallStack"><span class="badge">M</span>DeferredCallABICallStack</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.DeferredCallInfo"><span class="badge">M</span>DeferredCallInfo</a>
                 </li>
               
@@ -2488,6 +2492,37 @@ this boolean is true if the filter has been matched between
                   <td>repeated</td>
                   <td><p>Addresses to restrict the query (if None, info for all addresses will be
 returned) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.DeferredCallABICallStack">DeferredCallABICallStack</h3>
+        <p>Operation execution call stack</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>deferred_call_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Deferred call id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>call_stack</td>
+                  <td><a href="#massa.api.v1.ABICallStackElementParent">ABICallStackElementParent</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stack </p></td>
                 </tr>
               
             </tbody>
@@ -4551,6 +4586,13 @@ returned) </p></td>
                   <td><p>Call stack for operations </p></td>
                 </tr>
               
+                <tr>
+                  <td>deferred_call_stacks</td>
+                  <td><a href="#massa.api.v1.DeferredCallABICallStack">DeferredCallABICallStack</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stack for deferred calls </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -5460,6 +5502,13 @@ returned) </p></td>
                   <td><p>Call stack for operations </p></td>
                 </tr>
               
+                <tr>
+                  <td>deferred_call_stacks</td>
+                  <td><a href="#massa.api.v1.DeferredCallABICallStack">DeferredCallABICallStack</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stacks for deferred calls </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -5596,6 +5645,13 @@ returned) </p></td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Asynchronous execution index </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deferred_call_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Deferred call id </p></td>
                 </tr>
               
             </tbody>
