@@ -1260,7 +1260,7 @@ message TransferInfo {
   // Amount in nMAS
   uint64 amount = 3;
   // Operation id, asc index or deferred call id
-  oneof operation_id_asc_index_or_deferred_call_id {
+  oneof operation_id_or_asc_index {
     // Operation id
     string operation_id = 4;
     // Asynchronous execution index
