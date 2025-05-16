@@ -995,6 +995,8 @@ message NewSlotABICallStacksResponse {
   repeated ASCABICallStack asc_call_stacks = 2;
   // Call stack for operations
   repeated OperationABICallStack operation_call_stacks = 3;
+  // Call stack for deferred calls
+  repeated DeferredCallABICallStack deferred_call_stacks = 4;
 }
 
 // NewSlotTransfers request
@@ -1219,12 +1221,22 @@ message OperationABICallStack {
   repeated ABICallStackElementParent call_stack = 2;
 }
 
+// Operation execution call stack
+message DeferredCallABICallStack {
+  // Deferred call id
+  string deferred_call_id = 1;
+  // Call stack
+  repeated ABICallStackElementParent call_stack = 2;
+}
+
 // Call stack for a slot
 message SlotABICallStacks {
   // Call stacks for asynchronous execution
   repeated ASCABICallStack asc_call_stacks = 1;
   // Call stack for operations
   repeated OperationABICallStack operation_call_stacks = 2;
+  // Call stacks for deferred calls
+  repeated DeferredCallABICallStack deferred_call_stacks = 3;
 }
 
 // GetSlotABICallStacks response
@@ -1253,6 +1265,8 @@ message TransferInfo {
     string operation_id = 4;
     // Asynchronous execution index
     uint64 asc_index = 5;
+    // Deferred call id
+    string deferred_call_id = 6;
   }
 }
 

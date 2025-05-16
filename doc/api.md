@@ -69,6 +69,7 @@
     - [AddressRollsFinal](#massa-api-v1-AddressRollsFinal)
     - [AsyncPoolChangesFilter](#massa-api-v1-AsyncPoolChangesFilter)
     - [CycleInfos](#massa-api-v1-CycleInfos)
+    - [DeferredCallABICallStack](#massa-api-v1-DeferredCallABICallStack)
     - [DeferredCallInfo](#massa-api-v1-DeferredCallInfo)
     - [DeferredCallInfoEntry](#massa-api-v1-DeferredCallInfoEntry)
     - [DeferredCallInfoResponse](#massa-api-v1-DeferredCallInfoResponse)
@@ -1055,6 +1056,22 @@ Request to get all information for a given cycle
 | ----- | ---- | ----- | ----------- |
 | cycle | [uint64](#uint64) |  | Cycle to query |
 | restrict_to_addresses | [string](#string) | repeated | Addresses to restrict the query (if None, info for all addresses will be returned) |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCallABICallStack"></a>
+
+### DeferredCallABICallStack
+Operation execution call stack
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| deferred_call_id | [string](#string) |  | Deferred call id |
+| call_stack | [ABICallStackElementParent](#massa-api-v1-ABICallStackElementParent) | repeated | Call stack |
 
 
 
@@ -2118,6 +2135,7 @@ NewSlotABICallStacks response
 | slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Finality level to receive informations from |
 | asc_call_stacks | [ASCABICallStack](#massa-api-v1-ASCABICallStack) | repeated | Call stacks for asynchronous execution |
 | operation_call_stacks | [OperationABICallStack](#massa-api-v1-OperationABICallStack) | repeated | Call stack for operations |
+| deferred_call_stacks | [DeferredCallABICallStack](#massa-api-v1-DeferredCallABICallStack) | repeated | Call stack for deferred calls |
 
 
 
@@ -2595,6 +2613,7 @@ Call stack for a slot
 | ----- | ---- | ----- | ----------- |
 | asc_call_stacks | [ASCABICallStack](#massa-api-v1-ASCABICallStack) | repeated | Call stacks for asynchronous execution |
 | operation_call_stacks | [OperationABICallStack](#massa-api-v1-OperationABICallStack) | repeated | Call stack for operations |
+| deferred_call_stacks | [DeferredCallABICallStack](#massa-api-v1-DeferredCallABICallStack) | repeated | Call stacks for deferred calls |
 
 
 
@@ -2661,6 +2680,7 @@ Transfer info
 | amount | [uint64](#uint64) |  | Amount in nMAS |
 | operation_id | [string](#string) |  | Operation id |
 | asc_index | [uint64](#uint64) |  | Asynchronous execution index |
+| deferred_call_id | [string](#string) |  | Deferred call id |
 
 
 
