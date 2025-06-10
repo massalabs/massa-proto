@@ -438,6 +438,10 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.DeferredCallABICallStack"><span class="badge">M</span>DeferredCallABICallStack</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.DeferredCallInfo"><span class="badge">M</span>DeferredCallInfo</a>
                 </li>
               
@@ -662,6 +666,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.NewBlocksServerRequest"><span class="badge">M</span>NewBlocksServerRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewBlocksServerResponse"><span class="badge">M</span>NewBlocksServerResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.NewEndorsementsFilter"><span class="badge">M</span>NewEndorsementsFilter</a>
                 </li>
               
@@ -671,6 +683,14 @@
               
                 <li>
                   <a href="#massa.api.v1.NewEndorsementsResponse"><span class="badge">M</span>NewEndorsementsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewEndorsementsServerRequest"><span class="badge">M</span>NewEndorsementsServerRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewEndorsementsServerResponse"><span class="badge">M</span>NewEndorsementsServerResponse</a>
                 </li>
               
                 <li>
@@ -686,6 +706,14 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.NewFilledBlocksServerRequest"><span class="badge">M</span>NewFilledBlocksServerRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewFilledBlocksServerResponse"><span class="badge">M</span>NewFilledBlocksServerResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.NewOperationsFilter"><span class="badge">M</span>NewOperationsFilter</a>
                 </li>
               
@@ -695,6 +723,14 @@
               
                 <li>
                   <a href="#massa.api.v1.NewOperationsResponse"><span class="badge">M</span>NewOperationsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewOperationsServerRequest"><span class="badge">M</span>NewOperationsServerRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewOperationsServerResponse"><span class="badge">M</span>NewOperationsServerResponse</a>
                 </li>
               
                 <li>
@@ -718,11 +754,27 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.NewSlotExecutionOutputsServerRequest"><span class="badge">M</span>NewSlotExecutionOutputsServerRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewSlotExecutionOutputsServerResponse"><span class="badge">M</span>NewSlotExecutionOutputsServerResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.NewSlotTransfersRequest"><span class="badge">M</span>NewSlotTransfersRequest</a>
                 </li>
               
                 <li>
                   <a href="#massa.api.v1.NewSlotTransfersResponse"><span class="badge">M</span>NewSlotTransfersResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewTransfersInfoServerRequest"><span class="badge">M</span>NewTransfersInfoServerRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.NewTransfersInfoServerResponse"><span class="badge">M</span>NewTransfersInfoServerResponse</a>
                 </li>
               
                 <li>
@@ -835,6 +887,14 @@
               
                 <li>
                   <a href="#massa.api.v1.TransactionsThroughputResponse"><span class="badge">M</span>TransactionsThroughputResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.TransactionsThroughputServerRequest"><span class="badge">M</span>TransactionsThroughputServerRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.TransactionsThroughputServerResponse"><span class="badge">M</span>TransactionsThroughputServerResponse</a>
                 </li>
               
                 <li>
@@ -2159,6 +2219,41 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><p>Prefix for the keys </p></td>
                 </tr>
               
+                <tr>
+                  <td>start_key</td>
+                  <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
+                  <td></td>
+                  <td><p>Key offset for the search </p></td>
+                </tr>
+              
+                <tr>
+                  <td>inclusive_start_key</td>
+                  <td><a href="#google.protobuf.BoolValue">google.protobuf.BoolValue</a></td>
+                  <td></td>
+                  <td><p>included start_key </p></td>
+                </tr>
+              
+                <tr>
+                  <td>end_key</td>
+                  <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
+                  <td></td>
+                  <td><p>End key for the search </p></td>
+                </tr>
+              
+                <tr>
+                  <td>inclusive_end_key</td>
+                  <td><a href="#google.protobuf.BoolValue">google.protobuf.BoolValue</a></td>
+                  <td></td>
+                  <td><p>included end_key </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#google.protobuf.UInt32Value">google.protobuf.UInt32Value</a></td>
+                  <td></td>
+                  <td><p>Limit for the number of keys </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -2188,6 +2283,41 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
                   <td><p>Prefix for the keys </p></td>
+                </tr>
+              
+                <tr>
+                  <td>start_key</td>
+                  <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
+                  <td></td>
+                  <td><p>Key offset for the search </p></td>
+                </tr>
+              
+                <tr>
+                  <td>inclusive_start_key</td>
+                  <td><a href="#google.protobuf.BoolValue">google.protobuf.BoolValue</a></td>
+                  <td></td>
+                  <td><p>included start_key </p></td>
+                </tr>
+              
+                <tr>
+                  <td>end_key</td>
+                  <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
+                  <td></td>
+                  <td><p>End key for the search </p></td>
+                </tr>
+              
+                <tr>
+                  <td>inclusive_end_key</td>
+                  <td><a href="#google.protobuf.BoolValue">google.protobuf.BoolValue</a></td>
+                  <td></td>
+                  <td><p>included end_key </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#google.protobuf.UInt32Value">google.protobuf.UInt32Value</a></td>
+                  <td></td>
+                  <td><p>Limit for the number of keys </p></td>
                 </tr>
               
             </tbody>
@@ -2488,6 +2618,37 @@ this boolean is true if the filter has been matched between
                   <td>repeated</td>
                   <td><p>Addresses to restrict the query (if None, info for all addresses will be
 returned) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.DeferredCallABICallStack">DeferredCallABICallStack</h3>
+        <p>Operation execution call stack</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>deferred_call_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Deferred call id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>call_stack</td>
+                  <td><a href="#massa.api.v1.ABICallStackElementParent">ABICallStackElementParent</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stack </p></td>
                 </tr>
               
             </tbody>
@@ -4238,6 +4399,54 @@ returned) </p></td>
 
         
       
+        <h3 id="massa.api.v1.NewBlocksServerRequest">NewBlocksServerRequest</h3>
+        <p>NewBlocksServerRequest holds request for unidirectional NewBlocks</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.NewBlocksFilter">NewBlocksFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the blocks that verify all the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewBlocksServerResponse">NewBlocksServerResponse</h3>
+        <p>NewBlocksServerResponse holds response from unidirectional NewBlocks</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>signed_block</td>
+                  <td><a href="#massa.model.v1.SignedBlock">massa.model.v1.SignedBlock</a></td>
+                  <td></td>
+                  <td><p>Signed block </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.NewEndorsementsFilter">NewEndorsementsFilter</h3>
         <p>NewEndorsements Filter</p>
 
@@ -4302,6 +4511,54 @@ returned) </p></td>
       
         <h3 id="massa.api.v1.NewEndorsementsResponse">NewEndorsementsResponse</h3>
         <p>NewEndorsementsResponse holds response from NewEndorsements</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>signed_endorsement</td>
+                  <td><a href="#massa.model.v1.SignedEndorsement">massa.model.v1.SignedEndorsement</a></td>
+                  <td></td>
+                  <td><p>Signed endorsement </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewEndorsementsServerRequest">NewEndorsementsServerRequest</h3>
+        <p>NewEndorsementsServerRequest holds request for NewEndorsements</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.NewEndorsementsFilter">NewEndorsementsFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the endorsements that verify all the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewEndorsementsServerResponse">NewEndorsementsServerResponse</h3>
+        <p>NewEndorsementsServerResponse holds response from NewEndorsements</p>
 
         
           <table class="field-table">
@@ -4410,6 +4667,54 @@ returned) </p></td>
 
         
       
+        <h3 id="massa.api.v1.NewFilledBlocksServerRequest">NewFilledBlocksServerRequest</h3>
+        <p>NewFilledBlocksServerRequest holds request for NewFilledBlocks</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.NewBlocksFilter">NewBlocksFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the blocks that verify one of the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewFilledBlocksServerResponse">NewFilledBlocksServerResponse</h3>
+        <p>NewFilledBlocksServerResponse holds response from NewFilledBlocks</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filled_block</td>
+                  <td><a href="#massa.model.v1.FilledBlock">massa.model.v1.FilledBlock</a></td>
+                  <td></td>
+                  <td><p>Block with operations content found in the node. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.NewOperationsFilter">NewOperationsFilter</h3>
         <p>NewOperations Filter</p>
 
@@ -4496,6 +4801,54 @@ returned) </p></td>
 
         
       
+        <h3 id="massa.api.v1.NewOperationsServerRequest">NewOperationsServerRequest</h3>
+        <p>NewOperationsRequest holds request for NewOperations</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.NewOperationsFilter">NewOperationsFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the operations that verify all the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewOperationsServerResponse">NewOperationsServerResponse</h3>
+        <p>NewOperationsServerResponse holds response from NewOperations</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>signed_operation</td>
+                  <td><a href="#massa.model.v1.SignedOperation">massa.model.v1.SignedOperation</a></td>
+                  <td></td>
+                  <td><p>Signed operation </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.NewSlotABICallStacksRequest">NewSlotABICallStacksRequest</h3>
         <p>NewSlotABICallStacks request</p>
 
@@ -4549,6 +4902,13 @@ returned) </p></td>
                   <td><a href="#massa.api.v1.OperationABICallStack">OperationABICallStack</a></td>
                   <td>repeated</td>
                   <td><p>Call stack for operations </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deferred_call_stacks</td>
+                  <td><a href="#massa.api.v1.DeferredCallABICallStack">DeferredCallABICallStack</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stack for deferred calls </p></td>
                 </tr>
               
             </tbody>
@@ -4672,6 +5032,54 @@ returned) </p></td>
 
         
       
+        <h3 id="massa.api.v1.NewSlotExecutionOutputsServerRequest">NewSlotExecutionOutputsServerRequest</h3>
+        <p>NewSlotExecutionOutputsServerRequest holds request for</p><p>NewSlotExecutionOutputs</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filters</td>
+                  <td><a href="#massa.api.v1.NewSlotExecutionOutputsFilter">NewSlotExecutionOutputsFilter</a></td>
+                  <td>repeated</td>
+                  <td><p>Returns all the slot execution outputs that verify all the filters </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewSlotExecutionOutputsServerResponse">NewSlotExecutionOutputsServerResponse</h3>
+        <p>NewSlotExecutionOutputsServerResponse holds response from</p><p>NewSlotExecutionOutputs</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>output</td>
+                  <td><a href="#massa.model.v1.SlotExecutionOutput">massa.model.v1.SlotExecutionOutput</a></td>
+                  <td></td>
+                  <td><p>Slot execution output </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.NewSlotTransfersRequest">NewSlotTransfersRequest</h3>
         <p>NewSlotTransfers request</p>
 
@@ -4718,6 +5126,96 @@ returned) </p></td>
                   <td><a href="#massa.api.v1.TransferInfo">TransferInfo</a></td>
                   <td>repeated</td>
                   <td><p>Transfers </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewTransfersInfoServerRequest">NewTransfersInfoServerRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p>optional filter address </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.NewTransfersInfoServerResponse">NewTransfersInfoServerResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>slot</td>
+                  <td><a href="#massa.model.v1.Slot">massa.model.v1.Slot</a></td>
+                  <td></td>
+                  <td><p>executed slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>timestamp</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>timestamp </p></td>
+                </tr>
+              
+                <tr>
+                  <td>block_id</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p>block id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transfers_info</td>
+                  <td><a href="#massa.model.v1.ExecTransferInfo">massa.model.v1.ExecTransferInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>transfers info
+
+// reward for block producer
+massa.model.v1.TargetAmount block_producer_reward = 1;
+// reward for endorsement creator
+repeated massa.model.v1.TargetAmount endorsement_creator_rewards = 2;
+// reward for endorsement target
+massa.model.v1.TargetAmount endorsement_target_reward = 3;
+// executed denunciations
+repeated massa.model.v1.DenunciationAddress denunciations = 4;
+// executed roll buy / roll sell
+repeated massa.model.v1.OperationTypeRoll operations = 5;
+// executed async messages
+repeated massa.model.v1.AsyncMessageExecution async_messages = 6;
+// executed deferred calls
+repeated massa.model.v1.DeferredCallExecution deferred_calls_messages = 7;
+// executed deferred credits
+repeated massa.model.v1.TargetAmount deferred_credits_execution = 8;
+// executed cancel async messages
+repeated massa.model.v1.TargetAmount cancel_async_message_execution = 9;
+// executed auto sell roll
+repeated massa.model.v1.TargetAmount auto_sell_execution = 10; </p></td>
                 </tr>
               
             </tbody>
@@ -5460,6 +5958,13 @@ returned) </p></td>
                   <td><p>Call stack for operations </p></td>
                 </tr>
               
+                <tr>
+                  <td>deferred_call_stacks</td>
+                  <td><a href="#massa.api.v1.DeferredCallABICallStack">DeferredCallABICallStack</a></td>
+                  <td>repeated</td>
+                  <td><p>Call stacks for deferred calls </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -5553,6 +6058,54 @@ returned) </p></td>
 
         
       
+        <h3 id="massa.api.v1.TransactionsThroughputServerRequest">TransactionsThroughputServerRequest</h3>
+        <p>TransactionsThroughputServerRequest holds request for TransactionsThroughput</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>interval</td>
+                  <td><a href="#google.protobuf.UInt64Value">google.protobuf.UInt64Value</a></td>
+                  <td></td>
+                  <td><p>Timer interval in seconds (Optional). Defaults to 10s </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.TransactionsThroughputServerResponse">TransactionsThroughputServerResponse</h3>
+        <p>TransactionsThroughputServerResponse holds response from</p><p>TransactionsThroughput</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>throughput</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>Transactions throughput per second </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.TransferInfo">TransferInfo</h3>
         <p>Transfer info</p>
 
@@ -5596,6 +6149,13 @@ returned) </p></td>
                   <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p>Asynchronous execution index </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deferred_call_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Deferred call id </p></td>
                 </tr>
               
             </tbody>
@@ -5849,9 +6409,23 @@ given slot</p></td>
               </tr>
             
               <tr>
+                <td>NewBlocksServer</td>
+                <td><a href="#massa.api.v1.NewBlocksServerRequest">NewBlocksServerRequest</a></td>
+                <td><a href="#massa.api.v1.NewBlocksServerResponse">NewBlocksServerResponse</a> stream</td>
+                <td><p>unidirecitonnal</p></td>
+              </tr>
+            
+              <tr>
                 <td>NewEndorsements</td>
                 <td><a href="#massa.api.v1.NewEndorsementsRequest">NewEndorsementsRequest</a> stream</td>
                 <td><a href="#massa.api.v1.NewEndorsementsResponse">NewEndorsementsResponse</a> stream</td>
+                <td><p>New received and produced endorsements</p></td>
+              </tr>
+            
+              <tr>
+                <td>NewEndorsementsServer</td>
+                <td><a href="#massa.api.v1.NewEndorsementsServerRequest">NewEndorsementsServerRequest</a></td>
+                <td><a href="#massa.api.v1.NewEndorsementsServerResponse">NewEndorsementsServerResponse</a> stream</td>
                 <td><p>New received and produced endorsements</p></td>
               </tr>
             
@@ -5863,6 +6437,13 @@ given slot</p></td>
               </tr>
             
               <tr>
+                <td>NewFilledBlocksServer</td>
+                <td><a href="#massa.api.v1.NewFilledBlocksServerRequest">NewFilledBlocksServerRequest</a></td>
+                <td><a href="#massa.api.v1.NewFilledBlocksServerResponse">NewFilledBlocksServerResponse</a> stream</td>
+                <td><p>New received and produced blocks with operations unidirectional</p></td>
+              </tr>
+            
+              <tr>
                 <td>NewOperations</td>
                 <td><a href="#massa.api.v1.NewOperationsRequest">NewOperationsRequest</a> stream</td>
                 <td><a href="#massa.api.v1.NewOperationsResponse">NewOperationsResponse</a> stream</td>
@@ -5870,10 +6451,24 @@ given slot</p></td>
               </tr>
             
               <tr>
+                <td>NewOperationsServer</td>
+                <td><a href="#massa.api.v1.NewOperationsServerRequest">NewOperationsServerRequest</a></td>
+                <td><a href="#massa.api.v1.NewOperationsServerResponse">NewOperationsServerResponse</a> stream</td>
+                <td><p>unidirectional stream NewOperations</p></td>
+              </tr>
+            
+              <tr>
                 <td>NewSlotExecutionOutputs</td>
                 <td><a href="#massa.api.v1.NewSlotExecutionOutputsRequest">NewSlotExecutionOutputsRequest</a> stream</td>
                 <td><a href="#massa.api.v1.NewSlotExecutionOutputsResponse">NewSlotExecutionOutputsResponse</a> stream</td>
                 <td><p>New received and slot execution events</p></td>
+              </tr>
+            
+              <tr>
+                <td>NewSlotExecutionOutputsServer</td>
+                <td><a href="#massa.api.v1.NewSlotExecutionOutputsServerRequest">NewSlotExecutionOutputsServerRequest</a></td>
+                <td><a href="#massa.api.v1.NewSlotExecutionOutputsServerResponse">NewSlotExecutionOutputsServerResponse</a> stream</td>
+                <td><p>unidirectional stream NewSlotExecutionOutputs</p></td>
               </tr>
             
               <tr>
@@ -5916,6 +6511,20 @@ given slot</p></td>
                 <td><a href="#massa.api.v1.TransactionsThroughputRequest">TransactionsThroughputRequest</a> stream</td>
                 <td><a href="#massa.api.v1.TransactionsThroughputResponse">TransactionsThroughputResponse</a> stream</td>
                 <td><p>Transactions throughput</p></td>
+              </tr>
+            
+              <tr>
+                <td>TransactionsThroughputServer</td>
+                <td><a href="#massa.api.v1.TransactionsThroughputServerRequest">TransactionsThroughputServerRequest</a></td>
+                <td><a href="#massa.api.v1.TransactionsThroughputServerResponse">TransactionsThroughputServerResponse</a> stream</td>
+                <td><p>Transactions throughput unidirectional</p></td>
+              </tr>
+            
+              <tr>
+                <td>NewTransfersInfoServer</td>
+                <td><a href="#massa.api.v1.NewTransfersInfoServerRequest">NewTransfersInfoServerRequest</a></td>
+                <td><a href="#massa.api.v1.NewTransfersInfoServerResponse">NewTransfersInfoServerResponse</a> stream</td>
+                <td><p>New execution Info</p></td>
               </tr>
             
           </tbody>

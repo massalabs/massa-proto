@@ -45,6 +45,7 @@
     - [OperationIds](#massa-model-v1-OperationIds)
     - [OperationInfo](#massa-model-v1-OperationInfo)
     - [OperationType](#massa-model-v1-OperationType)
+    - [OperationTypeRoll](#massa-model-v1-OperationTypeRoll)
     - [OperationWrapper](#massa-model-v1-OperationWrapper)
     - [RollBuy](#massa-model-v1-RollBuy)
     - [RollSell](#massa-model-v1-RollSell)
@@ -56,6 +57,7 @@
 - [massa/model/v1/denunciation.proto](#massa_model_v1_denunciation-proto)
     - [BlockHeaderDenunciation](#massa-model-v1-BlockHeaderDenunciation)
     - [Denunciation](#massa-model-v1-Denunciation)
+    - [DenunciationAddress](#massa-model-v1-DenunciationAddress)
     - [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader)
     - [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement)
     - [DenunciationIndex](#massa-model-v1-DenunciationIndex)
@@ -75,11 +77,14 @@
   
 - [massa/model/v1/execution.proto](#massa_model_v1_execution-proto)
     - [AsyncMessage](#massa-model-v1-AsyncMessage)
+    - [AsyncMessageExecution](#massa-model-v1-AsyncMessageExecution)
     - [AsyncMessageTrigger](#massa-model-v1-AsyncMessageTrigger)
     - [AsyncMessageUpdate](#massa-model-v1-AsyncMessageUpdate)
     - [AsyncPoolChangeEntry](#massa-model-v1-AsyncPoolChangeEntry)
     - [AsyncPoolChangeValue](#massa-model-v1-AsyncPoolChangeValue)
     - [BytecodeExecution](#massa-model-v1-BytecodeExecution)
+    - [DeferredCallExecution](#massa-model-v1-DeferredCallExecution)
+    - [ExecTransferInfo](#massa-model-v1-ExecTransferInfo)
     - [ExecutedOpsChangeEntry](#massa-model-v1-ExecutedOpsChangeEntry)
     - [ExecutedOpsChangeValue](#massa-model-v1-ExecutedOpsChangeValue)
     - [ExecutionOutput](#massa-model-v1-ExecutionOutput)
@@ -105,8 +110,11 @@
     - [SetOrKeepUint64](#massa-model-v1-SetOrKeepUint64)
     - [SlotExecutionOutput](#massa-model-v1-SlotExecutionOutput)
     - [StateChanges](#massa-model-v1-StateChanges)
+    - [TargetAmount](#massa-model-v1-TargetAmount)
+    - [TransferValue](#massa-model-v1-TransferValue)
   
     - [AsyncPoolChangeType](#massa-model-v1-AsyncPoolChangeType)
+    - [CoinOrigin](#massa-model-v1-CoinOrigin)
     - [ExecutionOutputStatus](#massa-model-v1-ExecutionOutputStatus)
     - [LedgerChangeType](#massa-model-v1-LedgerChangeType)
     - [OperationExecutionStatus](#massa-model-v1-OperationExecutionStatus)
@@ -738,6 +746,23 @@ Type specific operation content
 
 
 
+<a name="massa-model-v1-OperationTypeRoll"></a>
+
+### OperationTypeRoll
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  |  |
+| roll_buy | [RollBuy](#massa-model-v1-RollBuy) |  |  |
+| roll_sell | [RollSell](#massa-model-v1-RollSell) |  |  |
+
+
+
+
+
+
 <a name="massa-model-v1-OperationWrapper"></a>
 
 ### OperationWrapper
@@ -883,6 +908,24 @@ Operation type enum
 | ----- | ---- | ----- | ----------- |
 | block_header | [BlockHeaderDenunciation](#massa-model-v1-BlockHeaderDenunciation) |  | Denunciation block header |
 | endorsement | [EndorsementDenunciation](#massa-model-v1-EndorsementDenunciation) |  | Denunciation endorsement |
+| address | [DenunciationAddress](#massa-model-v1-DenunciationAddress) |  | Denunciation address |
+
+
+
+
+
+
+<a name="massa-model-v1-DenunciationAddress"></a>
+
+### DenunciationAddress
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address_denounced | [string](#string) |  | target address |
+| slot | [Slot](#massa-model-v1-Slot) |  | slot |
+| slashed | [NativeAmount](#massa-model-v1-NativeAmount) |  | amount slashed |
 
 
 
@@ -1136,6 +1179,24 @@ Asynchronous smart contract message
 
 
 
+<a name="massa-model-v1-AsyncMessageExecution"></a>
+
+### AsyncMessageExecution
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| success | [bool](#bool) |  |  |
+| sender | [string](#string) |  |  |
+| destination | [string](#string) |  |  |
+| coins | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+
+
+
+
+
+
 <a name="massa-model-v1-AsyncMessageTrigger"></a>
 
 ### AsyncMessageTrigger
@@ -1222,6 +1283,48 @@ Execute a bytecode
 | ----- | ---- | ----- | ----------- |
 | bytecode | [bytes](#bytes) |  | Byte code |
 | operation_datastore | [bytes](#bytes) |  | Serialized datastore (key value store) for `ExecuteSC` Operation (Optional) |
+
+
+
+
+
+
+<a name="massa-model-v1-DeferredCallExecution"></a>
+
+### DeferredCallExecution
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| success | [bool](#bool) |  |  |
+| sender | [string](#string) |  |  |
+| target_address | [string](#string) |  |  |
+| target_function | [string](#string) |  |  |
+| coins | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+
+
+
+
+
+
+<a name="massa-model-v1-ExecTransferInfo"></a>
+
+### ExecTransferInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  |  |
+| from_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| to_address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| value | [TransferValue](#massa-model-v1-TransferValue) |  |  |
+| origin | [CoinOrigin](#massa-model-v1-CoinOrigin) |  |  |
+| operation_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| async_msg_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| deferred_call_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
+| denunciation_index | [DenunciationIndex](#massa-model-v1-DenunciationIndex) |  |  |
 
 
 
@@ -1651,6 +1754,39 @@ StateChanges
 
 
 
+
+<a name="massa-model-v1-TargetAmount"></a>
+
+### TargetAmount
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| amount | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| address | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="massa-model-v1-TransferValue"></a>
+
+### TransferValue
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| rolls | [uint64](#uint64) |  |  |
+| coins | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+| deferred_credits | [NativeAmount](#massa-model-v1-NativeAmount) |  |  |
+
+
+
+
+
  
 
 
@@ -1665,6 +1801,47 @@ AsyncPoolChangeType type enum
 | ASYNC_POOL_CHANGE_TYPE_SET | 1 | Set type |
 | ASYNC_POOL_CHANGE_TYPE_UPDATE | 2 | Activate only type |
 | ASYNC_POOL_CHANGE_TYPE_DELETE | 3 | Delete only type |
+
+
+
+<a name="massa-model-v1-CoinOrigin"></a>
+
+### CoinOrigin
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| COIN_ORIGIN_UNSPECIFIED | 0 |  |
+| COIN_ORIGIN_BLOCK_REWARD | 1 |  |
+| COIN_ORIGIN_DEFERRED_CALL_FAIL | 2 |  |
+| COIN_ORIGIN_DEFERRED_CALL_CANCEL | 3 |  |
+| COIN_ORIGIN_DEFERRED_CALL_COINS | 4 |  |
+| COIN_ORIGIN_DEFERRED_CALL_REGISTER | 5 |  |
+| COIN_ORIGIN_DEFERRED_CALL_STORAGE_REFUND | 6 |  |
+| COIN_ORIGIN_ENDORSEMENT_REWARD | 7 |  |
+| COIN_ORIGIN_ENDORSED_REWARD | 8 |  |
+| COIN_ORIGIN_SLASH | 9 |  |
+| COIN_ORIGIN_OP_ROLL_BUY | 10 |  |
+| COIN_ORIGIN_OP_ROLL_SELL | 11 |  |
+| COIN_ORIGIN_OP_CALLSC_COINS | 12 |  |
+| COIN_ORIGIN_READ_ONLY_FN_CALL_FEES | 13 |  |
+| COIN_ORIGIN_READ_ONLY_FN_CALL_COINS | 14 |  |
+| COIN_ORIGIN_READ_ONLY_BYTECODE_EXEC_FEES | 15 |  |
+| COIN_ORIGIN_SET_BYTECODE_STORAGE | 16 |  |
+| COIN_ORIGIN_ABI_CALL_COINS | 17 |  |
+| COIN_ORIGIN_ABI_TRANSFER_COINS | 18 |  |
+| COIN_ORIGIN_ABI_TRANSFER_FOR_COINS | 19 |  |
+| COIN_ORIGIN_ABI_SEND_MSG_COINS | 20 |  |
+| COIN_ORIGIN_ABI_SEND_MSG_FEES | 21 |  |
+| COIN_ORIGIN_OP_ROLL_SELL_DEFERRED_MAS | 22 |  |
+| COIN_ORIGIN_OP_EXECUTESC_FEES | 23 |  |
+| COIN_ORIGIN_OP_TRANSACTION_COINS | 24 |  |
+| COIN_ORIGIN_OP_TRANSACTION_FEES | 25 |  |
+| COIN_ORIGIN_ASYNC_MSG_COINS | 26 |  |
+| COIN_ORIGIN_ASYNC_MSG_CANCEL | 27 |  |
+| COIN_ORIGIN_CREATE_SC_STORAGE | 28 |  |
+| COIN_ORIGIN_DATASTORE_STORAGE | 29 |  |
+| COIN_ORIGIN_DEFERRED_CREDIT | 30 |  |
 
 
 

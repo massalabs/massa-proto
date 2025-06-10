@@ -69,6 +69,7 @@
     - [AddressRollsFinal](#massa-api-v1-AddressRollsFinal)
     - [AsyncPoolChangesFilter](#massa-api-v1-AsyncPoolChangesFilter)
     - [CycleInfos](#massa-api-v1-CycleInfos)
+    - [DeferredCallABICallStack](#massa-api-v1-DeferredCallABICallStack)
     - [DeferredCallInfo](#massa-api-v1-DeferredCallInfo)
     - [DeferredCallInfoEntry](#massa-api-v1-DeferredCallInfoEntry)
     - [DeferredCallInfoResponse](#massa-api-v1-DeferredCallInfoResponse)
@@ -125,22 +126,34 @@
     - [NewBlocksFilter](#massa-api-v1-NewBlocksFilter)
     - [NewBlocksRequest](#massa-api-v1-NewBlocksRequest)
     - [NewBlocksResponse](#massa-api-v1-NewBlocksResponse)
+    - [NewBlocksServerRequest](#massa-api-v1-NewBlocksServerRequest)
+    - [NewBlocksServerResponse](#massa-api-v1-NewBlocksServerResponse)
     - [NewEndorsementsFilter](#massa-api-v1-NewEndorsementsFilter)
     - [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest)
     - [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse)
+    - [NewEndorsementsServerRequest](#massa-api-v1-NewEndorsementsServerRequest)
+    - [NewEndorsementsServerResponse](#massa-api-v1-NewEndorsementsServerResponse)
     - [NewFilledBlocksFilter](#massa-api-v1-NewFilledBlocksFilter)
     - [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest)
     - [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse)
+    - [NewFilledBlocksServerRequest](#massa-api-v1-NewFilledBlocksServerRequest)
+    - [NewFilledBlocksServerResponse](#massa-api-v1-NewFilledBlocksServerResponse)
     - [NewOperationsFilter](#massa-api-v1-NewOperationsFilter)
     - [NewOperationsRequest](#massa-api-v1-NewOperationsRequest)
     - [NewOperationsResponse](#massa-api-v1-NewOperationsResponse)
+    - [NewOperationsServerRequest](#massa-api-v1-NewOperationsServerRequest)
+    - [NewOperationsServerResponse](#massa-api-v1-NewOperationsServerResponse)
     - [NewSlotABICallStacksRequest](#massa-api-v1-NewSlotABICallStacksRequest)
     - [NewSlotABICallStacksResponse](#massa-api-v1-NewSlotABICallStacksResponse)
     - [NewSlotExecutionOutputsFilter](#massa-api-v1-NewSlotExecutionOutputsFilter)
     - [NewSlotExecutionOutputsRequest](#massa-api-v1-NewSlotExecutionOutputsRequest)
     - [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse)
+    - [NewSlotExecutionOutputsServerRequest](#massa-api-v1-NewSlotExecutionOutputsServerRequest)
+    - [NewSlotExecutionOutputsServerResponse](#massa-api-v1-NewSlotExecutionOutputsServerResponse)
     - [NewSlotTransfersRequest](#massa-api-v1-NewSlotTransfersRequest)
     - [NewSlotTransfersResponse](#massa-api-v1-NewSlotTransfersResponse)
+    - [NewTransfersInfoServerRequest](#massa-api-v1-NewTransfersInfoServerRequest)
+    - [NewTransfersInfoServerResponse](#massa-api-v1-NewTransfersInfoServerResponse)
     - [OpExecutionStatusCandidate](#massa-api-v1-OpExecutionStatusCandidate)
     - [OpExecutionStatusFinal](#massa-api-v1-OpExecutionStatusFinal)
     - [OperationABICallStack](#massa-api-v1-OperationABICallStack)
@@ -169,6 +182,8 @@
     - [StakersFilter](#massa-api-v1-StakersFilter)
     - [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest)
     - [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse)
+    - [TransactionsThroughputServerRequest](#massa-api-v1-TransactionsThroughputServerRequest)
+    - [TransactionsThroughputServerResponse](#massa-api-v1-TransactionsThroughputServerResponse)
     - [TransferInfo](#massa-api-v1-TransferInfo)
     - [TransferInfos](#massa-api-v1-TransferInfos)
   
@@ -881,6 +896,11 @@ Request to get the datastore keys (candidate) of an address
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  | Address to query |
 | prefix | [bytes](#bytes) |  | Prefix for the keys |
+| start_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | Key offset for the search |
+| inclusive_start_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included start_key |
+| end_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | End key for the search |
+| inclusive_end_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included end_key |
+| limit | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  | Limit for the number of keys |
 
 
 
@@ -897,6 +917,11 @@ Request to get the datastore keys (final) of an address
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  | Address to query |
 | prefix | [bytes](#bytes) |  | Prefix for the keys |
+| start_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | Key offset for the search |
+| inclusive_start_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included start_key |
+| end_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | End key for the search |
+| inclusive_end_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included end_key |
+| limit | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  | Limit for the number of keys |
 
 
 
@@ -1055,6 +1080,22 @@ Request to get all information for a given cycle
 | ----- | ---- | ----- | ----------- |
 | cycle | [uint64](#uint64) |  | Cycle to query |
 | restrict_to_addresses | [string](#string) | repeated | Addresses to restrict the query (if None, info for all addresses will be returned) |
+
+
+
+
+
+
+<a name="massa-api-v1-DeferredCallABICallStack"></a>
+
+### DeferredCallABICallStack
+Operation execution call stack
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| deferred_call_id | [string](#string) |  | Deferred call id |
+| call_stack | [ABICallStackElementParent](#massa-api-v1-ABICallStackElementParent) | repeated | Call stack |
 
 
 
@@ -1951,6 +1992,36 @@ NewBlocksResponse holds response from NewBlocks
 
 
 
+<a name="massa-api-v1-NewBlocksServerRequest"></a>
+
+### NewBlocksServerRequest
+NewBlocksServerRequest holds request for unidirectional NewBlocks
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [NewBlocksFilter](#massa-api-v1-NewBlocksFilter) | repeated | Returns all the blocks that verify all the filters |
+
+
+
+
+
+
+<a name="massa-api-v1-NewBlocksServerResponse"></a>
+
+### NewBlocksServerResponse
+NewBlocksServerResponse holds response from unidirectional NewBlocks
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| signed_block | [massa.model.v1.SignedBlock](#massa-model-v1-SignedBlock) |  | Signed block |
+
+
+
+
+
+
 <a name="massa-api-v1-NewEndorsementsFilter"></a>
 
 ### NewEndorsementsFilter
@@ -1987,6 +2058,36 @@ NewEndorsementsRequest holds request for NewEndorsements
 
 ### NewEndorsementsResponse
 NewEndorsementsResponse holds response from NewEndorsements
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| signed_endorsement | [massa.model.v1.SignedEndorsement](#massa-model-v1-SignedEndorsement) |  | Signed endorsement |
+
+
+
+
+
+
+<a name="massa-api-v1-NewEndorsementsServerRequest"></a>
+
+### NewEndorsementsServerRequest
+NewEndorsementsServerRequest holds request for NewEndorsements
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [NewEndorsementsFilter](#massa-api-v1-NewEndorsementsFilter) | repeated | Returns all the endorsements that verify all the filters |
+
+
+
+
+
+
+<a name="massa-api-v1-NewEndorsementsServerResponse"></a>
+
+### NewEndorsementsServerResponse
+NewEndorsementsServerResponse holds response from NewEndorsements
 
 
 | Field | Type | Label | Description |
@@ -2045,6 +2146,36 @@ NewFilledBlocksResponse holds response from NewFilledBlocks
 
 
 
+<a name="massa-api-v1-NewFilledBlocksServerRequest"></a>
+
+### NewFilledBlocksServerRequest
+NewFilledBlocksServerRequest holds request for NewFilledBlocks
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [NewBlocksFilter](#massa-api-v1-NewBlocksFilter) | repeated | Returns all the blocks that verify one of the filters |
+
+
+
+
+
+
+<a name="massa-api-v1-NewFilledBlocksServerResponse"></a>
+
+### NewFilledBlocksServerResponse
+NewFilledBlocksServerResponse holds response from NewFilledBlocks
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filled_block | [massa.model.v1.FilledBlock](#massa-model-v1-FilledBlock) |  | Block with operations content found in the node. |
+
+
+
+
+
+
 <a name="massa-api-v1-NewOperationsFilter"></a>
 
 ### NewOperationsFilter
@@ -2092,6 +2223,36 @@ NewOperationsResponse holds response from NewOperations
 
 
 
+<a name="massa-api-v1-NewOperationsServerRequest"></a>
+
+### NewOperationsServerRequest
+NewOperationsRequest holds request for NewOperations
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [NewOperationsFilter](#massa-api-v1-NewOperationsFilter) | repeated | Returns all the operations that verify all the filters |
+
+
+
+
+
+
+<a name="massa-api-v1-NewOperationsServerResponse"></a>
+
+### NewOperationsServerResponse
+NewOperationsServerResponse holds response from NewOperations
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| signed_operation | [massa.model.v1.SignedOperation](#massa-model-v1-SignedOperation) |  | Signed operation |
+
+
+
+
+
+
 <a name="massa-api-v1-NewSlotABICallStacksRequest"></a>
 
 ### NewSlotABICallStacksRequest
@@ -2118,6 +2279,7 @@ NewSlotABICallStacks response
 | slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Finality level to receive informations from |
 | asc_call_stacks | [ASCABICallStack](#massa-api-v1-ASCABICallStack) | repeated | Call stacks for asynchronous execution |
 | operation_call_stacks | [OperationABICallStack](#massa-api-v1-OperationABICallStack) | repeated | Call stack for operations |
+| deferred_call_stacks | [DeferredCallABICallStack](#massa-api-v1-DeferredCallABICallStack) | repeated | Call stack for deferred calls |
 
 
 
@@ -2175,6 +2337,38 @@ NewSlotExecutionOutputsResponse holds response from NewSlotExecutionOutputs
 
 
 
+<a name="massa-api-v1-NewSlotExecutionOutputsServerRequest"></a>
+
+### NewSlotExecutionOutputsServerRequest
+NewSlotExecutionOutputsServerRequest holds request for
+NewSlotExecutionOutputs
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| filters | [NewSlotExecutionOutputsFilter](#massa-api-v1-NewSlotExecutionOutputsFilter) | repeated | Returns all the slot execution outputs that verify all the filters |
+
+
+
+
+
+
+<a name="massa-api-v1-NewSlotExecutionOutputsServerResponse"></a>
+
+### NewSlotExecutionOutputsServerResponse
+NewSlotExecutionOutputsServerResponse holds response from
+NewSlotExecutionOutputs
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| output | [massa.model.v1.SlotExecutionOutput](#massa-model-v1-SlotExecutionOutput) |  | Slot execution output |
+
+
+
+
+
+
 <a name="massa-api-v1-NewSlotTransfersRequest"></a>
 
 ### NewSlotTransfersRequest
@@ -2200,6 +2394,41 @@ NewSlotTransfers response
 | ----- | ---- | ----- | ----------- |
 | slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | Finality level to receive informations from |
 | transfers | [TransferInfo](#massa-api-v1-TransferInfo) | repeated | Transfers |
+
+
+
+
+
+
+<a name="massa-api-v1-NewTransfersInfoServerRequest"></a>
+
+### NewTransfersInfoServerRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | optional filter address |
+
+
+
+
+
+
+<a name="massa-api-v1-NewTransfersInfoServerResponse"></a>
+
+### NewTransfersInfoServerResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [massa.model.v1.Slot](#massa-model-v1-Slot) |  | executed slot |
+| timestamp | [int64](#int64) |  | timestamp |
+| block_id | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | block id |
+| transfers_info | [massa.model.v1.ExecTransferInfo](#massa-model-v1-ExecTransferInfo) | repeated | transfers info
+
+// reward for block producer massa.model.v1.TargetAmount block_producer_reward = 1; // reward for endorsement creator repeated massa.model.v1.TargetAmount endorsement_creator_rewards = 2; // reward for endorsement target massa.model.v1.TargetAmount endorsement_target_reward = 3; // executed denunciations repeated massa.model.v1.DenunciationAddress denunciations = 4; // executed roll buy / roll sell repeated massa.model.v1.OperationTypeRoll operations = 5; // executed async messages repeated massa.model.v1.AsyncMessageExecution async_messages = 6; // executed deferred calls repeated massa.model.v1.DeferredCallExecution deferred_calls_messages = 7; // executed deferred credits repeated massa.model.v1.TargetAmount deferred_credits_execution = 8; // executed cancel async messages repeated massa.model.v1.TargetAmount cancel_async_message_execution = 9; // executed auto sell roll repeated massa.model.v1.TargetAmount auto_sell_execution = 10; |
 
 
 
@@ -2595,6 +2824,7 @@ Call stack for a slot
 | ----- | ---- | ----- | ----------- |
 | asc_call_stacks | [ASCABICallStack](#massa-api-v1-ASCABICallStack) | repeated | Call stacks for asynchronous execution |
 | operation_call_stacks | [OperationABICallStack](#massa-api-v1-OperationABICallStack) | repeated | Call stack for operations |
+| deferred_call_stacks | [DeferredCallABICallStack](#massa-api-v1-DeferredCallABICallStack) | repeated | Call stacks for deferred calls |
 
 
 
@@ -2648,6 +2878,37 @@ TransactionsThroughputResponse holds response from TransactionsThroughput
 
 
 
+<a name="massa-api-v1-TransactionsThroughputServerRequest"></a>
+
+### TransactionsThroughputServerRequest
+TransactionsThroughputServerRequest holds request for TransactionsThroughput
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| interval | [google.protobuf.UInt64Value](#google-protobuf-UInt64Value) |  | Timer interval in seconds (Optional). Defaults to 10s |
+
+
+
+
+
+
+<a name="massa-api-v1-TransactionsThroughputServerResponse"></a>
+
+### TransactionsThroughputServerResponse
+TransactionsThroughputServerResponse holds response from
+TransactionsThroughput
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| throughput | [uint32](#uint32) |  | Transactions throughput per second |
+
+
+
+
+
+
 <a name="massa-api-v1-TransferInfo"></a>
 
 ### TransferInfo
@@ -2661,6 +2922,7 @@ Transfer info
 | amount | [uint64](#uint64) |  | Amount in nMAS |
 | operation_id | [string](#string) |  | Operation id |
 | asc_index | [uint64](#uint64) |  | Asynchronous execution index |
+| deferred_call_id | [string](#string) |  | Deferred call id |
 
 
 
@@ -2742,16 +3004,23 @@ Massa public gRPC service
 | GetSlotABICallStacks | [GetSlotABICallStacksRequest](#massa-api-v1-GetSlotABICallStacksRequest) | [GetSlotABICallStacksResponse](#massa-api-v1-GetSlotABICallStacksResponse) | Get ABI call stack of all asynchronous executions and all operations for a given slot |
 | GetSlotTransfers | [GetSlotTransfersRequest](#massa-api-v1-GetSlotTransfersRequest) | [GetSlotTransfersResponse](#massa-api-v1-GetSlotTransfersResponse) | Get all the transfers of MAS for a given slot |
 | NewBlocks | [NewBlocksRequest](#massa-api-v1-NewBlocksRequest) stream | [NewBlocksResponse](#massa-api-v1-NewBlocksResponse) stream | New received and produced blocks |
+| NewBlocksServer | [NewBlocksServerRequest](#massa-api-v1-NewBlocksServerRequest) | [NewBlocksServerResponse](#massa-api-v1-NewBlocksServerResponse) stream | unidirecitonnal |
 | NewEndorsements | [NewEndorsementsRequest](#massa-api-v1-NewEndorsementsRequest) stream | [NewEndorsementsResponse](#massa-api-v1-NewEndorsementsResponse) stream | New received and produced endorsements |
+| NewEndorsementsServer | [NewEndorsementsServerRequest](#massa-api-v1-NewEndorsementsServerRequest) | [NewEndorsementsServerResponse](#massa-api-v1-NewEndorsementsServerResponse) stream | New received and produced endorsements |
 | NewFilledBlocks | [NewFilledBlocksRequest](#massa-api-v1-NewFilledBlocksRequest) stream | [NewFilledBlocksResponse](#massa-api-v1-NewFilledBlocksResponse) stream | New received and produced blocks with operations |
+| NewFilledBlocksServer | [NewFilledBlocksServerRequest](#massa-api-v1-NewFilledBlocksServerRequest) | [NewFilledBlocksServerResponse](#massa-api-v1-NewFilledBlocksServerResponse) stream | New received and produced blocks with operations unidirectional |
 | NewOperations | [NewOperationsRequest](#massa-api-v1-NewOperationsRequest) stream | [NewOperationsResponse](#massa-api-v1-NewOperationsResponse) stream | New received and produced operations |
+| NewOperationsServer | [NewOperationsServerRequest](#massa-api-v1-NewOperationsServerRequest) | [NewOperationsServerResponse](#massa-api-v1-NewOperationsServerResponse) stream | unidirectional stream NewOperations |
 | NewSlotExecutionOutputs | [NewSlotExecutionOutputsRequest](#massa-api-v1-NewSlotExecutionOutputsRequest) stream | [NewSlotExecutionOutputsResponse](#massa-api-v1-NewSlotExecutionOutputsResponse) stream | New received and slot execution events |
+| NewSlotExecutionOutputsServer | [NewSlotExecutionOutputsServerRequest](#massa-api-v1-NewSlotExecutionOutputsServerRequest) | [NewSlotExecutionOutputsServerResponse](#massa-api-v1-NewSlotExecutionOutputsServerResponse) stream | unidirectional stream NewSlotExecutionOutputs |
 | NewSlotABICallStacks | [NewSlotABICallStacksRequest](#massa-api-v1-NewSlotABICallStacksRequest) stream | [NewSlotABICallStacksResponse](#massa-api-v1-NewSlotABICallStacksResponse) stream | Call stack for each slot executed |
 | NewSlotTransfers | [NewSlotTransfersRequest](#massa-api-v1-NewSlotTransfersRequest) stream | [NewSlotTransfersResponse](#massa-api-v1-NewSlotTransfersResponse) stream | Transfer list for each slot executed |
 | SendBlocks | [SendBlocksRequest](#massa-api-v1-SendBlocksRequest) stream | [SendBlocksResponse](#massa-api-v1-SendBlocksResponse) stream | Send blocks |
 | SendEndorsements | [SendEndorsementsRequest](#massa-api-v1-SendEndorsementsRequest) stream | [SendEndorsementsResponse](#massa-api-v1-SendEndorsementsResponse) stream | Send endorsements |
 | SendOperations | [SendOperationsRequest](#massa-api-v1-SendOperationsRequest) stream | [SendOperationsResponse](#massa-api-v1-SendOperationsResponse) stream | Send operations |
 | TransactionsThroughput | [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest) stream | [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse) stream | Transactions throughput |
+| TransactionsThroughputServer | [TransactionsThroughputServerRequest](#massa-api-v1-TransactionsThroughputServerRequest) | [TransactionsThroughputServerResponse](#massa-api-v1-TransactionsThroughputServerResponse) stream | Transactions throughput unidirectional |
+| NewTransfersInfoServer | [NewTransfersInfoServerRequest](#massa-api-v1-NewTransfersInfoServerRequest) | [NewTransfersInfoServerResponse](#massa-api-v1-NewTransfersInfoServerResponse) stream | New execution Info |
 
  
 

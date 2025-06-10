@@ -4,6 +4,7 @@ syntax = "proto3";
 
 package massa.model.v1;
 
+import "massa/model/v1/amount.proto";
 import "massa/model/v1/slot.proto";
 
 option csharp_namespace = "Com.Massa.Model.v1";
@@ -22,6 +23,8 @@ message Denunciation {
     BlockHeaderDenunciation block_header = 1;
     // Denunciation endorsement
     EndorsementDenunciation endorsement = 2;
+    // Denunciation address
+    DenunciationAddress address = 3;
   }
 }
 
@@ -80,4 +83,13 @@ message DenunciationEndorsement {
   massa.model.v1.Slot slot = 1;
   // Denounciation index
   uint32 index = 2;
+}
+
+message DenunciationAddress {
+  // target address
+  string address_denounced = 1;
+  // slot
+  massa.model.v1.Slot slot = 2;
+  // amount slashed
+  massa.model.v1.NativeAmount slashed = 4;
 }
