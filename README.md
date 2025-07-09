@@ -24,7 +24,7 @@ Make sure you have the following latest versions of the required tools:
 
 - [protoc](https://grpc.io/docs/protoc-installation/): `3.21.12+`. 
 - [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-doc): `1.5.1+`
-- [buf](https://buf.build/docs/installation): `1.19.0+`
+- [buf](https://buf.build/docs/installation): `1.35.0+` (required for proto3 optional fields support)
 
 Please ensure that you have the required versions or newer to guarantee compatibility and access to the latest features.
 
