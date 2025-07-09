@@ -401,7 +401,7 @@ message ReadOnlyExecutionCall {
   // used
   google.protobuf.StringValue caller_address = 5;
   // fee paid by the caller when the call is processed (optional)
-  massa.model.v1.NativeAmount fee = 7;
+  optional massa.model.v1.NativeAmount fee = 7;
 }
 
 /// Execute a bytecode
