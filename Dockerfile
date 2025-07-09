@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ENV BUF_VERSION=1.22.0
+ENV BUF_VERSION=1.47.2
 ENV PROTOC_GEN_DOC_VERSION=1.5.1
 
 RUN apk update && apk upgrade
