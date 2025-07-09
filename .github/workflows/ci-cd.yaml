@@ -25,6 +25,7 @@ jobs:
           version: "1.47.2"
           github_token: ${{ github.token }}
           breaking_against: "https://github.com/${{ github.repository }}.git#branch=main"
+          push: false
   trigger-remote-build:
     needs: check
     if: ${{ github.ref == 'refs/heads/main' }}
