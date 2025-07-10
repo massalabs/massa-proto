@@ -38,7 +38,7 @@ message OperationType {
     // configuration
     RollSell roll_sell = 3;
     // Execute a smart contract
-    ExecuteSC execut_sc = 4;
+    ExecuteSC execute_sc = 4;
     // Calls an exported function from a stored smart contract
     CallSC call_sc = 5;
   }
