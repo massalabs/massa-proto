@@ -18,6 +18,7 @@ import "massa/model/v1/execution.proto";
 import "massa/model/v1/node.proto";
 import "massa/model/v1/operation.proto";
 import "massa/model/v1/slot.proto";
+import "massa/model/v1/snapshot.proto";
 import "massa/model/v1/staker.proto";
 
 option csharp_namespace = "Com.Massa.Api.v1";
@@ -467,6 +468,12 @@ message ExecutionQueryRequestItem {
     DeferredCallInfo deferred_call_info = 22;
     // Deferred calls by slot
     DeferredCallsBySlot deferred_calls_by_slot = 23;
+    // Gets the datastore keys (history) of an address at a specific cycle
+    AddressDatastoreKeysHistory address_datastore_keys_history = 24;
+    // Gets a datastore value (history) for an address at a specific cycle
+    AddressDatastoreEntryHistory address_datastore_entry_history = 25;
+    // Gets information about available cycle snapshots
+    AvailableSnapshots available_snapshots = 26;
   }
 }
 
@@ -649,6 +656,12 @@ message DeferredCallsBySlotResponse {
   repeated string call_ids = 2;
 }
 
+// Response containing available cycle snapshots
+message AvailableSnapshotsResponse {
+  // List of available cycle snapshots
+  repeated massa.model.v1.CycleSnapshotInfo snapshots = 1;
+}
+
 message DeferredCallInfoEntry {
   string sender_address = 1;
   massa.model.v1.Slot target_slot = 2;
@@ -659,6 +672,41 @@ message DeferredCallInfoEntry {
   uint64 max_gas = 7;
   massa.model.v1.NativeAmount fee = 8;
   bool cancelled = 9;
+}
+
+// Request to get the datastore keys (history) of an address at a specific cycle
+message AddressDatastoreKeysHistory {
+  // Address for which to query the datastore
+  string address = 1;
+  // Cycle to query (must be within retention period)
+  uint64 cycle = 2;
+  // Filter only entries whose key starts with a prefix
+  bytes prefix = 3;
+  // Key offset for the search
+  google.protobuf.BytesValue start_key = 4;
+  // included start_key
+  google.protobuf.BoolValue inclusive_start_key = 5;
+  // End key for the search
+  google.protobuf.BytesValue end_key = 6;
+  // included end_key
+  google.protobuf.BoolValue inclusive_end_key = 7;
+  // Limit for the number of keys
+  google.protobuf.UInt32Value limit = 8;
+}
+
+// Request to get a datastore value (history) for an address at a specific cycle
+message AddressDatastoreEntryHistory {
+  // Address for which to query the datastore
+  string address = 1;
+  // Key of the entry
+  bytes key = 2;
+  // Cycle to query (must be within retention period)
+  uint64 cycle = 3;
+}
+
+// Request to get information about available cycle snapshots
+message AvailableSnapshots {
+  // No parameters needed - returns all available snapshots
 }
 
 // deferred call quote response
@@ -723,6 +771,8 @@ message ExecutionQueryResponseItem {
     DeferredCallInfoResponse deferred_call_info = 11;
     // Deferred calls by slot
     DeferredCallsBySlotResponse deferred_calls_by_slot = 12;
+    // Available cycle snapshots
+    AvailableSnapshotsResponse available_snapshots = 13;
   }
 }
 
