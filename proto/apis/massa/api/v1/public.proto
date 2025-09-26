@@ -709,6 +709,18 @@ message AvailableSnapshots {
   // No parameters needed - returns all available snapshots
 }
 
+// Response for datastore keys history query
+message AddressDatastoreKeysHistoryResponse {
+  // List of datastore keys
+  repeated bytes keys = 1;
+}
+
+// Response for datastore entry history query
+message AddressDatastoreEntryHistoryResponse {
+  // The datastore value (None if not found)
+  optional bytes value = 1;
+}
+
 // deferred call quote response
 message DeferredCallQuoteResponse {
   // the slot requested
@@ -773,6 +785,10 @@ message ExecutionQueryResponseItem {
     DeferredCallsBySlotResponse deferred_calls_by_slot = 12;
     // Available cycle snapshots
     AvailableSnapshotsResponse available_snapshots = 13;
+    // Datastore keys history for an address at a specific cycle
+    AddressDatastoreKeysHistoryResponse address_datastore_keys_history = 14;
+    // Datastore entry history for an address at a specific cycle
+    AddressDatastoreEntryHistoryResponse address_datastore_entry_history = 15;
   }
 }
 

@@ -390,11 +390,27 @@
                 </li>
               
                 <li>
+                  <a href="#massa.api.v1.AddressDatastoreEntryHistory"><span class="badge">M</span>AddressDatastoreEntryHistory</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.AddressDatastoreEntryHistoryResponse"><span class="badge">M</span>AddressDatastoreEntryHistoryResponse</a>
+                </li>
+              
+                <li>
                   <a href="#massa.api.v1.AddressDatastoreKeysCandidate"><span class="badge">M</span>AddressDatastoreKeysCandidate</a>
                 </li>
               
                 <li>
                   <a href="#massa.api.v1.AddressDatastoreKeysFinal"><span class="badge">M</span>AddressDatastoreKeysFinal</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.AddressDatastoreKeysHistory"><span class="badge">M</span>AddressDatastoreKeysHistory</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.AddressDatastoreKeysHistoryResponse"><span class="badge">M</span>AddressDatastoreKeysHistoryResponse</a>
                 </li>
               
                 <li>
@@ -431,6 +447,14 @@
               
                 <li>
                   <a href="#massa.api.v1.AsyncPoolChangesFilter"><span class="badge">M</span>AsyncPoolChangesFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.AvailableSnapshots"><span class="badge">M</span>AvailableSnapshots</a>
+                </li>
+              
+                <li>
+                  <a href="#massa.api.v1.AvailableSnapshotsResponse"><span class="badge">M</span>AvailableSnapshotsResponse</a>
                 </li>
               
                 <li>
@@ -2195,6 +2219,68 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 
         
       
+        <h3 id="massa.api.v1.AddressDatastoreEntryHistory">AddressDatastoreEntryHistory</h3>
+        <p>Request to get a datastore value (history) for an address at a specific cycle</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Address for which to query the datastore </p></td>
+                </tr>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Key of the entry </p></td>
+                </tr>
+              
+                <tr>
+                  <td>cycle</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Cycle to query (must be within retention period) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.AddressDatastoreEntryHistoryResponse">AddressDatastoreEntryHistoryResponse</h3>
+        <p>Response for datastore entry history query</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td>optional</td>
+                  <td><p>The datastore value (None if not found) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="massa.api.v1.AddressDatastoreKeysCandidate">AddressDatastoreKeysCandidate</h3>
         <p>Request to get the datastore keys (candidate) of an address</p>
 
@@ -2318,6 +2404,103 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
                   <td><a href="#google.protobuf.UInt32Value">google.protobuf.UInt32Value</a></td>
                   <td></td>
                   <td><p>Limit for the number of keys </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.AddressDatastoreKeysHistory">AddressDatastoreKeysHistory</h3>
+        <p>Request to get the datastore keys (history) of an address at a specific cycle</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Address for which to query the datastore </p></td>
+                </tr>
+              
+                <tr>
+                  <td>cycle</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>Cycle to query (must be within retention period) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>prefix</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>Filter only entries whose key starts with a prefix </p></td>
+                </tr>
+              
+                <tr>
+                  <td>start_key</td>
+                  <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
+                  <td></td>
+                  <td><p>Key offset for the search </p></td>
+                </tr>
+              
+                <tr>
+                  <td>inclusive_start_key</td>
+                  <td><a href="#google.protobuf.BoolValue">google.protobuf.BoolValue</a></td>
+                  <td></td>
+                  <td><p>included start_key </p></td>
+                </tr>
+              
+                <tr>
+                  <td>end_key</td>
+                  <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
+                  <td></td>
+                  <td><p>End key for the search </p></td>
+                </tr>
+              
+                <tr>
+                  <td>inclusive_end_key</td>
+                  <td><a href="#google.protobuf.BoolValue">google.protobuf.BoolValue</a></td>
+                  <td></td>
+                  <td><p>included end_key </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#google.protobuf.UInt32Value">google.protobuf.UInt32Value</a></td>
+                  <td></td>
+                  <td><p>Limit for the number of keys </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.AddressDatastoreKeysHistoryResponse">AddressDatastoreKeysHistoryResponse</h3>
+        <p>Response for datastore keys history query</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>keys</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td>repeated</td>
+                  <td><p>List of datastore keys </p></td>
                 </tr>
               
             </tbody>
@@ -2586,6 +2769,37 @@ Note: If the ip was unknown it adds it to the known peers, otherwise it updates 
 without filter this boolean is always true. For messages with filter,
 this boolean is true if the filter has been matched between
 `validity_start` and current slot. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="massa.api.v1.AvailableSnapshots">AvailableSnapshots</h3>
+        <p>Request to get information about available cycle snapshots</p><p>No parameters needed - returns all available snapshots</p>
+
+        
+
+        
+      
+        <h3 id="massa.api.v1.AvailableSnapshotsResponse">AvailableSnapshotsResponse</h3>
+        <p>Response containing available cycle snapshots</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>snapshots</td>
+                  <td><a href="#massa.model.v1.CycleSnapshotInfo">massa.model.v1.CycleSnapshotInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>List of available cycle snapshots </p></td>
                 </tr>
               
             </tbody>
@@ -3422,6 +3636,27 @@ returned) </p></td>
                   <td><p>Deferred calls by slot </p></td>
                 </tr>
               
+                <tr>
+                  <td>address_datastore_keys_history</td>
+                  <td><a href="#massa.api.v1.AddressDatastoreKeysHistory">AddressDatastoreKeysHistory</a></td>
+                  <td></td>
+                  <td><p>Gets the datastore keys (history) of an address at a specific cycle </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address_datastore_entry_history</td>
+                  <td><a href="#massa.api.v1.AddressDatastoreEntryHistory">AddressDatastoreEntryHistory</a></td>
+                  <td></td>
+                  <td><p>Gets a datastore value (history) for an address at a specific cycle </p></td>
+                </tr>
+              
+                <tr>
+                  <td>available_snapshots</td>
+                  <td><a href="#massa.api.v1.AvailableSnapshots">AvailableSnapshots</a></td>
+                  <td></td>
+                  <td><p>Gets information about available cycle snapshots </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -3552,6 +3787,27 @@ returned) </p></td>
                   <td><a href="#massa.api.v1.DeferredCallsBySlotResponse">DeferredCallsBySlotResponse</a></td>
                   <td></td>
                   <td><p>Deferred calls by slot </p></td>
+                </tr>
+              
+                <tr>
+                  <td>available_snapshots</td>
+                  <td><a href="#massa.api.v1.AvailableSnapshotsResponse">AvailableSnapshotsResponse</a></td>
+                  <td></td>
+                  <td><p>Available cycle snapshots </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address_datastore_keys_history</td>
+                  <td><a href="#massa.api.v1.AddressDatastoreKeysHistoryResponse">AddressDatastoreKeysHistoryResponse</a></td>
+                  <td></td>
+                  <td><p>Datastore keys history for an address at a specific cycle </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address_datastore_entry_history</td>
+                  <td><a href="#massa.api.v1.AddressDatastoreEntryHistoryResponse">AddressDatastoreEntryHistoryResponse</a></td>
+                  <td></td>
+                  <td><p>Datastore entry history for an address at a specific cycle </p></td>
                 </tr>
               
             </tbody>

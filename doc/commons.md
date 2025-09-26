@@ -8,34 +8,26 @@
     - [AddressKeysEntries](#massa-model-v1-AddressKeysEntries)
     - [DatastoreEntry](#massa-model-v1-DatastoreEntry)
   
+- [massa/model/v1/slot.proto](#massa_model_v1_slot-proto)
+    - [IndexedSlot](#massa-model-v1-IndexedSlot)
+    - [Slot](#massa-model-v1-Slot)
+    - [SlotRange](#massa-model-v1-SlotRange)
+    - [Slots](#massa-model-v1-Slots)
+  
+- [massa/model/v1/amount.proto](#massa_model_v1_amount-proto)
+    - [NativeAmount](#massa-model-v1-NativeAmount)
+  
 - [massa/model/v1/staker.proto](#massa_model_v1_staker-proto)
     - [StakerEntry](#massa-model-v1-StakerEntry)
   
-- [massa/model/v1/draw.proto](#massa_model_v1_draw-proto)
-    - [EndorsementDraw](#massa-model-v1-EndorsementDraw)
-    - [SlotDraw](#massa-model-v1-SlotDraw)
+- [massa/model/v1/commons.proto](#massa_model_v1_commons-proto)
+    - [ArrayOfBytesWrapper](#massa-model-v1-ArrayOfBytesWrapper)
+    - [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry)
+    - [Empty](#massa-model-v1-Empty)
+    - [Error](#massa-model-v1-Error)
+    - [KeyPair](#massa-model-v1-KeyPair)
   
-- [massa/model/v1/versioning.proto](#massa_model_v1_versioning-proto)
-    - [MipComponentEntry](#massa-model-v1-MipComponentEntry)
-    - [MipInfo](#massa-model-v1-MipInfo)
-    - [MipStatusEntry](#massa-model-v1-MipStatusEntry)
-  
-    - [ComponentStateId](#massa-model-v1-ComponentStateId)
-    - [MipComponent](#massa-model-v1-MipComponent)
-  
-- [massa/model/v1/stats.proto](#massa_model_v1_stats-proto)
-    - [ConsensusStats](#massa-model-v1-ConsensusStats)
-    - [ExecutionStats](#massa-model-v1-ExecutionStats)
-    - [NetworkStats](#massa-model-v1-NetworkStats)
-    - [PoolStats](#massa-model-v1-PoolStats)
-  
-- [massa/model/v1/node.proto](#massa_model_v1_node-proto)
-    - [CompactConfig](#massa-model-v1-CompactConfig)
-    - [ConnectedNode](#massa-model-v1-ConnectedNode)
-    - [NodeStatus](#massa-model-v1-NodeStatus)
-    - [PublicStatus](#massa-model-v1-PublicStatus)
-  
-    - [ConnectionType](#massa-model-v1-ConnectionType)
+    - [ComparisonResult](#massa-model-v1-ComparisonResult)
   
 - [massa/model/v1/operation.proto](#massa_model_v1_operation-proto)
     - [CallSC](#massa-model-v1-CallSC)
@@ -54,26 +46,42 @@
   
     - [OpType](#massa-model-v1-OpType)
   
-- [massa/model/v1/denunciation.proto](#massa_model_v1_denunciation-proto)
-    - [BlockHeaderDenunciation](#massa-model-v1-BlockHeaderDenunciation)
-    - [Denunciation](#massa-model-v1-Denunciation)
-    - [DenunciationAddress](#massa-model-v1-DenunciationAddress)
-    - [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader)
-    - [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement)
-    - [DenunciationIndex](#massa-model-v1-DenunciationIndex)
-    - [EndorsementDenunciation](#massa-model-v1-EndorsementDenunciation)
+- [massa/model/v1/node.proto](#massa_model_v1_node-proto)
+    - [CompactConfig](#massa-model-v1-CompactConfig)
+    - [ConnectedNode](#massa-model-v1-ConnectedNode)
+    - [NodeStatus](#massa-model-v1-NodeStatus)
+    - [PublicStatus](#massa-model-v1-PublicStatus)
   
-- [massa/model/v1/commons.proto](#massa_model_v1_commons-proto)
-    - [ArrayOfBytesWrapper](#massa-model-v1-ArrayOfBytesWrapper)
-    - [BytesMapFieldEntry](#massa-model-v1-BytesMapFieldEntry)
-    - [Empty](#massa-model-v1-Empty)
-    - [Error](#massa-model-v1-Error)
-    - [KeyPair](#massa-model-v1-KeyPair)
+    - [ConnectionType](#massa-model-v1-ConnectionType)
   
-    - [ComparisonResult](#massa-model-v1-ComparisonResult)
+- [massa/model/v1/snapshot.proto](#massa_model_v1_snapshot-proto)
+    - [CycleSnapshotInfo](#massa-model-v1-CycleSnapshotInfo)
   
-- [massa/model/v1/amount.proto](#massa_model_v1_amount-proto)
-    - [NativeAmount](#massa-model-v1-NativeAmount)
+- [massa/model/v1/time.proto](#massa_model_v1_time-proto)
+    - [NativeTime](#massa-model-v1-NativeTime)
+  
+- [massa/model/v1/stats.proto](#massa_model_v1_stats-proto)
+    - [ConsensusStats](#massa-model-v1-ConsensusStats)
+    - [ExecutionStats](#massa-model-v1-ExecutionStats)
+    - [NetworkStats](#massa-model-v1-NetworkStats)
+    - [PoolStats](#massa-model-v1-PoolStats)
+  
+- [massa/model/v1/endorsement.proto](#massa_model_v1_endorsement-proto)
+    - [Endorsement](#massa-model-v1-Endorsement)
+    - [EndorsementIds](#massa-model-v1-EndorsementIds)
+    - [EndorsementInfo](#massa-model-v1-EndorsementInfo)
+    - [EndorsementWrapper](#massa-model-v1-EndorsementWrapper)
+    - [SignedEndorsement](#massa-model-v1-SignedEndorsement)
+  
+- [massa/model/v1/address.proto](#massa_model_v1_address-proto)
+    - [Addresses](#massa-model-v1-Addresses)
+    - [NativeAddress](#massa-model-v1-NativeAddress)
+  
+    - [AddressCategory](#massa-model-v1-AddressCategory)
+  
+- [massa/model/v1/draw.proto](#massa_model_v1_draw-proto)
+    - [EndorsementDraw](#massa-model-v1-EndorsementDraw)
+    - [SlotDraw](#massa-model-v1-SlotDraw)
   
 - [massa/model/v1/execution.proto](#massa_model_v1_execution-proto)
     - [AsyncMessage](#massa-model-v1-AsyncMessage)
@@ -120,17 +128,22 @@
     - [OperationExecutionStatus](#massa-model-v1-OperationExecutionStatus)
     - [ScExecutionEventStatus](#massa-model-v1-ScExecutionEventStatus)
   
-- [massa/model/v1/slot.proto](#massa_model_v1_slot-proto)
-    - [IndexedSlot](#massa-model-v1-IndexedSlot)
-    - [Slot](#massa-model-v1-Slot)
-    - [SlotRange](#massa-model-v1-SlotRange)
-    - [Slots](#massa-model-v1-Slots)
+- [massa/model/v1/versioning.proto](#massa_model_v1_versioning-proto)
+    - [MipComponentEntry](#massa-model-v1-MipComponentEntry)
+    - [MipInfo](#massa-model-v1-MipInfo)
+    - [MipStatusEntry](#massa-model-v1-MipStatusEntry)
   
-- [massa/model/v1/address.proto](#massa_model_v1_address-proto)
-    - [Addresses](#massa-model-v1-Addresses)
-    - [NativeAddress](#massa-model-v1-NativeAddress)
+    - [ComponentStateId](#massa-model-v1-ComponentStateId)
+    - [MipComponent](#massa-model-v1-MipComponent)
   
-    - [AddressCategory](#massa-model-v1-AddressCategory)
+- [massa/model/v1/denunciation.proto](#massa_model_v1_denunciation-proto)
+    - [BlockHeaderDenunciation](#massa-model-v1-BlockHeaderDenunciation)
+    - [Denunciation](#massa-model-v1-Denunciation)
+    - [DenunciationAddress](#massa-model-v1-DenunciationAddress)
+    - [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader)
+    - [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement)
+    - [DenunciationIndex](#massa-model-v1-DenunciationIndex)
+    - [EndorsementDenunciation](#massa-model-v1-EndorsementDenunciation)
   
 - [massa/model/v1/block.proto](#massa_model_v1_block-proto)
     - [Block](#massa-model-v1-Block)
@@ -145,16 +158,6 @@
     - [SignedBlockHeader](#massa-model-v1-SignedBlockHeader)
   
     - [BlockStatus](#massa-model-v1-BlockStatus)
-  
-- [massa/model/v1/endorsement.proto](#massa_model_v1_endorsement-proto)
-    - [Endorsement](#massa-model-v1-Endorsement)
-    - [EndorsementIds](#massa-model-v1-EndorsementIds)
-    - [EndorsementInfo](#massa-model-v1-EndorsementInfo)
-    - [EndorsementWrapper](#massa-model-v1-EndorsementWrapper)
-    - [SignedEndorsement](#massa-model-v1-SignedEndorsement)
-  
-- [massa/model/v1/time.proto](#massa_model_v1_time-proto)
-    - [NativeTime](#massa-model-v1-NativeTime)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -223,6 +226,118 @@ DatastoreEntry
 
 
 
+<a name="massa_model_v1_slot-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/slot.proto
+
+
+
+<a name="massa-model-v1-IndexedSlot"></a>
+
+### IndexedSlot
+When an address is drawn to create an endorsement it is selected for a specific index
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [Slot](#massa-model-v1-Slot) |  | Slot |
+| index | [uint64](#uint64) |  | Endorsement index in the slot |
+
+
+
+
+
+
+<a name="massa-model-v1-Slot"></a>
+
+### Slot
+A point in time where a block is expected
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| period | [uint64](#uint64) |  | Period |
+| thread | [uint32](#uint32) |  | Thread |
+
+
+
+
+
+
+<a name="massa-model-v1-SlotRange"></a>
+
+### SlotRange
+SlotRange
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| start_slot | [Slot](#massa-model-v1-Slot) |  | Start lot (Optional) |
+| end_slot | [Slot](#massa-model-v1-Slot) |  | End slot (Optional) |
+
+
+
+
+
+
+<a name="massa-model-v1-Slots"></a>
+
+### Slots
+Slots
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slots | [Slot](#massa-model-v1-Slot) | repeated | Slots |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="massa_model_v1_amount-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/amount.proto
+
+
+
+<a name="massa-model-v1-NativeAmount"></a>
+
+### NativeAmount
+NativeAmount is represented as a fraction so precision can be adjusted in
+the future. value = mantissa / (10^scale)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| mantissa | [uint64](#uint64) |  | Mantissa |
+| scale | [uint32](#uint32) |  | Scale |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
 <a name="massa_model_v1_staker-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -255,108 +370,80 @@ StakerEntry
 
 
 
-<a name="massa_model_v1_draw-proto"></a>
+<a name="massa_model_v1_commons-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## massa/model/v1/draw.proto
+## massa/model/v1/commons.proto
 
 
 
-<a name="massa-model-v1-EndorsementDraw"></a>
+<a name="massa-model-v1-ArrayOfBytesWrapper"></a>
 
-### EndorsementDraw
-Endorsement draw
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| index | [uint64](#uint64) |  | Endorsement index |
-| producer | [string](#string) |  | Producer address |
-
-
-
-
-
-
-<a name="massa-model-v1-SlotDraw"></a>
-
-### SlotDraw
-Slot draw
+### ArrayOfBytesWrapper
+Array of bytes wrapper
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| slot | [Slot](#massa-model-v1-Slot) |  | Slot |
-| block_producer | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Block producer address (Optional) |
-| endorsement_draws | [EndorsementDraw](#massa-model-v1-EndorsementDraw) | repeated | Endorsement draws |
+| items | [bytes](#bytes) | repeated | Repeated bytes |
 
 
 
 
 
- 
 
- 
+<a name="massa-model-v1-BytesMapFieldEntry"></a>
 
- 
-
- 
-
-
-
-<a name="massa_model_v1_versioning-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/versioning.proto
-
-
-
-<a name="massa-model-v1-MipComponentEntry"></a>
-
-### MipComponentEntry
-MipComponentEntry
+### BytesMapFieldEntry
+BytesMapFieldEntry
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| kind | [MipComponent](#massa-model-v1-MipComponent) |  | Kind |
-| version | [uint32](#uint32) |  | Version |
+| key | [bytes](#bytes) |  | bytes key |
+| value | [bytes](#bytes) |  | bytes key |
 
 
 
 
 
 
-<a name="massa-model-v1-MipInfo"></a>
+<a name="massa-model-v1-Empty"></a>
 
-### MipInfo
-MIP info (name &amp; versions &amp; time range for a MIP)
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| name | [string](#string) |  | MIP name or descriptive name |
-| version | [uint32](#uint32) |  | Network (or global) version (to be included in block header) |
-| start | [NativeTime](#massa-model-v1-NativeTime) |  | A timestamp at which the version gains its meaning (e.g. announced in block header) |
-| timeout | [NativeTime](#massa-model-v1-NativeTime) |  | A timestamp at the which the deployment is considered failed |
-| activation_delay | [NativeTime](#massa-model-v1-NativeTime) |  | Once deployment has been locked, wait for this duration before deployment is considered active |
-| components | [MipComponentEntry](#massa-model-v1-MipComponentEntry) | repeated | Components concerned by this versioning (e.g. a new Block version), and the associated component_version |
+### Empty
+Empty
 
 
 
 
 
 
-<a name="massa-model-v1-MipStatusEntry"></a>
+<a name="massa-model-v1-Error"></a>
 
-### MipStatusEntry
-Entry for GetMipStatusResponse
+### Error
+Massa error
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mip_info | [MipInfo](#massa-model-v1-MipInfo) |  | Mip info |
-| state_id | [ComponentStateId](#massa-model-v1-ComponentStateId) |  | State id |
+| code | [int32](#int32) |  | The error code |
+| message | [string](#string) |  | A developer-facing error message, which should be in English |
+
+
+
+
+
+
+<a name="massa-model-v1-KeyPair"></a>
+
+### KeyPair
+KeyPair
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| public_key | [string](#string) |  | Public key |
+| secret_key | [string](#string) |  | Secret key |
 
 
 
@@ -365,250 +452,17 @@ Entry for GetMipStatusResponse
  
 
 
-<a name="massa-model-v1-ComponentStateId"></a>
+<a name="massa-model-v1-ComparisonResult"></a>
 
-### ComponentStateId
-State machine for a Versioning component that tracks the deployment state
+### ComparisonResult
+Comparison result
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| COMPONENT_STATE_ID_UNSPECIFIED | 0 | Default enum value |
-| COMPONENT_STATE_ID_ERROR | 1 | Error state |
-| COMPONENT_STATE_ID_DEFINED | 2 | Initial state |
-| COMPONENT_STATE_ID_STARTED | 3 | Past start, can only go to LockedIn after the threshold is above a given value |
-| COMPONENT_STATE_ID_LOCKEDIN | 4 | Locked but wait for some time before going to active (to let users the time to upgrade) |
-| COMPONENT_STATE_ID_ACTIVE | 5 | After LockedIn, deployment is considered successful (after activation delay) |
-| COMPONENT_STATE_ID_FAILED | 6 | Past the timeout, if LockedIn is not reach |
-
-
-
-<a name="massa-model-v1-MipComponent"></a>
-
-### MipComponent
-Versioning component enum
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| MIP_COMPONENT_UNSPECIFIED | 0 | Default enum value |
-| MIP_COMPONENT_ADDRESS | 1 | Address component |
-| MIP_COMPONENT_KEYPAIR | 2 | Keypair component |
-
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_stats-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/stats.proto
-
-
-
-<a name="massa-model-v1-ConsensusStats"></a>
-
-### ConsensusStats
-Consensus statistics
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| start_timespan | [NativeTime](#massa-model-v1-NativeTime) |  | Start of the time span for stats |
-| end_timespan | [NativeTime](#massa-model-v1-NativeTime) |  | End of the time span for stats |
-| final_block_count | [uint64](#uint64) |  | Number of final blocks |
-| stale_block_count | [uint64](#uint64) |  | Number of stale blocks in memory |
-| clique_count | [uint64](#uint64) |  | Number of actives cliques |
-
-
-
-
-
-
-<a name="massa-model-v1-ExecutionStats"></a>
-
-### ExecutionStats
-Execution statistics
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| time_window_start | [NativeTime](#massa-model-v1-NativeTime) |  | Time window start |
-| time_window_end | [NativeTime](#massa-model-v1-NativeTime) |  | Time window end |
-| final_block_count | [uint64](#uint64) |  | Number of final blocks in the time window |
-| final_executed_operations_count | [uint64](#uint64) |  | Number of final executed operations in the time window |
-
-
-
-
-
-
-<a name="massa-model-v1-NetworkStats"></a>
-
-### NetworkStats
-Network statistics
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| in_connection_count | [uint64](#uint64) |  | In connections count |
-| out_connection_count | [uint64](#uint64) |  | Out connections count |
-| known_peer_count | [uint64](#uint64) |  | Total known peers count |
-| banned_peer_count | [uint64](#uint64) |  | Banned node count |
-| active_node_count | [uint64](#uint64) |  | Active node count |
-
-
-
-
-
-
-<a name="massa-model-v1-PoolStats"></a>
-
-### PoolStats
-Pool statistics
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| endorsements_count | [uint64](#uint64) |  | Endorsements |
-| operations_count | [uint64](#uint64) |  | Operations |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_node-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/node.proto
-
-
-
-<a name="massa-model-v1-CompactConfig"></a>
-
-### CompactConfig
-Compact configuration
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| genesis_timestamp | [NativeTime](#massa-model-v1-NativeTime) |  | Time in milliseconds when the blockclique started. |
-| end_timestamp | [NativeTime](#massa-model-v1-NativeTime) |  | TESTNET: time when the blockclique is ended. |
-| thread_count | [uint32](#uint32) |  | Number of threads |
-| t0 | [NativeTime](#massa-model-v1-NativeTime) |  | Time between the periods in the same thread. |
-| delta_f0 | [uint64](#uint64) |  | Threshold for fitness. |
-| operation_validity_periods | [uint64](#uint64) |  | Maximum operation validity period count |
-| periods_per_cycle | [uint64](#uint64) |  | cycle duration in periods |
-| block_reward | [NativeAmount](#massa-model-v1-NativeAmount) |  | Reward amount for a block creation |
-| roll_price | [NativeAmount](#massa-model-v1-NativeAmount) |  | Price of a roll on the network |
-| max_block_size | [uint32](#uint32) |  | Max total size of a block |
-
-
-
-
-
-
-<a name="massa-model-v1-ConnectedNode"></a>
-
-### ConnectedNode
-Connected node
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| node_id | [string](#string) |  | Node id |
-| node_ip | [string](#string) |  | Node ip |
-| connection_type | [ConnectionType](#massa-model-v1-ConnectionType) |  | Connection type |
-
-
-
-
-
-
-<a name="massa-model-v1-NodeStatus"></a>
-
-### NodeStatus
-Node status
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| node_id | [string](#string) |  | Our node id |
-| node_ip | [string](#string) |  | Optional node ip |
-| version | [string](#string) |  | Node version |
-| current_time | [NativeTime](#massa-model-v1-NativeTime) |  | Now |
-| current_cycle | [uint64](#uint64) |  | Current cycle |
-| current_cycle_time | [NativeTime](#massa-model-v1-NativeTime) |  | Current cycle starting timestamp |
-| next_cycle_time | [NativeTime](#massa-model-v1-NativeTime) |  | Next cycle starting timestamp |
-| connected_nodes | [ConnectedNode](#massa-model-v1-ConnectedNode) | repeated | Connected nodes |
-| last_executed_final_slot | [Slot](#massa-model-v1-Slot) |  | Last executed final slot |
-| last_executed_speculative_slot | [Slot](#massa-model-v1-Slot) |  | Last executed speculative slot |
-| final_state_fingerprint | [string](#string) |  | The hash of the XOF final state hash |
-| consensus_stats | [ConsensusStats](#massa-model-v1-ConsensusStats) |  | Consensus stats |
-| pool_stats | [PoolStats](#massa-model-v1-PoolStats) |  | Pool stats (operation count and endorsement count) |
-| network_stats | [NetworkStats](#massa-model-v1-NetworkStats) |  | Network stats |
-| execution_stats | [ExecutionStats](#massa-model-v1-ExecutionStats) |  | Execution stats |
-| config | [CompactConfig](#massa-model-v1-CompactConfig) |  | Compact configuration |
-| chain_id | [uint64](#uint64) |  | Chain id |
-| current_mip_version | [uint32](#uint32) |  | Current mip version |
-
-
-
-
-
-
-<a name="massa-model-v1-PublicStatus"></a>
-
-### PublicStatus
-Public status
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| node_id | [string](#string) |  | Our node id |
-| version | [string](#string) |  | Node version |
-| current_time | [NativeTime](#massa-model-v1-NativeTime) |  | Now |
-| current_cycle | [uint64](#uint64) |  | Current cycle |
-| current_cycle_time | [NativeTime](#massa-model-v1-NativeTime) |  | Current cycle starting timestamp |
-| next_cycle_time | [NativeTime](#massa-model-v1-NativeTime) |  | Next cycle starting timestamp |
-| last_executed_final_slot | [Slot](#massa-model-v1-Slot) |  | Last executed final slot |
-| last_executed_speculative_slot | [Slot](#massa-model-v1-Slot) |  | Last executed speculative slot |
-| final_state_fingerprint | [string](#string) |  | The hash of the XOF final state hash |
-| config | [CompactConfig](#massa-model-v1-CompactConfig) |  | Compact configuration |
-| chain_id | [uint64](#uint64) |  | Chain id |
-| minimal_fees | [NativeAmount](#massa-model-v1-NativeAmount) |  | minimal fees |
-| current_mip_version | [uint32](#uint32) |  | current mip version |
-
-
-
-
-
- 
-
-
-<a name="massa-model-v1-ConnectionType"></a>
-
-### ConnectionType
-ConnectionType enum
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| CONNECTION_TYPE_UNSPECIFIED | 0 | Default enum value |
-| CONNECTION_TYPE_INCOMING | 1 | Incoming connection |
-| CONNECTION_TYPE_OUTGOING | 2 | Outgoing connection |
+| COMPARISON_RESULT_UNSPECIFIED | 0 |  |
+| COMPARISON_RESULT_LOWER | 1 | left is lower |
+| COMPARISON_RESULT_EQUAL | 2 | left and right are equal |
+| COMPARISON_RESULT_GREATER | 3 | left is greater |
 
 
  
@@ -871,218 +725,107 @@ Operation type enum
 
 
 
-<a name="massa_model_v1_denunciation-proto"></a>
+<a name="massa_model_v1_node-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## massa/model/v1/denunciation.proto
+## massa/model/v1/node.proto
 
 
 
-<a name="massa-model-v1-BlockHeaderDenunciation"></a>
+<a name="massa-model-v1-CompactConfig"></a>
 
-### BlockHeaderDenunciation
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| public_key | [string](#string) |  | Denunciation public key |
-| slot | [Slot](#massa-model-v1-Slot) |  | Denunciation slot |
-| hash_1 | [string](#string) |  | Denunciation hash 1 |
-| hash_2 | [string](#string) |  | Denunciation hash 2 |
-| signature_1 | [string](#string) |  | Denunciation sig 1 |
-| signature_2 | [string](#string) |  | Denunciation sig 2 |
-
-
-
-
-
-
-<a name="massa-model-v1-Denunciation"></a>
-
-### Denunciation
-
+### CompactConfig
+Compact configuration
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_header | [BlockHeaderDenunciation](#massa-model-v1-BlockHeaderDenunciation) |  | Denunciation block header |
-| endorsement | [EndorsementDenunciation](#massa-model-v1-EndorsementDenunciation) |  | Denunciation endorsement |
-| address | [DenunciationAddress](#massa-model-v1-DenunciationAddress) |  | Denunciation address |
+| genesis_timestamp | [NativeTime](#massa-model-v1-NativeTime) |  | Time in milliseconds when the blockclique started. |
+| end_timestamp | [NativeTime](#massa-model-v1-NativeTime) |  | TESTNET: time when the blockclique is ended. |
+| thread_count | [uint32](#uint32) |  | Number of threads |
+| t0 | [NativeTime](#massa-model-v1-NativeTime) |  | Time between the periods in the same thread. |
+| delta_f0 | [uint64](#uint64) |  | Threshold for fitness. |
+| operation_validity_periods | [uint64](#uint64) |  | Maximum operation validity period count |
+| periods_per_cycle | [uint64](#uint64) |  | cycle duration in periods |
+| block_reward | [NativeAmount](#massa-model-v1-NativeAmount) |  | Reward amount for a block creation |
+| roll_price | [NativeAmount](#massa-model-v1-NativeAmount) |  | Price of a roll on the network |
+| max_block_size | [uint32](#uint32) |  | Max total size of a block |
 
 
 
 
 
 
-<a name="massa-model-v1-DenunciationAddress"></a>
+<a name="massa-model-v1-ConnectedNode"></a>
 
-### DenunciationAddress
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| address_denounced | [string](#string) |  | target address |
-| slot | [Slot](#massa-model-v1-Slot) |  | slot |
-| slashed | [NativeAmount](#massa-model-v1-NativeAmount) |  | amount slashed |
-
-
-
-
-
-
-<a name="massa-model-v1-DenunciationBlockHeader"></a>
-
-### DenunciationBlockHeader
-Variant for Block header denunciation index
+### ConnectedNode
+Connected node
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| slot | [Slot](#massa-model-v1-Slot) |  | Denunciation slot |
+| node_id | [string](#string) |  | Node id |
+| node_ip | [string](#string) |  | Node ip |
+| connection_type | [ConnectionType](#massa-model-v1-ConnectionType) |  | Connection type |
 
 
 
 
 
 
-<a name="massa-model-v1-DenunciationEndorsement"></a>
+<a name="massa-model-v1-NodeStatus"></a>
 
-### DenunciationEndorsement
-Variant for Endorsement denunciation index
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slot | [Slot](#massa-model-v1-Slot) |  | Denounciation slot |
-| index | [uint32](#uint32) |  | Denounciation index |
-
-
-
-
-
-
-<a name="massa-model-v1-DenunciationIndex"></a>
-
-### DenunciationIndex
-Index for Denunciations in collections (e.g. like a HashMap...)
+### NodeStatus
+Node status
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_header | [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader) |  | Denunciation block header |
-| endorsement | [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement) |  | Denunciation endorsement |
+| node_id | [string](#string) |  | Our node id |
+| node_ip | [string](#string) |  | Optional node ip |
+| version | [string](#string) |  | Node version |
+| current_time | [NativeTime](#massa-model-v1-NativeTime) |  | Now |
+| current_cycle | [uint64](#uint64) |  | Current cycle |
+| current_cycle_time | [NativeTime](#massa-model-v1-NativeTime) |  | Current cycle starting timestamp |
+| next_cycle_time | [NativeTime](#massa-model-v1-NativeTime) |  | Next cycle starting timestamp |
+| connected_nodes | [ConnectedNode](#massa-model-v1-ConnectedNode) | repeated | Connected nodes |
+| last_executed_final_slot | [Slot](#massa-model-v1-Slot) |  | Last executed final slot |
+| last_executed_speculative_slot | [Slot](#massa-model-v1-Slot) |  | Last executed speculative slot |
+| final_state_fingerprint | [string](#string) |  | The hash of the XOF final state hash |
+| consensus_stats | [ConsensusStats](#massa-model-v1-ConsensusStats) |  | Consensus stats |
+| pool_stats | [PoolStats](#massa-model-v1-PoolStats) |  | Pool stats (operation count and endorsement count) |
+| network_stats | [NetworkStats](#massa-model-v1-NetworkStats) |  | Network stats |
+| execution_stats | [ExecutionStats](#massa-model-v1-ExecutionStats) |  | Execution stats |
+| config | [CompactConfig](#massa-model-v1-CompactConfig) |  | Compact configuration |
+| chain_id | [uint64](#uint64) |  | Chain id |
+| current_mip_version | [uint32](#uint32) |  | Current mip version |
 
 
 
 
 
 
-<a name="massa-model-v1-EndorsementDenunciation"></a>
+<a name="massa-model-v1-PublicStatus"></a>
 
-### EndorsementDenunciation
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| public_key | [string](#string) |  | Denunciation public key |
-| slot | [Slot](#massa-model-v1-Slot) |  | Denunciation slot |
-| index | [uint32](#uint32) |  | Denunciation index |
-| hash_1 | [string](#string) |  | Denunciation hash 1 |
-| hash_2 | [string](#string) |  | Denunciation hash 2 |
-| signature_1 | [string](#string) |  | Denunciation sig 1 |
-| signature_2 | [string](#string) |  | Denunciation sig 2 |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_commons-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/commons.proto
-
-
-
-<a name="massa-model-v1-ArrayOfBytesWrapper"></a>
-
-### ArrayOfBytesWrapper
-Array of bytes wrapper
+### PublicStatus
+Public status
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| items | [bytes](#bytes) | repeated | Repeated bytes |
-
-
-
-
-
-
-<a name="massa-model-v1-BytesMapFieldEntry"></a>
-
-### BytesMapFieldEntry
-BytesMapFieldEntry
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| key | [bytes](#bytes) |  | bytes key |
-| value | [bytes](#bytes) |  | bytes key |
-
-
-
-
-
-
-<a name="massa-model-v1-Empty"></a>
-
-### Empty
-Empty
-
-
-
-
-
-
-<a name="massa-model-v1-Error"></a>
-
-### Error
-Massa error
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  | The error code |
-| message | [string](#string) |  | A developer-facing error message, which should be in English |
-
-
-
-
-
-
-<a name="massa-model-v1-KeyPair"></a>
-
-### KeyPair
-KeyPair
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| public_key | [string](#string) |  | Public key |
-| secret_key | [string](#string) |  | Secret key |
+| node_id | [string](#string) |  | Our node id |
+| version | [string](#string) |  | Node version |
+| current_time | [NativeTime](#massa-model-v1-NativeTime) |  | Now |
+| current_cycle | [uint64](#uint64) |  | Current cycle |
+| current_cycle_time | [NativeTime](#massa-model-v1-NativeTime) |  | Current cycle starting timestamp |
+| next_cycle_time | [NativeTime](#massa-model-v1-NativeTime) |  | Next cycle starting timestamp |
+| last_executed_final_slot | [Slot](#massa-model-v1-Slot) |  | Last executed final slot |
+| last_executed_speculative_slot | [Slot](#massa-model-v1-Slot) |  | Last executed speculative slot |
+| final_state_fingerprint | [string](#string) |  | The hash of the XOF final state hash |
+| config | [CompactConfig](#massa-model-v1-CompactConfig) |  | Compact configuration |
+| chain_id | [uint64](#uint64) |  | Chain id |
+| minimal_fees | [NativeAmount](#massa-model-v1-NativeAmount) |  | minimal fees |
+| current_mip_version | [uint32](#uint32) |  | current mip version |
 
 
 
@@ -1091,17 +834,16 @@ KeyPair
  
 
 
-<a name="massa-model-v1-ComparisonResult"></a>
+<a name="massa-model-v1-ConnectionType"></a>
 
-### ComparisonResult
-Comparison result
+### ConnectionType
+ConnectionType enum
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| COMPARISON_RESULT_UNSPECIFIED | 0 |  |
-| COMPARISON_RESULT_LOWER | 1 | left is lower |
-| COMPARISON_RESULT_EQUAL | 2 | left and right are equal |
-| COMPARISON_RESULT_GREATER | 3 | left is greater |
+| CONNECTION_TYPE_UNSPECIFIED | 0 | Default enum value |
+| CONNECTION_TYPE_INCOMING | 1 | Incoming connection |
+| CONNECTION_TYPE_OUTGOING | 2 | Outgoing connection |
 
 
  
@@ -1112,24 +854,357 @@ Comparison result
 
 
 
-<a name="massa_model_v1_amount-proto"></a>
+<a name="massa_model_v1_snapshot-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## massa/model/v1/amount.proto
+## massa/model/v1/snapshot.proto
 
 
 
-<a name="massa-model-v1-NativeAmount"></a>
+<a name="massa-model-v1-CycleSnapshotInfo"></a>
 
-### NativeAmount
-NativeAmount is represented as a fraction so precision can be adjusted in
-the future. value = mantissa / (10^scale)
+### CycleSnapshotInfo
+Information about a cycle snapshot
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mantissa | [uint64](#uint64) |  | Mantissa |
-| scale | [uint32](#uint32) |  | Scale |
+| cycle | [uint64](#uint64) |  | The cycle number |
+| start_ts | [NativeTime](#massa-model-v1-NativeTime) |  | Timestamp when the cycle started |
+| end_ts | [NativeTime](#massa-model-v1-NativeTime) |  | Timestamp when the cycle ends |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="massa_model_v1_time-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/time.proto
+
+
+
+<a name="massa-model-v1-NativeTime"></a>
+
+### NativeTime
+NativeTime represents a native duration or unix timestamp
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| milliseconds | [uint64](#uint64) |  | Milliseconds |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="massa_model_v1_stats-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/stats.proto
+
+
+
+<a name="massa-model-v1-ConsensusStats"></a>
+
+### ConsensusStats
+Consensus statistics
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| start_timespan | [NativeTime](#massa-model-v1-NativeTime) |  | Start of the time span for stats |
+| end_timespan | [NativeTime](#massa-model-v1-NativeTime) |  | End of the time span for stats |
+| final_block_count | [uint64](#uint64) |  | Number of final blocks |
+| stale_block_count | [uint64](#uint64) |  | Number of stale blocks in memory |
+| clique_count | [uint64](#uint64) |  | Number of actives cliques |
+
+
+
+
+
+
+<a name="massa-model-v1-ExecutionStats"></a>
+
+### ExecutionStats
+Execution statistics
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| time_window_start | [NativeTime](#massa-model-v1-NativeTime) |  | Time window start |
+| time_window_end | [NativeTime](#massa-model-v1-NativeTime) |  | Time window end |
+| final_block_count | [uint64](#uint64) |  | Number of final blocks in the time window |
+| final_executed_operations_count | [uint64](#uint64) |  | Number of final executed operations in the time window |
+
+
+
+
+
+
+<a name="massa-model-v1-NetworkStats"></a>
+
+### NetworkStats
+Network statistics
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| in_connection_count | [uint64](#uint64) |  | In connections count |
+| out_connection_count | [uint64](#uint64) |  | Out connections count |
+| known_peer_count | [uint64](#uint64) |  | Total known peers count |
+| banned_peer_count | [uint64](#uint64) |  | Banned node count |
+| active_node_count | [uint64](#uint64) |  | Active node count |
+
+
+
+
+
+
+<a name="massa-model-v1-PoolStats"></a>
+
+### PoolStats
+Pool statistics
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| endorsements_count | [uint64](#uint64) |  | Endorsements |
+| operations_count | [uint64](#uint64) |  | Operations |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="massa_model_v1_endorsement-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/endorsement.proto
+
+
+
+<a name="massa-model-v1-Endorsement"></a>
+
+### Endorsement
+An endorsement, as sent in the network
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [Slot](#massa-model-v1-Slot) |  | Slot in which the endorsement can be included |
+| index | [uint32](#uint32) |  | Endorsement index inside the including block |
+| endorsed_block | [string](#string) |  | Hash of endorsed block This is the parent in thread `self.slot.thread` of the block in which the endorsement is included |
+
+
+
+
+
+
+<a name="massa-model-v1-EndorsementIds"></a>
+
+### EndorsementIds
+EndorsementIds holds endorsements ids
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| endorsement_ids | [string](#string) | repeated | Endorsements ids |
+
+
+
+
+
+
+<a name="massa-model-v1-EndorsementInfo"></a>
+
+### EndorsementInfo
+Informations about an endorsement with its metadata
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| endorsement_id | [string](#string) |  | The endorsement id |
+| in_pool | [bool](#bool) |  | Whether the endorsement is still in pool |
+| in_blocks | [string](#string) | repeated | The endorsement appears in `in_blocks` If it appears in multiple blocks, these blocks are in different cliques |
+| is_final | [bool](#bool) |  | Whether the the endorsement is final (for example in a final block) |
+
+
+
+
+
+
+<a name="massa-model-v1-EndorsementWrapper"></a>
+
+### EndorsementWrapper
+A wrapper around an endorsement with its metadata
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| in_pool | [bool](#bool) |  | Whether the endorsement is still in pool |
+| in_blocks | [string](#string) | repeated | The endorsement appears in `in_blocks` If it appears in multiple blocks, these blocks are in different cliques |
+| is_final | [bool](#bool) |  | Whether the the endorsement is final (for example in a final block) |
+| endorsement | [SignedEndorsement](#massa-model-v1-SignedEndorsement) |  | The endorsement itself |
+
+
+
+
+
+
+<a name="massa-model-v1-SignedEndorsement"></a>
+
+### SignedEndorsement
+Signed endorsement
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| content | [Endorsement](#massa-model-v1-Endorsement) |  | Endorsement |
+| signature | [string](#string) |  | A cryptographically generated value using `serialized_data` and a public key. |
+| content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
+| content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
+| secure_hash | [string](#string) |  | A secure hash of the non-malleable contents of a deterministic binary representation of the block header |
+| serialized_size | [uint64](#uint64) |  | The size of the serialized endorsement in bytes |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="massa_model_v1_address-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/address.proto
+
+
+
+<a name="massa-model-v1-Addresses"></a>
+
+### Addresses
+Addresses holds addresses
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| addresses | [string](#string) | repeated | Addresses |
+
+
+
+
+
+
+<a name="massa-model-v1-NativeAddress"></a>
+
+### NativeAddress
+Massa NativeAddress
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| category | [AddressCategory](#massa-model-v1-AddressCategory) |  | Address category |
+| version | [uint64](#uint64) |  | Address version |
+| content | [bytes](#bytes) |  | Address content |
+
+
+
+
+
+ 
+
+
+<a name="massa-model-v1-AddressCategory"></a>
+
+### AddressCategory
+Address category discriminant
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| ADDRESS_CATEGORY_UNSPECIFIED | 0 | Unspecified address category |
+| ADDRESS_CATEGORY_USER_ADDRESS | 1 | User address |
+| ADDRESS_CATEGORY_SC_ADDRESS | 2 | Smart contract address |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="massa_model_v1_draw-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/draw.proto
+
+
+
+<a name="massa-model-v1-EndorsementDraw"></a>
+
+### EndorsementDraw
+Endorsement draw
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| index | [uint64](#uint64) |  | Endorsement index |
+| producer | [string](#string) |  | Producer address |
+
+
+
+
+
+
+<a name="massa-model-v1-SlotDraw"></a>
+
+### SlotDraw
+Slot draw
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [Slot](#massa-model-v1-Slot) |  | Slot |
+| block_producer | [google.protobuf.StringValue](#google-protobuf-StringValue) |  | Block producer address (Optional) |
+| endorsement_draws | [EndorsementDraw](#massa-model-v1-EndorsementDraw) | repeated | Endorsement draws |
 
 
 
@@ -1907,118 +1982,59 @@ ScExecutionEventStatus type enum
 
 
 
-<a name="massa_model_v1_slot-proto"></a>
+<a name="massa_model_v1_versioning-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## massa/model/v1/slot.proto
+## massa/model/v1/versioning.proto
 
 
 
-<a name="massa-model-v1-IndexedSlot"></a>
+<a name="massa-model-v1-MipComponentEntry"></a>
 
-### IndexedSlot
-When an address is drawn to create an endorsement it is selected for a specific index
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slot | [Slot](#massa-model-v1-Slot) |  | Slot |
-| index | [uint64](#uint64) |  | Endorsement index in the slot |
-
-
-
-
-
-
-<a name="massa-model-v1-Slot"></a>
-
-### Slot
-A point in time where a block is expected
+### MipComponentEntry
+MipComponentEntry
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| period | [uint64](#uint64) |  | Period |
-| thread | [uint32](#uint32) |  | Thread |
+| kind | [MipComponent](#massa-model-v1-MipComponent) |  | Kind |
+| version | [uint32](#uint32) |  | Version |
 
 
 
 
 
 
-<a name="massa-model-v1-SlotRange"></a>
+<a name="massa-model-v1-MipInfo"></a>
 
-### SlotRange
-SlotRange
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| start_slot | [Slot](#massa-model-v1-Slot) |  | Start lot (Optional) |
-| end_slot | [Slot](#massa-model-v1-Slot) |  | End slot (Optional) |
-
-
-
-
-
-
-<a name="massa-model-v1-Slots"></a>
-
-### Slots
-Slots
+### MipInfo
+MIP info (name &amp; versions &amp; time range for a MIP)
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| slots | [Slot](#massa-model-v1-Slot) | repeated | Slots |
+| name | [string](#string) |  | MIP name or descriptive name |
+| version | [uint32](#uint32) |  | Network (or global) version (to be included in block header) |
+| start | [NativeTime](#massa-model-v1-NativeTime) |  | A timestamp at which the version gains its meaning (e.g. announced in block header) |
+| timeout | [NativeTime](#massa-model-v1-NativeTime) |  | A timestamp at the which the deployment is considered failed |
+| activation_delay | [NativeTime](#massa-model-v1-NativeTime) |  | Once deployment has been locked, wait for this duration before deployment is considered active |
+| components | [MipComponentEntry](#massa-model-v1-MipComponentEntry) | repeated | Components concerned by this versioning (e.g. a new Block version), and the associated component_version |
 
 
 
 
 
- 
 
- 
+<a name="massa-model-v1-MipStatusEntry"></a>
 
- 
-
- 
-
-
-
-<a name="massa_model_v1_address-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/address.proto
-
-
-
-<a name="massa-model-v1-Addresses"></a>
-
-### Addresses
-Addresses holds addresses
+### MipStatusEntry
+Entry for GetMipStatusResponse
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| addresses | [string](#string) | repeated | Addresses |
-
-
-
-
-
-
-<a name="massa-model-v1-NativeAddress"></a>
-
-### NativeAddress
-Massa NativeAddress
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| category | [AddressCategory](#massa-model-v1-AddressCategory) |  | Address category |
-| version | [uint64](#uint64) |  | Address version |
-| content | [bytes](#bytes) |  | Address content |
+| mip_info | [MipInfo](#massa-model-v1-MipInfo) |  | Mip info |
+| state_id | [ComponentStateId](#massa-model-v1-ComponentStateId) |  | State id |
 
 
 
@@ -2027,17 +2043,172 @@ Massa NativeAddress
  
 
 
-<a name="massa-model-v1-AddressCategory"></a>
+<a name="massa-model-v1-ComponentStateId"></a>
 
-### AddressCategory
-Address category discriminant
+### ComponentStateId
+State machine for a Versioning component that tracks the deployment state
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| ADDRESS_CATEGORY_UNSPECIFIED | 0 | Unspecified address category |
-| ADDRESS_CATEGORY_USER_ADDRESS | 1 | User address |
-| ADDRESS_CATEGORY_SC_ADDRESS | 2 | Smart contract address |
+| COMPONENT_STATE_ID_UNSPECIFIED | 0 | Default enum value |
+| COMPONENT_STATE_ID_ERROR | 1 | Error state |
+| COMPONENT_STATE_ID_DEFINED | 2 | Initial state |
+| COMPONENT_STATE_ID_STARTED | 3 | Past start, can only go to LockedIn after the threshold is above a given value |
+| COMPONENT_STATE_ID_LOCKEDIN | 4 | Locked but wait for some time before going to active (to let users the time to upgrade) |
+| COMPONENT_STATE_ID_ACTIVE | 5 | After LockedIn, deployment is considered successful (after activation delay) |
+| COMPONENT_STATE_ID_FAILED | 6 | Past the timeout, if LockedIn is not reach |
 
+
+
+<a name="massa-model-v1-MipComponent"></a>
+
+### MipComponent
+Versioning component enum
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| MIP_COMPONENT_UNSPECIFIED | 0 | Default enum value |
+| MIP_COMPONENT_ADDRESS | 1 | Address component |
+| MIP_COMPONENT_KEYPAIR | 2 | Keypair component |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="massa_model_v1_denunciation-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/model/v1/denunciation.proto
+
+
+
+<a name="massa-model-v1-BlockHeaderDenunciation"></a>
+
+### BlockHeaderDenunciation
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| public_key | [string](#string) |  | Denunciation public key |
+| slot | [Slot](#massa-model-v1-Slot) |  | Denunciation slot |
+| hash_1 | [string](#string) |  | Denunciation hash 1 |
+| hash_2 | [string](#string) |  | Denunciation hash 2 |
+| signature_1 | [string](#string) |  | Denunciation sig 1 |
+| signature_2 | [string](#string) |  | Denunciation sig 2 |
+
+
+
+
+
+
+<a name="massa-model-v1-Denunciation"></a>
+
+### Denunciation
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_header | [BlockHeaderDenunciation](#massa-model-v1-BlockHeaderDenunciation) |  | Denunciation block header |
+| endorsement | [EndorsementDenunciation](#massa-model-v1-EndorsementDenunciation) |  | Denunciation endorsement |
+| address | [DenunciationAddress](#massa-model-v1-DenunciationAddress) |  | Denunciation address |
+
+
+
+
+
+
+<a name="massa-model-v1-DenunciationAddress"></a>
+
+### DenunciationAddress
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address_denounced | [string](#string) |  | target address |
+| slot | [Slot](#massa-model-v1-Slot) |  | slot |
+| slashed | [NativeAmount](#massa-model-v1-NativeAmount) |  | amount slashed |
+
+
+
+
+
+
+<a name="massa-model-v1-DenunciationBlockHeader"></a>
+
+### DenunciationBlockHeader
+Variant for Block header denunciation index
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [Slot](#massa-model-v1-Slot) |  | Denunciation slot |
+
+
+
+
+
+
+<a name="massa-model-v1-DenunciationEndorsement"></a>
+
+### DenunciationEndorsement
+Variant for Endorsement denunciation index
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slot | [Slot](#massa-model-v1-Slot) |  | Denounciation slot |
+| index | [uint32](#uint32) |  | Denounciation index |
+
+
+
+
+
+
+<a name="massa-model-v1-DenunciationIndex"></a>
+
+### DenunciationIndex
+Index for Denunciations in collections (e.g. like a HashMap...)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| block_header | [DenunciationBlockHeader](#massa-model-v1-DenunciationBlockHeader) |  | Denunciation block header |
+| endorsement | [DenunciationEndorsement](#massa-model-v1-DenunciationEndorsement) |  | Denunciation endorsement |
+
+
+
+
+
+
+<a name="massa-model-v1-EndorsementDenunciation"></a>
+
+### EndorsementDenunciation
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| public_key | [string](#string) |  | Denunciation public key |
+| slot | [Slot](#massa-model-v1-Slot) |  | Denunciation slot |
+| index | [uint32](#uint32) |  | Denunciation index |
+| hash_1 | [string](#string) |  | Denunciation hash 1 |
+| hash_2 | [string](#string) |  | Denunciation hash 2 |
+| signature_1 | [string](#string) |  | Denunciation sig 1 |
+| signature_2 | [string](#string) |  | Denunciation sig 2 |
+
+
+
+
+
+ 
 
  
 
@@ -2241,141 +2412,6 @@ Possible statuses for a block
 | BLOCK_STATUS_NON_FINAL_ALTERNATE_CLIQUE | 3 | The block is candidate (active any clique but not final) |
 | BLOCK_STATUS_DISCARDED | 4 | The block is discarded |
 
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_endorsement-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/endorsement.proto
-
-
-
-<a name="massa-model-v1-Endorsement"></a>
-
-### Endorsement
-An endorsement, as sent in the network
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| slot | [Slot](#massa-model-v1-Slot) |  | Slot in which the endorsement can be included |
-| index | [uint32](#uint32) |  | Endorsement index inside the including block |
-| endorsed_block | [string](#string) |  | Hash of endorsed block This is the parent in thread `self.slot.thread` of the block in which the endorsement is included |
-
-
-
-
-
-
-<a name="massa-model-v1-EndorsementIds"></a>
-
-### EndorsementIds
-EndorsementIds holds endorsements ids
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| endorsement_ids | [string](#string) | repeated | Endorsements ids |
-
-
-
-
-
-
-<a name="massa-model-v1-EndorsementInfo"></a>
-
-### EndorsementInfo
-Informations about an endorsement with its metadata
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| endorsement_id | [string](#string) |  | The endorsement id |
-| in_pool | [bool](#bool) |  | Whether the endorsement is still in pool |
-| in_blocks | [string](#string) | repeated | The endorsement appears in `in_blocks` If it appears in multiple blocks, these blocks are in different cliques |
-| is_final | [bool](#bool) |  | Whether the the endorsement is final (for example in a final block) |
-
-
-
-
-
-
-<a name="massa-model-v1-EndorsementWrapper"></a>
-
-### EndorsementWrapper
-A wrapper around an endorsement with its metadata
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| in_pool | [bool](#bool) |  | Whether the endorsement is still in pool |
-| in_blocks | [string](#string) | repeated | The endorsement appears in `in_blocks` If it appears in multiple blocks, these blocks are in different cliques |
-| is_final | [bool](#bool) |  | Whether the the endorsement is final (for example in a final block) |
-| endorsement | [SignedEndorsement](#massa-model-v1-SignedEndorsement) |  | The endorsement itself |
-
-
-
-
-
-
-<a name="massa-model-v1-SignedEndorsement"></a>
-
-### SignedEndorsement
-Signed endorsement
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| content | [Endorsement](#massa-model-v1-Endorsement) |  | Endorsement |
-| signature | [string](#string) |  | A cryptographically generated value using `serialized_data` and a public key. |
-| content_creator_pub_key | [string](#string) |  | The public-key component used in the generation of the signature |
-| content_creator_address | [string](#string) |  | Derived from the same public key used to generate the signature |
-| secure_hash | [string](#string) |  | A secure hash of the non-malleable contents of a deterministic binary representation of the block header |
-| serialized_size | [uint64](#uint64) |  | The size of the serialized endorsement in bytes |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="massa_model_v1_time-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/model/v1/time.proto
-
-
-
-<a name="massa-model-v1-NativeTime"></a>
-
-### NativeTime
-NativeTime represents a native duration or unix timestamp
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| milliseconds | [uint64](#uint64) |  | Milliseconds |
-
-
-
-
-
- 
 
  
 

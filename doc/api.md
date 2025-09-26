@@ -57,8 +57,12 @@
     - [AddressBalanceFinal](#massa-api-v1-AddressBalanceFinal)
     - [AddressBytecodeCandidate](#massa-api-v1-AddressBytecodeCandidate)
     - [AddressBytecodeFinal](#massa-api-v1-AddressBytecodeFinal)
+    - [AddressDatastoreEntryHistory](#massa-api-v1-AddressDatastoreEntryHistory)
+    - [AddressDatastoreEntryHistoryResponse](#massa-api-v1-AddressDatastoreEntryHistoryResponse)
     - [AddressDatastoreKeysCandidate](#massa-api-v1-AddressDatastoreKeysCandidate)
     - [AddressDatastoreKeysFinal](#massa-api-v1-AddressDatastoreKeysFinal)
+    - [AddressDatastoreKeysHistory](#massa-api-v1-AddressDatastoreKeysHistory)
+    - [AddressDatastoreKeysHistoryResponse](#massa-api-v1-AddressDatastoreKeysHistoryResponse)
     - [AddressDatastoreValueCandidate](#massa-api-v1-AddressDatastoreValueCandidate)
     - [AddressDatastoreValueFinal](#massa-api-v1-AddressDatastoreValueFinal)
     - [AddressDeferredCreditsCandidate](#massa-api-v1-AddressDeferredCreditsCandidate)
@@ -68,6 +72,8 @@
     - [AddressRollsCandidate](#massa-api-v1-AddressRollsCandidate)
     - [AddressRollsFinal](#massa-api-v1-AddressRollsFinal)
     - [AsyncPoolChangesFilter](#massa-api-v1-AsyncPoolChangesFilter)
+    - [AvailableSnapshots](#massa-api-v1-AvailableSnapshots)
+    - [AvailableSnapshotsResponse](#massa-api-v1-AvailableSnapshotsResponse)
     - [CycleInfos](#massa-api-v1-CycleInfos)
     - [DeferredCallABICallStack](#massa-api-v1-DeferredCallABICallStack)
     - [DeferredCallInfo](#massa-api-v1-DeferredCallInfo)
@@ -886,6 +892,38 @@ Request to get the bytecode (final) of an address
 
 
 
+<a name="massa-api-v1-AddressDatastoreEntryHistory"></a>
+
+### AddressDatastoreEntryHistory
+Request to get a datastore value (history) for an address at a specific cycle
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  | Address for which to query the datastore |
+| key | [bytes](#bytes) |  | Key of the entry |
+| cycle | [uint64](#uint64) |  | Cycle to query (must be within retention period) |
+
+
+
+
+
+
+<a name="massa-api-v1-AddressDatastoreEntryHistoryResponse"></a>
+
+### AddressDatastoreEntryHistoryResponse
+Response for datastore entry history query
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| value | [bytes](#bytes) | optional | The datastore value (None if not found) |
+
+
+
+
+
+
 <a name="massa-api-v1-AddressDatastoreKeysCandidate"></a>
 
 ### AddressDatastoreKeysCandidate
@@ -922,6 +960,43 @@ Request to get the datastore keys (final) of an address
 | end_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | End key for the search |
 | inclusive_end_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included end_key |
 | limit | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  | Limit for the number of keys |
+
+
+
+
+
+
+<a name="massa-api-v1-AddressDatastoreKeysHistory"></a>
+
+### AddressDatastoreKeysHistory
+Request to get the datastore keys (history) of an address at a specific cycle
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  | Address for which to query the datastore |
+| cycle | [uint64](#uint64) |  | Cycle to query (must be within retention period) |
+| prefix | [bytes](#bytes) |  | Filter only entries whose key starts with a prefix |
+| start_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | Key offset for the search |
+| inclusive_start_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included start_key |
+| end_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | End key for the search |
+| inclusive_end_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included end_key |
+| limit | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  | Limit for the number of keys |
+
+
+
+
+
+
+<a name="massa-api-v1-AddressDatastoreKeysHistoryResponse"></a>
+
+### AddressDatastoreKeysHistoryResponse
+Response for datastore keys history query
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| keys | [bytes](#bytes) | repeated | List of datastore keys |
 
 
 
@@ -1064,6 +1139,33 @@ AsyncPoolChangesFilter
 | destination_address | [string](#string) |  | The address towards which the message is being sent |
 | emitter_address | [string](#string) |  | The address that sent the message |
 | can_be_executed | [bool](#bool) |  | Boolean that determine if the message can be executed. For messages without filter this boolean is always true. For messages with filter, this boolean is true if the filter has been matched between `validity_start` and current slot. |
+
+
+
+
+
+
+<a name="massa-api-v1-AvailableSnapshots"></a>
+
+### AvailableSnapshots
+Request to get information about available cycle snapshots
+
+No parameters needed - returns all available snapshots
+
+
+
+
+
+
+<a name="massa-api-v1-AvailableSnapshotsResponse"></a>
+
+### AvailableSnapshotsResponse
+Response containing available cycle snapshots
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| snapshots | [massa.model.v1.CycleSnapshotInfo](#massa-model-v1-CycleSnapshotInfo) | repeated | List of available cycle snapshots |
 
 
 
@@ -1426,6 +1528,9 @@ Query state query item
 | deferred_call_quote | [DeferredCallQuote](#massa-api-v1-DeferredCallQuote) |  | Deferred call quote |
 | deferred_call_info | [DeferredCallInfo](#massa-api-v1-DeferredCallInfo) |  | Deferred calls info |
 | deferred_calls_by_slot | [DeferredCallsBySlot](#massa-api-v1-DeferredCallsBySlot) |  | Deferred calls by slot |
+| address_datastore_keys_history | [AddressDatastoreKeysHistory](#massa-api-v1-AddressDatastoreKeysHistory) |  | Gets the datastore keys (history) of an address at a specific cycle |
+| address_datastore_entry_history | [AddressDatastoreEntryHistory](#massa-api-v1-AddressDatastoreEntryHistory) |  | Gets a datastore value (history) for an address at a specific cycle |
+| available_snapshots | [AvailableSnapshots](#massa-api-v1-AvailableSnapshots) |  | Gets information about available cycle snapshots |
 
 
 
@@ -1468,6 +1573,9 @@ Execution state query response item
 | deferred_call_quote | [DeferredCallQuoteResponse](#massa-api-v1-DeferredCallQuoteResponse) |  | Deferred call quote |
 | deferred_call_info | [DeferredCallInfoResponse](#massa-api-v1-DeferredCallInfoResponse) |  | Deferred call info |
 | deferred_calls_by_slot | [DeferredCallsBySlotResponse](#massa-api-v1-DeferredCallsBySlotResponse) |  | Deferred calls by slot |
+| available_snapshots | [AvailableSnapshotsResponse](#massa-api-v1-AvailableSnapshotsResponse) |  | Available cycle snapshots |
+| address_datastore_keys_history | [AddressDatastoreKeysHistoryResponse](#massa-api-v1-AddressDatastoreKeysHistoryResponse) |  | Datastore keys history for an address at a specific cycle |
+| address_datastore_entry_history | [AddressDatastoreEntryHistoryResponse](#massa-api-v1-AddressDatastoreEntryHistoryResponse) |  | Datastore entry history for an address at a specific cycle |
 
 
 
