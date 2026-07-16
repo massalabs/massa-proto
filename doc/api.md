@@ -362,7 +362,7 @@ Request to get a datastore value (history) for an address at a specific cycle
 | address | [string](#string) |  | Address for which to query the datastore |
 | key | [bytes](#bytes) |  | Key of the entry |
 | cycle | [uint64](#uint64) |  | Cycle to query (must be within retention period) |
-| with_proof | [bool](#bool) |  | When true, the response includes an inclusion/absence proof for the entry |
+| with_proof | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | When true, the response includes an inclusion/absence proof for the entry. Defaults to false. |
 
 
 
@@ -444,7 +444,7 @@ Request to get the datastore keys (history) of an address at a specific cycle
 | end_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | End key for the search |
 | inclusive_end_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included end_key |
 | limit | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  | Limit for the number of keys |
-| with_proof | [bool](#bool) |  | When true, the response includes a completeness proof for the prefix range |
+| with_proof | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | When true, the response includes a completeness proof for the prefix range. Defaults to false. |
 
 
 
