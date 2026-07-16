@@ -3,50 +3,6 @@
 
 ## Table of Contents
 
-- [massa/api/v1/private.proto](#massa_api_v1_private-proto)
-    - [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest)
-    - [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse)
-    - [AddToBootstrapBlacklistRequest](#massa-api-v1-AddToBootstrapBlacklistRequest)
-    - [AddToBootstrapBlacklistResponse](#massa-api-v1-AddToBootstrapBlacklistResponse)
-    - [AddToBootstrapWhitelistRequest](#massa-api-v1-AddToBootstrapWhitelistRequest)
-    - [AddToBootstrapWhitelistResponse](#massa-api-v1-AddToBootstrapWhitelistResponse)
-    - [AddToPeersWhitelistRequest](#massa-api-v1-AddToPeersWhitelistRequest)
-    - [AddToPeersWhitelistResponse](#massa-api-v1-AddToPeersWhitelistResponse)
-    - [AllowEveryoneToBootstrapRequest](#massa-api-v1-AllowEveryoneToBootstrapRequest)
-    - [AllowEveryoneToBootstrapResponse](#massa-api-v1-AllowEveryoneToBootstrapResponse)
-    - [BanNodesByIdsRequest](#massa-api-v1-BanNodesByIdsRequest)
-    - [BanNodesByIdsResponse](#massa-api-v1-BanNodesByIdsResponse)
-    - [BanNodesByIpsRequest](#massa-api-v1-BanNodesByIpsRequest)
-    - [BanNodesByIpsResponse](#massa-api-v1-BanNodesByIpsResponse)
-    - [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest)
-    - [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse)
-    - [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest)
-    - [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse)
-    - [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest)
-    - [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse)
-    - [GetNodeStatusRequest](#massa-api-v1-GetNodeStatusRequest)
-    - [GetNodeStatusResponse](#massa-api-v1-GetNodeStatusResponse)
-    - [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest)
-    - [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse)
-    - [RemoveFromBootstrapBlacklistRequest](#massa-api-v1-RemoveFromBootstrapBlacklistRequest)
-    - [RemoveFromBootstrapBlacklistResponse](#massa-api-v1-RemoveFromBootstrapBlacklistResponse)
-    - [RemoveFromBootstrapWhitelistRequest](#massa-api-v1-RemoveFromBootstrapWhitelistRequest)
-    - [RemoveFromBootstrapWhitelistResponse](#massa-api-v1-RemoveFromBootstrapWhitelistResponse)
-    - [RemoveFromPeersWhitelistRequest](#massa-api-v1-RemoveFromPeersWhitelistRequest)
-    - [RemoveFromPeersWhitelistResponse](#massa-api-v1-RemoveFromPeersWhitelistResponse)
-    - [RemoveStakingAddressesRequest](#massa-api-v1-RemoveStakingAddressesRequest)
-    - [RemoveStakingAddressesResponse](#massa-api-v1-RemoveStakingAddressesResponse)
-    - [ShutdownGracefullyRequest](#massa-api-v1-ShutdownGracefullyRequest)
-    - [ShutdownGracefullyResponse](#massa-api-v1-ShutdownGracefullyResponse)
-    - [SignMessagesRequest](#massa-api-v1-SignMessagesRequest)
-    - [SignMessagesResponse](#massa-api-v1-SignMessagesResponse)
-    - [UnbanNodesByIdsRequest](#massa-api-v1-UnbanNodesByIdsRequest)
-    - [UnbanNodesByIdsResponse](#massa-api-v1-UnbanNodesByIdsResponse)
-    - [UnbanNodesByIpsRequest](#massa-api-v1-UnbanNodesByIpsRequest)
-    - [UnbanNodesByIpsResponse](#massa-api-v1-UnbanNodesByIpsResponse)
-  
-    - [PrivateService](#massa-api-v1-PrivateService)
-  
 - [massa/api/v1/public.proto](#massa_api_v1_public-proto)
     - [ABICallStack](#massa-api-v1-ABICallStack)
     - [ABICallStackElement](#massa-api-v1-ABICallStackElement)
@@ -198,548 +154,51 @@
   
     - [PublicService](#massa-api-v1-PublicService)
   
+- [massa/api/v1/private.proto](#massa_api_v1_private-proto)
+    - [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest)
+    - [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse)
+    - [AddToBootstrapBlacklistRequest](#massa-api-v1-AddToBootstrapBlacklistRequest)
+    - [AddToBootstrapBlacklistResponse](#massa-api-v1-AddToBootstrapBlacklistResponse)
+    - [AddToBootstrapWhitelistRequest](#massa-api-v1-AddToBootstrapWhitelistRequest)
+    - [AddToBootstrapWhitelistResponse](#massa-api-v1-AddToBootstrapWhitelistResponse)
+    - [AddToPeersWhitelistRequest](#massa-api-v1-AddToPeersWhitelistRequest)
+    - [AddToPeersWhitelistResponse](#massa-api-v1-AddToPeersWhitelistResponse)
+    - [AllowEveryoneToBootstrapRequest](#massa-api-v1-AllowEveryoneToBootstrapRequest)
+    - [AllowEveryoneToBootstrapResponse](#massa-api-v1-AllowEveryoneToBootstrapResponse)
+    - [BanNodesByIdsRequest](#massa-api-v1-BanNodesByIdsRequest)
+    - [BanNodesByIdsResponse](#massa-api-v1-BanNodesByIdsResponse)
+    - [BanNodesByIpsRequest](#massa-api-v1-BanNodesByIpsRequest)
+    - [BanNodesByIpsResponse](#massa-api-v1-BanNodesByIpsResponse)
+    - [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest)
+    - [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse)
+    - [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest)
+    - [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse)
+    - [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest)
+    - [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse)
+    - [GetNodeStatusRequest](#massa-api-v1-GetNodeStatusRequest)
+    - [GetNodeStatusResponse](#massa-api-v1-GetNodeStatusResponse)
+    - [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest)
+    - [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse)
+    - [RemoveFromBootstrapBlacklistRequest](#massa-api-v1-RemoveFromBootstrapBlacklistRequest)
+    - [RemoveFromBootstrapBlacklistResponse](#massa-api-v1-RemoveFromBootstrapBlacklistResponse)
+    - [RemoveFromBootstrapWhitelistRequest](#massa-api-v1-RemoveFromBootstrapWhitelistRequest)
+    - [RemoveFromBootstrapWhitelistResponse](#massa-api-v1-RemoveFromBootstrapWhitelistResponse)
+    - [RemoveFromPeersWhitelistRequest](#massa-api-v1-RemoveFromPeersWhitelistRequest)
+    - [RemoveFromPeersWhitelistResponse](#massa-api-v1-RemoveFromPeersWhitelistResponse)
+    - [RemoveStakingAddressesRequest](#massa-api-v1-RemoveStakingAddressesRequest)
+    - [RemoveStakingAddressesResponse](#massa-api-v1-RemoveStakingAddressesResponse)
+    - [ShutdownGracefullyRequest](#massa-api-v1-ShutdownGracefullyRequest)
+    - [ShutdownGracefullyResponse](#massa-api-v1-ShutdownGracefullyResponse)
+    - [SignMessagesRequest](#massa-api-v1-SignMessagesRequest)
+    - [SignMessagesResponse](#massa-api-v1-SignMessagesResponse)
+    - [UnbanNodesByIdsRequest](#massa-api-v1-UnbanNodesByIdsRequest)
+    - [UnbanNodesByIdsResponse](#massa-api-v1-UnbanNodesByIdsResponse)
+    - [UnbanNodesByIpsRequest](#massa-api-v1-UnbanNodesByIpsRequest)
+    - [UnbanNodesByIpsResponse](#massa-api-v1-UnbanNodesByIpsResponse)
+  
+    - [PrivateService](#massa-api-v1-PrivateService)
+  
 - [Scalar Value Types](#scalar-value-types)
-
-
-
-<a name="massa_api_v1_private-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## massa/api/v1/private.proto
-
-
-
-<a name="massa-api-v1-AddStakingSecretKeysRequest"></a>
-
-### AddStakingSecretKeysRequest
-AddStakingSecretKeysRequest holds the request for AddStakingSecretKeys
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| secret_keys | [string](#string) | repeated | Secret keys to add to wallet |
-
-
-
-
-
-
-<a name="massa-api-v1-AddStakingSecretKeysResponse"></a>
-
-### AddStakingSecretKeysResponse
-AddStakingSecretKeysResponse holds the response from AddStakingSecretKeys
-
-
-
-
-
-
-<a name="massa-api-v1-AddToBootstrapBlacklistRequest"></a>
-
-### AddToBootstrapBlacklistRequest
-AddToBootstrapBlacklistRequest holds the request for AddToBootstrapBlacklist
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ips | [string](#string) | repeated | IP addresses to add to bootstrap blacklist |
-
-
-
-
-
-
-<a name="massa-api-v1-AddToBootstrapBlacklistResponse"></a>
-
-### AddToBootstrapBlacklistResponse
-AddToBootstrapBlacklistResponse holds the response from AddToBootstrapBlacklist
-
-
-
-
-
-
-<a name="massa-api-v1-AddToBootstrapWhitelistRequest"></a>
-
-### AddToBootstrapWhitelistRequest
-AddToBootstrapWhitelistRequest holds the request for AddToBootstrapWhitelist
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ips | [string](#string) | repeated | IP addresses to add to bootstrap whitelist |
-
-
-
-
-
-
-<a name="massa-api-v1-AddToBootstrapWhitelistResponse"></a>
-
-### AddToBootstrapWhitelistResponse
-AddToBootstrapWhitelistResponse holds the response from AddToBootstrapWhitelist
-
-
-
-
-
-
-<a name="massa-api-v1-AddToPeersWhitelistRequest"></a>
-
-### AddToPeersWhitelistRequest
-AddToPeersWhitelistRequest holds the request for AddToPeersWhitelist
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ips | [string](#string) | repeated | IP addresses to add to peers whitelist |
-
-
-
-
-
-
-<a name="massa-api-v1-AddToPeersWhitelistResponse"></a>
-
-### AddToPeersWhitelistResponse
-AddToPeersWhitelistResponse holds the response from AddToPeersWhitelist
-
-
-
-
-
-
-<a name="massa-api-v1-AllowEveryoneToBootstrapRequest"></a>
-
-### AllowEveryoneToBootstrapRequest
-AllowEveryoneToBootstrapRequest holds the request for AllowEveryoneToBootstrap
-
-
-
-
-
-
-<a name="massa-api-v1-AllowEveryoneToBootstrapResponse"></a>
-
-### AllowEveryoneToBootstrapResponse
-AllowEveryoneToBootstrapResponse holds the response from AllowEveryoneToBootstrap
-
-
-
-
-
-
-<a name="massa-api-v1-BanNodesByIdsRequest"></a>
-
-### BanNodesByIdsRequest
-BanNodesByIdsRequest holds the request for BanNodesByIds
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| node_ids | [string](#string) | repeated | Node ids to ban |
-
-
-
-
-
-
-<a name="massa-api-v1-BanNodesByIdsResponse"></a>
-
-### BanNodesByIdsResponse
-BanNodesByIdsResponse holds the response from BanNodesByIds
-
-
-
-
-
-
-<a name="massa-api-v1-BanNodesByIpsRequest"></a>
-
-### BanNodesByIpsRequest
-BanNodesByIpsRequest holds the request for BanNodesByIps
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ips | [string](#string) | repeated | Node IP addresses to ban |
-
-
-
-
-
-
-<a name="massa-api-v1-BanNodesByIpsResponse"></a>
-
-### BanNodesByIpsResponse
-BanNodesByIpsResponse holds the response from BanNodesByIps
-
-
-
-
-
-
-<a name="massa-api-v1-GetBootstrapBlacklistRequest"></a>
-
-### GetBootstrapBlacklistRequest
-GetBootstrapBlacklistRequest holds the request for GetBootstrapBlacklist
-
-
-
-
-
-
-<a name="massa-api-v1-GetBootstrapBlacklistResponse"></a>
-
-### GetBootstrapBlacklistResponse
-GetBootstrapBlacklistResponse holds the response from GetBootstrapBlacklist
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ips | [string](#string) | repeated | Bootstrap blacklisted IP addresses |
-
-
-
-
-
-
-<a name="massa-api-v1-GetBootstrapWhitelistRequest"></a>
-
-### GetBootstrapWhitelistRequest
-GetBootstrapWhitelistRequest holds the request for GetBootstrapWhitelist
-
-
-
-
-
-
-<a name="massa-api-v1-GetBootstrapWhitelistResponse"></a>
-
-### GetBootstrapWhitelistResponse
-GetBootstrapWhitelistResponse holds the response from GetBootstrapWhitelist
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ips | [string](#string) | repeated | Bootstrap whitelisted IP addresses |
-
-
-
-
-
-
-<a name="massa-api-v1-GetMipStatusRequest"></a>
-
-### GetMipStatusRequest
-GetMipStatusRequest holds request for GetMipStatus
-
-
-
-
-
-
-<a name="massa-api-v1-GetMipStatusResponse"></a>
-
-### GetMipStatusResponse
-GetMipStatusResponse holds response from GetMipStatus
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| mipstatus_entries | [massa.model.v1.MipStatusEntry](#massa-model-v1-MipStatusEntry) | repeated | (MipInfo - status id) entries |
-
-
-
-
-
-
-<a name="massa-api-v1-GetNodeStatusRequest"></a>
-
-### GetNodeStatusRequest
-GetNodeStatusRequest holds the request for GetNodeStatus
-
-
-
-
-
-
-<a name="massa-api-v1-GetNodeStatusResponse"></a>
-
-### GetNodeStatusResponse
-GetNodeStatusResponse holds the response from GetNodeStatus
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| status | [massa.model.v1.NodeStatus](#massa-model-v1-NodeStatus) |  | Node status |
-
-
-
-
-
-
-<a name="massa-api-v1-GetPeersWhitelistRequest"></a>
-
-### GetPeersWhitelistRequest
-GetPeersWhitelistRequest holds the request for GetPeersWhitelist
-
-
-
-
-
-
-<a name="massa-api-v1-GetPeersWhitelistResponse"></a>
-
-### GetPeersWhitelistResponse
-GetPeersWhitelistResponse holds the response from GetPeersWhitelist
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ips | [string](#string) | repeated | Whitelisted IP addresses |
-
-
-
-
-
-
-<a name="massa-api-v1-RemoveFromBootstrapBlacklistRequest"></a>
-
-### RemoveFromBootstrapBlacklistRequest
-RemoveFromBootstrapBlacklistRequest holds the request for RemoveFromBootstrapBlacklist
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ips | [string](#string) | repeated | IP addresses to remove from bootstrap blacklist |
-
-
-
-
-
-
-<a name="massa-api-v1-RemoveFromBootstrapBlacklistResponse"></a>
-
-### RemoveFromBootstrapBlacklistResponse
-RemoveFromBootstrapBlacklistResponse holds the response from RemoveFromBootstrapBlacklist
-
-
-
-
-
-
-<a name="massa-api-v1-RemoveFromBootstrapWhitelistRequest"></a>
-
-### RemoveFromBootstrapWhitelistRequest
-RemoveFromBootstrapWhitelistRequest holds the request for RemoveFromBootstrapWhitelist
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ips | [string](#string) | repeated | IP addresses to remove from bootstrap whitelist |
-
-
-
-
-
-
-<a name="massa-api-v1-RemoveFromBootstrapWhitelistResponse"></a>
-
-### RemoveFromBootstrapWhitelistResponse
-RemoveFromBootstrapWhitelistResponse holds the response from RemoveFromBootstrapWhitelist
-
-
-
-
-
-
-<a name="massa-api-v1-RemoveFromPeersWhitelistRequest"></a>
-
-### RemoveFromPeersWhitelistRequest
-RemoveFromPeersWhitelistRequest holds the request for RemoveFromPeersWhitelist
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ips | [string](#string) | repeated | IP addresses to remove from peers whitelist |
-
-
-
-
-
-
-<a name="massa-api-v1-RemoveFromPeersWhitelistResponse"></a>
-
-### RemoveFromPeersWhitelistResponse
-RemoveFromPeersWhitelistResponse holds the response from RemoveFromPeersWhitelist
-
-
-
-
-
-
-<a name="massa-api-v1-RemoveStakingAddressesRequest"></a>
-
-### RemoveStakingAddressesRequest
-RemoveStakingAddressesRequest holds the request for RemoveStakingAddresses
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| addresses | [string](#string) | repeated | Addresses to remove from staking |
-
-
-
-
-
-
-<a name="massa-api-v1-RemoveStakingAddressesResponse"></a>
-
-### RemoveStakingAddressesResponse
-RemoveStakingAddressesResponse holds the response from RemoveStakingAddresses
-
-
-
-
-
-
-<a name="massa-api-v1-ShutdownGracefullyRequest"></a>
-
-### ShutdownGracefullyRequest
-ShutdownGracefullyRequest holds the request for ShutdownGracefully
-
-
-
-
-
-
-<a name="massa-api-v1-ShutdownGracefullyResponse"></a>
-
-### ShutdownGracefullyResponse
-ShutdownGracefullyResponse holds the response from ShutdownGracefully
-
-
-
-
-
-
-<a name="massa-api-v1-SignMessagesRequest"></a>
-
-### SignMessagesRequest
-SignMessagesRequest holds the request for SignMessages
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| messages | [bytes](#bytes) | repeated | Messages to sign in bytes |
-
-
-
-
-
-
-<a name="massa-api-v1-SignMessagesResponse"></a>
-
-### SignMessagesResponse
-SignMessagesResponse holds the response from SignMessages
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| public_key | [string](#string) |  | Public key that signed the message |
-| signatures | [string](#string) | repeated | Signatures |
-
-
-
-
-
-
-<a name="massa-api-v1-UnbanNodesByIdsRequest"></a>
-
-### UnbanNodesByIdsRequest
-UnbanNodesByIdsRequest holds the request for UnbanNodesByIds
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| node_ids | [string](#string) | repeated | Node ids to unban |
-
-
-
-
-
-
-<a name="massa-api-v1-UnbanNodesByIdsResponse"></a>
-
-### UnbanNodesByIdsResponse
-UnbanNodesByIdsResponse holds the response from UnbanNodesByIds
-
-
-
-
-
-
-<a name="massa-api-v1-UnbanNodesByIpsRequest"></a>
-
-### UnbanNodesByIpsRequest
-UnbanNodesByIpsRequest holds the request for UnbanNodesByIps
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ips | [string](#string) | repeated | Nodes IP addresses to unban |
-
-
-
-
-
-
-<a name="massa-api-v1-UnbanNodesByIpsResponse"></a>
-
-### UnbanNodesByIpsResponse
-UnbanNodesByIpsResponse holds the response from UnbanNodesByIps
-
-
-
-
-
- 
-
- 
-
- 
-
-
-<a name="massa-api-v1-PrivateService"></a>
-
-### PrivateService
-Massa private gRPC service
-
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| AddToBootstrapBlacklist | [AddToBootstrapBlacklistRequest](#massa-api-v1-AddToBootstrapBlacklistRequest) | [AddToBootstrapBlacklistResponse](#massa-api-v1-AddToBootstrapBlacklistResponse) | Add IP addresses to node bootstrap blacklist |
-| AddToBootstrapWhitelist | [AddToBootstrapWhitelistRequest](#massa-api-v1-AddToBootstrapWhitelistRequest) | [AddToBootstrapWhitelistResponse](#massa-api-v1-AddToBootstrapWhitelistResponse) | Add IP addresses to node bootstrap whitelist |
-| AddToPeersWhitelist | [AddToPeersWhitelistRequest](#massa-api-v1-AddToPeersWhitelistRequest) | [AddToPeersWhitelistResponse](#massa-api-v1-AddToPeersWhitelistResponse) | Add IP addresses to node peers whitelist. No confirmation to expect. Note: If the ip was unknown it adds it to the known peers, otherwise it updates the peer type |
-| AddStakingSecretKeys | [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest) | [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse) | Add staking secret keys to wallet |
-| AllowEveryoneToBootstrap | [AllowEveryoneToBootstrapRequest](#massa-api-v1-AllowEveryoneToBootstrapRequest) | [AllowEveryoneToBootstrapResponse](#massa-api-v1-AllowEveryoneToBootstrapResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file |
-| GetBootstrapBlacklist | [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest) | [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse) | Get node bootstrap blacklist IP addresses |
-| GetBootstrapWhitelist | [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest) | [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse) | Get node bootstrap whitelist IP addresses |
-| GetMipStatus | [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest) | [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse) | Get Mip status |
-| GetNodeStatus | [GetNodeStatusRequest](#massa-api-v1-GetNodeStatusRequest) | [GetNodeStatusResponse](#massa-api-v1-GetNodeStatusResponse) | Get node status |
-| GetPeersWhitelist | [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest) | [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse) | Get node peers whitelist IP addresses |
-| BanNodesByIds | [BanNodesByIdsRequest](#massa-api-v1-BanNodesByIdsRequest) | [BanNodesByIdsResponse](#massa-api-v1-BanNodesByIdsResponse) | Ban multiple nodes by their individual ids |
-| BanNodesByIps | [BanNodesByIpsRequest](#massa-api-v1-BanNodesByIpsRequest) | [BanNodesByIpsResponse](#massa-api-v1-BanNodesByIpsResponse) | Ban multiple nodes by their individual IP addresses |
-| RemoveFromBootstrapBlacklist | [RemoveFromBootstrapBlacklistRequest](#massa-api-v1-RemoveFromBootstrapBlacklistRequest) | [RemoveFromBootstrapBlacklistResponse](#massa-api-v1-RemoveFromBootstrapBlacklistResponse) | Remove from bootstrap blacklist given IP addresses |
-| RemoveFromBootstrapWhitelist | [RemoveFromBootstrapWhitelistRequest](#massa-api-v1-RemoveFromBootstrapWhitelistRequest) | [RemoveFromBootstrapWhitelistResponse](#massa-api-v1-RemoveFromBootstrapWhitelistResponse) | Remove from bootstrap whitelist given IP addresses |
-| RemoveFromPeersWhitelist | [RemoveFromPeersWhitelistRequest](#massa-api-v1-RemoveFromPeersWhitelistRequest) | [RemoveFromPeersWhitelistResponse](#massa-api-v1-RemoveFromPeersWhitelistResponse) | Remove from peers whitelist given IP addresses |
-| RemoveStakingAddresses | [RemoveStakingAddressesRequest](#massa-api-v1-RemoveStakingAddressesRequest) | [RemoveStakingAddressesResponse](#massa-api-v1-RemoveStakingAddressesResponse) | Remove addresses from staking |
-| SignMessages | [SignMessagesRequest](#massa-api-v1-SignMessagesRequest) | [SignMessagesResponse](#massa-api-v1-SignMessagesResponse) | Sign messages with node&#39;s key |
-| ShutdownGracefully | [ShutdownGracefullyRequest](#massa-api-v1-ShutdownGracefullyRequest) | [ShutdownGracefullyResponse](#massa-api-v1-ShutdownGracefullyResponse) | Shutdown the node gracefully |
-| UnbanNodesByIds | [UnbanNodesByIdsRequest](#massa-api-v1-UnbanNodesByIdsRequest) | [UnbanNodesByIdsResponse](#massa-api-v1-UnbanNodesByIdsResponse) | Unban multiple nodes by their individual ids |
-| UnbanNodesByIps | [UnbanNodesByIpsRequest](#massa-api-v1-UnbanNodesByIpsRequest) | [UnbanNodesByIpsResponse](#massa-api-v1-UnbanNodesByIpsResponse) | Unban multiple nodes by their individual IP addresses |
-
- 
 
 
 
@@ -903,6 +362,7 @@ Request to get a datastore value (history) for an address at a specific cycle
 | address | [string](#string) |  | Address for which to query the datastore |
 | key | [bytes](#bytes) |  | Key of the entry |
 | cycle | [uint64](#uint64) |  | Cycle to query (must be within retention period) |
+| with_proof | [bool](#bool) |  | When true, the response includes an inclusion/absence proof for the entry |
 
 
 
@@ -918,6 +378,8 @@ Response for datastore entry history query
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | value | [bytes](#bytes) | optional | The datastore value (None if not found) |
+| proof | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | Serialized DatastoreHistoryProofBundle (absent when no proof was requested) |
+| root_signatures | [massa.model.v1.SnapshotRootSignature](#massa-model-v1-SnapshotRootSignature) | repeated | Signatures over the snapshot Merkle root for the queried cycle |
 
 
 
@@ -982,6 +444,7 @@ Request to get the datastore keys (history) of an address at a specific cycle
 | end_key | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | End key for the search |
 | inclusive_end_key | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | included end_key |
 | limit | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  | Limit for the number of keys |
+| with_proof | [bool](#bool) |  | When true, the response includes a completeness proof for the prefix range |
 
 
 
@@ -997,6 +460,8 @@ Response for datastore keys history query
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | keys | [bytes](#bytes) | repeated | List of datastore keys |
+| proof | [google.protobuf.BytesValue](#google-protobuf-BytesValue) |  | Serialized DatastoreHistoryProofBundle (absent when no proof was requested) |
+| root_signatures | [massa.model.v1.SnapshotRootSignature](#massa-model-v1-SnapshotRootSignature) | repeated | Signatures over the snapshot Merkle root for the queried cycle |
 
 
 
@@ -3129,6 +2594,547 @@ Massa public gRPC service
 | TransactionsThroughput | [TransactionsThroughputRequest](#massa-api-v1-TransactionsThroughputRequest) stream | [TransactionsThroughputResponse](#massa-api-v1-TransactionsThroughputResponse) stream | Transactions throughput |
 | TransactionsThroughputServer | [TransactionsThroughputServerRequest](#massa-api-v1-TransactionsThroughputServerRequest) | [TransactionsThroughputServerResponse](#massa-api-v1-TransactionsThroughputServerResponse) stream | Transactions throughput unidirectional |
 | NewTransfersInfoServer | [NewTransfersInfoServerRequest](#massa-api-v1-NewTransfersInfoServerRequest) | [NewTransfersInfoServerResponse](#massa-api-v1-NewTransfersInfoServerResponse) stream | New execution Info |
+
+ 
+
+
+
+<a name="massa_api_v1_private-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## massa/api/v1/private.proto
+
+
+
+<a name="massa-api-v1-AddStakingSecretKeysRequest"></a>
+
+### AddStakingSecretKeysRequest
+AddStakingSecretKeysRequest holds the request for AddStakingSecretKeys
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| secret_keys | [string](#string) | repeated | Secret keys to add to wallet |
+
+
+
+
+
+
+<a name="massa-api-v1-AddStakingSecretKeysResponse"></a>
+
+### AddStakingSecretKeysResponse
+AddStakingSecretKeysResponse holds the response from AddStakingSecretKeys
+
+
+
+
+
+
+<a name="massa-api-v1-AddToBootstrapBlacklistRequest"></a>
+
+### AddToBootstrapBlacklistRequest
+AddToBootstrapBlacklistRequest holds the request for AddToBootstrapBlacklist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | IP addresses to add to bootstrap blacklist |
+
+
+
+
+
+
+<a name="massa-api-v1-AddToBootstrapBlacklistResponse"></a>
+
+### AddToBootstrapBlacklistResponse
+AddToBootstrapBlacklistResponse holds the response from AddToBootstrapBlacklist
+
+
+
+
+
+
+<a name="massa-api-v1-AddToBootstrapWhitelistRequest"></a>
+
+### AddToBootstrapWhitelistRequest
+AddToBootstrapWhitelistRequest holds the request for AddToBootstrapWhitelist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | IP addresses to add to bootstrap whitelist |
+
+
+
+
+
+
+<a name="massa-api-v1-AddToBootstrapWhitelistResponse"></a>
+
+### AddToBootstrapWhitelistResponse
+AddToBootstrapWhitelistResponse holds the response from AddToBootstrapWhitelist
+
+
+
+
+
+
+<a name="massa-api-v1-AddToPeersWhitelistRequest"></a>
+
+### AddToPeersWhitelistRequest
+AddToPeersWhitelistRequest holds the request for AddToPeersWhitelist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | IP addresses to add to peers whitelist |
+
+
+
+
+
+
+<a name="massa-api-v1-AddToPeersWhitelistResponse"></a>
+
+### AddToPeersWhitelistResponse
+AddToPeersWhitelistResponse holds the response from AddToPeersWhitelist
+
+
+
+
+
+
+<a name="massa-api-v1-AllowEveryoneToBootstrapRequest"></a>
+
+### AllowEveryoneToBootstrapRequest
+AllowEveryoneToBootstrapRequest holds the request for AllowEveryoneToBootstrap
+
+
+
+
+
+
+<a name="massa-api-v1-AllowEveryoneToBootstrapResponse"></a>
+
+### AllowEveryoneToBootstrapResponse
+AllowEveryoneToBootstrapResponse holds the response from AllowEveryoneToBootstrap
+
+
+
+
+
+
+<a name="massa-api-v1-BanNodesByIdsRequest"></a>
+
+### BanNodesByIdsRequest
+BanNodesByIdsRequest holds the request for BanNodesByIds
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| node_ids | [string](#string) | repeated | Node ids to ban |
+
+
+
+
+
+
+<a name="massa-api-v1-BanNodesByIdsResponse"></a>
+
+### BanNodesByIdsResponse
+BanNodesByIdsResponse holds the response from BanNodesByIds
+
+
+
+
+
+
+<a name="massa-api-v1-BanNodesByIpsRequest"></a>
+
+### BanNodesByIpsRequest
+BanNodesByIpsRequest holds the request for BanNodesByIps
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | Node IP addresses to ban |
+
+
+
+
+
+
+<a name="massa-api-v1-BanNodesByIpsResponse"></a>
+
+### BanNodesByIpsResponse
+BanNodesByIpsResponse holds the response from BanNodesByIps
+
+
+
+
+
+
+<a name="massa-api-v1-GetBootstrapBlacklistRequest"></a>
+
+### GetBootstrapBlacklistRequest
+GetBootstrapBlacklistRequest holds the request for GetBootstrapBlacklist
+
+
+
+
+
+
+<a name="massa-api-v1-GetBootstrapBlacklistResponse"></a>
+
+### GetBootstrapBlacklistResponse
+GetBootstrapBlacklistResponse holds the response from GetBootstrapBlacklist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | Bootstrap blacklisted IP addresses |
+
+
+
+
+
+
+<a name="massa-api-v1-GetBootstrapWhitelistRequest"></a>
+
+### GetBootstrapWhitelistRequest
+GetBootstrapWhitelistRequest holds the request for GetBootstrapWhitelist
+
+
+
+
+
+
+<a name="massa-api-v1-GetBootstrapWhitelistResponse"></a>
+
+### GetBootstrapWhitelistResponse
+GetBootstrapWhitelistResponse holds the response from GetBootstrapWhitelist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | Bootstrap whitelisted IP addresses |
+
+
+
+
+
+
+<a name="massa-api-v1-GetMipStatusRequest"></a>
+
+### GetMipStatusRequest
+GetMipStatusRequest holds request for GetMipStatus
+
+
+
+
+
+
+<a name="massa-api-v1-GetMipStatusResponse"></a>
+
+### GetMipStatusResponse
+GetMipStatusResponse holds response from GetMipStatus
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| mipstatus_entries | [massa.model.v1.MipStatusEntry](#massa-model-v1-MipStatusEntry) | repeated | (MipInfo - status id) entries |
+
+
+
+
+
+
+<a name="massa-api-v1-GetNodeStatusRequest"></a>
+
+### GetNodeStatusRequest
+GetNodeStatusRequest holds the request for GetNodeStatus
+
+
+
+
+
+
+<a name="massa-api-v1-GetNodeStatusResponse"></a>
+
+### GetNodeStatusResponse
+GetNodeStatusResponse holds the response from GetNodeStatus
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [massa.model.v1.NodeStatus](#massa-model-v1-NodeStatus) |  | Node status |
+
+
+
+
+
+
+<a name="massa-api-v1-GetPeersWhitelistRequest"></a>
+
+### GetPeersWhitelistRequest
+GetPeersWhitelistRequest holds the request for GetPeersWhitelist
+
+
+
+
+
+
+<a name="massa-api-v1-GetPeersWhitelistResponse"></a>
+
+### GetPeersWhitelistResponse
+GetPeersWhitelistResponse holds the response from GetPeersWhitelist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | Whitelisted IP addresses |
+
+
+
+
+
+
+<a name="massa-api-v1-RemoveFromBootstrapBlacklistRequest"></a>
+
+### RemoveFromBootstrapBlacklistRequest
+RemoveFromBootstrapBlacklistRequest holds the request for RemoveFromBootstrapBlacklist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | IP addresses to remove from bootstrap blacklist |
+
+
+
+
+
+
+<a name="massa-api-v1-RemoveFromBootstrapBlacklistResponse"></a>
+
+### RemoveFromBootstrapBlacklistResponse
+RemoveFromBootstrapBlacklistResponse holds the response from RemoveFromBootstrapBlacklist
+
+
+
+
+
+
+<a name="massa-api-v1-RemoveFromBootstrapWhitelistRequest"></a>
+
+### RemoveFromBootstrapWhitelistRequest
+RemoveFromBootstrapWhitelistRequest holds the request for RemoveFromBootstrapWhitelist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | IP addresses to remove from bootstrap whitelist |
+
+
+
+
+
+
+<a name="massa-api-v1-RemoveFromBootstrapWhitelistResponse"></a>
+
+### RemoveFromBootstrapWhitelistResponse
+RemoveFromBootstrapWhitelistResponse holds the response from RemoveFromBootstrapWhitelist
+
+
+
+
+
+
+<a name="massa-api-v1-RemoveFromPeersWhitelistRequest"></a>
+
+### RemoveFromPeersWhitelistRequest
+RemoveFromPeersWhitelistRequest holds the request for RemoveFromPeersWhitelist
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | IP addresses to remove from peers whitelist |
+
+
+
+
+
+
+<a name="massa-api-v1-RemoveFromPeersWhitelistResponse"></a>
+
+### RemoveFromPeersWhitelistResponse
+RemoveFromPeersWhitelistResponse holds the response from RemoveFromPeersWhitelist
+
+
+
+
+
+
+<a name="massa-api-v1-RemoveStakingAddressesRequest"></a>
+
+### RemoveStakingAddressesRequest
+RemoveStakingAddressesRequest holds the request for RemoveStakingAddresses
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| addresses | [string](#string) | repeated | Addresses to remove from staking |
+
+
+
+
+
+
+<a name="massa-api-v1-RemoveStakingAddressesResponse"></a>
+
+### RemoveStakingAddressesResponse
+RemoveStakingAddressesResponse holds the response from RemoveStakingAddresses
+
+
+
+
+
+
+<a name="massa-api-v1-ShutdownGracefullyRequest"></a>
+
+### ShutdownGracefullyRequest
+ShutdownGracefullyRequest holds the request for ShutdownGracefully
+
+
+
+
+
+
+<a name="massa-api-v1-ShutdownGracefullyResponse"></a>
+
+### ShutdownGracefullyResponse
+ShutdownGracefullyResponse holds the response from ShutdownGracefully
+
+
+
+
+
+
+<a name="massa-api-v1-SignMessagesRequest"></a>
+
+### SignMessagesRequest
+SignMessagesRequest holds the request for SignMessages
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| messages | [bytes](#bytes) | repeated | Messages to sign in bytes |
+
+
+
+
+
+
+<a name="massa-api-v1-SignMessagesResponse"></a>
+
+### SignMessagesResponse
+SignMessagesResponse holds the response from SignMessages
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| public_key | [string](#string) |  | Public key that signed the message |
+| signatures | [string](#string) | repeated | Signatures |
+
+
+
+
+
+
+<a name="massa-api-v1-UnbanNodesByIdsRequest"></a>
+
+### UnbanNodesByIdsRequest
+UnbanNodesByIdsRequest holds the request for UnbanNodesByIds
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| node_ids | [string](#string) | repeated | Node ids to unban |
+
+
+
+
+
+
+<a name="massa-api-v1-UnbanNodesByIdsResponse"></a>
+
+### UnbanNodesByIdsResponse
+UnbanNodesByIdsResponse holds the response from UnbanNodesByIds
+
+
+
+
+
+
+<a name="massa-api-v1-UnbanNodesByIpsRequest"></a>
+
+### UnbanNodesByIpsRequest
+UnbanNodesByIpsRequest holds the request for UnbanNodesByIps
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ips | [string](#string) | repeated | Nodes IP addresses to unban |
+
+
+
+
+
+
+<a name="massa-api-v1-UnbanNodesByIpsResponse"></a>
+
+### UnbanNodesByIpsResponse
+UnbanNodesByIpsResponse holds the response from UnbanNodesByIps
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="massa-api-v1-PrivateService"></a>
+
+### PrivateService
+Massa private gRPC service
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| AddToBootstrapBlacklist | [AddToBootstrapBlacklistRequest](#massa-api-v1-AddToBootstrapBlacklistRequest) | [AddToBootstrapBlacklistResponse](#massa-api-v1-AddToBootstrapBlacklistResponse) | Add IP addresses to node bootstrap blacklist |
+| AddToBootstrapWhitelist | [AddToBootstrapWhitelistRequest](#massa-api-v1-AddToBootstrapWhitelistRequest) | [AddToBootstrapWhitelistResponse](#massa-api-v1-AddToBootstrapWhitelistResponse) | Add IP addresses to node bootstrap whitelist |
+| AddToPeersWhitelist | [AddToPeersWhitelistRequest](#massa-api-v1-AddToPeersWhitelistRequest) | [AddToPeersWhitelistResponse](#massa-api-v1-AddToPeersWhitelistResponse) | Add IP addresses to node peers whitelist. No confirmation to expect. Note: If the ip was unknown it adds it to the known peers, otherwise it updates the peer type |
+| AddStakingSecretKeys | [AddStakingSecretKeysRequest](#massa-api-v1-AddStakingSecretKeysRequest) | [AddStakingSecretKeysResponse](#massa-api-v1-AddStakingSecretKeysResponse) | Add staking secret keys to wallet |
+| AllowEveryoneToBootstrap | [AllowEveryoneToBootstrapRequest](#massa-api-v1-AllowEveryoneToBootstrapRequest) | [AllowEveryoneToBootstrapResponse](#massa-api-v1-AllowEveryoneToBootstrapResponse) | Allow everyone to bootstrap from the node by removing bootstrap whitelist configuration file |
+| GetBootstrapBlacklist | [GetBootstrapBlacklistRequest](#massa-api-v1-GetBootstrapBlacklistRequest) | [GetBootstrapBlacklistResponse](#massa-api-v1-GetBootstrapBlacklistResponse) | Get node bootstrap blacklist IP addresses |
+| GetBootstrapWhitelist | [GetBootstrapWhitelistRequest](#massa-api-v1-GetBootstrapWhitelistRequest) | [GetBootstrapWhitelistResponse](#massa-api-v1-GetBootstrapWhitelistResponse) | Get node bootstrap whitelist IP addresses |
+| GetMipStatus | [GetMipStatusRequest](#massa-api-v1-GetMipStatusRequest) | [GetMipStatusResponse](#massa-api-v1-GetMipStatusResponse) | Get Mip status |
+| GetNodeStatus | [GetNodeStatusRequest](#massa-api-v1-GetNodeStatusRequest) | [GetNodeStatusResponse](#massa-api-v1-GetNodeStatusResponse) | Get node status |
+| GetPeersWhitelist | [GetPeersWhitelistRequest](#massa-api-v1-GetPeersWhitelistRequest) | [GetPeersWhitelistResponse](#massa-api-v1-GetPeersWhitelistResponse) | Get node peers whitelist IP addresses |
+| BanNodesByIds | [BanNodesByIdsRequest](#massa-api-v1-BanNodesByIdsRequest) | [BanNodesByIdsResponse](#massa-api-v1-BanNodesByIdsResponse) | Ban multiple nodes by their individual ids |
+| BanNodesByIps | [BanNodesByIpsRequest](#massa-api-v1-BanNodesByIpsRequest) | [BanNodesByIpsResponse](#massa-api-v1-BanNodesByIpsResponse) | Ban multiple nodes by their individual IP addresses |
+| RemoveFromBootstrapBlacklist | [RemoveFromBootstrapBlacklistRequest](#massa-api-v1-RemoveFromBootstrapBlacklistRequest) | [RemoveFromBootstrapBlacklistResponse](#massa-api-v1-RemoveFromBootstrapBlacklistResponse) | Remove from bootstrap blacklist given IP addresses |
+| RemoveFromBootstrapWhitelist | [RemoveFromBootstrapWhitelistRequest](#massa-api-v1-RemoveFromBootstrapWhitelistRequest) | [RemoveFromBootstrapWhitelistResponse](#massa-api-v1-RemoveFromBootstrapWhitelistResponse) | Remove from bootstrap whitelist given IP addresses |
+| RemoveFromPeersWhitelist | [RemoveFromPeersWhitelistRequest](#massa-api-v1-RemoveFromPeersWhitelistRequest) | [RemoveFromPeersWhitelistResponse](#massa-api-v1-RemoveFromPeersWhitelistResponse) | Remove from peers whitelist given IP addresses |
+| RemoveStakingAddresses | [RemoveStakingAddressesRequest](#massa-api-v1-RemoveStakingAddressesRequest) | [RemoveStakingAddressesResponse](#massa-api-v1-RemoveStakingAddressesResponse) | Remove addresses from staking |
+| SignMessages | [SignMessagesRequest](#massa-api-v1-SignMessagesRequest) | [SignMessagesResponse](#massa-api-v1-SignMessagesResponse) | Sign messages with node&#39;s key |
+| ShutdownGracefully | [ShutdownGracefullyRequest](#massa-api-v1-ShutdownGracefullyRequest) | [ShutdownGracefullyResponse](#massa-api-v1-ShutdownGracefullyResponse) | Shutdown the node gracefully |
+| UnbanNodesByIds | [UnbanNodesByIdsRequest](#massa-api-v1-UnbanNodesByIdsRequest) | [UnbanNodesByIdsResponse](#massa-api-v1-UnbanNodesByIdsResponse) | Unban multiple nodes by their individual ids |
+| UnbanNodesByIps | [UnbanNodesByIpsRequest](#massa-api-v1-UnbanNodesByIpsRequest) | [UnbanNodesByIpsResponse](#massa-api-v1-UnbanNodesByIpsResponse) | Unban multiple nodes by their individual IP addresses |
 
  
 
