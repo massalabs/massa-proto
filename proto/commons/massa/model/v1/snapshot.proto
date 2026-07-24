@@ -4,6 +4,7 @@ syntax = "proto3";
 
 package massa.model.v1;
 
+import "google/protobuf/wrappers.proto";
 import "massa/model/v1/time.proto";
 
 option csharp_namespace = "Com.Massa.Model.v1";
@@ -23,4 +24,18 @@ message CycleSnapshotInfo {
   massa.model.v1.NativeTime start_ts = 2;
   // Timestamp when the cycle ends
   massa.model.v1.NativeTime end_ts = 3;
+  // Authenticated snapshot Merkle root for this cycle (absent if not committed)
+  google.protobuf.BytesValue merkle_root = 4;
+  // Signatures over `merkle_root` published for this cycle
+  repeated SnapshotRootSignature root_signatures = 5;
+}
+
+/// Ed25519 signature over a cycle snapshot Merkle root by an authorized signatory.
+message SnapshotRootSignature {
+  // Merkle root that was signed
+  bytes merkle_root = 1;
+  // Public key of the signatory
+  string public_key = 2;
+  // Ed25519 signature bytes
+  bytes signature = 3;
 }

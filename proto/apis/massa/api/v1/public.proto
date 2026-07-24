@@ -692,6 +692,8 @@ message AddressDatastoreKeysHistory {
   google.protobuf.BoolValue inclusive_end_key = 7;
   // Limit for the number of keys
   google.protobuf.UInt32Value limit = 8;
+  // When true, the response includes a completeness proof for the prefix range. Defaults to false.
+  google.protobuf.BoolValue with_proof = 9;
 }
 
 // Request to get a datastore value (history) for an address at a specific cycle
@@ -702,6 +704,8 @@ message AddressDatastoreEntryHistory {
   bytes key = 2;
   // Cycle to query (must be within retention period)
   uint64 cycle = 3;
+  // When true, the response includes an inclusion/absence proof for the entry. Defaults to false.
+  google.protobuf.BoolValue with_proof = 4;
 }
 
 // Request to get information about available cycle snapshots
@@ -713,12 +717,20 @@ message AvailableSnapshots {
 message AddressDatastoreKeysHistoryResponse {
   // List of datastore keys
   repeated bytes keys = 1;
+  // Serialized DatastoreHistoryProofBundle (absent when no proof was requested)
+  google.protobuf.BytesValue proof = 2;
+  // Signatures over the snapshot Merkle root for the queried cycle
+  repeated massa.model.v1.SnapshotRootSignature root_signatures = 3;
 }
 
 // Response for datastore entry history query
 message AddressDatastoreEntryHistoryResponse {
   // The datastore value (None if not found)
   optional bytes value = 1;
+  // Serialized DatastoreHistoryProofBundle (absent when no proof was requested)
+  google.protobuf.BytesValue proof = 2;
+  // Signatures over the snapshot Merkle root for the queried cycle
+  repeated massa.model.v1.SnapshotRootSignature root_signatures = 3;
 }
 
 // deferred call quote response
