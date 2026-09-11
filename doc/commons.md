@@ -591,6 +591,7 @@ Public status
 | chain_id | [uint64](#uint64) |  | Chain id |
 | minimal_fees | [NativeAmount](#massa-model-v1-NativeAmount) |  | minimal fees |
 | current_mip_version | [uint32](#uint32) |  | current mip version |
+| max_datastore_keys_query | [uint32](#uint32) | optional | Max number of datastore keys returned by a single datastore key query. Unset means the node applies no limit. |
 
 
 

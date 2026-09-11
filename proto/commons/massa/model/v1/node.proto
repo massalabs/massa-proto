@@ -127,4 +127,7 @@ message PublicStatus {
   massa.model.v1.NativeAmount minimal_fees = 13;
   // current mip version
   uint32 current_mip_version = 14;
+  // Max number of datastore keys returned by a single datastore key query.
+  // Unset means the node applies no limit.
+  optional uint32 max_datastore_keys_query = 15;
 }
